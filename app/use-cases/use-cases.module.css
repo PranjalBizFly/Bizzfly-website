@@ -1,0 +1,98 @@
+.routes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.route {
+  display: grid;
+  gap: var(--space-4);
+  padding-block: var(--space-8);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Asymmetric 1 / 6 / 5 — index, intent, capabilities */
+@media (min-width: 1024px) {
+  .route {
+    grid-template-columns: auto 6fr 5fr;
+    gap: var(--space-10);
+    align-items: start;
+  }
+}
+
+.routeIndex {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.4em;
+}
+
+.routeBody {
+  min-width: 0;
+}
+
+.routeIntent {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+  max-width: 24ch;
+}
+
+.routeIntent::before {
+  content: "“";
+  color: var(--ink-400);
+}
+
+.routeIntent::after {
+  content: "”";
+  color: var(--ink-400);
+}
+
+.routeDetail {
+  margin-top: var(--space-3);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  max-width: 54ch;
+}
+
+.routeLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+@media (min-width: 1024px) {
+  .routeLinks {
+    flex-direction: column;
+    gap: var(--space-2);
+    border-left: 1px solid var(--border);
+    padding-left: var(--space-6);
+  }
+}
+
+.routeLink {
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  display: inline-block;
+  padding-block: var(--space-1);
+  /* WCAG 2.5.8 target size */
+  min-height: 24px;
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    text-decoration-color var(--dur-fast) var(--ease-standard);
+}
+
+.routeLink:hover {
+  color: var(--foreground);
+  text-decoration-color: var(--link-underline);
+}

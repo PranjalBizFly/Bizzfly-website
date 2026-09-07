@@ -1,0 +1,76 @@
+/*
+ * A control the size of the other header affordances, not a feature in its
+ * own right. The two icons are stacked and crossfaded; nothing scales the
+ * button itself.
+ */
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch-target-min);
+  height: var(--touch-target-min);
+  flex-shrink: 0;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: none;
+  color: var(--foreground);
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
+}
+
+.toggle:hover {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+/* The two icons occupy the same cell so neither shifts the other. */
+.icons {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.icon {
+  position: absolute;
+  inset: 0;
+  width: 20px;
+  height: 20px;
+  transition:
+    opacity var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
+}
+
+/*
+ * Keyed off the attribute rather than React state, so the correct icon is
+ * painted before hydration and never flips on load.
+ */
+.sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+
+:global(html[data-theme="dark"]) .sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+:global(html[data-theme="dark"]) .moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon {
+    transition: opacity var(--dur-fast) var(--ease-standard);
+    transform: none !important;
+  }
+}

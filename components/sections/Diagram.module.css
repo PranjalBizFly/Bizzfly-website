@@ -1,0 +1,132 @@
+.figure {
+  margin: 0;
+  width: 100%;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+}
+
+/* The search-surfaces diagram was authored for a dark ground; on a light
+   section it sits inside an inverse panel rather than being restyled. */
+.lightWrapper {
+  background: var(--ink-900);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+}
+
+.node {
+  fill: none;
+  stroke: var(--ink-350);
+  stroke-width: 1;
+}
+
+.nodeMuted {
+  fill: none;
+  stroke: var(--ink-350);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  stroke-opacity: 0.6;
+}
+
+.nodeAccent {
+  fill: var(--cta-primary);
+  stroke: none;
+}
+
+.nodeText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  fill: var(--foreground);
+}
+
+.nodeTextSmall {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  fill: var(--muted);
+}
+
+.nodeTextAccent {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  fill: var(--cta-primary-text);
+}
+
+.line {
+  stroke: var(--ink-400);
+  stroke-width: 1;
+  fill: none;
+}
+
+.lineDashed {
+  stroke: var(--ink-400);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  fill: none;
+}
+
+.lineLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  fill: var(--ink-400);
+}
+
+.groupLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  fill: var(--muted);
+}
+
+.caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  fill: var(--muted);
+}
+
+/*
+ * Diagram text is sized in SVG user units, so at narrow viewports it scales
+ * down to 5–8 effective pixels — unreadable. Below md the SVG is replaced by
+ * the text equivalent, which carries the same information as prose.
+ * This is the mobile behaviour specified in docs/design-system/07.
+ */
+.figure .svg,
+.wrapper .svg {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .figure .svg,
+  .wrapper .svg {
+    display: block;
+  }
+}
+
+.textAlternative {
+  border-left: 2px solid var(--accent-edge);
+  padding-left: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .textAlternative {
+    display: none;
+  }
+}
+
+.textAlternativeTitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.textAlternativeBody {
+  margin-top: var(--space-3);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+}

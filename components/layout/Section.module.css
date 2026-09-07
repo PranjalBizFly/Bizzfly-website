@@ -1,0 +1,34 @@
+.section {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.sm {
+  padding-block: var(--section-sm);
+}
+.md {
+  padding-block: var(--section-md);
+}
+.lg {
+  padding-block: var(--section-lg);
+}
+.xl {
+  padding-block: var(--section-xl);
+}
+
+.surface {
+  background: var(--surface);
+}
+
+/* Dark sections carry one step more internal padding — they read tighter */
+.inverse,
+.inverseAlt {
+  padding-block: calc(var(--section-md) + var(--space-6));
+}
+
+/*
+ * No background of their own: .is-inverse and .is-inverse-alt already set
+ * --background for the current theme, and .section above paints it. Painting
+ * a literal here meant the dark theme lift never applied, so inverse bands
+ * merged into the dark page instead of reading as bands.
+ */

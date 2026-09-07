@@ -1,0 +1,10 @@
+.lead {
+  margin-top: var(--space-6);
+  max-width: 52ch;
+}
+.actions {
+  margin-top: var(--space-10);
+}
+.related {
+  margin-top: var(--space-16);
+}

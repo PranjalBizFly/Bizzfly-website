@@ -1,0 +1,39 @@
+.track {
+  display: none;
+}
+
+/*
+ * Only rendered where scroll-driven animations exist. The transform runs on
+ * the compositor, so it costs nothing on the main thread.
+ */
+@supports (animation-timeline: scroll()) {
+  .track {
+    display: block;
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent-edge);
+    transform-origin: 0 50%;
+    z-index: var(--z-sticky);
+    animation: progress linear;
+    animation-timeline: scroll(root block);
+  }
+
+  @keyframes progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
+
+/* Non-essential motion: removed entirely when reduced motion is requested. */
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    display: none;
+  }
+}

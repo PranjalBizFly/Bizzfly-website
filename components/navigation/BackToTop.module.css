@@ -1,0 +1,82 @@
+/*
+ * One small circular control, bottom-right, clear of the mobile safe area.
+ *
+ * It is deliberately the only thing floating: the theme toggle lives in the
+ * header, so these never merge into a single oversized widget. Sizing is the
+ * standard 44px touch target — not larger, because a floating control that
+ * competes with the page CTA is worse than no floating control.
+ */
+
+.button {
+  position: fixed;
+  z-index: var(--z-sticky);
+
+  /* env() keeps it off the iOS home indicator and any rounded corner. */
+  right: calc(var(--margin) + env(safe-area-inset-right, 0px));
+  bottom: calc(var(--space-6) + env(safe-area-inset-bottom, 0px));
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch-target-min);
+  height: var(--touch-target-min);
+
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-full);
+  background: var(--background);
+  color: var(--foreground);
+  box-shadow: var(--elev-2);
+  cursor: pointer;
+
+  /* Transform and opacity only — no layout property is animated. */
+  opacity: 0;
+  transform: translateY(8px) scale(0.94);
+  pointer-events: none;
+  transition:
+    opacity var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard),
+    background-color var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
+}
+
+.button[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.button:hover {
+  background: var(--surface);
+  border-color: var(--accent-edge);
+}
+
+.button:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+/*
+ * On phones the control sits a little higher, so it clears a sticky CTA or a
+ * cookie banner rather than covering one.
+ */
+@media (max-width: 767px) {
+  .button {
+    bottom: calc(var(--space-8) + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transform: none;
+    transition: opacity var(--dur-fast) var(--ease-standard);
+  }
+
+  .button[data-visible="true"] {
+    transform: none;
+  }
+}

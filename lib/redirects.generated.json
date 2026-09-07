@@ -1,0 +1,322 @@
+[
+  {
+    "source": "/services/website-design-development",
+    "destination": "/services/web-development/",
+    "permanent": true
+  },
+  {
+    "source": "/services/custom-software-development",
+    "destination": "/services/software-development/",
+    "permanent": true
+  },
+  {
+    "source": "/services/business-automation",
+    "destination": "/services/ai-automation/",
+    "permanent": true
+  },
+  {
+    "source": "/services/ai-powered-solutions",
+    "destination": "/services/ai-automation/",
+    "permanent": true
+  },
+  {
+    "source": "/services/digital-growth-solutions",
+    "destination": "/services/digital-marketing/",
+    "permanent": true
+  },
+  {
+    "source": "/service/search-optimization",
+    "destination": "/services/search-ai-visibility/",
+    "permanent": true
+  },
+  {
+    "source": "/service/website-design-development",
+    "destination": "/services/web-development/",
+    "permanent": true
+  },
+  {
+    "source": "/service/custom-software-development",
+    "destination": "/services/software-development/",
+    "permanent": true
+  },
+  {
+    "source": "/service/business-automation",
+    "destination": "/services/ai-automation/",
+    "permanent": true
+  },
+  {
+    "source": "/service/ai-powered-solutions",
+    "destination": "/services/ai-automation/",
+    "permanent": true
+  },
+  {
+    "source": "/service/digital-growth-solutions",
+    "destination": "/services/digital-marketing/",
+    "permanent": true
+  },
+  {
+    "source": "/service/higher-visibility",
+    "destination": "/services/seo/",
+    "permanent": true
+  },
+  {
+    "source": "/service/enhanced-visibility",
+    "destination": "/services/seo/",
+    "permanent": true
+  },
+  {
+    "source": "/service/qualified-traffic",
+    "destination": "/services/seo/",
+    "permanent": true
+  },
+  {
+    "source": "/service/stronger-authority",
+    "destination": "/services/seo/",
+    "permanent": true
+  },
+  {
+    "source": "/service/stronger-presence",
+    "destination": "/services/search-ai-visibility/",
+    "permanent": true
+  },
+  {
+    "source": "/service/better-conversions",
+    "destination": "/services/conversion-rate-optimization/",
+    "permanent": true
+  },
+  {
+    "source": "/service/higher-conversions",
+    "destination": "/services/conversion-rate-optimization/",
+    "permanent": true
+  },
+  {
+    "source": "/service/increased-conversions",
+    "destination": "/services/conversion-rate-optimization/",
+    "permanent": true
+  },
+  {
+    "source": "/service/better-engagement",
+    "destination": "/services/ui-ux-design/",
+    "permanent": true
+  },
+  {
+    "source": "/service/scalable-foundation",
+    "destination": "/services/web-development/",
+    "permanent": true
+  },
+  {
+    "source": "/service/better-performance",
+    "destination": "/services/website-performance/",
+    "permanent": true
+  },
+  {
+    "source": "/service/improved-scalability",
+    "destination": "/services/software-development/",
+    "permanent": true
+  },
+  {
+    "source": "/service/better-control",
+    "destination": "/services/web-applications/",
+    "permanent": true
+  },
+  {
+    "source": "/service/enhanced-productivity",
+    "destination": "/services/workflow-automation/",
+    "permanent": true
+  },
+  {
+    "source": "/service/operational-efficiency",
+    "destination": "/use-cases/improve-operational-efficiency/",
+    "permanent": true
+  },
+  {
+    "source": "/service/improved-efficiency",
+    "destination": "/use-cases/improve-operational-efficiency/",
+    "permanent": true
+  },
+  {
+    "source": "/service/greater-efficiency",
+    "destination": "/use-cases/improve-operational-efficiency/",
+    "permanent": true
+  },
+  {
+    "source": "/service/faster-operations",
+    "destination": "/services/workflow-automation/",
+    "permanent": true
+  },
+  {
+    "source": "/service/reduced-errors",
+    "destination": "/services/workflow-automation/",
+    "permanent": true
+  },
+  {
+    "source": "/service/time-savings",
+    "destination": "/use-cases/reduce-manual-work/",
+    "permanent": true
+  },
+  {
+    "source": "/service/smarter-decisions",
+    "destination": "/services/business-intelligence/",
+    "permanent": true
+  },
+  {
+    "source": "/service/strategic-direction",
+    "destination": "/services/digital-strategy/",
+    "permanent": true
+  },
+  {
+    "source": "/service/sustainable-growth",
+    "destination": "/services/digital-strategy/",
+    "permanent": true
+  },
+  {
+    "source": "/service/competitive-advantage",
+    "destination": "/company/about/",
+    "permanent": true
+  },
+  {
+    "source": "/project/dynamic-data-ecosystem",
+    "destination": "/case-studies/",
+    "permanent": true
+  },
+  {
+    "source": "/project/intelligent-conversion-hub",
+    "destination": "/case-studies/",
+    "permanent": true
+  },
+  {
+    "source": "/project/next-gen-ecosystem",
+    "destination": "/case-studies/",
+    "permanent": true
+  },
+  {
+    "source": "/project/cloud-marketing-infrastructure",
+    "destination": "/case-studies/",
+    "permanent": true
+  },
+  {
+    "source": "/project/fast-conversion-optimization",
+    "destination": "/case-studies/",
+    "permanent": true
+  },
+  {
+    "source": "/project/intelligent-conversion-model",
+    "destination": "/case-studies/",
+    "permanent": true
+  },
+  {
+    "source": "/project/agile-digital-expansion",
+    "destination": "/case-studies/",
+    "permanent": true
+  },
+  {
+    "source": "/project/scalable-business-growth",
+    "destination": "/case-studies/",
+    "permanent": true
+  },
+  {
+    "source": "/project/ai-driven-marketing",
+    "destination": "/case-studies/",
+    "permanent": true
+  },
+  {
+    "source": "/project/data-powered-growth",
+    "destination": "/case-studies/",
+    "permanent": true
+  },
+  {
+    "source": "/project/smart-digital-growth",
+    "destination": "/case-studies/",
+    "permanent": true
+  },
+  {
+    "source": "/about-us",
+    "destination": "/company/about/",
+    "permanent": true
+  },
+  {
+    "source": "/contact-us",
+    "destination": "/contact/",
+    "permanent": true
+  },
+  {
+    "source": "/blog",
+    "destination": "/resources/",
+    "permanent": true
+  },
+  {
+    "source": "/faqs-page",
+    "destination": "/resources/",
+    "permanent": true
+  },
+  {
+    "source": "/privacy-policy-2",
+    "destination": "/company/privacy-policy/",
+    "permanent": true
+  },
+  {
+    "source": "/terms-and-conditions",
+    "destination": "/company/terms/",
+    "permanent": true
+  },
+  {
+    "source": "/seo",
+    "destination": "/services/seo/",
+    "permanent": true
+  },
+  {
+    "source": "/website-design-development",
+    "destination": "/services/web-development/",
+    "permanent": true
+  },
+  {
+    "source": "/custom-software-development",
+    "destination": "/services/software-development/",
+    "permanent": true
+  },
+  {
+    "source": "/business-automation",
+    "destination": "/services/ai-automation/",
+    "permanent": true
+  },
+  {
+    "source": "/ai-powered-solutions",
+    "destination": "/services/ai-automation/",
+    "permanent": true
+  },
+  {
+    "source": "/blog-2/privacy-policy-2",
+    "destination": "/company/privacy-policy/",
+    "permanent": true
+  },
+  {
+    "source": "/beyond-aesthetics-why-speed-and-core-web-vitals-are-non-negotiable-for-agency-themes-in-2026",
+    "destination": "/resources/",
+    "permanent": true
+  },
+  {
+    "source": "/seo-ready-architecture-building-a-website-that-ranks-while-you-sleep",
+    "destination": "/resources/",
+    "permanent": true
+  },
+  {
+    "source": "/9-essential-wordpress-features-every-digital-marketing-agency-needs-to-boost-conversions",
+    "destination": "/resources/",
+    "permanent": true
+  },
+  {
+    "source": "/what-it-companies-should-write-about-in-their-corporate-blogs",
+    "destination": "/resources/",
+    "permanent": true
+  },
+  {
+    "source": "/digital-transformation-101-moving-from-a-traditional-agency-to-a-full-service-digital-partner",
+    "destination": "/resources/",
+    "permanent": true
+  },
+  {
+    "source": "/mastering-multichannel-engagement-how-to-sync-your-website-with-your-social-and-ad-strategies",
+    "destination": "/resources/",
+    "permanent": true
+  }
+]

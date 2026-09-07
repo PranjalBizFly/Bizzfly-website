@@ -1,0 +1,35 @@
+/*
+ * Logo geometry. The two brand rules that must hold at every size are
+ * expressed here in terms of one variable, --logo-size, so a caller can only
+ * change the scale — never the proportions.
+ */
+
+.wrap {
+  --logo-size: var(--logo-height);
+  display: inline-flex;
+  align-items: center;
+  /* The brand floor. A caller passing something smaller still gets 30px. */
+  min-height: var(--logo-min-height);
+}
+
+/*
+ * Clearspace equals the cap height of the logotype: 0.773 of the mark
+ * height, measured from the official artwork. Derived from --logo-size so it
+ * tracks the logo rather than being re-guessed per placement.
+ */
+.clearspace {
+  padding: calc(var(--logo-size) * var(--logo-clearspace-ratio));
+}
+
+/*
+ * Height is authoritative; width follows the intrinsic aspect ratio. next/image
+ * emits width and height attributes, so `width: auto` is what keeps the mark
+ * from being stretched when a container is narrower than the logo.
+ */
+.mark {
+  display: block;
+  height: var(--logo-size);
+  width: auto;
+  /* Never below the brand minimum, whatever --logo-size is set to. */
+  min-height: var(--logo-min-height);
+}

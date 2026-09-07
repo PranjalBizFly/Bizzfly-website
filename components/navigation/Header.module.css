@@ -1,0 +1,566 @@
+/*
+ * The bar is a dark surface in both themes. That is forced by the artwork,
+ * not chosen: the official lockup is reversed, so a light bar would erase
+ * "fly" and the symbol. --header-background carries the correct dark value
+ * for each theme. See styles/tokens.css.
+ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: var(--header-background);
+  border-bottom: 1px solid var(--header-border);
+  transition:
+    background-color var(--dur-base) var(--ease-standard),
+    border-color var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard);
+}
+
+/*
+ * The bar is always present. It was briefly transparent over the homepage
+ * hero, which only worked while that hero was dark; the hero is a light
+ * editorial field now, and a transparent bar there would erase the
+ * reversed lockup entirely.
+ *
+ * Scrolling adds depth rather than changing the surface: a shadow, and a
+ * blur where it is supported, so the solid colour is always the fallback
+ * rather than the effect being load-bearing.
+ */
+.header[data-condensed="true"] {
+  box-shadow: var(--elev-1);
+}
+
+@supports (backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px)) {
+  .header[data-condensed="true"] {
+    /* Mixed with transparency only when the blur behind it will actually
+       render, so the bar never turns washed out without the effect. */
+    background: color-mix(in srgb, var(--header-background) 88%, transparent);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    backdrop-filter: blur(10px) saturate(140%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header {
+    transition: none;
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* The logo, nav and actions are already internally spaced; a large gap
+     between the three regions is the cheapest thing to give back. */
+  gap: var(--space-3);
+  min-height: var(--header-height);
+  transition: min-height var(--dur-fast) var(--ease-standard);
+}
+
+.header[data-condensed="true"] .inner {
+  min-height: var(--header-height-condensed);
+}
+
+/* --- Logo ----------------------------------------------------------------
+   The mark itself is BrandLogo; this is only the link wrapping it. No type
+   styling here, because the logo is artwork, never text. -------------- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  /* A 30px mark still needs a 44px hit area. */
+  min-height: var(--touch-target-min);
+}
+
+/*
+ * The full lockup everywhere except the lg band, where the nav, search and
+ * CTA need the 102px the symbol gives back. Swapped in CSS rather than
+ * JavaScript so it is correct in the first paint and cannot flash.
+ */
+.brandCompact {
+  display: none;
+}
+
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  .brandFull {
+    display: none;
+  }
+
+  .brandCompact {
+    display: inline-flex;
+  }
+}
+
+/* --- Desktop nav --------------------------------------------------------- */
+.nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: flex;
+    align-items: center;
+    /*
+     * Deliberately tight. At 1024 the seven items, the search and theme
+     * controls and the CTA total more than the container, and the drawer is
+     * already hidden at this width — so the toggle cannot simply move there.
+     * Compacting the nav is what keeps every control reachable.
+     */
+    gap: var(--space-2);
+    margin-inline-end: auto;
+    margin-inline-start: var(--space-3);
+    font-size: var(--text-nav-sub);
+  }
+
+  /* Label to chevron; the default 8px is more than the mark needs. */
+  .nav .navLink {
+    gap: var(--space-1);
+    font-size: inherit;
+  }
+
+  .actions {
+    gap: var(--space-2);
+  }
+}
+
+@media (min-width: 1280px) {
+  .nav {
+    gap: var(--space-5);
+    margin-inline-start: var(--space-6);
+    font-size: var(--text-nav);
+  }
+
+  .nav .navLink {
+    gap: var(--space-2);
+  }
+
+  .actions {
+    gap: var(--space-3);
+  }
+}
+
+/* Only at 1600 is there room for the wider rhythm alongside seven items,
+   the labelled search trigger, the theme toggle and the CTA. */
+@media (min-width: 1600px) {
+  .nav {
+    gap: var(--space-8);
+    margin-inline-start: var(--space-10);
+  }
+}
+
+/*
+ * Deliberately NOT positioned. The mega-menu panel is a child of this
+ * element but must span the full header, and `inset-inline: 0` resolves
+ * against the nearest positioned ancestor — so a relative .navItem would
+ * clamp the panel to the width of its own label (about 90px). The header is
+ * `position: sticky`, which establishes the containing block instead.
+ */
+.navItem {
+  position: static;
+}
+
+.navLink {
+  /* Carries the active indicator, so this is what ::after positions against. */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  /* Two-word items must not wrap; it breaks the header baseline. */
+  white-space: nowrap;
+  padding-block: var(--space-3);
+  font-size: var(--text-nav);
+  font-weight: var(--weight-medium);
+  color: var(--foreground);
+  background: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*
+ * A short centred mark, not a full-width rule under the label. At six nav
+ * items a full underline reads as a tab bar; this reads as a state.
+ */
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0.375rem;
+  width: 16px;
+  height: 2px;
+  margin-left: -8px;
+  border-radius: 1px;
+  background: var(--accent-edge);
+  transform: scaleX(0);
+  transition:
+    transform var(--dur-fast) var(--ease-standard),
+    opacity var(--dur-fast) var(--ease-standard);
+  opacity: 0;
+}
+
+.navLink:hover::after,
+.navItem[data-open="true"] .navLink::after,
+.navLink[data-active="true"]::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* The current section stays marked; hover is a lighter echo of it. */
+.navLink:hover::after {
+  opacity: 0.55;
+}
+
+.navLink[data-active="true"]::after,
+.navItem[data-open="true"] .navLink::after {
+  opacity: 1;
+}
+
+.chevron {
+  font-size: 0.6em;
+  color: var(--muted);
+  transition: transform var(--dur-fast) var(--ease-standard);
+}
+
+.navItem[data-open="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+/* --- Header actions ------------------------------------------------------ */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.searchTrigger {
+  display: none;
+}
+
+@media (min-width: 1600px) {
+  .searchTrigger {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-height: var(--touch-target-min);
+    padding-inline: var(--space-4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--muted);
+    font-size: var(--text-body-sm);
+    background: var(--background);
+    transition:
+      border-color var(--dur-fast) var(--ease-standard),
+      color var(--dur-fast) var(--ease-standard);
+  }
+
+  .searchTrigger:hover {
+    border-color: var(--border-strong);
+    color: var(--foreground);
+  }
+}
+
+/* Prints the shortcut — teaches it, and signals a real command palette */
+.kbd {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.4em;
+}
+
+.headerCta {
+  display: none;
+}
+
+/*
+ * Theme toggle and CTA both appear at md. Below that the bar carries the
+ * logo, search and the menu button only — a fourth control at 320px pushes
+ * the CTA off the edge. The drawer carries both instead.
+ */
+.themeToggle {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .headerCta,
+  .themeToggle {
+    display: inline-flex;
+  }
+}
+
+/* --- Mobile toggles ------------------------------------------------------ */
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch-target-min);
+  height: var(--touch-target-min);
+  border-radius: var(--radius-md);
+  color: var(--foreground);
+  border: 1px solid transparent;
+}
+
+.iconButton:hover {
+  background: var(--surface);
+}
+
+@media (min-width: 1024px) {
+  .menuToggle {
+    display: none;
+  }
+}
+
+/* Icon-only search stands in until the labelled trigger has room at 1600. */
+@media (min-width: 1600px) {
+  .searchToggleMobile {
+    display: none;
+  }
+}
+
+/* --- Mega menu ----------------------------------------------------------- */
+.panel {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  z-index: var(--z-dropdown);
+  background: var(--background);
+  border-block: 1px solid var(--border);
+  box-shadow: var(--elev-2);
+  max-height: calc(100dvh - var(--header-height));
+  overflow-y: auto;
+  /* Opacity and transform only — height is never animated. */
+  animation: panelIn var(--dur-base) var(--ease-decelerate);
+}
+
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
+  }
+}
+
+.panelGrid {
+  display: grid;
+  align-items: start;
+  gap: var(--space-10);
+  padding-block: var(--space-10);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .panelGrid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+
+  /*
+   * Services carries three groups and no feature card. The wrapper steps out
+   * of the grid with `display: contents` so each group becomes a column in
+   * its own right — an editorial four-column menu rather than three long
+   * lists stacked into one region.
+   */
+  .panelGrid[data-columns="3"][data-feature="false"] {
+    grid-template-columns: 1.35fr 1fr 1fr 0.85fr;
+    gap: var(--space-8);
+  }
+
+  .panelGrid[data-columns="3"][data-feature="false"] .columns {
+    display: contents;
+  }
+}
+
+/* Column 1 — numbered primary list, the control column. Not cards. */
+.primaryList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.primaryItem + .primaryItem {
+  border-top: 1px solid var(--border);
+}
+
+.primaryLink {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  text-decoration: none;
+  color: var(--foreground);
+}
+
+.primaryIndex {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.primaryTitle {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.01em;
+}
+
+.primaryDescription {
+  display: block;
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  margin-top: var(--space-1);
+}
+
+.primaryArrow {
+  color: var(--muted);
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+.primaryLink:hover .primaryArrow {
+  transform: translateX(4px);
+  color: var(--foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryLink:hover .primaryArrow {
+    transform: none;
+  }
+}
+
+/* Column 2 — plain text links, not cards */
+.columnHeading {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--space-4);
+}
+
+.linkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.plainLink {
+  font-size: var(--text-nav-sub);
+  color: var(--foreground);
+  text-decoration: none;
+  display: inline-block;
+  padding-block: var(--space-1);
+  /* WCAG 2.5.8 target size */
+  min-height: 24px;
+}
+
+.plainLink:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 4px;
+}
+
+/* Column 3 — featured. One per panel, with a real description. */
+.feature {
+  display: block;
+  text-decoration: none;
+  color: var(--foreground);
+}
+
+.feature + .feature {
+  margin-top: var(--space-8);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--border);
+}
+
+.featureKind {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--muted);
+}
+
+.featureTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  margin-top: var(--space-2);
+  letter-spacing: -0.01em;
+}
+
+.featureDescription {
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  margin-top: var(--space-2);
+}
+
+.featureCta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 4px;
+}
+
+.panelFooter {
+  border-top: 1px solid var(--border);
+  padding-block: var(--space-5);
+}
+
+.scrim {
+  position: fixed;
+  inset: 0;
+  top: var(--header-height);
+  background: rgb(13 20 32 / 0.32);
+  /* Below the header — the header is its own stacking context, so anything
+     above it here would cover the bar and the open panel too. */
+  z-index: calc(var(--z-header) - 1);
+  border: none;
+  cursor: default;
+}
+
+/* Mega-menu grouped columns */
+.columns {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/*
+ * Only applies while the wrapper is a real box. When it becomes
+ * `display: contents` for the four-column Services panel, the grid gap
+ * supplies the separation instead.
+ */
+.columns .column + .column {
+  margin-top: 0;
+}
+
+.columnHeading a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.columnHeading a:hover {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

@@ -1,0 +1,27 @@
+/* ==========================================================================
+   MOVED — this file is no longer the token contract.
+   --------------------------------------------------------------------------
+   The design tokens live at:
+
+       styles/tokens.css
+
+   That is the file the application imports, and it is the single source of
+   truth for every colour, type, spacing and layout value in the system.
+
+   This copy existed as a specification artefact from the design phase, before
+   there was an application to import it. Keeping a second copy meant keeping
+   two, and it duplicated the palette badly enough that it went stale the
+   first time the brand changed. It is deliberately empty now: one file with
+   the values, one place to change them.
+
+   Verification:
+
+       npm run verify:contrast
+
+   docs/design-system/verify-contrast.mjs reads styles/tokens.css directly and
+   asserts that every documented ratio still holds, that the palette matches
+   what the suite expects, and that lib/brand.ts — the mirror used by the three
+   renderers that cannot read CSS variables — agrees with it.
+
+   The reasoning behind the values is in 02-foundations.md.
+   ========================================================================== */

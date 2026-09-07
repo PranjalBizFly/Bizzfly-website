@@ -1,0 +1,35 @@
+.metrics {
+  font-size: var(--text-body-sm);
+  min-width: 34rem;
+}
+
+.metrics th,
+.metrics td {
+  text-align: left;
+  padding: var(--space-4) var(--space-5) var(--space-4) 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.metrics th {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: var(--weight-medium);
+  white-space: nowrap;
+}
+
+.metrics tbody td:nth-child(2) {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  color: var(--accent-text);
+}
+
+.metrics tbody td:nth-child(3),
+.metrics tbody td:nth-child(4) {
+  color: var(--muted);
+  font-size: var(--text-caption);
+}

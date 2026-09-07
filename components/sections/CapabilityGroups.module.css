@@ -1,0 +1,92 @@
+.groups {
+  border-top: 1px solid var(--border);
+}
+
+.group {
+  display: grid;
+  gap: var(--space-5);
+  padding-block: var(--space-10);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Asymmetric 3 / 5 / 4 — never an equal three-column grid */
+@media (min-width: 1024px) {
+  .group {
+    grid-template-columns: 3fr 5fr 4fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+}
+
+.marker {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+}
+
+.question {
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+  max-width: 34ch;
+}
+
+.summary {
+  margin-top: var(--space-3);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  max-width: 56ch;
+}
+
+.rail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+@media (min-width: 1024px) {
+  .rail {
+    flex-direction: column;
+    gap: var(--space-2);
+    border-left: 1px solid var(--border);
+    padding-left: var(--space-6);
+  }
+}
+
+.railLink {
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  display: inline-block;
+  padding-block: var(--space-1);
+  /* WCAG 2.5.8 target size */
+  min-height: 24px;
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    text-decoration-color var(--dur-fast) var(--ease-standard);
+}
+
+.railLink:hover {
+  color: var(--foreground);
+  text-decoration-color: var(--link-underline);
+}

@@ -1,0 +1,181 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  background: var(--background);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  color: var(--foreground);
+}
+
+.required,
+.optional {
+  font-weight: var(--weight-regular);
+  color: var(--muted);
+  font-size: var(--text-caption);
+}
+
+.input {
+  min-height: var(--control-height);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-muted);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--foreground);
+  /* 16px minimum prevents zoom-on-focus on iOS */
+  font-size: 1rem;
+  width: 100%;
+}
+
+.input:focus-visible {
+  border-color: var(--ink-900);
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.input[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.textarea {
+  min-height: 8rem;
+  resize: vertical;
+  line-height: var(--leading-relaxed);
+}
+
+.error {
+  font-size: var(--text-caption);
+  color: var(--error);
+}
+
+.summary {
+  border: 1px solid var(--error);
+  background: var(--error-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--text-body-sm);
+}
+
+.summaryTitle {
+  font-weight: var(--weight-medium);
+  color: var(--error);
+  margin-bottom: var(--space-2);
+}
+
+.summary ul {
+  padding-inline-start: var(--space-5);
+  color: var(--foreground);
+}
+
+.honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.commitment {
+  font-size: var(--text-caption);
+  color: var(--muted);
+}
+
+.confirmation {
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent-edge);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  background: var(--surface);
+}
+
+.confirmationTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+}
+
+.confirmationBody {
+  margin-top: var(--space-4);
+  color: var(--muted);
+}
+
+.confirmationBody a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 3px;
+}
+
+/* Two-up field rows on wider viewports */
+.row {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/*
+ * Honest failure state. Shown when the submission did not reach a backend,
+ * so the visitor is never told a message was sent when it was not.
+ */
+.fallback {
+  border: 1px solid var(--warning);
+  border-left-width: 2px;
+  border-radius: var(--radius-md);
+  background: var(--warning-subtle);
+  padding: var(--space-8);
+}
+
+.fallbackTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  color: var(--foreground);
+}
+
+.fallbackList {
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--text-body);
+}
+
+.fallbackList a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 4px;
+  display: inline-block;
+  padding-block: var(--space-1);
+  /* WCAG 2.5.8 target size */
+  min-height: 24px;
+}

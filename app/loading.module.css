@@ -1,0 +1,73 @@
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.skeleton > * {
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+}
+
+/* Opacity only — no layout animation, and disabled under reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .skeleton > * {
+    animation: pulse 1.6s var(--ease-inout) infinite;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.eyebrow {
+  height: 0.75rem;
+  width: 8rem;
+}
+
+.title {
+  height: 3rem;
+  width: min(100%, 34rem);
+  margin-top: var(--space-4);
+}
+
+.titleShort {
+  height: 3rem;
+  width: min(100%, 22rem);
+}
+
+.lead {
+  height: 1.25rem;
+  width: min(100%, 42rem);
+  margin-top: var(--space-6);
+}
+
+.leadShort {
+  height: 1.25rem;
+  width: min(100%, 30rem);
+}
+
+.rule {
+  height: 1px;
+  width: 100%;
+  margin-top: var(--space-10);
+  animation: none;
+  background: var(--border);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.row {
+  height: 4.5rem;
+  width: 100%;
+}

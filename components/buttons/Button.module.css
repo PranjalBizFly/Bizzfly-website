@@ -1,0 +1,159 @@
+/* Buttons map to CTA tiers T0–T5. Tier determines variant — never eye. */
+
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-button);
+  font-weight: var(--weight-medium);
+  /* Wrapped labels below sm need real leading; single-line above it does not. */
+  line-height: 1.3;
+  letter-spacing: 0.005em;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  /* Never wider than the space available. */
+  max-width: 100%;
+  text-align: center;
+  text-wrap: balance;
+  padding-block: var(--space-2);
+  transition:
+    background-color var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
+}
+
+/* From sm up there is room for a single line. */
+@media (min-width: 480px) {
+  .base {
+    white-space: nowrap;
+    padding-block: 0;
+    line-height: 1;
+  }
+}
+
+/* --- Sizes. md is the default and meets the 44px touch minimum. ---------- */
+.lg {
+  min-height: var(--control-height-lg);
+  padding-inline: var(--space-8);
+}
+.md {
+  min-height: var(--control-height);
+  padding-inline: var(--space-5);
+}
+.sm {
+  min-height: 2.25rem;
+  padding-inline: var(--space-4);
+  font-size: var(--text-body-sm);
+}
+
+/* --- Primary: BizzFly Blue fill with white text. Verified 4.83:1.
+   Each interaction step darkens, so contrast climbs rather than falls:
+   hover 5.72:1, active 6.97:1. All three are palette steps — a button
+   never introduces a colour that is not in styles/tokens.css. --------- */
+.primary {
+  background: var(--cta-primary);
+  color: var(--cta-primary-text);
+}
+.primary:hover {
+  background: var(--cta-primary-hover); /* 5.72:1 with white */
+}
+.primary:active {
+  background: var(--cta-primary-active); /* 6.97:1 with white */
+}
+
+/* --- Secondary ---------------------------------------------------------- */
+.secondary {
+  background: transparent;
+  color: var(--foreground);
+  border-color: var(--foreground);
+}
+.secondary:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+/* --- Tertiary ----------------------------------------------------------- */
+.tertiary {
+  background: transparent;
+  color: var(--foreground);
+  border-color: var(--border);
+}
+.tertiary:hover {
+  border-color: var(--border-strong);
+  background: var(--surface);
+}
+
+/* Nothing scales or lifts on hover — see design system principle P7. */
+
+.base:disabled,
+.base[aria-disabled="true"] {
+  background: var(--surface-muted);
+  color: var(--ink-400);
+  border-color: transparent;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* --- Arrow advances on hover; the box does not move. -------------------- */
+.arrow {
+  display: inline-block;
+  transition: transform var(--dur-fast) var(--ease-standard);
+}
+.base:hover .arrow {
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .base:hover .arrow {
+    transform: none;
+  }
+}
+
+/* --- Text link CTA (tiers T0/T1) ---------------------------------------- */
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+  color: var(--text-link);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  /* Keep a 44px hit area without a 44px visual */
+  padding-block: var(--space-3);
+  transition:
+    text-decoration-thickness var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
+}
+
+.textLink:hover {
+  text-decoration-thickness: 2px;
+  color: var(--text-link-alt);
+}
+
+.textLink .arrow {
+  text-decoration: none;
+}
+.textLink:hover .arrow {
+  transform: translateX(4px);
+}
+
+.note {
+  display: block;
+  margin-top: var(--space-3);
+  color: var(--muted);
+  font-size: var(--text-caption);
+}
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}

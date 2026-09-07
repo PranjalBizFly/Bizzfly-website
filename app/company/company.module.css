@@ -1,0 +1,31 @@
+.values {
+  display: grid;
+  gap: var(--space-10);
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-10);
+}
+
+@media (min-width: 768px) {
+  .values {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-12);
+  }
+}
+
+.value {
+  border-top: 2px solid var(--accent-edge);
+  padding-top: var(--space-5);
+}
+
+.valueIndex {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.valueBody {
+  margin-top: var(--space-3);
+}

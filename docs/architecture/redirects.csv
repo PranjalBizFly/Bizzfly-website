@@ -1,0 +1,68 @@
+legacy_url,new_url,http_status,note
+/services/seo/,/services/search-ai-visibility/seo/,301,Real page - primary SEO service
+/services/website-design-development/,/services/web-development/,301,Real page - practice hub
+/services/custom-software-development/,/services/software-development/,301,Real page - practice hub
+/services/business-automation/,/services/ai-automation/,301,Merged into AI & Automation practice
+/services/ai-powered-solutions/,/services/ai-automation/,301,Merged into AI & Automation practice
+/services/digital-growth-solutions/,/services/digital-marketing/,301,Renamed practice
+/service/search-optimization/,/services/search-ai-visibility/,301,Duplicate CPT of services tree
+/service/website-design-development/,/services/web-development/,301,Duplicate CPT
+/service/custom-software-development/,/services/software-development/,301,Duplicate CPT
+/service/business-automation/,/services/ai-automation/,301,Duplicate CPT
+/service/ai-powered-solutions/,/services/ai-automation/,301,Duplicate CPT
+/service/digital-growth-solutions/,/services/digital-marketing/,301,Duplicate CPT
+/service/higher-visibility/,/services/search-ai-visibility/seo/,301,Thin fragment
+/service/enhanced-visibility/,/services/search-ai-visibility/seo/,301,Thin fragment
+/service/qualified-traffic/,/services/search-ai-visibility/seo/,301,Thin fragment
+/service/stronger-authority/,/services/search-ai-visibility/seo/off-page-seo/,301,Thin fragment
+/service/stronger-presence/,/services/search-ai-visibility/,301,Thin fragment
+/service/better-conversions/,/services/digital-marketing/conversion-rate-optimization/,301,Thin fragment
+/service/higher-conversions/,/services/digital-marketing/conversion-rate-optimization/,301,Thin fragment
+/service/increased-conversions/,/services/digital-marketing/conversion-rate-optimization/,301,Thin fragment
+/service/better-engagement/,/services/web-development/ui-ux-design/,301,Thin fragment
+/service/scalable-foundation/,/services/web-development/,301,Thin fragment
+/service/better-performance/,/services/web-development/website-performance/,301,Thin fragment
+/service/improved-scalability/,/services/software-development/,301,Thin fragment
+/service/better-control/,/services/software-development/customer-portals/,301,Thin fragment
+/service/enhanced-productivity/,/services/ai-automation/workflow-automation/,301,Thin fragment
+/service/operational-efficiency/,/use-cases/improve-operational-efficiency/,301,Thin fragment
+/service/improved-efficiency/,/use-cases/improve-operational-efficiency/,301,Thin fragment
+/service/greater-efficiency/,/use-cases/improve-operational-efficiency/,301,Thin fragment
+/service/faster-operations/,/services/ai-automation/workflow-automation/,301,Thin fragment
+/service/reduced-errors/,/services/ai-automation/workflow-automation/,301,Thin fragment
+/service/time-savings/,/use-cases/reduce-manual-work/,301,Thin fragment
+/service/smarter-decisions/,/services/data-analytics/business-intelligence/,301,Thin fragment
+/service/strategic-direction/,/services/digital-marketing/digital-strategy/,301,Thin fragment
+/service/sustainable-growth/,/services/digital-marketing/growth-strategy/,301,Thin fragment
+/service/competitive-advantage/,/about/why-bizzfly/,301,Thin fragment
+/project/dynamic-data-ecosystem/,/work/,301,Fabricated demo content
+/project/intelligent-conversion-hub/,/work/,301,Fabricated demo content
+/project/next-gen-ecosystem/,/work/,301,Fabricated demo content
+/project/cloud-marketing-infrastructure/,/work/,301,Fabricated demo content
+/project/fast-conversion-optimization/,/work/,301,Fabricated demo content
+/project/intelligent-conversion-model/,/work/,301,Fabricated demo content
+/project/agile-digital-expansion/,/work/,301,Fabricated demo content
+/project/scalable-business-growth/,/work/,301,Fabricated demo content
+/project/ai-driven-marketing/,/work/,301,Fabricated demo content
+/project/data-powered-growth/,/work/,301,Fabricated demo content
+/project/smart-digital-growth/,/work/,301,Fabricated demo content
+/about-us/,/about/,301,Slug cleanup
+/contact-us/,/contact/,301,Slug cleanup
+/blog/,/insights/blog/,301,Moved into Insights
+/faqs-page/,/insights/faqs/,301,Slug cleanup
+/privacy-policy-2/,/privacy-policy/,301,Duplicate artefact slug
+/terms-and-conditions/,/terms/,301,Slug cleanup
+/seo/,/services/search-ai-visibility/seo/,301,Existing legacy redirect - retarget to final destination
+/website-design-development/,/services/web-development/,301,Existing legacy redirect - retarget
+/custom-software-development/,/services/software-development/,301,Existing legacy redirect - retarget
+/business-automation/,/services/ai-automation/,301,Existing legacy redirect - retarget
+/ai-powered-solutions/,/services/ai-automation/,301,Existing legacy redirect - retarget
+/blog-2/privacy-policy-2,/privacy-policy/,301,Existing legacy redirect - retarget
+/beyond-aesthetics-why-speed-and-core-web-vitals-are-non-negotiable-for-agency-themes-in-2026/,/insights/blog/core-web-vitals-wordpress/,301,Rewritten on strategy
+/seo-ready-architecture-building-a-website-that-ranks-while-you-sleep/,/insights/blog/structured-data-that-actually-matters/,301,Rewritten on strategy
+/9-essential-wordpress-features-every-digital-marketing-agency-needs-to-boost-conversions/,/insights/blog/,301,Off-strategy - no direct equivalent
+/what-it-companies-should-write-about-in-their-corporate-blogs/,/insights/blog/,301,Off-strategy - no direct equivalent
+/digital-transformation-101-moving-from-a-traditional-agency-to-a-full-service-digital-partner/,/insights/blog/,301,Off-strategy - no direct equivalent
+/mastering-multichannel-engagement-how-to-sync-your-website-with-your-social-and-ad-strategies/,/insights/blog/,301,Off-strategy - no direct equivalent
+/hello-world/,,410,WordPress default post - remove from index
+/?page_id=28,,410,Unslugged artefact - remove from index

@@ -1,0 +1,478 @@
+/* Section patterns from docs/design-system/04. */
+
+/* --- SectionHeader ------------------------------------------------------- */
+.header {
+  max-width: 30ch;
+  margin-bottom: var(--space-10);
+}
+
+.headerLead {
+  max-width: 62ch;
+  margin-top: var(--space-4);
+  color: var(--muted);
+}
+
+.headerSplit {
+  display: grid;
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+
+@media (min-width: 1024px) {
+  .headerSplit {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+  .headerSplit .header {
+    margin-bottom: 0;
+  }
+  .headerSplit .headerLead {
+    margin-top: 0;
+  }
+}
+
+/* --- S-01 Numbered editorial list --------------------------------------- */
+/* The default for capabilities and services. Replaces the card grid. */
+.numbered {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.numberedItem {
+  border-bottom: 1px solid var(--border);
+}
+
+.numberedLink {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-4) var(--space-6);
+  padding-block: var(--space-8);
+  text-decoration: none;
+  color: var(--foreground);
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .numberedLink {
+    grid-template-columns: auto minmax(0, 22rem) minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: var(--space-10);
+  }
+}
+
+.numberedIndex {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.35em;
+}
+
+.numberedTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+}
+
+.numberedDescription {
+  color: var(--muted);
+  font-size: var(--text-body);
+  max-width: 60ch;
+}
+
+.numberedArrow {
+  color: var(--ink-400);
+  transition: transform var(--dur-base) var(--ease-standard);
+  align-self: center;
+}
+
+.numberedLink:hover .numberedArrow {
+  transform: translateX(6px);
+  color: var(--foreground);
+}
+
+/* Hairline extends on hover — the row does not lift or scale */
+.numberedItem::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background: var(--accent-edge);
+  transition: width var(--dur-base) var(--ease-standard);
+  margin-top: -1px;
+}
+
+.numberedItem:hover::after {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .numberedLink:hover .numberedArrow {
+    transform: none;
+  }
+  .numberedItem:hover::after {
+    width: 100%;
+    transition: none;
+  }
+}
+
+/* Inline link rail — 24 service links in the space six cards would take */
+.rail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-4);
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 1024px) {
+  .rail {
+    grid-column: 3 / 4;
+    margin-top: var(--space-3);
+  }
+}
+
+.railLink {
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    text-decoration-color var(--dur-fast) var(--ease-standard);
+  padding-block: var(--space-1);
+  /* WCAG 2.5.8 target size */
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+.railLink:hover {
+  color: var(--foreground);
+  text-decoration-color: var(--link-underline);
+}
+
+/* --- S-09 Statement + evidence ------------------------------------------ */
+.statement {
+  display: grid;
+  gap: var(--space-10);
+}
+
+@media (min-width: 1024px) {
+  .statement {
+    grid-template-columns: 7fr 4fr;
+    gap: var(--space-16);
+  }
+}
+
+.statementTitle {
+  max-width: 22ch;
+}
+
+.evidenceList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.evidenceItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-body-sm);
+}
+
+.evidenceIndex {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- S-06 Process timeline ---------------------------------------------- */
+.process {
+  display: grid;
+  gap: var(--space-8);
+  counter-reset: step;
+}
+
+@media (min-width: 1024px) {
+  .process {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+}
+
+.step {
+  border-top: 2px solid var(--border);
+  padding-top: var(--space-5);
+}
+
+.step[data-first="true"] {
+  border-top-color: var(--accent-edge);
+}
+
+.stepIndex {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  margin-block: var(--space-3) var(--space-2);
+}
+
+.stepDescription {
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+}
+
+.stepDuration {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  color: var(--ink-400);
+  margin-top: var(--space-3);
+  display: block;
+}
+
+/* --- S-10 Pull quote ----------------------------------------------------- */
+.quote {
+  border-block: 1px solid var(--border);
+  padding-block: var(--section-sm);
+  max-width: var(--container-content);
+}
+
+.quoteText {
+  max-width: 30ch;
+}
+
+.quoteAttribution {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  color: var(--muted);
+  margin-top: var(--space-6);
+  letter-spacing: var(--tracking-meta);
+}
+
+/* --- S-04 FAQ accordion --------------------------------------------------- */
+.faqList {
+  border-top: 1px solid var(--border);
+  max-width: var(--container-content);
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--border);
+}
+
+.faqQuestion {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-6);
+  width: 100%;
+  padding-block: var(--space-6);
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  color: var(--foreground);
+  text-align: left;
+  min-height: var(--touch-target-min);
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqMarker {
+  color: var(--ink-400);
+  flex-shrink: 0;
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+.faqItem[open] .faqMarker {
+  transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faqMarker {
+    transition: none;
+  }
+}
+
+.faqAnswer {
+  padding-bottom: var(--space-6);
+  max-width: 68ch;
+  color: var(--muted);
+}
+
+/* --- S-19 Next steps / related ------------------------------------------ */
+.related {
+  display: grid;
+  gap: var(--space-6);
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .related {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-10);
+  }
+}
+
+.relatedItem {
+  text-decoration: none;
+  color: var(--foreground);
+  display: block;
+}
+
+.relatedType {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--muted);
+}
+
+.relatedTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  margin-top: var(--space-2);
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.relatedItem:hover .relatedArrow {
+  transform: translateX(4px);
+}
+
+.relatedArrow {
+  color: var(--ink-400);
+  transition: transform var(--dur-fast) var(--ease-standard);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .relatedItem:hover .relatedArrow {
+    transform: none;
+  }
+}
+
+.relatedDescription {
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  margin-top: var(--space-2);
+}
+
+/* --- S-17 Conversion band ------------------------------------------------ */
+.conversion {
+  display: grid;
+  gap: var(--space-8);
+  align-items: end;
+}
+
+@media (min-width: 1024px) {
+  .conversion {
+    grid-template-columns: 7fr 5fr;
+    gap: var(--space-16);
+  }
+}
+
+.conversionTitle {
+  max-width: 20ch;
+}
+
+.conversionLead {
+  color: var(--muted);
+  margin-top: var(--space-5);
+  max-width: 52ch;
+}
+
+/* --- Content block / split layout / media block -------------------------- */
+.contentBlock {
+  max-width: var(--container-text);
+}
+
+.splitLayout {
+  display: grid;
+  gap: var(--space-10);
+}
+
+@media (min-width: 1024px) {
+  .splitLayout {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+  .splitLayoutReverse {
+    grid-template-columns: 7fr 5fr;
+  }
+}
+
+.stickyColumn {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-8));
+}
+
+.mediaBlock {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.mediaCaption {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  color: var(--muted);
+  margin-top: var(--space-3);
+}
+
+/* --- Empty state — designed, never a bare "no results" ------------------- */
+.empty {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-10);
+  max-width: var(--container-content);
+}
+
+.emptyTitle {
+  max-width: 26ch;
+}
+
+.emptyBody {
+  color: var(--muted);
+  margin-top: var(--space-5);
+  max-width: 62ch;
+}
+
+.emptyActions {
+  margin-top: var(--space-8);
+}
+
+/* Marks unverified content in preview. Never ships to production. */
+.contentRequired {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--warning);
+  border: 1px dashed var(--warning);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+}

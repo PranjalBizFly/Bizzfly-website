@@ -1,0 +1,119 @@
+/*
+ * Hero patterns H-A / H-B / H-C from docs/design-system/04.
+ * No hero is 100vh. Every hero is sized so the answer stays above 1000px.
+ */
+
+.hero {
+  padding-block: var(--section-md) var(--section-sm);
+}
+
+.heroInverse {
+  background: var(--ink-900);
+  color: var(--ink-050);
+}
+
+.breadcrumbs {
+  margin-bottom: var(--space-8);
+}
+
+.eyebrow {
+  margin-bottom: var(--space-5);
+}
+
+/* --- H-A Editorial statement -------------------------------------------- */
+.editorial {
+  max-width: 20ch;
+}
+
+.editorialLead {
+  max-width: 58ch;
+  margin-top: var(--space-6);
+  color: var(--muted);
+}
+
+/* --- H-C Full-width declaration ----------------------------------------- */
+.declaration {
+  max-width: 16ch;
+}
+
+@media (min-width: 768px) {
+  .declaration {
+    max-width: 18ch;
+  }
+}
+
+.declarationLead {
+  max-width: 56ch;
+  margin-top: var(--space-8);
+  color: var(--muted);
+}
+
+/* --- H-B Split ----------------------------------------------------------- */
+.split {
+  display: grid;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .split {
+    grid-template-columns: 7fr 5fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+}
+
+.splitTitle {
+  max-width: 18ch;
+}
+
+.splitLead {
+  max-width: 52ch;
+  margin-top: var(--space-6);
+  color: var(--muted);
+}
+
+/* Aside is a specification block, not a stock photograph */
+.splitAside {
+  border-top: 2px solid var(--ink-900);
+  padding-top: var(--space-6);
+}
+
+.heroInverse .splitAside {
+  border-top-color: var(--accent-edge);
+}
+
+.asideHeading {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--space-5);
+}
+
+.asideList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.asideItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-body-sm);
+}
+
+.asideIndex {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.actions {
+  margin-top: var(--space-10);
+}

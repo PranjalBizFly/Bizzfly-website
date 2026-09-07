@@ -1,0 +1,53 @@
+.nav {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  color: var(--muted);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.link {
+  color: var(--muted);
+  text-decoration: none;
+  /* WCAG 2.5.8 target size */
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+.link:hover {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.separator {
+  color: var(--ink-400);
+}
+
+/* On mobile, collapse the middle and keep the immediate parent —
+   the parent is what people use to go up a level. */
+@media (max-width: 639px) {
+  .item:not(:first-child):not(:last-child):not(:nth-last-child(2)) {
+    display: none;
+  }
+  .item:first-child + .item:not(:last-child):not(:nth-last-child(2))::before {
+    content: "…";
+    color: var(--ink-400);
+  }
+}

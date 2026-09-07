@@ -1,0 +1,540 @@
+/* ==========================================================================
+   BizzFly Design Tokens — specification contract
+   --------------------------------------------------------------------------
+   This is the SOURCE OF TRUTH for every value in the design system, and the
+   ONLY file in the repository permitted to contain a raw brand hex value.
+   No component may hardcode a colour that exists here, and no colour may be
+   introduced that is not here.
+
+   Palette is the official BizzFly brand:
+     Primary   #2C70D1  BizzFly Blue
+     Primary   #A9CF46  BizzFly Green
+     Secondary #2A1ED1  Deep Electric Blue
+     Secondary #40E523  Bright Green   (micro-accent, used very sparingly)
+
+   Every ratio below was computed with the WCAG 2.x relative-luminance
+   formula and is asserted in docs/design-system/verify-contrast.mjs, which
+   runs via `npm run verify:contrast` and inside `npm run qa`. Ratios are
+   measured, not estimated. Change a colour and the suite fails until the
+   pairing is re-verified.
+
+   Fluid values interpolate between 360px and 1440px viewports.
+   Root font size assumed 16px. All fluid tokens retain a rem term so that
+   browser zoom and user font-size settings work (WCAG 1.4.4).
+   ========================================================================== */
+
+:root {
+  /* Native form controls, scrollbars and caret follow the theme. */
+  color-scheme: light;
+
+  /* ---------------------------------------------------------------------
+     BRAND BLUE — the primary. Carries the identity AND is legible as text,
+     which the green cannot be. Blue therefore leads on light surfaces.
+
+     blue-500 on white   =  4.83:1 ✓ AA text
+     white on blue-500   =  4.83:1 ✓ AA — the primary button
+     blue-500 on surface =  4.50:1   exactly at the limit, so text on any
+                                     tinted surface uses blue-700 instead
+     blue-500 on ink     =  3.82:1 ✗ never body text on dark — use blue-400
+     --------------------------------------------------------------------- */
+  --blue-300: #8FB8EC;   /*  8.99:1 on ink — hover for links on dark        */
+  --blue-400: #5C93DE;   /*  5.87:1 on ink — links on dark surfaces         */
+  --blue-500: #2C70D1;   /*  THE BRAND. Primary button, active, accent      */
+  --blue-600: #2765BC;   /*  5.72:1 with white — primary button hover       */
+  --blue-700: #2258A6;   /*  6.97:1 on white, 6.49 on surface — link text   */
+  --blue-900: #1A4480;   /*  9.62:1 on white — pressed, high-emphasis text  */
+
+  /* ---------------------------------------------------------------------
+     BRAND GREEN — the co-primary. It cannot be text on a light surface at
+     any weight (1.79:1); it is a fill, an accent on dark, and a mark. That
+     is not a limitation to design around, it is what the colour is for.
+
+     ink on green-500 = 10.28:1 ✓ — the green button
+     green-500 on ink = 10.28:1 ✓ — the accent on dark
+     --------------------------------------------------------------------- */
+  --green-300: #BEDD6F;  /* 12.09:1 on ink — hover on dark                  */
+  --green-500: #A9CF46;  /* THE BRAND. Fill with ink text, accent on dark   */
+  --green-700: #7C9C2E;  /*  3.16:1 on white — non-text UI only (rules)     */
+  --green-900: #5A7220;  /*  5.44:1 on white, 5.07 on surface — text OK     */
+
+  /* ---------------------------------------------------------------------
+     SECONDARY — Deep Electric Blue, plus the deep ground it lives on.
+
+     #2A1ED1 is a SIGNAL, not a field. Filling a section with it produces a
+     saturated wall that reads as a template rather than an enterprise
+     product — the homepage technology section was 2,157px of it. So the
+     deep context is built on --deep-900, a near-black indigo, and the
+     brand purple appears inside it only as an accent. On white the brand
+     purple is text-safe at 9.52:1, which is where it does its real work.
+
+     It is near-black in luminance terms, so it must NEVER be a foreground
+     on a dark surface (1.92:1 on ink, 1.87:1 on --deep-900).
+     --------------------------------------------------------------------- */
+  --deep-900: #171238;   /* the deep ground. white 17.80:1, green 9.92:1    */
+  --deep-800: #2A1ED1;   /*  9.52:1 with white — accent and mark on light   */
+  --deep-700: #3B30D8;   /* hover step for the brand purple                 */
+  --deep-600: #5A4DE8;   /*  3.10:1 on deep-900 — rules and marks there     */
+  --deep-400: #8A7EF5;   /*  5.41:1 on deep-900 — the purple that can be
+                            text on the deep ground                        */
+
+  /* ---------------------------------------------------------------------
+     Bright Green — the secondary micro-accent. Reserved for a single live
+     indicator; deliberately not wired into any semantic token, so it
+     cannot spread by accident. 10.94:1 on ink, 1.69:1 on white.
+     --------------------------------------------------------------------- */
+  --green-bright: #40E523;
+
+  /* ---------------------------------------------------------------------
+     INK — blue-shifted charcoal, so the neutrals sit with the brand blue
+     rather than fighting it.
+     --------------------------------------------------------------------- */
+  --ink-900: #0D1420;    /* 18.45:1 on white — body text, dark bg           */
+  --ink-700: #232E3F;    /* 13.69:1 on white                                */
+  --ink-500: #55606E;    /*  6.39:1 on white, 5.96 on surface — muted text  */
+  --ink-400: #6E7A8A;    /*  4.36:1 — UI/icons ONLY, never text             */
+  --ink-350: #8B95A3;    /*  3.03:1 — input borders                         */
+  --ink-250: #A9B4C4;    /*  8.80:1 on ink — muted text on dark             */
+  --ink-150: #DDE3EB;    /* hairline rules                                  */
+  --ink-050: #F5F7FA;    /* surface / text on dark (17.19:1)                */
+
+  /* --- THEME CONTRACT --------------------------------------------------
+     These are the variables the whole system reads. The
+     :root[data-theme="dark"] block near the foot of this file is the only
+     place they are redefined, so a theme is one list of values, not a set
+     of per-component overrides.
+
+     There is deliberately no second set of short aliases. An earlier
+     attempt declared --bg: var(--background) here so existing modules could
+     keep their old names, which does not work: a var() inside a custom
+     property is substituted when that property is computed on the element
+     it is declared on, so --bg resolved once against the :root value and
+     inherited that literal colour. Redefining --background in .is-inverse
+     left --bg white, which put dark text on the dark header. One name per
+     role, redefined per theme, is the only arrangement that composes.
+     --------------------------------------------------------------------- */
+  --background:            #FFFFFF;
+  --foreground:            var(--ink-900);   /* 18.45:1 */
+  --surface:               var(--ink-050);
+  --surface-muted:         #EAEEF4;
+  --muted:                 var(--ink-500);   /*  6.39:1 */
+  --border:                var(--ink-150);
+  --border-strong:         var(--ink-350);
+
+  /* Brand roles under the names the theme contract expects. */
+  --primary:               var(--blue-500);
+  --secondary:             var(--green-500);
+  --accent:                var(--accent-edge);
+
+  /* ---------------------------------------------------------------------
+     The header is a dark bar in BOTH themes, and that is a constraint
+     rather than a style choice: the official lockup is reversed — "Bizz"
+     in green, "fly" and the symbol plate in white — so on a light bar half
+     the logo disappears, and recolouring it is outside the brand
+     guidelines. See public/brand/README.md. Supplying the positive lockup
+     is what would unlock a light header.
+     --------------------------------------------------------------------- */
+  --header-background:     var(--ink-900);
+  --header-border:         rgb(245 247 250 / 0.14);
+
+  --surface-inverse:       var(--ink-900);
+  --surface-inverse-alt:   var(--deep-900);
+  --border-inverse:        rgb(245 247 250 / 0.16);
+
+  /* --- Semantic text -------------------------------------------------- */
+  --text-link:             var(--blue-700);  /*  6.97:1 white, 6.49 surface */
+  --text-link-alt:         var(--blue-900);  /*  9.62:1 — hover/visited     */
+  --text-inverse:          var(--ink-050);   /* 17.19:1 on ink */
+  --text-inverse-muted:    var(--ink-250);   /*  8.80:1 on ink */
+  --text-on-brand:         #FFFFFF;          /*  4.83:1 on blue-500 */
+  --text-on-green:         var(--ink-900);   /* 10.28:1 on green-500 */
+
+  /* --- Status (all verified ≥4.5:1 on white) -------------------------- */
+  --success:               #17734A;  /* 5.85:1 */
+  --warning:               #8A5B00;  /* 5.87:1 — also [CONTENT REQUIRED] */
+  --error:                 #B3261E;  /* 6.54:1 */
+  --success-subtle:        rgb(23 115 74 / 0.08);
+  --warning-subtle:        rgb(138 91 0 / 0.08);
+  --error-subtle:          rgb(179 38 30 / 0.08);
+
+  /* --- Data visualisation (ordered, greyscale-safe) -------------------
+     Light-surface series. Brand green is absent by necessity: at 1.79:1
+     on white it cannot carry a data mark. It leads the series on dark
+     surfaces instead — see .is-inverse below.
+     ------------------------------------------------------------------- */
+  --viz-1: var(--ink-900);
+  --viz-2: var(--blue-500);
+  --viz-3: var(--deep-800);
+  --viz-4: var(--green-900);
+  --viz-5: var(--green-700);
+  --viz-6: var(--ink-350);
+
+  /* --- Accent roles ----------------------------------------------------
+     The brand has two primaries with exactly opposite constraints: blue is
+     legible as text on light and weak on dark; green is the reverse. These
+     tokens encode that rule once, so a component can accent itself without
+     knowing which surface it sits on — and so no component ever reaches
+     for a raw brand hex. Blue leads here; the inverse blocks at the bottom
+     of this file hand both roles to green.
+     ------------------------------------------------------------------- */
+  --accent-text:     var(--blue-700);  /* 6.97:1 white, 6.49 surface      */
+  --accent-edge:     var(--blue-500);  /* 4.83:1 — rules, marks, states   */
+  --link-underline:  var(--blue-300);  /* subordinate to the link text    */
+
+  /* --- Interactive -----------------------------------------------------
+     The primary action is the same blue on every surface in both themes,
+     so the most important control on a page never changes colour with its
+     background. Each step darkens, so contrast climbs on interaction:
+     4.83 → 5.72 → 6.97 against white text. Defined once, deliberately —
+     these do not vary by theme, and anything that does must be redefined
+     in each theme block rather than aliased.
+     ------------------------------------------------------------------- */
+  --cta-primary:        var(--blue-500);
+  --cta-primary-hover:  var(--blue-600);
+  --cta-primary-active: var(--blue-700);
+  --cta-primary-text:   #FFFFFF;
+
+  /* --- Focus ---------------------------------------------------------- */
+  --focus-ring:            var(--ink-900);
+  --focus-ring-inverse:    var(--green-500);
+  --focus-ring-width:      2px;
+  --focus-ring-offset:     2px;
+
+  /* ---------------------------------------------------------------------
+     TYPOGRAPHY — the brand fonts.
+
+     Primary   Funnel Sans SemiBold          → display, headings, nav, buttons
+     Secondary Poppins Regular/Medium/Bold   → body, UI, labels
+
+     Both are loaded and self-hosted by next/font/google in app/layout.tsx,
+     which rebinds these three variables in app/globals.css. The family
+     names below are the contract; the loader is an implementation detail,
+     so official font files can replace the loader without any component
+     changing. Poppins runs wide and tall for its point size, so the body
+     measure and leading are set for it specifically — see --container-text
+     and --leading-body.
+     --------------------------------------------------------------------- */
+  --font-display: "Funnel Sans", "Funnel Sans Fallback", system-ui, sans-serif;
+  --font-body:    "Poppins", "Poppins Fallback", system-ui, sans-serif;
+  --font-mono:    "IBM Plex Mono", "IBM Plex Mono Fallback", ui-monospace, monospace;
+
+  /* Fluid sizes: clamp(min, intercept + slope*vw, max) — computed, not guessed */
+  --text-display-xl: clamp(2.75rem,  1.6667rem + 4.8148vw, 6rem);      /* 44→96 */
+  --text-display-lg: clamp(2.5rem,   1.8333rem + 2.9630vw, 4.5rem);    /* 40→72 */
+  --text-h1:         clamp(2.25rem,  1.8333rem + 1.8519vw, 3.5rem);    /* 36→56 */
+  --text-h2:         clamp(1.75rem,  1.4167rem + 1.4815vw, 2.75rem);   /* 28→44 */
+  --text-h3:         clamp(1.375rem, 1.2083rem + 0.7407vw, 1.875rem);  /* 22→30 */
+  --text-h4:         clamp(1.125rem, 1.0625rem + 0.2778vw, 1.3125rem); /* 18→21 */
+  --text-body-lg:    clamp(1.0625rem, 1.0208rem + 0.1852vw, 1.1875rem);/* 17→19 */
+  --text-body:       1rem;       /* 16px — Poppins reads a size larger than
+                                    the neutral grotesque this replaced    */
+  --text-body-sm:    0.875rem;   /* 14px */
+  --text-caption:    0.8125rem;  /* 13px */
+  --text-eyebrow:    0.75rem;    /* 12px */
+  --text-meta:       0.8125rem;  /* 13px */
+  --text-metric:     clamp(2.5rem, 1.8333rem + 2.9630vw, 4.5rem);      /* 40→72 */
+  --text-quote:      clamp(1.5rem, 1.2917rem + 0.9259vw, 2.125rem);    /* 24→34 */
+  --text-nav:        0.9375rem;  /* 15px */
+  --text-nav-sub:    0.875rem;   /* 14px */
+  --text-button:     0.9375rem;  /* 15px */
+  --text-label:      0.875rem;   /* 14px */
+
+  --leading-display: 1.00;  /* Funnel Sans sits lower in the box than Archivo */
+  --leading-tight:   1.08;
+  --leading-heading: 1.15;
+  --leading-snug:    1.35;
+  --leading-body:    1.70;  /* Poppins needs more air than a neutral grotesque */
+  --leading-relaxed: 1.60;
+
+  /* Funnel Sans is more open than Archivo, so display tracking is eased. */
+  --tracking-display: -0.025em;
+  --tracking-h1:      -0.02em;
+  --tracking-h2:      -0.015em;
+  --tracking-h3:      -0.01em;
+  --tracking-normal:   0;
+  --tracking-eyebrow:  0.10em;
+  --tracking-meta:     0.02em;
+
+  /* Brand weights. Funnel Sans SemiBold (600) is the display weight;
+     Poppins ships Regular (400), Medium (500) and Bold (700). */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* ---------------------------------------------------------------------
+     SPACING — 4px base
+     --------------------------------------------------------------------- */
+  --space-1: 0.25rem;   /*  4 */
+  --space-2: 0.5rem;    /*  8 */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.25rem;   /* 20 */
+  --space-6: 1.5rem;    /* 24 */
+  --space-8: 2rem;      /* 32 */
+  --space-10: 2.5rem;   /* 40 */
+  --space-12: 3rem;     /* 48 */
+  --space-16: 4rem;     /* 64 */
+  --space-20: 5rem;     /* 80 */
+  --space-24: 6rem;     /* 96 */
+  --space-32: 8rem;     /* 128 */
+  --space-40: 10rem;    /* 160 */
+  --space-48: 12rem;    /* 192 */
+
+  /* Section rhythm — mobile and desktop authored separately, not scaled */
+  --section-sm: clamp(3rem, 2.5000rem + 2.2222vw, 4.5rem);    /*  48→72  */
+  --section-md: clamp(4rem, 3.0000rem + 4.4444vw, 7rem);      /*  64→112 */
+  --section-lg: clamp(5rem, 3.3333rem + 7.4074vw, 10rem);     /*  80→160 */
+  --section-xl: clamp(6rem, 3.8333rem + 9.6296vw, 12.5rem);   /*  96→200 */
+
+  /* ---------------------------------------------------------------------
+     LAYOUT
+     --------------------------------------------------------------------- */
+  --container-wide:    100rem;   /* 1600 */
+  --container:         80rem;    /* 1280 */
+  --container-content: 65rem;    /* 1040 */
+  --container-text:    40rem;    /*  640 — 62–72ch at the wider Poppins set */
+  --container-narrow:  35rem;    /*  560 */
+
+  --margin: 1.25rem;             /* xs default; overridden per breakpoint */
+  --gutter: 1rem;
+  --grid-columns: 4;
+
+  /* ---------------------------------------------------------------------
+     BRAND ASSET GEOMETRY
+     Clearspace around the logo equals the cap height of the logotype, per
+     the brand guidelines. Measured from the official artwork: the cap
+     height of the "B" is 111.3 units against a 144-unit mark height, so
+     clearspace is 0.773 of the rendered logo height. Expressing it as a
+     ratio rather than a pixel value keeps it correct at every size.
+
+     The header is 80px so a 30px logo — the brand minimum for digital —
+     clears 25px top and bottom, above the 23.2px the ratio requires.
+     --------------------------------------------------------------------- */
+  --logo-height:            1.875rem; /* 30px — header; the brand minimum  */
+  --logo-height-sm:         1.875rem; /* 30px — condensed; cannot go lower */
+  --logo-height-footer:     2.5rem;   /* 40px                              */
+  --logo-min-height:        1.875rem; /* 30px — brand minimum for digital  */
+  --logo-clearspace-ratio:  0.773;    /* cap height 111.3 ÷ 144 (measured) */
+
+  /* ---------------------------------------------------------------------
+     RADIUS — restrained. Nothing above 8px.
+     --------------------------------------------------------------------- */
+  --radius-0:    0;
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-lg:   8px;
+  --radius-full: 9999px;
+
+  /* ---------------------------------------------------------------------
+     ELEVATION — levels 2 and 3 only for genuinely floating elements
+     --------------------------------------------------------------------- */
+  --elev-0: none;
+  --elev-1: 0 1px 2px rgb(13 20 32 / 0.06);
+  --elev-2: 0 4px 16px rgb(13 20 32 / 0.08);
+  --elev-3: 0 12px 40px rgb(13 20 32 / 0.12);
+
+  /* ---------------------------------------------------------------------
+     MOTION
+     --------------------------------------------------------------------- */
+  --dur-instant: 100ms;
+  --dur-fast:    160ms;
+  --dur-base:    240ms;
+  --dur-slow:    360ms;
+  --dur-reveal:  480ms;
+
+  --ease-standard:  cubic-bezier(0.2, 0, 0, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0, 1);
+  --ease-accelerate: cubic-bezier(0.3, 0, 1, 1);
+  --ease-inout:     cubic-bezier(0.65, 0, 0.35, 1);
+
+  --reveal-distance: 24px;
+  --stagger-step:    70ms;
+  --stagger-max:     6;    /* items after the 6th share the 6th delay */
+
+  /* ---------------------------------------------------------------------
+     Z-INDEX — no value outside this scale
+     --------------------------------------------------------------------- */
+  --z-base: 0;
+  --z-sticky: 100;
+  --z-header: 200;
+  --z-dropdown: 300;
+  --z-overlay: 400;
+  --z-modal: 500;
+  --z-toast: 600;
+  --z-skiplink: 700;
+
+  /* --- Component sizing ------------------------------------------------ */
+  --header-height: 5rem;           /* 80 — fits a 30px logo plus its clearspace */
+  --header-height-condensed: 4.875rem; /* 78 — clearspace floor; the condensed state reads through the shadow, not a large height change */
+  --touch-target-min: 2.75rem;     /* 44 — WCAG 2.2 AA target size */
+  --control-height: 2.75rem;       /* 44 */
+  --control-height-lg: 3.25rem;    /* 52 */
+}
+
+/* ==========================================================================
+   BREAKPOINT OVERRIDES — grid, margin, gutter
+   ========================================================================== */
+@media (min-width: 480px)  { :root { --margin: 1.5rem; } }
+@media (min-width: 768px)  { :root { --margin: 2rem; --gutter: 1.5rem; --grid-columns: 8; } }
+@media (min-width: 1024px) { :root { --margin: 2.5rem; --grid-columns: 12; } }
+@media (min-width: 1280px) { :root { --margin: 3rem; --gutter: 2rem; } }
+
+/* ==========================================================================
+   INVERSE CONTEXT
+   Applied to dark sections. Remaps semantic tokens so every component
+   inside works unchanged — components never branch on "is dark".
+
+   This is where the brand green leads: on ink it reaches 10.28:1, so it
+   takes the accent and focus roles that blue holds on light surfaces.
+   Links use blue-400, because blue-500 only manages 3.82:1 here.
+   ========================================================================== */
+.is-inverse {
+  --background:    var(--ink-900);
+  --surface:       var(--ink-700);
+  --surface-muted: #18202D;
+  --foreground:    var(--ink-050);
+  --muted:         var(--ink-250);
+  --text-link:     var(--blue-400);   /* 5.87:1 */
+  --text-link-alt: var(--blue-300);   /* 8.99:1 */
+  --border:        var(--border-inverse);
+  --border-strong: rgb(245 247 250 / 0.32);
+  --focus-ring:    var(--green-500);  /* 10.28:1 */
+  --accent-text:   var(--green-500);  /* 10.28:1 — green leads on dark */
+  --accent-edge:   var(--green-500);
+  --link-underline: rgb(92 147 222 / 0.55);
+  /* Green leads the series here; this is the one surface where it can. */
+  --viz-1: var(--green-500);
+  --viz-2: var(--blue-400);
+  --viz-3: var(--ink-050);
+  --viz-4: var(--green-300);
+  --viz-5: var(--blue-300);
+  --viz-6: var(--ink-250);
+}
+
+/*
+ * The deep context — used for the AI and search narrative, where a heavier
+ * ground is earned by the subject rather than applied for decoration.
+ *
+ * The ground is --deep-900, a near-black indigo, NOT the brand purple. An
+ * earlier version filled the whole section with #2A1ED1 and the result was
+ * a saturated wall that read as a cheap template: 2,157px of electric blue
+ * with green links on it. The brand purple survives here as an accent
+ * (--deep-400 for text, --deep-600 for rules), which is what a secondary
+ * brand colour is for.
+ */
+.is-inverse-alt {
+  --background:    var(--deep-900);
+  --surface:       #1D1749;
+  --surface-muted: #211A54;
+  --foreground:    #FFFFFF;           /* 17.80:1 */
+  --muted:         #C3C7E8;           /* 10.72:1 */
+  --text-link:     var(--blue-400);   /*  5.66:1 */
+  --text-link-alt: var(--blue-300);
+  --border:        rgb(255 255 255 / 0.14);
+  --border-strong: rgb(255 255 255 / 0.28);
+  --focus-ring:    var(--green-500);  /*  9.92:1 */
+  --accent-text:   var(--green-500);  /*  9.92:1 */
+  --accent-edge:   var(--deep-600);   /*  3.10:1 — the purple does the rules */
+  --link-underline: rgb(92 147 222 / 0.55);
+}
+
+/* ==========================================================================
+   DARK THEME
+   --------------------------------------------------------------------------
+   Applied as data-theme="dark" on <html> by the blocking script in
+   app/layout.tsx, so it is correct on the first paint and never flashes.
+   The attribute is always present — the script resolves a stored choice or
+   the OS preference — which is why there is no prefers-color-scheme rule
+   here to disagree with it.
+
+   This is a designed theme, not an inversion. The brand ramp does not
+   change; only the surfaces and the roles do, and green takes over the
+   accent from blue exactly as it does in an inverse section, because the
+   constraint is the same one: blue is 3.82:1 on ink, green is 10.28:1.
+
+   Surfaces are a controlled hierarchy rather than pure black. Each step is
+   a real but quiet lift off the page — 1.18:1 for --surface, 1.29:1 for
+   --surface-muted — which reads as depth without looking blocky.
+   Every pairing below is asserted in docs/design-system/verify-contrast.mjs.
+   ========================================================================== */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background:      var(--ink-900);        /* #0D1420 */
+  --foreground:      var(--ink-050);        /* 17.19:1 on background */
+  --surface:         #1A2432;               /* 1.18:1 lift; fg 14.58:1 */
+  --surface-muted:   #202B3A;               /* 1.29:1 lift; fg 13.33:1 */
+  --muted:           var(--ink-250);        /* 8.80:1 on background */
+  --border:          rgb(245 247 250 / 0.14);
+  --border-strong:   rgb(245 247 250 / 0.28);
+
+  /* Links move to the light blue; blue-700 would vanish here. */
+  --text-link:       var(--blue-400);       /* 5.87:1 */
+  --text-link-alt:   var(--blue-300);       /* 8.99:1 */
+  --link-underline:  rgb(92 147 222 / 0.55);
+
+  /* Green leads on dark — the same rule the inverse sections follow. */
+  --accent-text:     var(--green-500);      /* 10.28:1 */
+  --accent-edge:     var(--green-500);
+  --focus-ring:      var(--green-500);
+
+  --header-background: #152030;             /* 1.13:1 off the page */
+
+  /* The primary button keeps its blue fill: white on it is still 4.83:1,
+     and the fill clears 3:1 against every dark surface it sits on. */
+
+  --viz-1: var(--green-500);
+  --viz-2: var(--blue-400);
+  --viz-3: var(--ink-050);
+  --viz-4: var(--green-300);
+  --viz-5: var(--blue-300);
+  --viz-6: var(--ink-250);
+
+  /* Shadows do almost no work on dark surfaces; borders carry separation
+     instead, so elevation is dialled back rather than deepened. */
+  --elev-1: 0 1px 2px rgb(0 0 0 / 0.32);
+  --elev-2: 0 4px 16px rgb(0 0 0 / 0.40);
+  --elev-3: 0 12px 40px rgb(0 0 0 / 0.50);
+}
+
+/*
+ * An inverse section inside the dark theme would otherwise be the same ink
+ * as the page and the band would disappear. Lifting only its background
+ * keeps the compositional rhythm; every text and accent token it sets is
+ * still correct, because the surface is still dark.
+ */
+:root[data-theme="dark"] .is-inverse {
+  --background:    #1A2432;
+  --surface:       #202B3A;
+  --surface-muted: var(--ink-700);
+}
+
+/* Same reasoning for the deep context: --deep-900 is within 1.04:1 of the
+   dark page, so it needs lifting to stay a band rather than disappearing. */
+:root[data-theme="dark"] .is-inverse-alt {
+  --background:    #211A54;           /* 1.18:1 off the dark page */
+  --surface:       #29216A;
+  --muted:         #C3C7E8;           /*  9.44:1 */
+}
+
+/* ==========================================================================
+   REDUCED MOTION — collapse duration, keep opacity, never keep transforms
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-instant: 1ms;
+    --dur-fast: 1ms;
+    --dur-base: 1ms;
+    --dur-slow: 1ms;
+    --dur-reveal: 1ms;
+    --reveal-distance: 0px;
+    --stagger-step: 0ms;
+  }
+}
+
+/* ==========================================================================
+   FORCED COLORS — respect Windows High Contrast
+   ========================================================================== */
+@media (forced-colors: active) {
+  :root { --focus-ring: Highlight; --border: CanvasText; }
+}

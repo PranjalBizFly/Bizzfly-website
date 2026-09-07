@@ -1,0 +1,196 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  background: rgb(13 18 16 / 0.4);
+  display: flex;
+  justify-content: center;
+  padding: var(--space-4);
+  padding-top: 12vh;
+}
+
+/* Full-screen sheet below md; centred dialog above. */
+@media (max-width: 767px) {
+  .backdrop {
+    padding: 0;
+    padding-top: 0;
+  }
+}
+
+.dialog {
+  width: 100%;
+  max-width: var(--container-narrow);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elev-3);
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .dialog {
+    max-width: none;
+    max-height: 100dvh;
+    height: 100dvh;
+    border-radius: 0;
+    border: none;
+  }
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.icon {
+  color: var(--ink-400);
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: none;
+  /* 16px minimum prevents iOS zoom-on-focus */
+  font-size: 1rem;
+  color: var(--foreground);
+  min-height: var(--touch-target-min);
+}
+
+.input::placeholder {
+  color: var(--ink-500);
+}
+
+.input:focus {
+  outline: none;
+}
+
+.escape {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  color: var(--ink-400);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.2em 0.5em;
+  flex-shrink: 0;
+}
+
+.results {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-block: var(--space-3);
+}
+
+.groupHeading {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: var(--space-4) var(--space-5) var(--space-2);
+}
+
+.result {
+  display: block;
+  padding: var(--space-3) var(--space-5);
+  text-decoration: none;
+  color: var(--foreground);
+  border-left: 2px solid transparent;
+}
+
+.result[data-active="true"],
+.result:hover {
+  background: var(--surface);
+  border-left-color: var(--accent-edge);
+}
+
+.resultTitle {
+  font-weight: var(--weight-medium);
+  font-size: var(--text-body);
+}
+
+.resultDescription {
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  margin-top: 2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.resultUrl {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  color: var(--ink-400);
+  margin-top: 4px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+/* Empty state is designed, never a bare "no results". */
+.empty {
+  padding: var(--space-6) var(--space-5);
+}
+
+.emptyTitle {
+  font-size: var(--text-body);
+  color: var(--foreground);
+  margin-bottom: var(--space-5);
+}
+
+.emptySection + .emptySection {
+  margin-top: var(--space-6);
+}
+
+.emptyHeading {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--space-3);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding-inline: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-body-sm);
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.chip:hover {
+  border-color: var(--border-strong);
+  background: var(--surface);
+}

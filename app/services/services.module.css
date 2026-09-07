@@ -1,0 +1,148 @@
+.groups {
+  border-top: 1px solid var(--border);
+}
+
+.group {
+  display: grid;
+  gap: var(--space-5);
+  padding-block: var(--space-10);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Asymmetric 3 / 5 / 4 */
+@media (min-width: 1024px) {
+  .group {
+    grid-template-columns: 3fr 5fr 4fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+}
+
+.groupHead {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+}
+
+.groupIndex {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.groupLabel {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+}
+
+.groupSummary {
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+  max-width: 54ch;
+}
+
+.groupChoose {
+  margin-top: var(--space-3);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  max-width: 54ch;
+  border-left: 2px solid var(--accent-edge);
+  padding-left: var(--space-4);
+}
+
+.groupServices {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+@media (min-width: 1024px) {
+  .groupServices {
+    flex-direction: column;
+    gap: var(--space-2);
+    border-left: 1px solid var(--border);
+    padding-left: var(--space-6);
+  }
+}
+
+.serviceLink {
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  display: inline-block;
+  padding-block: var(--space-1);
+  /* WCAG 2.5.8 target size */
+  min-height: 24px;
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    text-decoration-color var(--dur-fast) var(--ease-standard);
+}
+
+.serviceLink:hover {
+  color: var(--foreground);
+  text-decoration-color: var(--link-underline);
+}
+
+/* --- The chain ---------------------------------------------------------- */
+.chain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-8);
+  counter-reset: chain;
+}
+
+@media (min-width: 768px) {
+  .chain {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-10);
+  }
+}
+
+@media (min-width: 1024px) {
+  .chain {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+}
+
+.chainItem {
+  border-top: 2px solid var(--border);
+  padding-top: var(--space-5);
+}
+
+.chainItem:first-child {
+  border-top-color: var(--accent-edge);
+}
+
+.chainIndex {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.chainStep {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  margin-block: var(--space-3) var(--space-2);
+  letter-spacing: -0.01em;
+}
+
+.chainDetail {
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+}

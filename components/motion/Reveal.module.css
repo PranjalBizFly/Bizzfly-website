@@ -1,0 +1,38 @@
+/*
+ * Content is visible by default. Reveal styles apply only once JS has
+ * registered the element (data-reveal="pending"), so a JS failure — or a
+ * crawler that does not execute JS — always sees fully rendered content.
+ */
+
+.reveal[data-reveal="pending"] {
+  opacity: 0;
+  transform: translate3d(var(--reveal-x, 0), var(--reveal-y, var(--reveal-distance)), 0);
+}
+
+.reveal[data-reveal="visible"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity var(--dur-reveal) var(--ease-decelerate),
+    transform var(--dur-reveal) var(--ease-decelerate);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Stagger: delay derived from index, capped so long lists do not drag. */
+.staggerItem[data-reveal="visible"] {
+  transition-delay: calc(
+    min(var(--stagger-index, 0), var(--stagger-max)) * var(--stagger-step)
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal[data-reveal="pending"] {
+    /* Transform zeroed; opacity is vestibular-safe and may still fade. */
+    transform: none;
+    opacity: 1;
+  }
+  .reveal[data-reveal="visible"],
+  .staggerItem[data-reveal="visible"] {
+    transition-delay: 0ms;
+  }
+}
