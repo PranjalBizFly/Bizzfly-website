@@ -18,13 +18,40 @@ import legacyRedirects from "./lib/redirects.generated.json";
  * If a third-party tag is added later (analytics, chat), extend the relevant
  * directive explicitly rather than relaxing the policy wholesale.
  */
+const isDev = process.env.NODE_ENV !== "production";
+
+/*
+ * `next dev` cannot run under the production policy, and the failure is
+ * silent in a way that costs hours: React Refresh compiles its runtime with
+ * `new Function`, so the very first module of main-app.js throws
+ *
+ *   EvalError: Evaluating a string as JavaScript violates the following
+ *   Content Security Policy directive ... 'unsafe-eval' is not an allowed
+ *   source of script
+ *
+ * That exception aborts the client entry before hydration, which leaves the
+ * whole site rendered but inert — every nav dropdown, the theme toggle and
+ * the search dialog look right and do nothing, with no clue in the UI. HMR
+ * also needs its websocket, which `connect-src 'self'` does not cover.
+ *
+ * Both relaxations are development-only and are never emitted by a
+ * production build; `next build` keeps the strict policy exactly as it was.
+ */
+const scriptSrc = isDev
+  ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
+  : "script-src 'self' 'unsafe-inline'";
+
+const connectSrc = isDev
+  ? "connect-src 'self' ws: wss:"
+  : "connect-src 'self'";
+
 const contentSecurityPolicy = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  scriptSrc,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
-  "connect-src 'self'",
+  connectSrc,
   "form-action 'self'",
   "frame-ancestors 'self'",
   "frame-src 'none'",
@@ -55,6 +82,20 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+
+  /*
+   * A production build and a running `next dev` share .next by default, and
+   * they overwrite each other's output: the build replaces the dev server's
+   * chunks, after which dev serves 500s for its own CSS until it is
+   * restarted, and dev then rewrites the build the QA server is trying to
+   * serve. `npm run qa` already refuses to run when the port is busy; this is
+   * the same guard for the output directory.
+   *
+   *   NEXT_DIST_DIR=.next-qa npm run build && NEXT_DIST_DIR=.next-qa npm start
+   *
+   * Unset, everything behaves exactly as before.
+   */
+  distDir: process.env.NEXT_DIST_DIR || ".next",
 
   images: {
     formats: ["image/avif", "image/webp"],

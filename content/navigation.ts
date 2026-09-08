@@ -18,6 +18,16 @@ import { resources } from "./resources";
 /** The one persistent conversion action on the site. */
 export const primaryCta = { label: "Let's Talk", href: "/contact/" };
 
+/**
+ * How many entries a mega-menu's numbered column carries.
+ *
+ * The panel scrolls, so a longer list would not break the layout — it would
+ * just stop being navigation. Ten is roughly where a numbered column is still
+ * scanned rather than skimmed past. The complete set lives on each hub page,
+ * which is also what the sitemap and search index read.
+ */
+const MENU_PRIMARY_LIMIT = 10;
+
 const serviceLink = (slug: string): NavigationItem | null => {
   const service = services.find((s) => s.slug === slug);
   return service
@@ -51,7 +61,7 @@ const serviceGroups = (): NavigationColumn[] => {
 
   return [
     {
-      heading: "Search & Visibility",
+      heading: "Digital Growth",
       headingHref: "/services/search-ai-visibility/",
       items: keep([
         service("seo"),
@@ -68,7 +78,9 @@ const serviceGroups = (): NavigationColumn[] => {
       items: keep([
         practice("web-development"),
         service("custom-software"),
+        service("web-applications"),
         service("workflow-automation"),
+        service("systems-integration"),
         practice("ai-automation"),
       ]),
     },
@@ -78,6 +90,9 @@ const serviceGroups = (): NavigationColumn[] => {
       items: keep([
         practice("digital-marketing"),
         service("conversion-rate-optimization"),
+        service("performance-marketing"),
+        service("digital-strategy"),
+        practice("data-analytics"),
       ]),
     },
   ].filter((group) => group.items.length > 0);
@@ -109,7 +124,13 @@ export const primaryNav: PrimaryNavItem[] = [
     label: "Industries",
     href: "/industries/",
     panel: {
-      primary: industries.map((i, n) => ({
+      /*
+        Capped, not complete. The full set is on /industries/ and in search;
+        a menu is for orientation, and a numbered list past about ten items
+        stops being read and starts being scrolled. Same reasoning below for
+        use cases and technologies.
+      */
+      primary: industries.slice(0, MENU_PRIMARY_LIMIT).map((i, n) => ({
         index: String(n + 1).padStart(2, "0"),
         label: i.title,
         href: `/industries/${i.slug}/`,
@@ -123,14 +144,17 @@ export const primaryNav: PrimaryNavItem[] = [
         href: "/case-studies/",
         ctaLabel: "See the standard",
       },
-      footerLink: { label: "All industries", href: "/industries/" },
+      footerLink: {
+        label: `All ${industries.length} industries`,
+        href: "/industries/",
+      },
     },
   },
   {
     label: "Use Cases",
     href: "/use-cases/",
     panel: {
-      primary: useCases.map((u, n) => ({
+      primary: useCases.slice(0, MENU_PRIMARY_LIMIT).map((u, n) => ({
         index: String(n + 1).padStart(2, "0"),
         label: u.title,
         href: `/use-cases/${u.slug}/`,
@@ -144,14 +168,17 @@ export const primaryNav: PrimaryNavItem[] = [
         href: "/contact/",
         ctaLabel: "Let's talk",
       },
-      footerLink: { label: "All use cases", href: "/use-cases/" },
+      footerLink: {
+        label: `All ${useCases.length} use cases`,
+        href: "/use-cases/",
+      },
     },
   },
   {
     label: "Technologies",
     href: "/technologies/",
     panel: {
-      primary: technologies.map((t, n) => ({
+      primary: technologies.slice(0, MENU_PRIMARY_LIMIT).map((t, n) => ({
         index: String(n + 1).padStart(2, "0"),
         label: t.title,
         href: `/technologies/${t.slug}/`,
@@ -175,7 +202,10 @@ export const primaryNav: PrimaryNavItem[] = [
         href: "/technologies/engineering-standards/",
         ctaLabel: "Read the standards",
       },
-      footerLink: { label: "All technologies", href: "/technologies/" },
+      footerLink: {
+        label: `All ${technologies.length} technologies`,
+        href: "/technologies/",
+      },
     },
   },
   {
@@ -188,7 +218,10 @@ export const primaryNav: PrimaryNavItem[] = [
         href: `/resources/${r.slug}/`,
         description: r.topic,
       })),
-      footerLink: { label: "All resources", href: "/resources/" },
+      footerLink: {
+        label: `All ${resources.length} resources`,
+        href: "/resources/",
+      },
     },
   },
   {
@@ -227,6 +260,46 @@ export const primaryNav: PrimaryNavItem[] = [
           description: "Talk to us",
         },
       ],
+      /*
+        Methodology pages are grouped rather than added to the numbered list:
+        eleven primary items would overwhelm the panel, and these answer a
+        different question — how the work runs, not who we are. Without this
+        column they were orphans, reachable only by typing the URL.
+      */
+      columns: [
+        {
+          heading: "Methodology",
+          headingHref: "/company/approach/",
+          items: [
+            { label: "Discovery process", href: "/company/discovery-process/" },
+            {
+              label: "Digital growth methodology",
+              href: "/company/digital-growth-methodology/",
+            },
+            { label: "SEO methodology", href: "/company/seo-methodology/" },
+            {
+              label: "AI search methodology",
+              href: "/company/ai-search-methodology/",
+            },
+            { label: "Engagement models", href: "/company/engagement-models/" },
+          ],
+        },
+        {
+          heading: "How we build",
+          headingHref: "/technologies/engineering-standards/",
+          items: [
+            {
+              label: "Website development process",
+              href: "/company/website-development-process/",
+            },
+            {
+              label: "Software development process",
+              href: "/company/software-development-process/",
+            },
+            { label: "Automation approach", href: "/company/automation-approach/" },
+          ],
+        },
+      ],
       feature: {
         kind: "WORK",
         title: "How we publish client work",
@@ -244,48 +317,66 @@ export const primaryNav: PrimaryNavItem[] = [
  * Footer navigation. Capped per column so it does not become a link wall —
  * the full set lives on each section hub.
  */
+/**
+ * A footer column: a few entries, then the way to the rest.
+ *
+ * The footer renders on all 300 pages, so its length is not a footer
+ * decision — it is a site-wide one. Mapping every entity into it put 26
+ * industries, 30 use cases and 16 technologies at the foot of every page.
+ * Five and a link is enough to show what a section contains; the hub page
+ * is what holds the complete list, and it is what the sitemap and the
+ * crawler read.
+ */
+const FOOTER_COLUMN_LIMIT = 5;
+
+const footerColumn = (
+  heading: string,
+  href: string,
+  all: { slug: string; title: string }[],
+  base: string,
+  allLabel: string,
+): { heading: string; href: string; items: NavigationItem[] } => ({
+  heading,
+  href,
+  items: [
+    ...all.slice(0, FOOTER_COLUMN_LIMIT).map((entity) => ({
+      label: entity.title,
+      href: `${base}${entity.slug}/`,
+    })),
+    { label: `${allLabel} (${all.length})`, href },
+  ],
+});
+
 export const footerNav = [
   {
     heading: "Services",
     href: "/services/",
-    items: practices.map((p) => ({
-      label: p.title,
-      href: `/services/${p.slug}/`,
-    })),
+    items: [
+      ...practices.map((p) => ({
+        label: p.title,
+        href: `/services/${p.slug}/`,
+      })),
+      { label: `All services (${services.length})`, href: "/services/" },
+    ],
   },
-  {
-    heading: "Industries",
-    href: "/industries/",
-    items: industries.map((i) => ({
-      label: i.title,
-      href: `/industries/${i.slug}/`,
-    })),
-  },
-  {
-    heading: "Use Cases",
-    href: "/use-cases/",
-    items: useCases.map((u) => ({
-      label: u.title,
-      href: `/use-cases/${u.slug}/`,
-    })),
-  },
-  {
-    heading: "Technologies",
-    href: "/technologies/",
-    items: technologies.map((t) => ({
-      label: t.title,
-      href: `/technologies/${t.slug}/`,
-    })),
-  },
+  footerColumn("Industries", "/industries/", industries, "/industries/", "All industries"),
+  footerColumn("Use Cases", "/use-cases/", useCases, "/use-cases/", "All use cases"),
+  footerColumn(
+    "Technologies",
+    "/technologies/",
+    technologies,
+    "/technologies/",
+    "All technologies",
+  ),
   {
     heading: "Resources",
     href: "/resources/",
     items: [
-      ...resources.slice(0, 4).map((r) => ({
+      ...resources.slice(0, FOOTER_COLUMN_LIMIT).map((r) => ({
         label: r.title,
         href: `/resources/${r.slug}/`,
       })),
-      { label: "All resources", href: "/resources/" },
+      { label: `All resources (${resources.length})`, href: "/resources/" },
     ],
   },
   {
@@ -295,6 +386,8 @@ export const footerNav = [
       { label: "About BizzFly", href: "/company/about/" },
       { label: "Our approach", href: "/company/approach/" },
       { label: "How we work", href: "/company/how-we-work/" },
+      { label: "Discovery process", href: "/company/discovery-process/" },
+      { label: "Engagement models", href: "/company/engagement-models/" },
       { label: "Careers", href: "/company/careers/" },
       { label: "Case studies", href: "/case-studies/" },
       { label: "Contact", href: "/contact/" },

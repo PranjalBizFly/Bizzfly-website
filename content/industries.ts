@@ -6,6 +6,8 @@
 
 import type { Industry } from "@/types/content";
 import { expandedIndustries } from "./industries-expanded";
+import { sectorIndustries } from "./industries-sectors";
+import { marketIndustries } from "./industries-markets";
 
 const coreIndustries: Industry[] = [
   {
@@ -228,7 +230,12 @@ const coreIndustries: Industry[] = [
   },
 ];
 
-export const industries: Industry[] = [...coreIndustries, ...expandedIndustries];
+export const industries: Industry[] = [
+  ...coreIndustries,
+  ...expandedIndustries,
+  ...sectorIndustries,
+  ...marketIndustries,
+];
 
 export function getIndustry(slug: string): Industry | undefined {
   return industries.find((i) => i.slug === slug);

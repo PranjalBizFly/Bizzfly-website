@@ -71,7 +71,7 @@
 }
 
 .tocHeading {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
@@ -96,7 +96,7 @@
 
 .tocList li::before {
   content: counter(toc, decimal-leading-zero);
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   color: var(--ink-400);
   flex-shrink: 0;
@@ -126,4 +126,8 @@
   margin-top: var(--space-8);
   padding-top: var(--space-6);
   border-top: 1px solid var(--border);
+}
+
+.visual {
+  margin-top: var(--space-8);
 }

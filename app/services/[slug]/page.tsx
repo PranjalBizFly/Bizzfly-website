@@ -13,6 +13,7 @@ import {
   EditorialBlock,
   ContentBlock,
   Diagram,
+  VisualStoryBlock,
 } from "@/components/sections";
 import { CtaBlock, TextLink } from "@/components/buttons";
 import { BodyText, Heading } from "@/components/typography";
@@ -20,6 +21,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { practices, getPractice } from "@/content/practices";
 import { services, getService } from "@/content/services";
 import { metaForService, serviceGroups } from "@/content/service-meta";
+import { getServiceImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import { relationshipsForService } from "@/lib/relationships";
 import { buildMetadata, faqSchema, serviceSchema } from "@/lib/seo";
@@ -63,11 +65,23 @@ export default async function ServicePage({ params }: PageProps) {
   if (!entity || !isPublished(entity)) notFound();
 
   const path = `/services/${slug}/`;
+  /*
+   * Composition comes from the assembled service, not from the lookup.
+   *
+   * metaForService falls back to {group: growth, layout: editorial,
+   * diagram: none} for any slug it does not know, so reading it directly
+   * gave every newer service the same editorial order — and that order puts
+   * problem, included and outcomes consecutively, all three rendered by
+   * EditorialBlock. The result was three identically shaped sections in a
+   * row on twenty pages. content/services.ts already resolves layout and
+   * diagram as `service.layout ?? meta.layout`, so read them from there.
+   */
   const meta = service ? metaForService(service.slug) : null;
-  const layout = meta?.layout ?? "editorial";
+  const layout = service?.layout ?? meta?.layout ?? "editorial";
+  const diagramKind = service?.diagram ?? meta?.diagram ?? "none";
   const parentPractice = service ? getPractice(service.practice) : undefined;
-  const group = meta
-    ? serviceGroups.find((g) => g.id === meta.group)
+  const group = service
+    ? serviceGroups.find((g) => g.id === (service.group ?? meta?.group))
     : undefined;
   const rel = relationshipsForService(slug);
 
@@ -80,14 +94,30 @@ export default async function ServicePage({ params }: PageProps) {
     { label: entity.title },
   ];
 
+  /*
+   * Curated order first, then everything else that belongs to this practice.
+   *
+   * practice.services is a hand-ordered shortlist and worth keeping as one —
+   * it puts the services people actually arrive looking for at the top. But
+   * read alone it silently omits any service added since the list was last
+   * touched, which leaves those pages reachable only from /services/ and not
+   * from their own parent hub. The union keeps the ordering and closes that.
+   */
   const childServices = practice
-    ? practice.services
-        .map((s) => services.find((x) => x.slug === s))
-        .filter((s): s is NonNullable<typeof s> => Boolean(s))
+    ? [
+        ...practice.services
+          .map((s) => services.find((x) => x.slug === s))
+          .filter((s): s is NonNullable<typeof s> => Boolean(s)),
+        ...services.filter(
+          (s) => s.practice === practice.id && !practice.services.includes(s.slug),
+        ),
+      ]
     : [];
 
   const process = service?.approach ?? practice?.process ?? [];
-  const hasDiagram = Boolean(meta && meta.diagram !== "none");
+  const hasDiagram = diagramKind !== "none";
+
+  const serviceVisual = getServiceImage(slug);
 
   /*
     Composition variants. The order and emphasis of sections changes with the
@@ -102,6 +132,19 @@ export default async function ServicePage({ params }: PageProps) {
           title="What this is usually brought in to fix"
           lead="Stated as we hear it, before any mention of what we would do about it."
           evidence={service.problems}
+        />
+      </Section>
+    ) : null,
+
+    visual: serviceVisual ? (
+      <Section key="visual" spacing="md" width="content">
+        <VisualStoryBlock
+          image={serviceVisual}
+          variant={layout === "editorial" ? "C" : "B"}
+          reverse={layout === "technology-led" || layout === "process-led"}
+          eyebrow={entity.title}
+          title={service ? `Delivering ${service.title.toLowerCase()} in practice` : `Core capabilities: ${entity.title}`}
+          lead={entity.answer}
         />
       </Section>
     ) : null,
@@ -137,7 +180,7 @@ export default async function ServicePage({ params }: PageProps) {
           level={2}
         />
         <div className="mt-8">
-          <Diagram kind={meta!.diagram} />
+          <Diagram kind={diagramKind} />
         </div>
       </Section>
     ) : null,
@@ -173,14 +216,60 @@ export default async function ServicePage({ params }: PageProps) {
     ) : null,
   };
 
+  /*
+   * problem, included and outcomes all render through EditorialBlock, so any
+   * order that puts them consecutively produces three identically shaped
+   * sections in a row. Every ordering below separates them with process,
+   * diagram, visual or boundary.
+   */
   const order: (keyof typeof sections)[] =
     layout === "process-led"
-      ? ["problem", "process", "included", "diagram", "outcomes", "boundary"]
+      ? ["problem", "process", "visual", "included", "diagram", "outcomes", "boundary"]
       : layout === "capability-led"
-        ? ["problem", "included", "diagram", "process", "outcomes", "boundary"]
+        ? ["problem", "visual", "included", "diagram", "process", "outcomes", "boundary"]
         : layout === "technology-led"
-          ? ["problem", "diagram", "included", "boundary", "process", "outcomes"]
-          : ["problem", "included", "outcomes", "process", "diagram", "boundary"];
+          ? ["problem", "diagram", "visual", "included", "boundary", "process", "outcomes"]
+          : ["problem", "visual", "included", "process", "outcomes", "diagram", "boundary"];
+
+  /*
+   * Separating the statements is not something the fixed orders above can
+   * guarantee, because which sections exist varies by service. A service with
+   * no approach steps and no diagram — several of the search services — drops
+   * both spacers out of its order and leaves problem, included and outcomes
+   * adjacent, which is three identically shaped sections however they were
+   * sequenced.
+   *
+   * So the order is a preference and this enforces the rule: walk the
+   * sections that actually exist, and when a third statement would follow two
+   * others, pull the next non-statement section forward to break the run.
+   * Where nothing is available to pull, the run stands — a page with only
+   * three sections has no arrangement that fixes it.
+   */
+  const STATEMENTS = new Set<keyof typeof sections>([
+    "problem",
+    "included",
+    "outcomes",
+  ]);
+
+  const present = order.filter((key) => sections[key]);
+  const composed: (keyof typeof sections)[] = [];
+  const remaining = [...present];
+
+  while (remaining.length > 0) {
+    const runLength = composed
+      .slice(-2)
+      .filter((key) => STATEMENTS.has(key)).length;
+
+    const nextIsStatement = STATEMENTS.has(remaining[0]!);
+    if (runLength === 2 && nextIsStatement) {
+      const spacer = remaining.findIndex((key) => !STATEMENTS.has(key));
+      if (spacer > 0) {
+        composed.push(...remaining.splice(spacer, 1));
+        continue;
+      }
+    }
+    composed.push(remaining.shift()!);
+  }
 
   return (
     <>
@@ -210,6 +299,18 @@ export default async function ServicePage({ params }: PageProps) {
         />
       )}
 
+      {/* Practice hub visual overview */}
+      {practice && serviceVisual ? (
+        <Section spacing="md" width="content">
+          <VisualStoryBlock
+            image={serviceVisual}
+            variant="C"
+            priority
+            caption={serviceVisual.caption || `BizzFly ${practice.title} practice in Pune.`}
+          />
+        </Section>
+      ) : null}
+
       {/* Practice hubs route; services explain. */}
       {practice && childServices.length > 0 ? (
         <Section spacing="lg">
@@ -229,7 +330,7 @@ export default async function ServicePage({ params }: PageProps) {
         </Section>
       ) : null}
 
-      {order.map((key) => sections[key])}
+      {composed.map((key) => sections[key])}
 
       {entity.faqs?.length ? (
         <Section spacing="lg">

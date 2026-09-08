@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0;
   z-index: var(--z-modal);
-  background: rgb(13 18 16 / 0.4);
+  background: var(--scrim-strong);
   display: flex;
   justify-content: center;
   padding: var(--space-4);
@@ -35,7 +35,7 @@
     max-width: none;
     max-height: 100dvh;
     height: 100dvh;
-    border-radius: 0;
+    border-radius: var(--radius-0);
     border: none;
   }
 }
@@ -59,7 +59,7 @@
   border: none;
   background: none;
   /* 16px minimum prevents iOS zoom-on-focus */
-  font-size: 1rem;
+  font-size: var(--text-body);
   color: var(--foreground);
   min-height: var(--touch-target-min);
 }
@@ -73,7 +73,7 @@
 }
 
 .escape {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   color: var(--ink-400);
   border: 1px solid var(--border);
@@ -90,7 +90,7 @@
 }
 
 .groupHeading {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
@@ -129,7 +129,7 @@
 }
 
 .resultUrl {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-caption);
   color: var(--ink-400);
   margin-top: 4px;
@@ -142,7 +142,7 @@
   gap: var(--space-4);
   padding: var(--space-3) var(--space-5);
   border-top: 1px solid var(--border);
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-caption);
   color: var(--muted);
   flex-shrink: 0;
@@ -164,7 +164,7 @@
 }
 
 .emptyHeading {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;

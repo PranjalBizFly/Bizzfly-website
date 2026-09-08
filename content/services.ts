@@ -8,6 +8,8 @@ import type { Service } from "@/types/content";
 import { visibilityServices } from "./visibility-services";
 import { deliveryServices } from "./delivery-services";
 import { webServices } from "./web-services";
+import { searchServices } from "./search-services";
+import { platformServices } from "./platform-services";
 import { contentForService } from "./service-content";
 import { metaForService } from "./service-meta";
 
@@ -355,6 +357,8 @@ const allServices: Service[] = [
   ...visibilityServices,
   ...deliveryServices,
   ...webServices,
+  ...searchServices,
+  ...platformServices,
 ];
 
 /**

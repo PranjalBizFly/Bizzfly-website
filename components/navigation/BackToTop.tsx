@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./BackToTop.module.css";
 
 const SHOW_AFTER_PX = 500;
@@ -19,6 +19,7 @@ const SHOW_AFTER_PX = 500;
  */
 export function BackToTop() {
   const [visible, setVisible] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > SHOW_AFTER_PX);
@@ -28,6 +29,25 @@ export function BackToTop() {
   }, []);
 
   const toTop = () => {
+    /*
+      Release focus before scrolling, or the scroll does not finish.
+
+      Clicking focuses this button. The smooth scroll then carries the page
+      up past SHOW_AFTER_PX, `visible` flips to false, and React marks the
+      still-focused button `inert` — at which point the browser has to move
+      focus out of an inert subtree, and that focus change cancels the
+      in-flight smooth scroll. The page stopped around 410px every time:
+      close enough to look deliberate, so the control appeared to work while
+      never actually reaching the top. Under prefers-reduced-motion the jump
+      is instant and lands before any of that, which is why it only ever
+      failed with animation on.
+
+      Blurring first puts focus on <body>, so nothing has to be moved
+      mid-scroll — and body is where a keyboard user wants to resume from
+      after being sent to the top anyway.
+    */
+    buttonRef.current?.blur();
+
     /* Honour the OS setting rather than forcing a long animated scroll. */
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
@@ -36,6 +56,7 @@ export function BackToTop() {
   return (
     <button
       type="button"
+      ref={buttonRef}
       onClick={toTop}
       className={styles.button}
       data-visible={visible}

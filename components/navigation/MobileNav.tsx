@@ -8,6 +8,7 @@ import type { PrimaryNavItem } from "@/types/content";
 import { Button } from "@/components/buttons";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { Chevron } from "./Chevron";
 import styles from "./MobileNav.module.css";
 
 interface MobileNavProps {
@@ -166,13 +167,14 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
                   onClick={() => setExpanded(isOpen ? null : index)}
                 >
                   {item.label}
-                  <span
-                    className={styles.accordionIcon}
-                    data-open={isOpen}
-                    aria-hidden="true"
-                  >
-                    &#43;
-                  </span>
+                  {/*
+                    The same down/up chevron the header bar uses, driven by
+                    the same React state. It replaces a plus/minus drawn from
+                    two pseudo-element bars: a plus reads as "add", and it
+                    gave the drawer a different disclosure language from the
+                    bar directly above it.
+                  */}
+                  <Chevron open={isOpen} className={styles.accordionIcon} />
                 </button>
 
                 {/*
@@ -231,8 +233,9 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
             {cta.label}
           </Button>
           {/* The header hides its toggle below md, so this is the only way
-              to change theme on a phone. It must not be omitted. */}
-          <ThemeToggle className={styles.footerToggle} />
+              to change theme on a phone. It must not be omitted. Labelled
+              here because the row has the width the header bar does not. */}
+          <ThemeToggle className={styles.footerToggle} showLabel />
         </div>
         <p className={styles.contact}>
           <a href={site.contact.phoneHref}>{site.contact.phone}</a>

@@ -13,6 +13,7 @@ import {
   TrustStandard,
   RelatedContent,
   ConversionBand,
+  VisualStoryBlock,
   type NumberedEntry,
 } from "@/components/sections";
 import { TextLink } from "@/components/buttons";
@@ -22,6 +23,7 @@ import { industries } from "@/content/industries";
 import { technologies } from "@/content/technologies";
 import { resources } from "@/content/resources";
 import { site } from "@/content/site";
+import { getHomepageImages } from "@/content/images";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -56,18 +58,55 @@ export const metadata: Metadata = {
   },
 };
 
-const industryEntries: NumberedEntry[] = industries.map((industry, index) => ({
-  index: String(index + 1).padStart(2, "0"),
-  title: industry.title,
-  description: industry.problems[0]?.description ?? industry.answer,
-  href: `/industries/${industry.slug}/`,
-  rail: industry.problems.slice(0, 3).map((problem) => ({
-    label: problem.title,
+/*
+ * The homepage shows a chosen six, not the catalogue.
+ *
+ * It used to map every industry. At twelve that was a long section; at
+ * twenty-six it measured 7,848px with 105 links — a third of the page, and
+ * more scrolling than any visitor gives a homepage before deciding. The
+ * complete set is one click away on /industries/, which is where the
+ * sitemap and the crawler find them, so nothing is hidden by choosing here.
+ *
+ * These six are picked for spread — a maker, a seller, a regulated buyer, a
+ * software business, a services firm and a network operator — so the section
+ * demonstrates range rather than listing inventory.
+ */
+const HOME_INDUSTRIES = [
+  "manufacturing",
+  "professional-services",
+  "saas",
+  "healthcare",
+  "ecommerce",
+  "logistics",
+];
+
+const industryEntries: NumberedEntry[] = HOME_INDUSTRIES.map(
+  (slug) => industries.find((i) => i.slug === slug),
+)
+  .filter((industry): industry is NonNullable<typeof industry> => Boolean(industry))
+  .map((industry, index) => ({
+    index: String(index + 1).padStart(2, "0"),
+    title: industry.title,
+    description: industry.problems[0]?.description ?? industry.answer,
     href: `/industries/${industry.slug}/`,
-  })),
-}));
+  }));
+
+/*
+ * Same reasoning for technology: eight of sixteen, and without the answer
+ * paragraph, which is what made each row three lines deep.
+ */
+const technologyEntries: NumberedEntry[] = technologies
+  .slice(0, 8)
+  .map((technology, index) => ({
+    index: String(index + 1).padStart(2, "0"),
+    title: technology.title,
+    description: technology.category,
+    href: `/technologies/${technology.slug}/`,
+  }));
 
 export default function HomePage() {
+  const homeImages = getHomepageImages();
+
   return (
     <>
       {/* Homepage is the entity anchor; WebPage ties it to the Organization. */}
@@ -84,7 +123,7 @@ export default function HomePage() {
         }}
       />
 
-      {/* 01 — Hero. Text LCP, no entrance animation, meaningful diagram. */}
+      {/* 01 — Hero. Text LCP, authentic team visual, meaningful diagram. */}
       <HomeHero />
 
       {/* 02 — What BizzFly does, grouped by the job to be done */}
@@ -96,6 +135,16 @@ export default function HomePage() {
           lead="Visibility with nothing behind it wastes budget. A good website nobody finds wastes more. We work across all four because in practice they are one problem."
         />
         <CapabilityGroups />
+        <div className={styles.sectionMedia}>
+          <VisualStoryBlock
+            image={homeImages.whatWeDo}
+            variant="B"
+            titleLevel={3}
+            eyebrow="Advisory & Architecture"
+            title="Strategic alignment across growth and engineering"
+            lead="Our strategists and developers in Pune evaluate your entire customer discovery journey, ensuring organic search visibility translates into reliable backend systems."
+          />
+        </div>
       </Section>
 
       {/*
@@ -112,6 +161,17 @@ export default function HomePage() {
           lead="These are not five names for the same work. Each layer describes a different retrieval mechanism, and a business can be strong on one and invisible on the next."
         />
         <VisibilitySpectrum />
+        <div className={styles.sectionMedia}>
+          <VisualStoryBlock
+            image={homeImages.visibility}
+            variant="B"
+            reverse
+            titleLevel={3}
+            eyebrow="Search Intelligence"
+            title="Multi-surface search query analysis"
+            lead="Monitoring how your audience searches across organic engines, vertical directories, and local map packs to capture high-intent demand."
+          />
+        </div>
       </Section>
 
       {/* 04 — The visitor's problems, in their words */}
@@ -123,6 +183,16 @@ export default function HomePage() {
           lead="Most engagements start with one of these sentences. Each links to how we would approach it."
         />
         <ProblemList />
+        <div className={styles.sectionMedia}>
+          <VisualStoryBlock
+            image={homeImages.aiSearch}
+            variant="B"
+            titleLevel={3}
+            eyebrow="Generative AI & AEO"
+            title="Entity-first retrieval for modern answer engines"
+            lead="We structure company knowledge bases and structured schema so AI search models—including Google AI Overviews and ChatGPT—cite your business accurately."
+          />
+        </div>
       </Section>
 
       {/* 05 — By business situation. No pricing, no packages. */}
@@ -134,6 +204,17 @@ export default function HomePage() {
           lead="Businesses move between these. The mistake is buying the work that suits the stage you wish you were at."
         />
         <StageList />
+        <div className={styles.sectionMedia}>
+          <VisualStoryBlock
+            image={homeImages.automation}
+            variant="B"
+            reverse
+            titleLevel={3}
+            eyebrow="Operations"
+            title="Connected business automation"
+            lead="Automating repetitive workflows, lead routing, and customer support handoffs so your team scales revenue without proportional overhead."
+          />
+        </div>
       </Section>
 
       {/* 06 — Industries */}
@@ -146,7 +227,9 @@ export default function HomePage() {
         />
         <NumberedList items={industryEntries} />
         <div className={styles.sectionFooter}>
-          <TextLink href="/industries/">All industries</TextLink>
+          <TextLink href="/industries/">
+            All {industries.length} industries
+          </TextLink>
         </div>
       </Section>
 
@@ -162,16 +245,21 @@ export default function HomePage() {
           title="We are not a marketing agency with a developer attached"
           lead="The same team that finds the crawl problem capping your visibility can fix the template causing it. Every technology page states what we use, why, and when we would tell you to use something else."
         />
-        <NumberedList
-          items={technologies.map((technology, index) => ({
-            index: String(index + 1).padStart(2, "0"),
-            title: technology.title,
-            description: technology.answer,
-            href: `/technologies/${technology.slug}/`,
-          }))}
-        />
+        <NumberedList items={technologyEntries} />
+        <div className={styles.sectionMedia}>
+          <VisualStoryBlock
+            image={homeImages.technology}
+            variant="B"
+            titleLevel={3}
+            eyebrow="Engineering Standards"
+            title="Software developers who build for search performance"
+            lead="We engineer fast, accessible web applications and custom software that satisfy Google's Core Web Vitals while scaling your business logic."
+          />
+        </div>
         <div className={styles.sectionFooter}>
-          <TextLink href="/technologies/">All technologies</TextLink>
+          <TextLink href="/technologies/">
+            All {technologies.length} technologies
+          </TextLink>
         </div>
       </Section>
 

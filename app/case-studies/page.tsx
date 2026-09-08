@@ -7,13 +7,16 @@ import {
   ProcessBlock,
   ConversionBand,
   RelatedContent,
+  Directory,
+  VisualStoryBlock,
 } from "@/components/sections";
 import { Button, TextLink } from "@/components/buttons";
 import { BodyText, Heading } from "@/components/typography";
 import { JsonLd } from "@/components/JsonLd";
 import { publishedCaseStudies } from "@/content/case-studies";
-import { industries } from "@/content/industries";
+import { sectorDirectory } from "@/content/taxonomy";
 import { primaryCta } from "@/content/navigation";
+import { getCaseStudiesImage } from "@/content/images";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import styles from "./case-studies.module.css";
@@ -155,6 +158,14 @@ export default function CaseStudiesPage() {
         </Section>
       )}
 
+      <Section spacing="md" width="content">
+        <VisualStoryBlock
+          image={getCaseStudiesImage()}
+          variant="C"
+          caption="Every case study BizzFly publishes requires written client approval, verified before-and-after commercial metrics, and honest documentation of project constraints."
+        />
+      </Section>
+
       <Section background={hasPublished ? "bg" : "surface"} spacing="lg">
         <SectionHeader
           split
@@ -173,15 +184,7 @@ export default function CaseStudiesPage() {
           title="See how we approach work in your sector"
           lead="Each industry page names the problems we actually see there and the capabilities that address them."
         />
-        <RelatedContent
-          mode="list"
-          items={industries.map((industry) => ({
-            label: industry.title,
-            href: `/industries/${industry.slug}/`,
-            type: "INDUSTRY",
-            description: industry.problems[0]?.title,
-          }))}
-        />
+        <Directory groups={sectorDirectory()} />
       </Section>
 
       <ConversionBand

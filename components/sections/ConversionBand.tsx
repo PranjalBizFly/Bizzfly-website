@@ -26,8 +26,16 @@ export function ConversionBand({
   lead = "Describe the problem in your own words. If we are not the right people for it, we will say so.",
   cta = defaultCta,
 }: ConversionBandProps) {
+  /*
+   * md, not lg. The band's content is a heading, a lead and a button —
+   * about 182px at desktop — and lg spacing wrapped that in 272px of
+   * padding, so 60% of the band was air. lg is sized for sections that
+   * carry content; this one is a punctuation mark, and it appears on
+   * nearly every page, so the difference is ~96px × 300 pages of scroll
+   * that was not doing any work.
+   */
   return (
-    <Section background="inverse" spacing="lg">
+    <Section background="inverse" spacing="md">
       <div className={styles.conversion}>
         <div>
           <Heading level={2} size="h2" className={styles.conversionTitle}>

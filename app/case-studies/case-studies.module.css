@@ -9,7 +9,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4);
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;

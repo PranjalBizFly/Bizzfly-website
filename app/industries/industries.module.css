@@ -23,7 +23,7 @@
 }
 
 .sectorIndex {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   color: var(--ink-400);
   font-variant-numeric: tabular-nums;
@@ -58,7 +58,7 @@
 }
 
 .columnLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;

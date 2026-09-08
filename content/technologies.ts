@@ -5,6 +5,7 @@
 
 import type { Technology } from "@/types/content";
 import { moreTechnologies } from "./more-technologies";
+import { platformTechnologies } from "./technologies-platform";
 
 const coreTechnologies: Technology[] = [
   {
@@ -230,6 +231,7 @@ const coreTechnologies: Technology[] = [
 export const technologies: Technology[] = [
   ...coreTechnologies,
   ...moreTechnologies,
+  ...platformTechnologies,
 ];
 
 export function getTechnology(slug: string): Technology | undefined {

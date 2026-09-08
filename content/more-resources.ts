@@ -14,7 +14,7 @@ export const moreResources: Resource[] = [
     slug: "what-is-ai-optimisation",
     type: "glossary",
     topic: "AI Search",
-    title: "AI Optimisation (AIO)",
+    title: "What Is AI Optimisation?",
     answer:
       "AI Optimisation is the work of structuring a website so AI systems can read, classify and reuse it — covering server-rendered content, machine-readable data, and deliberate crawler access.",
     body: [
@@ -29,7 +29,7 @@ export const moreResources: Resource[] = [
       title: "What Is AI Optimisation (AIO)?",
       description:
         "AIO is the work of making a site readable by AI systems — server rendering, structured data anchored to one entity, and deliberate crawler access.",
-      primaryTopic: "AI optimisation",
+      primaryTopic: "what is AI optimisation",
       secondaryTopics: ["AIO", "AI crawlability", "server rendering"],
       intent: "informational",
     },
@@ -64,7 +64,7 @@ export const moreResources: Resource[] = [
     slug: "what-is-search-experience-optimisation",
     type: "glossary",
     topic: "SEO",
-    title: "Search Experience Optimisation (SXO)",
+    title: "What Is Search Experience Optimisation?",
     answer:
       "Search Experience Optimisation is the work that happens after the click — matching what a page delivers to the intent behind the query, so search visibility turns into enquiries rather than bounces.",
     body: [
@@ -78,7 +78,7 @@ export const moreResources: Resource[] = [
       title: "What Is Search Experience Optimisation (SXO)?",
       description:
         "SXO is the work after the click — matching pages to search intent so visibility becomes enquiries rather than bounces.",
-      primaryTopic: "search experience optimisation",
+      primaryTopic: "what is search experience optimisation",
       secondaryTopics: ["SXO", "conversion", "search intent"],
       intent: "informational",
     },

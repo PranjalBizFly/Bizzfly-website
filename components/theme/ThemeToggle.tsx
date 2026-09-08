@@ -15,7 +15,14 @@ import styles from "./ThemeToggle.module.css";
  * The label is the part that cannot be done in CSS, so it stays neutral
  * until the theme resolves on mount — see useTheme.
  */
-export function ThemeToggle({ className }: { className?: string }) {
+export function ThemeToggle({
+  className,
+  showLabel = false,
+}: {
+  className?: string;
+  /** Prints the current theme beside the icon. Used where the row has room. */
+  showLabel?: boolean;
+}) {
   const { theme, toggle } = useTheme();
 
   const label =
@@ -29,9 +36,18 @@ export function ThemeToggle({ className }: { className?: string }) {
     <button
       type="button"
       onClick={toggle}
-      className={[styles.toggle, className].filter(Boolean).join(" ")}
+      className={[styles.toggle, showLabel && styles.withLabel, className]
+        .filter(Boolean)
+        .join(" ")}
       aria-label={label}
       title={label}
+      /*
+        Dark is the "on" state of the control, which is what a screen reader
+        announces alongside the action in the label. Left off entirely until
+        the theme resolves on mount, because the server cannot know it and
+        aria-pressed="false" would be an assertion rather than an absence.
+      */
+      aria-pressed={theme === null ? undefined : theme === "dark"}
     >
       <span className={styles.icons} aria-hidden="true">
         {/* Sun — shown in light mode */}
@@ -60,6 +76,23 @@ export function ThemeToggle({ className }: { className?: string }) {
           <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z" />
         </svg>
       </span>
+
+      {/*
+        The icon alone tells you which way the control will move, not which
+        state you are in. Where the row has the width for it — the drawer —
+        the state is named outright. aria-hidden because aria-label already
+        carries the whole control to a screen reader; announcing "Dark" a
+        second time would only add noise.
+
+        Only ever rendered inside the drawer, which cannot open before
+        hydration, so `theme` is always resolved by the time this is on
+        screen and the neutral fallback is never actually seen.
+      */}
+      {showLabel ? (
+        <span className={styles.label} aria-hidden="true">
+          {theme === null ? "Theme" : theme === "dark" ? "Dark" : "Light"}
+        </span>
+      ) : null}
     </button>
   );
 }

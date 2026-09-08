@@ -104,7 +104,7 @@ export function GET(request: NextRequest) {
             display: "flex",
             alignItems: "center",
             gap: "20px",
-            borderTop: "1px solid rgba(245,247,250,0.16)",
+            borderTop: `1px solid ${brand.borderInverse}`,
             paddingTop: "28px",
           }}
         >

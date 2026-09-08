@@ -7,6 +7,7 @@ import {
   RelatedContent,
   RelationshipMap,
   ConversionBand,
+  VisualStoryBlock,
 } from "@/components/sections";
 import { Heading, BodyText, Eyebrow } from "@/components/typography";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
@@ -14,6 +15,7 @@ import { CtaBlock, TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { ReadingProgress } from "@/components/motion";
 import { resources, getResource } from "@/content/resources";
+import { getResourceImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import {
   serviceLink,
@@ -78,6 +80,7 @@ export default async function ResourcePage({ params }: PageProps) {
   const resource = getResource(slug);
   if (!resource || !isPublished(resource)) notFound();
 
+  const resourceVisual = getResourceImage(slug);
   const isGlossary = resource.type === "glossary";
 
   const clean = (links: (RelatedLink | null)[]) =>
@@ -165,6 +168,16 @@ export default async function ResourcePage({ params }: PageProps) {
             <BodyText size="lg" className={styles.answer}>
               {resource.answer}
             </BodyText>
+
+            {resourceVisual ? (
+              <div className={styles.visual}>
+                <VisualStoryBlock
+                  image={resourceVisual}
+                  variant="C"
+                  caption={resourceVisual.caption}
+                />
+              </div>
+            ) : null}
 
             {paragraphs.length > 0 ? (
               <div className={styles.body}>

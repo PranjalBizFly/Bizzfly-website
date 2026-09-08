@@ -64,7 +64,7 @@
 }
 
 .numberedIndex {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   color: var(--ink-400);
   font-variant-numeric: tabular-nums;
@@ -191,7 +191,7 @@
 }
 
 .evidenceIndex {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   color: var(--ink-400);
   font-variant-numeric: tabular-nums;
@@ -221,7 +221,7 @@
 }
 
 .stepIndex {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   color: var(--ink-400);
@@ -241,7 +241,7 @@
 }
 
 .stepDuration {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-caption);
   color: var(--ink-400);
   margin-top: var(--space-3);
@@ -260,7 +260,7 @@
 }
 
 .quoteAttribution {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-meta);
   color: var(--muted);
   margin-top: var(--space-6);
@@ -342,7 +342,7 @@
 }
 
 .relatedType {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   color: var(--muted);
@@ -434,10 +434,18 @@
   overflow: hidden;
   border-radius: var(--radius-md);
   background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.mediaBlock img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .mediaCaption {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-caption);
   color: var(--muted);
   margin-top: var(--space-3);
@@ -468,7 +476,7 @@
 /* Marks unverified content in preview. Never ships to production. */
 .contentRequired {
   display: inline-block;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   color: var(--warning);

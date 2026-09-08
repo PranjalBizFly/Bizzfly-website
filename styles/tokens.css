@@ -193,6 +193,18 @@
   --cta-primary-active: var(--blue-700);
   --cta-primary-text:   #FFFFFF;
 
+  /* ---------------------------------------------------------------------
+     SCRIM — the wash behind a modal or an open menu panel.
+
+     Both scrims used to be written inline. The header's was the brand ink
+     at 32%, correct but untokenised; the search dialog's was
+     rgb(13 18 16 / 0.4) — #0D1210, a green-black that is not in the
+     palette at all and was within a few units of the ink it was meant to
+     be. One token, derived from ink-900, so neither can drift again.
+     --------------------------------------------------------------------- */
+  --scrim:                 rgb(13 20 32 / 0.32);
+  --scrim-strong:          rgb(13 20 32 / 0.48);
+
   /* --- Focus ---------------------------------------------------------- */
   --focus-ring:            var(--ink-900);
   --focus-ring-inverse:    var(--green-500);
@@ -215,7 +227,31 @@
      --------------------------------------------------------------------- */
   --font-display: "Funnel Sans", "Funnel Sans Fallback", system-ui, sans-serif;
   --font-body:    "Poppins", "Poppins Fallback", system-ui, sans-serif;
-  --font-mono:    "IBM Plex Mono", "IBM Plex Mono Fallback", ui-monospace, monospace;
+
+  /* ---------------------------------------------------------------------
+     THE LABEL VOICE — eyebrows, meta lines, metric labels, section
+     indices, breadcrumbs, and nav/search chrome.
+
+     This role used to resolve to IBM Plex Mono. That was a THIRD typeface,
+     and the brand guidelines enumerate exactly two: Funnel Sans for
+     display, Poppins for everything else. A monospace face reads as a
+     deliberate editorial voice rather than a neutral utility, so 70
+     declarations of it across the site amounted to an unsanctioned brand
+     typeface competing with Poppins.
+
+     The role is real, so it keeps a token — the token now resolves to
+     Poppins. What makes a label read as a label here is that it is small,
+     uppercase and tracked; the typeface no longer has to carry it.
+     --------------------------------------------------------------------- */
+  --font-label:   var(--font-body);
+
+  /* ---------------------------------------------------------------------
+     Machine strings ONLY — currently the error digest in app/error.tsx and
+     nothing else. A system stack, so no webfont is downloaded for it and
+     no non-brand typeface enters the page. `npm run verify:brand` asserts
+     that this token has exactly one consumer.
+     --------------------------------------------------------------------- */
+  --font-mono:    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
   /* Fluid sizes: clamp(min, intercept + slope*vw, max) — computed, not guessed */
   --text-display-xl: clamp(2.75rem,  1.6667rem + 4.8148vw, 6rem);      /* 44→96 */
@@ -233,6 +269,15 @@
   --text-meta:       0.8125rem;  /* 13px */
   --text-metric:     clamp(2.5rem, 1.8333rem + 2.9630vw, 4.5rem);      /* 40→72 */
   --text-quote:      clamp(1.5rem, 1.2917rem + 0.9259vw, 2.125rem);    /* 24→34 */
+  /* Relative, not absolute, because these sit INSIDE running text and must
+     track whatever size their parent is set to. Absolute tokens would break
+     that relationship the moment the surrounding size changed. */
+  --text-inline:     0.9em;      /* inline code, markers, kbd */
+  --text-glyph:      0.6em;      /* a chevron or caret beside a label */
+  /* A standalone UI glyph in an icon button — absolute, because it sizes the
+     control's mark rather than tracking a run of text. */
+  --text-icon:       1.125rem;   /* 18px */
+
   --text-nav:        0.9375rem;  /* 15px */
   --text-nav-sub:    0.875rem;   /* 14px */
   --text-button:     0.9375rem;  /* 15px */
@@ -295,7 +340,14 @@
   --container-text:    40rem;    /*  640 — 62–72ch at the wider Poppins set */
   --container-narrow:  35rem;    /*  560 */
 
-  --margin: 1.25rem;             /* xs default; overridden per breakpoint */
+  /*
+   * 24px, not the 20px this used to be. The header logo sits at the leading
+   * container edge, so the page margin IS its leading clearspace — and the
+   * brand requires 23.2px. 20px missed it on every viewport below 480px.
+   * Raising the base margin fixes the logo and keeps the whole page aligned
+   * to one edge, which a logo-only inset would not.
+   */
+  --margin: 1.5rem;              /* xs default; overridden per breakpoint */
   --gutter: 1rem;
   --grid-columns: 4;
 
@@ -312,9 +364,34 @@
      --------------------------------------------------------------------- */
   --logo-height:            1.875rem; /* 30px — header; the brand minimum  */
   --logo-height-sm:         1.875rem; /* 30px — condensed; cannot go lower */
-  --logo-height-footer:     2.5rem;   /* 40px                              */
+  /*
+   * The footer mark carries its full clearspace as padding, and the footer
+   * pulls that padding back by the same amount so the artwork lines up with
+   * the address beneath it. That only works while the clearspace fits inside
+   * the page gutter — otherwise the reserved space lands outside the
+   * viewport, which means the logo is genuinely closer to the screen edge
+   * than the guidelines allow.
+   *
+   * 40px needs 30.9px of clearspace and the gutter below 768px is 24px, so
+   * the mark steps down to the 30px brand minimum there (23.2px, inside 24).
+   * From 768px the gutter is 32px and the larger mark fits.
+   */
+  --logo-height-footer:     1.875rem; /* 30px below md; 40px from md up    */
   --logo-min-height:        1.875rem; /* 30px — brand minimum for digital  */
   --logo-clearspace-ratio:  0.773;    /* cap height 111.3 ÷ 144 (measured) */
+
+  /*
+   * The clearspace requirement as a usable length: 0.773 × 30px = 23.2px.
+   *
+   * BrandLogo applies clearspace as padding when it owns its own box. The
+   * header and the mobile drawer set clearspace={false} because the bar's
+   * own height already supplies the vertical clearance and the padding
+   * would double it — but that left the HORIZONTAL clearance to a generic
+   * flex gap (12px in the header, 16px in the drawer), both under the
+   * 23.2px the guidelines require. This token is what those two places
+   * reserve on the trailing edge instead of guessing.
+   */
+  --logo-clearspace: calc(var(--logo-height) * var(--logo-clearspace-ratio));
 
   /* ---------------------------------------------------------------------
      RADIUS — restrained. Nothing above 8px.
@@ -374,8 +451,11 @@
 /* ==========================================================================
    BREAKPOINT OVERRIDES — grid, margin, gutter
    ========================================================================== */
-@media (min-width: 480px)  { :root { --margin: 1.5rem; } }
-@media (min-width: 768px)  { :root { --margin: 2rem; --gutter: 1.5rem; --grid-columns: 8; } }
+/* 480 no longer changes --margin: the base is already 1.5rem, for the logo
+   clearspace reason documented above. */
+/* The 32px gutter here is what lets the footer mark grow to 40px and still
+   keep its 30.9px clearspace inside the page. */
+@media (min-width: 768px)  { :root { --margin: 2rem; --gutter: 1.5rem; --grid-columns: 8; --logo-height-footer: 2.5rem; } }
 @media (min-width: 1024px) { :root { --margin: 2.5rem; --grid-columns: 12; } }
 @media (min-width: 1280px) { :root { --margin: 3rem; --gutter: 2rem; } }
 

@@ -1,0 +1,43 @@
+{
+  "generated": "2026-09-08",
+  "existingPages": 300,
+  "publishedPages": 300,
+  "draftPages": 0,
+  "incompletePages": 0,
+  "brokenPages": 0,
+  "orphanPages": 0,
+  "duplicatePages": 0,
+  "duplicateUrls": 0,
+  "duplicateTitles": 0,
+  "duplicateH1s": 0,
+  "duplicateDescriptions": 0,
+  "duplicatePrimaryKeywords": 0,
+  "highSimilarityPairs": 0,
+  "reviewSimilarityPairs": 0,
+  "sitemapPages": 297,
+  "byCategory": {
+    "Case Studies": 1,
+    "Company": 24,
+    "Industries": 27,
+    "Other": 2,
+    "Resources": 146,
+    "Services": 52,
+    "Technologies": 17,
+    "Use Cases": 31
+  },
+  "byPageType": {
+    "company": 22,
+    "index": 10,
+    "industry": 26,
+    "practice": 6,
+    "resource:article": 4,
+    "resource:checklist": 17,
+    "resource:comparison": 20,
+    "resource:decision": 20,
+    "resource:glossary": 64,
+    "resource:guide": 20,
+    "service": 45,
+    "technology": 16,
+    "use-case": 30
+  }
+}

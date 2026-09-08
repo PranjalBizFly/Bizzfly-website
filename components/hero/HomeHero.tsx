@@ -1,19 +1,20 @@
+import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { Button, ButtonGroup, TextLink } from "@/components/buttons";
 import { DiscoveryDiagram } from "@/components/sections/DiscoveryDiagram";
 import { primaryCta } from "@/content/navigation";
+import { getHomepageImages } from "@/content/images";
 import styles from "./HomeHero.module.css";
 
 /**
  * Homepage hero.
  *
- * Renders immediately with no entrance animation — the headline is the LCP
- * element, and animating it would delay LCP by definition.
- *
- * The visual is a diagram of the actual problem, not a decorative graphic or
- * a fake product screenshot.
+ * Combines authentic technology team visual realism with the discovery
+ * diagram, demonstrating human expertise behind AI and digital systems.
  */
 export function HomeHero() {
+  const images = getHomepageImages();
+
   return (
     <section className={styles.hero}>
       <Container>
@@ -60,7 +61,24 @@ export function HomeHero() {
           </div>
 
           <div className={styles.visual}>
-            <DiscoveryDiagram />
+            <div className={styles.heroVisualFrame}>
+              <Image
+                src={images.hero.src}
+                alt={images.hero.alt}
+                width={images.hero.width}
+                height={images.hero.height}
+                priority
+                sizes="(min-width: 1280px) 500px, (min-width: 1024px) 45vw, 100vw"
+                className={styles.heroImage}
+              />
+              <div className={styles.heroBadge}>
+                <span className={styles.heroBadgeDot} />
+                <span>BizzFly engineering & growth team · Pune</span>
+              </div>
+            </div>
+            <div className={styles.diagramWrapper}>
+              <DiscoveryDiagram />
+            </div>
           </div>
         </div>
       </Container>

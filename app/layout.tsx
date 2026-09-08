@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Funnel_Sans, Poppins, IBM_Plex_Mono } from "next/font/google";
+import { Funnel_Sans, Poppins } from "next/font/google";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/footer/Footer";
 import { BackToTop } from "@/components/navigation/BackToTop";
@@ -20,10 +20,17 @@ import "./globals.css";
  * Poppins publishes no variable build, so its three brand weights —
  * Regular 400, Medium 500, Bold 700 — are requested explicitly.
  *
+ * These two are the ENTIRE typeface list, because the brand guidelines
+ * specify exactly two families. A third — IBM Plex Mono — was previously
+ * loaded here and used for eyebrows, meta lines and labels across the site;
+ * that role now resolves to Poppins through --font-label, and the machine
+ * -string token --font-mono is a system stack. One fewer webfont request
+ * and one fewer non-brand typeface on the page.
+ *
  * These CSS variables are bound to the design system's family tokens in
- * app/globals.css. Components only ever see --font-display / --font-body,
- * so replacing this loader with licensed font files later touches this file
- * and globals.css, and nothing else.
+ * app/globals.css. Components only ever see --font-display / --font-body /
+ * --font-label, so replacing this loader with licensed font files later
+ * touches this file and globals.css, and nothing else.
  */
 const funnelSans = Funnel_Sans({
   subsets: ["latin"],
@@ -36,13 +43,6 @@ const poppins = Poppins({
   variable: "--font-poppins",
   display: "swap",
   weight: ["400", "500", "700"],
-});
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  variable: "--font-plex-mono",
-  display: "swap",
-  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -136,7 +136,7 @@ export default function RootLayout({
   return (
     <html
       lang={locale}
-      className={`${funnelSans.variable} ${poppins.variable} ${plexMono.variable}`}
+      className={`${funnelSans.variable} ${poppins.variable}`}
       /*
         data-theme is written by the script below before React sees the
         document, so the server markup and the live attribute differ by

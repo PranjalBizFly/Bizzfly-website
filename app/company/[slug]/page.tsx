@@ -10,11 +10,13 @@ import {
   RelatedContent,
   FAQBlock,
   EmptyState,
+  VisualStoryBlock,
 } from "@/components/sections";
 import { Heading, BodyText } from "@/components/typography";
 import { CtaBlock, Button, TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { allCompanyPages, getCompanyPage } from "@/content/company";
+import { getCompanyImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import { serviceLink } from "@/lib/relationships";
 import type { RelatedLink } from "@/types/content";
@@ -91,6 +93,8 @@ export default async function CompanyPage({ params }: PageProps) {
     .map(serviceLink)
     .filter((l): l is RelatedLink => l !== null);
 
+  const companyVisual = getCompanyImage(slug);
+
   return (
     <>
       <JsonLd
@@ -116,6 +120,17 @@ export default async function CompanyPage({ params }: PageProps) {
         ]}
         actions={isLegal ? undefined : <CtaBlock cta={page.cta} size="lg" />}
       />
+
+      {companyVisual ? (
+        <Section spacing="md" width="content">
+          <VisualStoryBlock
+            image={companyVisual}
+            variant="C"
+            priority={slug === "about"}
+            caption={companyVisual.caption}
+          />
+        </Section>
+      ) : null}
 
       {page.body?.length ? (
         <Section spacing="lg" width="text">

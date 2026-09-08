@@ -91,7 +91,7 @@
 }
 
 .itemAppliedLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
 }
@@ -112,8 +112,8 @@
 }
 
 .marker {
-  font-family: var(--font-mono);
-  font-size: 0.9em;
+  font-family: var(--font-label);
+  font-size: var(--text-inline);
   color: var(--warning);
   background: var(--warning-subtle);
   padding: 0.1em 0.4em;

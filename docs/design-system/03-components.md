@@ -198,7 +198,7 @@ A drill-down stack, authored separately (principle P12).
 
 ### Breadcrumbs
 
-`--text-meta` (Plex Mono 13px), separator `/` in `--ink-400`, current page not a link,
+`--text-meta` (Poppins Regular 13px), separator `/` in `--ink-400`, current page not a link,
 `BreadcrumbList` schema. On mobile, collapse the middle to `…` and keep the immediate
 parent — the parent is what people use to go up a level.
 

@@ -12,12 +12,14 @@ import {
   ContentBlock,
   EditorialBlock,
   Diagram,
+  VisualStoryBlock,
 } from "@/components/sections";
 import { CtaBlock, TextLink } from "@/components/buttons";
 import { BodyText, Heading } from "@/components/typography";
 import { JsonLd } from "@/components/JsonLd";
 import { industries, getIndustry } from "@/content/industries";
 import { services } from "@/content/services";
+import { getIndustryImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import { relationshipsForIndustry } from "@/lib/relationships";
 import { buildMetadata, faqSchema, serviceSchema } from "@/lib/seo";
@@ -96,11 +98,27 @@ export default async function IndustryPage({ params }: PageProps) {
     </Section>
   ) : null;
 
+  const industryVisual = getIndustryImage(slug);
+
+  /*
+   * Editorial context enriched with topic-specific industry visual.
+   */
   const context = (
-    <Section key="context" spacing="lg" width="text">
-      <ContentBlock>
-        <BodyText size="lg">{industry.context}</BodyText>
-      </ContentBlock>
+    <Section key="context" spacing="md" width="content">
+      {industryVisual ? (
+        <VisualStoryBlock
+          image={industryVisual}
+          variant="B"
+          reverse
+          eyebrow="Sector Context"
+          title={`Digital growth for ${industry.title}`}
+          lead={industry.context}
+        />
+      ) : (
+        <ContentBlock>
+          <BodyText size="lg">{industry.context}</BodyText>
+        </ContentBlock>
+      )}
     </Section>
   );
 

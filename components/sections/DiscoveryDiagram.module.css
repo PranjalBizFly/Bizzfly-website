@@ -17,7 +17,7 @@
 }
 
 .queryLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 12px;
   letter-spacing: 0.12em;
   fill: var(--muted);
@@ -45,7 +45,7 @@
 }
 
 .surfaceCode {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 12px;
   letter-spacing: 0.08em;
   fill: var(--accent-text);
@@ -70,14 +70,14 @@
 }
 
 .stateTextOn {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 12px;
   letter-spacing: 0.1em;
   fill: var(--cta-primary-text);
 }
 
 .stateTextOff {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 12px;
   letter-spacing: 0.1em;
   fill: var(--muted);
@@ -91,14 +91,14 @@
 }
 
 .foundationText {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 12px;
   letter-spacing: 0.04em;
   fill: var(--muted);
 }
 
 .caption {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-caption);
   color: var(--muted);
   margin-top: var(--space-5);

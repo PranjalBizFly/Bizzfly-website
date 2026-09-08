@@ -15,14 +15,16 @@
  *
  * Sequence:
  *   1. contrast tokens        — design system colour contract
- *   2. content registry       — slugs, relationships, publication status
- *   3. typecheck              — TypeScript
- *   4. lint                   — ESLint
- *   5. production build       — must succeed
- *   6. internal links         — every href resolves to a generated route
- *   7. SEO                    — H1, canonical, metadata uniqueness, JSON-LD
- *   8. page inventory         — URL count reconciled against the build output
- *   9. responsive             — 18 pages × 12 viewports in real Chrome
+ *   2. brand compliance       — palette, typefaces, logo rules, token use
+ *   3. content registry       — slugs, relationships, publication status
+ *   4. typecheck              — TypeScript
+ *   5. lint                   — ESLint
+ *   6. production build       — must succeed
+ *   7. internal links         — every href resolves to a generated route
+ *   8. SEO                    — H1, canonical, metadata uniqueness, JSON-LD
+ *   9. page inventory         — URL count reconciled against the build output
+ *  10. responsive             — one page per composition × 12 viewports in real Chrome
+ *  11. section rhythm         — page height, whitespace ratio, repeated shapes
  */
 
 import { spawn, spawnSync } from "node:child_process";
@@ -49,6 +51,7 @@ function run(label, args, options = {}) {
 
 const steps = [
   ["Contrast tokens", ["docs/design-system/verify-contrast.mjs"]],
+  ["Brand compliance", ["scripts/verify-brand.mjs"]],
   [
     "Content registry",
     [
@@ -57,6 +60,16 @@ const steps = [
       "--import",
       "./scripts/alias-hooks.mjs",
       "scripts/verify-content.ts",
+    ],
+  ],
+  [
+    "Image system (zero duplicates, valid paths, alt text)",
+    [
+      "--experimental-strip-types",
+      "--no-warnings",
+      "--import",
+      "./scripts/alias-hooks.mjs",
+      "scripts/verify-image-usage.mjs",
     ],
   ],
   ["TypeScript", [TSC_BIN, "--noEmit"]],
@@ -132,7 +145,10 @@ if (!up) {
   console.error("\nServer did not start; skipping server-backed checks.\n");
   results.push({ label: "Responsive", ok: false });
 } else {
-  run("Responsive (18 pages × 12 viewports)", ["scripts/verify-responsive.mjs"], {
+  run("Responsive (every composition × 12 viewports)", ["scripts/verify-responsive.mjs"], {
+    env: { ...process.env, QA_BASE: BASE },
+  });
+  run("Section rhythm", ["scripts/verify-rhythm.mjs"], {
     env: { ...process.env, QA_BASE: BASE },
   });
 }

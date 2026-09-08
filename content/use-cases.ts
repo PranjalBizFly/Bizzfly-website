@@ -6,6 +6,8 @@
 import type { UseCase } from "@/types/content";
 import { moreUseCases } from "./more-use-cases";
 import { operationsUseCases } from "./use-cases-operations";
+import { revenueUseCases } from "./use-cases-revenue";
+import { deliveryUseCases } from "./use-cases-delivery";
 
 const coreUseCases: UseCase[] = [
   {
@@ -316,6 +318,8 @@ export const useCases: UseCase[] = [
   ...coreUseCases,
   ...moreUseCases,
   ...operationsUseCases,
+  ...revenueUseCases,
+  ...deliveryUseCases,
 ];
 
 export function getUseCase(slug: string): UseCase | undefined {

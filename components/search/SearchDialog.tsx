@@ -52,12 +52,61 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     };
   }, [open]);
 
+  /*
+   * Escape, bound on the document rather than only on the dialog.
+   *
+   * The handler below fires on the dialog's own onKeyDown, which requires
+   * focus to be inside it — and focus is not always there. Clicking a result
+   * row and coming back, or any stray click on the backdrop, leaves the
+   * activeElement outside the panel, and Escape then did nothing at all: the
+   * dialog stayed up with the body still scroll-locked behind it. A modal
+   * has to be dismissable from wherever focus happens to be.
+   */
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open, onClose]);
+
   if (!open) return null;
 
   const onKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === "Escape") {
       event.preventDefault();
       onClose();
+      return;
+    }
+    /*
+     * Focus trap. The dialog declares aria-modal, which tells a screen
+     * reader the rest of the page is inert — but that is an announcement,
+     * not a behaviour. Without this, Tab walks straight out of the dialog
+     * into the page behind it, so the reader is told they are in a modal
+     * while their focus is somewhere else entirely.
+     */
+    if (event.key === "Tab") {
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (!first || !last) return;
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
       return;
     }
     if (event.key === "ArrowDown") {

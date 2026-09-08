@@ -27,7 +27,7 @@
 }
 
 .index {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   color: var(--accent-text);

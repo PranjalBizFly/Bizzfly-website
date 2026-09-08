@@ -10,13 +10,19 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "verify:contrast": "node docs/design-system/verify-contrast.mjs",
-    "verify": "npm run verify:contrast && npm run verify:content && npm run typecheck && npm run lint",
+    "verify:brand": "node scripts/verify-brand.mjs",
+    "report:brand": "node scripts/verify-brand.mjs --report",
+    "verify:images": "node --experimental-strip-types --no-warnings --import ./scripts/alias-hooks.mjs scripts/verify-image-usage.mjs",
+    "verify": "npm run verify:contrast && npm run verify:brand && npm run verify:content && npm run verify:images && npm run typecheck && npm run lint",
     "verify:links": "node scripts/verify-links.mjs",
     "verify:pages": "node --experimental-strip-types --no-warnings --import ./scripts/alias-hooks.mjs scripts/verify-pages.ts",
     "verify:content": "node --experimental-strip-types --no-warnings --import ./scripts/alias-hooks.mjs scripts/verify-content.ts",
     "verify:seo": "node scripts/verify-seo.mjs",
     "verify:responsive": "node scripts/verify-responsive.mjs",
-    "qa": "node scripts/qa.mjs"
+    "qa": "node scripts/qa.mjs",
+    "audit:pages": "node --experimental-strip-types --no-warnings --import ./scripts/alias-hooks.mjs scripts/page-audit.ts",
+    "plan:expansion": "node --experimental-strip-types --no-warnings --import ./scripts/alias-hooks.mjs scripts/expansion-plan.ts",
+    "verify:rhythm": "node scripts/verify-rhythm.mjs"
   },
   "dependencies": {
     "next": "^15.5.4",

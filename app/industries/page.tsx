@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
 import { EditorialHero } from "@/components/hero";
-import { SectionHeader, ConversionBand } from "@/components/sections";
+import { SectionHeader, ConversionBand, Directory } from "@/components/sections";
 import { Button, TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { industries } from "@/content/industries";
+import { sectorDirectory } from "@/content/taxonomy";
 import { services } from "@/content/services";
 import { primaryCta } from "@/content/navigation";
 import { buildMetadata } from "@/lib/seo";
@@ -24,7 +25,25 @@ export const metadata: Metadata = buildMetadata(
   "/industries/",
 );
 
+/** The six that get the full treatment above the directory. */
+const LEAD_SECTORS = [
+  "manufacturing",
+  "professional-services",
+  "saas",
+  "healthcare",
+  "ecommerce",
+  "financial-services",
+];
+
 export default function IndustriesIndexPage() {
+  const bySlug = (slug: string) => industries.find((i) => i.slug === slug);
+
+  const leadIndustries = LEAD_SECTORS.map(bySlug).filter(
+    (i): i is NonNullable<typeof i> => Boolean(i),
+  );
+
+  const sectorGroups = sectorDirectory();
+
   return (
     <>
       <JsonLd
@@ -40,7 +59,7 @@ export default function IndustriesIndexPage() {
       <EditorialHero
         eyebrow="Industries"
         title="The work looks different in every sector"
-        lead="A manufacturer and an education group have almost nothing in common except that both are hard to find. We publish a sector page only where we can name that sector's real problems in its own vocabulary — which is why this list is short."
+        lead="A manufacturer and an education group have almost nothing in common except that both are hard to find. We publish a sector page only where we can name that sector's real problems in its own vocabulary, in the sector's own words."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Industries" }]}
         actions={
           <Button href={primaryCta.href} withArrow>
@@ -58,11 +77,11 @@ export default function IndustriesIndexPage() {
           split
           eyebrow="Sectors"
           title="Where we work, and what we see there"
-          lead="If your sector is not listed, it does not mean we cannot help — it means we have not yet published a page we would stand behind."
+          lead="Six shown in full — the sector context, the problems we hear most, and the work that addresses them. Every sector we publish is listed below."
         />
 
         <div className={styles.sectors}>
-          {industries.map((industry, index) => {
+          {leadIndustries.map((industry, index) => {
             const capabilities = Array.from(
               new Set(industry.problems.flatMap((p) => p.addressedBy)),
             )
@@ -117,7 +136,18 @@ export default function IndustriesIndexPage() {
         </div>
       </Section>
 
-      <Section background="surface" spacing="md" width="content">
+      {/* The complete set, grouped by how the business earns. */}
+      <Section background="surface" spacing="lg">
+        <SectionHeader
+          split
+          eyebrow="Every sector"
+          title={`All ${industries.length} industries`}
+          lead="Grouped by business model rather than by category, because the digital problem a manufacturer has looks far more like a logistics operator's than like another company that happens to share its industry code."
+        />
+        <Directory groups={sectorGroups} />
+      </Section>
+
+      <Section spacing="md" width="content">
         <SectionHeader
           eyebrow="Not listed?"
           title="Sector fluency is earned, not claimed"

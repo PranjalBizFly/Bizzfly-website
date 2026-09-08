@@ -44,7 +44,7 @@
 }
 
 .tabCode {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-body-sm);
   font-weight: var(--weight-medium);
   letter-spacing: 0.06em;
@@ -79,7 +79,7 @@
 }
 
 .panelQuestion {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
@@ -127,7 +127,7 @@
 }
 
 .mechanismLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;

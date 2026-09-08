@@ -20,3 +20,7 @@ export { StageList } from "./StageList";
 export { JourneyList } from "./JourneyList";
 export { TrustStandard } from "./TrustStandard";
 export { Diagram } from "./Diagram";
+export { Directory } from "./Directory";
+export type { DirectoryGroup } from "./Directory";
+export { VisualStoryBlock } from "./VisualStoryBlock";
+export type { VisualStoryBlockProps } from "./VisualStoryBlock";

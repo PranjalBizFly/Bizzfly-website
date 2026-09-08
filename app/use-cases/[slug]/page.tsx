@@ -12,11 +12,13 @@ import {
   EditorialBlock,
   ContentBlock,
   Diagram,
+  VisualStoryBlock,
 } from "@/components/sections";
 import { CtaBlock, TextLink } from "@/components/buttons";
 import { BodyText, Heading } from "@/components/typography";
 import { JsonLd } from "@/components/JsonLd";
 import { useCases, getUseCase } from "@/content/use-cases";
+import { getUseCaseImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import { relationshipsForUseCase } from "@/lib/relationships";
 import { buildMetadata, faqSchema } from "@/lib/seo";
@@ -79,14 +81,26 @@ export default async function UseCasePage({ params }: PageProps) {
     </Section>
   );
 
+  const useCaseVisual = getUseCaseImage(slug);
+
   const matters = useCase.whyItMatters ? (
-    <Section key="matters" spacing="lg" width="text">
-      <ContentBlock>
-        <Heading level={2} size="h3">
-          Why it matters
-        </Heading>
-        <BodyText size="lg">{useCase.whyItMatters}</BodyText>
-      </ContentBlock>
+    <Section key="matters" spacing="lg" width="content">
+      {useCaseVisual ? (
+        <VisualStoryBlock
+          image={useCaseVisual}
+          variant="B"
+          eyebrow="Commercial impact"
+          title={`Solving ${useCase.title.toLowerCase()}`}
+          lead={useCase.whyItMatters}
+        />
+      ) : (
+        <ContentBlock>
+          <Heading level={2} size="h3">
+            Why it matters
+          </Heading>
+          <BodyText size="lg">{useCase.whyItMatters}</BodyText>
+        </ContentBlock>
+      )}
     </Section>
   ) : null;
 

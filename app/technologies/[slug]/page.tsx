@@ -12,11 +12,13 @@ import {
   EditorialBlock,
   ContentBlock,
   Diagram,
+  VisualStoryBlock,
 } from "@/components/sections";
 import { CtaBlock, TextLink } from "@/components/buttons";
 import { BodyText, Heading } from "@/components/typography";
 import { JsonLd } from "@/components/JsonLd";
 import { technologies, getTechnology } from "@/content/technologies";
+import { getTechnologyImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import { relationshipsForTechnology } from "@/lib/relationships";
 import { buildMetadata, faqSchema } from "@/lib/seo";
@@ -52,14 +54,27 @@ export default async function TechnologyPage({ params }: PageProps) {
   const layout = technology.layout ?? "capability-led";
   const rel = relationshipsForTechnology(slug);
 
+  const techVisual = getTechnologyImage(slug);
+
   const why = technology.whyItMatters ? (
-    <Section key="why" spacing="lg" width="text">
-      <ContentBlock>
-        <Heading level={2} size="h3">
-          Why this matters
-        </Heading>
-        <BodyText size="lg">{technology.whyItMatters}</BodyText>
-      </ContentBlock>
+    <Section key="why" spacing="lg" width="content">
+      {techVisual ? (
+        <VisualStoryBlock
+          image={techVisual}
+          variant="B"
+          reverse
+          eyebrow="Engineering approach"
+          title={`Architecture & standards for ${technology.title}`}
+          lead={technology.whyItMatters}
+        />
+      ) : (
+        <ContentBlock>
+          <Heading level={2} size="h3">
+            Why this matters
+          </Heading>
+          <BodyText size="lg">{technology.whyItMatters}</BodyText>
+        </ContentBlock>
+      )}
     </Section>
   ) : null;
 

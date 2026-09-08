@@ -9,12 +9,12 @@
   background: var(--surface-muted);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
-  font-size: 1rem;
+  font-size: var(--text-body);
   color: var(--foreground);
 }
 
 .count {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-meta);
   color: var(--muted);
   margin-top: var(--space-4);
@@ -25,7 +25,7 @@
 }
 
 .groupHeading {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
@@ -76,7 +76,7 @@
 
 .url {
   display: block;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-caption);
   color: var(--ink-400);
   margin-top: var(--space-2);
@@ -95,7 +95,7 @@
 }
 
 .emptyHeading {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
@@ -166,7 +166,7 @@
 }
 
 .facetCount {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   color: var(--ink-400);
   font-variant-numeric: tabular-nums;

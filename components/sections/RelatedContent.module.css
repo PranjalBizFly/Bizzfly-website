@@ -6,7 +6,7 @@
 }
 
 .inlineLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
@@ -31,7 +31,7 @@
 }
 
 .compactLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
@@ -97,7 +97,7 @@
 }
 
 .rowIndex {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   color: var(--ink-400);
   font-variant-numeric: tabular-nums;
@@ -130,7 +130,7 @@
 @media (min-width: 768px) {
   .rowType {
     display: inline;
-    font-family: var(--font-mono);
+    font-family: var(--font-label);
     font-size: var(--text-eyebrow);
     letter-spacing: var(--tracking-eyebrow);
     color: var(--ink-400);
@@ -242,7 +242,7 @@
 }
 
 .mapHeading {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;

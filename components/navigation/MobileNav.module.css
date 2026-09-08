@@ -34,6 +34,12 @@
   align-items: center;
   text-decoration: none;
   min-height: var(--touch-target-min);
+  /*
+   * Trailing clearspace, same rule as the header: the drawer's 16px gap to
+   * the close button was under the 23.2px the brand requires. Vertical
+   * clearance comes from the 80px strip, leading from --margin.
+   */
+  padding-inline-end: var(--logo-clearspace);
 }
 
 .iconButton {
@@ -47,7 +53,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.125rem;
+  font-size: var(--text-icon);
 }
 
 .iconButton:hover {
@@ -118,32 +124,18 @@
 /* --- Accordion ----------------------------------------------------------
    A plus that becomes a minus. Rotating a chevron reads as "go deeper";
    this reads as "expands here", which is what it does. -------------- */
-.accordionIcon {
-  position: relative;
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-  color: var(--muted);
-  font-size: 0;
-}
-
-.accordionIcon::before,
-.accordionIcon::after {
-  content: "";
-  position: absolute;
-  inset: 50% 0 auto 0;
-  height: 1.5px;
-  background: currentColor;
-  transition: transform var(--dur-base) var(--ease-standard);
-}
-
-.accordionIcon::after {
-  transform: rotate(90deg);
-}
-
-.accordionIcon[data-open="true"]::after {
-  /* Collapses onto the horizontal bar — a plus becomes a minus. */
-  transform: rotate(0deg);
+/*
+ * The disclosure mark is components/navigation/Chevron.tsx — the same SVG
+ * the header bar uses, so a section that expands looks the same in both
+ * places. Its own module owns the rotation; this only sizes it for the row.
+ *
+ * A descendant selector, not a bare `.accordionIcon`: a single-class rule
+ * would tie on specificity with `.chevron` in Chevron.module.css and be
+ * settled by bundle order rather than by intent.
+ */
+.rowLink .accordionIcon {
+  width: 18px;
+  height: 18px;
 }
 
 /*

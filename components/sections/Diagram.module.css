@@ -42,7 +42,7 @@
 }
 
 .nodeTextSmall {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
   fill: var(--muted);
 }
@@ -50,7 +50,7 @@
 .nodeTextAccent {
   font-family: var(--font-body);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: var(--weight-medium);
   fill: var(--cta-primary-text);
 }
 
@@ -68,21 +68,21 @@
 }
 
 .lineLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 10px;
   letter-spacing: 0.06em;
   fill: var(--ink-400);
 }
 
 .groupLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
   letter-spacing: 0.12em;
   fill: var(--muted);
 }
 
 .caption {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
   fill: var(--muted);
 }
@@ -117,7 +117,7 @@
 }
 
 .textAlternativeTitle {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;

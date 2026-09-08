@@ -71,6 +71,16 @@
   flex-shrink: 0;
   /* A 30px mark still needs a 44px hit area. */
   min-height: var(--touch-target-min);
+  /*
+   * Brand clearspace on the trailing edge. The bar's 80px height gives the
+   * mark 25px above and below — already past the 23.2px the guidelines ask
+   * for — and the container margin (24px) covers the leading edge. The
+   * trailing edge was the gap alone, 12px, so the nav crowded the logo at
+   * every width. Reserved here rather than by widening .inner's gap,
+   * because that gap also separates the nav from the actions, where 12px
+   * is correct.
+   */
+  padding-inline-end: var(--logo-clearspace);
 }
 
 /*
@@ -140,9 +150,19 @@
   }
 }
 
-/* Only at 1600 is there room for the wider rhythm alongside seven items,
-   the labelled search trigger, the theme toggle and the CTA. */
-@media (min-width: 1600px) {
+/*
+ * The wider rhythm alongside seven items, the labelled search trigger, the
+ * theme toggle and the CTA.
+ *
+ * Raised from 1600 to 1700, because at 1600 there was not in fact room: that
+ * is the width where the labelled "Search ⌘K" trigger appears *and* the nav
+ * steps up to the widest gap, and the two together overflowed the bar by
+ * 11px — measured against the original markup, so this predates the chevron
+ * and was simply never caught: verify-responsive samples 1440 and 1920 and
+ * steps straight over the band. The trigger still appears at 1600; only the
+ * nav rhythm waits for the width that actually carries it.
+ */
+@media (min-width: 1700px) {
   .nav {
     gap: var(--space-8);
     margin-inline-start: var(--space-10);
@@ -190,7 +210,7 @@
   width: 16px;
   height: 2px;
   margin-left: -8px;
-  border-radius: 1px;
+  border-radius: var(--radius-full);
   background: var(--accent-edge);
   transform: scaleX(0);
   transition:
@@ -216,14 +236,38 @@
   opacity: 1;
 }
 
-.chevron {
-  font-size: 0.6em;
-  color: var(--muted);
-  transition: transform var(--dur-fast) var(--ease-standard);
+/*
+ * The indicator itself is an SVG — components/navigation/Chevron.tsx, whose
+ * own module owns the 16px box and the rotate(180deg) it takes from React
+ * state. Nothing here may set `transform` or the two would fight over it.
+ *
+ * Descendant selectors throughout, never a bare `.chevron`: a single-class
+ * rule here would tie on specificity with the one in Chevron.module.css and
+ * be settled by whichever file landed first in the bundle rather than by
+ * intent — the same trap documented on .headerCta below.
+ */
+.navLink .chevron {
+  /*
+   * Sized in em, so it tracks the nav's own type scale exactly the way the
+   * glyph it replaced did (that was font-size: var(--text-glyph), 0.6em).
+   *
+   * This is not cosmetic. The bar is width-critical between 1024 and 1280 —
+   * see the note on .nav — and a fixed 14px box across six triggers is 39px
+   * more than the old mark, which pushed the CTA past the right edge by 23px
+   * at 1024 and 19px at 1280. 0.7em lands at ~10.5px against the 15px nav
+   * text: legible as a drawn chevron, and inside the budget at every width.
+   */
+  width: 0.7em;
+  height: 0.7em;
+  opacity: 0.75;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    opacity var(--dur-fast) var(--ease-standard);
 }
 
-.navItem[data-open="true"] .chevron {
-  transform: rotate(180deg);
+.navLink:hover .chevron,
+.navItem[data-open="true"] .navLink .chevron {
+  opacity: 1;
 }
 
 /* --- Header actions ------------------------------------------------------ */
@@ -263,7 +307,7 @@
 
 /* Prints the shortcut — teaches it, and signals a real command palette */
 .kbd {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   color: var(--muted);
   border: 1px solid var(--border);
@@ -271,22 +315,28 @@
   padding: 0.1em 0.4em;
 }
 
-.headerCta {
-  display: none;
-}
-
 /*
  * Theme toggle and CTA both appear at md. Below that the bar carries the
  * logo, search and the menu button only — a fourth control at 320px pushes
- * the CTA off the edge. The drawer carries both instead.
+ * the CTA off the edge. The drawer carries both instead, so neither is
+ * unreachable.
+ *
+ * Scoped under .actions deliberately. These were plain single-class rules,
+ * which put them in a specificity tie with Button.module.css's `.base
+ * { display: inline-flex }` — and a tie is settled by the order the two
+ * CSS-module files happen to land in the bundle, not by intent. Button won,
+ * so the CTA rendered at every width and the header overflowed by 53px at
+ * 320px while this rule sat here looking correct. Two classes beat one, in
+ * any order.
  */
-.themeToggle {
+.actions .headerCta,
+.actions .themeToggle {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .headerCta,
-  .themeToggle {
+  .actions .headerCta,
+  .actions .themeToggle {
     display: inline-flex;
   }
 }
@@ -403,7 +453,7 @@
 }
 
 .primaryIndex {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   color: var(--muted);
   font-variant-numeric: tabular-nums;
@@ -442,7 +492,7 @@
 
 /* Column 2 — plain text links, not cards */
 .columnHeading {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
@@ -489,7 +539,7 @@
 }
 
 .featureKind {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   color: var(--muted);
@@ -530,7 +580,7 @@
   position: fixed;
   inset: 0;
   top: var(--header-height);
-  background: rgb(13 20 32 / 0.32);
+  background: var(--scrim);
   /* Below the header — the header is its own stacking context, so anything
      above it here would cover the bar and the open panel too. */
   z-index: calc(var(--z-header) - 1);

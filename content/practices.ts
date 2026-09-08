@@ -116,6 +116,44 @@ export const practices: Practice[] = [
       "performance-marketing",
       "conversion-rate-optimization",
     ],
+    process: [
+      {
+        index: 1,
+        title: "Find the actual constraint",
+        description:
+          "Whether the shortfall is arrivals, conversion or follow-up. These look identical in a monthly enquiry figure and need entirely different work, so guessing here costs the quarter.",
+      },
+      {
+        index: 2,
+        title: "Fix the measurement",
+        description:
+          "Enquiry source carried through to the CRM, and outcomes returned from sales. Without that loop, channel decisions get made on last-click and the activity that starts conversations is the first to be defunded.",
+      },
+      {
+        index: 3,
+        title: "Work the constraint",
+        description:
+          "Demand, conversion or follow-up — one at a time, so the effect is attributable. Running all three at once produces a change nobody can explain afterwards.",
+      },
+      {
+        index: 4,
+        title: "Report against a hypothesis",
+        description:
+          "What was believed to be limiting performance, what was done, and whether the measure moved. A report that cannot say a hypothesis was wrong will keep funding it.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How quickly should we expect results?",
+        answer:
+          "Paid channels produce usable data within weeks. Organic and content work takes two to three quarters before it contributes meaningfully, and compounds after that. Anyone promising organic results in weeks is describing something else.",
+      },
+      {
+        question: "Should we fix the site or drive more traffic?",
+        answer:
+          "Usually the site first, where conversion is the weaker link. Sending more people to a page that does not convert raises spend proportionally and changes nothing about the outcome.",
+      },
+    ],
   },
   {
     id: "web-development",
@@ -146,6 +184,44 @@ export const practices: Practice[] = [
       "website-redesign",
       "website-performance",
     ],
+    process: [
+      {
+        index: 1,
+        title: "Establish what already works",
+        description:
+          "Which pages earn traffic and enquiries today, and what must not be lost. Redesigns that skip this routinely discard the pages doing the commercial work.",
+      },
+      {
+        index: 2,
+        title: "Structure before design",
+        description:
+          "Hierarchy organised around buyer tasks rather than the org chart. Structure decides what gets found, and it is far cheaper to settle before anything is drawn.",
+      },
+      {
+        index: 3,
+        title: "Design and build together",
+        description:
+          "Server-rendered, accessible and fast as a starting condition rather than a retrofit. Performance and accessibility added at the end cost several times more and achieve less.",
+      },
+      {
+        index: 4,
+        title: "Launch without losing visibility",
+        description:
+          "URL mapping, content parity and rendering parity verified before launch, then monitored across the recovery window rather than the first week.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How long does a website project take?",
+        answer:
+          "Eight to fourteen weeks for most business sites, and content readiness is the usual constraint rather than build time. Projects that slip almost always slip waiting for copy and approvals.",
+      },
+      {
+        question: "Will a redesign affect our search visibility?",
+        answer:
+          "It can, in either direction. Handled properly — URLs mapped, content depth preserved, rendering unchanged — a redesign is neutral to positive. Handled as a launch-week task, it is where most avoidable traffic loss comes from.",
+      },
+    ],
   },
   {
     id: "software-development",
@@ -159,7 +235,7 @@ export const practices: Practice[] = [
       title: "Software & Product Engineering",
       description:
         "Custom software, web and mobile applications, APIs and systems integration — engineered to be maintainable by your own team.",
-      primaryTopic: "custom software development",
+      primaryTopic: "software and product engineering",
       secondaryTopics: ["web applications", "systems integration", "APIs"],
       intent: "commercial",
     },
@@ -175,6 +251,44 @@ export const practices: Practice[] = [
       "custom-software",
       "web-applications",
       "systems-integration",
+    ],
+    process: [
+      {
+        index: 1,
+        title: "Understand the process first",
+        description:
+          "The real one, including the steps that happen off-system. Building against the documented process is the most common reason software is delivered and then worked around.",
+      },
+      {
+        index: 2,
+        title: "Specify behaviour, not screens",
+        description:
+          "What must happen, under which conditions, with what result — including the unhappy paths. Most cost overrun lives in cases the requirements never mentioned.",
+      },
+      {
+        index: 3,
+        title: "Build in increments people can use",
+        description:
+          "One complete workflow at a time, released to real users. Requirements written before anyone has used a working version are the least reliable input available.",
+      },
+      {
+        index: 4,
+        title: "Hand over something maintainable",
+        description:
+          "Documented, tested, and built on choices your own team can hire for. Software nobody but us can change is a liability we have sold you.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Should we build or buy?",
+        answer:
+          "Buy wherever the process is genuinely standard, because a product carries maintenance you do not pay for. Build where the process is a real differentiator, or where every available product would need enough configuration to cost more than software would.",
+      },
+      {
+        question: "How do we avoid being locked in to a supplier?",
+        answer:
+          "Own the repository and the infrastructure accounts from the first day, insist on mainstream technology choices, and require documentation as a deliverable rather than a favour. Lock-in is usually a contracting failure rather than a technical one.",
+      },
     ],
   },
   {
@@ -208,6 +322,50 @@ export const practices: Practice[] = [
       "sales-automation",
       "ai-consulting",
     ],
+    process: [
+      {
+        index: 1,
+        title: "Find the task, not the technology",
+        description:
+          "Start from work being done repeatedly, with its volume and error cost observed rather than estimated. A project that starts from a platform choice has skipped the part that decides whether it is worth doing.",
+      },
+      {
+        index: 2,
+        title: "Test feasibility honestly",
+        description:
+          "Whether the data and documentation a system would need actually exist and are accurate. This is where a fair number of proposals should stop, and saying so is the value.",
+      },
+      {
+        index: 3,
+        title: "Simplify before building",
+        description:
+          "Remove the steps that no longer have a reason to exist. This regularly returns more than the automation will, and it always reduces what has to be built and maintained.",
+      },
+      {
+        index: 4,
+        title: "Build one process end to end",
+        description:
+          "In production, with the exception path and failure behaviour designed in — not three in parallel, which discovers the same wrong assumption three times at triple the cost.",
+      },
+      {
+        index: 5,
+        title: "Hand over with an owner",
+        description:
+          "Documentation, alerting that reaches a person, and a named owner. Automations without one drift as systems change and credentials rotate, then quietly stop working.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Where should a first AI or automation project start?",
+        answer:
+          "With a high-frequency, low-judgement task where the cost of an error is recoverable. That combination is where these systems are reliable and where the recovered time is large enough to be worth measuring.",
+      },
+      {
+        question: "What should not be automated?",
+        answer:
+          "Work whose value is the judgement in it, anything irreversible without a human check, and processes about to change anyway. Automating an unstable process fixes it in place at exactly the wrong moment.",
+      },
+    ],
   },
   {
     id: "data-analytics",
@@ -235,6 +393,44 @@ export const practices: Practice[] = [
     services: [
       "business-intelligence",
       "analytics-implementation",
+    ],
+    process: [
+      {
+        index: 1,
+        title: "Agree what each number means",
+        description:
+          "Definitions before dashboards. Most disputes about figures turn out to be two teams applying different, individually reasonable rules to the same question.",
+      },
+      {
+        index: 2,
+        title: "Assess the sources",
+        description:
+          "Which systems hold the data, how reliable each one is, and which gaps have to close before anything built on them can be trusted.",
+      },
+      {
+        index: 3,
+        title: "Automate the assembly",
+        description:
+          "Pipelines with a refresh schedule and failure alerting, so reporting stops being a monthly manual exercise that is already out of date when it lands.",
+      },
+      {
+        index: 4,
+        title: "Build for decisions",
+        description:
+          "Each dashboard supports a specific recurring decision and has an owner. Reporting with no decision attached goes unopened and dilutes attention from the reporting that matters.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Why do our reports disagree with each other?",
+        answer:
+          "Almost always because the underlying definitions differ — a different date field, a different exclusion, a different treatment of cancellations. It is a business agreement problem, and no tool resolves it.",
+      },
+      {
+        question: "Do we need a data warehouse?",
+        answer:
+          "Only when reporting genuinely needs data from several systems at once. A single well-instrumented source answers more questions than most organisations expect, at a fraction of the cost of a platform build.",
+      },
     ],
   },
 ];

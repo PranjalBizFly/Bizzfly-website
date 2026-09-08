@@ -318,7 +318,7 @@ export const seoTermsGlossary: Resource[] = [
     slug: "what-is-local-seo",
     type: "glossary",
     topic: "Local SEO",
-    title: "Local SEO",
+    title: "What Is Local SEO?",
     answer:
       "Local SEO is the work of appearing in results for searches with a geographic component — map listings, local packs and location-qualified queries — where proximity, prominence and relevance decide visibility.",
     body: [
@@ -326,12 +326,12 @@ export const seoTermsGlossary: Resource[] = [
       "The business profile usually carries more weight than the website for map results. Category selection, service completeness, hours, photographs and reviews all feed it, and an incomplete profile is the most common and most fixable local problem.",
       "Consistency across the web is the other half. The same business name, address and phone number everywhere they appear, because a system trying to resolve one business from contradictory listings has less confidence in all of them.",
     ],
-    supports: ["google-business-profile", "seo"],
+    supports: ["local-seo", "google-business-profile"],
     seo: {
       title: "What Is Local SEO?",
       description:
         "Local SEO targets geographic searches, where proximity, prominence and relevance decide visibility. Why the profile often outweighs the website.",
-      primaryTopic: "local SEO",
+      primaryTopic: "what is local seo",
       secondaryTopics: ["local search", "Google Business Profile", "map pack"],
       intent: "informational",
     },
