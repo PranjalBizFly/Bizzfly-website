@@ -242,7 +242,12 @@
   .groupHeading {
     cursor: default;
     margin-bottom: var(--space-5);
-    min-height: 0;
+    /*
+     * 24px, not 0. The summary is still a focusable, clickable control up
+     * here even though it is styled as a plain label, so WCAG 2.5.8 still
+     * applies to it — dropping the floor took it to the 22px line box.
+     */
+    min-height: 24px;
   }
 
   .groupHeading::after,
