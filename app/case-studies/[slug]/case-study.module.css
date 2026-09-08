@@ -15,7 +15,6 @@
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
   color: var(--muted);
   font-weight: var(--weight-medium);
   white-space: nowrap;

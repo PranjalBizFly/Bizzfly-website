@@ -18,6 +18,13 @@ interface SearchDialogProps {
 }
 
 /**
+ * The pre-query destinations. The section hubs, in the site's own order —
+ * the same list the results group into, so the empty panel is a preview of
+ * the shape a search will come back in rather than an unrelated shortcut bar.
+ */
+const startHere = browseSections;
+
+/**
  * How many rows a section shows before it defers to the full results page.
  *
  * Three rather than four so that three sections clear the fold instead of
@@ -213,38 +220,28 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
         <div className={styles.results} id="search-results">
           {!hasQuery ? (
-            <div className={styles.empty}>
-              <div className={styles.emptySection}>
-                <p className={styles.emptyHeading}>Popular searches</p>
-                <div className={styles.chips}>
-                  {popularSearches.map((item) => (
+            <div className={styles.start}>
+              <p className={styles.startHeading}>Start here</p>
+              <ul className={styles.startList}>
+                {startHere.map((item) => (
+                  <li key={item.href}>
                     <Link
-                      key={item.href}
                       href={item.href}
-                      className={styles.chip}
+                      className={styles.startLink}
                       onClick={onClose}
                     >
-                      {item.label}
+                      <span>{item.label}</span>
+                      <span className={styles.startArrow} aria-hidden="true">
+                        &rarr;
+                      </span>
                     </Link>
-                  ))}
-                </div>
-              </div>
-
-              <div className={styles.emptySection}>
-                <p className={styles.emptyHeading}>Browse by section</p>
-                <div className={styles.chips}>
-                  {browseSections.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={styles.chip}
-                      onClick={onClose}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
+                  </li>
+                ))}
+              </ul>
+              <p className={styles.startHint}>
+                Type to search every page on the site. Use &uarr;&darr; to move,
+                Enter to open.
+              </p>
             </div>
           ) : flat.length === 0 ? (
             <div className={styles.empty}>

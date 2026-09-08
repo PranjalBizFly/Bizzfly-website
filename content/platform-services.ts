@@ -686,7 +686,6 @@ export const platformServices: Service[] = [
     practice: "web-development",
     group: "digital-experience",
     layout: "process-led",
-    diagram: "experience-flow",
     title: "Accessibility Audit",
     answer:
       "Assessment against WCAG 2.2 AA using assistive technology as well as automated tooling, because automated checks find roughly a third of real barriers and none of the ones that matter most.",

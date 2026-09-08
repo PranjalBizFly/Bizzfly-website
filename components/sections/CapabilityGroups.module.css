@@ -1,16 +1,16 @@
 /*
- * Four pillars as a card wall.
+ * Four pillars as separate soft cards.
  *
- * The cards share a single hairline grid rather than each drawing its own
- * box: one outer border plus a gap painted by the container reads as one
- * object at four columns, and degrades to a stack of rules at one column.
+ * They used to share one hairline grid — a single bordered block divided by
+ * 1px rules. That reads as a table. Separating them onto their own rounded,
+ * tinted panels with air between is what turns the section from a
+ * specification into four things a person can pick up, and it is the same
+ * card language the showcase and insight grids now use.
  */
 .groups {
   display: grid;
-  gap: 1px;
+  gap: var(--space-6);
   margin-top: var(--space-12);
-  background: var(--border);
-  border: 1px solid var(--border);
 }
 
 @media (min-width: 720px) {
@@ -29,27 +29,50 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background: var(--background);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elev-1);
   padding: var(--space-8) var(--space-6) var(--space-16);
-  transition: background var(--dur-base) var(--ease-standard);
+  transition:
+    box-shadow var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
 }
 
+/* The lift is the whole hover state — a shadow step and 2px of travel. */
 .group:hover {
-  background: var(--surface);
+  box-shadow: var(--elev-2);
+  transform: translate3d(0, -2px, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group:hover {
+    transform: none;
+  }
 }
 
 .head {
   display: flex;
-  align-items: baseline;
+  /* center, not baseline: the index is a 2rem badge now, not a figure. */
+  align-items: center;
   gap: var(--space-3);
 }
 
+/* A numbered badge, not a floating figure — the step reads as a token. */
 .index {
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
-  color: var(--accent-text);
   font-variant-numeric: tabular-nums;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: var(--radius-full);
+  background: var(--surface-muted);
+  font-weight: var(--weight-semibold);
+  color: var(--accent-text);
 }
 
 .label {

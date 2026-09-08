@@ -327,3 +327,75 @@
   border-color: var(--border-strong);
   background: var(--surface);
 }
+
+/* ==========================================================================
+   Pre-query state — destinations, not filters
+
+   Two rows of chips read as facets you were about to apply. These are the
+   six places the site divides into, so they are rows that go somewhere, with
+   the arrow saying so.
+   ========================================================================== */
+
+.start {
+  padding: var(--space-5) 0 var(--space-6);
+}
+
+.startHeading {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-inline: var(--space-6);
+  margin-bottom: var(--space-2);
+}
+
+.startList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.startLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-6);
+  min-height: var(--touch-target-min);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-medium);
+  color: var(--foreground);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+}
+
+.startLink:hover,
+.startLink:focus-visible {
+  background: var(--surface);
+  border-left-color: var(--accent-edge);
+}
+
+.startArrow {
+  color: var(--accent-text);
+  transition: transform var(--dur-fast) var(--ease-standard);
+}
+
+.startLink:hover .startArrow {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .startLink:hover .startArrow {
+    transform: none;
+  }
+}
+
+/* Says what the box does before anything has been typed into it. */
+.startHint {
+  padding: var(--space-5) var(--space-6) 0;
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  max-width: 60ch;
+}

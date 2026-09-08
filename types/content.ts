@@ -65,7 +65,6 @@ export type TechnologyLayout = "ecosystem-led" | "architecture-led" | "capabilit
 /** Diagram shown on a page, chosen by subject rather than decoration. */
 export type DiagramKind =
   | "search-surfaces"
-  | "experience-flow"
   | "system-architecture"
   | "process-transformation"
   | "ai-workflow"
@@ -141,6 +140,27 @@ export interface RelatedLink {
    Core entities
    ========================================================================== */
 
+/**
+ * A prose section with its own heading.
+ *
+ * The structured fields on each entity — problems, included, approach — are
+ * lists, and a list can state a fact but not make an argument. This is where
+ * a page explains itself: what the thing is, why it is hard, what changes
+ * when it is done properly.
+ *
+ * Sections are chosen per page rather than filled from a template. A page
+ * that has nothing to say under "Technology considerations" omits it, and an
+ * empty section is worse than an absent one.
+ */
+export interface ContentSection {
+  /** Renders as the section's H2. Written for this page, not reused. */
+  heading: string;
+  /** Paragraphs, in order. */
+  body: string[];
+  /** An optional list beneath the prose, where the content is genuinely enumerable. */
+  points?: string[];
+}
+
 interface BaseEntity extends EntityRelationships {
   slug: string;
   title: string;
@@ -150,6 +170,11 @@ interface BaseEntity extends EntityRelationships {
   eyebrow?: string;
   /** ≤60 words, extractable. First substantive text on the page. */
   answer: string;
+  /**
+   * Long-form explanation, in sections the page chooses for itself.
+   * Optional: a page with nothing further to say should not pad.
+   */
+  sections?: ContentSection[];
   seo: SeoData;
   audience: AudienceId[];
   phase: BuildPhase;

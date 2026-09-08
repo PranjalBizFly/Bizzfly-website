@@ -1,0 +1,74 @@
+/*
+ * The explanatory body of a page.
+ *
+ * Sections are separated by space rather than rules: a hairline between every
+ * heading turns a piece of writing into a form. The one place a rule earns
+ * its place is the point list, where it marks the shift from argument to
+ * enumeration.
+ */
+.stack {
+  display: grid;
+  gap: var(--section-sm);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  text-wrap: balance;
+  max-width: 32rem;
+}
+
+/*
+ * The measure is the point. The section around this is `content` width so the
+ * headings have room to breathe, but prose set to that width is scanned
+ * rather than read — 68 characters is where a line stops needing a finger to
+ * track it back.
+ */
+.paragraph {
+  margin-top: var(--space-5);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  max-width: 68ch;
+  text-wrap: pretty;
+}
+
+/* The first paragraph after a heading sits closer to it than to the last. */
+.heading + .paragraph {
+  margin-top: var(--space-6);
+}
+
+.points {
+  list-style: none;
+  margin: var(--space-8) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+  max-width: 62ch;
+}
+
+.point {
+  position: relative;
+  padding-left: var(--space-6);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+}
+
+/*
+ * A rule rather than a bullet glyph. It sits on the text's own baseline band
+ * and does not depend on a font shipping a dot that matches the type.
+ */
+.point::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: var(--space-4);
+  height: 1px;
+  background: var(--accent-edge);
+}

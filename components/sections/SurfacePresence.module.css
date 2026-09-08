@@ -1,0 +1,194 @@
+/*
+ * Where one buyer question lands.
+ *
+ * Every colour here comes from the semantic roles, so the block is correct
+ * on the light ground, on the tinted band and inside an inverse section
+ * without a single context branch.
+ */
+.wrapper {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elev-1);
+  padding: var(--space-8);
+  max-width: 44rem;
+}
+
+/* --- The question -------------------------------------------------------- */
+
+.question {
+  padding-bottom: var(--space-6);
+  margin-bottom: var(--space-6);
+  border-bottom: 1px solid var(--border);
+}
+
+.questionLabel {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--accent-text);
+}
+
+.questionText {
+  margin-top: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-medium);
+  color: var(--foreground);
+}
+
+/* --- The table ----------------------------------------------------------- */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+/*
+ * The caption states what the table is for. It sits under the table rather
+ * than above it, because the question block above already introduces the
+ * subject and a second heading there would read as a repeat.
+ */
+.caption {
+  caption-side: bottom;
+  padding-top: var(--space-4);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--border);
+  vertical-align: baseline;
+}
+
+.table thead th {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  font-weight: var(--weight-medium);
+  color: var(--muted);
+  padding-block: 0 var(--space-3);
+}
+
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table td {
+  font-size: var(--text-body-sm);
+  color: var(--foreground);
+}
+
+/* The layer code is the row's name, so it carries the accent. */
+.code {
+  font-family: var(--font-label);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  color: var(--accent-text);
+  white-space: nowrap;
+  padding-inline-end: var(--space-6);
+}
+
+.stateHead,
+.stateCell {
+  text-align: right;
+}
+
+/*
+ * Present and absent are drawn as a filled chip and an outlined one — the
+ * same distinction the old diagram made, without needing the reader to
+ * decode which rectangle was dashed.
+ */
+.state {
+  display: inline-block;
+  font-family: var(--font-label);
+  font-size: var(--text-caption);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-4);
+  white-space: nowrap;
+}
+
+.state[data-present="true"] {
+  background: var(--cta-primary);
+  color: var(--cta-primary-text);
+}
+
+.state[data-present="false"] {
+  border: 1px dashed var(--border-strong);
+  color: var(--muted);
+}
+
+/* --- The two foundations ------------------------------------------------- */
+
+.foundations {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+}
+
+.foundationsLabel {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--muted);
+  margin-bottom: var(--space-4);
+}
+
+.foundationsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.foundation {
+  background: var(--surface-muted);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-body-sm);
+  color: var(--foreground);
+}
+
+.note {
+  margin-top: var(--space-6);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+/* Narrow screens: the state column moves under the surface it belongs to. */
+@media (max-width: 480px) {
+  .wrapper {
+    padding: var(--space-6);
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tr {
+    display: grid;
+    gap: var(--space-1);
+    padding-block: var(--space-4);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .table th,
+  .table td {
+    padding-block: 0;
+    border-bottom: 0;
+  }
+
+  .stateCell {
+    text-align: left;
+    margin-top: var(--space-2);
+  }
+}

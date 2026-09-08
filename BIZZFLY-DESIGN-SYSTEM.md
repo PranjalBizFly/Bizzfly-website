@@ -148,10 +148,15 @@ and `--leading-body` (1.70) are set for it specifically.
 
 ### Exception: inline SVG diagrams
 
-`font-size` in `Diagram.module.css` and `DiscoveryDiagram.module.css` is in
-**viewBox user units**, not CSS pixels — the drawing scales with its
-container. Tokenising them would break the relationship rather than enforce
-anything, so `verify:brand` allowlists these two files by name.
+`font-size` in `Diagram.module.css` is in **viewBox user units**, not CSS
+pixels — the drawing scales with its container. Tokenising them would break
+the relationship rather than enforce anything, so `verify:brand` allowlists
+that file by name.
+
+The search-surfaces diagram used to be a second such file. It is a table now
+(`SurfacePresence`), which reflows, stays legible on a phone and needs no
+parallel text version to be accessible — so it takes ordinary type tokens
+like everything else.
 
 ---
 
@@ -352,8 +357,8 @@ Diagrams are inline SVG — no image request, no library, no layout shift.
 
 ## 10. Surfaces, borders, radius, elevation
 
-Radius tops out at **8px**: `--radius-sm` 2, `--radius-md` 4, `--radius-lg` 8,
-plus `--radius-full` for pills and `--radius-0`.
+Radius is soft: `--radius-sm` 6, `--radius-md` 12, `--radius-lg` 20, `--radius-xl`
+28, plus `--radius-full` for pills and `--radius-0` for full-bleed bands.
 
 Elevation is `--elev-1`/`2`/`3`, and levels 2 and 3 are for genuinely floating
 elements only. Hairline rules do the work shadows do elsewhere. On dark

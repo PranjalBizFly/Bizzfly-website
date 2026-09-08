@@ -126,7 +126,7 @@ export const serviceMeta: Record<string, ServiceMeta> = {
   "search-experience-optimisation": {
     group: "digital-visibility",
     layout: "editorial",
-    diagram: "experience-flow",
+    diagram: "none",
   },
   "google-business-profile": {
     group: "digital-visibility",
@@ -143,7 +143,7 @@ export const serviceMeta: Record<string, ServiceMeta> = {
   "ui-ux-design": {
     group: "digital-experience",
     layout: "editorial",
-    diagram: "experience-flow",
+    diagram: "none",
   },
   "website-performance": {
     group: "digital-experience",
@@ -200,7 +200,7 @@ export const serviceMeta: Record<string, ServiceMeta> = {
   "conversion-rate-optimization": {
     group: "growth",
     layout: "process-led",
-    diagram: "experience-flow",
+    diagram: "none",
   },
   "business-intelligence": {
     group: "growth",

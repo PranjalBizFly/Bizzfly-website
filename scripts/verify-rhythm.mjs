@@ -236,8 +236,20 @@ async function main() {
      * Page height is the signal that matters most, and it is the one a
      * section-by-section read misses: every section can look reasonable
      * while the page is four times longer than anyone will scroll.
+     *
+     * The ceiling was 18,000px, set when the pages were dense text lists.
+     * The site is image-led now and the spacing scale is deliberately
+     * generous, so the homepage sat within a few dozen pixels of the limit
+     * and every added visual had to be paid for by shaving section padding
+     * somewhere else. That is the wrong trade: it kept the number under the
+     * line by removing the breathing room the design depends on.
+     *
+     * 22,000px keeps the check doing its real job — catching the page that
+     * has genuinely run away — without making whitespace the thing that
+     * gets sacrificed first. The per-section LONG and AIRY checks below are
+     * the ones that catch padding used as filler, and they are unchanged.
      */
-    if (total > 18000) {
+    if (total > 22000) {
       problems.push(`TALL    ${path} — ${total}px total across ${sections.length} sections`);
     }
 

@@ -108,7 +108,6 @@ const FONT_SIZE_ALLOWED = new Set([
  */
 const SVG_GEOMETRY_FILES = new Set([
   "components/sections/Diagram.module.css",
-  "components/sections/DiscoveryDiagram.module.css",
 ]);
 
 /**

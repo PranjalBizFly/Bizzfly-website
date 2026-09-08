@@ -39,6 +39,7 @@ export const searchIndex: SearchDocument[] = publishedEntries.map((entry) => ({
  * with — not a ranking. Ranking still decides what appears inside a section.
  */
 export const SECTION_ORDER = [
+  "Main",
   "Services",
   "Industries",
   "Use Cases",
@@ -52,6 +53,7 @@ export const SECTION_ORDER = [
 
 /** Where each section's own index lives, for the "all N" links. */
 export const SECTION_HUB: Record<string, string> = {
+  Main: "/",
   Services: "/services/",
   Industries: "/industries/",
   "Use Cases": "/use-cases/",
@@ -274,7 +276,7 @@ export interface DirectorySection {
  */
 export function pageDirectory(): DirectorySection[] {
   const grouped = new Map<string, SearchDocument[]>();
-  for (const doc of searchIndex) {
+  for (const doc of [...hubDocuments, ...searchIndex]) {
     const existing = grouped.get(doc.category);
     if (existing) existing.push(doc);
     else grouped.set(doc.category, [doc]);
@@ -284,18 +286,33 @@ export function pageDirectory(): DirectorySection[] {
     .map(([category, items]) => ({
       category,
       hub: SECTION_HUB[category] ?? "/",
-      items: [...items].sort((a, b) => a.title.localeCompare(b.title)),
+      items:
+        category === "Main"
+          ? items
+          : [...items].sort((a, b) => a.title.localeCompare(b.title)),
     }))
     .sort((a, b) => sectionRank(a.category) - sectionRank(b.category));
 }
 
-/** Section landing pages, which are routes rather than content entities. */
-export const directoryHubs: { label: string; href: string }[] = sectionPages
+/**
+ * Section landing pages, which are routes rather than content entities and so
+ * are absent from the registry. /contact/ is excluded because it IS a
+ * registry entry — including it here would list it twice and overcount by one.
+ */
+const hubDocuments: SearchDocument[] = sectionPages
   .filter((page) => page.href !== "/contact/")
-  .map((page) => ({ label: page.title, href: page.href }));
+  .map((page) => ({
+    id: `hub-${page.href}`,
+    title: page.title,
+    category: "Main",
+    description: `The ${page.title.toLowerCase()} index.`,
+    href: page.href,
+    boost: 0,
+    keywords: ["index", "hub", page.title.toLowerCase()],
+  }));
 
 /** How many pages the directory holds, for the label on the way into it. */
-export const totalPageCount = searchIndex.length + directoryHubs.length;
+export const totalPageCount = searchIndex.length + hubDocuments.length;
 
 /**
  * Directory filter. Deliberately not the ranked `search` above: on this page

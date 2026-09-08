@@ -589,7 +589,6 @@ export const operationsUseCases: UseCase[] = [
     slug: "improve-customer-experience",
     title: "Improve customer experience",
     layout: "problem-solution",
-    diagram: "experience-flow",
     answer:
       "Customer experience problems are usually operational rather than attitudinal. People are rarely unhelpful on purpose; they are working without the information, tools or authority the moment required.",
     whyItMatters:

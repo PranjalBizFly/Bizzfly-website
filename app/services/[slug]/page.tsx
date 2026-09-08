@@ -14,6 +14,7 @@ import {
   EditorialBlock,
   ContentBlock,
   Diagram,
+  ProseSections,
 } from "@/components/sections";
 import { CtaBlock, TextLink } from "@/components/buttons";
 import { BodyText, Heading } from "@/components/typography";
@@ -130,6 +131,19 @@ export default async function ServicePage({ params }: PageProps) {
     without either needing a bespoke component.
   */
   const sections = {
+    /*
+     * The explanation, before any of the lists.
+     *
+     * Everything else in this map renders an enumeration — problems, scope,
+     * outcomes, steps. A page built only from those states facts without ever
+     * making the argument that connects them, which is what made these pages
+     * read as specifications. This is where the page explains itself, and it
+     * comes first because a reader needs the argument before the inventory.
+     */
+    explainer: entity.sections?.length ? (
+      <ProseSections key="explainer" sections={entity.sections} />
+    ) : null,
+
     problem: service?.problems?.length ? (
       <Section key="problem" background="surface" spacing="lg">
         <EditorialBlock
@@ -227,12 +241,12 @@ export default async function ServicePage({ params }: PageProps) {
    */
   const order: (keyof typeof sections)[] =
     layout === "process-led"
-      ? ["problem", "process", "visual", "included", "diagram", "outcomes", "boundary"]
+      ? ["explainer", "problem", "process", "visual", "included", "diagram", "outcomes", "boundary"]
       : layout === "capability-led"
-        ? ["problem", "visual", "included", "diagram", "process", "outcomes", "boundary"]
+        ? ["explainer", "problem", "visual", "included", "diagram", "process", "outcomes", "boundary"]
         : layout === "technology-led"
-          ? ["problem", "diagram", "visual", "included", "boundary", "process", "outcomes"]
-          : ["problem", "visual", "included", "process", "outcomes", "diagram", "boundary"];
+          ? ["explainer", "problem", "diagram", "visual", "included", "boundary", "process", "outcomes"]
+          : ["explainer", "problem", "visual", "included", "process", "outcomes", "diagram", "boundary"];
 
   /*
    * Separating the statements is not something the fixed orders above can

@@ -1,0 +1,58 @@
+User-Agent: *
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: Googlebot
+Allow: /
+
+User-Agent: Bingbot
+Allow: /
+
+User-Agent: DuckDuckBot
+Allow: /
+
+User-Agent: GPTBot
+Allow: /
+
+User-Agent: ChatGPT-User
+Allow: /
+
+User-Agent: OAI-SearchBot
+Allow: /
+
+User-Agent: ClaudeBot
+Allow: /
+
+User-Agent: Claude-SearchBot
+Allow: /
+
+User-Agent: PerplexityBot
+Allow: /
+
+User-Agent: Google-Extended
+Allow: /
+
+User-Agent: Applebot
+Allow: /
+
+User-Agent: Applebot-Extended
+Allow: /
+
+User-Agent: Amazonbot
+Allow: /
+
+User-Agent: Bytespider
+Allow: /
+
+User-Agent: CCBot
+Allow: /
+
+User-Agent: DuckAssistBot
+Allow: /
+
+User-Agent: meta-externalagent
+Allow: /
+
+Host: https://bizzfly.com
+Sitemap: https://bizzfly.com/sitemap.xml

@@ -1,8 +1,18 @@
 /* Section patterns from docs/design-system/04. */
 
 /* --- SectionHeader ------------------------------------------------------- */
+/*
+ * rem, not ch — the same unit trap as `.headerCentred .header` below.
+ *
+ * This wrapper sits at body font-size, so `30ch` resolved to about 240px and
+ * became the binding constraint on every section heading on the site,
+ * regardless of the column it was placed in. That is what was breaking
+ * nine-word titles into six lines and making the split header tower over its
+ * own two-line lead. 30rem lets the grid column govern, which is what the
+ * asymmetric layout was designed to do.
+ */
 .header {
-  max-width: 30ch;
+  max-width: 30rem;
   margin-bottom: var(--space-10);
 }
 
@@ -66,9 +76,17 @@
 .numberedIndex {
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  color: var(--ink-400);
   font-variant-numeric: tabular-nums;
-  padding-top: 0.35em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: var(--radius-full);
+  background: var(--surface-muted);
+  font-weight: var(--weight-semibold);
+  color: var(--accent-text);
 }
 
 .numberedTitle {
@@ -223,9 +241,17 @@
 .stepIndex {
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
-  color: var(--ink-400);
   font-variant-numeric: tabular-nums;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: var(--radius-full);
+  background: var(--surface-muted);
+  font-weight: var(--weight-semibold);
+  color: var(--accent-text);
 }
 
 .stepTitle {
@@ -483,4 +509,37 @@
   border: 1px dashed var(--warning);
   border-radius: var(--radius-sm);
   padding: var(--space-1) var(--space-3);
+}
+
+/*
+ * Centred section header.
+ *
+ * Sits above a grid of cards, where the content below is symmetrical and a
+ * left-weighted header would start the eye in the wrong place. The measures
+ * are tighter than the left-aligned variants — centred text is harder to
+ * track across a long line, so the heading is held to 22ch and the lead to
+ * 58ch rather than the 30/62 the editorial header uses.
+ */
+.headerCentred {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+/*
+ * rem, not ch.
+ *
+ * `.header` is a wrapper div at body font-size, so a `ch` measure here
+ * resolves against 16px and not against the 44px heading inside it — 22ch
+ * came out around 176px and broke a nine-word title into five lines. A rem
+ * cap is measured in the same units whatever the child is set in.
+ */
+.headerCentred .header {
+  max-width: 36rem;
+  margin-inline: auto;
+  margin-bottom: var(--space-5);
+}
+
+.headerCentred p {
+  max-width: 58ch;
+  margin-inline: auto;
 }

@@ -16,7 +16,7 @@ import {
   ShowcaseGrid,
   StatBand,
   InsightGrid,
-  DiscoveryDiagram,
+  SurfacePresence,
   type NumberedEntry,
   type ShowcaseEntry,
   type Stat,
@@ -249,7 +249,7 @@ export default function HomePage() {
       {/* 02 — Four pillars, as a card wall */}
       <Section spacing="lg" id="what-we-do">
         <SectionHeader
-          split
+          centred
           eyebrow="What we do"
           title="Four jobs, in the order they actually matter"
           lead="Visibility with nothing behind it wastes budget. A good website nobody finds wastes more. We work across all four because in practice they are one problem."
@@ -265,7 +265,7 @@ export default function HomePage() {
       */}
       <Section background="surface" spacing="lg" id="work">
         <SectionHeader
-          split
+          centred
           eyebrow="How we work"
           title="Five disciplines, one engagement"
           lead="Most agencies sell one of these and subcontract the rest. The team that finds the problem is the team that fixes it, so the handovers that usually lose a project do not exist here."
@@ -284,7 +284,7 @@ export default function HomePage() {
       */}
       <Section background="inverse" spacing="md" id="scale">
         <SectionHeader
-          split
+          centred
           eyebrow="Published"
           title="What is actually on this site"
           lead="Not awards, not client counts. These are the pages we have written and stand behind — the only numbers we can currently put a source against."
@@ -331,12 +331,12 @@ export default function HomePage() {
           absent from others.
         */}
         <div className={styles.sectionDiagram}>
-          <DiscoveryDiagram />
+          <SurfacePresence />
         </div>
       </Section>
 
       {/* 07 — By business situation. No pricing, no packages. */}
-      <Section background="surface" spacing="md" id="stages">
+      <Section background="surface" spacing="lg" id="stages">
         <SectionHeader
           split
           eyebrow="Where you are"
@@ -347,7 +347,7 @@ export default function HomePage() {
       </Section>
 
       {/* 08 — Industries */}
-      <Section spacing="md" id="industries">
+      <Section spacing="lg" id="industries">
         <SectionHeader
           split
           eyebrow="Industries"
@@ -407,7 +407,7 @@ export default function HomePage() {
       </div>
 
       {/* 10 — Routing by intent */}
-      <Section spacing="md" id="journeys">
+      <Section spacing="lg" id="journeys">
         <SectionHeader
           split
           eyebrow="Start here"
@@ -418,9 +418,9 @@ export default function HomePage() {
       </Section>
 
       {/* 11 — Trust. No invented proof; the standard is stated instead. */}
-      <Section background="surface" spacing="md" id="trust">
+      <Section background="surface" spacing="lg" id="trust">
         <SectionHeader
-          split
+          centred
           eyebrow="Proof"
           title="What we will show you, and what we will not"
           lead="We have no client-approved case studies published yet. Rather than fill this space with logos and numbers we cannot evidence, here is the standard we hold ourselves to."
@@ -431,7 +431,7 @@ export default function HomePage() {
       {/* 12 — The questions that come before a first call */}
       <Section background="tint" spacing="lg" id="faq">
         <SectionHeader
-          split
+          centred
           eyebrow="Questions"
           title="Asked before every first call"
           lead="Procedural rather than technical: how this starts, how long it takes, what we will not promise, and who owns what we build."
@@ -445,9 +445,9 @@ export default function HomePage() {
       </Section>
 
       {/* 13 — Insights, image-led */}
-      <Section spacing="md" id="insights">
+      <Section spacing="lg" id="insights">
         <SectionHeader
-          split
+          centred
           eyebrow="Insights"
           title="What we have worked out, written down"
           lead="Nothing here is gated. If content is worth reading, putting a form in front of it just means fewer people read it."

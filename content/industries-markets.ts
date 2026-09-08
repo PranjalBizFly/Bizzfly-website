@@ -73,7 +73,6 @@ export const marketIndustries: Industry[] = [
   {
     slug: "nonprofit",
     layout: "opportunity-led",
-    diagram: "experience-flow",
     title: "Non-Profit & Social Impact",
     answer:
       "Non-profits serve two audiences whose needs conflict: funders and donors who need evidence of impact, and service users who need help without navigating a fundraising site to find it.",
@@ -317,7 +316,6 @@ export const marketIndustries: Industry[] = [
   {
     slug: "d2c-brands",
     layout: "opportunity-led",
-    diagram: "experience-flow",
     title: "D2C Brands",
     answer:
       "The direct-to-consumer model was built on affordable paid acquisition. As that cost has risen, brands without owned demand find their unit economics no longer work at scale.",

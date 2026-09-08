@@ -13,7 +13,6 @@ export const deliveryUseCases: UseCase[] = [
   {
     slug: "reduce-support-tickets",
     layout: "problem-solution",
-    diagram: "experience-flow",
     title: "Reduce support tickets",
     answer:
       "Deflection works by answering questions before they are asked, not by making contact harder. The first step is reading what people actually ask, which is nearly always narrower than the team believes.",

@@ -59,7 +59,6 @@
   font-family: var(--font-label);
   font-size: var(--text-caption);
   letter-spacing: var(--tracking-meta);
-  text-transform: uppercase;
   color: var(--text-inverse-muted);
 }
 
@@ -80,6 +79,8 @@
 .faqWrap {
   margin-top: var(--space-12);
   max-width: var(--container-content);
+  /* Centred, because the header above it is. */
+  margin-inline: auto;
 }
 
 /*

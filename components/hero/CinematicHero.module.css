@@ -1,79 +1,41 @@
 /*
  * The image-led hero.
  *
- * The whole thing is set on the inverse ground, so every token inside —
- * --foreground, --muted, --border, --surface — is already the dark-context
- * value and nothing here has to branch on "am I on a dark hero".
+ * The photograph is the ground: it fills the section edge to edge, a flat
+ * scrim sits over it, and the type sits on the scrim in white.
  *
- * Layering, from back to front:
- *   .media      the photograph, clipped and parallaxed inside its frame
- *   .scrim      a flat wash that settles the photo into the ground
- *   .container  the type and the fact cards, which paint over the media
- *               because they come later in the DOM and carry a position
+ * Two things keep that legible rather than hopeful. --scrim-hero is set at
+ * the opacity the arithmetic requires for white to clear AA over a bright
+ * frame, not at the opacity that looks nice over a dark one. And the copy is
+ * held to a measure on one side of the frame, so it never wanders into
+ * whatever the photograph is doing in the opposite corner.
+ *
+ * The section carries `is-inverse`, so --foreground, --muted and --border
+ * are already the on-dark values and nothing inside branches on context.
  */
 .hero {
   position: relative;
-  background: var(--background);
+  isolation: isolate;
+  background: var(--surface-inverse);
   color: var(--foreground);
-  /* Clip is safer than hidden: it never introduces a scroll container. */
-  overflow-x: clip;
-  /*
-   * flow-root, because overflow-x:clip does not open a block formatting
-   * context the way overflow:hidden does. Without it the fact row's bottom
-   * margin collapses straight out of the section, which ends the dark ground
-   * early and leaves a band of page background between the hero and whatever
-   * follows it.
-   */
-  display: flow-root;
+  display: flex;
+  align-items: center;
+  min-height: 34rem;
+  overflow: hidden;
 }
 
-.container {
-  position: relative;
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 44rem;
+  }
 }
 
-.breadcrumbs {
-  padding-top: var(--space-6);
-}
-
-/* --- Type ---------------------------------------------------------------- */
-
-.content {
-  padding-block: var(--section-md);
-  min-width: 0;
-}
-
-.eyebrow {
-  color: var(--accent-text);
-}
-
-.title {
-  margin-top: var(--space-6);
-  font-size: var(--text-display-lg);
-  text-wrap: balance;
-  max-width: 16ch;
-}
-
-.lead {
-  margin-top: var(--space-6);
-  color: var(--muted);
-  max-width: 52ch;
-  text-wrap: pretty;
-}
-
-.actions {
-  margin-top: var(--space-8);
-}
-
-/* --- Media --------------------------------------------------------------- */
+/* --- The ground ---------------------------------------------------------- */
 
 .media {
-  position: relative;
-}
-
-.mediaInner {
-  position: relative;
-  overflow: hidden;
-  height: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
 }
 
 .image {
@@ -86,22 +48,21 @@
 .scrim {
   position: absolute;
   inset: 0;
-  background: var(--scrim);
+  background: var(--scrim-hero);
   pointer-events: none;
 }
 
 /*
- * Parallax, done by the compositor rather than by script.
- *
- * A scroll-driven animation costs nothing in the bundle and simply does not
- * apply where the browser has not shipped it, which leaves a perfectly good
- * static image rather than a broken effect. The 1.12 scale is what gives the
- * translate somewhere to go without exposing an edge.
+ * A slow drift on the ground, done by the compositor rather than by script.
+ * Scroll-driven animation costs nothing in the bundle and simply does not
+ * apply where the browser has not shipped it, which leaves a static image
+ * rather than a broken effect. The scale gives the translate somewhere to go
+ * without exposing an edge.
  */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .image {
-      animation: heroParallax linear both;
+      animation: heroDrift linear both;
       animation-timeline: view();
       animation-range: entry 0% exit 100%;
       will-change: transform;
@@ -109,57 +70,79 @@
   }
 }
 
-@keyframes heroParallax {
+@keyframes heroDrift {
   from {
-    transform: scale(1.12) translate3d(0, -2.4%, 0);
+    transform: scale(1.1) translate3d(0, -2%, 0);
   }
   to {
-    transform: scale(1.12) translate3d(0, 2.4%, 0);
+    transform: scale(1.1) translate3d(0, 2%, 0);
   }
 }
 
-/* --- Fact cards ---------------------------------------------------------- */
+/* --- Type ---------------------------------------------------------------- */
+
+.container {
+  position: relative;
+  padding-block: var(--section-lg);
+  width: 100%;
+}
+
+.breadcrumbs {
+  margin-bottom: var(--space-8);
+}
+
+.content {
+  min-width: 0;
+  max-width: 46rem;
+}
+
+.eyebrow {
+  color: var(--accent-text);
+}
+
+.title {
+  margin-top: var(--space-5);
+  font-size: var(--text-display-lg);
+  text-wrap: balance;
+  max-width: 18ch;
+}
+
+.lead {
+  margin-top: var(--space-6);
+  color: var(--foreground);
+  max-width: 54ch;
+  text-wrap: pretty;
+}
+
+.actions {
+  margin-top: var(--space-8);
+}
+
+/* --- Fact panels --------------------------------------------------------- */
 
 /*
- * The overlap layer. On desktop this row starts in the type column and runs
- * across the image, which is what makes the hero read as two planes rather
- * than as a picture next to some words.
+ * Soft translucent panels rather than solid cards: the photograph stays
+ * visible behind them, which is what makes them read as layered onto the
+ * scene instead of pasted over it. The backdrop blur is what keeps the text
+ * on them legible whatever is underneath.
  */
 .factsWrap {
   position: relative;
-  z-index: 0;
+  margin-top: var(--space-12);
 }
 
-/*
- * The label carries its own ground.
- *
- * The fact row deliberately overlaps the photograph, which means this label
- * lands on it too — and on a light frame a muted grey label on the image is
- * unreadable. A chip in the section's own background colour keeps the pairing
- * to one that is measured (muted on background) whatever the picture does
- * underneath, and reads as deliberate rather than as text that missed.
- */
 .factsHeading {
-  display: inline-block;
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
-  color: var(--muted);
-  background: var(--background);
-  border-radius: var(--radius-sm);
-  padding: var(--space-2) var(--space-4);
+  color: var(--foreground);
   margin-bottom: var(--space-4);
 }
 
 .facts {
   display: grid;
-  gap: 1px;
+  gap: var(--space-4);
   margin: 0;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
 }
 
 @media (min-width: 560px) {
@@ -169,7 +152,10 @@
 }
 
 .fact {
-  background: var(--surface);
+  background: var(--scrim-strong);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(10px);
   padding: var(--space-5) var(--space-6);
   display: flex;
   flex-direction: column;
@@ -180,7 +166,6 @@
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
   color: var(--accent-text);
 }
 
@@ -193,278 +178,128 @@
 }
 
 /* ==========================================================================
-   Composition: bleed-right / bleed-left
-   --------------------------------------------------------------------------
-   The media is absolutely placed against one edge of the section, so it runs
-   to the viewport boundary without a single negative margin or vw
-   calculation — the section is already full width, and "right: 0" is already
-   the edge. Below lg it returns to the flow above the type.
+   Compositions
+
+   Every page type opens on a full-width photograph; what changes is where
+   the type sits in the frame and how tall the frame is. That is enough to
+   stop a service reading like an industry, without five different mechanics
+   to maintain.
    ========================================================================== */
 
-.bleedRight .media,
-.bleedLeft .media {
-  aspect-ratio: 4 / 3;
+/* bleed-right — the homepage. Type left, the tallest frame on the site. */
+@media (min-width: 1024px) {
+  .bleedRight {
+    min-height: 46rem;
+  }
+
+  .bleedRight .title {
+    font-size: var(--text-display-xl);
+    max-width: 15ch;
+  }
+
+  .bleedRight .factsWrap {
+    max-width: 54rem;
+  }
 }
 
+/* bleed-left — services. Type pushed to the right half of the frame. */
 @media (min-width: 1024px) {
-  .bleedRight .media,
-  .bleedLeft .media {
-    position: absolute;
-    inset-block: 0;
-    width: 52%;
-    aspect-ratio: auto;
+  .bleedLeft .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
   }
 
-  .bleedRight .media {
-    inset-inline-end: 0;
-  }
-
-  .bleedLeft .media {
-    inset-inline-start: 0;
-  }
-
-  .bleedRight .content,
-  .bleedLeft .content {
-    width: 46%;
-    /* md, not lg: the image already gives this hero its height. */
-    padding-block: var(--section-md);
-  }
-
-  .bleedLeft .content {
-    margin-inline-start: auto;
-  }
-
-  /* The overlap: the row is wider than the type column it starts in. */
-  .bleedRight .factsWrap,
+  .bleedLeft .content,
   .bleedLeft .factsWrap {
-    width: 78%;
-    margin-bottom: var(--section-md);
-  }
-
-  .bleedLeft .factsWrap {
-    margin-inline-start: auto;
-  }
-}
-
-/* ==========================================================================
-   Composition: banner
-   --------------------------------------------------------------------------
-   Type first, then a wide band of image beneath it, with the fact cards
-   straddling the band's top edge so the two overlap.
-   ========================================================================== */
-
-.banner .content {
-  padding-bottom: var(--space-10);
-}
-
-.banner .mediaSlot {
-  position: relative;
-}
-
-.banner .media {
-  aspect-ratio: 16 / 9;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-@media (min-width: 1024px) {
-  .banner .media {
-    aspect-ratio: 21 / 9;
-  }
-
-  .banner .title {
-    max-width: 20ch;
-  }
-}
-
-/*
- * The banner keeps its fact row below the image rather than pulled over it.
- * The heading belongs above the cards it names, and an overlap would put it
- * on the photograph — so this composition gets its weight from the width of
- * the band instead, which is the thing that makes it read differently from
- * the bleed variants in the first place.
- */
-.banner .factsWrap {
-  margin-top: var(--space-8);
-  margin-bottom: var(--section-md);
-}
-
-/* ==========================================================================
-   Composition: portrait
-   --------------------------------------------------------------------------
-   A tall crop rather than a wide one. The image is a framed column beside
-   the type instead of a field behind it, which suits a page that argues from
-   a single situation rather than describing a whole practice.
-   ========================================================================== */
-
-.portrait .media {
-  aspect-ratio: 4 / 3;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-@media (min-width: 1024px) {
-  .portrait .container {
-    display: grid;
-    grid-template-columns: 7fr 5fr;
-    gap: var(--space-16);
-    align-items: center;
-  }
-
-  .portrait .breadcrumbs {
-    grid-column: 1 / -1;
-  }
-
-  .portrait .mediaSlot {
-    grid-column: 2;
-    grid-row: 2;
-    align-self: stretch;
-  }
-
-  .portrait .media {
-    aspect-ratio: 3 / 4;
-    height: 100%;
-    max-height: 34rem;
-  }
-
-  .portrait .content {
-    grid-column: 1;
-    grid-row: 2;
-    padding-block: var(--section-md);
-  }
-
-  .portrait .factsWrap {
-    grid-column: 1;
-    grid-row: 3;
-    margin-bottom: var(--section-md);
-  }
-}
-
-/* ==========================================================================
-   Composition: inset
-   --------------------------------------------------------------------------
-   The image fills the whole section and the type sits on a solid panel over
-   its lower corner. The panel is what keeps the contrast provable: the
-   headline is on --surface, not on the photograph.
-   ========================================================================== */
-
-.inset .media {
-  aspect-ratio: 4 / 3;
-}
-
-.inset .scrim {
-  background: var(--scrim-strong);
-}
-
-@media (min-width: 1024px) {
-  .inset .media {
-    position: absolute;
-    inset: 0;
     width: 100%;
-    aspect-ratio: auto;
+    max-width: 44rem;
   }
 
-  .inset .content {
-    width: 58%;
-    margin-block: var(--section-lg);
-    padding: var(--space-10);
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-  }
-
-  .inset .factsWrap {
-    width: 58%;
-    margin-bottom: var(--section-lg);
-  }
-}
-
-/* ==========================================================================
-   Composition corrections
-   ========================================================================== */
-
-/*
- * bleed-left puts the type in the right-hand column, so the trail has to
- * follow it. Left where it was, it sat on the photograph and depended on
- * whatever happened to be in that corner of the frame for its contrast.
- */
-@media (min-width: 1024px) {
-  .bleedLeft .breadcrumbs {
-    width: 46%;
+  .bleedLeft .title,
+  .bleedLeft .lead {
     margin-inline-start: auto;
   }
+
+  .bleedLeft .fact {
+    text-align: left;
+  }
 }
 
-/*
- * The banner headline and its lead sit side by side rather than stacked.
- * Stacked, the type used the left half of a 1280px measure and left the
- * right half empty above a full-width band of image, which read as a gap
- * rather than as space.
- */
+/* banner — industries. Centred type, the widest measure. */
 @media (min-width: 1024px) {
-  .banner .content {
-    display: grid;
-    grid-template-columns: 5fr 7fr;
-    column-gap: var(--space-16);
-    align-items: start;
+  .banner .container {
+    text-align: center;
   }
 
-  .banner .eyebrow {
-    grid-column: 1;
-    grid-row: 1;
+  .banner .content {
+    max-width: 52rem;
+    margin-inline: auto;
   }
 
   .banner .title {
-    grid-column: 1;
-    grid-row: 2;
-    margin-top: var(--space-4);
+    max-width: 22ch;
+    margin-inline: auto;
   }
 
   .banner .lead {
+    margin-inline: auto;
+  }
+
+  .banner .breadcrumbs {
+    text-align: start;
+  }
+
+  .banner .fact {
+    text-align: start;
+  }
+}
+
+/* portrait — use cases. Type anchored to the foot of the frame. */
+@media (min-width: 1024px) {
+  .portrait {
+    align-items: flex-end;
+    min-height: 42rem;
+  }
+
+  .portrait .content {
+    max-width: 42rem;
+  }
+
+  .portrait .factsWrap {
+    max-width: 50rem;
+  }
+}
+
+/* inset — technologies. A shorter frame; the facts sit beside the type. */
+@media (min-width: 1024px) {
+  .inset {
+    min-height: 38rem;
+  }
+
+  .inset .container {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    column-gap: var(--space-16);
+    align-items: center;
+  }
+
+  .inset .breadcrumbs {
+    grid-column: 1 / -1;
+  }
+
+  .inset .content {
+    grid-column: 1;
+    max-width: none;
+  }
+
+  .inset .factsWrap {
     grid-column: 2;
-    grid-row: 2;
     margin-top: 0;
   }
 
-  .banner .actions {
-    grid-column: 2;
-    grid-row: 3;
+  .inset .facts {
+    grid-template-columns: minmax(0, 1fr);
   }
-}
-
-/*
- * On inset every surface behind the type is a photograph, so the fact block
- * becomes one solid panel rather than three cards floating on the image —
- * the heading needs a ground of its own, and three separate cards with a
- * loose label above them do not give it one.
- */
-.inset .factsWrap {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-}
-
-.inset .facts {
-  background: none;
-  border: 0;
-  border-radius: var(--radius-0);
-  gap: var(--space-6);
-}
-
-.inset .fact {
-  background: none;
-  padding: 0;
-}
-
-/* The trail sits inside the panel here, so it needs no top padding. */
-.inset .content .breadcrumbs {
-  padding-top: 0;
-  margin-bottom: var(--space-6);
-}
-
-/* Inside the inset panel the ground is already solid, so no chip is needed. */
-.inset .factsHeading {
-  background: none;
-  padding: 0;
 }

@@ -1,5 +1,5 @@
 import type { DiagramKind } from "@/types/content";
-import { DiscoveryDiagram } from "./DiscoveryDiagram";
+import { SurfacePresence } from "./SurfacePresence";
 import styles from "./Diagram.module.css";
 
 /**
@@ -22,10 +22,6 @@ const TEXT_ALTERNATIVE: Record<
   Exclude<DiagramKind, "none" | "search-surfaces">,
   { title: string; body: string }
 > = {
-  "experience-flow": {
-    title: "The path from arrival to enquiry",
-    body: "Four stages — arrive, orient, evaluate, act — with drop-off between each. Most sites lose visitors at orient, because the page describes the company rather than answering the visitor. Conversion work targets the largest gap, not every gap.",
-  },
   "system-architecture": {
     title: "Systems connected by people versus by integration",
     body: "Before: three systems, each bridged by a person moving data across by hand. After: the same three connected directly through an integration layer, with one declared source of truth per record.",
@@ -46,7 +42,6 @@ const TEXT_ALTERNATIVE: Record<
 
 interface DiagramProps {
   kind: DiagramKind;
-  inverse?: boolean;
 }
 
 const NODE_W = 96;
@@ -82,54 +77,6 @@ function Node({
         {label}
       </text>
     </g>
-  );
-}
-
-/** Experience flow — where visitors leave between arrival and enquiry. */
-function ExperienceFlow() {
-  const steps = ["Arrive", "Orient", "Evaluate", "Act"];
-  return (
-    <svg
-      viewBox="0 0 480 150"
-      className={styles.svg}
-      role="img"
-      aria-labelledby="exp-title exp-desc"
-    >
-      <title id="exp-title">The path from arrival to enquiry</title>
-      <desc id="exp-desc">
-        Four stages — arrive, orient, evaluate, act — with the drop-off between
-        each. Most sites lose visitors at orient, because the page describes the
-        company rather than answering the visitor.
-      </desc>
-      {steps.map((step, index) => (
-        <g key={step}>
-          <Node
-            x={index * 128}
-            y={40}
-            label={step}
-            accent={index === steps.length - 1}
-          />
-          {index < steps.length - 1 ? (
-            <>
-              <path
-                d={`M${index * 128 + NODE_W} 60 L${(index + 1) * 128} 60`}
-                className={styles.line}
-              />
-              <text
-                x={index * 128 + NODE_W + 16}
-                y={54}
-                className={styles.lineLabel}
-              >
-                drop-off
-              </text>
-            </>
-          ) : null}
-        </g>
-      ))}
-      <text x="0" y="110" className={styles.caption}>
-        Conversion work targets the largest gap, not every gap.
-      </text>
-    </svg>
   );
 }
 
@@ -346,19 +293,19 @@ function ContentStructure() {
   );
 }
 
-export function Diagram({ kind, inverse = false }: DiagramProps) {
+export function Diagram({ kind }: DiagramProps) {
   if (kind === "none") return null;
 
+  /*
+   * search-surfaces is a table now, not a drawing. It needs no light/dark
+   * wrapper: every colour in it comes from a semantic role, so it is already
+   * correct in whichever context the page puts it.
+   */
   if (kind === "search-surfaces") {
-    return (
-      <div className={inverse ? "" : styles.lightWrapper}>
-        <DiscoveryDiagram />
-      </div>
-    );
+    return <SurfacePresence />;
   }
 
   const content = {
-    "experience-flow": <ExperienceFlow />,
     "system-architecture": <SystemArchitecture />,
     "process-transformation": <ProcessTransformation />,
     "ai-workflow": <AiWorkflow />,

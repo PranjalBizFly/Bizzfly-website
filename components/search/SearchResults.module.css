@@ -214,17 +214,8 @@
 }
 
 .directoryHead {
-  display: grid;
-  gap: var(--space-8);
-  align-items: start;
-  margin-bottom: var(--space-10);
-}
-
-@media (min-width: 900px) {
-  .directoryHead {
-    grid-template-columns: 1.4fr 1fr;
-    column-gap: var(--space-12);
-  }
+  max-width: 60ch;
+  margin-bottom: var(--space-8);
 }
 
 .directoryEyebrow {
@@ -248,107 +239,198 @@
   font-size: var(--text-body-lg);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 54ch;
   margin-top: var(--space-3);
 }
 
-/* The section landing pages, which are routes rather than content entities
-   and so are not in the grouped lists below. */
-.hubs {
+/* --------------------------------------------------------------------------
+   Control bar — the count, and the way to see the directory's own shape
+   -------------------------------------------------------------------------- */
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.barCount {
+  font-family: var(--font-label);
+  font-size: var(--text-body-sm);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.barCountNumber {
+  font-weight: var(--weight-semibold);
+  color: var(--foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+.barToggle {
+  font-family: var(--font-label);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  min-height: var(--touch-target-min);
+}
+
+/* --------------------------------------------------------------------------
+   Section pills
+
+   Filled when active rather than outlined-and-bolder: at fourteen pills a
+   weight change is not a state a reader can find at a glance.
+   -------------------------------------------------------------------------- */
+
+.pills {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  padding-block: var(--space-5);
 }
 
-.hubLink {
+.pill {
   display: inline-flex;
   align-items: center;
+  gap: var(--space-2);
   min-height: 2.25rem;
   padding-inline: var(--space-4);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
+  background: var(--background);
   font-size: var(--text-body-sm);
   color: var(--foreground);
-  text-decoration: none;
+  transition:
+    border-color var(--dur-fast) var(--ease-standard),
+    background-color var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
 }
 
-.hubLink:hover {
+.pill:hover {
   border-color: var(--accent-edge);
   background: var(--surface);
 }
 
-.directoryGroups {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-10);
+.pill[data-active="true"] {
+  background: var(--cta-primary);
+  border-color: var(--cta-primary);
+  color: var(--cta-primary-text);
+  font-weight: var(--weight-medium);
 }
 
-@media (min-width: 700px) {
-  .directoryGroups {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: var(--space-10);
-  }
+.pillCount {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
 }
 
-@media (min-width: 1100px) {
-  .directoryGroups {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+.pill[data-active="true"] .pillCount {
+  color: var(--cta-primary-text);
 }
 
-.directoryGroup {
-  min-width: 0;
-  break-inside: avoid;
+/* --------------------------------------------------------------------------
+   Section blocks — a heading you can find while scrolling, then the links
+   -------------------------------------------------------------------------- */
+
+.block {
+  padding-block: var(--space-10);
+  border-bottom: 1px solid var(--border);
 }
 
-.directoryGroupHeading {
+.block:last-of-type {
+  border-bottom: none;
+}
+
+.blockHead {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: var(--space-3);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.blockTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-heading);
+}
+
+.blockTitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.blockTitle a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--accent-edge);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+.blockToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--touch-target-min);
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
   color: var(--muted);
-  padding-bottom: var(--space-3);
-  border-bottom: 1px solid var(--border);
-  margin-bottom: var(--space-4);
 }
 
-.directoryGroupHeading a {
+.blockToggle:hover {
   color: var(--foreground);
-  text-decoration: none;
 }
 
-.directoryGroupHeading a:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.directoryGroupCount {
-  font-variant-numeric: tabular-nums;
-}
-
-.directoryList {
+/* Three columns of links, which is where a 74-entry section stops being a
+   column of text and becomes something a reader can take in. */
+.blockList {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 var(--space-8);
 }
 
+@media (min-width: 640px) {
+  .blockList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .blockList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/*
+ * The row is the target, not the word. Inline-block sized the hit area to
+ * the text, so a two-word title measured 21x30 — under WCAG 2.2 target size,
+ * and the audit caught it on eight viewports. Block plus padding gives the
+ * full column width and a 44px hit area without a 44px visual row.
+ */
 .directoryLink {
-  display: inline-block;
-  padding-block: var(--space-1);
-  min-height: 24px;
+  display: block;
+  padding-block: var(--space-2);
+  min-height: var(--touch-target-min);
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
-  color: var(--foreground);
+  color: var(--text-link);
   text-decoration: none;
 }
 

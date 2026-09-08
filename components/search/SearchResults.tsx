@@ -10,10 +10,10 @@ import {
   searchCategories,
   pageDirectory,
   filterDirectory,
-  directoryHubs,
   totalPageCount,
   SECTION_HUB,
 } from "@/lib/search";
+import { Chevron } from "@/components/navigation/Chevron";
 import styles from "./SearchResults.module.css";
 
 /**
@@ -37,6 +37,12 @@ export function SearchResults() {
   const [query, setQuery] = useState(initial);
   const [debounced, setDebounced] = useState(initial);
   const [category, setCategory] = useState<string | null>(null);
+  /*
+   * Which sections are folded shut. A set of names rather than a flag per
+   * section, so "collapse all" is one assignment and a section that appears
+   * or disappears under a filter does not need its own state cleaned up.
+   */
+  const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const timer = setTimeout(() => setDebounced(query), 150);
@@ -96,6 +102,19 @@ export function SearchResults() {
 
   const availableFacets = searchCategories.filter((c) => (counts.get(c) ?? 0) > 0);
   const directoryFacets = directory.map((section) => section.category);
+
+  /* Counts on the pills come from the filtered set, so a pill never offers
+     a section the current filter has already emptied. */
+  const directoryTotals = useMemo(
+    () => ({
+      all: directoryFiltered.reduce((sum, s) => sum + s.items.length, 0),
+    }),
+    [directoryFiltered],
+  );
+
+  const allCollapsed =
+    directoryShown.length > 0 &&
+    directoryShown.every((section) => collapsed.has(section.category));
 
   return (
     <div className={styles.wrapper}>
@@ -202,27 +221,65 @@ export function SearchResults() {
       */}
       <section className={styles.directory} id="all-pages">
         <div className={styles.directoryHead}>
-          <div>
-            <p className={styles.directoryEyebrow}>Every page</p>
-            <h2 className={styles.directoryTitle}>
-              {hasQuery ? "The directory, filtered" : "Explore all pages"}
-            </h2>
-            <p className={styles.directoryLead}>
-              {hasQuery
-                ? `${directoryCount} of ${totalPageCount} pages match “${debounced}” by title, section or topic.`
-                : `All ${totalPageCount} published pages, grouped by section. Type above to filter this list.`}
-            </p>
-          </div>
+          <p className={styles.directoryEyebrow}>Every page</p>
+          <h2 className={styles.directoryTitle}>
+            {hasQuery ? "The directory, filtered" : "Explore all pages"}
+          </h2>
+          <p className={styles.directoryLead}>
+            {hasQuery
+              ? `${directoryCount} of ${totalPageCount} pages match “${debounced}” by title, section or topic.`
+              : `Every published page, grouped by section. Type above to filter this list, or pick a section below.`}
+          </p>
+        </div>
 
-          <ul className={styles.hubs}>
-            {directoryHubs.map((hub) => (
-              <li key={hub.href}>
-                <Link href={hub.href} className={styles.hubLink}>
-                  {hub.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        {/*
+          The control bar. Count, section pills and one collapse toggle — a
+          directory of 299 entries needs a way to see its own shape without
+          scrolling through it, and collapsing to headings is that way.
+        */}
+        <div className={styles.bar}>
+          <p className={styles.barCount}>
+            <span className={styles.barCountNumber}>{directoryCount}</span> pages
+          </p>
+          <button
+            type="button"
+            className={styles.barToggle}
+            onClick={() =>
+              setCollapsed(
+                allCollapsed
+                  ? new Set<string>()
+                  : new Set(directoryShown.map((s) => s.category)),
+              )
+            }
+          >
+            {allCollapsed ? "Expand all" : "Collapse all"}
+          </button>
+        </div>
+
+        <div className={styles.pills} role="group" aria-label="Filter by section">
+          <button
+            type="button"
+            className={styles.pill}
+            data-active={category === null}
+            onClick={() => setCategory(null)}
+          >
+            All
+            <span className={styles.pillCount}>{directoryTotals.all}</span>
+          </button>
+          {directory.map((section) => (
+            <button
+              key={section.category}
+              type="button"
+              className={styles.pill}
+              data-active={category === section.category}
+              onClick={() =>
+                setCategory(category === section.category ? null : section.category)
+              }
+            >
+              {section.category}
+              <span className={styles.pillCount}>{section.items.length}</span>
+            </button>
+          ))}
         </div>
 
         {directoryShown.length === 0 ? (
@@ -232,20 +289,43 @@ export function SearchResults() {
             <Link href="/contact/">tell us what you are looking for</Link>.
           </p>
         ) : (
-          <div className={styles.directoryGroups}>
-            {directoryShown.map((section) => (
+          directoryShown.map((section) => {
+            const isCollapsed = collapsed.has(section.category);
+            const panelId = `all-${section.category
+              .toLowerCase()
+              .replace(/\s+/g, "-")}-list`;
+
+            return (
               <section
                 key={section.category}
-                className={styles.directoryGroup}
+                className={styles.block}
                 id={`all-${section.category.toLowerCase().replace(/\s+/g, "-")}`}
               >
-                <h3 className={styles.directoryGroupHeading}>
-                  <Link href={section.hub}>{section.category}</Link>
-                  <span className={styles.directoryGroupCount}>
-                    {section.items.length}
-                  </span>
-                </h3>
-                <ul className={styles.directoryList}>
+                <div className={styles.blockHead}>
+                  <h3 className={styles.blockTitle}>
+                    <Link href={section.hub}>{section.category}</Link>
+                  </h3>
+                  <button
+                    type="button"
+                    className={styles.blockToggle}
+                    aria-expanded={!isCollapsed}
+                    aria-controls={panelId}
+                    onClick={() =>
+                      setCollapsed((current) => {
+                        const next = new Set(current);
+                        if (next.has(section.category)) next.delete(section.category);
+                        else next.add(section.category);
+                        return next;
+                      })
+                    }
+                  >
+                    {section.items.length} page
+                    {section.items.length === 1 ? "" : "s"}
+                    <Chevron open={!isCollapsed} />
+                  </button>
+                </div>
+
+                <ul className={styles.blockList} id={panelId} hidden={isCollapsed}>
                   {section.items.map((item) => (
                     <li key={item.id}>
                       <Link href={item.href} className={styles.directoryLink}>
@@ -255,8 +335,8 @@ export function SearchResults() {
                   ))}
                 </ul>
               </section>
-            ))}
-          </div>
+            );
+          })
         )}
       </section>
 

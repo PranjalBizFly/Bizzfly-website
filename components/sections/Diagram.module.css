@@ -8,14 +8,6 @@
   height: auto;
 }
 
-/* The search-surfaces diagram was authored for a dark ground; on a light
-   section it sits inside an inverse panel rather than being restyled. */
-.lightWrapper {
-  background: var(--ink-900);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-}
-
 .node {
   fill: none;
   stroke: var(--ink-350);
@@ -120,7 +112,6 @@
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
   color: var(--muted);
 }
 

@@ -402,23 +402,25 @@ almost nothing else.
 
 ## Radius, elevation, borders
 
-Deliberately restrained — the brief prohibits excessive rounding and heavy shadows.
+Soft rather than sharp. The scale was opened up from a 8px ceiling: at 4px a card reads as a bordered rectangle and the page reads as a specification. Shadows stay low and wide — depth without weight.
 
 | Token | Value | Use |
 |---|---|---|
 | `--radius-0` | 0 | Section bands, full-bleed media, tables — **the default** |
-| `--radius-sm` | 2px | Inputs, tags, small controls |
-| `--radius-md` | 4px | Buttons, cards, image containers |
-| `--radius-lg` | 8px | Overlays, modals, mega-menu panels |
-| `--radius-full` | 9999px | Avatars and pill filters only |
+| `--radius-sm` | 6px | Inputs, tags, small controls |
+| `--radius-md` | 12px | Buttons, cards, image containers |
+| `--radius-lg` | 20px | Overlays, modals, mega-menu panels |
+| `--radius-xl` | 28px | Full-bleed panels and feature media |
+| `--radius-full` | 9999px | Avatars and pills only |
 
-Nothing on this site has a radius above 8px. Large radii are the strongest visual
-signal of a consumer template.
+Nothing is a pill except what `--radius-full` names, so the geometry stays
+deliberate rather than becoming a bubble. Radius is read from the scale in every
+case — a literal is a build failure.
 
 | Elevation | Value | Use |
 |---|---|---|
 | `--elev-0` | none | **Default.** Separation comes from rules and space |
-| `--elev-1` | `0 1px 2px rgb(13 18 16 / 0.06)` | Hovered interactive surface |
+| `--elev-1` | `0 1px 2px rgb(13 18 16 / 0.06)` | Static cards, and hovered interactive surfaces |
 | `--elev-2` | `0 4px 16px rgb(13 18 16 / 0.08)` | Dropdowns, mega-menu, popovers |
 | `--elev-3` | `0 12px 40px rgb(13 18 16 / 0.12)` | Modal, command palette |
 

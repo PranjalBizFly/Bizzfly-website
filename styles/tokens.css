@@ -230,6 +230,23 @@
   --scrim:                 rgb(13 20 32 / 0.32);
   --scrim-strong:          rgb(13 20 32 / 0.48);
 
+  /* ---------------------------------------------------------------------
+     HERO SCRIM — the one place type is set directly on a photograph.
+
+     This is deliberately much heavier than --scrim-strong, and the reason
+     is arithmetic rather than taste. White text needs the composited
+     surface behind it at a relative luminance of 0.183 or lower to clear
+     4.5:1. Over a bright frame — and some of these photographs are pale
+     studio shots — a 0.48 wash lands nowhere near that.
+
+     0.68 holds AA against everything in the current image set and still
+     leaves the photograph legible as an image. It is not a licence to set
+     type anywhere on any picture: the hero copy is held to a measure on
+     one side of the frame, and any new image whose bright area falls under
+     the headline gets checked before it ships.
+     --------------------------------------------------------------------- */
+  --scrim-hero:            rgb(13 20 32 / 0.68);
+
   /* --- Focus ---------------------------------------------------------- */
   --focus-ring:            var(--ink-900);
   --focus-ring-inverse:    var(--green-500);
@@ -290,7 +307,7 @@
                                     the neutral grotesque this replaced    */
   --text-body-sm:    0.875rem;   /* 14px */
   --text-caption:    0.8125rem;  /* 13px */
-  --text-eyebrow:    0.75rem;    /* 12px */
+  --text-eyebrow:    0.8125rem;  /* 13px — sentence case needs the size back */
   --text-meta:       0.8125rem;  /* 13px */
   --text-metric:     clamp(2.5rem, 1.8333rem + 2.9630vw, 4.5rem);      /* 40→72 */
   --text-quote:      clamp(1.5rem, 1.2917rem + 0.9259vw, 2.125rem);    /* 24→34 */
@@ -321,7 +338,9 @@
   --tracking-h2:      -0.015em;
   --tracking-h3:      -0.01em;
   --tracking-normal:   0;
-  --tracking-eyebrow:  0.10em;
+  /* Minimal, not tracked-out: the label is sentence case now, and wide
+     letter-spacing on mixed case reads as a mistake rather than as a style. */
+  --tracking-eyebrow:  0.01em;
   --tracking-meta:     0.02em;
 
   /* Brand weights. Funnel Sans SemiBold (600) is the display weight;
@@ -419,13 +438,28 @@
   --logo-clearspace: calc(var(--logo-height) * var(--logo-clearspace-ratio));
 
   /* ---------------------------------------------------------------------
-     RADIUS — restrained. Nothing above 8px.
+     RADIUS — soft. The scale carries the warmth.
+
+     This used to top out at 8px, on the reasoning that a large radius is
+     the strongest visual signal a system has and should be spent sparingly.
+     That produced a correct, engineered surface and a cold one: at 4px a
+     card reads as a bordered rectangle, and the whole page reads as a
+     specification rather than as somewhere a person is being spoken to.
+
+     The scale below is the same five steps with the curve opened up. It is
+     the one change that shifts the whole site's temperament, because every
+     card, button, input, image frame and panel already reads its radius
+     from these names — nothing had to be restyled to feel softer.
+
+     Still bounded: nothing is a pill except what --radius-full names, so
+     the geometry stays deliberate rather than becoming a bubble.
      --------------------------------------------------------------------- */
   --radius-0:    0;
-  --radius-sm:   2px;
-  --radius-md:   4px;
-  --radius-lg:   8px;
-  --radius-full: 9999px;
+  --radius-sm:   6px;    /* inputs, tags, small controls        */
+  --radius-md:   12px;   /* buttons, cards, image containers    */
+  --radius-lg:   20px;   /* overlays, modals, large media       */
+  --radius-xl:   28px;   /* full-bleed panels and feature media */
+  --radius-full: 9999px; /* avatars and pills only              */
 
   /* ---------------------------------------------------------------------
      ELEVATION — levels 2 and 3 only for genuinely floating elements

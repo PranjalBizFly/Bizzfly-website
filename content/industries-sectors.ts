@@ -135,7 +135,6 @@ export const sectorIndustries: Industry[] = [
   {
     slug: "construction",
     layout: "challenge-led",
-    diagram: "experience-flow",
     title: "Construction",
     answer:
       "The digital problem in construction is rarely enquiry volume. It is qualification — separating the projects worth quoting from the ones that consume estimating time and never convert.",

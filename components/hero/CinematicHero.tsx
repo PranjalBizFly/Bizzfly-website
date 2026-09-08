@@ -55,19 +55,18 @@ const compositionClass: Record<HeroComposition, string> = {
 /**
  * The image-led hero.
  *
- * Two rules hold every variant together.
+ * One rule holds every variant together: the photograph is a contained
+ * object, never a ground. It sits beside or beneath the type on its own
+ * rounded panel, and no text is ever laid over it — so there is no scrim to
+ * tune, no dependence on how light a particular frame happens to be behind a
+ * headline, and the contrast is simply the verified light-theme pairing.
  *
- * The type never sits on the photograph. It sits on the dark ground beside
- * or above it, which is what makes the contrast ratios provable rather than
- * dependent on how light that particular photo happens to be in the corner
- * where the headline lands. The scrim exists to settle the image into the
- * ground, not to rescue text laid over it.
+ * The variants differ in where that panel goes and what shape it takes, so a
+ * visitor moving from a service to an industry meets a different composition
+ * rather than the same hero with different words in it.
  *
- * The fact cards are the layer that makes the composition read as depth:
- * they start in the type column and run across the image's edge, so the two
- * planes overlap instead of sitting side by side. They are pulled from what
- * the page already says — the specification block that used to be a plain
- * list in the old hero — so nothing here is decorative filler.
+ * The fact cards carry content the page already states — the specification
+ * block that used to be a plain list — so nothing here is decorative filler.
  */
 export function CinematicHero({
   image,
@@ -81,38 +80,26 @@ export function CinematicHero({
   composition = "bleed-right",
   priority = true,
 }: CinematicHeroProps) {
+  /*
+   * The photograph is the ground. It fills the section, the scrim sits on
+   * top of it, and the type sits on the scrim — so the image is edge to
+   * edge at every breakpoint and the copy reads white over it.
+   */
   const media = (
     <div className={styles.media}>
-      <div className={styles.mediaInner}>
-        <Image
-          src={image.src}
-          alt={image.alt}
-          width={image.width}
-          height={image.height}
-          priority={priority}
-          sizes={
-            composition === "banner"
-              ? "100vw"
-              : "(min-width: 1024px) 55vw, 100vw"
-          }
-          className={styles.image}
-        />
-        {/* Settles the photograph into the dark ground it is set on. */}
-        <span className={styles.scrim} aria-hidden="true" />
-      </div>
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={image.width}
+        height={image.height}
+        priority={priority}
+        sizes="100vw"
+        className={styles.image}
+      />
+      <span className={styles.scrim} aria-hidden="true" />
     </div>
   );
 
-  /*
-   * Banner and portrait keep the image in the flow, because both place it
-   * relative to the type — a band beneath it, or a column beside it. The
-   * other three take it out of the flow and pin it to an edge of the
-   * section, which is what lets it reach the viewport boundary.
-   */
-  const mediaInFlow = composition === "banner" || composition === "portrait";
-
-  /* The inset panel is the only readable ground in that composition, so the
-     trail goes inside it rather than floating on the photograph. */
   const trail = breadcrumbs ? (
     <div className={styles.breadcrumbs}>
       <Breadcrumbs items={breadcrumbs} inverse />
@@ -123,14 +110,12 @@ export function CinematicHero({
     <section
       className={`${styles.hero} ${compositionClass[composition]} is-inverse`.trim()}
     >
-      {!mediaInFlow ? media : null}
+      {media}
 
       <Container className={styles.container}>
-        {composition !== "inset" ? trail : null}
+        {trail}
 
         <div className={styles.content}>
-          {composition === "inset" ? trail : null}
-
           {eyebrow ? <Eyebrow className={styles.eyebrow}>{eyebrow}</Eyebrow> : null}
 
           <Heading level={1} size="h1" className={styles.title}>
@@ -145,8 +130,6 @@ export function CinematicHero({
 
           {actions ? <div className={styles.actions}>{actions}</div> : null}
         </div>
-
-        {mediaInFlow ? <div className={styles.mediaSlot}>{media}</div> : null}
 
         {facts?.length ? (
           <div className={styles.factsWrap}>

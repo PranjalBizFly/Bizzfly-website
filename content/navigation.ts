@@ -285,11 +285,20 @@ export const primaryNav: PrimaryNavItem[] = [
       })),
       columnsHeading: "Browse by capability",
       /*
-        Then the three groups above. This panel carries no feature card: four
-        editorial columns already fill the width, and a fifth region would
-        turn the menu into the card grid it is meant to replace.
+        Then the three groups above, and a card — the same three regions every
+        other panel carries. Services used to be the exception, laid out as
+        four bare link columns, which is why it read as a directory beside the
+        other menus rather than as one of them.
       */
       columns: serviceGroups(),
+      feature: {
+        kind: "START HERE",
+        title: "How an engagement starts",
+        description:
+          "Almost always a fixed-scope diagnostic rather than a retainer, so both sides can judge the work before committing further.",
+        href: "/company/how-we-work/",
+        ctaLabel: "See how we work",
+      },
       footerLink: {
         label: `Explore all ${services.length} services`,
         href: "/services/",

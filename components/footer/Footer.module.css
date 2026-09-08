@@ -1,234 +1,298 @@
+/*
+ * The footer is a directory.
+ *
+ * A brand column carrying the lockup, the address and the two actions, then
+ * seven section columns, then a centred legal bar. It is the densest block on
+ * the site by design — this is where someone who did not find what they came
+ * for goes looking.
+ */
 .footer {
-  background: var(--ink-900);
-  color: var(--ink-050);
-  padding-block: var(--section-lg) var(--space-10);
+  position: relative;
+  background: var(--surface-inverse);
+  color: var(--foreground);
+  padding-block: 0 var(--section-md);
+  margin-top: var(--section-lg);
 }
 
-/* Final brand statement, not a link wall */
-.statement {
+/* --- The tagline chip ---------------------------------------------------- */
+
+/*
+ * Straddles the top edge so the footer opens on a statement. The negative
+ * margin pulls it up out of the footer's own box, which is why the footer
+ * carries a top margin — without it the chip would overlap whatever section
+ * ended above.
+ */
+.taglineRow {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--space-8);
-  padding-bottom: var(--section-sm);
-  border-bottom: 1px solid var(--border-inverse);
+  justify-content: center;
+  margin-top: calc(var(--space-8) * -1);
+  margin-bottom: var(--section-sm);
+  padding-inline: var(--margin);
 }
 
-.statementText {
+/*
+ * Ink on the brand green: 10.28:1. The green cannot be text on a light
+ * surface at any weight, but as a fill carrying dark text it is the strongest
+ * pairing the palette has.
+ */
+.tagline {
+  background: var(--green-500);
+  color: var(--ink-900);
   font-family: var(--font-display);
-  font-size: var(--text-h2);
+  font-size: var(--text-h4);
   font-weight: var(--weight-semibold);
-  line-height: var(--leading-heading);
-  letter-spacing: var(--tracking-h2);
-  max-width: 24ch;
+  border-radius: var(--radius-full);
+  padding: var(--space-4) var(--space-10);
+  text-align: center;
   text-wrap: balance;
 }
 
-.statementCta {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  min-height: var(--touch-target-min);
-  font-size: var(--text-body);
-  font-weight: var(--weight-medium);
-  color: var(--text-link);
-  text-decoration: underline;
-  text-decoration-color: var(--link-underline);
-  text-underline-offset: 5px;
-  transition: text-decoration-thickness var(--dur-fast) var(--ease-standard);
+/* --- Layout -------------------------------------------------------------- */
+
+.main {
+  display: grid;
+  gap: var(--section-sm) var(--space-12);
 }
 
-.statementCta:hover {
-  text-decoration-thickness: 2px;
-}
-
-.statementCta span {
-  transition: transform var(--dur-fast) var(--ease-standard);
-}
-
-.statementCta:hover span {
-  transform: translateX(4px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .statementCta:hover span {
-    transform: none;
+@media (min-width: 1024px) {
+  .main {
+    /* The brand column is fixed; the directory takes whatever is left. */
+    grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+    gap: var(--space-16);
   }
 }
 
-/* --- Columns: accordion below md, five columns above -------------------- */
-.columns {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-  padding-block: var(--space-8);
+/* --- Brand column -------------------------------------------------------- */
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
 }
 
-@media (min-width: 768px) {
+.brandLogo {
+  display: block;
+}
+
+.brandLine {
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  max-width: 34ch;
+}
+
+.address,
+.contactLines {
+  font-style: normal;
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  margin: 0;
+}
+
+.social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.socialLink {
+  font-family: var(--font-label);
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  text-decoration: none;
+  /* WCAG 2.5.8 target size */
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.socialLink:hover {
+  color: var(--foreground);
+}
+
+/* --- The two actions ----------------------------------------------------- */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.actionPrimary,
+.actionSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  border-radius: var(--radius-full);
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-label);
+  font-size: var(--text-button);
+  text-decoration: none;
+  min-height: var(--touch-target-min);
+  transition:
+    background var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
+}
+
+.actionPrimary {
+  background: var(--cta-primary);
+  color: var(--cta-primary-text);
+}
+
+.actionPrimary:hover {
+  background: var(--cta-primary-hover);
+}
+
+/* Outlined, so the two actions are not read as equal weight. */
+.actionSecondary {
+  border: 1px solid var(--border-strong);
+  color: var(--foreground);
+}
+
+.actionSecondary:hover {
+  background: var(--surface);
+}
+
+/* --- Section columns ----------------------------------------------------- */
+
+.columns {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
   .columns {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-10);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
   }
 }
 
 @media (min-width: 1024px) {
   .columns {
-    grid-template-columns: repeat(5, 1fr);
-    gap: var(--space-8);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-10) var(--space-8);
+  }
+}
+
+/*
+ * Seven across only at the width that can carry it. Below this the columns
+ * fall to four, because seven tracks in a 1,280px container leaves each one
+ * about 150px wide and every second link breaks over two lines.
+ */
+@media (min-width: 1560px) {
+  .columns {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: var(--space-8) var(--space-6);
   }
 }
 
 .group {
-  border-bottom: 1px solid var(--border-inverse);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-4);
 }
 
-@media (min-width: 768px) {
+/* From sm up the columns are always open and need no affordance. */
+@media (min-width: 640px) {
   .group {
-    border-bottom: none;
+    border-bottom: 0;
+    padding-bottom: 0;
   }
 }
 
+/*
+ * The heading takes the accent, which on this dark ground resolves to the
+ * brand green (10.28:1). It is what turns seven lists into seven columns.
+ */
 .groupHeading {
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink-250);
-  padding-block: var(--space-4);
+  color: var(--accent-text);
   cursor: pointer;
   list-style: none;
-  min-height: var(--touch-target-min);
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  min-height: var(--touch-target-min);
 }
 
 .groupHeading::-webkit-details-marker {
   display: none;
 }
 
-.groupHeading a {
-  color: inherit;
-  text-decoration: none;
-  /*
-   * The summary is a 44px target on mobile, but the anchor inside it was
-   * only 20px tall — and the anchor is what a pointer actually hits.
-   * WCAG 2.5.8 target size.
-   */
-  display: flex;
-  align-items: center;
-  align-self: stretch;
-  min-height: 24px;
-  width: 100%;
+/* The marker is the affordance, so it goes when the disclosure does. */
+.groupHeading::after {
+  content: "+";
+  font-size: var(--text-icon);
+  color: var(--muted);
 }
 
-.groupHeading a:hover {
-  color: var(--ink-050);
+.group[open] > .groupHeading::after {
+  content: "−";
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .groupHeading {
     cursor: default;
-    padding-top: 0;
+    margin-bottom: var(--space-5);
     min-height: 0;
+  }
+
+  .groupHeading::after,
+  .group[open] > .groupHeading::after {
+    content: none;
   }
 }
 
 .list {
   list-style: none;
   margin: 0;
-  padding: 0 0 var(--space-5);
-  display: flex;
-  flex-direction: column;
+  padding: var(--space-4) 0 0;
+  display: grid;
   gap: var(--space-3);
 }
 
+@media (min-width: 640px) {
+  .list {
+    padding-top: 0;
+  }
+}
+
 .link {
-  color: var(--ink-250);
   font-size: var(--text-body-sm);
+  line-height: var(--leading-snug);
+  color: var(--muted);
   text-decoration: none;
-  transition: color var(--dur-fast) var(--ease-standard);
-  display: inline-block;
-  padding-block: var(--space-1);
   /* WCAG 2.5.8 target size */
   min-height: 24px;
+  display: inline-block;
+  transition: color var(--dur-fast) var(--ease-standard);
 }
 
 .link:hover {
-  color: var(--ink-050);
+  color: var(--foreground);
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 4px;
 }
 
-/* --- NAP block ---------------------------------------------------------- */
-.contact {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-8);
-  padding-block: var(--space-8);
-  border-top: 1px solid var(--border-inverse);
-}
+/* --- The legal bar ------------------------------------------------------- */
 
-@media (min-width: 640px) {
-  .contact {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1024px) {
-  .contact {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-.contactHeading {
-  font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: var(--space-3);
-}
-
-/*
- * BrandLogo reserves clearspace as padding on all four sides. Pulling the
- * left edge back by exactly that amount keeps the mark optically aligned
- * with the address beneath it, without reducing the clearspace itself.
- */
-.contactLogo {
-  margin-left: calc(var(--logo-height-footer) * var(--logo-clearspace-ratio) * -1);
-  margin-top: calc(var(--logo-height-footer) * var(--logo-clearspace-ratio) * -1);
-}
-
-.address {
-  font-style: normal;
-  font-size: var(--text-body-sm);
-  line-height: var(--leading-relaxed);
-  color: var(--ink-250);
-}
-
-/* --- Base bar ----------------------------------------------------------- */
 .base {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--border-inverse);
+  margin-top: var(--section-sm);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--border);
+  text-align: center;
 }
 
 .copyright {
   font-size: var(--text-caption);
-  color: var(--ink-250);
-}
-
-.legal {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-5);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: var(--text-caption);
+  color: var(--muted);
 }
