@@ -1,8 +1,8 @@
 /*
- * The bar is a dark surface in both themes. That is forced by the artwork,
- * not chosen: the official lockup is reversed, so a light bar would erase
- * "fly" and the symbol. --header-background carries the correct dark value
- * for each theme. See styles/tokens.css.
+ * The bar takes the theme's own surface — light in the light theme, dark in
+ * the dark one. It was forced dark in both while the reversed lockup was the
+ * only artwork on disk; the primary lockup is installed now, and BrandLogo
+ * switches polarity per surface. See styles/tokens.css.
  */
 .header {
   position: sticky;
@@ -17,10 +17,9 @@
 }
 
 /*
- * The bar is always present. It was briefly transparent over the homepage
- * hero, which only worked while that hero was dark; the hero is a light
- * editorial field now, and a transparent bar there would erase the
- * reversed lockup entirely.
+ * The bar is always present rather than transparent over the homepage hero:
+ * a transparent bar inherits whatever the hero is doing, and the hero is a
+ * light editorial field that the nav could not be read against.
  *
  * Scrolling adds depth rather than changing the surface: a shadow, and a
  * blur where it is supported, so the solid colour is always the fallback
@@ -71,6 +70,16 @@
   flex-shrink: 0;
   /* A 30px mark still needs a 44px hit area. */
   min-height: var(--touch-target-min);
+  /*
+   * Brand clearspace on the trailing edge. The bar's 80px height gives the
+   * mark 25px above and below — already past the 23.2px the guidelines ask
+   * for — and the container margin (24px) covers the leading edge. The
+   * trailing edge was the gap alone, 12px, so the nav crowded the logo at
+   * every width. Reserved here rather than by widening .inner's gap,
+   * because that gap also separates the nav from the actions, where 12px
+   * is correct.
+   */
+  padding-inline-end: var(--logo-clearspace);
 }
 
 /*
@@ -140,9 +149,19 @@
   }
 }
 
-/* Only at 1600 is there room for the wider rhythm alongside seven items,
-   the labelled search trigger, the theme toggle and the CTA. */
-@media (min-width: 1600px) {
+/*
+ * The wider rhythm alongside seven items, the labelled search trigger, the
+ * theme toggle and the CTA.
+ *
+ * Raised from 1600 to 1700, because at 1600 there was not in fact room: that
+ * is the width where the labelled "Search ⌘K" trigger appears *and* the nav
+ * steps up to the widest gap, and the two together overflowed the bar by
+ * 11px — measured against the original markup, so this predates the chevron
+ * and was simply never caught: verify-responsive samples 1440 and 1920 and
+ * steps straight over the band. The trigger still appears at 1600; only the
+ * nav rhythm waits for the width that actually carries it.
+ */
+@media (min-width: 1700px) {
   .nav {
     gap: var(--space-8);
     margin-inline-start: var(--space-10);
@@ -190,7 +209,7 @@
   width: 16px;
   height: 2px;
   margin-left: -8px;
-  border-radius: 1px;
+  border-radius: var(--radius-full);
   background: var(--accent-edge);
   transform: scaleX(0);
   transition:
@@ -216,14 +235,38 @@
   opacity: 1;
 }
 
-.chevron {
-  font-size: 0.6em;
-  color: var(--muted);
-  transition: transform var(--dur-fast) var(--ease-standard);
+/*
+ * The indicator itself is an SVG — components/navigation/Chevron.tsx, whose
+ * own module owns the 16px box and the rotate(180deg) it takes from React
+ * state. Nothing here may set `transform` or the two would fight over it.
+ *
+ * Descendant selectors throughout, never a bare `.chevron`: a single-class
+ * rule here would tie on specificity with the one in Chevron.module.css and
+ * be settled by whichever file landed first in the bundle rather than by
+ * intent — the same trap documented on .headerCta below.
+ */
+.navLink .chevron {
+  /*
+   * Sized in em, so it tracks the nav's own type scale exactly the way the
+   * glyph it replaced did (that was font-size: var(--text-glyph), 0.6em).
+   *
+   * This is not cosmetic. The bar is width-critical between 1024 and 1280 —
+   * see the note on .nav — and a fixed 14px box across six triggers is 39px
+   * more than the old mark, which pushed the CTA past the right edge by 23px
+   * at 1024 and 19px at 1280. 0.7em lands at ~10.5px against the 15px nav
+   * text: legible as a drawn chevron, and inside the budget at every width.
+   */
+  width: 0.7em;
+  height: 0.7em;
+  opacity: 0.75;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    opacity var(--dur-fast) var(--ease-standard);
 }
 
-.navItem[data-open="true"] .chevron {
-  transform: rotate(180deg);
+.navLink:hover .chevron,
+.navItem[data-open="true"] .navLink .chevron {
+  opacity: 1;
 }
 
 /* --- Header actions ------------------------------------------------------ */
@@ -263,7 +306,7 @@
 
 /* Prints the shortcut — teaches it, and signals a real command palette */
 .kbd {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   color: var(--muted);
   border: 1px solid var(--border);
@@ -271,22 +314,28 @@
   padding: 0.1em 0.4em;
 }
 
-.headerCta {
-  display: none;
-}
-
 /*
  * Theme toggle and CTA both appear at md. Below that the bar carries the
  * logo, search and the menu button only — a fourth control at 320px pushes
- * the CTA off the edge. The drawer carries both instead.
+ * the CTA off the edge. The drawer carries both instead, so neither is
+ * unreachable.
+ *
+ * Scoped under .actions deliberately. These were plain single-class rules,
+ * which put them in a specificity tie with Button.module.css's `.base
+ * { display: inline-flex }` — and a tie is settled by the order the two
+ * CSS-module files happen to land in the bundle, not by intent. Button won,
+ * so the CTA rendered at every width and the header overflowed by 53px at
+ * 320px while this rule sat here looking correct. Two classes beat one, in
+ * any order.
  */
-.themeToggle {
+.actions .headerCta,
+.actions .themeToggle {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .headerCta,
-  .themeToggle {
+  .actions .headerCta,
+  .actions .themeToggle {
     display: inline-flex;
   }
 }
@@ -355,14 +404,21 @@
 .panelGrid {
   display: grid;
   align-items: start;
-  gap: var(--space-10);
-  padding-block: var(--space-10);
+  gap: var(--space-8);
+  padding-block: var(--space-6) var(--space-8);
   grid-template-columns: 1fr;
 }
 
 @media (min-width: 1024px) {
+  /*
+   * Three regions: the numbered selection, the categories, the feature.
+   * The categories get the most room because they carry the breadth —
+   * the numbered column is six entries and the feature is one.
+   */
   .panelGrid {
-    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-columns: 1fr 2.5fr 1.05fr;
+    gap: var(--space-10);
+    padding-block: var(--space-6) var(--space-10);
   }
 
   /*
@@ -372,13 +428,63 @@
    * lists stacked into one region.
    */
   .panelGrid[data-columns="3"][data-feature="false"] {
-    grid-template-columns: 1.35fr 1fr 1fr 0.85fr;
+    grid-template-columns: 1fr 2.5fr 1.05fr;
     gap: var(--space-8);
   }
 
+  /*
+   * Both wrappers step out of the grid, not just the outer one. The region
+   * exists to carry the "browse by" label; the inner .columns is a grid in
+   * its own right everywhere else, and leaving it as a box here put three
+   * groups into one track and made the panel 1,195px tall.
+   */
+  .panelGrid[data-columns="3"][data-feature="false"] .columnsRegion,
   .panelGrid[data-columns="3"][data-feature="false"] .columns {
     display: contents;
   }
+}
+
+/*
+ * The panel's own sentence. A grouped menu is a table of contents, and a
+ * table of contents with no title leaves the reader inferring the subject
+ * from the entries.
+ */
+.panelLead {
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  max-width: 78ch;
+  padding-top: var(--space-8);
+  text-wrap: pretty;
+}
+
+/* Names what a region of the panel is, in the eyebrow voice used site-wide. */
+.regionHeading {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--space-5);
+}
+
+/*
+ * Services puts its groups straight into the panel grid, where a heading
+ * above them would sit in the numbered column instead. The label is
+ * redundant there anyway: four titled columns already read as categories.
+ */
+.panelGrid[data-columns="3"][data-feature="false"] .columnsRegion > .regionHeading {
+  display: none;
+}
+
+/*
+ * Region wrappers. min-width:0 so a long menu label cannot push a grid
+ * column past its track and force the panel to scroll sideways.
+ */
+.primaryRegion,
+.columnsRegion,
+.column {
+  min-width: 0;
 }
 
 /* Column 1 — numbered primary list, the control column. Not cards. */
@@ -389,32 +495,26 @@
 }
 
 .primaryItem + .primaryItem {
-  border-top: 1px solid var(--border);
+  margin-top: var(--space-4);
 }
 
 .primaryLink {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: baseline;
-  gap: var(--space-4);
-  padding-block: var(--space-4);
+  display: block;
+  padding-block: var(--space-2);
   text-decoration: none;
   color: var(--foreground);
 }
 
-.primaryIndex {
-  font-family: var(--font-mono);
-  font-size: var(--text-eyebrow);
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
+.primaryIndex,
+.primaryArrow {
+  display: none;
 }
 
 .primaryTitle {
   display: block;
-  font-family: var(--font-display);
-  font-size: var(--text-h4);
-  font-weight: var(--weight-semibold);
-  letter-spacing: -0.01em;
+  font-size: var(--text-nav-sub);
+  font-weight: var(--weight-medium);
+  color: var(--foreground);
 }
 
 .primaryDescription {
@@ -442,12 +542,25 @@
 
 /* Column 2 — plain text links, not cards */
 .columnHeading {
-  font-family: var(--font-mono);
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+/*
+ * The count, so a capped column says so. Tabular figures because these sit
+ * in a row of columns and ragged digits read as misalignment.
+ */
+.columnMeta {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
 }
 
 .linkList {
@@ -456,23 +569,71 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-2);
 }
 
 .plainLink {
+  display: block;
   font-size: var(--text-nav-sub);
   color: var(--foreground);
   text-decoration: none;
-  display: inline-block;
   padding-block: var(--space-1);
   /* WCAG 2.5.8 target size */
   min-height: 24px;
 }
 
-.plainLink:hover {
+.plainLabel {
+  display: block;
+}
+
+.plainLink:hover .plainLabel {
   text-decoration: underline;
   text-decoration-color: var(--link-underline);
   text-underline-offset: 4px;
+}
+
+.plainDescription {
+  display: block;
+  font-size: var(--text-caption);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/*
+ * The way out of one category and into the whole of it. Kept visually
+ * quieter than the entries above it: it is the answer to "there are more of
+ * these", not a seventh entry.
+ */
+.columnViewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  color: var(--accent-text);
+  text-decoration: none;
+  min-height: 24px;
+}
+
+.columnViewAll:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.columnViewAll span {
+  transition: transform var(--dur-fast) var(--ease-standard);
+}
+
+.columnViewAll:hover span {
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .columnViewAll:hover span {
+    transform: none;
+  }
 }
 
 /* Column 3 — featured. One per panel, with a real description. */
@@ -488,14 +649,43 @@
   border-top: 1px solid var(--border);
 }
 
+/*
+ * The feature is the one region that is a surface rather than plain text.
+ * On a panel of four text columns it is what stops the menu reading as one
+ * undifferentiated field of links.
+ */
+.featureRegion {
+  background: var(--surface-inverse);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+/*
+ * The card is the one dark surface in the panel, so everything inside it
+ * reads the on-dark roles rather than the light ones around it.
+ */
+.featureRegion .featureKind {
+  color: var(--green-500);
+}
+
+.featureRegion .featureTitle,
+.featureRegion .featureCta {
+  color: var(--text-inverse);
+}
+
+.featureRegion .featureDescription {
+  color: var(--text-inverse-muted);
+}
+
 .featureKind {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   color: var(--muted);
 }
 
 .featureTitle {
+  display: block;
   font-family: var(--font-display);
   font-size: var(--text-h4);
   font-weight: var(--weight-semibold);
@@ -504,7 +694,9 @@
 }
 
 .featureDescription {
+  display: block;
   font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
   color: var(--muted);
   margin-top: var(--space-2);
 }
@@ -521,16 +713,74 @@
   text-underline-offset: 4px;
 }
 
+/*
+ * Two ways out of the panel: everything in this section, and everything on
+ * the site. The second is the only place in the header where the full page
+ * directory is named, and a menu that caps its own lists has to say where
+ * the rest of them are.
+ */
 .panelFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
   border-top: 1px solid var(--border);
   padding-block: var(--space-5);
+}
+
+.panelFooterLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--touch-target-min);
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-edge);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+.panelFooterLink span,
+.panelFooterSecondary span {
+  transition: transform var(--dur-fast) var(--ease-standard);
+}
+
+.panelFooterLink:hover span,
+.panelFooterSecondary:hover span {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panelFooterLink:hover span,
+  .panelFooterSecondary:hover span {
+    transform: none;
+  }
+}
+
+.panelFooterSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--touch-target-min);
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.panelFooterSecondary:hover {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .scrim {
   position: fixed;
   inset: 0;
   top: var(--header-height);
-  background: rgb(13 20 32 / 0.32);
+  background: var(--scrim);
   /* Below the header — the header is its own stacking context, so anything
      above it here would cover the bar and the open panel too. */
   z-index: calc(var(--z-header) - 1);
@@ -538,20 +788,43 @@
   cursor: default;
 }
 
-/* Mega-menu grouped columns */
+/*
+ * Mega-menu grouped columns.
+ *
+ * Two-up from 1024, because four categories in a single column made the
+ * Industries and Use Cases panels taller than a laptop viewport — the panel
+ * scrolled, which turns a menu back into the list it was grouped to escape.
+ */
 .columns {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: var(--space-8);
 }
 
-/*
- * Only applies while the wrapper is a real box. When it becomes
- * `display: contents` for the four-column Services panel, the grid gap
- * supplies the separation instead.
- */
-.columns .column + .column {
-  margin-top: 0;
+@media (min-width: 768px) {
+  .columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-8);
+    row-gap: var(--space-8);
+  }
+}
+
+@media (min-width: 1280px) {
+  .columns {
+    column-gap: var(--space-10);
+  }
+
+  /*
+   * Three groups go three across rather than two-and-a-wrap.
+   * Two tracks left the third group hanging under the first and a column of
+   * dead space under the second, which is the thing that made the panel look
+   * unbalanced next to the card. Panels with four or more groups keep the
+   * two-track grid — at three narrow tracks their longer titles start
+   * breaking mid-word.
+   */
+  .panelGrid[data-columns="3"] .columns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .columnHeading a {

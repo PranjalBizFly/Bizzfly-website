@@ -1,5 +1,5 @@
 .nav {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-meta);
   letter-spacing: var(--tracking-meta);
   color: var(--muted);

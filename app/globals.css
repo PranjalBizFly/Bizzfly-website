@@ -2,13 +2,16 @@
 @import "../styles/base.css";
 
 /*
- * Font family tokens are overridden here to use the next/font CSS variables
- * declared in app/layout.tsx. Everything else comes from tokens.css.
+ * Font family tokens are rebound here to the next/font CSS variables declared
+ * in app/layout.tsx. Everything else comes from tokens.css.
+ *
+ * Only the two brand families are loaded. --font-label resolves to --font-body
+ * in tokens.css, and --font-mono is a system stack, so neither needs binding
+ * here and neither costs a download.
  */
 :root {
   --font-display: var(--font-funnel-sans), system-ui, sans-serif;
   --font-body: var(--font-poppins), system-ui, sans-serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 }
 
 /* Layout shell */

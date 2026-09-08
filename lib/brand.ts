@@ -29,4 +29,10 @@ export const brand = {
   /** #2A1ED1 — Deep Electric Blue. Secondary surface, 9.52:1 with white. */
   deepBlue: "#2A1ED1",
   white: "#FFFFFF",
+  /**
+   * ink-050 at 16% — the hairline rule on a dark ground, mirroring
+   * --border-inverse in tokens.css. Present so the OG card does not have to
+   * write an rgba() literal of its own.
+   */
+  borderInverse: "rgba(245,247,250,0.16)",
 } as const;

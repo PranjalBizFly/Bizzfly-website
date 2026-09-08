@@ -1,0 +1,80 @@
+/*
+ * The scrolling band.
+ *
+ * Full-bleed by intent: it is a rule across the page, not a contained block,
+ * so it is placed outside a Container and takes the viewport width.
+ *
+ * No edge fade. The brand rules forbid gradients, and a hard edge against a
+ * bordered band reads as deliberate rather than clipped.
+ */
+.marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll var(--marquee-duration, 40s) linear infinite;
+}
+
+.reverse .track {
+  animation-direction: reverse;
+}
+
+/*
+ * Pause so the band can be read and its links clicked. focus-within covers
+ * the keyboard: tabbing into a link stops the track under the caret.
+ */
+.marquee:hover .track,
+.marquee:focus-within .track {
+  animation-play-state: paused;
+}
+
+.run {
+  display: flex;
+  align-items: center;
+  flex: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-inline: var(--space-6);
+  white-space: nowrap;
+}
+
+/*
+ * Translating by half the doubled track lands the clone exactly where the
+ * original began, so there is no jump on repeat.
+ */
+@keyframes scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/*
+ * Reduced motion keeps the content and drops the movement. The band becomes
+ * a scroller the visitor drives, rather than a section that disappears.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+  }
+
+  .track {
+    animation: none;
+  }
+
+  .track > .run[aria-hidden="true"] {
+    display: none;
+  }
+}

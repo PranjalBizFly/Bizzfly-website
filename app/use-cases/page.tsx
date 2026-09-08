@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
+import { SectionNav } from "@/components/navigation";
 import { EditorialHero } from "@/components/hero";
 import {
   SectionHeader,
-  RelatedContent,
   ConversionBand,
+  Directory,
 } from "@/components/sections";
 import { Button, TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { useCases } from "@/content/use-cases";
+import { outcomeDirectory } from "@/content/taxonomy";
 import { services } from "@/content/services";
 import { primaryCta } from "@/content/navigation";
 import { buildMetadata } from "@/lib/seo";
@@ -86,6 +88,8 @@ const routes = [
 ];
 
 export default function UseCasesIndexPage() {
+  const useCaseGroups = outcomeDirectory();
+
   const linkFor = (slug: string) => {
     const useCase = useCases.find((u) => u.slug === slug);
     if (useCase) return { label: useCase.title, href: `/use-cases/${slug}/` };
@@ -166,15 +170,17 @@ export default function UseCasesIndexPage() {
           title="Or browse everything"
           lead="Every use case starts with the symptoms rather than with what we would sell you."
         />
-        <RelatedContent
-          mode="list"
-          items={useCases.map((useCase) => ({
-            label: useCase.title,
-            href: `/use-cases/${useCase.slug}/`,
-            type: "USE CASE",
-            description: useCase.symptoms[0] ?? useCase.answer,
+        <SectionNav
+          label="Jump to an outcome"
+          items={useCaseGroups.map((group) => ({
+            label: group.heading,
+            count: group.items.length,
           }))}
+          className="mt-8"
         />
+        <div className="mt-10">
+          <Directory groups={useCaseGroups} />
+        </div>
         <div className="mt-8">
           <TextLink href="/services/">Browse by service instead</TextLink>
         </div>

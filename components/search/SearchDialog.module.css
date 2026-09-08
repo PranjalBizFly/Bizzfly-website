@@ -2,11 +2,11 @@
   position: fixed;
   inset: 0;
   z-index: var(--z-modal);
-  background: rgb(13 18 16 / 0.4);
+  background: var(--scrim-strong);
   display: flex;
   justify-content: center;
   padding: var(--space-4);
-  padding-top: 12vh;
+  padding-top: 8vh;
 }
 
 /* Full-screen sheet below md; centred dialog above. */
@@ -17,16 +17,25 @@
   }
 }
 
+/*
+ * Sized for sections, not for a command palette.
+ *
+ * At --container-narrow and 70vh the panel showed about four rows, which is
+ * fine for one ranked list and useless for nine sections: the grouping was
+ * real in the DOM and invisible on screen. Wide enough for two columns of
+ * sections from 1024, and tall enough that at least three of them are above
+ * the fold.
+ */
 .dialog {
   width: 100%;
-  max-width: var(--container-narrow);
+  max-width: var(--container-content);
   background: var(--background);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--elev-3);
   display: flex;
   flex-direction: column;
-  max-height: 70vh;
+  max-height: 84vh;
   overflow: hidden;
 }
 
@@ -35,7 +44,7 @@
     max-width: none;
     max-height: 100dvh;
     height: 100dvh;
-    border-radius: 0;
+    border-radius: var(--radius-0);
     border: none;
   }
 }
@@ -43,8 +52,8 @@
 .inputRow {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-4) var(--space-5);
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
 }
@@ -56,16 +65,27 @@
 
 .input {
   flex: 1;
+  min-width: 0;
   border: none;
   background: none;
-  /* 16px minimum prevents iOS zoom-on-focus */
-  font-size: 1rem;
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.01em;
+  /* 16px minimum prevents iOS zoom-on-focus; this is well clear of it. */
+  font-size: var(--text-h4);
   color: var(--foreground);
   min-height: var(--touch-target-min);
 }
 
+@media (min-width: 768px) {
+  .input {
+    font-size: var(--text-h3);
+  }
+}
+
 .input::placeholder {
-  color: var(--ink-500);
+  color: var(--ink-400);
+  font-weight: var(--weight-regular);
 }
 
 .input:focus {
@@ -73,7 +93,7 @@
 }
 
 .escape {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   color: var(--ink-400);
   border: 1px solid var(--border);
@@ -89,13 +109,62 @@
   padding-block: var(--space-3);
 }
 
+.sections {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: var(--space-2);
+}
+
+@media (min-width: 1024px) {
+  .sections {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-6);
+    padding-inline: var(--space-2);
+  }
+}
+
+.section {
+  min-width: 0;
+  padding-bottom: var(--space-3);
+}
+
 .groupHeading {
-  font-family: var(--font-mono);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
   color: var(--muted);
-  padding: var(--space-4) var(--space-5) var(--space-2);
+  margin: var(--space-4) var(--space-5) var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--border);
+}
+
+/* How many this section actually has, which is what the row below acts on. */
+.groupCount {
+  font-variant-numeric: tabular-nums;
+}
+
+.sectionMore {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: var(--space-1) var(--space-5) 0;
+  padding-block: var(--space-1);
+  min-height: 24px;
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  color: var(--accent-text);
+  text-align: left;
+}
+
+.sectionMore:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .result {
@@ -129,10 +198,65 @@
 }
 
 .resultUrl {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-caption);
   color: var(--ink-400);
   margin-top: 4px;
+}
+
+/*
+ * Pinned above the keyboard hints rather than buried at the end of a
+ * scrolling list: every list in this dialog is capped, so the way to the
+ * complete set cannot itself require scrolling to find.
+ */
+.exploreAll {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  text-align: left;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-standard);
+}
+
+.exploreAll:hover {
+  background: var(--surface-muted);
+}
+
+.exploreAllLabel {
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+  color: var(--foreground);
+  min-width: 0;
+}
+
+.exploreAllMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+  font-family: var(--font-label);
+  font-size: var(--text-caption);
+  color: var(--accent-text);
+}
+
+.exploreAllMeta span {
+  transition: transform var(--dur-fast) var(--ease-standard);
+}
+
+.exploreAll:hover .exploreAllMeta span {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exploreAll:hover .exploreAllMeta span {
+    transform: none;
+  }
 }
 
 .footer {
@@ -142,7 +266,7 @@
   gap: var(--space-4);
   padding: var(--space-3) var(--space-5);
   border-top: 1px solid var(--border);
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-caption);
   color: var(--muted);
   flex-shrink: 0;
@@ -154,9 +278,18 @@
 }
 
 .emptyTitle {
-  font-size: var(--text-body);
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
   color: var(--foreground);
-  margin-bottom: var(--space-5);
+}
+
+.emptyLead {
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  max-width: 56ch;
+  margin: var(--space-2) 0 var(--space-6);
 }
 
 .emptySection + .emptySection {
@@ -164,7 +297,7 @@
 }
 
 .emptyHeading {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
@@ -193,4 +326,76 @@
 .chip:hover {
   border-color: var(--border-strong);
   background: var(--surface);
+}
+
+/* ==========================================================================
+   Pre-query state — destinations, not filters
+
+   Two rows of chips read as facets you were about to apply. These are the
+   six places the site divides into, so they are rows that go somewhere, with
+   the arrow saying so.
+   ========================================================================== */
+
+.start {
+  padding: var(--space-5) 0 var(--space-6);
+}
+
+.startHeading {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-inline: var(--space-6);
+  margin-bottom: var(--space-2);
+}
+
+.startList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.startLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-6);
+  min-height: var(--touch-target-min);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-medium);
+  color: var(--foreground);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+}
+
+.startLink:hover,
+.startLink:focus-visible {
+  background: var(--surface);
+  border-left-color: var(--accent-edge);
+}
+
+.startArrow {
+  color: var(--accent-text);
+  transition: transform var(--dur-fast) var(--ease-standard);
+}
+
+.startLink:hover .startArrow {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .startLink:hover .startArrow {
+    transform: none;
+  }
+}
+
+/* Says what the box does before anything has been typed into it. */
+.startHint {
+  padding: var(--space-5) var(--space-6) 0;
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  max-width: 60ch;
 }

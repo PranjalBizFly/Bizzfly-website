@@ -1,0 +1,27 @@
+/*
+ * Fixed box, so nothing beside it reflows when the state changes. Only the
+ * transform animates, which stays off the layout and paint path.
+ */
+.chevron {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--muted);
+  transform: rotate(0deg);
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+.chevron[data-open="true"] {
+  transform: rotate(180deg);
+}
+
+/*
+ * The rotation is the affordance, not the animation. Reduced motion keeps
+ * the changed state and drops the sweep between the two.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
+}

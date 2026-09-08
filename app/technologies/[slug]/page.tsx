@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/layout/Section";
-import { SplitHero, EditorialHero } from "@/components/hero";
+import { ExploreNext } from "@/components/navigation";
+import { SplitHero, EditorialHero, CinematicHero, toHeroFacts } from "@/components/hero";
 import {
   SectionHeader,
   NumberedList,
@@ -17,6 +18,7 @@ import { CtaBlock, TextLink } from "@/components/buttons";
 import { BodyText, Heading } from "@/components/typography";
 import { JsonLd } from "@/components/JsonLd";
 import { technologies, getTechnology } from "@/content/technologies";
+import { getTechnologyImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import { relationshipsForTechnology } from "@/lib/relationships";
 import { buildMetadata, faqSchema } from "@/lib/seo";
@@ -52,8 +54,11 @@ export default async function TechnologyPage({ params }: PageProps) {
   const layout = technology.layout ?? "capability-led";
   const rel = relationshipsForTechnology(slug);
 
+  const techVisual = getTechnologyImage(slug);
+
   const why = technology.whyItMatters ? (
-    <Section key="why" spacing="lg" width="text">
+    <Section key="why" spacing="lg" width="content">
+      {/* The photograph is the hero ground; one image per technology. */}
       <ContentBlock>
         <Heading level={2} size="h3">
           Why this matters
@@ -154,19 +159,37 @@ export default async function TechnologyPage({ params }: PageProps) {
         }}
       />
 
-      <Hero
-        eyebrow={technology.category}
-        title={technology.title}
-        lead={technology.answer}
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Technologies", href: "/technologies/" },
-          { label: technology.title },
-        ]}
-        asideHeading="Decision criteria"
-        asideItems={technology.decisionCriteria ?? technology.whenNotToUse}
-        actions={<CtaBlock cta={technology.cta} size="lg" />}
-      />
+      {techVisual ? (
+        <CinematicHero
+          image={techVisual}
+          composition="inset"
+          eyebrow={technology.category}
+          title={technology.title}
+          lead={technology.answer}
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Technologies", href: "/technologies/" },
+            { label: technology.title },
+          ]}
+          factsHeading="Decision criteria"
+          facts={toHeroFacts(technology.decisionCriteria ?? technology.whenNotToUse)}
+          actions={<CtaBlock cta={technology.cta} size="lg" />}
+        />
+      ) : (
+        <Hero
+          eyebrow={technology.category}
+          title={technology.title}
+          lead={technology.answer}
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Technologies", href: "/technologies/" },
+            { label: technology.title },
+          ]}
+          asideHeading="Decision criteria"
+          asideItems={technology.decisionCriteria ?? technology.whenNotToUse}
+          actions={<CtaBlock cta={technology.cta} size="lg" />}
+        />
+      )}
 
       {order}
 
@@ -190,6 +213,10 @@ export default async function TechnologyPage({ params }: PageProps) {
           </div>
         </Section>
       ) : null}
+
+      <Section spacing="md">
+        <ExploreNext href={`/technologies/${slug}/`} />
+      </Section>
 
       <ConversionBand cta={technology.cta} />
     </>

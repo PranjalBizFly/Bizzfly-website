@@ -80,10 +80,23 @@ export function MegaMenu({ id, label, panel, onClose }: MegaMenuProps) {
     <div id={id} ref={ref} className={styles.panel} onKeyDown={onKeyDown}>
       <Container>
         {/*
+          The panel's own sentence, full width above the grid rather than
+          inside the numbered column. It reads as a title for the section
+          there, and it stops one region being three lines taller than the
+          others — which was the difference between the panel fitting a
+          laptop viewport and scrolling.
+        */}
+        {panel.lead ? (
+          <p className={styles.panelLead}>{panel.lead}</p>
+        ) : null}
+
+        {/*
           The column count drives the grid. A panel with three groups and no
           feature card (Services) lays them out as four editorial columns;
-          everything else keeps the three-region layout with the groups
-          stacked beside a feature.
+          everything else keeps the three-region layout, with the groups
+          arranged two-up beside a feature rather than stacked into one tall
+          strip — four categories in a single column made the panel taller
+          than the viewport on a laptop.
         */}
         <nav
           className={styles.panelGrid}
@@ -91,61 +104,98 @@ export function MegaMenu({ id, label, panel, onClose }: MegaMenuProps) {
           data-feature={panel.feature ? "true" : "false"}
           aria-label={`${label} menu`}
         >
-          <ul className={styles.primaryList}>
-            {panel.primary.map((item) => (
-              <li key={item.href} className={styles.primaryItem}>
-                <Link href={item.href} className={styles.primaryLink}>
-                  {item.index ? (
-                    <span className={styles.primaryIndex}>{item.index}</span>
-                  ) : (
-                    <span />
-                  )}
-                  <span>
-                    <span className={styles.primaryTitle}>{item.label}</span>
-                    {item.description ? (
-                      <span className={styles.primaryDescription}>
-                        {item.description}
-                      </span>
-                    ) : null}
-                  </span>
-                  <span className={styles.primaryArrow} aria-hidden="true">
-                    &rarr;
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className={styles.primaryRegion}>
+            {panel.primaryHeading ? (
+              <p className={styles.regionHeading}>{panel.primaryHeading}</p>
+            ) : null}
+
+            <ul className={styles.primaryList}>
+              {panel.primary.map((item) => (
+                <li key={item.href} className={styles.primaryItem}>
+                  <Link href={item.href} className={styles.primaryLink}>
+                    {item.index ? (
+                      <span className={styles.primaryIndex}>{item.index}</span>
+                    ) : (
+                      <span />
+                    )}
+                    <span>
+                      <span className={styles.primaryTitle}>{item.label}</span>
+                      {item.description ? (
+                        <span className={styles.primaryDescription}>
+                          {item.description}
+                        </span>
+                      ) : null}
+                    </span>
+                    <span className={styles.primaryArrow} aria-hidden="true">
+                      &rarr;
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {panel.columns?.length ? (
-            <div className={styles.columns}>
-              {panel.columns.map((column) => (
-                <div key={column.heading} className={styles.column}>
-                  {/* A heading that is not clickable reads as a dead label. */}
-                  <p className={styles.columnHeading}>
-                    {column.headingHref ? (
-                      <Link href={column.headingHref}>{column.heading}</Link>
-                    ) : (
-                      column.heading
-                    )}
-                  </p>
-                  <ul className={styles.linkList}>
-                    {column.items.map((item) => (
-                      <li key={item.href}>
-                        <Link href={item.href} className={styles.plainLink}>
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+            <div className={styles.columnsRegion}>
+              {panel.columnsHeading ? (
+                <p className={styles.regionHeading}>{panel.columnsHeading}</p>
+              ) : null}
+
+              <div className={styles.columns}>
+                {panel.columns.map((column) => (
+                  <div key={column.heading} className={styles.column}>
+                    {/* A heading that is not clickable reads as a dead label. */}
+                    <p className={styles.columnHeading}>
+                      {column.headingHref ? (
+                        <Link href={column.headingHref}>{column.heading}</Link>
+                      ) : (
+                        column.heading
+                      )}
+                      {/*
+                        The count is the honest part of a capped column: it
+                        says the five shown are five of twenty-six, which is
+                        what makes the "all" link below read as a route to
+                        the rest rather than as a repeat of the heading.
+                      */}
+                      {column.meta ? (
+                        <span className={styles.columnMeta}>{column.meta}</span>
+                      ) : null}
+                    </p>
+
+                    <ul className={styles.linkList}>
+                      {column.items.map((item) => (
+                        <li key={item.href}>
+                          <Link href={item.href} className={styles.plainLink}>
+                            <span className={styles.plainLabel}>{item.label}</span>
+                            {item.description ? (
+                              <span className={styles.plainDescription}>
+                                {item.description}
+                              </span>
+                            ) : null}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {column.viewAll ? (
+                      <Link
+                        href={column.viewAll.href}
+                        className={styles.columnViewAll}
+                      >
+                        {column.viewAll.label}
+                        <span aria-hidden="true">&rarr;</span>
+                      </Link>
+                    ) : null}
+                  </div>
+                ))}
+              </div>
             </div>
           ) : (
             <div />
           )}
 
           {panel.feature || panel.secondaryFeature ? (
-            <div>
+            <div className={styles.featureRegion}>
               {panel.feature ? <Feature feature={panel.feature} /> : null}
               {panel.secondaryFeature ? (
                 <Feature feature={panel.secondaryFeature} />
@@ -155,8 +205,12 @@ export function MegaMenu({ id, label, panel, onClose }: MegaMenuProps) {
         </nav>
 
         <div className={styles.panelFooter}>
-          <Link href={panel.footerLink.href} className={styles.featureCta}>
+          <Link href={panel.footerLink.href} className={styles.panelFooterLink}>
             {panel.footerLink.label}
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
+          <Link href="/search/" className={styles.panelFooterSecondary}>
+            Search all pages
             <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>

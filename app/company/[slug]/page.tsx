@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/layout/Section";
+import { ExploreNext } from "@/components/navigation";
 import { EditorialHero } from "@/components/hero";
 import {
   SectionHeader,
@@ -10,11 +11,13 @@ import {
   RelatedContent,
   FAQBlock,
   EmptyState,
+  VisualStoryBlock,
 } from "@/components/sections";
 import { Heading, BodyText } from "@/components/typography";
 import { CtaBlock, Button, TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { allCompanyPages, getCompanyPage } from "@/content/company";
+import { getCompanyImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import { serviceLink } from "@/lib/relationships";
 import type { RelatedLink } from "@/types/content";
@@ -91,6 +94,8 @@ export default async function CompanyPage({ params }: PageProps) {
     .map(serviceLink)
     .filter((l): l is RelatedLink => l !== null);
 
+  const companyVisual = getCompanyImage(slug);
+
   return (
     <>
       <JsonLd
@@ -116,6 +121,17 @@ export default async function CompanyPage({ params }: PageProps) {
         ]}
         actions={isLegal ? undefined : <CtaBlock cta={page.cta} size="lg" />}
       />
+
+      {companyVisual ? (
+        <Section spacing="md" width="content">
+          <VisualStoryBlock
+            image={companyVisual}
+            variant="C"
+            priority={slug === "about"}
+            caption={companyVisual.caption}
+          />
+        </Section>
+      ) : null}
 
       {page.body?.length ? (
         <Section spacing="lg" width="text">
@@ -207,6 +223,17 @@ export default async function CompanyPage({ params }: PageProps) {
       {page.related?.length ? (
         <Section background="surface" spacing="md">
           <RelatedContent mode="split" heading="Related" items={page.related} />
+        </Section>
+      ) : null}
+
+      {/*
+        Legal pages are excluded: nobody reading the privacy policy wants to
+        be walked to the terms as "next", and the pair would read as content
+        rather than as the boilerplate it is.
+      */}
+      {!isLegal ? (
+        <Section spacing="md">
+          <ExploreNext href={`/company/${slug}/`} />
         </Section>
       ) : null}
 

@@ -25,7 +25,7 @@
 }
 
 .groupIndex {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   color: var(--ink-400);
   font-variant-numeric: tabular-nums;
@@ -127,7 +127,7 @@
 }
 
 .chainIndex {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   color: var(--ink-400);
   font-variant-numeric: tabular-nums;

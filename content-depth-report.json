@@ -1,0 +1,6087 @@
+{
+  "generated": "2026-09-08T12:43:15.984Z",
+  "rows": [
+    {
+      "kind": "practice",
+      "slug": "search-ai-visibility",
+      "href": "/services/search-ai-visibility/",
+      "title": "Search & AI Visibility",
+      "words": 803,
+      "faqs": 2,
+      "links": 8,
+      "sections": [
+        "process",
+        "sections"
+      ],
+      "missing": [],
+      "flags": [],
+      "opening": "search and ai visibility is the work of making a business findable wherever buyers now loo"
+    },
+    {
+      "kind": "practice",
+      "slug": "digital-marketing",
+      "href": "/services/digital-marketing/",
+      "title": "Digital Marketing & Growth",
+      "words": 593,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "process",
+        "sections"
+      ],
+      "missing": [],
+      "flags": [],
+      "opening": "digital marketing and growth covers the demand side of the business: strategy, paid and or"
+    },
+    {
+      "kind": "practice",
+      "slug": "web-development",
+      "href": "/services/web-development/",
+      "title": "Websites & Digital Experience",
+      "words": 568,
+      "faqs": 2,
+      "links": 4,
+      "sections": [
+        "process",
+        "sections"
+      ],
+      "missing": [],
+      "flags": [],
+      "opening": "website design and development for businesses that need a site to do commercial work — be "
+    },
+    {
+      "kind": "practice",
+      "slug": "software-development",
+      "href": "/services/software-development/",
+      "title": "Software & Product Engineering",
+      "words": 604,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "process",
+        "sections"
+      ],
+      "missing": [],
+      "flags": [],
+      "opening": "custom software engineering for processes that off-the-shelf tools don't fit — internal sy"
+    },
+    {
+      "kind": "practice",
+      "slug": "ai-automation",
+      "href": "/services/ai-automation/",
+      "title": "AI & Automation",
+      "words": 701,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "process",
+        "sections"
+      ],
+      "missing": [],
+      "flags": [],
+      "opening": "ai and automation applied to specific business processes — support, sales follow-up, back-"
+    },
+    {
+      "kind": "practice",
+      "slug": "data-analytics",
+      "href": "/services/data-analytics/",
+      "title": "Data & Business Intelligence",
+      "words": 494,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "process",
+        "sections"
+      ],
+      "missing": [],
+      "flags": [],
+      "opening": "bringing business data into one place and making it usable — reliable tracking, connected "
+    },
+    {
+      "kind": "service",
+      "slug": "seo",
+      "href": "/services/seo/",
+      "title": "SEO Services",
+      "words": 300,
+      "faqs": 3,
+      "links": 4,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "approach",
+        "outcomes",
+        "outOfScope",
+        "technologies"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "search engine optimisation is the work of making a site findable and credible for the quer"
+    },
+    {
+      "kind": "service",
+      "slug": "ai-search-optimisation",
+      "href": "/services/ai-search-optimisation/",
+      "title": "AI Search Optimisation",
+      "words": 217,
+      "faqs": 3,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "ai search optimisation is the work of getting a brand cited inside ai-generated answers — "
+    },
+    {
+      "kind": "service",
+      "slug": "technical-seo",
+      "href": "/services/technical-seo/",
+      "title": "Technical SEO",
+      "words": 163,
+      "faqs": 1,
+      "links": 2,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "outOfScope",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "technical seo removes the structural reasons a site underperforms — crawl and index proble"
+    },
+    {
+      "kind": "service",
+      "slug": "ai-agents",
+      "href": "/services/ai-agents/",
+      "title": "AI Agents",
+      "words": 183,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "an ai agent completes a defined task end to end — reading a request, retrieving what it ne"
+    },
+    {
+      "kind": "service",
+      "slug": "workflow-automation",
+      "href": "/services/workflow-automation/",
+      "title": "Workflow Automation",
+      "words": 134,
+      "faqs": 0,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "outOfScope",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ",
+        "FEW-LINKS"
+      ],
+      "opening": "workflow automation removes repetitive steps from a business process — moving data between"
+    },
+    {
+      "kind": "service",
+      "slug": "corporate-websites",
+      "href": "/services/corporate-websites/",
+      "title": "Corporate Websites",
+      "words": 150,
+      "faqs": 0,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "outOfScope",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ",
+        "FEW-LINKS"
+      ],
+      "opening": "a corporate website has one commercial job: make a serious business look serious to the pe"
+    },
+    {
+      "kind": "service",
+      "slug": "answer-engine-optimisation",
+      "href": "/services/answer-engine-optimisation/",
+      "title": "Answer Engine Optimisation (AEO)",
+      "words": 178,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "answer engine optimisation structures content so search and ai systems can lift it directl"
+    },
+    {
+      "kind": "service",
+      "slug": "generative-engine-optimisation",
+      "href": "/services/generative-engine-optimisation/",
+      "title": "Generative Engine Optimisation (GEO)",
+      "words": 179,
+      "faqs": 1,
+      "links": 2,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "generative engine optimisation makes a brand more likely to be cited as a source inside ai"
+    },
+    {
+      "kind": "service",
+      "slug": "ai-optimisation",
+      "href": "/services/ai-optimisation/",
+      "title": "AI Optimisation (AIO)",
+      "words": 101,
+      "faqs": 1,
+      "links": 2,
+      "sections": [
+        "whoFor",
+        "included",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "problems",
+        "approach",
+        "outcomes",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "ai optimisation structures a business's digital assets so ai-powered discovery systems can"
+    },
+    {
+      "kind": "service",
+      "slug": "search-experience-optimisation",
+      "href": "/services/search-experience-optimisation/",
+      "title": "Search Experience Optimisation (SXO)",
+      "words": 81,
+      "faqs": 0,
+      "links": 1,
+      "sections": [
+        "whoFor",
+        "included"
+      ],
+      "missing": [
+        "sections",
+        "problems",
+        "approach",
+        "outcomes",
+        "outOfScope",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ",
+        "FEW-LINKS"
+      ],
+      "opening": "search experience optimisation closes the gap between being found and being chosen — impro"
+    },
+    {
+      "kind": "service",
+      "slug": "google-business-profile",
+      "href": "/services/google-business-profile/",
+      "title": "Google Business Profile Optimisation",
+      "words": 155,
+      "faqs": 1,
+      "links": 2,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "google business profile optimisation improves how a business appears in local search and m"
+    },
+    {
+      "kind": "service",
+      "slug": "custom-software",
+      "href": "/services/custom-software/",
+      "title": "Custom Software Development",
+      "words": 181,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "custom software is what you build when the process you run is genuinely specific and no of"
+    },
+    {
+      "kind": "service",
+      "slug": "web-applications",
+      "href": "/services/web-applications/",
+      "title": "Web Application Development",
+      "words": 80,
+      "faqs": 0,
+      "links": 1,
+      "sections": [
+        "whoFor",
+        "included"
+      ],
+      "missing": [
+        "sections",
+        "problems",
+        "approach",
+        "outcomes",
+        "outOfScope",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ",
+        "FEW-LINKS"
+      ],
+      "opening": "a web application is software your team or your customers use through a browser — a portal"
+    },
+    {
+      "kind": "service",
+      "slug": "ui-ux-design",
+      "href": "/services/ui-ux-design/",
+      "title": "UI/UX Design",
+      "words": 139,
+      "faqs": 0,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "outOfScope",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ",
+        "FEW-LINKS"
+      ],
+      "opening": "interface design decides whether people can actually use what you have built. the work is "
+    },
+    {
+      "kind": "service",
+      "slug": "systems-integration",
+      "href": "/services/systems-integration/",
+      "title": "Systems Integration",
+      "words": 127,
+      "faqs": 0,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "outOfScope",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ",
+        "FEW-LINKS"
+      ],
+      "opening": "systems integration connects the tools a business already runs so data moves between them "
+    },
+    {
+      "kind": "service",
+      "slug": "ai-chatbots",
+      "href": "/services/ai-chatbots/",
+      "title": "AI Chatbots",
+      "words": 173,
+      "faqs": 1,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "an ai chatbot answers the questions your team answers most often, grounded in your own con"
+    },
+    {
+      "kind": "service",
+      "slug": "sales-automation",
+      "href": "/services/sales-automation/",
+      "title": "Sales Automation",
+      "words": 134,
+      "faqs": 0,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "outOfScope",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ",
+        "FEW-LINKS"
+      ],
+      "opening": "sales automation removes the delay between an enquiry arriving and someone responding to i"
+    },
+    {
+      "kind": "service",
+      "slug": "ai-consulting",
+      "href": "/services/ai-consulting/",
+      "title": "AI Consulting",
+      "words": 175,
+      "faqs": 1,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "ai consulting is the work of deciding where ai genuinely helps your business and where it "
+    },
+    {
+      "kind": "service",
+      "slug": "digital-strategy",
+      "href": "/services/digital-strategy/",
+      "title": "Digital Strategy",
+      "words": 84,
+      "faqs": 0,
+      "links": 1,
+      "sections": [
+        "whoFor",
+        "included"
+      ],
+      "missing": [
+        "sections",
+        "problems",
+        "approach",
+        "outcomes",
+        "outOfScope",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ",
+        "FEW-LINKS"
+      ],
+      "opening": "digital strategy is deciding what to do and, more usefully, what not to do — which channel"
+    },
+    {
+      "kind": "service",
+      "slug": "performance-marketing",
+      "href": "/services/performance-marketing/",
+      "title": "Performance Marketing",
+      "words": 148,
+      "faqs": 0,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ",
+        "FEW-LINKS"
+      ],
+      "opening": "performance marketing is buying demand where the numbers justify it — paid search and paid"
+    },
+    {
+      "kind": "service",
+      "slug": "conversion-rate-optimization",
+      "href": "/services/conversion-rate-optimization/",
+      "title": "Conversion Optimisation",
+      "words": 131,
+      "faqs": 1,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "outOfScope",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "conversion optimisation gets more from the traffic you already have. it is usually the che"
+    },
+    {
+      "kind": "service",
+      "slug": "business-intelligence",
+      "href": "/services/business-intelligence/",
+      "title": "Business Intelligence",
+      "words": 140,
+      "faqs": 0,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "outOfScope",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ",
+        "FEW-LINKS"
+      ],
+      "opening": "business intelligence brings the numbers scattered across your systems into one place, so "
+    },
+    {
+      "kind": "service",
+      "slug": "analytics-implementation",
+      "href": "/services/analytics-implementation/",
+      "title": "Analytics Implementation",
+      "words": 131,
+      "faqs": 0,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "outOfScope",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ",
+        "FEW-LINKS"
+      ],
+      "opening": "analytics implementation is the unglamorous work of making your measurement trustworthy — "
+    },
+    {
+      "kind": "service",
+      "slug": "website-performance",
+      "href": "/services/website-performance/",
+      "title": "Website Performance",
+      "words": 162,
+      "faqs": 1,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "website performance work makes a slow site fast. it matters commercially because visitors "
+    },
+    {
+      "kind": "service",
+      "slug": "website-redesign",
+      "href": "/services/website-redesign/",
+      "title": "Website Redesign",
+      "words": 187,
+      "faqs": 1,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "a redesign replaces an outdated site without losing what the old one had earned. the risk "
+    },
+    {
+      "kind": "service",
+      "slug": "seo-audit",
+      "href": "/services/seo-audit/",
+      "title": "SEO Audit",
+      "words": 301,
+      "faqs": 3,
+      "links": 2,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "approach",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a fixed-scope diagnostic that establishes why a site underperforms in search, ranked by co"
+    },
+    {
+      "kind": "service",
+      "slug": "on-page-seo",
+      "href": "/services/on-page-seo/",
+      "title": "On-Page SEO",
+      "words": 206,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "page-level work that makes each page unambiguously about one thing: titles, headings, inte"
+    },
+    {
+      "kind": "service",
+      "slug": "local-seo",
+      "href": "/services/local-seo/",
+      "title": "Local SEO",
+      "words": 292,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "approach",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "visibility in map results and location-qualified searches, for businesses with premises or"
+    },
+    {
+      "kind": "service",
+      "slug": "enterprise-seo",
+      "href": "/services/enterprise-seo/",
+      "title": "Enterprise SEO",
+      "words": 196,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "search work for organisations where the constraint is not knowing what to do but getting i"
+    },
+    {
+      "kind": "service",
+      "slug": "ecommerce-seo",
+      "href": "/services/ecommerce-seo/",
+      "title": "E-commerce SEO",
+      "words": 186,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "search work shaped by catalogue mechanics: faceted navigation generating near-infinite url"
+    },
+    {
+      "kind": "service",
+      "slug": "seo-migration",
+      "href": "/services/seo-migration/",
+      "title": "SEO Migration",
+      "words": 307,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "approach",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "protecting search visibility through a replatform, redesign, domain change or restructure."
+    },
+    {
+      "kind": "service",
+      "slug": "content-strategy",
+      "href": "/services/content-strategy/",
+      "title": "SEO Content Strategy",
+      "words": 189,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "deciding which pages should exist, in what order, based on the questions buyers ask across"
+    },
+    {
+      "kind": "service",
+      "slug": "digital-pr",
+      "href": "/services/digital-pr/",
+      "title": "Digital PR & Link Earning",
+      "words": 219,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "earning references from publications and sites your market already reads, by giving them s"
+    },
+    {
+      "kind": "service",
+      "slug": "structured-data",
+      "href": "/services/structured-data/",
+      "title": "Structured Data Implementation",
+      "words": 204,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "marking up what a page is about so machines do not have to infer it. done properly, entiti"
+    },
+    {
+      "kind": "service",
+      "slug": "site-architecture",
+      "href": "/services/site-architecture/",
+      "title": "Site Architecture",
+      "words": 215,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "how pages are organised, grouped and linked — which decides what is discoverable, what acc"
+    },
+    {
+      "kind": "service",
+      "slug": "ai-readiness-assessment",
+      "href": "/services/ai-readiness-assessment/",
+      "title": "AI Readiness Assessment",
+      "words": 295,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "approach",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "technologies"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a structured evaluation of whether specific tasks in your business are suited to ai, and w"
+    },
+    {
+      "kind": "service",
+      "slug": "ai-document-processing",
+      "href": "/services/ai-document-processing/",
+      "title": "AI Document Processing",
+      "words": 182,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "extracting structured data from invoices, forms, contracts and correspondence, with a conf"
+    },
+    {
+      "kind": "service",
+      "slug": "api-development",
+      "href": "/services/api-development/",
+      "title": "API Development",
+      "words": 184,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "building interfaces other systems depend on — with a versioned contract, documented behavi"
+    },
+    {
+      "kind": "service",
+      "slug": "crm-implementation",
+      "href": "/services/crm-implementation/",
+      "title": "CRM Implementation",
+      "words": 302,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "approach",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "getting a crm genuinely used, which is a data model and adoption problem rather than a lic"
+    },
+    {
+      "kind": "service",
+      "slug": "marketing-automation",
+      "href": "/services/marketing-automation/",
+      "title": "Marketing Automation",
+      "words": 205,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "sequences triggered by what someone actually did, not by a calendar. the value is in the t"
+    },
+    {
+      "kind": "service",
+      "slug": "customer-portals",
+      "href": "/services/customer-portals/",
+      "title": "Customer Portals",
+      "words": 198,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "a secure area where customers do for themselves what they currently email you about — chec"
+    },
+    {
+      "kind": "service",
+      "slug": "reporting-dashboards",
+      "href": "/services/reporting-dashboards/",
+      "title": "Reporting Dashboards",
+      "words": 195,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "dashboards built after the definitions are agreed, not before. most dashboard projects fai"
+    },
+    {
+      "kind": "service",
+      "slug": "cloud-migration",
+      "href": "/services/cloud-migration/",
+      "title": "Cloud Migration",
+      "words": 198,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "moving applications and data to cloud infrastructure in a sequence driven by a measured co"
+    },
+    {
+      "kind": "service",
+      "slug": "website-maintenance",
+      "href": "/services/website-maintenance/",
+      "title": "Website Maintenance & Support",
+      "words": 180,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "ongoing ownership of a live site: security updates, dependency upgrades, monitoring, backu"
+    },
+    {
+      "kind": "service",
+      "slug": "accessibility-audit",
+      "href": "/services/accessibility-audit/",
+      "title": "Accessibility Audit",
+      "words": 212,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "problems",
+        "whoFor",
+        "included",
+        "outcomes",
+        "outOfScope"
+      ],
+      "missing": [
+        "sections",
+        "approach",
+        "technologies"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "assessment against wcag 2.2 aa using assistive technology as well as automated tooling, be"
+    },
+    {
+      "kind": "industry",
+      "slug": "manufacturing",
+      "href": "/industries/manufacturing/",
+      "title": "Manufacturing",
+      "words": 203,
+      "faqs": 1,
+      "links": 6,
+      "sections": [
+        "context",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "opportunity",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "manufacturers usually have a distribution problem before they have a marketing problem: bu"
+    },
+    {
+      "kind": "industry",
+      "slug": "real-estate",
+      "href": "/industries/real-estate/",
+      "title": "Real Estate",
+      "words": 192,
+      "faqs": 0,
+      "links": 5,
+      "sections": [
+        "context",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "opportunity",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ"
+      ],
+      "opening": "real estate businesses are usually paying twice for the same buyer: once to a listing port"
+    },
+    {
+      "kind": "industry",
+      "slug": "education",
+      "href": "/industries/education/",
+      "title": "Education & EdTech",
+      "words": 183,
+      "faqs": 0,
+      "links": 5,
+      "sections": [
+        "context",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "opportunity",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ"
+      ],
+      "opening": "education institutions compete for attention in a narrow admissions window, against a sear"
+    },
+    {
+      "kind": "industry",
+      "slug": "professional-services",
+      "href": "/industries/professional-services/",
+      "title": "Professional Services",
+      "words": 171,
+      "faqs": 0,
+      "links": 5,
+      "sections": [
+        "context",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "opportunity",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ"
+      ],
+      "opening": "consultancies and professional firms sell expertise that is hard to evaluate from outside "
+    },
+    {
+      "kind": "industry",
+      "slug": "saas",
+      "href": "/industries/saas/",
+      "title": "SaaS",
+      "words": 243,
+      "faqs": 2,
+      "links": 8,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "saas businesses compete in categories where buyers research heavily before contacting anyo"
+    },
+    {
+      "kind": "industry",
+      "slug": "healthcare",
+      "href": "/industries/healthcare/",
+      "title": "Healthcare",
+      "words": 246,
+      "faqs": 2,
+      "links": 8,
+      "sections": [
+        "context",
+        "problems",
+        "complianceNotes"
+      ],
+      "missing": [
+        "sections",
+        "opportunity"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "healthcare organisations are searched by people making consequential decisions, often urge"
+    },
+    {
+      "kind": "industry",
+      "slug": "financial-services",
+      "href": "/industries/financial-services/",
+      "title": "Financial Services",
+      "words": 243,
+      "faqs": 2,
+      "links": 8,
+      "sections": [
+        "context",
+        "problems",
+        "complianceNotes"
+      ],
+      "missing": [
+        "sections",
+        "opportunity"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "financial services buyers research extensively and trust cautiously. credibility is establ"
+    },
+    {
+      "kind": "industry",
+      "slug": "ecommerce",
+      "href": "/industries/ecommerce/",
+      "title": "E-commerce & Retail",
+      "words": 189,
+      "faqs": 2,
+      "links": 8,
+      "sections": [
+        "context",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "opportunity",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "e-commerce visibility is decided by product and category pages that most sites treat as te"
+    },
+    {
+      "kind": "industry",
+      "slug": "logistics",
+      "href": "/industries/logistics/",
+      "title": "Logistics & Supply Chain",
+      "words": 178,
+      "faqs": 2,
+      "links": 8,
+      "sections": [
+        "context",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "opportunity",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "logistics operations run on coordination between systems that were rarely designed to work"
+    },
+    {
+      "kind": "industry",
+      "slug": "it-services",
+      "href": "/industries/it-services/",
+      "title": "IT Services",
+      "words": 189,
+      "faqs": 2,
+      "links": 8,
+      "sections": [
+        "context",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "opportunity",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "it services firms sell capability that is hard to differentiate on a website. buyers compa"
+    },
+    {
+      "kind": "industry",
+      "slug": "hospitality",
+      "href": "/industries/hospitality/",
+      "title": "Hospitality",
+      "words": 177,
+      "faqs": 2,
+      "links": 8,
+      "sections": [
+        "context",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "opportunity",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "hospitality is discovered locally and booked on mobile, often within minutes of the search"
+    },
+    {
+      "kind": "industry",
+      "slug": "startups",
+      "href": "/industries/startups/",
+      "title": "Startups",
+      "words": 182,
+      "faqs": 2,
+      "links": 8,
+      "sections": [
+        "context",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "opportunity",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "startups have less time and less money than the playbooks assume. the useful question is n"
+    },
+    {
+      "kind": "industry",
+      "slug": "technology",
+      "href": "/industries/technology/",
+      "title": "Technology",
+      "words": 234,
+      "faqs": 2,
+      "links": 7,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "technology companies face a specific marketing problem: the capability is genuinely differ"
+    },
+    {
+      "kind": "industry",
+      "slug": "automotive",
+      "href": "/industries/automotive/",
+      "title": "Automotive",
+      "words": 238,
+      "faqs": 2,
+      "links": 7,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "dealers, garages and specialists compete on two things digitally: whether they appear when"
+    },
+    {
+      "kind": "industry",
+      "slug": "construction",
+      "href": "/industries/construction/",
+      "title": "Construction",
+      "words": 244,
+      "faqs": 2,
+      "links": 7,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "the digital problem in construction is rarely enquiry volume. it is qualification — separa"
+    },
+    {
+      "kind": "industry",
+      "slug": "legal-services",
+      "href": "/industries/legal-services/",
+      "title": "Legal Services",
+      "words": 281,
+      "faqs": 2,
+      "links": 7,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems",
+        "complianceNotes"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "legal marketing operates under professional conduct rules that constrain what can be claim"
+    },
+    {
+      "kind": "industry",
+      "slug": "accounting",
+      "href": "/industries/accounting/",
+      "title": "Accounting & Advisory",
+      "words": 241,
+      "faqs": 2,
+      "links": 7,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems",
+        "complianceNotes"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "two pressures at once: compliance work is commoditising, and client onboarding carries adm"
+    },
+    {
+      "kind": "industry",
+      "slug": "recruitment",
+      "href": "/industries/recruitment/",
+      "title": "Recruitment & Staffing",
+      "words": 231,
+      "faqs": 2,
+      "links": 7,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "recruitment sites serve two audiences with opposite needs — clients hiring and candidates "
+    },
+    {
+      "kind": "industry",
+      "slug": "energy",
+      "href": "/industries/energy/",
+      "title": "Energy & Utilities",
+      "words": 214,
+      "faqs": 2,
+      "links": 7,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "two demands pull in opposite directions: technical credibility for informed buyers and spe"
+    },
+    {
+      "kind": "industry",
+      "slug": "travel",
+      "href": "/industries/travel/",
+      "title": "Travel & Tourism",
+      "words": 223,
+      "faqs": 2,
+      "links": 7,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "travel businesses compete for their own customers against intermediaries that outrank them"
+    },
+    {
+      "kind": "industry",
+      "slug": "nonprofit",
+      "href": "/industries/nonprofit/",
+      "title": "Non-Profit & Social Impact",
+      "words": 224,
+      "faqs": 2,
+      "links": 7,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "non-profits serve two audiences whose needs conflict: funders and donors who need evidence"
+    },
+    {
+      "kind": "industry",
+      "slug": "media",
+      "href": "/industries/media/",
+      "title": "Media & Publishing",
+      "words": 233,
+      "faqs": 2,
+      "links": 7,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "publishing economics assumed that answering a question earned a visit. ai answers have bro"
+    },
+    {
+      "kind": "industry",
+      "slug": "agriculture",
+      "href": "/industries/agriculture/",
+      "title": "Agriculture & Agritech",
+      "words": 237,
+      "faqs": 2,
+      "links": 7,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "two constraints shape digital work in agriculture: the season, which compresses activity i"
+    },
+    {
+      "kind": "industry",
+      "slug": "b2b-services",
+      "href": "/industries/b2b-services/",
+      "title": "B2B Services",
+      "words": 233,
+      "faqs": 2,
+      "links": 7,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "most b2b services firms grew on referral and have no second channel. building inbound alon"
+    },
+    {
+      "kind": "industry",
+      "slug": "d2c-brands",
+      "href": "/industries/d2c-brands/",
+      "title": "D2C Brands",
+      "words": 236,
+      "faqs": 2,
+      "links": 7,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "the direct-to-consumer model was built on affordable paid acquisition. as that cost has ri"
+    },
+    {
+      "kind": "industry",
+      "slug": "smes",
+      "href": "/industries/smes/",
+      "title": "Small & Medium Enterprises",
+      "words": 223,
+      "faqs": 2,
+      "links": 7,
+      "sections": [
+        "context",
+        "opportunity",
+        "problems"
+      ],
+      "missing": [
+        "sections",
+        "complianceNotes"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "the constraint in most smes is not budget but attention. nobody owns digital, so work happ"
+    },
+    {
+      "kind": "use-case",
+      "slug": "generate-more-leads",
+      "href": "/use-cases/generate-more-leads/",
+      "title": "Generate more qualified leads",
+      "words": 254,
+      "faqs": 1,
+      "links": 6,
+      "sections": [
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections",
+        "whyItMatters"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "most lead problems are not traffic problems. they are usually a visibility gap on the quer"
+    },
+    {
+      "kind": "use-case",
+      "slug": "get-found-in-ai-search",
+      "href": "/use-cases/get-found-in-ai-search/",
+      "title": "Get found in AI search",
+      "words": 250,
+      "faqs": 1,
+      "links": 5,
+      "sections": [
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections",
+        "whyItMatters"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "when buyers ask chatgpt, perplexity or google's ai overviews for a recommendation, some br"
+    },
+    {
+      "kind": "use-case",
+      "slug": "reduce-manual-work",
+      "href": "/use-cases/reduce-manual-work/",
+      "title": "Reduce manual work",
+      "words": 237,
+      "faqs": 1,
+      "links": 4,
+      "sections": [
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections",
+        "whyItMatters"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "repetitive work rarely appears as a line item, so it rarely gets fixed. it shows up instea"
+    },
+    {
+      "kind": "use-case",
+      "slug": "increase-organic-traffic",
+      "href": "/use-cases/increase-organic-traffic/",
+      "title": "Increase organic traffic",
+      "words": 174,
+      "faqs": 0,
+      "links": 2,
+      "sections": [
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections",
+        "whyItMatters"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ"
+      ],
+      "opening": "organic traffic stalls for three common reasons: search engines cannot crawl or understand"
+    },
+    {
+      "kind": "use-case",
+      "slug": "automate-sales-follow-up",
+      "href": "/use-cases/automate-sales-follow-up/",
+      "title": "Automate sales follow-up",
+      "words": 216,
+      "faqs": 0,
+      "links": 4,
+      "sections": [
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections",
+        "whyItMatters"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ"
+      ],
+      "opening": "most lost enquiries are not lost to a better competitor. they are lost to a faster one. wh"
+    },
+    {
+      "kind": "use-case",
+      "slug": "automate-customer-support",
+      "href": "/use-cases/automate-customer-support/",
+      "title": "Automate customer support",
+      "words": 205,
+      "faqs": 1,
+      "links": 4,
+      "sections": [
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections",
+        "whyItMatters"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a large share of support volume is the same handful of questions asked repeatedly. handlin"
+    },
+    {
+      "kind": "use-case",
+      "slug": "improve-website-conversion",
+      "href": "/use-cases/improve-website-conversion/",
+      "title": "Improve website conversion",
+      "words": 183,
+      "faqs": 0,
+      "links": 3,
+      "sections": [
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections",
+        "whyItMatters"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ"
+      ],
+      "opening": "improving conversion is usually the cheapest growth available. a modest improvement compou"
+    },
+    {
+      "kind": "use-case",
+      "slug": "rank-in-local-search",
+      "href": "/use-cases/rank-in-local-search/",
+      "title": "Rank in local search",
+      "words": 173,
+      "faqs": 0,
+      "links": 4,
+      "sections": [
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections",
+        "whyItMatters"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ"
+      ],
+      "opening": "local search decides who gets called when someone nearby needs what you sell. it is won th"
+    },
+    {
+      "kind": "use-case",
+      "slug": "improve-operational-efficiency",
+      "href": "/use-cases/improve-operational-efficiency/",
+      "title": "Improve operational efficiency",
+      "words": 204,
+      "faqs": 0,
+      "links": 5,
+      "sections": [
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections",
+        "whyItMatters"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ"
+      ],
+      "opening": "operational drag rarely shows up as a line item. it shows up as capable people spending th"
+    },
+    {
+      "kind": "use-case",
+      "slug": "connect-business-systems",
+      "href": "/use-cases/connect-business-systems/",
+      "title": "Connect business systems",
+      "words": 276,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "when systems do not talk to each other, people become the integration. the cost appears as"
+    },
+    {
+      "kind": "use-case",
+      "slug": "modernise-legacy-processes",
+      "href": "/use-cases/modernise-legacy-processes/",
+      "title": "Modernise legacy processes",
+      "words": 290,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "legacy processes are rarely kept because anyone prefers them. they survive because nobody "
+    },
+    {
+      "kind": "use-case",
+      "slug": "introduce-ai-into-operations",
+      "href": "/use-cases/introduce-ai-into-operations/",
+      "title": "Introduce AI into operations",
+      "words": 295,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "most ai initiatives stall for the same two reasons: the project was defined by a technolog"
+    },
+    {
+      "kind": "use-case",
+      "slug": "build-a-custom-business-platform",
+      "href": "/use-cases/build-a-custom-business-platform/",
+      "title": "Build a custom business platform",
+      "words": 266,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a custom platform is worth building when the way you operate is genuinely part of your adv"
+    },
+    {
+      "kind": "use-case",
+      "slug": "improve-digital-presence",
+      "href": "/use-cases/improve-digital-presence/",
+      "title": "Improve digital presence",
+      "words": 272,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "digital presence is what a buyer finds when they check you out — the website, the search r"
+    },
+    {
+      "kind": "use-case",
+      "slug": "build-scalable-digital-infrastructure",
+      "href": "/use-cases/build-scalable-digital-infrastructure/",
+      "title": "Build scalable digital infrastructure",
+      "words": 253,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "infrastructure becomes a constraint before anyone calls it one. it shows up as releases th"
+    },
+    {
+      "kind": "use-case",
+      "slug": "improve-customer-experience",
+      "href": "/use-cases/improve-customer-experience/",
+      "title": "Improve customer experience",
+      "words": 255,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "customer experience problems are usually operational rather than attitudinal. people are r"
+    },
+    {
+      "kind": "use-case",
+      "slug": "reduce-customer-churn",
+      "href": "/use-cases/reduce-customer-churn/",
+      "title": "Reduce customer churn",
+      "words": 309,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "most churn is visible before it happens — usage falls, contact stops, a renewal date appro"
+    },
+    {
+      "kind": "use-case",
+      "slug": "shorten-sales-cycle",
+      "href": "/use-cases/shorten-sales-cycle/",
+      "title": "Shorten the sales cycle",
+      "words": 298,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "deals rarely slow down evenly. they stall at specific points — waiting for a quote, waitin"
+    },
+    {
+      "kind": "use-case",
+      "slug": "qualify-leads-automatically",
+      "href": "/use-cases/qualify-leads-automatically/",
+      "title": "Qualify leads automatically",
+      "words": 299,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "capture the information that decides whether an enquiry is worth a conversation at the poi"
+    },
+    {
+      "kind": "use-case",
+      "slug": "speed-up-quoting",
+      "href": "/use-cases/speed-up-quoting/",
+      "title": "Speed up quoting",
+      "words": 267,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "quoting is usually slow for two reasons: the pricing logic lives in someone's head, and ap"
+    },
+    {
+      "kind": "use-case",
+      "slug": "prove-marketing-roi",
+      "href": "/use-cases/prove-marketing-roi/",
+      "title": "Prove marketing ROI",
+      "words": 290,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "attribution can show which channels contribute to enquiries and which do not. it cannot fu"
+    },
+    {
+      "kind": "use-case",
+      "slug": "recover-lost-traffic",
+      "href": "/use-cases/recover-lost-traffic/",
+      "title": "Recover lost search traffic",
+      "words": 289,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "diagnosis first. a decline caused by a migration, an algorithm update, lost content or the"
+    },
+    {
+      "kind": "use-case",
+      "slug": "enter-a-new-market",
+      "href": "/use-cases/enter-a-new-market/",
+      "title": "Enter a new market",
+      "words": 276,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "test for demand before committing to a presence. search behaviour, competitor visibility a"
+    },
+    {
+      "kind": "use-case",
+      "slug": "reduce-support-tickets",
+      "href": "/use-cases/reduce-support-tickets/",
+      "title": "Reduce support tickets",
+      "words": 280,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "deflection works by answering questions before they are asked, not by making contact harde"
+    },
+    {
+      "kind": "use-case",
+      "slug": "improve-data-quality",
+      "href": "/use-cases/improve-data-quality/",
+      "title": "Improve data quality",
+      "words": 275,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "agree definitions first, then assign ownership, then validate at entry. cleansing before t"
+    },
+    {
+      "kind": "use-case",
+      "slug": "consolidate-business-tools",
+      "href": "/use-cases/consolidate-business-tools/",
+      "title": "Consolidate business tools",
+      "words": 280,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "count the real cost before consolidating: licences, plus the hours spent moving data betwe"
+    },
+    {
+      "kind": "use-case",
+      "slug": "onboard-customers-faster",
+      "href": "/use-cases/onboard-customers-faster/",
+      "title": "Onboard customers faster",
+      "words": 262,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "onboarding usually stalls on document collection and on the customer not knowing what happ"
+    },
+    {
+      "kind": "use-case",
+      "slug": "scale-without-hiring",
+      "href": "/use-cases/scale-without-hiring/",
+      "title": "Scale without hiring",
+      "words": 273,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "capacity can be found in process before it is bought in people — but only up to a point, a"
+    },
+    {
+      "kind": "use-case",
+      "slug": "launch-a-digital-product",
+      "href": "/use-cases/launch-a-digital-product/",
+      "title": "Launch a digital product",
+      "words": 280,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "build the smallest version that tests the riskiest assumption. for most products the risk "
+    },
+    {
+      "kind": "use-case",
+      "slug": "replace-spreadsheet-processes",
+      "href": "/use-cases/replace-spreadsheet-processes/",
+      "title": "Replace spreadsheet processes",
+      "words": 283,
+      "faqs": 2,
+      "links": 5,
+      "sections": [
+        "whyItMatters",
+        "symptoms",
+        "rootCauses",
+        "approach",
+        "targetState"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a spreadsheet becomes a liability when several people need it at once, when a mistake is e"
+    },
+    {
+      "kind": "technology",
+      "slug": "web-stack",
+      "href": "/technologies/web-stack/",
+      "title": "Web Stack",
+      "words": 232,
+      "faqs": 0,
+      "links": 2,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse",
+        "decisionCriteria"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ"
+      ],
+      "opening": "we build production websites on react and next.js with server rendering, because content t"
+    },
+    {
+      "kind": "technology",
+      "slug": "ai-stack",
+      "href": "/technologies/ai-stack/",
+      "title": "AI Stack",
+      "words": 265,
+      "faqs": 1,
+      "links": 2,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse",
+        "decisionCriteria"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "we build ai systems on hosted language models with retrieval over your own data, rather th"
+    },
+    {
+      "kind": "technology",
+      "slug": "automation-platforms",
+      "href": "/technologies/automation-platforms/",
+      "title": "Automation Platforms",
+      "words": 157,
+      "faqs": 0,
+      "links": 1,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse"
+      ],
+      "missing": [
+        "sections",
+        "decisionCriteria"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ",
+        "FEW-LINKS"
+      ],
+      "opening": "we use integration platforms for straightforward system-to-system work and write custom se"
+    },
+    {
+      "kind": "technology",
+      "slug": "engineering-standards",
+      "href": "/technologies/engineering-standards/",
+      "title": "Our Engineering Standards",
+      "words": 162,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse"
+      ],
+      "missing": [
+        "sections",
+        "decisionCriteria"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ",
+        "FEW-LINKS"
+      ],
+      "opening": "our standards exist for one outcome: your team can maintain what we build after we leave. "
+    },
+    {
+      "kind": "technology",
+      "slug": "search-and-analytics",
+      "href": "/technologies/search-and-analytics/",
+      "title": "Search & Analytics",
+      "words": 229,
+      "faqs": 1,
+      "links": 4,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse",
+        "decisionCriteria"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "the search and analytics layer is how we measure visibility and behaviour — index coverage"
+    },
+    {
+      "kind": "technology",
+      "slug": "integrations",
+      "href": "/technologies/integrations/",
+      "title": "Integrations",
+      "words": 210,
+      "faqs": 1,
+      "links": 3,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse",
+        "decisionCriteria"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "integration work connects the systems a business already runs so that data moves between t"
+    },
+    {
+      "kind": "technology",
+      "slug": "content-platforms",
+      "href": "/technologies/content-platforms/",
+      "title": "Content Platforms",
+      "words": 253,
+      "faqs": 1,
+      "links": 3,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse",
+        "decisionCriteria"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a content platform is what lets a marketing team publish without a developer. the right ch"
+    },
+    {
+      "kind": "technology",
+      "slug": "cloud-and-hosting",
+      "href": "/technologies/cloud-and-hosting/",
+      "title": "Cloud & Hosting",
+      "words": 220,
+      "faqs": 0,
+      "links": 3,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse",
+        "decisionCriteria"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "NO-FAQ"
+      ],
+      "opening": "the hosting and infrastructure layer covers where applications run, how they are deployed,"
+    },
+    {
+      "kind": "technology",
+      "slug": "data-platforms",
+      "href": "/technologies/data-platforms/",
+      "title": "Data Platforms",
+      "words": 262,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse",
+        "decisionCriteria"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a data platform brings figures from several operational systems into one place with agreed"
+    },
+    {
+      "kind": "technology",
+      "slug": "crm-platforms",
+      "href": "/technologies/crm-platforms/",
+      "title": "CRM Platforms",
+      "words": 272,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse",
+        "decisionCriteria"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a crm holds the record of who your customers are and what has happened with them. which on"
+    },
+    {
+      "kind": "technology",
+      "slug": "mobile-platforms",
+      "href": "/technologies/mobile-platforms/",
+      "title": "Mobile Platforms",
+      "words": 269,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse",
+        "decisionCriteria"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "there are three routes to a mobile experience — a responsive web application, a cross-plat"
+    },
+    {
+      "kind": "technology",
+      "slug": "security-and-access",
+      "href": "/technologies/security-and-access/",
+      "title": "Security & Access",
+      "words": 242,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse",
+        "decisionCriteria"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "most breaches in systems of this size come from credentials and dependencies rather than e"
+    },
+    {
+      "kind": "technology",
+      "slug": "testing-and-quality",
+      "href": "/technologies/testing-and-quality/",
+      "title": "Testing & Quality",
+      "words": 243,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse",
+        "decisionCriteria"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "automated tests exist to make change safe, not to reach a coverage number. we test the beh"
+    },
+    {
+      "kind": "technology",
+      "slug": "observability",
+      "href": "/technologies/observability/",
+      "title": "Observability",
+      "words": 239,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse",
+        "decisionCriteria"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "observability is being able to answer what a system is doing without deploying new code to"
+    },
+    {
+      "kind": "technology",
+      "slug": "payments-and-billing",
+      "href": "/technologies/payments-and-billing/",
+      "title": "Payments & Billing",
+      "words": 232,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse",
+        "decisionCriteria"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "taking a payment is the easy part. the complexity is in what surrounds it — refunds, retri"
+    },
+    {
+      "kind": "technology",
+      "slug": "accessibility-standards",
+      "href": "/technologies/accessibility-standards/",
+      "title": "Accessibility Standards",
+      "words": 258,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "whyItMatters",
+        "choices",
+        "whenNotToUse",
+        "decisionCriteria"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "wcag defines what accessible means at three conformance levels. aa is the level most organ"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-generative-engine-optimisation",
+      "href": "/resources/what-is-generative-engine-optimisation/",
+      "title": "What Is Generative Engine Optimisation?",
+      "words": 239,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "generative engine optimisation is the practice of making a brand more likely to be cited a"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-answer-engine-optimisation",
+      "href": "/resources/what-is-answer-engine-optimisation/",
+      "title": "What Is Answer Engine Optimisation?",
+      "words": 165,
+      "faqs": 0,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "answer engine optimisation is the practice of structuring content so that search and ai sy"
+    },
+    {
+      "kind": "resource",
+      "slug": "why-ai-overviews-cut-your-clicks",
+      "href": "/resources/why-ai-overviews-cut-your-clicks/",
+      "title": "Why AI Overviews are cutting your clicks",
+      "words": 264,
+      "faqs": 0,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "if your rankings have held steady but organic clicks are falling, the most likely cause is"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-the-first-90-days-of-seo-look-like",
+      "href": "/resources/what-the-first-90-days-of-seo-look-like/",
+      "title": "What the first 90 days of SEO actually look like",
+      "words": 237,
+      "faqs": 0,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "the first 90 days of an seo engagement are mostly diagnosis and repair, not publishing. ex"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-ai-optimisation",
+      "href": "/resources/what-is-ai-optimisation/",
+      "title": "What Is AI Optimisation?",
+      "words": 203,
+      "faqs": 1,
+      "links": 3,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "ai optimisation is the work of structuring a website so ai systems can read, classify and "
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-search-experience-optimisation",
+      "href": "/resources/what-is-search-experience-optimisation/",
+      "title": "What Is Search Experience Optimisation?",
+      "words": 160,
+      "faqs": 0,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "search experience optimisation is the work that happens after the click — matching what a "
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-choose-a-first-automation-project",
+      "href": "/resources/how-to-choose-a-first-automation-project/",
+      "title": "How to choose a first automation project",
+      "words": 280,
+      "faqs": 1,
+      "links": 3,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "pick the process that is repetitive, stable, high-volume and owned by someone. automating "
+    },
+    {
+      "kind": "resource",
+      "slug": "why-your-website-redesign-lost-traffic",
+      "href": "/resources/why-your-website-redesign-lost-traffic/",
+      "title": "Why your website redesign lost traffic",
+      "words": 283,
+      "faqs": 1,
+      "links": 3,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "traffic loss after a redesign is almost never caused by the design. it is caused by the mi"
+    },
+    {
+      "kind": "resource",
+      "slug": "how-ai-search-works",
+      "href": "/resources/how-ai-search-works/",
+      "title": "How AI Search Works",
+      "words": 361,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [],
+      "opening": "ai search answers a question in three stages: it interprets what was asked, retrieves mate"
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-prepare-content-for-ai-search",
+      "href": "/resources/how-to-prepare-content-for-ai-search/",
+      "title": "How to Prepare Content for AI Search",
+      "words": 319,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [],
+      "opening": "write so that any single passage can be lifted out and still make sense. state the answer "
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-build-search-visibility",
+      "href": "/resources/how-to-build-search-visibility/",
+      "title": "How to Build Search Visibility",
+      "words": 324,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [],
+      "opening": "search visibility is built in a fixed order: make the site reachable and renderable, cover"
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-measure-search-visibility",
+      "href": "/resources/how-to-measure-search-visibility/",
+      "title": "How to Measure Search Visibility",
+      "words": 311,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [],
+      "opening": "measure visibility on four layers: whether pages are indexed, whether they appear for the "
+    },
+    {
+      "kind": "resource",
+      "slug": "how-search-intent-works",
+      "href": "/resources/how-search-intent-works/",
+      "title": "How Search Intent Works",
+      "words": 307,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [],
+      "opening": "search intent determines which kind of page can rank for a query. search engines infer it "
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-run-a-content-audit",
+      "href": "/resources/how-to-run-a-content-audit/",
+      "title": "How to Run a Content Audit",
+      "words": 300,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [],
+      "opening": "a content audit sorts every page into keep, improve, consolidate or remove, judged on whet"
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-build-an-automation-roadmap",
+      "href": "/resources/how-to-build-an-automation-roadmap/",
+      "title": "How to Build an Automation Roadmap",
+      "words": 320,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [],
+      "opening": "build a roadmap by inventorying repeated work, scoring each item on volume, stability and "
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-structure-a-website-for-search",
+      "href": "/resources/how-to-structure-a-website-for-search/",
+      "title": "How to Structure a Website for Search",
+      "words": 314,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [],
+      "opening": "structure a site so that every important page is reachable in a few clicks, each page owns"
+    },
+    {
+      "kind": "resource",
+      "slug": "seo-vs-paid-search",
+      "href": "/resources/seo-vs-paid-search/",
+      "title": "SEO vs Paid Search",
+      "words": 243,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "paid search buys immediate, controllable visibility that stops when spending stops. seo bu"
+    },
+    {
+      "kind": "resource",
+      "slug": "seo-vs-aeo",
+      "href": "/resources/seo-vs-aeo/",
+      "title": "SEO vs AEO",
+      "words": 235,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "seo competes for a position in a ranked list of links. aeo competes to be the passage a sy"
+    },
+    {
+      "kind": "resource",
+      "slug": "aeo-vs-geo",
+      "href": "/resources/aeo-vs-geo/",
+      "title": "AEO vs GEO",
+      "words": 229,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "aeo targets extraction — a system lifting your text more or less directly as the answer. g"
+    },
+    {
+      "kind": "resource",
+      "slug": "traditional-search-vs-ai-search",
+      "href": "/resources/traditional-search-vs-ai-search/",
+      "title": "Traditional Search vs AI Search",
+      "words": 211,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "traditional search returns a ranked list of links and lets the person choose. ai search co"
+    },
+    {
+      "kind": "resource",
+      "slug": "website-redesign-vs-rebuild",
+      "href": "/resources/website-redesign-vs-rebuild/",
+      "title": "Website Redesign vs Rebuild",
+      "words": 227,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a redesign changes how a site looks and reads on its existing platform. a rebuild replaces"
+    },
+    {
+      "kind": "resource",
+      "slug": "custom-software-vs-off-the-shelf",
+      "href": "/resources/custom-software-vs-off-the-shelf/",
+      "title": "Custom Software vs Off-the-Shelf",
+      "words": 214,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "off-the-shelf software is cheaper, faster and maintained by someone else, but requires you"
+    },
+    {
+      "kind": "resource",
+      "slug": "automation-vs-manual-operations",
+      "href": "/resources/automation-vs-manual-operations/",
+      "title": "Automation vs Manual Operations",
+      "words": 221,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "automation is worth it when a process is repetitive, rule-based, high-volume and stable. m"
+    },
+    {
+      "kind": "resource",
+      "slug": "ai-automation-vs-rule-based-automation",
+      "href": "/resources/ai-automation-vs-rule-based-automation/",
+      "title": "AI Automation vs Rule-Based Automation",
+      "words": 218,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "rule-based automation follows explicit instructions and behaves identically every time. ai"
+    },
+    {
+      "kind": "resource",
+      "slug": "in-house-seo-vs-agency-seo",
+      "href": "/resources/in-house-seo-vs-agency-seo/",
+      "title": "In-House SEO vs Agency SEO",
+      "words": 229,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "in-house seo gives continuous context and full control at the cost of a narrow skill range"
+    },
+    {
+      "kind": "resource",
+      "slug": "headless-vs-traditional-cms",
+      "href": "/resources/headless-vs-traditional-cms/",
+      "title": "Headless vs Traditional CMS",
+      "words": 216,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "a traditional cms manages content and renders pages together. a headless cms manages conte"
+    },
+    {
+      "kind": "resource",
+      "slug": "when-do-you-need-an-seo-agency",
+      "href": "/resources/when-do-you-need-an-seo-agency/",
+      "title": "When Do You Need an SEO Agency?",
+      "words": 236,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "you need outside help when the constraint is capability or capacity rather than effort — w"
+    },
+    {
+      "kind": "resource",
+      "slug": "when-should-you-redesign-your-website",
+      "href": "/resources/when-should-you-redesign-your-website/",
+      "title": "When Should You Redesign Your Website?",
+      "words": 234,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "redesign when the site is measurably failing a job it needs to do — converting, being foun"
+    },
+    {
+      "kind": "resource",
+      "slug": "when-should-you-build-custom-software",
+      "href": "/resources/when-should-you-build-custom-software/",
+      "title": "When Should You Build Custom Software?",
+      "words": 205,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "build when the process is a genuine competitive advantage that products force you to compr"
+    },
+    {
+      "kind": "resource",
+      "slug": "when-should-you-automate-a-process",
+      "href": "/resources/when-should-you-automate-a-process/",
+      "title": "When Should You Automate a Process?",
+      "words": 204,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "automate when a process is repetitive, rule-based, high-volume and stable, and when the st"
+    },
+    {
+      "kind": "resource",
+      "slug": "when-should-a-business-invest-in-ai",
+      "href": "/resources/when-should-a-business-invest-in-ai/",
+      "title": "When Should a Business Invest in AI?",
+      "words": 214,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "invest when you have a specific, repeated task involving unstructured information, and the"
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-choose-a-digital-growth-partner",
+      "href": "/resources/how-to-choose-a-digital-growth-partner/",
+      "title": "How to Choose a Digital Growth Partner",
+      "words": 208,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "judge a partner on how they diagnose, what they refuse to promise, and whether their propo"
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-evaluate-seo-services",
+      "href": "/resources/how-to-evaluate-seo-services/",
+      "title": "How to Evaluate SEO Services",
+      "words": 195,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "evaluate on diagnosis quality, reporting honesty and what the provider refuses to guarante"
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-evaluate-a-software-development-partner",
+      "href": "/resources/how-to-evaluate-a-software-development-partner/",
+      "title": "How to Evaluate a Software Development Partner",
+      "words": 203,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "evaluate on how they handle ambiguity, what they say about maintenance, and whether your t"
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-plan-a-website-redesign",
+      "href": "/resources/how-to-plan-a-website-redesign/",
+      "title": "How to Plan a Website Redesign",
+      "words": 197,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "plan backwards from the outcome you need, protect what already works, and treat url and co"
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-plan-a-digital-transformation-project",
+      "href": "/resources/how-to-plan-a-digital-transformation-project/",
+      "title": "How to Plan a Digital Transformation Project",
+      "words": 214,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "plan it as a sequence of small, independently valuable changes against named business cons"
+    },
+    {
+      "kind": "resource",
+      "slug": "technical-seo-checklist",
+      "href": "/resources/technical-seo-checklist/",
+      "title": "Technical SEO Checklist",
+      "words": 243,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a technical seo check confirms four things in order: that search engines can reach your pa"
+    },
+    {
+      "kind": "resource",
+      "slug": "ai-search-readiness-checklist",
+      "href": "/resources/ai-search-readiness-checklist/",
+      "title": "AI Search Readiness Checklist",
+      "words": 215,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "ai search readiness comes down to three questions: can the systems reach and read your pag"
+    },
+    {
+      "kind": "resource",
+      "slug": "website-launch-checklist",
+      "href": "/resources/website-launch-checklist/",
+      "title": "Website Launch Checklist",
+      "words": 211,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a launch check confirms that nothing which worked before has been lost: urls resolve or re"
+    },
+    {
+      "kind": "resource",
+      "slug": "local-seo-checklist",
+      "href": "/resources/local-seo-checklist/",
+      "title": "Local SEO Checklist",
+      "words": 202,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "local visibility depends on three things being consistent and complete: an accurate busine"
+    },
+    {
+      "kind": "resource",
+      "slug": "website-conversion-checklist",
+      "href": "/resources/website-conversion-checklist/",
+      "title": "Website Conversion Checklist",
+      "words": 235,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "most conversion problems are clarity problems. check that a visitor can tell what you do, "
+    },
+    {
+      "kind": "resource",
+      "slug": "digital-growth-audit-checklist",
+      "href": "/resources/digital-growth-audit-checklist/",
+      "title": "Digital Growth Audit Checklist",
+      "words": 185,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a growth audit examines four layers in sequence: whether you can be found, whether what pe"
+    },
+    {
+      "kind": "resource",
+      "slug": "automation-readiness-checklist",
+      "href": "/resources/automation-readiness-checklist/",
+      "title": "Automation Readiness Checklist",
+      "words": 199,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a process is ready to automate when it is stable, documented, high enough in volume to rep"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-search-intent",
+      "href": "/resources/what-is-search-intent/",
+      "title": "Search Intent",
+      "words": 249,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "search intent is the goal behind a query — what the person actually wants to happen next. "
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-entity-optimisation",
+      "href": "/resources/what-is-entity-optimisation/",
+      "title": "Entity Optimisation",
+      "words": 258,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "entity optimisation is the work of making a machine able to identify your organisation, pe"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-knowledge-graph",
+      "href": "/resources/what-is-a-knowledge-graph/",
+      "title": "Knowledge Graph",
+      "words": 223,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a knowledge graph is a structured map of entities and the relationships between them — peo"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-schema-markup",
+      "href": "/resources/what-is-schema-markup/",
+      "title": "Schema Markup",
+      "words": 220,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "schema markup is structured data added to a page in a standard vocabulary, usually as json"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-zero-click-search",
+      "href": "/resources/what-is-zero-click-search/",
+      "title": "Zero-Click Search",
+      "words": 210,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a zero-click search is one where the person gets their answer on the results page itself —"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-featured-snippet",
+      "href": "/resources/what-is-a-featured-snippet/",
+      "title": "Featured Snippet",
+      "words": 212,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a featured snippet is a short extract from a page that a search engine promotes above the "
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-crawl-budget",
+      "href": "/resources/what-is-crawl-budget/",
+      "title": "Crawl Budget",
+      "words": 218,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "crawl budget is the number of urls a search engine is willing and able to fetch from a sit"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-index-coverage",
+      "href": "/resources/what-is-index-coverage/",
+      "title": "Index Coverage",
+      "words": 232,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "index coverage is the state of your urls in a search engine's index — which are indexed, w"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-canonicalisation",
+      "href": "/resources/what-is-canonicalisation/",
+      "title": "Canonicalisation",
+      "words": 214,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "canonicalisation is declaring which url is the authoritative version of a page when severa"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-core-web-vitals",
+      "href": "/resources/what-is-core-web-vitals/",
+      "title": "Core Web Vitals",
+      "words": 206,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "core web vitals are a small set of measurements google uses to describe page experience: h"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-internal-linking",
+      "href": "/resources/what-is-internal-linking/",
+      "title": "Internal Linking",
+      "words": 206,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "internal linking is the practice of connecting pages within a site so that both people and"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-topical-authority",
+      "href": "/resources/what-is-topical-authority/",
+      "title": "Topical Authority",
+      "words": 218,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "topical authority describes how comprehensively and credibly a site covers a subject area."
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-large-language-model",
+      "href": "/resources/what-is-a-large-language-model/",
+      "title": "Large Language Model (LLM)",
+      "words": 205,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a large language model is a system trained on very large amounts of text to predict likely"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-retrieval-augmented-generation",
+      "href": "/resources/what-is-retrieval-augmented-generation/",
+      "title": "Retrieval-Augmented Generation (RAG)",
+      "words": 220,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "retrieval-augmented generation is a pattern where a system searches your own documents for"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-vector-search",
+      "href": "/resources/what-is-vector-search/",
+      "title": "Vector Search",
+      "words": 179,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "vector search finds content by meaning rather than by matching words. text is converted in"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-an-ai-agent",
+      "href": "/resources/what-is-an-ai-agent/",
+      "title": "AI Agent",
+      "words": 207,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "an ai agent is a system that uses a language model to decide which actions to take toward "
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-hallucination-in-ai",
+      "href": "/resources/what-is-hallucination-in-ai/",
+      "title": "Hallucination (AI)",
+      "words": 200,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a hallucination is output that is fluent and confident but false — an invented citation, a"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-robotic-process-automation",
+      "href": "/resources/what-is-robotic-process-automation/",
+      "title": "Robotic Process Automation (RPA)",
+      "words": 189,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "robotic process automation uses software to perform the interface actions a person would p"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-an-api",
+      "href": "/resources/what-is-an-api/",
+      "title": "API",
+      "words": 210,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "an api is a defined way for one piece of software to request something from another — retr"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-webhook",
+      "href": "/resources/what-is-a-webhook/",
+      "title": "Webhook",
+      "words": 191,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a webhook is an automated message one system sends to another when something happens — an "
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-technical-debt",
+      "href": "/resources/what-is-technical-debt/",
+      "title": "Technical Debt",
+      "words": 203,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "technical debt is the accumulated cost of implementation choices that were quicker at the "
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-headless-cms",
+      "href": "/resources/what-is-a-headless-cms/",
+      "title": "Headless CMS",
+      "words": 199,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a headless cms stores and manages content without controlling how it is displayed. content"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-server-side-rendering",
+      "href": "/resources/what-is-server-side-rendering/",
+      "title": "Server-Side Rendering",
+      "words": 202,
+      "faqs": 2,
+      "links": 3,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "server-side rendering means the html for a page is produced on the server and sent complet"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-marketing-attribution",
+      "href": "/resources/what-is-marketing-attribution/",
+      "title": "Marketing Attribution",
+      "words": 197,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "marketing attribution is the practice of assigning credit for a conversion to the marketin"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-eeat",
+      "href": "/resources/what-is-eeat/",
+      "title": "E-E-A-T",
+      "words": 177,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "e-e-a-t stands for experience, expertise, authoritativeness and trust. it is not a score a"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-keyword-cannibalisation",
+      "href": "/resources/what-is-keyword-cannibalisation/",
+      "title": "Keyword Cannibalisation",
+      "words": 173,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "keyword cannibalisation is when several pages on one site compete for the same query, spli"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-content-cluster",
+      "href": "/resources/what-is-a-content-cluster/",
+      "title": "Content Cluster",
+      "words": 174,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a content cluster is a group of pages covering one subject comprehensively, linked to a ce"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-an-xml-sitemap",
+      "href": "/resources/what-is-an-xml-sitemap/",
+      "title": "XML Sitemap",
+      "words": 181,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "an xml sitemap is a file listing the urls on a site that you want search engines to know a"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-robots-txt",
+      "href": "/resources/what-is-robots-txt/",
+      "title": "robots.txt",
+      "words": 188,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "robots.txt is a file at the root of a site that tells crawlers which paths they may reques"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-redirect",
+      "href": "/resources/what-is-a-redirect/",
+      "title": "Redirect",
+      "words": 191,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a redirect sends a request for one url to another. a 301 declares the move permanent and p"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-local-seo",
+      "href": "/resources/what-is-local-seo/",
+      "title": "What Is Local SEO?",
+      "words": 156,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "local seo is the work of appearing in results for searches with a geographic component — m"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-programmatic-seo",
+      "href": "/resources/what-is-programmatic-seo/",
+      "title": "Programmatic SEO",
+      "words": 185,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "programmatic seo is generating large numbers of pages from structured data using a shared "
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-log-file-analysis",
+      "href": "/resources/what-is-log-file-analysis/",
+      "title": "Log File Analysis",
+      "words": 172,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "log file analysis examines a server's own request records to see exactly what crawlers fet"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-conversion-rate",
+      "href": "/resources/what-is-conversion-rate/",
+      "title": "Conversion Rate",
+      "words": 164,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "conversion rate is the proportion of visitors who complete a defined action — an enquiry, "
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-customer-lifetime-value",
+      "href": "/resources/what-is-customer-lifetime-value/",
+      "title": "Customer Lifetime Value",
+      "words": 158,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "customer lifetime value is the total profit expected from a customer across the whole rela"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-machine-learning",
+      "href": "/resources/what-is-machine-learning/",
+      "title": "Machine Learning",
+      "words": 166,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "machine learning is the practice of building systems that derive their rules from data rat"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-prompt-engineering",
+      "href": "/resources/what-is-prompt-engineering/",
+      "title": "Prompt Engineering",
+      "words": 166,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "prompt engineering is the practice of writing instructions and context for a language mode"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-fine-tuning",
+      "href": "/resources/what-is-fine-tuning/",
+      "title": "Fine-Tuning",
+      "words": 165,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "fine-tuning further trains an existing model on your own examples so it adopts a particula"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-middleware",
+      "href": "/resources/what-is-middleware/",
+      "title": "Middleware",
+      "words": 168,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "middleware is software that sits between systems and handles the work of connecting them —"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-structured-content",
+      "href": "/resources/what-is-structured-content/",
+      "title": "Structured Content",
+      "words": 179,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "structured content is content stored as discrete, labelled fields rather than as a single "
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-data-warehouse",
+      "href": "/resources/what-is-a-data-warehouse/",
+      "title": "Data Warehouse",
+      "words": 166,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a data warehouse is a central store that brings together data from several operational sys"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-digital-growth-engine",
+      "href": "/resources/what-is-a-digital-growth-engine/",
+      "title": "Digital Growth Engine",
+      "words": 177,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a digital growth engine is the connected system that turns demand into revenue repeatedly:"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-organic-traffic",
+      "href": "/resources/what-is-organic-traffic/",
+      "title": "Organic Traffic",
+      "words": 152,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "organic traffic is visits arriving from unpaid search results. it excludes paid clicks, di"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-bounce-rate",
+      "href": "/resources/what-is-bounce-rate/",
+      "title": "Bounce Rate",
+      "words": 161,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "bounce rate is the share of sessions that ended without a second interaction. it measures "
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-domain-authority",
+      "href": "/resources/what-is-domain-authority/",
+      "title": "Domain Authority",
+      "words": 166,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "domain authority is a third-party tool's prediction of how likely a site is to rank, expre"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-backlink",
+      "href": "/resources/what-is-a-backlink/",
+      "title": "Backlink",
+      "words": 156,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a backlink is a link from another website to yours. search engines treat it as a signal th"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-anchor-text",
+      "href": "/resources/what-is-anchor-text/",
+      "title": "Anchor Text",
+      "words": 148,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "anchor text is the visible, clickable words of a link. it tells both a reader and a search"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-page-speed",
+      "href": "/resources/what-is-page-speed/",
+      "title": "Page Speed",
+      "words": 146,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "page speed is how quickly a page becomes visible and usable. it is measured two ways — in "
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-conversion-funnel",
+      "href": "/resources/what-is-a-conversion-funnel/",
+      "title": "Conversion Funnel",
+      "words": 152,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a conversion funnel is a model of the stages a visitor passes through before acting — typi"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-lead-scoring",
+      "href": "/resources/what-is-lead-scoring/",
+      "title": "Lead Scoring",
+      "words": 153,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "lead scoring assigns a number to an enquiry based on attributes and behaviour, so sales at"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-customer-data-platform",
+      "href": "/resources/what-is-a-customer-data-platform/",
+      "title": "Customer Data Platform",
+      "words": 161,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a customer data platform collects customer data from several systems into unified profiles"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-etl",
+      "href": "/resources/what-is-etl/",
+      "title": "ETL",
+      "words": 171,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "etl stands for extract, transform, load — the process of taking data out of source systems"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-data-pipeline",
+      "href": "/resources/what-is-a-data-pipeline/",
+      "title": "Data Pipeline",
+      "words": 161,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a data pipeline is the automated path data takes from a source system to wherever it is us"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-single-sign-on",
+      "href": "/resources/what-is-single-sign-on/",
+      "title": "Single Sign-On",
+      "words": 142,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "single sign-on lets people access several systems with one set of credentials, authenticat"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-design-system",
+      "href": "/resources/what-is-a-design-system/",
+      "title": "Design System",
+      "words": 156,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a design system is a set of reusable components and the decisions behind them — colour, ty"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-progressive-enhancement",
+      "href": "/resources/what-is-progressive-enhancement/",
+      "title": "Progressive Enhancement",
+      "words": 151,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "progressive enhancement is building so the core content and functions work with html alone"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-service-level-agreement",
+      "href": "/resources/what-is-a-service-level-agreement/",
+      "title": "Service Level Agreement",
+      "words": 150,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "a service level agreement states the service a supplier commits to — response times, avail"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-total-cost-of-ownership",
+      "href": "/resources/what-is-total-cost-of-ownership/",
+      "title": "Total Cost of Ownership",
+      "words": 153,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "total cost of ownership is what something costs across its whole life, not what it costs t"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-a-minimum-viable-product",
+      "href": "/resources/what-is-a-minimum-viable-product/",
+      "title": "Minimum Viable Product",
+      "words": 152,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a minimum viable product is the smallest version that tests the riskiest assumption in a p"
+    },
+    {
+      "kind": "resource",
+      "slug": "what-is-workflow-orchestration",
+      "href": "/resources/what-is-workflow-orchestration/",
+      "title": "Workflow Orchestration",
+      "words": 158,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "workflow orchestration coordinates a sequence of steps across systems, handling order, dep"
+    },
+    {
+      "kind": "resource",
+      "slug": "seo-audit-checklist",
+      "href": "/resources/seo-audit-checklist/",
+      "title": "SEO Audit Checklist",
+      "words": 191,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a full audit runs in four passes: can search engines reach and render the site, is it elig"
+    },
+    {
+      "kind": "resource",
+      "slug": "content-audit-checklist",
+      "href": "/resources/content-audit-checklist/",
+      "title": "Content Audit Checklist",
+      "words": 166,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "sort every page into keep, improve, consolidate or remove, judged on whether it earns anyt"
+    },
+    {
+      "kind": "resource",
+      "slug": "site-migration-checklist",
+      "href": "/resources/site-migration-checklist/",
+      "title": "Site Migration Checklist",
+      "words": 181,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a migration is survivable when every url has a decided destination before design starts, c"
+    },
+    {
+      "kind": "resource",
+      "slug": "ecommerce-seo-checklist",
+      "href": "/resources/ecommerce-seo-checklist/",
+      "title": "E-commerce SEO Checklist",
+      "words": 168,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "retail sites fail on four things: faceted navigation generating crawl waste, thin category"
+    },
+    {
+      "kind": "resource",
+      "slug": "crm-implementation-checklist",
+      "href": "/resources/crm-implementation-checklist/",
+      "title": "CRM Implementation Checklist",
+      "words": 178,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "crm projects fail on adoption rather than configuration. agree the process and the minimum"
+    },
+    {
+      "kind": "resource",
+      "slug": "integration-readiness-checklist",
+      "href": "/resources/integration-readiness-checklist/",
+      "title": "Integration Readiness Checklist",
+      "words": 184,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "before connecting two systems, confirm four things: which one owns the record, what each e"
+    },
+    {
+      "kind": "resource",
+      "slug": "ai-project-checklist",
+      "href": "/resources/ai-project-checklist/",
+      "title": "AI Project Readiness Checklist",
+      "words": 197,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "before starting an ai project, confirm four things: a specific repeated task, accessible d"
+    },
+    {
+      "kind": "resource",
+      "slug": "accessibility-checklist",
+      "href": "/resources/accessibility-checklist/",
+      "title": "Website Accessibility Checklist",
+      "words": 206,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "check four things in order: can the page be operated by keyboard alone, is every control a"
+    },
+    {
+      "kind": "resource",
+      "slug": "analytics-implementation-checklist",
+      "href": "/resources/analytics-implementation-checklist/",
+      "title": "Analytics Implementation Checklist",
+      "words": 181,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "decide which questions the data must answer before configuring anything, then track only t"
+    },
+    {
+      "kind": "resource",
+      "slug": "pre-launch-seo-checklist",
+      "href": "/resources/pre-launch-seo-checklist/",
+      "title": "Pre-Launch SEO Checklist",
+      "words": 184,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "before a site goes live, verify the crawler's view rather than the browser's: content in s"
+    },
+    {
+      "kind": "resource",
+      "slug": "seo-audit-vs-seo-strategy",
+      "href": "/resources/seo-audit-vs-seo-strategy/",
+      "title": "SEO Audit vs SEO Strategy",
+      "words": 198,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "an audit establishes what is wrong. a strategy decides what to do about it and in what ord"
+    },
+    {
+      "kind": "resource",
+      "slug": "local-seo-vs-national-seo",
+      "href": "/resources/local-seo-vs-national-seo/",
+      "title": "Local SEO vs National SEO",
+      "words": 201,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "local visibility is ranked partly on the searcher's proximity, which caps how far it reach"
+    },
+    {
+      "kind": "resource",
+      "slug": "in-house-vs-outsourced-development",
+      "href": "/resources/in-house-vs-outsourced-development/",
+      "title": "In-House vs Outsourced Development",
+      "words": 209,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "in-house gives continuity and accumulated context at a fixed ongoing cost. outsourcing giv"
+    },
+    {
+      "kind": "resource",
+      "slug": "no-code-vs-custom-development",
+      "href": "/resources/no-code-vs-custom-development/",
+      "title": "No-Code vs Custom Development",
+      "words": 205,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "no-code gets something working in days and is genuinely the right answer for many internal"
+    },
+    {
+      "kind": "resource",
+      "slug": "chatbot-vs-ai-agent",
+      "href": "/resources/chatbot-vs-ai-agent/",
+      "title": "Chatbot vs AI Agent",
+      "words": 184,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a chatbot answers questions. an agent can take actions — looking things up, updating recor"
+    },
+    {
+      "kind": "resource",
+      "slug": "rag-vs-fine-tuning",
+      "href": "/resources/rag-vs-fine-tuning/",
+      "title": "RAG vs Fine-Tuning",
+      "words": 201,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "retrieval supplies facts at question time and updates when the documents do. fine-tuning t"
+    },
+    {
+      "kind": "resource",
+      "slug": "data-warehouse-vs-spreadsheets",
+      "href": "/resources/data-warehouse-vs-spreadsheets/",
+      "title": "Data Warehouse vs Spreadsheets",
+      "words": 205,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "spreadsheets are the right tool for exploration and small volumes, and they remain so for "
+    },
+    {
+      "kind": "resource",
+      "slug": "native-vs-web-apps",
+      "href": "/resources/native-vs-web-apps/",
+      "title": "Native Apps vs Web Apps",
+      "words": 183,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a web application is reachable by url, findable in search and updated instantly. a native "
+    },
+    {
+      "kind": "resource",
+      "slug": "organic-vs-paid-social",
+      "href": "/resources/organic-vs-paid-social/",
+      "title": "Organic vs Paid Social",
+      "words": 214,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "organic social builds an audience you can reach repeatedly but reaches only a fraction of "
+    },
+    {
+      "kind": "resource",
+      "slug": "agency-vs-freelancer",
+      "href": "/resources/agency-vs-freelancer/",
+      "title": "Agency vs Freelancer",
+      "words": 193,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "a freelancer gives you one specialist at lower cost with direct access. an agency gives br"
+    },
+    {
+      "kind": "resource",
+      "slug": "when-to-hire-an-seo-specialist",
+      "href": "/resources/when-to-hire-an-seo-specialist/",
+      "title": "When to Hire an In-House SEO Specialist",
+      "words": 190,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "hire in-house when there is enough continuous work to occupy someone and enough internal c"
+    },
+    {
+      "kind": "resource",
+      "slug": "when-to-replatform-a-website",
+      "href": "/resources/when-to-replatform-a-website/",
+      "title": "When to Replatform a Website",
+      "words": 197,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "replatform when the platform actively prevents work you need to do — server rendering, str"
+    },
+    {
+      "kind": "resource",
+      "slug": "when-to-build-a-mobile-app",
+      "href": "/resources/when-to-build-a-mobile-app/",
+      "title": "When to Build a Mobile App",
+      "words": 185,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "build an app when you need device capabilities a browser cannot reach and people will use "
+    },
+    {
+      "kind": "resource",
+      "slug": "when-to-invest-in-analytics",
+      "href": "/resources/when-to-invest-in-analytics/",
+      "title": "When to Invest in Analytics",
+      "words": 174,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "invest when there is a decision you would make differently with better data. analytics bui"
+    },
+    {
+      "kind": "resource",
+      "slug": "when-to-outsource-development",
+      "href": "/resources/when-to-outsource-development/",
+      "title": "When to Outsource Development",
+      "words": 184,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "outsource for capacity, a specialism you need temporarily, or a defined project with a cle"
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-choose-a-cms",
+      "href": "/resources/how-to-choose-a-cms/",
+      "title": "How to Choose a CMS",
+      "words": 189,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "choose on who edits, how often, and what the content has to feed. feature comparisons rare"
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-set-a-digital-budget",
+      "href": "/resources/how-to-set-a-digital-budget/",
+      "title": "How to Set a Digital Budget",
+      "words": 201,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "allocate against the constraint that is currently binding rather than spreading across cha"
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-brief-an-seo-agency",
+      "href": "/resources/how-to-brief-an-seo-agency/",
+      "title": "How to Brief an SEO Agency",
+      "words": 191,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "bring the commercial problem, the constraints you know about, access to your data, and the"
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-audit-your-own-website",
+      "href": "/resources/how-to-audit-your-own-website/",
+      "title": "How to Audit Your Own Website",
+      "words": 204,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "you can get most of the way with a browser and a search engine: check what is indexed, vie"
+    },
+    {
+      "kind": "resource",
+      "slug": "how-to-prioritise-digital-work",
+      "href": "/resources/how-to-prioritise-digital-work/",
+      "title": "How to Prioritise Digital Work",
+      "words": 192,
+      "faqs": 2,
+      "links": 1,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "sequence by binding constraint rather than by effort or enthusiasm. the work that matters "
+    },
+    {
+      "kind": "resource",
+      "slug": "seo-reporting-framework",
+      "href": "/resources/seo-reporting-framework/",
+      "title": "SEO Reporting Framework",
+      "words": 271,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "report seo in four separate layers — eligibility, appearance, arrival and outcome — agains"
+    },
+    {
+      "kind": "resource",
+      "slug": "enterprise-seo-framework",
+      "href": "/resources/enterprise-seo-framework/",
+      "title": "Enterprise SEO Framework",
+      "words": 241,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "at enterprise scale the constraint is rarely knowledge — it is getting change deployed acr"
+    },
+    {
+      "kind": "resource",
+      "slug": "content-planning-framework",
+      "href": "/resources/content-planning-framework/",
+      "title": "Content Planning Framework",
+      "words": 236,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "plan content against the questions buyers actually ask across the whole decision, then che"
+    },
+    {
+      "kind": "resource",
+      "slug": "technical-seo-migration-guide",
+      "href": "/resources/technical-seo-migration-guide/",
+      "title": "Technical SEO Migration Guide",
+      "words": 272,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a migration protects visibility when url mapping, content parity and rendering parity are "
+    },
+    {
+      "kind": "resource",
+      "slug": "ai-visibility-measurement-guide",
+      "href": "/resources/ai-visibility-measurement-guide/",
+      "title": "AI Visibility Measurement Guide",
+      "words": 232,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "there is no rank position in an ai answer, so visibility is sampled rather than measured: "
+    },
+    {
+      "kind": "resource",
+      "slug": "automation-business-case-guide",
+      "href": "/resources/automation-business-case-guide/",
+      "title": "Building the Business Case for Automation",
+      "words": 239,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a credible automation case counts recovered hours honestly, includes build and maintenance"
+    },
+    {
+      "kind": "resource",
+      "slug": "ai-governance-guide",
+      "href": "/resources/ai-governance-guide/",
+      "title": "AI Governance for Small Teams",
+      "words": 226,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "governance for a small organisation is four decisions written down: what data may be sent "
+    },
+    {
+      "kind": "resource",
+      "slug": "website-brief-guide",
+      "href": "/resources/website-brief-guide/",
+      "title": "How to Write a Website Brief",
+      "words": 234,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a good brief states the commercial outcome, the audiences and their tasks, the constraints"
+    },
+    {
+      "kind": "resource",
+      "slug": "software-requirements-guide",
+      "href": "/resources/software-requirements-guide/",
+      "title": "How to Write Software Requirements",
+      "words": 227,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "describe the behaviour the system must produce and the rules it must obey, not the screens"
+    },
+    {
+      "kind": "resource",
+      "slug": "data-quality-framework",
+      "href": "/resources/data-quality-framework/",
+      "title": "Data Quality Framework",
+      "words": 224,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "data quality is settled in this order: agree definitions, assign ownership, validate at en"
+    },
+    {
+      "kind": "resource",
+      "slug": "conversion-research-guide",
+      "href": "/resources/conversion-research-guide/",
+      "title": "Conversion Research Guide",
+      "words": 233,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "research before testing. analytics shows where people leave, recordings show what happened"
+    },
+    {
+      "kind": "resource",
+      "slug": "first-90-days-automation",
+      "href": "/resources/first-90-days-automation/",
+      "title": "The First 90 Days of Automation",
+      "words": 241,
+      "faqs": 2,
+      "links": 2,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN"
+      ],
+      "opening": "a realistic first quarter: two weeks understanding the process, two weeks simplifying it, "
+    },
+    {
+      "kind": "company",
+      "slug": "about",
+      "href": "/company/about/",
+      "title": "About BizzFly",
+      "words": 199,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "bizzfly is a pune-based digital growth and technology company. we make businesses discover"
+    },
+    {
+      "kind": "company",
+      "slug": "how-we-work",
+      "href": "/company/how-we-work/",
+      "title": "How we work",
+      "words": 208,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "every engagement starts with diagnosis, not a proposal. we spend the first two weeks estab"
+    },
+    {
+      "kind": "company",
+      "slug": "approach",
+      "href": "/company/approach/",
+      "title": "Our approach",
+      "words": 99,
+      "faqs": 3,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "every engagement starts with diagnosis rather than a proposal. we spend the first two week"
+    },
+    {
+      "kind": "company",
+      "slug": "careers",
+      "href": "/company/careers/",
+      "title": "Careers",
+      "words": 101,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "we hire people who want work that needs judgement rather than volume. the team spans searc"
+    },
+    {
+      "kind": "company",
+      "slug": "discovery-process",
+      "href": "/company/discovery-process/",
+      "title": "Discovery process",
+      "words": 228,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "discovery establishes which constraint is actually binding before anything is proposed. it"
+    },
+    {
+      "kind": "company",
+      "slug": "digital-growth-methodology",
+      "href": "/company/digital-growth-methodology/",
+      "title": "Digital growth methodology",
+      "words": 223,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "we treat growth as a sequence of constraints rather than a set of channels. the work is to"
+    },
+    {
+      "kind": "company",
+      "slug": "seo-methodology",
+      "href": "/company/seo-methodology/",
+      "title": "SEO methodology",
+      "words": 212,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "we work seo in a fixed order — foundation, coverage, credibility, then compounding — becau"
+    },
+    {
+      "kind": "company",
+      "slug": "ai-search-methodology",
+      "href": "/company/ai-search-methodology/",
+      "title": "AI search methodology",
+      "words": 221,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "ai visibility work removes the reasons a system would not cite you: unreachable content, a"
+    },
+    {
+      "kind": "company",
+      "slug": "website-development-process",
+      "href": "/company/website-development-process/",
+      "title": "Website development process",
+      "words": 195,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "we set the non-visual requirements before design, build in increments that can be reviewed"
+    },
+    {
+      "kind": "company",
+      "slug": "software-development-process",
+      "href": "/company/software-development-process/",
+      "title": "Software development process",
+      "words": 200,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "we deliver software in increments that reach production, with your team owning the code an"
+    },
+    {
+      "kind": "company",
+      "slug": "automation-approach",
+      "href": "/company/automation-approach/",
+      "title": "Automation approach",
+      "words": 230,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "we simplify a process before automating it, automate the stable core rather than every exc"
+    },
+    {
+      "kind": "company",
+      "slug": "engagement-models",
+      "href": "/company/engagement-models/",
+      "title": "Engagement models",
+      "words": 226,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "we work in three shapes: a fixed-scope diagnostic, a defined project with a stated outcome"
+    },
+    {
+      "kind": "company",
+      "slug": "how-we-price",
+      "href": "/company/how-we-price/",
+      "title": "How we price",
+      "words": 242,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "we price by the shape of the work rather than by the hour: a fixed price for a diagnostic,"
+    },
+    {
+      "kind": "company",
+      "slug": "how-we-report",
+      "href": "/company/how-we-report/",
+      "title": "How we report",
+      "words": 206,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "we report against the constraint we said was binding, in four separate layers — eligibilit"
+    },
+    {
+      "kind": "company",
+      "slug": "what-we-do-not-do",
+      "href": "/company/what-we-do-not-do/",
+      "title": "What we do not do",
+      "words": 229,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "we do not guarantee rankings or ai citations, buy links, publish fabricated proof, take wo"
+    },
+    {
+      "kind": "company",
+      "slug": "content-standards",
+      "href": "/company/content-standards/",
+      "title": "Content standards",
+      "words": 223,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "everything published here follows three rules: no invented proof, no claim we cannot suppo"
+    },
+    {
+      "kind": "company",
+      "slug": "accessibility-commitment",
+      "href": "/company/accessibility-commitment/",
+      "title": "Accessibility commitment",
+      "words": 213,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "we build to wcag 2.2 aa as a delivery requirement rather than a later audit, and we state "
+    },
+    {
+      "kind": "company",
+      "slug": "data-and-privacy-approach",
+      "href": "/company/data-and-privacy-approach/",
+      "title": "Data and privacy approach",
+      "words": 235,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "we design so that systems hold the least data that will do the job. the cheapest way to pr"
+    },
+    {
+      "kind": "company",
+      "slug": "working-with-us",
+      "href": "/company/working-with-us/",
+      "title": "Working with us",
+      "words": 222,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "the engagements that work have three things on your side: someone who can decide, access t"
+    },
+    {
+      "kind": "company",
+      "slug": "faq",
+      "href": "/company/faq/",
+      "title": "Frequently asked questions",
+      "words": 121,
+      "faqs": 8,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "the questions that come up before a first call: what we do, how engagements start, how lon"
+    },
+    {
+      "kind": "company",
+      "slug": "privacy-policy",
+      "href": "/company/privacy-policy/",
+      "title": "Privacy Policy",
+      "words": 125,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "this page will set out what personal data bizzfly collects through this website, why it is"
+    },
+    {
+      "kind": "company",
+      "slug": "terms",
+      "href": "/company/terms/",
+      "title": "Terms & Conditions",
+      "words": 73,
+      "faqs": 0,
+      "links": 0,
+      "sections": [
+        "body"
+      ],
+      "missing": [
+        "sections"
+      ],
+      "flags": [
+        "THIN",
+        "FEW-LINKS"
+      ],
+      "opening": "this page will set out the terms governing use of this website and the basis on which bizz"
+    }
+  ],
+  "shared": []
+}

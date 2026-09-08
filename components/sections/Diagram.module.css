@@ -8,14 +8,6 @@
   height: auto;
 }
 
-/* The search-surfaces diagram was authored for a dark ground; on a light
-   section it sits inside an inverse panel rather than being restyled. */
-.lightWrapper {
-  background: var(--ink-900);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-}
-
 .node {
   fill: none;
   stroke: var(--ink-350);
@@ -42,7 +34,7 @@
 }
 
 .nodeTextSmall {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
   fill: var(--muted);
 }
@@ -50,7 +42,7 @@
 .nodeTextAccent {
   font-family: var(--font-body);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: var(--weight-medium);
   fill: var(--cta-primary-text);
 }
 
@@ -68,21 +60,21 @@
 }
 
 .lineLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 10px;
   letter-spacing: 0.06em;
   fill: var(--ink-400);
 }
 
 .groupLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
   letter-spacing: 0.12em;
   fill: var(--muted);
 }
 
 .caption {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
   fill: var(--muted);
 }
@@ -117,10 +109,9 @@
 }
 
 .textAlternativeTitle {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
   color: var(--muted);
 }
 

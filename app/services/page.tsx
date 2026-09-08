@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
+import { SectionNav } from "@/components/navigation";
 import { EditorialHero } from "@/components/hero";
 import {
   SectionHeader,
@@ -11,7 +12,7 @@ import { Button, ButtonGroup, TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { services } from "@/content/services";
 import { practices } from "@/content/practices";
-import { serviceGroups, metaForService } from "@/content/service-meta";
+import { serviceGroups } from "@/content/service-meta";
 import { primaryCta } from "@/content/navigation";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
@@ -30,9 +31,15 @@ export const metadata: Metadata = buildMetadata(
 );
 
 export default function ServicesIndexPage() {
+  /*
+   * Group from the assembled service, not from metaForService. The lookup
+   * falls back to "growth" for any slug it does not know, so reading it here
+   * would silently collect every newer service into one group. content/
+   * services.ts has already resolved group as `service.group ?? meta.group`.
+   */
   const grouped = serviceGroups.map((group) => ({
     ...group,
-    services: services.filter((s) => metaForService(s.slug).group === group.id),
+    services: services.filter((s) => s.group === group.id),
   }));
 
   return (
@@ -69,7 +76,7 @@ export default function ServicesIndexPage() {
 
       {/*
         Directory as an editorial index: group, when to choose it, then the
-        services as text links. Six groups and 25 services in the space six
+        services as text links. Six groups and every service in the space six
         cards would occupy.
       */}
       <Section spacing="lg">
@@ -78,6 +85,18 @@ export default function ServicesIndexPage() {
           eyebrow="Directory"
           title="Where to start"
           lead="Each group states the situation it is for. If two apply, that is normal — say so when you get in touch and we will tell you which constraint to fix first."
+        />
+
+        <SectionNav
+          label="Jump to a capability group"
+          items={grouped
+            .filter((group) => group.services.length > 0)
+            .map((group) => ({
+              label: group.label,
+              id: group.id,
+              count: group.services.length,
+            }))}
+          className="mt-8"
         />
 
         <div className={styles.groups}>

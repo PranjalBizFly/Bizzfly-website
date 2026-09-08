@@ -9,14 +9,22 @@ Exact token values. The machine-readable contract is
 
 ### Font stack
 
-Two families plus a mono. Three is the ceiling. The two brand faces are fixed by the
-BizzFly brand guidelines; the mono is a system choice.
+**Two families. Two is the ceiling**, because the brand guidelines name exactly two.
 
 | Role | Family | Why |
 |---|---|---|
 | **Display & headings** | **Funnel Sans SemiBold** (variable: weight 300–800) | The brand's primary typeface. Open and geometric, with real presence at 64px+ and still legible at 20px |
-| **Body & UI** | **Poppins** (400 Regular, 500 Medium, 700 Bold) | The brand's secondary typeface. Carries body text, forms, tables and labels |
-| **Technical** | **IBM Plex Mono** (400, 500) | Eyebrows, metrics, labels, breadcrumb separators, code, diagram annotation. The brand guidelines name no monospace face, so this is a system choice and stays confined to labels and data |
+| **Body & UI** | **Poppins** (400 Regular, 500 Medium, 700 Bold) | The brand's secondary typeface. Carries body text, forms, tables, labels and the eyebrow/meta voice |
+
+> **A third face was removed.** This slot previously held IBM Plex Mono (400, 500) for
+> eyebrows, metrics, labels, breadcrumbs and diagram annotation, justified here as "a
+> system choice" on the grounds that the guidelines name no monospace face. Under a
+> strict reading that is exactly the problem: the guidelines enumerate the complete
+> typography system, and a monospace face across 70 declarations reads as a deliberate
+> editorial voice competing with Poppins, not as a neutral utility. The role survives
+> as `--font-label`, which resolves to Poppins; `--font-mono` is now a **system stack**
+> reserved for literal machine output (the error digest, and nothing else).
+> `npm run verify:brand` fails if it gains a second consumer.
 
 **Why the pairing works:** Funnel Sans carries the identity at display sizes; Poppins
 is the workhorse underneath it.
@@ -29,9 +37,11 @@ and `--container-text` is **640px** rather than 680px so the 62–72 character m
 still holds. These are consequences of the typeface, not preferences — changing the
 face means re-deriving all three.
 
-**Why a mono at all:** it is the cheapest, most legible signal that this is a
-technology company rather than a marketing agency. Restricted to labels and data, it
-never costs readability.
+**What carries the label voice now:** eyebrows, meta lines and metric labels are
+small, uppercase and tracked (`+0.10em`, `+0.08em`). That treatment is what makes a
+label read as a label — the typeface never had to do it. Poppins Medium at 12px
+uppercase holds the same technical register without introducing a face the brand
+does not own.
 
 ### Loading rules
 
@@ -42,14 +52,16 @@ never costs readability.
   SemiBold (600) the brand specifies for display.
 - Poppins publishes no variable build, so exactly three static weights are requested:
   **400, 500, 700**. Latin subset, normal style only.
-- **Budget: ≤ 5 font files.** Anything beyond the Funnel Sans variable file, three
-  Poppins weights and two Plex Mono cuts is a system change, reviewed.
+- **Budget: ≤ 4 font files.** Anything beyond the Funnel Sans variable file and the
+  three Poppins weights is a system change, reviewed. Two Plex Mono cuts were
+  removed from this budget when the third family went.
 - `font-display: swap`, with the metric-matched fallbacks `next/font` generates and
   applies automatically, so the swap causes **zero CLS**.
-- The families are bound to `--font-display`, `--font-body` and `--font-mono` in
-  `app/globals.css`. Components only ever reference those three tokens, so replacing
-  this loader with licensed font files touches `app/layout.tsx` and `app/globals.css`
-  and no component at all.
+- The two families are bound to `--font-display` and `--font-body` in
+  `app/globals.css`; `--font-label` resolves to `--font-body` and `--font-mono` to a
+  system stack, so neither costs a request. Components only ever reference those
+  tokens, so replacing this loader with licensed font files touches `app/layout.tsx`
+  and `app/globals.css` and no component at all.
 
 ### Scale
 
@@ -67,10 +79,10 @@ Fluid via `clamp()`. Min = 360px viewport, max = 1440px.
 | `body` | Poppins | 16px fixed | 400 | 1.70 | 0 | Default reading text |
 | `body-sm` | Poppins | 14px fixed | 400 | 1.60 | 0 | Secondary text, captions in context |
 | `caption` | Poppins | 13px fixed | 400 | 1.45 | 0 | Image captions, footnotes |
-| `eyebrow` | Plex Mono | 12px fixed | 500 | 1.2 | +0.10em | Section labels, UPPERCASE |
-| `meta` | Plex Mono | 13px fixed | 400 | 1.4 | +0.02em | Dates, sources, indices, breadcrumbs |
+| `eyebrow` | Poppins Medium | 12px fixed | 500 | 1.2 | +0.10em | Section labels, UPPERCASE |
+| `meta` | Poppins Regular | 13px fixed | 400 | 1.4 | +0.02em | Dates, sources, indices, breadcrumbs |
 | `metric` | Funnel Sans | 40 → 72px | 600 | 1.00 | −0.025em | Verified figures only |
-| `metric-label` | Plex Mono | 12px fixed | 500 | 1.3 | +0.08em | Label beneath a metric |
+| `metric-label` | Poppins Medium | 12px fixed | 500 | 1.3 | +0.08em | Label beneath a metric |
 | `nav` | Poppins | 15px fixed | 500 | 1.4 | 0 | Primary navigation |
 | `nav-sub` | Poppins | 14px fixed | 400 | 1.5 | 0 | Mega-menu links |
 | `button` | Poppins | 15px fixed | 500 | 1.0 | +0.005em | All buttons |
@@ -195,6 +207,10 @@ it.
 | `--surface-sunken` | `#EAEEF4` | Input fields, code blocks |
 | `--surface-inverse` | `#0D1420` | Dark sections |
 | `--surface-inverse-alt` | `#2A1ED1` | Alternate dark sections |
+| `--surface-tint` | `#F1F5FC` | The tinted light band — a section that needs to be its own movement without a dark ground |
+| `--surface-tint-raised` | `#FFFFFF` | A card inside the tinted band: it lifts to white rather than sinking to grey |
+| `--surface-tint-sunken` | `#E4EBF7` | Inputs and wells inside the tinted band |
+| `--border-tint` | `#D7E1F2` | Hairline inside the tinted band |
 | `--border` | `#DDE3EB` | Default hairline |
 | `--border-strong` | `#8B95A3` | Inputs, focused containers |
 | `--border-inverse` | `rgba(245,247,250,0.16)` | Rules on dark |
@@ -386,23 +402,25 @@ almost nothing else.
 
 ## Radius, elevation, borders
 
-Deliberately restrained — the brief prohibits excessive rounding and heavy shadows.
+Soft rather than sharp. The scale was opened up from a 8px ceiling: at 4px a card reads as a bordered rectangle and the page reads as a specification. Shadows stay low and wide — depth without weight.
 
 | Token | Value | Use |
 |---|---|---|
 | `--radius-0` | 0 | Section bands, full-bleed media, tables — **the default** |
-| `--radius-sm` | 2px | Inputs, tags, small controls |
-| `--radius-md` | 4px | Buttons, cards, image containers |
-| `--radius-lg` | 8px | Overlays, modals, mega-menu panels |
-| `--radius-full` | 9999px | Avatars and pill filters only |
+| `--radius-sm` | 6px | Inputs, tags, small controls |
+| `--radius-md` | 12px | Buttons, cards, image containers |
+| `--radius-lg` | 20px | Overlays, modals, mega-menu panels |
+| `--radius-xl` | 28px | Full-bleed panels and feature media |
+| `--radius-full` | 9999px | Avatars and pills only |
 
-Nothing on this site has a radius above 8px. Large radii are the strongest visual
-signal of a consumer template.
+Nothing is a pill except what `--radius-full` names, so the geometry stays
+deliberate rather than becoming a bubble. Radius is read from the scale in every
+case — a literal is a build failure.
 
 | Elevation | Value | Use |
 |---|---|---|
 | `--elev-0` | none | **Default.** Separation comes from rules and space |
-| `--elev-1` | `0 1px 2px rgb(13 18 16 / 0.06)` | Hovered interactive surface |
+| `--elev-1` | `0 1px 2px rgb(13 18 16 / 0.06)` | Static cards, and hovered interactive surfaces |
 | `--elev-2` | `0 4px 16px rgb(13 18 16 / 0.08)` | Dropdowns, mega-menu, popovers |
 | `--elev-3` | `0 12px 40px rgb(13 18 16 / 0.12)` | Modal, command palette |
 

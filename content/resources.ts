@@ -16,13 +16,18 @@ import { checklists } from "./checklists";
 import { guides } from "./guides";
 import { seoTermsGlossary } from "./glossary-seo-terms";
 import { businessGlossary } from "./glossary-business";
+import { metricsGlossary } from "./glossary-metrics";
+import { moreChecklists } from "./resources-checklists";
+import { moreComparisons } from "./resources-comparisons";
+import { moreDecisions } from "./resources-decisions";
+import { frameworks } from "./resources-frameworks";
 
 const coreResources: Resource[] = [
   {
     slug: "what-is-generative-engine-optimisation",
     type: "glossary",
     topic: "AI Search",
-    title: "Generative Engine Optimisation (GEO)",
+    title: "What Is Generative Engine Optimisation?",
     answer:
       "Generative Engine Optimisation is the practice of making a brand more likely to be cited as a source inside AI-generated answers — in systems such as ChatGPT, Perplexity, Gemini and Google AI Overviews.",
     body: [
@@ -36,7 +41,7 @@ const coreResources: Resource[] = [
       title: "What Is Generative Engine Optimisation (GEO)?",
       description:
         "GEO is the practice of getting a brand cited inside AI-generated answers. How it differs from SEO and AEO, and the three levers that actually move it.",
-      primaryTopic: "generative engine optimisation",
+      primaryTopic: "what is generative engine optimisation",
       secondaryTopics: ["GEO", "AI citations", "AEO"],
       intent: "informational",
     },
@@ -77,7 +82,7 @@ const coreResources: Resource[] = [
     slug: "what-is-answer-engine-optimisation",
     type: "glossary",
     topic: "AI Search",
-    title: "Answer Engine Optimisation (AEO)",
+    title: "What Is Answer Engine Optimisation?",
     answer:
       "Answer Engine Optimisation is the practice of structuring content so that search and AI systems can extract it directly as the answer to a question — in featured snippets, direct answers and AI Overviews.",
     body: [
@@ -90,7 +95,7 @@ const coreResources: Resource[] = [
       title: "What Is Answer Engine Optimisation (AEO)?",
       description:
         "AEO is the practice of structuring content so search and AI systems can extract it as a direct answer. What it changes on a page, and how it differs from GEO.",
-      primaryTopic: "answer engine optimisation",
+      primaryTopic: "what is answer engine optimisation",
       secondaryTopics: ["AEO", "featured snippets", "direct answers"],
       intent: "informational",
     },
@@ -195,6 +200,11 @@ export const resources: Resource[] = [
   ...technologyGlossary,
   ...seoTermsGlossary,
   ...businessGlossary,
+  ...metricsGlossary,
+  ...moreChecklists,
+  ...moreComparisons,
+  ...moreDecisions,
+  ...frameworks,
 ];
 
 export function getResource(slug: string): Resource | undefined {

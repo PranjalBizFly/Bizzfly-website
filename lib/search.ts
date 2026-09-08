@@ -10,7 +10,11 @@
  */
 
 import type { SearchDocument } from "@/types/content";
-import { publishedEntries, type RegistryKind } from "@/lib/registry";
+import {
+  publishedEntries,
+  sectionPages,
+  type RegistryKind,
+} from "@/lib/registry";
 
 export const searchIndex: SearchDocument[] = publishedEntries.map((entry) => ({
   id: entry.id,
@@ -22,10 +26,59 @@ export const searchIndex: SearchDocument[] = publishedEntries.map((entry) => ({
   keywords: entry.keywords,
 }));
 
-/** Facets offered in the UI, derived from what is actually in the index. */
+/**
+ * The order sections are shown in, everywhere.
+ *
+ * Grouping alone is not enough: `groupResults` emits groups in whatever order
+ * the ranking happened to produce them, so the same query could put Company
+ * above Services one keystroke and below it the next. A person scanning a
+ * results panel is navigating by position as much as by label, and a list
+ * that reorders under them is one they have to re-read every time.
+ *
+ * This is the site's own hierarchy — what we do, who for, what problem, what
+ * with — not a ranking. Ranking still decides what appears inside a section.
+ */
+export const SECTION_ORDER = [
+  "Main",
+  "Services",
+  "Industries",
+  "Use Cases",
+  "Technologies",
+  "Case Studies",
+  "Resources",
+  "Glossary",
+  "Company",
+  "Contact",
+] as const;
+
+/** Where each section's own index lives, for the "all N" links. */
+export const SECTION_HUB: Record<string, string> = {
+  Main: "/",
+  Services: "/services/",
+  Industries: "/industries/",
+  "Use Cases": "/use-cases/",
+  Technologies: "/technologies/",
+  "Case Studies": "/case-studies/",
+  Resources: "/resources/",
+  Glossary: "/resources/#glossary",
+  Company: "/company/",
+  Contact: "/contact/",
+};
+
+const sectionRank = (category: string) => {
+  const index = (SECTION_ORDER as readonly string[]).indexOf(category);
+  /* An unknown category sorts last rather than disappearing. */
+  return index === -1 ? SECTION_ORDER.length : index;
+};
+
+/**
+ * Facets offered in the UI, derived from what is actually in the index and
+ * ordered the way results are — an alphabetical facet row above a
+ * hierarchical result list asks the reader to hold two orders at once.
+ */
 export const searchCategories: string[] = [
   ...new Set(publishedEntries.map((entry) => entry.category)),
-].sort();
+].sort((a, b) => sectionRank(a) - sectionRank(b));
 
 /**
  * Synonym map — users do not search in our taxonomy.
@@ -132,7 +185,13 @@ export function search(
   return results.sort((a, b) => b.score - a.score).slice(0, limit);
 }
 
-/** Grouped for display — category headers rather than a badge per row. */
+/**
+ * Grouped for display — category headers rather than a badge per row.
+ *
+ * Ordered by SECTION_ORDER rather than by which section happened to rank
+ * first, so the full results page and the search dialog present the same
+ * sections in the same sequence.
+ */
 export function groupResults(results: SearchResult[]): [string, SearchResult[]][] {
   const groups = new Map<string, SearchResult[]>();
   for (const r of results) {
@@ -140,7 +199,146 @@ export function groupResults(results: SearchResult[]): [string, SearchResult[]][
     if (existing) existing.push(r);
     else groups.set(r.category, [r]);
   }
-  return [...groups.entries()];
+  return [...groups.entries()].sort(
+    ([a], [b]) => sectionRank(a) - sectionRank(b),
+  );
+}
+
+/* ==========================================================================
+   Section-wise results
+   ========================================================================== */
+
+export interface SearchSection {
+  category: string;
+  /** Ranked results for this section, capped to `perSection`. */
+  items: SearchResult[];
+  /** How many matched in total, which is what makes "N more" honest. */
+  total: number;
+  hub: string;
+}
+
+/**
+ * Results grouped into sections, in the site's own order.
+ *
+ * A single ranked list of twenty is dominated by whichever section happens to
+ * have the most pages — with 145 resources against 26 industries, "seo"
+ * returned a wall of glossary entries and no industry at all. Allocating a
+ * few rows per section instead means every part of the site that has an
+ * answer gets to show one, and the count says how much more there is.
+ */
+export function searchSections(
+  query: string,
+  options: { perSection?: number; pool?: number } = {},
+): SearchSection[] {
+  const { perSection = 4, pool = 400 } = options;
+  const results = search(query, { limit: pool });
+  if (results.length === 0) return [];
+
+  const grouped = new Map<string, SearchResult[]>();
+  for (const result of results) {
+    const existing = grouped.get(result.category);
+    if (existing) existing.push(result);
+    else grouped.set(result.category, [result]);
+  }
+
+  return [...grouped.entries()]
+    .map(([category, items]) => ({
+      category,
+      items: items.slice(0, perSection),
+      total: items.length,
+      hub: SECTION_HUB[category] ?? "/search/",
+    }))
+    .sort((a, b) => sectionRank(a.category) - sectionRank(b.category));
+}
+
+/** Every result a section-wise view is showing, in reading order. */
+export const flattenSections = (sections: SearchSection[]): SearchResult[] =>
+  sections.flatMap((section) => section.items);
+
+/* ==========================================================================
+   The complete page directory
+   ========================================================================== */
+
+export interface DirectorySection {
+  category: string;
+  hub: string;
+  items: SearchDocument[];
+}
+
+/**
+ * Every published page on the site, grouped into the same sections search
+ * uses and ordered the same way.
+ *
+ * This is the registry itself, not a copy of it: adding a page to content/
+ * puts it here, and an unpublished one cannot appear because the registry
+ * has already applied the publication gate. Nothing on this page is written
+ * by hand, which is the only way a directory of 300 entries stays true.
+ */
+export function pageDirectory(): DirectorySection[] {
+  const grouped = new Map<string, SearchDocument[]>();
+  for (const doc of [...hubDocuments, ...searchIndex]) {
+    const existing = grouped.get(doc.category);
+    if (existing) existing.push(doc);
+    else grouped.set(doc.category, [doc]);
+  }
+
+  return [...grouped.entries()]
+    .map(([category, items]) => ({
+      category,
+      hub: SECTION_HUB[category] ?? "/",
+      items:
+        category === "Main"
+          ? items
+          : [...items].sort((a, b) => a.title.localeCompare(b.title)),
+    }))
+    .sort((a, b) => sectionRank(a.category) - sectionRank(b.category));
+}
+
+/**
+ * Section landing pages, which are routes rather than content entities and so
+ * are absent from the registry. /contact/ is excluded because it IS a
+ * registry entry — including it here would list it twice and overcount by one.
+ */
+const hubDocuments: SearchDocument[] = sectionPages
+  .filter((page) => page.href !== "/contact/")
+  .map((page) => ({
+    id: `hub-${page.href}`,
+    title: page.title,
+    category: "Main",
+    description: `The ${page.title.toLowerCase()} index.`,
+    href: page.href,
+    boost: 0,
+    keywords: ["index", "hub", page.title.toLowerCase()],
+  }));
+
+/** How many pages the directory holds, for the label on the way into it. */
+export const totalPageCount = searchIndex.length + hubDocuments.length;
+
+/**
+ * Directory filter. Deliberately not the ranked `search` above: on this page
+ * the reader is scanning a known list, so a plain substring match over title
+ * and section keeps every entry in its own group and preserves the ordering
+ * they are reading. Ranking would reshuffle the alphabet under them.
+ */
+export function filterDirectory(
+  sections: DirectorySection[],
+  query: string,
+): DirectorySection[] {
+  const needle = query.trim().toLowerCase();
+  if (needle.length === 0) return sections;
+
+  return sections
+    .map((section) => ({
+      ...section,
+      items: section.items.filter(
+        (item) =>
+          item.title.toLowerCase().includes(needle) ||
+          item.href.toLowerCase().includes(needle) ||
+          section.category.toLowerCase().includes(needle) ||
+          (item.keywords ?? []).some((k) => k.toLowerCase().includes(needle)),
+      ),
+    }))
+    .filter((section) => section.items.length > 0);
 }
 
 /** Curated starting points shown before a query is typed. */

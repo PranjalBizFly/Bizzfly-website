@@ -8,6 +8,7 @@ import type { CompanyPage } from "@/types/content";
 import { site } from "./site";
 import { extraCompanyPages } from "./company-pages";
 import { methodologyPages } from "./company-methodology";
+import { transparencyPages } from "./company-transparency";
 
 export { extraCompanyPages };
 
@@ -132,6 +133,7 @@ export const allCompanyPages: CompanyPage[] = [
   ...companyPages,
   ...extraCompanyPages,
   ...methodologyPages,
+  ...transparencyPages,
   ...legalPages,
 ];
 

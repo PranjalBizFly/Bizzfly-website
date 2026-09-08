@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/layout/Section";
-import { SplitHero } from "@/components/hero";
+import { ExploreNext } from "@/components/navigation";
+import { SplitHero, CinematicHero, toHeroFacts } from "@/components/hero";
 import {
   SectionHeader,
   ProcessBlock,
@@ -17,6 +18,7 @@ import { CtaBlock, TextLink } from "@/components/buttons";
 import { BodyText, Heading } from "@/components/typography";
 import { JsonLd } from "@/components/JsonLd";
 import { useCases, getUseCase } from "@/content/use-cases";
+import { getUseCaseImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import { relationshipsForUseCase } from "@/lib/relationships";
 import { buildMetadata, faqSchema } from "@/lib/seo";
@@ -79,8 +81,15 @@ export default async function UseCasePage({ params }: PageProps) {
     </Section>
   );
 
+  const useCaseVisual = getUseCaseImage(slug);
+
   const matters = useCase.whyItMatters ? (
-    <Section key="matters" spacing="lg" width="text">
+    <Section key="matters" spacing="lg" width="content">
+      {/*
+        The photograph opens the page as the hero's portrait column. Each use
+        case owns one image and none is shown twice, so this section makes its
+        case in type.
+      */}
       <ContentBlock>
         <Heading level={2} size="h3">
           Why it matters
@@ -158,19 +167,37 @@ export default async function UseCasePage({ params }: PageProps) {
       />
 
       {/* Symptoms in the hero. No service is named above "How we solve it". */}
-      <SplitHero
-        eyebrow="Use case"
-        title={useCase.title}
-        lead={useCase.answer}
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Use cases", href: "/use-cases/" },
-          { label: useCase.title },
-        ]}
-        asideHeading="Does this sound familiar?"
-        asideItems={useCase.symptoms}
-        actions={<CtaBlock cta={useCase.cta} size="lg" />}
-      />
+      {useCaseVisual ? (
+        <CinematicHero
+          image={useCaseVisual}
+          composition="portrait"
+          eyebrow="Use case"
+          title={useCase.title}
+          lead={useCase.answer}
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Use cases", href: "/use-cases/" },
+            { label: useCase.title },
+          ]}
+          factsHeading="Does this sound familiar?"
+          facts={toHeroFacts(useCase.symptoms)}
+          actions={<CtaBlock cta={useCase.cta} size="lg" />}
+        />
+      ) : (
+        <SplitHero
+          eyebrow="Use case"
+          title={useCase.title}
+          lead={useCase.answer}
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Use cases", href: "/use-cases/" },
+            { label: useCase.title },
+          ]}
+          asideHeading="Does this sound familiar?"
+          asideItems={useCase.symptoms}
+          actions={<CtaBlock cta={useCase.cta} size="lg" />}
+        />
+      )}
 
       {order}
 
@@ -194,6 +221,10 @@ export default async function UseCasePage({ params }: PageProps) {
           </div>
         </Section>
       ) : null}
+
+      <Section spacing="md">
+        <ExploreNext href={`/use-cases/${slug}/`} />
+      </Section>
 
       <ConversionBand cta={useCase.cta} />
     </>

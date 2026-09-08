@@ -30,7 +30,7 @@
 
 .digest {
   font-family: var(--font-mono);
-  font-size: 0.9em;
+  font-size: var(--text-inline);
   background: var(--surface-muted);
   padding: 0.1em 0.4em;
   border-radius: var(--radius-sm);

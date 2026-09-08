@@ -15,7 +15,6 @@ export const expandedIndustries: Industry[] = [
     slug: "saas",
     title: "SaaS",
     layout: "opportunity-led",
-    diagram: "experience-flow",
     answer:
       "SaaS businesses compete in categories where buyers research heavily before contacting anyone. Most of the decision happens across search, comparison content and AI answers — before a demo is ever requested.",
     opportunity:
@@ -279,7 +278,6 @@ export const expandedIndustries: Industry[] = [
     slug: "ecommerce",
     title: "E-commerce & Retail",
     layout: "journey-led",
-    diagram: "experience-flow",
     answer:
       "E-commerce visibility is decided by product and category pages that most sites treat as templates. Where those pages are thin, duplicated or slow, the catalogue competes against itself and against marketplaces.",
     context:

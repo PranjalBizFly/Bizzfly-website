@@ -23,42 +23,60 @@ import styles from "./BrandLogo.module.css";
  * runtime check — there is no size below it to fall back to.
  */
 
-/** Which official file backs each variant. */
+/** Which official file backs each variant, and its intrinsic size. */
 const ASSETS = {
   /**
-   * The lockup as published: "Bizz" in brand green, "fly" and the symbol
-   * plate in white. Legible only on a dark surface.
+   * The primary lockup (guidelines p.2): "Bizz" in brand green, "fly" and
+   * the symbol plate in brand blue, with the star knocked out of the plate.
+   * The knockout is what makes this a light-surface logo — the star takes
+   * the colour of whatever is behind it.
    */
-  reversed: {
-    src: "/brand/logo/bizzfly-logo-reversed.svg",
-    width: 634,
-    height: 144,
-  },
-  /** The symbol alone, for square contexts. Also reversed. */
-  "symbol-reversed": {
-    src: "/brand/logo/bizzfly-symbol-reversed.svg",
-    width: 143,
-    height: 143,
-  },
+  primary: { src: "/brand/logo/bizzfly-logo.svg", width: 634, height: 144 },
   /**
-   * The positive lockup for light surfaces. NOT YET SUPPLIED — see
-   * public/brand/README.md. The path is fixed so that dropping the official
-   * file at it is the only step needed; nothing here should be filled in by
-   * recolouring the reversed artwork.
+   * The reversed lockup (p.3): "Bizz" in green, "fly" and the plate in
+   * white. For BizzFly Blue and other dark grounds.
    */
-  positive: {
-    src: "/brand/logo/bizzfly-logo.svg",
-    width: 634,
-    height: 144,
-    missing: true,
-  },
+  reversed: { src: "/brand/logo/bizzfly-logo-reversed.svg", width: 634, height: 144 },
+  /** For BizzFly Green grounds (p.6) — the whole lockup in brand blue. */
+  "on-green": { src: "/brand/logo/bizzfly-logo-on-green.svg", width: 634, height: 144 },
+  /** Single-colour lockups, for print and one-colour partner placements. */
+  "mono-black": { src: "/brand/logo/bizzfly-logo-mono-black.svg", width: 634, height: 144 },
+  "mono-white": { src: "/brand/logo/bizzfly-logo-mono-white.svg", width: 634, height: 144 },
+  /** The symbol alone, for square contexts. Same two polarities. */
+  symbol: { src: "/brand/logo/bizzfly-symbol.svg", width: 143, height: 143 },
+  "symbol-reversed": { src: "/brand/logo/bizzfly-symbol-reversed.svg", width: 143, height: 143 },
 } as const;
 
 export type BrandLogoVariant = keyof typeof ASSETS;
 
+/**
+ * The two polarity-sensitive pairs, and which asset serves which ground.
+ *
+ * Polarity is a property of the surface, not of the call site. Asking every
+ * placement to name a variant is how the wrong one ends up shipped: the
+ * header carried the reversed lockup onto brand ink, where the star knocks
+ * out to near-black and the mark stops reading as the logo at all.
+ *
+ * "auto" hands that decision to CSS, which is the only thing that knows the
+ * active theme and whether an `.is-inverse` section is in scope. Both files
+ * are emitted and one is hidden; they are ~2KB each and identical in
+ * geometry, so nothing about the layout depends on which one wins.
+ */
+const PAIRS = {
+  auto: { light: "primary", dark: "reversed" },
+  "auto-symbol": { light: "symbol", dark: "symbol-reversed" },
+} as const;
+
+export type BrandLogoPolarity = keyof typeof PAIRS;
+
 interface BrandLogoProps {
-  /** Defaults to the reversed lockup, the only full lockup supplied. */
-  variant?: BrandLogoVariant;
+  /**
+   * Defaults to "auto": the primary lockup on light ground, the reversed
+   * lockup on dark ground or in the dark theme. Name a variant explicitly
+   * only where the ground is fixed and known — an on-green panel, a
+   * one-colour placement.
+   */
+  variant?: BrandLogoVariant | BrandLogoPolarity;
   /**
    * Rendered height. Any CSS length; defaults to --logo-height (30px), the
    * brand minimum for digital.
@@ -76,48 +94,48 @@ interface BrandLogoProps {
 }
 
 export function BrandLogo({
-  variant = "reversed",
+  variant = "auto",
   height,
   alt = "BizzFly",
   clearspace = true,
   priority = false,
   className,
 }: BrandLogoProps) {
-  const asset = ASSETS[variant];
+  const wrap = [styles.wrap, clearspace ? styles.clearspace : "", className]
+    .filter(Boolean)
+    .join(" ");
+  const style = height
+    ? ({ "--logo-size": height } as React.CSSProperties)
+    : undefined;
 
-  /*
-   * A variant with no official file must not degrade quietly into a broken
-   * image or, worse, the wrong-polarity logo. In development that is a hard
-   * error so it surfaces immediately; in production the mark is omitted and
-   * the accessible name carries the brand, because shipping a broken logo is
-   * worse than shipping none.
-   */
-  if ("missing" in asset && asset.missing) {
-    if (process.env.NODE_ENV !== "production") {
-      throw new Error(
-        `BrandLogo: the "${variant}" variant has no official asset yet. ` +
-          `Expected a file at public${asset.src}. Do not substitute a ` +
-          `recoloured version of another variant — see public/brand/README.md.`,
-      );
-    }
-    return <span className={className}>{alt}</span>;
-  }
-
-  return (
-    <span
-      className={[styles.wrap, clearspace ? styles.clearspace : "", className]
-        .filter(Boolean)
-        .join(" ")}
-      style={height ? ({ "--logo-size": height } as React.CSSProperties) : undefined}
-    >
+  const mark = (key: BrandLogoVariant, extra?: string) => {
+    const asset = ASSETS[key];
+    return (
       <Image
+        key={key}
         src={asset.src}
         width={asset.width}
         height={asset.height}
         alt={alt}
         priority={priority}
-        className={styles.mark}
+        className={[styles.mark, extra].filter(Boolean).join(" ")}
       />
+    );
+  };
+
+  if (variant in PAIRS) {
+    const pair = PAIRS[variant as BrandLogoPolarity];
+    return (
+      <span className={wrap} style={style}>
+        {mark(pair.light, styles.onLight)}
+        {mark(pair.dark, styles.onDark)}
+      </span>
+    );
+  }
+
+  return (
+    <span className={wrap} style={style}>
+      {mark(variant as BrandLogoVariant)}
     </span>
   );
 }

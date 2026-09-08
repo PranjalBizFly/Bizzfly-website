@@ -4,8 +4,10 @@ import { Section } from "@/components/layout/Section";
 import { Heading, BodyText, Eyebrow } from "@/components/typography";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { VisualStoryBlock } from "@/components/sections";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/content/site";
+import { getContactImage } from "@/content/images";
 import { buildMetadata } from "@/lib/seo";
 import styles from "./contact.module.css";
 
@@ -118,6 +120,15 @@ export default function ContactPage() {
                 </span>
               </li>
             </ul>
+
+            <div className={styles.visual}>
+              <VisualStoryBlock
+                image={getContactImage()}
+                variant="B"
+                priority
+                caption="First consultations focus on diagnosing core constraints before any commercial work is scoped."
+              />
+            </div>
 
             <div className={styles.direct}>
               <p className={styles.directHeading}>Or reach us directly</p>

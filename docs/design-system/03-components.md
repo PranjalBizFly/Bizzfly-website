@@ -198,7 +198,7 @@ A drill-down stack, authored separately (principle P12).
 
 ### Breadcrumbs
 
-`--text-meta` (Plex Mono 13px), separator `/` in `--ink-400`, current page not a link,
+`--text-meta` (Poppins Regular 13px), separator `/` in `--ink-400`, current page not a link,
 `BreadcrumbList` schema. On mobile, collapse the middle to `…` and keep the immediate
 parent — the parent is what people use to go up a level.
 
@@ -295,7 +295,7 @@ Helper text (13px, --text-muted)  ·or·  ⚠ Error (13px, --error)
 | Height | 44px (`--control-height`), 52px on conversion pages |
 | Background | `--surface-sunken` |
 | Border | 1px `--border-strong` (3.06:1 ✓) |
-| Radius | `--radius-sm` (2px) |
+| Radius | `--radius-sm` (6px) |
 | Focus | 2px `--ink-900` ring, 2px offset, border → `--ink-900` |
 | Error | Border → `--error`, message with icon, `aria-invalid`, `aria-describedby` |
 | Label | Always visible above the field. **Never a placeholder as a label** |

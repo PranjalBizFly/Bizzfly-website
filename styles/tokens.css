@@ -126,19 +126,44 @@
   --accent:                var(--accent-edge);
 
   /* ---------------------------------------------------------------------
-     The header is a dark bar in BOTH themes, and that is a constraint
-     rather than a style choice: the official lockup is reversed — "Bizz"
-     in green, "fly" and the symbol plate in white — so on a light bar half
-     the logo disappears, and recolouring it is outside the brand
-     guidelines. See public/brand/README.md. Supplying the positive lockup
-     is what would unlock a light header.
+     The header follows the theme like any other surface. It was a dark bar
+     in both themes for one reason — the only lockup on disk was the
+     reversed one, which loses "fly" and the plate on a light ground. The
+     primary lockup is now installed (public/brand/logo/bizzfly-logo.svg),
+     so that constraint is gone and the bar is a plain light surface here.
+     BrandLogo picks the matching polarity per surface; see its stylesheet.
      --------------------------------------------------------------------- */
-  --header-background:     var(--ink-900);
-  --header-border:         rgb(245 247 250 / 0.14);
+  --header-background:     var(--background);
+  --header-border:         var(--border);
 
   --surface-inverse:       var(--ink-900);
   --surface-inverse-alt:   var(--deep-900);
   --border-inverse:        rgb(245 247 250 / 0.16);
+
+  /* ---------------------------------------------------------------------
+     TINTED LIGHT CONTEXT — the quiet band.
+
+     The other way to make a section its own movement. A dark band is the
+     loud way and has to be earned by the subject; this is the same
+     compositional device at conversational volume — white carrying a trace
+     of the brand blue, a 1.09:1 lift off the page, felt rather than seen.
+
+     Every light-theme role survives the move unchanged, which is the point:
+     nothing inside a tinted section needs to know it is there.
+       ink-900 body      16.88:1
+       ink-500 muted      5.85:1
+       blue-700 link      6.37:1
+       blue-500 rule      4.42:1   accents, active states, marks
+       ink-400 strong     3.99:1   ink-350 drops to 2.77 here, so it moves
+
+     Green is absent for the same reason it is absent on white — 1.64:1 — so
+     blue carries every accent on this ground. All asserted in
+     docs/design-system/verify-contrast.mjs.
+     --------------------------------------------------------------------- */
+  --surface-tint:          #F1F5FC;
+  --surface-tint-raised:   #FFFFFF;   /* a card lifts ABOVE the tint      */
+  --surface-tint-sunken:   #E4EBF7;
+  --border-tint:           #D7E1F2;   /* the hairline, tinted to match    */
 
   /* --- Semantic text -------------------------------------------------- */
   --text-link:             var(--blue-700);  /*  6.97:1 white, 6.49 surface */
@@ -193,6 +218,35 @@
   --cta-primary-active: var(--blue-700);
   --cta-primary-text:   #FFFFFF;
 
+  /* ---------------------------------------------------------------------
+     SCRIM — the wash behind a modal or an open menu panel.
+
+     Both scrims used to be written inline. The header's was the brand ink
+     at 32%, correct but untokenised; the search dialog's was
+     rgb(13 18 16 / 0.4) — #0D1210, a green-black that is not in the
+     palette at all and was within a few units of the ink it was meant to
+     be. One token, derived from ink-900, so neither can drift again.
+     --------------------------------------------------------------------- */
+  --scrim:                 rgb(13 20 32 / 0.32);
+  --scrim-strong:          rgb(13 20 32 / 0.48);
+
+  /* ---------------------------------------------------------------------
+     HERO SCRIM — the one place type is set directly on a photograph.
+
+     This is deliberately much heavier than --scrim-strong, and the reason
+     is arithmetic rather than taste. White text needs the composited
+     surface behind it at a relative luminance of 0.183 or lower to clear
+     4.5:1. Over a bright frame — and some of these photographs are pale
+     studio shots — a 0.48 wash lands nowhere near that.
+
+     0.68 holds AA against everything in the current image set and still
+     leaves the photograph legible as an image. It is not a licence to set
+     type anywhere on any picture: the hero copy is held to a measure on
+     one side of the frame, and any new image whose bright area falls under
+     the headline gets checked before it ships.
+     --------------------------------------------------------------------- */
+  --scrim-hero:            rgb(13 20 32 / 0.68);
+
   /* --- Focus ---------------------------------------------------------- */
   --focus-ring:            var(--ink-900);
   --focus-ring-inverse:    var(--green-500);
@@ -215,7 +269,31 @@
      --------------------------------------------------------------------- */
   --font-display: "Funnel Sans", "Funnel Sans Fallback", system-ui, sans-serif;
   --font-body:    "Poppins", "Poppins Fallback", system-ui, sans-serif;
-  --font-mono:    "IBM Plex Mono", "IBM Plex Mono Fallback", ui-monospace, monospace;
+
+  /* ---------------------------------------------------------------------
+     THE LABEL VOICE — eyebrows, meta lines, metric labels, section
+     indices, breadcrumbs, and nav/search chrome.
+
+     This role used to resolve to IBM Plex Mono. That was a THIRD typeface,
+     and the brand guidelines enumerate exactly two: Funnel Sans for
+     display, Poppins for everything else. A monospace face reads as a
+     deliberate editorial voice rather than a neutral utility, so 70
+     declarations of it across the site amounted to an unsanctioned brand
+     typeface competing with Poppins.
+
+     The role is real, so it keeps a token — the token now resolves to
+     Poppins. What makes a label read as a label here is that it is small,
+     uppercase and tracked; the typeface no longer has to carry it.
+     --------------------------------------------------------------------- */
+  --font-label:   var(--font-body);
+
+  /* ---------------------------------------------------------------------
+     Machine strings ONLY — currently the error digest in app/error.tsx and
+     nothing else. A system stack, so no webfont is downloaded for it and
+     no non-brand typeface enters the page. `npm run verify:brand` asserts
+     that this token has exactly one consumer.
+     --------------------------------------------------------------------- */
+  --font-mono:    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
   /* Fluid sizes: clamp(min, intercept + slope*vw, max) — computed, not guessed */
   --text-display-xl: clamp(2.75rem,  1.6667rem + 4.8148vw, 6rem);      /* 44→96 */
@@ -229,10 +307,19 @@
                                     the neutral grotesque this replaced    */
   --text-body-sm:    0.875rem;   /* 14px */
   --text-caption:    0.8125rem;  /* 13px */
-  --text-eyebrow:    0.75rem;    /* 12px */
+  --text-eyebrow:    0.8125rem;  /* 13px — sentence case needs the size back */
   --text-meta:       0.8125rem;  /* 13px */
   --text-metric:     clamp(2.5rem, 1.8333rem + 2.9630vw, 4.5rem);      /* 40→72 */
   --text-quote:      clamp(1.5rem, 1.2917rem + 0.9259vw, 2.125rem);    /* 24→34 */
+  /* Relative, not absolute, because these sit INSIDE running text and must
+     track whatever size their parent is set to. Absolute tokens would break
+     that relationship the moment the surrounding size changed. */
+  --text-inline:     0.9em;      /* inline code, markers, kbd */
+  --text-glyph:      0.6em;      /* a chevron or caret beside a label */
+  /* A standalone UI glyph in an icon button — absolute, because it sizes the
+     control's mark rather than tracking a run of text. */
+  --text-icon:       1.125rem;   /* 18px */
+
   --text-nav:        0.9375rem;  /* 15px */
   --text-nav-sub:    0.875rem;   /* 14px */
   --text-button:     0.9375rem;  /* 15px */
@@ -251,7 +338,9 @@
   --tracking-h2:      -0.015em;
   --tracking-h3:      -0.01em;
   --tracking-normal:   0;
-  --tracking-eyebrow:  0.10em;
+  /* Minimal, not tracked-out: the label is sentence case now, and wide
+     letter-spacing on mixed case reads as a mistake rather than as a style. */
+  --tracking-eyebrow:  0.01em;
   --tracking-meta:     0.02em;
 
   /* Brand weights. Funnel Sans SemiBold (600) is the display weight;
@@ -295,7 +384,14 @@
   --container-text:    40rem;    /*  640 — 62–72ch at the wider Poppins set */
   --container-narrow:  35rem;    /*  560 */
 
-  --margin: 1.25rem;             /* xs default; overridden per breakpoint */
+  /*
+   * 24px, not the 20px this used to be. The header logo sits at the leading
+   * container edge, so the page margin IS its leading clearspace — and the
+   * brand requires 23.2px. 20px missed it on every viewport below 480px.
+   * Raising the base margin fixes the logo and keeps the whole page aligned
+   * to one edge, which a logo-only inset would not.
+   */
+  --margin: 1.5rem;              /* xs default; overridden per breakpoint */
   --gutter: 1rem;
   --grid-columns: 4;
 
@@ -312,18 +408,58 @@
      --------------------------------------------------------------------- */
   --logo-height:            1.875rem; /* 30px — header; the brand minimum  */
   --logo-height-sm:         1.875rem; /* 30px — condensed; cannot go lower */
-  --logo-height-footer:     2.5rem;   /* 40px                              */
+  /*
+   * The footer mark carries its full clearspace as padding, and the footer
+   * pulls that padding back by the same amount so the artwork lines up with
+   * the address beneath it. That only works while the clearspace fits inside
+   * the page gutter — otherwise the reserved space lands outside the
+   * viewport, which means the logo is genuinely closer to the screen edge
+   * than the guidelines allow.
+   *
+   * 40px needs 30.9px of clearspace and the gutter below 768px is 24px, so
+   * the mark steps down to the 30px brand minimum there (23.2px, inside 24).
+   * From 768px the gutter is 32px and the larger mark fits.
+   */
+  --logo-height-footer:     1.875rem; /* 30px below md; 40px from md up    */
   --logo-min-height:        1.875rem; /* 30px — brand minimum for digital  */
   --logo-clearspace-ratio:  0.773;    /* cap height 111.3 ÷ 144 (measured) */
 
+  /*
+   * The clearspace requirement as a usable length: 0.773 × 30px = 23.2px.
+   *
+   * BrandLogo applies clearspace as padding when it owns its own box. The
+   * header and the mobile drawer set clearspace={false} because the bar's
+   * own height already supplies the vertical clearance and the padding
+   * would double it — but that left the HORIZONTAL clearance to a generic
+   * flex gap (12px in the header, 16px in the drawer), both under the
+   * 23.2px the guidelines require. This token is what those two places
+   * reserve on the trailing edge instead of guessing.
+   */
+  --logo-clearspace: calc(var(--logo-height) * var(--logo-clearspace-ratio));
+
   /* ---------------------------------------------------------------------
-     RADIUS — restrained. Nothing above 8px.
+     RADIUS — soft. The scale carries the warmth.
+
+     This used to top out at 8px, on the reasoning that a large radius is
+     the strongest visual signal a system has and should be spent sparingly.
+     That produced a correct, engineered surface and a cold one: at 4px a
+     card reads as a bordered rectangle, and the whole page reads as a
+     specification rather than as somewhere a person is being spoken to.
+
+     The scale below is the same five steps with the curve opened up. It is
+     the one change that shifts the whole site's temperament, because every
+     card, button, input, image frame and panel already reads its radius
+     from these names — nothing had to be restyled to feel softer.
+
+     Still bounded: nothing is a pill except what --radius-full names, so
+     the geometry stays deliberate rather than becoming a bubble.
      --------------------------------------------------------------------- */
   --radius-0:    0;
-  --radius-sm:   2px;
-  --radius-md:   4px;
-  --radius-lg:   8px;
-  --radius-full: 9999px;
+  --radius-sm:   6px;    /* inputs, tags, small controls        */
+  --radius-md:   12px;   /* buttons, cards, image containers    */
+  --radius-lg:   20px;   /* overlays, modals, large media       */
+  --radius-xl:   28px;   /* full-bleed panels and feature media */
+  --radius-full: 9999px; /* avatars and pills only              */
 
   /* ---------------------------------------------------------------------
      ELEVATION — levels 2 and 3 only for genuinely floating elements
@@ -374,8 +510,11 @@
 /* ==========================================================================
    BREAKPOINT OVERRIDES — grid, margin, gutter
    ========================================================================== */
-@media (min-width: 480px)  { :root { --margin: 1.5rem; } }
-@media (min-width: 768px)  { :root { --margin: 2rem; --gutter: 1.5rem; --grid-columns: 8; } }
+/* 480 no longer changes --margin: the base is already 1.5rem, for the logo
+   clearspace reason documented above. */
+/* The 32px gutter here is what lets the footer mark grow to 40px and still
+   keep its 30.9px clearspace inside the page. */
+@media (min-width: 768px)  { :root { --margin: 2rem; --gutter: 1.5rem; --grid-columns: 8; --logo-height-footer: 2.5rem; } }
 @media (min-width: 1024px) { :root { --margin: 2.5rem; --grid-columns: 12; } }
 @media (min-width: 1280px) { :root { --margin: 3rem; --gutter: 2rem; } }
 
@@ -436,6 +575,25 @@
   --accent-text:   var(--green-500);  /*  9.92:1 */
   --accent-edge:   var(--deep-600);   /*  3.10:1 — the purple does the rules */
   --link-underline: rgb(92 147 222 / 0.55);
+}
+
+/*
+ * The tinted context — a light band, for sections that need to read as their
+ * own movement without a dark ground's weight. It remaps surfaces only: the
+ * text, link and accent roles are already correct on a near-white, so blue
+ * keeps the accent it holds everywhere else on light and nothing inside has
+ * to branch. The one exception is --border-strong, which is ink-350 on white
+ * and only reaches 2.77:1 here, so it steps to ink-400.
+ *
+ * A card inside this context lifts to white rather than sinking to grey,
+ * which is what makes the band read as depth rather than as a stripe.
+ */
+.is-tint {
+  --background:    var(--surface-tint);
+  --surface:       var(--surface-tint-raised);
+  --surface-muted: var(--surface-tint-sunken);
+  --border:        var(--border-tint);
+  --border-strong: var(--ink-400);    /*  3.99:1 on the tint */
 }
 
 /* ==========================================================================
@@ -515,6 +673,20 @@
   --background:    #211A54;           /* 1.18:1 off the dark page */
   --surface:       #29216A;
   --muted:         #C3C7E8;           /*  9.44:1 */
+}
+
+/*
+ * A tinted band cannot stay light in the dark theme — it would be a white
+ * flash mid-page. It becomes the same quiet lift the inverse band uses, so
+ * the composition survives the theme switch while the surfaces stay dark.
+ * Every pairing below is one the dark theme already asserts.
+ */
+:root[data-theme="dark"] .is-tint {
+  --background:    #1A2432;           /* 1.18:1 off the dark page */
+  --surface:       #202B3A;
+  --surface-muted: var(--ink-700);
+  --border:        rgb(245 247 250 / 0.14);
+  --border-strong: rgb(245 247 250 / 0.28);
 }
 
 /* ==========================================================================

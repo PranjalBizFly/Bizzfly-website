@@ -9,10 +9,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4);
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
 }
 
 .featuredLabel {
@@ -52,89 +51,46 @@
   max-width: 62ch;
 }
 
-/* --- Browse by topic / capability --------------------------------------- */
-.topics,
-.capabilities {
-  display: grid;
-  gap: var(--space-8);
-  margin-top: var(--space-8);
-  border-top: 1px solid var(--border);
-  padding-top: var(--space-8);
-}
-
-@media (min-width: 768px) {
-  .topics,
-  .capabilities {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-10);
-  }
-}
-
-@media (min-width: 1024px) {
-  .topics {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--space-8);
-  }
-  .capabilities {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-.topic,
-.capability {
-  min-width: 0;
-}
-
-.topicName,
-.capabilityName {
-  font-family: var(--font-mono);
-  font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
-  color: var(--muted);
-  padding-bottom: var(--space-3);
-  border-bottom: 1px solid var(--border);
-}
-
-.capabilityName a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.capabilityName a:hover {
-  color: var(--foreground);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.topicList {
+/* --- Browse by capability -----------------------------------------------
+   A row of service links with a count, not a second copy of every resource.
+   The complete listing is the Directory above; this is the other axis into
+   it, and it stays one line per service so it reads as navigation. */
+.capabilityRow {
   list-style: none;
-  margin: var(--space-4) 0 0;
-  padding: 0;
+  margin: var(--space-8) 0 0;
+  padding: var(--space-8) 0 0;
+  border-top: 1px solid var(--border);
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: var(--space-3);
 }
 
-.topicLink {
+.capabilityLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  /* 44px hit area on a 14px label without a 44px visual. */
+  min-height: var(--touch-target-min);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
   font-size: var(--text-body-sm);
-  line-height: var(--leading-relaxed);
+  line-height: var(--leading-snug);
   color: var(--foreground);
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 4px;
-  display: inline-block;
-  padding-block: var(--space-1);
-  /*
-   * WCAG 2.5.8 target size. min-width matters as much as min-height here:
-   * a short topic label such as "AI" renders about 21px wide otherwise.
-   */
-  min-height: 24px;
-  min-width: 24px;
-  text-align: center;
-  transition: text-decoration-color var(--dur-fast) var(--ease-standard);
+  text-decoration: none;
+  transition:
+    border-color var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
 }
 
-.topicLink:hover {
-  text-decoration-color: var(--link-underline);
+.capabilityLink:hover {
+  border-color: var(--border-strong);
+  color: var(--accent-text);
+}
+
+.capabilityCount {
+  font-family: var(--font-label);
+  font-size: var(--text-caption);
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
 }

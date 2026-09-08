@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
+import { SectionNav } from "@/components/navigation";
 import { EditorialHero } from "@/components/hero";
 import {
   SectionHeader,
   RelatedContent,
   ConversionBand,
+  Directory,
+  type DirectoryGroup,
 } from "@/components/sections";
 import { TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
@@ -27,25 +30,89 @@ export const metadata: Metadata = buildMetadata(
   "/resources/",
 );
 
+/** Order the type groups read in, rather than however the array happens to sit. */
+const TYPE_ORDER = [
+  "guide",
+  "comparison",
+  "decision",
+  "checklist",
+  "article",
+  "glossary",
+] as const;
+
+const TYPE_LABEL: Record<string, string> = {
+  guide: "Guides & frameworks",
+  comparison: "Comparisons",
+  decision: "Decision guides",
+  checklist: "Checklists",
+  article: "Articles",
+  glossary: "Glossary",
+};
+
+/** Anchor ids the mega menu links to. Stable, and independent of the counts. */
+const TYPE_ANCHOR: Record<string, string> = {
+  guide: "guides",
+  comparison: "comparisons",
+  decision: "decisions",
+  checklist: "checklists",
+  article: "articles",
+  glossary: "glossary",
+};
+
 export default function ResourcesIndexPage() {
   const published = resources.filter(
     (r) => (r.status ?? "published") === "published",
   );
-  const articles = published.filter((r) => r.type !== "glossary");
-  const glossary = published.filter((r) => r.type === "glossary");
-  const [featured, ...remainingArticles] = articles;
 
-  /* Topics derived from the content, so a heading never leads nowhere. */
-  const topics = [...new Set(published.map((r) => r.topic))].sort();
+  /*
+   * One complete listing, not three.
+   *
+   * This page used to render every resource in "Recent thinking" with its
+   * answer paragraph, again in "By topic", again in the glossary section and
+   * a fourth time under "By capability". At 40 resources that was merely
+   * repetitive; at 146 it measured 34,354px — the tallest page on the site by
+   * a factor of three, and four separate sections over 2,500px.
+   *
+   * So the page now has one authoritative listing (by type, below) that every
+   * resource appears in exactly once, preceded by a short editorial selection.
+   * The capability axis is kept but points at the service pages rather than
+   * re-listing their resources, because each service page already carries its
+   * own related reading.
+   */
+  const [featured, ...rest] = published;
 
-  /* Capability grouping: which services each resource actually supports. */
+  /* Six with room to explain them, chosen across types rather than by array order. */
+  const selected = TYPE_ORDER.map((type) => rest.find((r) => r.type === type))
+    .filter((r): r is NonNullable<typeof r> => Boolean(r))
+    .slice(0, 6);
+
+  const byType: DirectoryGroup[] = TYPE_ORDER.map((type) => {
+    const items = published.filter((r) => r.type === type);
+    return {
+      heading: `${TYPE_LABEL[type] ?? type} (${items.length})`,
+      /*
+       * Explicit, because the heading carries a count: deriving the anchor
+       * from it would put "-24" in the URL and break every link to this
+       * group the next time a resource is published. The mega menu links
+       * here by type, so these ids are a contract.
+       */
+      id: TYPE_ANCHOR[type],
+      items: items.map((r) => ({
+        label: r.title,
+        href: `/resources/${r.slug}/`,
+      })),
+    };
+  }).filter((group) => group.items.length > 0);
+
+  /* Which services have reading behind them, and how much. */
   const byCapability = services
     .map((service) => ({
       service,
-      items: published.filter((r) => r.supports?.includes(service.slug)),
+      count: published.filter((r) => r.supports?.includes(service.slug)).length,
     }))
-    .filter((group) => group.items.length > 0)
-    .slice(0, 6);
+    .filter((group) => group.count > 0)
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 12);
 
   return (
     <>
@@ -85,17 +152,17 @@ export default function ResourcesIndexPage() {
         </Section>
       ) : null}
 
-      {remainingArticles.length > 0 ? (
+      {selected.length > 0 ? (
         <Section background="surface" spacing="lg">
           <SectionHeader
             split
-            eyebrow="Articles"
-            title="Recent thinking"
-            lead="Written for people making a decision, not for a keyword."
+            eyebrow="Start here"
+            title="One of each, to show what these are"
+            lead="Written for people making a decision, not for a keyword. The complete set is below."
           />
           <RelatedContent
             mode="list"
-            items={remainingArticles.map((resource) => ({
+            items={selected.map((resource) => ({
               label: resource.title,
               href: `/resources/${resource.slug}/`,
               type: resource.topic.toUpperCase(),
@@ -105,86 +172,52 @@ export default function ResourcesIndexPage() {
         </Section>
       ) : null}
 
-      {/* Browse by topic — derived from content, never a dead filter */}
-      {topics.length > 1 ? (
-        <Section spacing="md">
-          <SectionHeader eyebrow="Browse" title="By topic" level={2} />
-          <div className={styles.topics}>
-            {topics.map((topic) => {
-              const items = published.filter((r) => r.topic === topic);
-              return (
-                <section key={topic} className={styles.topic}>
-                  <h3 className={styles.topicName}>{topic}</h3>
-                  <ul className={styles.topicList}>
-                    {items.map((resource) => (
-                      <li key={resource.slug}>
-                        <Link
-                          href={`/resources/${resource.slug}/`}
-                          className={styles.topicLink}
-                        >
-                          {resource.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              );
-            })}
-          </div>
-        </Section>
-      ) : null}
+      {/* The complete listing. Every resource appears here exactly once. */}
+      <Section spacing="lg">
+        <SectionHeader
+          split
+          eyebrow="Everything"
+          title={`All ${published.length} resources`}
+          lead="Grouped by what each one is for. A guide gives you a method, a comparison weighs two options, a decision guide helps you work out whether to act at all, and the glossary just defines the term."
+        />
+        <SectionNav
+          label="Jump to a kind"
+          items={TYPE_ORDER.filter((type) =>
+            published.some((r) => r.type === type),
+          ).map((type) => ({
+            label: TYPE_LABEL[type] ?? type,
+            id: TYPE_ANCHOR[type],
+            count: published.filter((r) => r.type === type).length,
+          }))}
+          className="mt-8"
+        />
+        <div className="mt-10">
+          <Directory groups={byType} />
+        </div>
+      </Section>
 
-      {glossary.length > 0 ? (
-        <Section background="surface" spacing="lg">
-          <SectionHeader
-            split
-            eyebrow="Glossary"
-            title="Definitions, without the marketing"
-            lead="Plain definitions of terms this industry uses loosely. Each states what the thing is before it says anything about what we sell."
-          />
-          <RelatedContent
-            mode="list"
-            items={glossary.map((resource) => ({
-              label: resource.title,
-              href: `/resources/${resource.slug}/`,
-              type: "GLOSSARY",
-              description: resource.answer,
-            }))}
-          />
-        </Section>
-      ) : null}
-
-      {/* Browse by capability — the relationship graph made navigable */}
+      {/* The capability axis — service pages, not a second copy of the list. */}
       {byCapability.length > 0 ? (
-        <Section spacing="md">
+        <Section background="surface" spacing="md">
           <SectionHeader
             eyebrow="Browse"
             title="By capability"
             level={2}
+            lead="Each service page carries the reading that supports it."
           />
-          <div className={styles.capabilities}>
+          <ul className={styles.capabilityRow}>
             {byCapability.map((group) => (
-              <section key={group.service.slug} className={styles.capability}>
-                <h3 className={styles.capabilityName}>
-                  <Link href={`/services/${group.service.slug}/`}>
-                    {group.service.title}
-                  </Link>
-                </h3>
-                <ul className={styles.topicList}>
-                  {group.items.map((resource) => (
-                    <li key={resource.slug}>
-                      <Link
-                        href={`/resources/${resource.slug}/`}
-                        className={styles.topicLink}
-                      >
-                        {resource.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </section>
+              <li key={group.service.slug}>
+                <Link
+                  href={`/services/${group.service.slug}/`}
+                  className={styles.capabilityLink}
+                >
+                  {group.service.title}
+                  <span className={styles.capabilityCount}>{group.count}</span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </Section>
       ) : null}
 

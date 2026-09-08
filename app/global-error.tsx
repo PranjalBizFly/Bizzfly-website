@@ -8,9 +8,11 @@ import { brand } from "@/lib/brand";
  * means no stylesheet, and therefore no design tokens. Colours come from
  * lib/brand, the mirror of styles/tokens.css kept for exactly these cases.
  *
- * The ground is brand ink because the official logo is a reversed lockup;
- * it is served as a plain <img> from /public rather than reconstructed, and
- * a plain <img> rather than next/image because the app shell has failed.
+ * The ground is brand ink by choice — an error page should not look like a
+ * working one — so this carries the reversed lockup, which is the variant
+ * that ground calls for. It is served as a plain <img> from /public rather
+ * than reconstructed, and plain rather than next/image because the app
+ * shell has failed.
  */
 export default function GlobalError({
   error,

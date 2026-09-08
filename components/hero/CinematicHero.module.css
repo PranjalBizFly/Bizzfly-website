@@ -1,0 +1,305 @@
+/*
+ * The image-led hero.
+ *
+ * The photograph is the ground: it fills the section edge to edge, a flat
+ * scrim sits over it, and the type sits on the scrim in white.
+ *
+ * Two things keep that legible rather than hopeful. --scrim-hero is set at
+ * the opacity the arithmetic requires for white to clear AA over a bright
+ * frame, not at the opacity that looks nice over a dark one. And the copy is
+ * held to a measure on one side of the frame, so it never wanders into
+ * whatever the photograph is doing in the opposite corner.
+ *
+ * The section carries `is-inverse`, so --foreground, --muted and --border
+ * are already the on-dark values and nothing inside branches on context.
+ */
+.hero {
+  position: relative;
+  isolation: isolate;
+  background: var(--surface-inverse);
+  color: var(--foreground);
+  display: flex;
+  align-items: center;
+  min-height: 34rem;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 44rem;
+  }
+}
+
+/* --- The ground ---------------------------------------------------------- */
+
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--scrim-hero);
+  pointer-events: none;
+}
+
+/*
+ * A slow drift on the ground, done by the compositor rather than by script.
+ * Scroll-driven animation costs nothing in the bundle and simply does not
+ * apply where the browser has not shipped it, which leaves a static image
+ * rather than a broken effect. The scale gives the translate somewhere to go
+ * without exposing an edge.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .image {
+      animation: heroDrift linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+      will-change: transform;
+    }
+  }
+}
+
+@keyframes heroDrift {
+  from {
+    transform: scale(1.1) translate3d(0, -2%, 0);
+  }
+  to {
+    transform: scale(1.1) translate3d(0, 2%, 0);
+  }
+}
+
+/* --- Type ---------------------------------------------------------------- */
+
+.container {
+  position: relative;
+  padding-block: var(--section-lg);
+  width: 100%;
+}
+
+.breadcrumbs {
+  margin-bottom: var(--space-8);
+}
+
+.content {
+  min-width: 0;
+  max-width: 46rem;
+}
+
+.eyebrow {
+  color: var(--accent-text);
+}
+
+.title {
+  margin-top: var(--space-5);
+  font-size: var(--text-display-lg);
+  text-wrap: balance;
+  max-width: 18ch;
+}
+
+.lead {
+  margin-top: var(--space-6);
+  color: var(--foreground);
+  max-width: 54ch;
+  text-wrap: pretty;
+}
+
+.actions {
+  margin-top: var(--space-8);
+}
+
+/* --- Fact panels --------------------------------------------------------- */
+
+/*
+ * Soft translucent panels rather than solid cards: the photograph stays
+ * visible behind them, which is what makes them read as layered onto the
+ * scene instead of pasted over it. The backdrop blur is what keeps the text
+ * on them legible whatever is underneath.
+ */
+.factsWrap {
+  position: relative;
+  margin-top: var(--space-12);
+}
+
+.factsHeading {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--foreground);
+  margin-bottom: var(--space-4);
+}
+
+.facts {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+}
+
+@media (min-width: 560px) {
+  .facts {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  }
+}
+
+.fact {
+  background: var(--scrim-strong);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(10px);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.factLabel {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--accent-text);
+}
+
+.factValue {
+  margin: 0;
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   Compositions
+
+   Every page type opens on a full-width photograph; what changes is where
+   the type sits in the frame and how tall the frame is. That is enough to
+   stop a service reading like an industry, without five different mechanics
+   to maintain.
+   ========================================================================== */
+
+/* bleed-right — the homepage. Type left, the tallest frame on the site. */
+@media (min-width: 1024px) {
+  .bleedRight {
+    min-height: 46rem;
+  }
+
+  .bleedRight .title {
+    font-size: var(--text-display-xl);
+    max-width: 15ch;
+  }
+
+  .bleedRight .factsWrap {
+    max-width: 54rem;
+  }
+}
+
+/* bleed-left — services. Type pushed to the right half of the frame. */
+@media (min-width: 1024px) {
+  .bleedLeft .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .bleedLeft .content,
+  .bleedLeft .factsWrap {
+    width: 100%;
+    max-width: 44rem;
+  }
+
+  .bleedLeft .title,
+  .bleedLeft .lead {
+    margin-inline-start: auto;
+  }
+
+  .bleedLeft .fact {
+    text-align: left;
+  }
+}
+
+/* banner — industries. Centred type, the widest measure. */
+@media (min-width: 1024px) {
+  .banner .container {
+    text-align: center;
+  }
+
+  .banner .content {
+    max-width: 52rem;
+    margin-inline: auto;
+  }
+
+  .banner .title {
+    max-width: 22ch;
+    margin-inline: auto;
+  }
+
+  .banner .lead {
+    margin-inline: auto;
+  }
+
+  .banner .breadcrumbs {
+    text-align: start;
+  }
+
+  .banner .fact {
+    text-align: start;
+  }
+}
+
+/* portrait — use cases. Type anchored to the foot of the frame. */
+@media (min-width: 1024px) {
+  .portrait {
+    align-items: flex-end;
+    min-height: 42rem;
+  }
+
+  .portrait .content {
+    max-width: 42rem;
+  }
+
+  .portrait .factsWrap {
+    max-width: 50rem;
+  }
+}
+
+/* inset — technologies. A shorter frame; the facts sit beside the type. */
+@media (min-width: 1024px) {
+  .inset {
+    min-height: 38rem;
+  }
+
+  .inset .container {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    column-gap: var(--space-16);
+    align-items: center;
+  }
+
+  .inset .breadcrumbs {
+    grid-column: 1 / -1;
+  }
+
+  .inset .content {
+    grid-column: 1;
+    max-width: none;
+  }
+
+  .inset .factsWrap {
+    grid-column: 2;
+    margin-top: 0;
+  }
+
+  .inset .facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

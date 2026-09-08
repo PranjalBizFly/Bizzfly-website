@@ -14,6 +14,23 @@
   margin: 0;
 }
 
+/*
+ * The hidden attribute has to beat an author display rule.
+ *
+ * `[hidden] { display: none }` lives in the UA stylesheet, so it loses to any
+ * component rule that sets display — and a component that sets `display: grid`
+ * on the element it also marks `hidden` stays fully visible. That is what made
+ * the visibility-spectrum tabs look dead: all five panels rendered at once, so
+ * selecting a tab moved aria-selected and changed nothing on screen.
+ *
+ * !important is the conventional reset for exactly this, and it is safe here:
+ * an element carrying `hidden` is asserting it should not be rendered, and
+ * nothing in this system styles [hidden] to be visible.
+ */
+[hidden] {
+  display: none !important;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -233,17 +250,16 @@ table {
 }
 
 .t-eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   font-weight: var(--weight-medium);
   line-height: 1.2;
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
   color: var(--muted);
 }
 
 .t-meta {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-meta);
   font-weight: var(--weight-regular);
   line-height: 1.4;
@@ -253,12 +269,11 @@ table {
 }
 
 .t-metric-label {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   font-weight: var(--weight-medium);
   line-height: 1.3;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--muted);
 }
 

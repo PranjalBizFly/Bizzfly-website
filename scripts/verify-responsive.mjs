@@ -39,23 +39,57 @@ const VIEWPORTS = [
   { name: "1920", width: 1920, height: 1080 },
 ];
 
-/** One representative page per template. */
+/**
+ * One representative page per composition, not per template.
+ *
+ * A template is not what breaks at 320px — a layout variant is. Services
+ * render four ways, industries and use cases three each, technologies three,
+ * and resources six by type, so testing one service page leaves most of the
+ * site's actual compositions unmeasured. Each entry below is the first page
+ * of a variant nothing else here covers.
+ */
 const PAGES = [
   "/",
+
+  /* Hubs */
   "/services/",
-  "/services/seo/",
-  "/services/ai-chatbots/",
   "/industries/",
-  "/industries/manufacturing/",
   "/use-cases/",
-  "/use-cases/get-found-in-ai-search/",
   "/technologies/",
-  "/technologies/ai-stack/",
   "/case-studies/",
   "/resources/",
-  "/resources/how-to-choose-a-first-automation-project/",
   "/company/",
+
+  /* Service compositions: process, capability, technology, editorial */
+  "/services/seo/",
+  "/services/ai-chatbots/",
+  "/services/api-development/",
+  "/services/enterprise-seo/",
+
+  /* Industry compositions: challenge, opportunity, journey */
+  "/industries/manufacturing/",
+  "/industries/technology/",
+  "/industries/recruitment/",
+
+  /* Use case compositions: problem-solution, workflow, outcome */
+  "/use-cases/get-found-in-ai-search/",
+  "/use-cases/speed-up-quoting/",
+  "/use-cases/prove-marketing-roi/",
+
+  /* Technology compositions: ecosystem, architecture */
+  "/technologies/ai-stack/",
+  "/technologies/data-platforms/",
+
+  /* Resource types: guide, glossary, comparison, decision, checklist */
+  "/resources/how-to-choose-a-first-automation-project/",
+  "/resources/what-is-generative-engine-optimisation/",
+  "/resources/rag-vs-fine-tuning/",
+  "/resources/when-to-replatform-a-website/",
+  "/resources/seo-audit-checklist/",
+
+  /* Company, conversion, utility, error */
   "/company/about/",
+  "/company/how-we-price/",
   "/contact/",
   "/search/",
   "/does-not-exist/",

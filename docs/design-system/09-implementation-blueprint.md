@@ -33,7 +33,7 @@ It becomes CI gate #11.
 
 #### Step 2 — Fonts
 
-Self-host Funnel Sans, Poppins and IBM Plex Mono via `next/font`, subset. **Measure the
+Self-host Funnel Sans and Poppins via `next/font`, subset. Those two are the whole list — the brand guidelines name exactly two families. **Measure the
 real metric-override values** for the fallback faces (doc 02 carries starting
 estimates, not final numbers) and commit them.
 

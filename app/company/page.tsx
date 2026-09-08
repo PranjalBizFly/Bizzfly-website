@@ -3,15 +3,19 @@ import { Section } from "@/components/layout/Section";
 import { EditorialHero } from "@/components/hero";
 import {
   SectionHeader,
-  RelatedContent,
   ConversionBand,
+  Directory,
+  VisualStoryBlock,
 } from "@/components/sections";
 import { Button } from "@/components/buttons";
 import { Heading, BodyText } from "@/components/typography";
 import { JsonLd } from "@/components/JsonLd";
 import { companyPages, extraCompanyPages } from "@/content/company";
+import { methodologyPages } from "@/content/company-methodology";
+import { transparencyPages } from "@/content/company-transparency";
 import { site } from "@/content/site";
 import { primaryCta } from "@/content/navigation";
+import { getCompanyHubImage } from "@/content/images";
 import { buildMetadata } from "@/lib/seo";
 import styles from "./company.module.css";
 
@@ -28,7 +32,34 @@ export const metadata: Metadata = buildMetadata(
 );
 
 export default function CompanyIndexPage() {
-  const pages = [...companyPages, ...extraCompanyPages];
+  /*
+   * Three groups rather than one list of twenty-two.
+   *
+   * The flat list with an answer paragraph each measured 3,669px. These
+   * pages divide cleanly by what a reader wants from them — who we are, how
+   * we do the work, and what we will and will not claim — so the grouping is
+   * a real distinction rather than an arbitrary split to shorten the page.
+   *
+   * Methodology and transparency pages are listed here and not only in the
+   * Company mega menu: that panel renders on open, so its links never reach
+   * the served HTML and cannot keep a page off the orphan list.
+   */
+  const companyGroups = [
+    {
+      heading: "The company",
+      items: [...companyPages, ...extraCompanyPages],
+    },
+    { heading: "How we work", items: methodologyPages },
+    { heading: "What we commit to", items: transparencyPages },
+  ]
+    .map((group) => ({
+      heading: group.heading,
+      items: group.items.map((page) => ({
+        label: page.title,
+        href: `/company/${page.slug}/`,
+      })),
+    }))
+    .filter((group) => group.items.length > 0);
 
   return (
     <>
@@ -53,6 +84,16 @@ export default function CompanyIndexPage() {
           </Button>
         }
       />
+
+      {/* Pune team & workspace editorial visual */}
+      <Section spacing="md" width="content">
+        <VisualStoryBlock
+          image={getCompanyHubImage()}
+          variant="C"
+          priority
+          caption="The BizzFly team in Pune, India — combining digital growth strategy with systems engineering."
+        />
+      </Section>
 
       {/* Values — verified from the live site, genuinely specific */}
       <Section spacing="lg">
@@ -80,16 +121,13 @@ export default function CompanyIndexPage() {
       </Section>
 
       <Section background="surface" spacing="lg">
-        <SectionHeader split eyebrow="More" title="About the company" />
-        <RelatedContent
-          mode="list"
-          items={pages.map((page) => ({
-            label: page.title,
-            href: `/company/${page.slug}/`,
-            type: "COMPANY",
-            description: page.answer,
-          }))}
+        <SectionHeader
+          split
+          eyebrow="More"
+          title="About the company"
+          lead="Everything we publish about how we work, priced, scoped and bounded."
         />
+        <Directory groups={companyGroups} />
       </Section>
 
       <ConversionBand />

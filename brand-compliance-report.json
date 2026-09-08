@@ -1,0 +1,210 @@
+{
+  "generated": "2026-09-08",
+  "source": "Bizzfly Brand Guidelines.pdf",
+  "palette": {
+    "primary blue": "#2C70D1",
+    "primary green": "#A9CF46",
+    "secondary blue": "#2A1ED1",
+    "secondary green": "#40E523"
+  },
+  "typefaces": {
+    "primary": "Funnel Sans SemiBold",
+    "secondary": [
+      "Poppins Bold",
+      "Poppins Medium",
+      "Poppins Regular"
+    ]
+  },
+  "logo": {
+    "minimumDigitalPx": 30,
+    "clearspaceRatio": 0.773
+  },
+  "summary": {
+    "Colour": "COMPLIANT",
+    "Typography": "COMPLIANT",
+    "Logo": "COMPLIANT",
+    "Logo clearspace": "COMPLIANT",
+    "Logo misuse": "COMPLIANT",
+    "Logo background": "COMPLIANT",
+    "Favicon": "COMPLIANT",
+    "Buttons": "COMPLIANT",
+    "Navigation": "COMPLIANT",
+    "Icons": "COMPLIANT",
+    "Components": "COMPLIANT",
+    "Responsive": "COMPLIANT",
+    "Accessibility": "COMPLIANT",
+    "Imagery": "COMPLIANT"
+  },
+  "violations": [],
+  "remediated": [
+    {
+      "category": "Typography",
+      "file": "app/layout.tsx + 30 stylesheets",
+      "line": 0,
+      "violation": "A third typeface. IBM Plex Mono was loaded as a webfont and used for eyebrows, meta lines, metric labels, section indices, breadcrumbs, nav and search chrome — 70 declarations across 30 files. The guidelines specify exactly two families.",
+      "current": "IBM Plex Mono (webfont) via --font-mono",
+      "required": "Poppins via --font-label; --font-mono reduced to a system stack for machine strings",
+      "status": "FIXED"
+    },
+    {
+      "category": "Logo clearspace",
+      "file": "components/navigation/Header.module.css",
+      "line": 67,
+      "violation": "The header logo reserved no trailing clearspace. Separation from the nav came from the flex gap alone — 12px against the 23.2px the cap height requires.",
+      "current": "gap: var(--space-3) only (12px)",
+      "required": "padding-inline-end: var(--logo-clearspace) (23.2px)",
+      "status": "FIXED"
+    },
+    {
+      "category": "Logo clearspace",
+      "file": "components/navigation/MobileNav.module.css",
+      "line": 32,
+      "violation": "The mobile drawer logo sat 16px from the close button, under the 23.2px required.",
+      "current": "gap: var(--space-4) only (16px)",
+      "required": "padding-inline-end: var(--logo-clearspace) (23.2px)",
+      "status": "FIXED"
+    },
+    {
+      "category": "Logo clearspace",
+      "file": "styles/tokens.css",
+      "line": 0,
+      "violation": "The base page margin was 20px, and the header logo sits at the leading container edge — so below 480px the logo had 20px of leading clearspace against the 23.2px required.",
+      "current": "--margin: 1.25rem (20px)",
+      "required": "--margin: 1.5rem (24px)",
+      "status": "FIXED"
+    },
+    {
+      "category": "Navigation",
+      "file": "components/navigation/Header.module.css",
+      "line": 284,
+      "violation": "The header CTA was meant to be hidden below 768px and never was. `.headerCta { display: none }` tied on specificity with Button.module.css's `.base { display: inline-flex }`, and a tie is settled by CSS-module bundle order — Button won. The bar therefore overflowed by 53px at 320px, 14px at 360px and 2px at 375px, on every one of the 176 pages.",
+      "current": ".headerCta { display: none } (one class, lost the tie)",
+      "required": ".actions .headerCta { display: none } (two classes, wins in any order)",
+      "status": "FIXED"
+    },
+    {
+      "category": "Logo clearspace",
+      "file": "styles/tokens.css + components/footer/Footer.module.css",
+      "line": 0,
+      "violation": "The 40px footer mark needs 30.9px of clearspace, but the page gutter below 768px is 24px. The footer pulls the clearspace back by a negative margin to align the artwork with the address, so the reserved space landed at -7px — outside the viewport, leaving the mark closer to the screen edge than the guidelines permit.",
+      "current": "--logo-height-footer: 2.5rem at every width",
+      "required": "1.875rem (the 30px brand minimum) below 768px, 2.5rem from 768px up",
+      "status": "FIXED"
+    },
+    {
+      "category": "Colour",
+      "file": "components/search/SearchDialog.module.css",
+      "line": 5,
+      "violation": "The modal scrim was rgb(13 18 16 / 0.4) — #0D1210, a green-black that is not in the palette and was a few units off the ink it was meant to be.",
+      "current": "rgb(13 18 16 / 0.4)",
+      "required": "var(--scrim-strong), derived from ink-900",
+      "status": "FIXED"
+    },
+    {
+      "category": "Colour",
+      "file": "components/navigation/Header.module.css",
+      "line": 539,
+      "violation": "The menu scrim was written as a raw rgb() rather than a token.",
+      "current": "rgb(13 20 32 / 0.32)",
+      "required": "var(--scrim)",
+      "status": "FIXED"
+    },
+    {
+      "category": "Colour",
+      "file": "app/og/route.tsx",
+      "line": 107,
+      "violation": "The OG card border was a raw rgba() literal.",
+      "current": "rgba(245,247,250,0.16)",
+      "required": "brand.borderInverse from lib/brand.ts",
+      "status": "FIXED"
+    },
+    {
+      "category": "Components",
+      "file": "components/navigation/Header.module.css",
+      "line": 195,
+      "violation": "The nav active-state mark used an off-scale 1px radius.",
+      "current": "border-radius: 1px",
+      "required": "var(--radius-full)",
+      "status": "FIXED"
+    },
+    {
+      "category": "Components",
+      "file": "components/search/SearchDialog.module.css",
+      "line": 38,
+      "violation": "The full-screen sheet zeroed its radius with a literal.",
+      "current": "border-radius: 0",
+      "required": "var(--radius-0)",
+      "status": "FIXED"
+    },
+    {
+      "category": "Typography",
+      "file": "components/sections/Diagram.module.css",
+      "line": 52,
+      "violation": "A diagram label set its weight with a literal.",
+      "current": "font-weight: 500",
+      "required": "var(--weight-medium)",
+      "status": "FIXED"
+    },
+    {
+      "category": "Typography",
+      "file": "app/error.module.css, app/technologies/technologies.module.css, components/navigation/Header.module.css",
+      "line": 0,
+      "violation": "Inline code, status markers and the nav chevron sized themselves with bare em literals outside the type scale.",
+      "current": "font-size: 0.9em / 0.6em",
+      "required": "var(--text-inline) / var(--text-glyph)",
+      "status": "FIXED"
+    },
+    {
+      "category": "Typography",
+      "file": "components/forms/Form.module.css, components/search/*.module.css, components/navigation/MobileNav.module.css",
+      "line": 0,
+      "violation": "Input and icon-button sizes were literals rather than scale tokens.",
+      "current": "font-size: 1rem / 1.125rem",
+      "required": "var(--text-body) / var(--text-icon)",
+      "status": "FIXED"
+    }
+  ],
+  "manualReview": [
+    {
+      "category": "Logo",
+      "area": "public/brand/logo/bizzfly-logo.svg",
+      "note": "[OFFICIAL_LOGO_ASSET_REQUIRED] The positive (on-light) lockup has not been supplied. Only the reversed artwork exists, which is why the header and the mobile drawer are dark surfaces in both themes. Recolouring the reversed file to fill this slot is prohibited by the guidelines, so the constraint stands until the official file arrives.",
+      "status": "MANUAL_REVIEW_REQUIRED"
+    },
+    {
+      "category": "Logo",
+      "area": "public/brand/logo/bizzfly-logo-mono.svg",
+      "note": "[OFFICIAL_LOGO_ASSET_REQUIRED] Single-colour lockup absent. Not referenced by the site today.",
+      "status": "MANUAL_REVIEW_REQUIRED"
+    },
+    {
+      "category": "Responsive",
+      "area": "320–1920px",
+      "note": "Layout at the twelve target viewports is measured in real Chrome by `npm run verify:responsive`, not here — overflow, sub-12px text and target size need a rendered page, which a static scan cannot produce.",
+      "status": "MANUAL_REVIEW_REQUIRED"
+    },
+    {
+      "category": "Accessibility",
+      "area": "contrast",
+      "note": "The 96 numeric WCAG assertions live in docs/design-system/verify-contrast.mjs. This check only confirms the mechanisms exist that brand edits tend to break.",
+      "status": "MANUAL_REVIEW_REQUIRED"
+    },
+    {
+      "category": "Imagery",
+      "area": "site-wide",
+      "note": "No photographic imagery is currently used. Any future photography must be judged by eye against guideline section 23 — technology, digital growth, AI and automation subjects, no generic stock.",
+      "status": "MANUAL_REVIEW_REQUIRED"
+    },
+    {
+      "category": "Logo background",
+      "area": "header, mobile drawer, footer",
+      "note": "Contrast of the reversed lockup against its ground is asserted numerically by verify-contrast.mjs, but the optical result on the condensed, blurred header needs a human check at each breakpoint.",
+      "status": "MANUAL_REVIEW_REQUIRED"
+    }
+  ],
+  "totals": {
+    "violationsOutstanding": 0,
+    "violationsFixed": 14,
+    "manualReview": 6
+  }
+}

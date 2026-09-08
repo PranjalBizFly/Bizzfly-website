@@ -1,77 +1,134 @@
+/*
+ * Four pillars as separate soft cards.
+ *
+ * They used to share one hairline grid — a single bordered block divided by
+ * 1px rules. That reads as a table. Separating them onto their own rounded,
+ * tinted panels with air between is what turns the section from a
+ * specification into four things a person can pick up, and it is the same
+ * card language the showcase and insight grids now use.
+ */
 .groups {
-  border-top: 1px solid var(--border);
-}
-
-.group {
   display: grid;
-  gap: var(--space-5);
-  padding-block: var(--space-10);
-  border-bottom: 1px solid var(--border);
+  gap: var(--space-6);
+  margin-top: var(--space-12);
 }
 
-/* Asymmetric 3 / 5 / 4 — never an equal three-column grid */
-@media (min-width: 1024px) {
-  .group {
-    grid-template-columns: 3fr 5fr 4fr;
-    gap: var(--space-12);
-    align-items: start;
+@media (min-width: 720px) {
+  .groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.marker {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-4);
+@media (min-width: 1100px) {
+  .groups {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
+.group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elev-1);
+  padding: var(--space-8) var(--space-6) var(--space-16);
+  transition:
+    box-shadow var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
+}
+
+/* The lift is the whole hover state — a shadow step and 2px of travel. */
+.group:hover {
+  box-shadow: var(--elev-2);
+  transform: translate3d(0, -2px, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group:hover {
+    transform: none;
+  }
+}
+
+.head {
+  display: flex;
+  /* center, not baseline: the index is a 2rem badge now, not a figure. */
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* A numbered badge, not a floating figure — the step reads as a token. */
 .index {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  color: var(--ink-400);
   font-variant-numeric: tabular-nums;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: var(--radius-full);
+  background: var(--surface-muted);
+  font-weight: var(--weight-semibold);
+  color: var(--accent-text);
 }
 
 .label {
   font-family: var(--font-display);
-  font-size: var(--text-h3);
+  font-size: var(--text-h2);
   font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-h3);
+  letter-spacing: var(--tracking-h2);
+  line-height: var(--leading-tight);
+  margin: 0;
+}
+
+/*
+ * Stretched link: the card is the target, the heading carries the name.
+ * The rail links below sit on their own stacking context so they stay
+ * individually clickable rather than being covered by this.
+ */
+.labelLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.labelLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 
 .question {
+  margin: var(--space-6) 0 0;
   font-size: var(--text-body-lg);
-  line-height: var(--leading-relaxed);
+  line-height: var(--leading-snug);
   color: var(--foreground);
-  max-width: 34ch;
+  text-wrap: pretty;
 }
 
 .summary {
-  margin-top: var(--space-3);
+  margin: var(--space-4) 0 0;
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 56ch;
 }
 
 .rail {
+  position: relative;
+  z-index: 0;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin: var(--space-8) 0 0;
+  padding: var(--space-6) 0 0;
+  border-top: 1px solid var(--border);
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-5);
-}
-
-@media (min-width: 1024px) {
-  .rail {
-    flex-direction: column;
-    gap: var(--space-2);
-    border-left: 1px solid var(--border);
-    padding-left: var(--space-6);
-  }
+  flex-direction: column;
+  gap: var(--space-1);
 }
 
 .railLink {
+  font-family: var(--font-label);
   font-size: var(--text-body-sm);
   color: var(--muted);
   text-decoration: underline;
@@ -89,4 +146,24 @@
 .railLink:hover {
   color: var(--foreground);
   text-decoration-color: var(--link-underline);
+}
+
+/* Sits in the corner the card padding reserves for it. */
+.arrow {
+  position: absolute;
+  left: var(--space-6);
+  bottom: var(--space-8);
+  font-size: var(--text-icon);
+  color: var(--accent-edge);
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+.group:hover .arrow {
+  transform: translate3d(var(--space-2), 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .arrow {
+    transform: none;
+  }
 }

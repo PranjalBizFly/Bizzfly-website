@@ -234,8 +234,8 @@ violating any of these is rejected at review, not negotiated.**
 
 ### Visual
 
-9. **Nothing has a border radius above 8px.**
-10. **No shadow on a static element.** Elevation exists only for genuinely floating UI.
+9. **Radius always comes from the scale**, never a literal, and nothing is a pill outside `--radius-full`.
+10. **Static cards may carry `--elev-1` and nothing heavier.** Levels 2 and 3 stay reserved for genuinely floating UI — a menu, a dialog, a toast.
 11. **Exactly one gradient is permitted** sitewide — the white→surface section
     transition. No mesh, no brand gradients, no gradient text, no gradient buttons, no radial
     glows.

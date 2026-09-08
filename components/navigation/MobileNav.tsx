@@ -8,6 +8,7 @@ import type { PrimaryNavItem } from "@/types/content";
 import { Button } from "@/components/buttons";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { Chevron } from "./Chevron";
 import styles from "./MobileNav.module.css";
 
 interface MobileNavProps {
@@ -100,18 +101,18 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
       aria-label="Site menu"
     >
       {/*
-        The drawer body follows the theme, but this strip is always dark and
-        carries the reversed lockup — the same bar the header shows, for the
-        same reason: on a light surface half the logo disappears.
+        This strip is the same bar the header shows, down to the token it
+        draws its surface from, so the drawer opens on a continuation of the
+        header rather than a differently coloured slab.
       */}
-      <div className={`${styles.top} is-inverse`}>
+      <div className={styles.top}>
         <Link
           href="/"
           className={styles.brand}
           onClick={onClose}
           aria-label="BizzFly — home"
         >
-          <BrandLogo variant="reversed" alt="" clearspace={false} />
+          <BrandLogo alt="" clearspace={false} />
         </Link>
         <button
           type="button"
@@ -166,13 +167,14 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
                   onClick={() => setExpanded(isOpen ? null : index)}
                 >
                   {item.label}
-                  <span
-                    className={styles.accordionIcon}
-                    data-open={isOpen}
-                    aria-hidden="true"
-                  >
-                    &#43;
-                  </span>
+                  {/*
+                    The same down/up chevron the header bar uses, driven by
+                    the same React state. It replaces a plus/minus drawn from
+                    two pseudo-element bars: a plus reads as "add", and it
+                    gave the drawer a different disclosure language from the
+                    bar directly above it.
+                  */}
+                  <Chevron open={isOpen} className={styles.accordionIcon} />
                 </button>
 
                 {/*
@@ -189,16 +191,17 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
                   data-open={isOpen}
                 >
                   <div className={styles.accordionInner}>
+                    {item.panel.lead ? (
+                      <p className={styles.subLead}>{item.panel.lead}</p>
+                    ) : null}
+
+                    {item.panel.primaryHeading ? (
+                      <p className={styles.subHeading}>
+                        {item.panel.primaryHeading}
+                      </p>
+                    ) : null}
+
                     <ul className={styles.subList}>
-                      <li>
-                        <Link
-                          href={item.href}
-                          className={styles.overviewLink}
-                          onClick={onClose}
-                        >
-                          All {item.label}
-                        </Link>
-                      </li>
                       {item.panel.primary.map((entry) => (
                         <li key={entry.href}>
                           <Link
@@ -211,6 +214,68 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
                         </li>
                       ))}
                     </ul>
+
+                    {/*
+                      The drawer carries the same categories the desktop panel
+                      does. Without them a phone visitor got six entries out of
+                      twenty-six and no way to see the rest except the hub —
+                      which is a different, worse menu on the smaller screen.
+                    */}
+                    {item.panel.columns?.map((column) => (
+                      <div key={column.heading} className={styles.subGroup}>
+                        <p className={styles.subHeading}>
+                          {column.headingHref ? (
+                            <Link
+                              href={column.headingHref}
+                              className={styles.subHeadingLink}
+                              onClick={onClose}
+                            >
+                              {column.heading}
+                            </Link>
+                          ) : (
+                            column.heading
+                          )}
+                          {column.meta ? (
+                            <span className={styles.subMeta}>{column.meta}</span>
+                          ) : null}
+                        </p>
+
+                        <ul className={styles.subList}>
+                          {column.items.map((entry) => (
+                            <li key={entry.href}>
+                              <Link
+                                href={entry.href}
+                                className={styles.subLink}
+                                onClick={onClose}
+                              >
+                                {entry.label}
+                              </Link>
+                            </li>
+                          ))}
+                          {column.viewAll ? (
+                            <li>
+                              <Link
+                                href={column.viewAll.href}
+                                className={styles.subViewAll}
+                                onClick={onClose}
+                              >
+                                {column.viewAll.label}
+                                <span aria-hidden="true">&rarr;</span>
+                              </Link>
+                            </li>
+                          ) : null}
+                        </ul>
+                      </div>
+                    ))}
+
+                    <Link
+                      href={item.panel.footerLink.href}
+                      className={styles.overviewLink}
+                      onClick={onClose}
+                    >
+                      {item.panel.footerLink.label}
+                      <span aria-hidden="true">&rarr;</span>
+                    </Link>
                   </div>
                 </div>
               </li>
@@ -231,8 +296,9 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
             {cta.label}
           </Button>
           {/* The header hides its toggle below md, so this is the only way
-              to change theme on a phone. It must not be omitted. */}
-          <ThemeToggle className={styles.footerToggle} />
+              to change theme on a phone. It must not be omitted. Labelled
+              here because the row has the width the header bar does not. */}
+          <ThemeToggle className={styles.footerToggle} showLabel />
         </div>
         <p className={styles.contact}>
           <a href={site.contact.phoneHref}>{site.contact.phone}</a>

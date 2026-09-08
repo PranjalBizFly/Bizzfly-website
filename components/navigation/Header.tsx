@@ -9,6 +9,7 @@ import { Container } from "@/components/layout/Container";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Button } from "@/components/buttons";
+import { Chevron } from "./Chevron";
 import { MegaMenu } from "./MegaMenu";
 import { MobileNav } from "./MobileNav";
 import dynamic from "next/dynamic";
@@ -25,6 +26,23 @@ const SearchDialog = dynamic(
 import styles from "./Header.module.css";
 
 const HOVER_INTENT_MS = 120;
+const HOVER_CLOSE_MS = 200;
+
+/**
+ * Which interaction opened the panel.
+ *
+ * This distinction is the whole fix for "clicking Services does nothing".
+ * Hover and click both wrote to one boolean before, so the ordinary path —
+ * move the pointer onto the trigger, then click it — opened the panel on
+ * hover and the click immediately toggled it shut again. The panel flashed
+ * and closed, which reads as a dead control rather than as a menu.
+ *
+ * Tracking the source means a click on a hover-opened panel promotes it to
+ * "click" and leaves it open, and only pointer-opened panels close when the
+ * pointer leaves. A panel the visitor deliberately clicked open stays open
+ * until they close it, click elsewhere, or press Escape.
+ */
+type OpenState = { index: number; source: "hover" | "click" } | null;
 
 interface HeaderProps {
   /*
@@ -39,22 +57,64 @@ interface HeaderProps {
 
 export function Header({ nav, cta }: HeaderProps) {
   const pathname = usePathname();
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [open, setOpen] = useState<OpenState>(null);
   const [condensed, setCondensed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchOpened, setSearchOpened] = useState(false);
   const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const headerRef = useRef<HTMLElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const triggerRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const openIndex = open?.index ?? null;
+
+  /*
+    The keyboard handler and the outside-click handler both need the live
+    open state, and neither should be torn down and rebuilt every time it
+    changes. A ref gives them the current value without going in the
+    dependency array.
+  */
+  const openRef = useRef<OpenState>(null);
+  useEffect(() => {
+    openRef.current = open;
+  }, [open]);
+
+  const clearHoverTimer = () => {
+    if (hoverTimer.current) {
+      clearTimeout(hoverTimer.current);
+      hoverTimer.current = null;
+    }
+  };
+
+  /*
+    The chunk is fetched on intent rather than on click, so the dialog is
+    already in memory by the time the pointer arrives. It is still not in the
+    initial bundle — a visitor who never goes near search never pays for it.
+  */
+  const prefetchSearch = useCallback(() => {
+    void import("@/components/search/SearchDialog");
+  }, []);
 
   const openSearch = useCallback(() => {
     setSearchOpened(true);
     setSearchOpen(true);
   }, []);
 
+  /* Stable, so the dialog's document-level Escape listener is bound once
+     rather than re-subscribed on every scroll-driven header render. */
+  const closeSearch = useCallback(() => setSearchOpen(false), []);
+
   const closePanel = useCallback(() => {
-    if (hoverTimer.current) clearTimeout(hoverTimer.current);
-    setOpenIndex(null);
+    clearHoverTimer();
+    setOpen(null);
+  }, []);
+
+  /* Escape returns the visitor to the control they opened the menu from. */
+  const closePanelAndRestoreFocus = useCallback(() => {
+    const current = openRef.current;
+    clearHoverTimer();
+    setOpen(null);
+    if (current) triggerRefs.current[current.index]?.focus();
   }, []);
 
   /* Close menus on navigation. */
@@ -72,10 +132,33 @@ export function Header({ nav, cta }: HeaderProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  /*
+    Anything outside the nav closes an open panel — the scrim below the
+    header, but also the logo, the theme toggle and the bare strip of header
+    beside them, none of which the scrim covers. Bound on pointerdown so the
+    panel is gone before a click lands, and scoped to the nav element, which
+    contains both the triggers and the panels: a pointerdown on a menu link
+    is inside it, so following a link is untouched.
+  */
+  useEffect(() => {
+    if (open === null) return;
+
+    const onPointerDown = (event: PointerEvent) => {
+      const node = navRef.current;
+      if (node && !node.contains(event.target as Node)) closePanel();
+    };
+
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [open, closePanel]);
+
   /* Escape closes the panel; Cmd/Ctrl+K and "/" open search. */
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") closePanel();
+      if (event.key === "Escape" && openRef.current) {
+        closePanelAndRestoreFocus();
+        return;
+      }
 
       const target = event.target as HTMLElement | null;
       const typing =
@@ -96,18 +179,41 @@ export function Header({ nav, cta }: HeaderProps) {
 
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
-  }, [closePanel, searchOpen, openSearch]);
+  }, [closePanelAndRestoreFocus, searchOpen, openSearch]);
+
+  /* Clear any pending open/close when the header unmounts. */
+  useEffect(() => clearHoverTimer, []);
 
   const handleEnter = (index: number) => {
-    if (hoverTimer.current) clearTimeout(hoverTimer.current);
+    clearHoverTimer();
     // No intent delay if another panel is already open.
-    const delay = openIndex === null ? HOVER_INTENT_MS : 0;
-    hoverTimer.current = setTimeout(() => setOpenIndex(index), delay);
+    const delay = openRef.current === null ? HOVER_INTENT_MS : 0;
+    hoverTimer.current = setTimeout(
+      () => setOpen({ index, source: "hover" }),
+      delay,
+    );
   };
 
-  const handleLeave = () => {
-    if (hoverTimer.current) clearTimeout(hoverTimer.current);
-    hoverTimer.current = setTimeout(() => setOpenIndex(null), 200);
+  /*
+    Only pointer-opened panels close on pointer-out. Closing a click-opened
+    panel the moment the pointer drifts off the header is the other half of
+    the hover/click conflict: the visitor commits with a click and the menu
+    still evaporates on a stray movement.
+  */
+  const handleHoverAway = () => {
+    clearHoverTimer();
+    hoverTimer.current = setTimeout(() => {
+      setOpen((current) => (current?.source === "hover" ? null : current));
+    }, HOVER_CLOSE_MS);
+  };
+
+  const handleTriggerClick = (index: number) => {
+    clearHoverTimer();
+    setOpen((current) =>
+      current && current.index === index && current.source === "click"
+        ? null
+        : { index, source: "click" },
+    );
   };
 
   /*
@@ -122,10 +228,9 @@ export function Header({ nav, cta }: HeaderProps) {
   return (
     <>
       <header
-        ref={headerRef}
-        className={`${styles.header} is-inverse`}
+        className={styles.header}
         data-condensed={condensed}
-        onMouseLeave={handleLeave}
+        onMouseLeave={handleHoverAway}
       >
         <Container>
           <div className={styles.inner}>
@@ -139,7 +244,6 @@ export function Header({ nav, cta }: HeaderProps) {
                 alt is empty because the link is already labelled.
               */}
               <BrandLogo
-                variant="reversed"
                 alt=""
                 clearspace={false}
                 priority
@@ -152,7 +256,7 @@ export function Header({ nav, cta }: HeaderProps) {
                 artwork, not a redrawn or condensed lockup.
               */}
               <BrandLogo
-                variant="symbol-reversed"
+                variant="auto-symbol"
                 alt=""
                 clearspace={false}
                 priority
@@ -160,32 +264,36 @@ export function Header({ nav, cta }: HeaderProps) {
               />
             </Link>
 
-            <nav className={styles.nav} aria-label="Primary">
+            <nav ref={navRef} className={styles.nav} aria-label="Primary">
               {nav.map((item, index) => {
                 const hasPanel = Boolean(item.panel);
-                const open = openIndex === index;
+                const isOpen = openIndex === index;
                 const panelId = `megamenu-${index}`;
 
                 return (
                   <div
                     key={item.label}
                     className={styles.navItem}
-                    data-open={open}
-                    onMouseEnter={() => hasPanel && handleEnter(index)}
+                    data-open={isOpen}
+                    onMouseEnter={() =>
+                      hasPanel ? handleEnter(index) : handleHoverAway()
+                    }
                   >
                     {hasPanel ? (
                       <button
                         type="button"
+                        ref={(node) => {
+                          triggerRefs.current[index] = node;
+                        }}
                         className={styles.navLink}
-                        aria-expanded={open}
+                        aria-expanded={isOpen}
                         aria-controls={panelId}
+                        aria-haspopup="true"
                         data-active={isActive(item)}
-                        onClick={() => setOpenIndex(open ? null : index)}
+                        onClick={() => handleTriggerClick(index)}
                       >
                         {item.label}
-                        <span className={styles.chevron} aria-hidden="true">
-                          &#9662;
-                        </span>
+                        <Chevron open={isOpen} className={styles.chevron} />
                       </button>
                     ) : (
                       <Link
@@ -197,7 +305,7 @@ export function Header({ nav, cta }: HeaderProps) {
                       </Link>
                     )}
 
-                    {hasPanel && open && item.panel ? (
+                    {hasPanel && isOpen && item.panel ? (
                       <MegaMenu
                         id={panelId}
                         label={item.label}
@@ -215,6 +323,8 @@ export function Header({ nav, cta }: HeaderProps) {
                 type="button"
                 className={styles.searchTrigger}
                 onClick={openSearch}
+                onPointerEnter={prefetchSearch}
+                onFocus={prefetchSearch}
               >
                 <span aria-hidden="true">&#9906;</span>
                 Search
@@ -225,6 +335,8 @@ export function Header({ nav, cta }: HeaderProps) {
                 type="button"
                 className={`${styles.iconButton} ${styles.searchToggleMobile}`}
                 onClick={openSearch}
+                onPointerEnter={prefetchSearch}
+                onFocus={prefetchSearch}
                 aria-label="Open search"
               >
                 <span aria-hidden="true">&#9906;</span>
@@ -257,15 +369,13 @@ export function Header({ nav, cta }: HeaderProps) {
         </Container>
       </header>
 
-      {openIndex !== null ? (
-        <button
-          type="button"
-          className={styles.scrim}
-          aria-label="Close menu"
-          tabIndex={-1}
-          onClick={closePanel}
-        />
-      ) : null}
+      {/*
+        Presentational only. Dismissal is owned by the document-level
+        pointerdown handler above, which covers the header itself as well as
+        the area this darkens — so the scrim no longer has to be a
+        full-viewport <button> sitting in the accessibility tree.
+      */}
+      {open !== null ? <div className={styles.scrim} aria-hidden="true" /> : null}
 
       <MobileNav
         nav={nav}
@@ -279,7 +389,7 @@ export function Header({ nav, cta }: HeaderProps) {
       />
 
       {searchOpened ? (
-        <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
+        <SearchDialog open={searchOpen} onClose={closeSearch} />
       ) : null}
     </>
   );

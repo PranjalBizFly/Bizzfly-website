@@ -162,7 +162,7 @@ interface SectionProps {
   heading?: string;
   headingLevel?: 2 | 3;          // semantics decoupled from visual size
   lead?: string;
-  background?: 'bg' | 'surface' | 'inverse' | 'inverse-alt';
+  background?: 'bg' | 'surface' | 'tint' | 'inverse' | 'inverse-alt';
   spacing?: 'sm' | 'md' | 'lg' | 'xl';
   container?: 'default' | 'content' | 'text' | 'wide' | 'full';
   reveal?: boolean;
@@ -177,8 +177,12 @@ Consequences worth stating:
   heading on a page uses `h2` semantically at `--text-h2`; the same section nested
   under another uses `h3` at the same visual size. This is how heading hierarchy stays
   correct across 328 assembled pages (architecture doc 06 requirement).
-- **`background` sets the inverse context class**, so children never branch on "am I
-  on a dark background" — the token remap in `tokens.css` handles it.
+- **`background` sets a context class**, so children never branch on "what am I sitting
+  on" — the token remap in `tokens.css` handles it. `tint` is the light half of that
+  device: a near-white band carrying a trace of the brand blue, for a section that has to
+  read as its own movement without the weight a dark ground brings. Unlike `inverse` and
+  `inverse-alt`, it keeps the `spacing` it was given rather than taking a fixed inset —
+  a light band needs the air a dark one does not.
 - **`spacing` and `container` are enumerated**, so no page can introduce a one-off
   value.
 
