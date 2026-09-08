@@ -1,0 +1,64 @@
+/*
+ * Figures at display size, centred, no boxes.
+ *
+ * This sits on a dark section, so whitespace does the separating rather than
+ * rules — a hairline grid here would fight the band it is set on. The order
+ * is reversed in CSS so the number reads first and the label sits under it,
+ * while the markup keeps `dt` as the term and `dd` as the value.
+ */
+.band {
+  display: grid;
+  gap: var(--space-10) var(--space-8);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .band {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .band {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+}
+
+.value {
+  order: 1;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-metric);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  font-variant-numeric: tabular-nums;
+  color: var(--foreground);
+}
+
+.label {
+  order: 2;
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.note {
+  order: 3;
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  max-width: 30ch;
+  text-wrap: pretty;
+}

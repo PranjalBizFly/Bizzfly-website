@@ -13,9 +13,9 @@ export const runtime = "nodejs";
  * use, and one generic stock image repeated across 77 pages is worse than a
  * typographic card that actually names the page.
  *
- * The card is laid on brand ink, which is the surface the official logo is
- * drawn for — the supplied lockup is reversed, so ink is the only ground it
- * can sit on unaltered.
+ * The card is laid on brand ink so it holds up as a thumbnail against the
+ * light chrome of every feed it appears in, and therefore carries the
+ * reversed lockup — the variant that ground calls for.
  *
  * Satori cannot read CSS custom properties, so colours come from lib/brand,
  * which mirrors styles/tokens.css.

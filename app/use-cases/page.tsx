@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
+import { SectionNav } from "@/components/navigation";
 import { EditorialHero } from "@/components/hero";
 import {
   SectionHeader,
@@ -169,7 +170,17 @@ export default function UseCasesIndexPage() {
           title="Or browse everything"
           lead="Every use case starts with the symptoms rather than with what we would sell you."
         />
-        <Directory groups={useCaseGroups} />
+        <SectionNav
+          label="Jump to an outcome"
+          items={useCaseGroups.map((group) => ({
+            label: group.heading,
+            count: group.items.length,
+          }))}
+          className="mt-8"
+        />
+        <div className="mt-10">
+          <Directory groups={useCaseGroups} />
+        </div>
         <div className="mt-8">
           <TextLink href="/services/">Browse by service instead</TextLink>
         </div>

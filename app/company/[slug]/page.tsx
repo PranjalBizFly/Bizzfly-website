@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/layout/Section";
+import { ExploreNext } from "@/components/navigation";
 import { EditorialHero } from "@/components/hero";
 import {
   SectionHeader,
@@ -222,6 +223,17 @@ export default async function CompanyPage({ params }: PageProps) {
       {page.related?.length ? (
         <Section background="surface" spacing="md">
           <RelatedContent mode="split" heading="Related" items={page.related} />
+        </Section>
+      ) : null}
+
+      {/*
+        Legal pages are excluded: nobody reading the privacy policy wants to
+        be walked to the terms as "next", and the pair would read as content
+        rather than as the boilerplate it is.
+      */}
+      {!isLegal ? (
+        <Section spacing="md">
+          <ExploreNext href={`/company/${slug}/`} />
         </Section>
       ) : null}
 

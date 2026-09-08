@@ -126,19 +126,44 @@
   --accent:                var(--accent-edge);
 
   /* ---------------------------------------------------------------------
-     The header is a dark bar in BOTH themes, and that is a constraint
-     rather than a style choice: the official lockup is reversed — "Bizz"
-     in green, "fly" and the symbol plate in white — so on a light bar half
-     the logo disappears, and recolouring it is outside the brand
-     guidelines. See public/brand/README.md. Supplying the positive lockup
-     is what would unlock a light header.
+     The header follows the theme like any other surface. It was a dark bar
+     in both themes for one reason — the only lockup on disk was the
+     reversed one, which loses "fly" and the plate on a light ground. The
+     primary lockup is now installed (public/brand/logo/bizzfly-logo.svg),
+     so that constraint is gone and the bar is a plain light surface here.
+     BrandLogo picks the matching polarity per surface; see its stylesheet.
      --------------------------------------------------------------------- */
-  --header-background:     var(--ink-900);
-  --header-border:         rgb(245 247 250 / 0.14);
+  --header-background:     var(--background);
+  --header-border:         var(--border);
 
   --surface-inverse:       var(--ink-900);
   --surface-inverse-alt:   var(--deep-900);
   --border-inverse:        rgb(245 247 250 / 0.16);
+
+  /* ---------------------------------------------------------------------
+     TINTED LIGHT CONTEXT — the quiet band.
+
+     The other way to make a section its own movement. A dark band is the
+     loud way and has to be earned by the subject; this is the same
+     compositional device at conversational volume — white carrying a trace
+     of the brand blue, a 1.09:1 lift off the page, felt rather than seen.
+
+     Every light-theme role survives the move unchanged, which is the point:
+     nothing inside a tinted section needs to know it is there.
+       ink-900 body      16.88:1
+       ink-500 muted      5.85:1
+       blue-700 link      6.37:1
+       blue-500 rule      4.42:1   accents, active states, marks
+       ink-400 strong     3.99:1   ink-350 drops to 2.77 here, so it moves
+
+     Green is absent for the same reason it is absent on white — 1.64:1 — so
+     blue carries every accent on this ground. All asserted in
+     docs/design-system/verify-contrast.mjs.
+     --------------------------------------------------------------------- */
+  --surface-tint:          #F1F5FC;
+  --surface-tint-raised:   #FFFFFF;   /* a card lifts ABOVE the tint      */
+  --surface-tint-sunken:   #E4EBF7;
+  --border-tint:           #D7E1F2;   /* the hairline, tinted to match    */
 
   /* --- Semantic text -------------------------------------------------- */
   --text-link:             var(--blue-700);  /*  6.97:1 white, 6.49 surface */
@@ -518,6 +543,25 @@
   --link-underline: rgb(92 147 222 / 0.55);
 }
 
+/*
+ * The tinted context — a light band, for sections that need to read as their
+ * own movement without a dark ground's weight. It remaps surfaces only: the
+ * text, link and accent roles are already correct on a near-white, so blue
+ * keeps the accent it holds everywhere else on light and nothing inside has
+ * to branch. The one exception is --border-strong, which is ink-350 on white
+ * and only reaches 2.77:1 here, so it steps to ink-400.
+ *
+ * A card inside this context lifts to white rather than sinking to grey,
+ * which is what makes the band read as depth rather than as a stripe.
+ */
+.is-tint {
+  --background:    var(--surface-tint);
+  --surface:       var(--surface-tint-raised);
+  --surface-muted: var(--surface-tint-sunken);
+  --border:        var(--border-tint);
+  --border-strong: var(--ink-400);    /*  3.99:1 on the tint */
+}
+
 /* ==========================================================================
    DARK THEME
    --------------------------------------------------------------------------
@@ -595,6 +639,20 @@
   --background:    #211A54;           /* 1.18:1 off the dark page */
   --surface:       #29216A;
   --muted:         #C3C7E8;           /*  9.44:1 */
+}
+
+/*
+ * A tinted band cannot stay light in the dark theme — it would be a white
+ * flash mid-page. It becomes the same quiet lift the inverse band uses, so
+ * the composition survives the theme switch while the surfaces stay dark.
+ * Every pairing below is one the dark theme already asserts.
+ */
+:root[data-theme="dark"] .is-tint {
+  --background:    #1A2432;           /* 1.18:1 off the dark page */
+  --surface:       #202B3A;
+  --surface-muted: var(--ink-700);
+  --border:        rgb(245 247 250 / 0.14);
+  --border-strong: rgb(245 247 250 / 0.28);
 }
 
 /* ==========================================================================

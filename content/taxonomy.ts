@@ -29,6 +29,20 @@ interface SlugGroup {
  * manufacturer has also looks far more like a logistics operator's than like
  * that of another company sharing its industry code.
  */
+/**
+ * The six sectors given the full editorial treatment — on the hub above the
+ * directory, and in the mega menu as the numbered column. One list, because
+ * two would let the menu promise a different six from the page it opens.
+ */
+export const LEAD_SECTORS = [
+  "manufacturing",
+  "professional-services",
+  "saas",
+  "healthcare",
+  "ecommerce",
+  "financial-services",
+];
+
 export const SECTOR_GROUPS: SlugGroup[] = [
   {
     heading: "Make, build and move",

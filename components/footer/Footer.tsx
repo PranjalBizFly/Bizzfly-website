@@ -52,12 +52,11 @@ export function Footer() {
         <div className={styles.contact}>
           <div>
             {/*
-              The footer is a dark surface, so the official reversed lockup
-              sits here unaltered and at full clearspace — the one place on
-              the site with room for it.
+              The footer is a dark surface in both themes, so BrandLogo
+              resolves to the reversed lockup here. It sits unaltered and at
+              full clearspace — the one place on the site with room for it.
             */}
             <BrandLogo
-              variant="reversed"
               height="var(--logo-height-footer)"
               className={styles.contactLogo}
             />

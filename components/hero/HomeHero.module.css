@@ -1,160 +1,53 @@
-/*
- * A neutral editorial hero. The type and the diagram carry it; the brand
- * appears in the CTA, the eyebrow and the accent rules rather than in a
- * full-bleed colour field. The header above it is a dark bar in both
- * themes — the official lockup is reversed — so the page opens with a
- * deliberate light field beneath a brand-anchored bar.
- */
-.hero {
-  background: var(--background);
-  color: var(--foreground);
-  padding-block: var(--section-md) var(--section-lg);
+/* ==========================================================================
+   The ticker
+   --------------------------------------------------------------------------
+   A dark rule under the hero carrying the five discovery surfaces, set on
+   the deep indigo ground rather than the near-black the other dark bands
+   use. The distinction is deliberate: this strip belongs to the hero above
+   it, and the indigo separates it from the figures band and the closing CTA,
+   which are page furniture rather than part of the opening.
+   ========================================================================== */
+.ticker {
+  border-block: 1px solid var(--border-inverse);
+  background: var(--surface-inverse-alt);
+  padding-block: var(--space-5);
 }
 
-.grid {
-  display: grid;
-  gap: var(--space-12);
-  align-items: center;
+.tickerLink {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: var(--text-inverse);
 }
 
-/* Asymmetric 7/5 — content dominant, visual supporting */
-@media (min-width: 1024px) {
-  .grid {
-    /* Even split at lg so the diagram column is wide enough for its labels. */
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-12);
-  }
-}
-
-@media (min-width: 1280px) {
-  .grid {
-    grid-template-columns: 7fr 5fr;
-    gap: var(--space-16);
-  }
-}
-
-.content {
-  min-width: 0;
-}
-
-.eyebrow {
+.tickerCode {
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
-  color: var(--accent-text);
-  margin-bottom: var(--space-6);
+  color: var(--green-500);
 }
 
-.title {
+.tickerName {
   font-family: var(--font-display);
-  font-size: var(--text-display-lg);
-  font-weight: var(--weight-semibold);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-display);
-  text-wrap: balance;
-  max-width: 15ch;
+  font-size: var(--text-h4);
+  font-weight: var(--weight-medium);
+  color: var(--text-inverse);
+  transition: color var(--dur-fast) var(--ease-standard);
 }
 
-.lead {
-  margin-top: var(--space-8);
-  font-size: var(--text-body-lg);
-  line-height: var(--leading-relaxed);
-  color: var(--muted);
-  max-width: 56ch;
-  text-wrap: pretty;
+.tickerLink:hover .tickerName {
+  color: var(--green-500);
 }
 
-.actions {
-  margin-top: var(--space-10);
-}
-
-/* Compact summary rail — three jobs, stated once */
-.summary {
-  display: grid;
-  gap: var(--space-5);
-  margin: var(--space-12) 0 0;
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--border);
-}
-
-@media (min-width: 640px) {
-  .summary {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-6);
-  }
-}
-
-.summaryItem dt {
-  font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
-  color: var(--accent-text);
-}
-
-.summaryItem dd {
-  margin: var(--space-2) 0 0;
+.tickerSurface {
   font-size: var(--text-body-sm);
-  color: var(--muted);
-  line-height: var(--leading-relaxed);
+  color: var(--text-inverse-muted);
 }
 
-.visual {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-
-.heroVisualFrame {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  background: var(--surface);
-}
-
-.heroImage {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  aspect-ratio: 16 / 9;
-}
-
-.heroBadge {
-  position: absolute;
-  bottom: var(--space-3);
-  left: var(--space-3);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: var(--space-2) var(--space-3);
-  font-family: var(--font-label);
-  font-size: var(--text-caption);
-  color: var(--foreground);
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  backdrop-filter: blur(8px);
-}
-
-.heroBadgeDot {
-  width: 6px;
-  height: 6px;
-  border-radius: var(--radius-full);
-  background: var(--accent-edge);
-}
-
-.diagramWrapper {
-  width: 100%;
-}
-
-/* Below lg the diagram follows the CTA rather than competing with it */
-@media (max-width: 1023px) {
-  .visual {
-    order: 2;
-    max-width: 32rem;
-  }
+/* The dot between cells, so the band reads as a list and not a sentence. */
+.tickerSurface::after {
+  content: "·";
+  margin-left: var(--space-6);
+  color: var(--border-inverse);
 }

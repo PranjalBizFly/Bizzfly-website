@@ -3,7 +3,7 @@
  * "whenNotToUse" is mandatory on every entry.
  */
 
-import type { Technology } from "@/types/content";
+import type { Technology, TechnologyGroupId } from "@/types/content";
 import { moreTechnologies } from "./more-technologies";
 import { platformTechnologies } from "./technologies-platform";
 
@@ -225,6 +225,50 @@ const coreTechnologies: Technology[] = [
     audience: ["A7", "A8"],
     phase: "P1",
     cta: { label: "Technical discovery call", href: "/contact/", tier: "T4" },
+  },
+];
+
+/**
+ * The six capability groups, grouped by what the layer enables rather than by
+ * vendor. They live here rather than in app/technologies/page.tsx because the
+ * hub is no longer the only thing that renders them: the mega menu browses by
+ * the same groups and links into the hub's own anchors, and two copies of this
+ * list would drift into two different taxonomies within a release.
+ */
+export const technologyGroups: {
+  id: TechnologyGroupId;
+  label: string;
+  role: string;
+}[] = [
+  {
+    id: "ai",
+    label: "AI",
+    role: "Where language models genuinely help, and where a rule engine is the better answer.",
+  },
+  {
+    id: "automation",
+    label: "Automation & Integration",
+    role: "Connecting the systems you already run so data stops being carried by people.",
+  },
+  {
+    id: "web",
+    label: "Web",
+    role: "How pages are built and published, and whether machines can read them.",
+  },
+  {
+    id: "software",
+    label: "Software & Infrastructure",
+    role: "Where applications run, how they deploy, and what happens when they fail.",
+  },
+  {
+    id: "search-data",
+    label: "Search & Data",
+    role: "The measurement layer that tells you which of the above is actually working.",
+  },
+  {
+    id: "practice",
+    label: "Engineering Practice",
+    role: "How we build, so your own team can maintain it after we leave.",
   },
 ];
 

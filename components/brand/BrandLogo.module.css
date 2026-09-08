@@ -33,3 +33,29 @@
   /* Never below the brand minimum, whatever --logo-size is set to. */
   min-height: var(--logo-min-height);
 }
+
+/*
+ * Polarity. Both lockups are emitted by the "auto" variants and one is
+ * hidden here, because CSS is the only layer that knows both the active
+ * theme and whether an .is-inverse section is in scope — a prop passed at
+ * the call site knows neither.
+ *
+ * The rule is the surface, not the theme: anything inside .is-inverse is a
+ * dark ground in either theme, and in the dark theme every ground is dark.
+ * Everything else is light and takes the primary lockup.
+ */
+.onDark {
+  display: none;
+}
+
+:global(:root[data-theme="dark"]) .onLight,
+:global(.is-inverse) .onLight,
+:global(.is-inverse-alt) .onLight {
+  display: none;
+}
+
+:global(:root[data-theme="dark"]) .onDark,
+:global(.is-inverse) .onDark,
+:global(.is-inverse-alt) .onDark {
+  display: block;
+}

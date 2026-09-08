@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
+import { SectionNav } from "@/components/navigation";
 import { EditorialHero } from "@/components/hero";
 import { SectionHeader, ConversionBand, Directory } from "@/components/sections";
 import { Button, TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { industries } from "@/content/industries";
-import { sectorDirectory } from "@/content/taxonomy";
+import { sectorDirectory, LEAD_SECTORS } from "@/content/taxonomy";
 import { services } from "@/content/services";
 import { primaryCta } from "@/content/navigation";
 import { buildMetadata } from "@/lib/seo";
@@ -24,16 +25,6 @@ export const metadata: Metadata = buildMetadata(
   },
   "/industries/",
 );
-
-/** The six that get the full treatment above the directory. */
-const LEAD_SECTORS = [
-  "manufacturing",
-  "professional-services",
-  "saas",
-  "healthcare",
-  "ecommerce",
-  "financial-services",
-];
 
 export default function IndustriesIndexPage() {
   const bySlug = (slug: string) => industries.find((i) => i.slug === slug);
@@ -144,7 +135,17 @@ export default function IndustriesIndexPage() {
           title={`All ${industries.length} industries`}
           lead="Grouped by business model rather than by category, because the digital problem a manufacturer has looks far more like a logistics operator's than like another company that happens to share its industry code."
         />
-        <Directory groups={sectorGroups} />
+        <SectionNav
+          label="Jump to a business model"
+          items={sectorGroups.map((group) => ({
+            label: group.heading,
+            count: group.items.length,
+          }))}
+          className="mt-8"
+        />
+        <div className="mt-10">
+          <Directory groups={sectorGroups} />
+        </div>
       </Section>
 
       <Section spacing="md" width="content">

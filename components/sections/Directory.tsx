@@ -1,9 +1,17 @@
 import Link from "next/link";
+import { anchorId } from "@/lib/slug";
 import styles from "./Directory.module.css";
 
 export interface DirectoryGroup {
   heading: string;
   headingHref?: string;
+  /**
+   * Anchor target, so the mega menu and the hub's own context navigation can
+   * link to a group rather than only to the top of the page. Defaults to the
+   * heading; set it explicitly when the heading carries a count, which would
+   * otherwise bake "-24" into the URL and break it on the next publish.
+   */
+  id?: string;
   items: { label: string; href: string; note?: string }[];
 }
 
@@ -36,7 +44,11 @@ export function Directory({ groups, numbered = false, className = "" }: Director
   return (
     <div className={`${styles.directory} ${className}`.trim()}>
       {groups.map((group, index) => (
-        <section key={group.heading} className={styles.group}>
+        <section
+          key={group.heading}
+          id={group.id ?? anchorId(group.heading)}
+          className={styles.group}
+        >
           <h3 className={styles.heading}>
             {numbered ? (
               <span className={styles.index} aria-hidden="true">

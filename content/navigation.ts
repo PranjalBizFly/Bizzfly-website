@@ -8,12 +8,17 @@ import type {
   NavigationItem,
   NavigationColumn,
 } from "@/types/content";
+import { anchorId } from "@/lib/slug";
 import { practices } from "./practices";
 import { services } from "./services";
 import { industries } from "./industries";
 import { useCases } from "./use-cases";
-import { technologies } from "./technologies";
+import { technologies, technologyGroups } from "./technologies";
 import { resources } from "./resources";
+import { allCompanyPages } from "./company";
+import { methodologyPages } from "./company-methodology";
+import { transparencyPages } from "./company-transparency";
+import { SECTOR_GROUPS, OUTCOME_GROUPS, LEAD_SECTORS } from "./taxonomy";
 
 /** The one persistent conversion action on the site. */
 export const primaryCta = { label: "Let's Talk", href: "/contact/" };
@@ -22,18 +27,179 @@ export const primaryCta = { label: "Let's Talk", href: "/contact/" };
  * How many entries a mega-menu's numbered column carries.
  *
  * The panel scrolls, so a longer list would not break the layout — it would
- * just stop being navigation. Ten is roughly where a numbered column is still
- * scanned rather than skimmed past. The complete set lives on each hub page,
- * which is also what the sitemap and search index read.
+ * just stop being navigation. Ten was the figure while the numbered list was
+ * the whole menu; now that every panel browses by category beside it, the
+ * numbered column is an editorial selection rather than an index, and five is
+ * both scannable at a glance and short enough that the panel does not
+ * outgrow the viewport it opens into. The categories carry the breadth and
+ * the hub carries the complete set, which is also what the sitemap and the
+ * search index read.
  */
-const MENU_PRIMARY_LIMIT = 10;
+const MENU_PRIMARY_LIMIT = 5;
 
-const serviceLink = (slug: string): NavigationItem | null => {
-  const service = services.find((s) => s.slug === slug);
-  return service
-    ? { label: service.title, href: `/services/${service.slug}/` }
-    : null;
-};
+/**
+ * How many entries a category column shows before it defers to its own
+ * "all N" link. Four keeps every panel inside a laptop viewport, which is
+ * the difference between a menu that is scanned and one that is scrolled.
+ */
+const MENU_GROUP_LIMIT = 4;
+
+/**
+ * A category column, built from the same slug groups the hub pages render.
+ *
+ * The heading and the "all N" both point at that group's anchor on the hub,
+ * so choosing a category in the menu lands on the same category on the page.
+ * A menu that invents its own arrangement teaches the visitor one taxonomy
+ * and then hands them a different one on arrival.
+ */
+const groupedColumns = (
+  groups: { heading: string; slugs: string[] }[],
+  all: { slug: string; title: string }[],
+  base: string,
+): NavigationColumn[] =>
+  groups
+    .map((group) => {
+      const found = group.slugs
+        .map((slug) => all.find((entity) => entity.slug === slug))
+        .filter((entity): entity is NonNullable<typeof entity> => Boolean(entity));
+      if (found.length === 0) return null;
+
+      const anchor = `${base}#${anchorId(group.heading)}`;
+      return {
+        heading: group.heading,
+        headingHref: anchor,
+        meta: String(found.length),
+        items: found.slice(0, MENU_GROUP_LIMIT).map((entity) => ({
+          label: entity.title,
+          href: `${base}${entity.slug}/`,
+        })),
+        viewAll:
+          found.length > MENU_GROUP_LIMIT
+            ? { label: `All ${found.length}`, href: anchor }
+            : undefined,
+      };
+    })
+    .filter((column) => column !== null);
+
+/** The six capability groups the technologies hub renders, as menu columns. */
+const technologyColumns = (): NavigationColumn[] =>
+  technologyGroups
+    .map((group) => {
+      const items = technologies.filter((t) => t.group === group.id);
+      if (items.length === 0) return null;
+      const anchor = `/technologies/#${group.id}`;
+      return {
+        heading: group.label,
+        headingHref: anchor,
+        meta: String(items.length),
+        items: items.slice(0, MENU_GROUP_LIMIT).map((t) => ({
+          label: t.title,
+          href: `/technologies/${t.slug}/`,
+        })),
+        viewAll:
+          items.length > MENU_GROUP_LIMIT
+            ? { label: `All ${items.length}`, href: anchor }
+            : undefined,
+      };
+    })
+    .filter((column) => column !== null);
+
+/**
+ * Resources by what each one is FOR, which is the distinction the hub makes
+ * and the only one a reader can act on: a guide gives a method, a comparison
+ * weighs two options, a decision guide answers whether to act at all.
+ */
+const RESOURCE_KINDS = [
+  { type: "guide", heading: "Guides & frameworks", anchor: "guides" },
+  { type: "comparison", heading: "Comparisons", anchor: "comparisons" },
+  { type: "decision", heading: "Decision guides", anchor: "decisions" },
+  { type: "checklist", heading: "Checklists", anchor: "checklists" },
+];
+
+/*
+ * Resource titles are long — several wrap to two lines in a menu column —
+ * so this cap is one lower than the others. Four kinds at four titles each
+ * was the tallest region in any panel.
+ */
+const RESOURCE_ITEM_LIMIT = 3;
+
+const publishedResources = resources.filter(
+  (r) => (r.status ?? "published") === "published",
+);
+
+const resourceCount = (type: string) =>
+  publishedResources.filter((r) => r.type === type).length;
+
+const resourceColumns = (): NavigationColumn[] =>
+  RESOURCE_KINDS.map((kind) => {
+    const items = publishedResources.filter((r) => r.type === kind.type);
+    if (items.length === 0) return null;
+    const anchor = `/resources/#${kind.anchor}`;
+    return {
+      heading: kind.heading,
+      headingHref: anchor,
+      meta: String(items.length),
+      items: items.slice(0, RESOURCE_ITEM_LIMIT).map((r) => ({
+        label: r.title,
+        href: `/resources/${r.slug}/`,
+      })),
+      viewAll:
+        items.length > RESOURCE_ITEM_LIMIT
+          ? { label: `All ${items.length}`, href: anchor }
+          : undefined,
+    };
+  }).filter((column) => column !== null);
+
+/**
+ * One recent resource per kind rather than the first six in the array, which
+ * would show six glossary entries and imply the section is a dictionary.
+ */
+const featuredResources = () =>
+  [
+    ...RESOURCE_KINDS.map(
+      (kind) => publishedResources.find((r) => r.type === kind.type) ?? null,
+    ),
+    publishedResources.find((r) => r.type === "article") ?? null,
+    publishedResources.find((r) => r.type === "glossary") ?? null,
+  ]
+    .filter((r): r is NonNullable<typeof r> => r !== null)
+    .slice(0, MENU_PRIMARY_LIMIT);
+
+/**
+ * Methodology and commitment pages, from the same two sets the company hub
+ * groups them by. Before this they were reachable from the menu only through
+ * a hand-maintained list that had already fallen behind the content.
+ */
+const companyColumns = (): NavigationColumn[] =>
+  [
+    {
+      heading: "Methodology",
+      anchor: "/company/#how-we-work",
+      pages: methodologyPages,
+    },
+    {
+      heading: "What we commit to",
+      anchor: "/company/#what-we-commit-to",
+      pages: transparencyPages,
+    },
+  ]
+    .map((group) => {
+      if (group.pages.length === 0) return null;
+      return {
+        heading: group.heading,
+        headingHref: group.anchor,
+        meta: String(group.pages.length),
+        items: group.pages.slice(0, MENU_GROUP_LIMIT).map((page) => ({
+          label: page.title,
+          href: `/company/${page.slug}/`,
+        })),
+        viewAll:
+          group.pages.length > MENU_GROUP_LIMIT
+            ? { label: `All ${group.pages.length}`, href: group.anchor }
+            : undefined,
+      };
+    })
+    .filter((column) => column !== null);
 
 /**
  * The three groups the Services menu is organised by.
@@ -59,7 +225,11 @@ const serviceGroups = (): NavigationColumn[] => {
   const keep = (items: (NavigationItem | null)[]) =>
     items.filter((i): i is NavigationItem => i !== null);
 
-  return [
+  /* The count makes a group's size honest before it is opened. */
+  const withMeta = (columns: NavigationColumn[]): NavigationColumn[] =>
+    columns.map((column) => ({ ...column, meta: String(column.items.length) }));
+
+  return withMeta([
     {
       heading: "Digital Growth",
       headingHref: "/services/search-ai-visibility/",
@@ -95,7 +265,7 @@ const serviceGroups = (): NavigationColumn[] => {
         practice("data-analytics"),
       ]),
     },
-  ].filter((group) => group.items.length > 0);
+  ]).filter((group) => group.items.length > 0);
 };
 
 export const primaryNav: PrimaryNavItem[] = [
@@ -104,6 +274,8 @@ export const primaryNav: PrimaryNavItem[] = [
     label: "Services",
     href: "/services/",
     panel: {
+      lead: "Five search surfaces, the software underneath them, and the growth work that compounds both. Most engagements span at least two.",
+      primaryHeading: "Practices",
       /* Column 1 controls the panel: six practices, numbered. */
       primary: practices.map((p) => ({
         index: p.index,
@@ -111,31 +283,46 @@ export const primaryNav: PrimaryNavItem[] = [
         href: `/services/${p.slug}/`,
         description: p.menuDescription,
       })),
+      columnsHeading: "Browse by capability",
       /*
         Then the three groups above. This panel carries no feature card: four
         editorial columns already fill the width, and a fifth region would
         turn the menu into the card grid it is meant to replace.
       */
       columns: serviceGroups(),
-      footerLink: { label: "Explore all services", href: "/services/" },
+      footerLink: {
+        label: `Explore all ${services.length} services`,
+        href: "/services/",
+      },
     },
   },
   {
     label: "Industries",
     href: "/industries/",
     panel: {
+      lead: "We publish a sector page only where we can name that sector's real problems in its own vocabulary.",
+      primaryHeading: "Covered in full",
       /*
         Capped, not complete. The full set is on /industries/ and in search;
         a menu is for orientation, and a numbered list past about ten items
-        stops being read and starts being scrolled. Same reasoning below for
-        use cases and technologies.
+        stops being read and starts being scrolled. The grouped columns
+        beside it are what make the remaining sectors reachable in one hop
+        rather than through a hub page.
       */
-      primary: industries.slice(0, MENU_PRIMARY_LIMIT).map((i, n) => ({
-        index: String(n + 1).padStart(2, "0"),
-        label: i.title,
-        href: `/industries/${i.slug}/`,
-        description: i.problems[0]?.title ?? i.seo.primaryTopic,
-      })),
+      primary: LEAD_SECTORS.slice(0, MENU_PRIMARY_LIMIT).map((slug, n) => {
+        const industry = industries.find((i) => i.slug === slug);
+        return industry
+          ? {
+              index: String(n + 1).padStart(2, "0"),
+              label: industry.title,
+              href: `/industries/${industry.slug}/`,
+              description:
+                industry.problems[0]?.title ?? industry.seo.primaryTopic,
+            }
+          : null;
+      }).filter((i): i is NonNullable<typeof i> => i !== null),
+      columnsHeading: "Browse by business model",
+      columns: groupedColumns(SECTOR_GROUPS, industries, "/industries/"),
       feature: {
         kind: "WORK",
         title: "How we publish client work",
@@ -145,7 +332,7 @@ export const primaryNav: PrimaryNavItem[] = [
         ctaLabel: "See the standard",
       },
       footerLink: {
-        label: `All ${industries.length} industries`,
+        label: `Explore all ${industries.length} industries`,
         href: "/industries/",
       },
     },
@@ -154,12 +341,16 @@ export const primaryNav: PrimaryNavItem[] = [
     label: "Use Cases",
     href: "/use-cases/",
     panel: {
+      lead: "Start from the problem in your own words rather than from our service names. Each one links to the work that addresses it.",
+      primaryHeading: "Most asked for",
       primary: useCases.slice(0, MENU_PRIMARY_LIMIT).map((u, n) => ({
         index: String(n + 1).padStart(2, "0"),
         label: u.title,
         href: `/use-cases/${u.slug}/`,
         description: u.symptoms[0] ?? u.seo.primaryTopic,
       })),
+      columnsHeading: "Browse by outcome",
+      columns: groupedColumns(OUTCOME_GROUPS, useCases, "/use-cases/"),
       feature: {
         kind: "START HERE",
         title: "Not sure where to start?",
@@ -169,7 +360,7 @@ export const primaryNav: PrimaryNavItem[] = [
         ctaLabel: "Let's talk",
       },
       footerLink: {
-        label: `All ${useCases.length} use cases`,
+        label: `Explore all ${useCases.length} use cases`,
         href: "/use-cases/",
       },
     },
@@ -178,22 +369,21 @@ export const primaryNav: PrimaryNavItem[] = [
     label: "Technologies",
     href: "/technologies/",
     panel: {
+      lead: "Every page states what we use, why we chose it, and the cases where we would tell you to use something else.",
+      primaryHeading: "The stack",
       primary: technologies.slice(0, MENU_PRIMARY_LIMIT).map((t, n) => ({
         index: String(n + 1).padStart(2, "0"),
         label: t.title,
         href: `/technologies/${t.slug}/`,
         description: t.category,
       })),
-      columns: [
-        {
-          heading: "Build",
-          items: [
-            serviceLink("custom-software"),
-            serviceLink("web-applications"),
-            serviceLink("systems-integration"),
-          ].filter((i): i is NavigationItem => i !== null),
-        },
-      ],
+      columnsHeading: "Browse by capability",
+      /*
+        The same six groups the hub renders, linking into the hub's own
+        anchors. A menu that invents its own taxonomy teaches the visitor one
+        arrangement and then hands them a different one on arrival.
+      */
+      columns: technologyColumns(),
       feature: {
         kind: "PRACTICE",
         title: "Our engineering standards",
@@ -203,7 +393,7 @@ export const primaryNav: PrimaryNavItem[] = [
         ctaLabel: "Read the standards",
       },
       footerLink: {
-        label: `All ${technologies.length} technologies`,
+        label: `Explore all ${technologies.length} technologies`,
         href: "/technologies/",
       },
     },
@@ -212,14 +402,26 @@ export const primaryNav: PrimaryNavItem[] = [
     label: "Resources",
     href: "/resources/",
     panel: {
-      primary: resources.slice(0, 6).map((r, n) => ({
+      lead: "A guide gives you a method, a comparison weighs two options, a decision guide helps you work out whether to act at all.",
+      primaryHeading: "Latest",
+      primary: featuredResources().map((r, n) => ({
         index: String(n + 1).padStart(2, "0"),
         label: r.title,
         href: `/resources/${r.slug}/`,
         description: r.topic,
       })),
+      columnsHeading: "Browse by kind",
+      columns: resourceColumns(),
+      feature: {
+        kind: "GLOSSARY",
+        title: `${resourceCount("glossary")} terms, defined plainly`,
+        description:
+          "SEO, AI search, automation and analytics vocabulary, each defined in 40 words or fewer before anything else.",
+        href: "/resources/#glossary",
+        ctaLabel: "Open the glossary",
+      },
       footerLink: {
-        label: `All ${resources.length} resources`,
+        label: `Explore all ${resources.length} resources`,
         href: "/resources/",
       },
     },
@@ -228,6 +430,8 @@ export const primaryNav: PrimaryNavItem[] = [
     label: "Company",
     href: "/company/",
     panel: {
+      lead: "Who we are, how the work actually runs, and what we will and will not claim.",
+      primaryHeading: "The company",
       primary: [
         {
           index: "01",
@@ -260,46 +464,15 @@ export const primaryNav: PrimaryNavItem[] = [
           description: "Talk to us",
         },
       ],
+      columnsHeading: "How the work runs",
       /*
-        Methodology pages are grouped rather than added to the numbered list:
-        eleven primary items would overwhelm the panel, and these answer a
-        different question — how the work runs, not who we are. Without this
-        column they were orphans, reachable only by typing the URL.
+        Methodology and commitment pages are grouped rather than added to the
+        numbered list: eleven primary items would overwhelm the panel, and
+        these answer different questions — how the work runs, and what we
+        will not claim, rather than who we are. Without these columns they
+        were orphans, reachable only by typing the URL.
       */
-      columns: [
-        {
-          heading: "Methodology",
-          headingHref: "/company/approach/",
-          items: [
-            { label: "Discovery process", href: "/company/discovery-process/" },
-            {
-              label: "Digital growth methodology",
-              href: "/company/digital-growth-methodology/",
-            },
-            { label: "SEO methodology", href: "/company/seo-methodology/" },
-            {
-              label: "AI search methodology",
-              href: "/company/ai-search-methodology/",
-            },
-            { label: "Engagement models", href: "/company/engagement-models/" },
-          ],
-        },
-        {
-          heading: "How we build",
-          headingHref: "/technologies/engineering-standards/",
-          items: [
-            {
-              label: "Website development process",
-              href: "/company/website-development-process/",
-            },
-            {
-              label: "Software development process",
-              href: "/company/software-development-process/",
-            },
-            { label: "Automation approach", href: "/company/automation-approach/" },
-          ],
-        },
-      ],
+      columns: companyColumns(),
       feature: {
         kind: "WORK",
         title: "How we publish client work",
@@ -308,7 +481,10 @@ export const primaryNav: PrimaryNavItem[] = [
         href: "/case-studies/",
         ctaLabel: "See the standard",
       },
-      footerLink: { label: "About BizzFly", href: "/company/about/" },
+      footerLink: {
+        label: `Explore all ${allCompanyPages.length} company pages`,
+        href: "/company/",
+      },
     },
   },
 ];

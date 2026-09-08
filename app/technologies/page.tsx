@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
+import { SectionNav } from "@/components/navigation";
 import { EditorialHero } from "@/components/hero";
 import { SectionHeader, ConversionBand } from "@/components/sections";
 import { Button, TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
-import { technologies } from "@/content/technologies";
+import { technologies, technologyGroups } from "@/content/technologies";
 import { services } from "@/content/services";
 import { primaryCta } from "@/content/navigation";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
-import type { TechnologyGroupId } from "@/types/content";
 import styles from "./technologies.module.css";
 
 export const metadata: Metadata = buildMetadata(
@@ -24,40 +24,6 @@ export const metadata: Metadata = buildMetadata(
   },
   "/technologies/",
 );
-
-/** Grouped by business capability rather than by vendor or logo. */
-const groups: { id: TechnologyGroupId; label: string; role: string }[] = [
-  {
-    id: "ai",
-    label: "AI",
-    role: "Where language models genuinely help, and where a rule engine is the better answer.",
-  },
-  {
-    id: "automation",
-    label: "Automation & Integration",
-    role: "Connecting the systems you already run so data stops being carried by people.",
-  },
-  {
-    id: "web",
-    label: "Web",
-    role: "How pages are built and published, and whether machines can read them.",
-  },
-  {
-    id: "software",
-    label: "Software & Infrastructure",
-    role: "Where applications run, how they deploy, and what happens when they fail.",
-  },
-  {
-    id: "search-data",
-    label: "Search & Data",
-    role: "The measurement layer that tells you which of the above is actually working.",
-  },
-  {
-    id: "practice",
-    label: "Engineering Practice",
-    role: "How we build, so your own team can maintain it after we leave.",
-  },
-];
 
 export default function TechnologiesIndexPage() {
   return (
@@ -92,13 +58,25 @@ export default function TechnologiesIndexPage() {
           lead="Grouped by the business capability each layer supports, because a list of product names tells a buyer nothing useful."
         />
 
+        <SectionNav
+          label="Jump to a capability"
+          items={technologyGroups
+            .filter((group) => technologies.some((t) => t.group === group.id))
+            .map((group) => ({
+              label: group.label,
+              id: group.id,
+              count: technologies.filter((t) => t.group === group.id).length,
+            }))}
+          className="mt-8"
+        />
+
         <div className={styles.groups}>
-          {groups.map((group) => {
+          {technologyGroups.map((group) => {
             const items = technologies.filter((t) => t.group === group.id);
             if (items.length === 0) return null;
 
             return (
-              <section key={group.id} className={styles.group}>
+              <section key={group.id} id={group.id} className={styles.group}>
                 <div className={styles.groupHead}>
                   <h2 className={styles.groupLabel}>{group.label}</h2>
                   <p className={styles.groupRole}>{group.role}</p>

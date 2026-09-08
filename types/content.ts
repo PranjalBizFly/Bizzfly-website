@@ -341,6 +341,15 @@ export interface NavigationColumn {
   heading: string;
   headingHref?: string;
   items: NavigationItem[];
+  /**
+   * The way out of the group and into the whole of it. A panel-level
+   * "explore all" answers "where is the rest of this menu"; this answers
+   * "where is the rest of THIS category", which is a different question and
+   * the one a grouped menu creates by grouping.
+   */
+  viewAll?: NavigationItem;
+  /** Count or qualifier shown beside the heading, e.g. "26 sectors". */
+  meta?: string;
 }
 
 export interface NavigationFeature {
@@ -353,8 +362,18 @@ export interface NavigationFeature {
 }
 
 export interface MegaMenuPanel {
+  /**
+   * One sentence saying what this section of the site is for. A grouped
+   * menu is a table of contents, and a table of contents with no title
+   * makes the reader infer the subject from the entries.
+   */
+  lead?: string;
+  /** Label over the numbered column, e.g. "Start here". */
+  primaryHeading?: string;
   /** Numbered practice/primary list — the control column. */
   primary: (NavigationItem & { index?: string })[];
+  /** Label over the grouped region, e.g. "Browse by outcome". */
+  columnsHeading?: string;
   columns?: NavigationColumn[];
   feature?: NavigationFeature;
   secondaryFeature?: NavigationFeature;

@@ -228,7 +228,7 @@ export function Header({ nav, cta }: HeaderProps) {
   return (
     <>
       <header
-        className={`${styles.header} is-inverse`}
+        className={styles.header}
         data-condensed={condensed}
         onMouseLeave={handleHoverAway}
       >
@@ -244,7 +244,6 @@ export function Header({ nav, cta }: HeaderProps) {
                 alt is empty because the link is already labelled.
               */}
               <BrandLogo
-                variant="reversed"
                 alt=""
                 clearspace={false}
                 priority
@@ -257,7 +256,7 @@ export function Header({ nav, cta }: HeaderProps) {
                 artwork, not a redrawn or condensed lockup.
               */}
               <BrandLogo
-                variant="symbol-reversed"
+                variant="auto-symbol"
                 alt=""
                 clearspace={false}
                 priority

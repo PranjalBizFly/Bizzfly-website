@@ -82,7 +82,12 @@ const LOGO_DIRECT_USE = {
 
 /** The official artwork, and its true aspect ratio. */
 const OFFICIAL_LOGO_FILES = [
+  "public/brand/logo/bizzfly-logo.svg",
   "public/brand/logo/bizzfly-logo-reversed.svg",
+  "public/brand/logo/bizzfly-logo-on-green.svg",
+  "public/brand/logo/bizzfly-logo-mono-black.svg",
+  "public/brand/logo/bizzfly-logo-mono-white.svg",
+  "public/brand/logo/bizzfly-symbol.svg",
   "public/brand/logo/bizzfly-symbol-reversed.svg",
 ];
 const LOCKUP_RATIO = 634 / 144;
@@ -762,16 +767,45 @@ for (const { path, name } of files) {
  * exist where Next.js actually reads them from.
  * ------------------------------------------------------------------ */
 
-/* A path fragment unique to the official symbol artwork. */
-const SYMBOL_SIGNATURE = "M143.15 0.0463867V95.4364L95.43 143.146H9.14";
+/*
+ * A path fragment unique to the official app-icon artwork. The app icon is
+ * its own drawing in the brand package, not the lockup's symbol scaled down
+ * — guidelines p.17 is explicit that icon design and logo design are not the
+ * same thing — so it has its own signature.
+ */
+const SYMBOL_SIGNATURE = "M811.85,268.23v362.3L630.62,811.77H302.87";
 
-for (const icon of ["app/icon.svg", "app/apple-icon.svg"]) {
+/*
+ * Next.js reads the icons from app/, but the brand directory is the single
+ * source of truth. Requiring the two to be byte-identical is what stops the
+ * served icon drifting from the official artwork it was copied from.
+ */
+for (const [icon, source] of [
+  ["app/icon.svg", "public/brand/favicon/icon.svg"],
+  ["app/apple-icon.svg", "public/brand/favicon/apple-icon.svg"],
+]) {
   let src;
   try {
     src = read(icon);
   } catch {
-    violation("Favicon", icon, 0, "Required icon is missing", "absent", "the official symbol on the brand ink square");
+    violation("Favicon", icon, 0, "Required icon is missing", "absent", "a copy of " + source);
     continue;
+  }
+  let official = null;
+  try {
+    official = read(source);
+  } catch {
+    violation("Favicon", source, 0, "Official icon artwork is missing", "absent", "the app icon from the brand package");
+  }
+  if (official !== null && src !== official) {
+    violation(
+      "Favicon",
+      icon,
+      0,
+      "Icon has drifted from the official artwork it mirrors",
+      "differs from " + source,
+      "byte-identical to " + source,
+    );
   }
   if (!src.includes(SYMBOL_SIGNATURE)) {
     violation(
@@ -780,12 +814,14 @@ for (const icon of ["app/icon.svg", "app/apple-icon.svg"]) {
       0,
       "Icon does not contain the official symbol path — it has been redrawn or approximated",
       "unrecognised path data",
-      "the symbol path from public/brand/logo/bizzfly-symbol-reversed.svg, verbatim",
+      "the symbol path from the official app icon, verbatim",
     );
   }
   for (const m of src.matchAll(/fill="(#[0-9A-Fa-f]{3,8})"/g)) {
     const hex = m[1].toUpperCase();
-    const allowed = ["#A9CF46", "#0D1420", "#FFFFFF", "#FFF"];
+    /* Brand green, brand blue, brand ink and white — the palette the
+       official icon is drawn in. */
+    const allowed = ["#A9CF46", "#2C70D1", "#0D1420", "#FFFFFF", "#FFF"];
     if (!allowed.includes(hex)) {
       violation(
         "Favicon",

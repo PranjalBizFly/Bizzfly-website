@@ -54,6 +54,9 @@ const T = {
   ink900: '#0D1420', ink700: '#232E3F', ink500: '#55606E', ink400: '#6E7A8A',
   ink350: '#8B95A3', ink250: '#A9B4C4', ink150: '#DDE3EB', ink050: '#F5F7FA',
   white: '#FFFFFF', surface: '#F5F7FA', sunken: '#EAEEF4',
+  /* The tinted light band — a 1.09:1 lift off white, and the surfaces a
+     component gets when it sits inside one. */
+  tint: '#F1F5FC', tintSunken: '#E4EBF7', tintBorder: '#D7E1F2',
   deepMuted: '#C9D2F5',
   success: '#17734A', warning: '#8A5B00', error: '#B3261E',
 
@@ -79,6 +82,8 @@ const TOKEN_MAP = {
   '--ink-400': 'ink400', '--ink-350': 'ink350', '--ink-250': 'ink250',
   '--ink-150': 'ink150', '--ink-050': 'ink050',
   '--surface-muted': 'sunken',
+  '--surface-tint': 'tint', '--surface-tint-sunken': 'tintSunken',
+  '--border-tint': 'tintBorder',
   '--success': 'success', '--warning': 'warning', '--error': 'error',
 };
 
@@ -139,6 +144,26 @@ const ASSERTIONS = [
   ['inverse text on ink-700 surface',  T.ink050,  T.ink700, 4.5],
   // The header is an inverse surface carrying the primary button.
   ['header CTA fill vs header ground', T.blue500, T.ink900, 3],
+
+  // --- Tinted light context (bg --surface-tint) ---------------------------
+  // The light alternative to a dark band. Every light role has to survive
+  // the move intact, or a component would need to know it is on the tint.
+  ['tint: body text',                  T.ink900,  T.tint, 4.5],
+  ['tint: secondary heading',          T.ink700,  T.tint, 4.5],
+  ['tint: muted text',                 T.ink500,  T.tint, 4.5],
+  ['tint: link (blue-700)',            T.blue700, T.tint, 4.5],
+  ['tint: link hover (blue-900)',      T.blue900, T.tint, 4.5],
+  ['tint: brand purple text',          T.deep800, T.tint, 4.5],
+  ['tint: accent-edge blue-500 rule',  T.blue500, T.tint, 3],
+  ['tint: border-strong ink-400',      T.ink400,  T.tint, 3],
+  ['tint: focus ring',                 T.ink900,  T.tint, 3],
+  ['tint: CTA fill vs ground',         T.blue500, T.tint, 3],
+  // A card inside the band lifts to white; text has to hold on both.
+  ['tint: body text on raised card',   T.ink900,  T.white, 4.5],
+  ['tint: muted on raised card',       T.ink500,  T.white, 4.5],
+  ['tint: body text on sunken',        T.ink900,  T.tintSunken, 4.5],
+  ['tint: muted text on sunken',       T.ink500,  T.tintSunken, 4.5],
+  ['tint: link on sunken',             T.blue700, T.tintSunken, 4.5],
 
   // --- Inverse-alt context (bg deep-800) ----------------------------------
   // The deep ground is --deep-900, a near-black indigo. The brand purple is
@@ -220,6 +245,11 @@ const FORBIDDEN = [
   ['green-500 as text on surface',    T.green500, T.surface, 4.5],
   ['bright green as text on white',   T.greenBright, T.white, 4.5],
   ['green-500 as a rule on white',    T.green500, T.white,   3],
+  // The tint is a near-white, so it inherits every constraint white has.
+  ['green-500 as text on the tint',   T.green500, T.tint,    4.5],
+  ['green-500 as a rule on the tint', T.green500, T.tint,    3],
+  ['green-700 as a rule on the tint', T.green700, T.tint,    3],
+  ['ink-350 as a border on the tint', T.ink350,   T.tint,    3],
   ['blue-500 as body text on ink',    T.blue500, T.ink900,   4.5],
   ['deep-800 as any foreground on ink', T.deep800, T.ink900, 3],
   ['ink-400 as body text',            T.ink400,  T.white,   4.5],

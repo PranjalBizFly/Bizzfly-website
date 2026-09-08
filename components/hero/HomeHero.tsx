@@ -1,87 +1,75 @@
-import Image from "next/image";
-import { Container } from "@/components/layout/Container";
-import { Button, ButtonGroup, TextLink } from "@/components/buttons";
-import { DiscoveryDiagram } from "@/components/sections/DiscoveryDiagram";
+import Link from "next/link";
+import { Button, ButtonGroup } from "@/components/buttons";
+import { Marquee, MarqueeItem } from "@/components/motion/Marquee";
 import { primaryCta } from "@/content/navigation";
+import { visibilityLayers } from "@/content/homepage";
 import { getHomepageImages } from "@/content/images";
+import { CinematicHero } from "./CinematicHero";
 import styles from "./HomeHero.module.css";
 
 /**
  * Homepage hero.
  *
- * Combines authentic technology team visual realism with the discovery
- * diagram, demonstrating human expertise behind AI and digital systems.
+ * The photograph runs off the right edge of the viewport at full height and
+ * the type sits on the ground beside it, with the three jobs layered across
+ * the boundary as cards. That overlap is the whole composition: it is what
+ * separates an image-led hero from a picture placed next to a paragraph.
+ *
+ * The discovery diagram that used to sit in this hero has moved down to the
+ * problems section, which is the argument it actually illustrates — one
+ * buyer question reaching three surfaces, and a business absent from some.
+ *
+ * The band underneath runs the five discoverability surfaces continuously.
+ * It is the only place the whole spectrum appears above the fold, and it is
+ * real content: each cell links to the service page for that layer.
  */
 export function HomeHero() {
   const images = getHomepageImages();
 
   return (
-    <section className={styles.hero}>
-      <Container>
-        <div className={styles.grid}>
-          <div className={styles.content}>
-            <p className={styles.eyebrow}>
-              Digital growth · AI · Automation · Technology
-            </p>
+    <>
+      <CinematicHero
+        image={images.hero}
+        composition="bleed-right"
+        priority
+        eyebrow="Digital growth · AI · Automation · Technology"
+        title="Get found. Build well. Automate the rest."
+        lead="Your buyers now search in two places: Google, and the AI systems answering on Google's behalf. BizzFly makes businesses visible in both — then builds the websites, software and automation that turn that visibility into revenue."
+        actions={
+          <ButtonGroup>
+            <Button href={primaryCta.href} size="lg" withArrow>
+              {primaryCta.label}
+            </Button>
+            <Button href="/services/" size="lg" variant="secondary">
+              Explore services
+            </Button>
+          </ButtonGroup>
+        }
+        facts={[
+          { label: "Be found", value: "Search, AI answers and maps" },
+          { label: "Build", value: "Websites, software, applications" },
+          { label: "Automate", value: "Support, sales, back office" },
+        ]}
+      />
 
-            <h1 className={styles.title}>
-              Get found. Build well. Automate the rest.
-            </h1>
-
-            <p className={styles.lead}>
-              Your buyers now search in two places: Google, and the AI systems
-              answering on Google&rsquo;s behalf. BizzFly makes businesses
-              visible in both — then builds the websites, software and
-              automation that turn that visibility into revenue.
-            </p>
-
-            <div className={styles.actions}>
-              <ButtonGroup>
-                <Button href={primaryCta.href} size="lg" withArrow>
-                  {primaryCta.label}
-                </Button>
-                <TextLink href="/services/">Explore services</TextLink>
-              </ButtonGroup>
-            </div>
-
-            <dl className={styles.summary}>
-              <div className={styles.summaryItem}>
-                <dt>Be found</dt>
-                <dd>Search, AI answers and maps</dd>
-              </div>
-              <div className={styles.summaryItem}>
-                <dt>Build</dt>
-                <dd>Websites, software, applications</dd>
-              </div>
-              <div className={styles.summaryItem}>
-                <dt>Automate</dt>
-                <dd>Support, sales, back office</dd>
-              </div>
-            </dl>
-          </div>
-
-          <div className={styles.visual}>
-            <div className={styles.heroVisualFrame}>
-              <Image
-                src={images.hero.src}
-                alt={images.hero.alt}
-                width={images.hero.width}
-                height={images.hero.height}
-                priority
-                sizes="(min-width: 1280px) 500px, (min-width: 1024px) 45vw, 100vw"
-                className={styles.heroImage}
-              />
-              <div className={styles.heroBadge}>
-                <span className={styles.heroBadgeDot} />
-                <span>BizzFly engineering & growth team · Pune</span>
-              </div>
-            </div>
-            <div className={styles.diagramWrapper}>
-              <DiscoveryDiagram />
-            </div>
-          </div>
-        </div>
-      </Container>
-    </section>
+      {/*
+        Full-bleed by design: it sits outside any container so it runs the
+        width of the viewport and reads as a rule under the hero rather than
+        as another contained block.
+      */}
+      <div className={styles.ticker}>
+        <Marquee label="The five discoverability surfaces" duration={48}>
+          {visibilityLayers.map((layer) => (
+            <MarqueeItem key={layer.code}>
+              <Link href={layer.href} className={styles.tickerLink}>
+                <span className={styles.tickerCode}>{layer.code}</span>
+                <span className={styles.tickerName}>{layer.name}</span>
+                <span className={styles.tickerSurface}>{layer.surface}</span>
+              </Link>
+            </MarqueeItem>
+          ))}
+        </Marquee>
+      </div>
+    </>
   );
 }

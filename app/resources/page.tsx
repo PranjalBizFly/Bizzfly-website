@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
+import { SectionNav } from "@/components/navigation";
 import { EditorialHero } from "@/components/hero";
 import {
   SectionHeader,
@@ -48,6 +49,16 @@ const TYPE_LABEL: Record<string, string> = {
   glossary: "Glossary",
 };
 
+/** Anchor ids the mega menu links to. Stable, and independent of the counts. */
+const TYPE_ANCHOR: Record<string, string> = {
+  guide: "guides",
+  comparison: "comparisons",
+  decision: "decisions",
+  checklist: "checklists",
+  article: "articles",
+  glossary: "glossary",
+};
+
 export default function ResourcesIndexPage() {
   const published = resources.filter(
     (r) => (r.status ?? "published") === "published",
@@ -79,6 +90,13 @@ export default function ResourcesIndexPage() {
     const items = published.filter((r) => r.type === type);
     return {
       heading: `${TYPE_LABEL[type] ?? type} (${items.length})`,
+      /*
+       * Explicit, because the heading carries a count: deriving the anchor
+       * from it would put "-24" in the URL and break every link to this
+       * group the next time a resource is published. The mega menu links
+       * here by type, so these ids are a contract.
+       */
+      id: TYPE_ANCHOR[type],
       items: items.map((r) => ({
         label: r.title,
         href: `/resources/${r.slug}/`,
@@ -162,7 +180,20 @@ export default function ResourcesIndexPage() {
           title={`All ${published.length} resources`}
           lead="Grouped by what each one is for. A guide gives you a method, a comparison weighs two options, a decision guide helps you work out whether to act at all, and the glossary just defines the term."
         />
-        <Directory groups={byType} />
+        <SectionNav
+          label="Jump to a kind"
+          items={TYPE_ORDER.filter((type) =>
+            published.some((r) => r.type === type),
+          ).map((type) => ({
+            label: TYPE_LABEL[type] ?? type,
+            id: TYPE_ANCHOR[type],
+            count: published.filter((r) => r.type === type).length,
+          }))}
+          className="mt-8"
+        />
+        <div className="mt-10">
+          <Directory groups={byType} />
+        </div>
       </Section>
 
       {/* The capability axis — service pages, not a second copy of the list. */}

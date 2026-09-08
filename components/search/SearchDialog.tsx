@@ -3,13 +3,29 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { search, groupResults, popularSearches } from "@/lib/search";
+import {
+  searchSections,
+  flattenSections,
+  popularSearches,
+  browseSections,
+  totalPageCount,
+} from "@/lib/search";
 import styles from "./SearchDialog.module.css";
 
 interface SearchDialogProps {
   open: boolean;
   onClose: () => void;
 }
+
+/**
+ * How many rows a section shows before it defers to the full results page.
+ *
+ * Three rather than four so that three sections clear the fold instead of
+ * two: the point of grouping is that the reader sees the shape of the whole
+ * answer, and a panel showing Services and Industries only looks like an
+ * ungrouped list that happens to have a label on it.
+ */
+const PER_SECTION = 3;
 
 export function SearchDialog({ open, onClose }: SearchDialogProps) {
   const router = useRouter();
@@ -26,9 +42,21 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     return () => clearTimeout(timer);
   }, [query]);
 
-  const results = useMemo(() => search(debounced, { limit: 20 }), [debounced]);
-  const groups = useMemo(() => groupResults(results), [results]);
-  const flat = useMemo(() => groups.flatMap(([, items]) => items), [groups]);
+  /*
+   * Section-wise rather than one ranked list. With 145 resources against 26
+   * industries, a flat top-20 for "seo" was a wall of glossary entries and
+   * no industry at all — the index is not evenly sized, so an unallocated
+   * list shows the biggest section rather than the best answers.
+   */
+  const sections = useMemo(
+    () => searchSections(debounced, { perSection: PER_SECTION }),
+    [debounced],
+  );
+  const flat = useMemo(() => flattenSections(sections), [sections]);
+  const totalMatches = useMemo(
+    () => sections.reduce((sum, section) => sum + section.total, 0),
+    [sections],
+  );
 
   useEffect(() => setActiveIndex(0), [debounced]);
 
@@ -76,7 +104,21 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [open, onClose]);
 
+  /* Keep the highlighted row in view when the arrow keys walk past the fold. */
+  useEffect(() => {
+    if (!open) return;
+    dialogRef.current
+      ?.querySelector('[data-active="true"]')
+      ?.scrollIntoView({ block: "nearest" });
+  }, [activeIndex, open]);
+
   if (!open) return null;
+
+  const goToAll = () => {
+    const q = query.trim();
+    router.push(q ? `/search/?q=${encodeURIComponent(q)}` : "/search/");
+    onClose();
+  };
 
   const onKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === "Escape") {
@@ -125,9 +167,8 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
       if (target) {
         router.push(target.href);
         onClose();
-      } else if (query.trim()) {
-        router.push(`/search/?q=${encodeURIComponent(query.trim())}`);
-        onClose();
+      } else {
+        goToAll();
       }
     }
   };
@@ -188,11 +229,31 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   ))}
                 </div>
               </div>
+
+              <div className={styles.emptySection}>
+                <p className={styles.emptyHeading}>Browse by section</p>
+                <div className={styles.chips}>
+                  {browseSections.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={styles.chip}
+                      onClick={onClose}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           ) : flat.length === 0 ? (
             <div className={styles.empty}>
               <p className={styles.emptyTitle}>
                 No matches for <strong>{debounced}</strong>.
+              </p>
+              <p className={styles.emptyLead}>
+                Try a broader word, or open the directory and scan the sections
+                — every published page is listed there.
               </p>
 
               <div className={styles.emptySection}>
@@ -212,61 +273,105 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
               </div>
 
               <div className={styles.emptySection}>
-                <p className={styles.emptyHeading}>Browse by</p>
+                <p className={styles.emptyHeading}>Browse by section</p>
                 <div className={styles.chips}>
-                  <Link href="/services/" className={styles.chip} onClick={onClose}>
-                    Services
-                  </Link>
-                  <Link href="/industries/" className={styles.chip} onClick={onClose}>
-                    Industries
-                  </Link>
-                  <Link href="/use-cases/" className={styles.chip} onClick={onClose}>
-                    Use Cases
-                  </Link>
-                  <Link href="/resources/" className={styles.chip} onClick={onClose}>
-                    Resources
-                  </Link>
+                  {browseSections.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={styles.chip}
+                      onClick={onClose}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
                 </div>
               </div>
 
               <div className={styles.emptySection}>
                 <p className={styles.emptyHeading}>Still stuck?</p>
                 <Link href="/contact/" className={styles.chip} onClick={onClose}>
-                  Book a consultation &rarr;
+                  Tell us what you are looking for &rarr;
                 </Link>
               </div>
             </div>
           ) : (
-            groups.map(([category, items]) => (
-              <div key={category}>
-                <p className={styles.groupHeading}>{category}</p>
-                {items.map((item) => {
-                  runningIndex += 1;
-                  return (
-                    <Link
-                      key={item.id}
-                      href={item.href}
-                      className={styles.result}
-                      data-active={runningIndex === activeIndex}
-                      onClick={onClose}
+            <div className={styles.sections}>
+              {sections.map((section) => (
+                <section key={section.category} className={styles.section}>
+                  <p className={styles.groupHeading}>
+                    <span>{section.category}</span>
+                    <span className={styles.groupCount}>{section.total}</span>
+                  </p>
+
+                  {section.items.map((item) => {
+                    runningIndex += 1;
+                    return (
+                      <Link
+                        key={item.id}
+                        href={item.href}
+                        className={styles.result}
+                        data-active={runningIndex === activeIndex}
+                        onClick={onClose}
+                      >
+                        <span className={styles.resultTitle}>{item.title}</span>
+                        <span className={styles.resultDescription}>
+                          {item.description}
+                        </span>
+                        <span className={styles.resultUrl}>{item.href}</span>
+                      </Link>
+                    );
+                  })}
+
+                  {/*
+                    Only when the section is actually holding something back.
+                    A "see all" under four of four results is a link that
+                    promises more and delivers the same four.
+                  */}
+                  {section.total > section.items.length ? (
+                    <button
+                      type="button"
+                      className={styles.sectionMore}
+                      onClick={goToAll}
                     >
-                      <span className={styles.resultTitle}>{item.title}</span>
-                      <span className={styles.resultDescription}>
-                        {item.description}
-                      </span>
-                      <span className={styles.resultUrl}>{item.href}</span>
-                    </Link>
-                  );
-                })}
-              </div>
-            ))
+                      {section.total - section.items.length} more in{" "}
+                      {section.category}
+                      <span aria-hidden="true">&rarr;</span>
+                    </button>
+                  ) : null}
+                </section>
+              ))}
+            </div>
           )}
         </div>
+
+        {/*
+          The way out of a capped panel. Every list above is a selection, so
+          the directory has to be one keystroke away rather than something
+          the visitor has to know exists.
+        */}
+        <button type="button" className={styles.exploreAll} onClick={goToAll}>
+          <span className={styles.exploreAllLabel}>
+            {hasQuery && totalMatches > 0
+              ? `See all ${totalMatches} result${totalMatches === 1 ? "" : "s"} for “${debounced}”`
+              : "Explore all pages"}
+          </span>
+          <span className={styles.exploreAllMeta}>
+            {hasQuery && totalMatches > 0
+              ? "Full results"
+              : `${totalPageCount} pages`}
+            <span aria-hidden="true">&rarr;</span>
+          </span>
+        </button>
 
         <div className={styles.footer}>
           <span>&uarr;&darr; navigate · &crarr; open · esc close</span>
           <span aria-live="polite">
-            {hasQuery ? `${flat.length} result${flat.length === 1 ? "" : "s"}` : ""}
+            {hasQuery
+              ? totalMatches > 0
+                ? `${totalMatches} result${totalMatches === 1 ? "" : "s"} in ${sections.length} section${sections.length === 1 ? "" : "s"}`
+                : "No results"
+              : ""}
           </span>
         </div>
       </div>

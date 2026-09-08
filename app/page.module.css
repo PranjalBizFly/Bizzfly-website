@@ -4,8 +4,8 @@
   border-top: 1px solid var(--border);
 }
 
-.sectionMedia {
-  margin-top: var(--space-12);
+.statWrap {
+  margin-top: var(--space-8);
 }
 
 .closingNote {
@@ -21,4 +21,80 @@
 
 .inlineLink:hover {
   text-decoration-thickness: 2px;
+}
+
+/* ==========================================================================
+   The technology band
+   --------------------------------------------------------------------------
+   Full-bleed, so it reads as a rule between two sections rather than as a
+   third section. Set on the dark ground the header and hero ticker already
+   use, which is what ties the three together down the page.
+   ========================================================================== */
+.techBand {
+  background: var(--surface-inverse);
+  border-block: 1px solid var(--border-inverse);
+  padding-block: var(--space-6);
+}
+
+.techLink {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  text-decoration: none;
+}
+
+.techName {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-medium);
+  color: var(--text-inverse);
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+
+.techLink:hover .techName {
+  color: var(--green-500);
+}
+
+.techCategory {
+  font-family: var(--font-label);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--text-inverse-muted);
+}
+
+/* Separator between cells, so the band reads as a list. */
+.techCategory::after {
+  content: "/";
+  margin-left: var(--space-6);
+  color: var(--border-inverse);
+}
+
+/*
+ * The FAQ column.
+ *
+ * Narrower than the section it sits in: an accordion is a reading column, and
+ * a question set the full 1280px wide leaves the chevron stranded a long way
+ * from the question it belongs to.
+ */
+.faqWrap {
+  margin-top: var(--space-12);
+  max-width: var(--container-content);
+}
+
+/*
+ * The diagram under the problem list. Centred and held to a readable width:
+ * the SVG is drawn at 420×300 and stretching it the full 1280px would make
+ * the labels float apart from the boxes they belong to.
+ */
+.sectionDiagram {
+  margin-top: var(--space-16);
+  padding-top: var(--space-12);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+}
+
+.sectionDiagram > * {
+  max-width: 34rem;
 }

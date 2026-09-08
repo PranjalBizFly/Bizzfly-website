@@ -207,6 +207,10 @@ it.
 | `--surface-sunken` | `#EAEEF4` | Input fields, code blocks |
 | `--surface-inverse` | `#0D1420` | Dark sections |
 | `--surface-inverse-alt` | `#2A1ED1` | Alternate dark sections |
+| `--surface-tint` | `#F1F5FC` | The tinted light band — a section that needs to be its own movement without a dark ground |
+| `--surface-tint-raised` | `#FFFFFF` | A card inside the tinted band: it lifts to white rather than sinking to grey |
+| `--surface-tint-sunken` | `#E4EBF7` | Inputs and wells inside the tinted band |
+| `--border-tint` | `#D7E1F2` | Hairline inside the tinted band |
 | `--border` | `#DDE3EB` | Default hairline |
 | `--border-strong` | `#8B95A3` | Inputs, focused containers |
 | `--border-inverse` | `rgba(245,247,250,0.16)` | Rules on dark |

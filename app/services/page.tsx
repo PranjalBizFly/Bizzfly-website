@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
+import { SectionNav } from "@/components/navigation";
 import { EditorialHero } from "@/components/hero";
 import {
   SectionHeader,
@@ -84,6 +85,18 @@ export default function ServicesIndexPage() {
           eyebrow="Directory"
           title="Where to start"
           lead="Each group states the situation it is for. If two apply, that is normal — say so when you get in touch and we will tell you which constraint to fix first."
+        />
+
+        <SectionNav
+          label="Jump to a capability group"
+          items={grouped
+            .filter((group) => group.services.length > 0)
+            .map((group) => ({
+              label: group.label,
+              id: group.id,
+              count: group.services.length,
+            }))}
+          className="mt-8"
         />
 
         <div className={styles.groups}>

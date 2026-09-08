@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/layout/Section";
-import { SplitHero, EditorialHero } from "@/components/hero";
+import { ExploreNext } from "@/components/navigation";
+import { SplitHero, EditorialHero, CinematicHero, toHeroFacts } from "@/components/hero";
 import {
   SectionHeader,
   NumberedList,
@@ -13,7 +14,6 @@ import {
   EditorialBlock,
   ContentBlock,
   Diagram,
-  VisualStoryBlock,
 } from "@/components/sections";
 import { CtaBlock, TextLink } from "@/components/buttons";
 import { BodyText, Heading } from "@/components/typography";
@@ -119,6 +119,11 @@ export default async function ServicePage({ params }: PageProps) {
 
   const serviceVisual = getServiceImage(slug);
 
+  /* The spec list the old hero showed as bullets, now the hero fact cards. */
+  const heroFacts = toHeroFacts(
+    service ? service.whoFor : childServices.slice(0, 6).map((s) => s.title),
+  );
+
   /*
     Composition variants. The order and emphasis of sections changes with the
     layout, so a technology-led service does not read like a process-led one —
@@ -136,18 +141,16 @@ export default async function ServicePage({ params }: PageProps) {
       </Section>
     ) : null,
 
-    visual: serviceVisual ? (
-      <Section key="visual" spacing="md" width="content">
-        <VisualStoryBlock
-          image={serviceVisual}
-          variant={layout === "editorial" ? "C" : "B"}
-          reverse={layout === "technology-led" || layout === "process-led"}
-          eyebrow={entity.title}
-          title={service ? `Delivering ${service.title.toLowerCase()} in practice` : `Core capabilities: ${entity.title}`}
-          lead={entity.answer}
-        />
-      </Section>
-    ) : null,
+    /*
+     * The photograph moved to the hero.
+     *
+     * Each service owns exactly one commissioned image and no image is ever
+     * shown on two pages, so this section and the hero were competing for
+     * the same asset. Repeating it here would have been the one thing the
+     * image system forbids, and cropping it twice does not make it two
+     * visuals.
+     */
+    visual: null,
 
     included: service?.included?.length ? (
       <Section key="included" spacing="lg">
@@ -276,8 +279,26 @@ export default async function ServicePage({ params }: PageProps) {
       <JsonLd data={serviceSchema(entity.title, entity.seo.description, path)} />
       <JsonLd data={faqSchema(entity.faqs ?? [])} />
 
-      {/* Editorial layouts get a typographic hero; the rest get the split. */}
-      {layout === "editorial" && !practice ? (
+      {/*
+        The service photograph opens the page rather than appearing halfway
+        down it. Every service has exactly one commissioned image, so putting
+        it in the hero is a choice about where the one visual does most work
+        — and bleed-left is this template's signature, distinct from the
+        industry banner and the use-case portrait.
+      */}
+      {serviceVisual ? (
+        <CinematicHero
+          image={serviceVisual}
+          composition="bleed-left"
+          eyebrow={group?.label ?? parentPractice?.title ?? "Services"}
+          title={entity.title}
+          lead={entity.answer}
+          breadcrumbs={breadcrumbs}
+          factsHeading={service ? "Who this is for" : "In this practice"}
+          facts={heroFacts}
+          actions={<CtaBlock cta={entity.cta} size="lg" />}
+        />
+      ) : layout === "editorial" && !practice ? (
         <EditorialHero
           eyebrow={group?.label ?? parentPractice?.title ?? "Services"}
           title={entity.title}
@@ -299,18 +320,7 @@ export default async function ServicePage({ params }: PageProps) {
         />
       )}
 
-      {/* Practice hub visual overview */}
-      {practice && serviceVisual ? (
-        <Section spacing="md" width="content">
-          <VisualStoryBlock
-            image={serviceVisual}
-            variant="C"
-            priority
-            caption={serviceVisual.caption || `BizzFly ${practice.title} practice in Pune.`}
-          />
-        </Section>
-      ) : null}
-
+      {/* The practice photograph is the hero image now — see `visual` above. */}
       {/* Practice hubs route; services explain. */}
       {practice && childServices.length > 0 ? (
         <Section spacing="lg">
@@ -363,6 +373,10 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         </Section>
       ) : null}
+
+      <Section spacing="md">
+        <ExploreNext href={path} />
+      </Section>
 
       <ConversionBand cta={entity.cta} />
     </>

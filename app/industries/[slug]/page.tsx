@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/layout/Section";
-import { SplitHero, EditorialHero } from "@/components/hero";
+import { ExploreNext } from "@/components/navigation";
+import { SplitHero, EditorialHero, CinematicHero, toHeroFacts } from "@/components/hero";
 import {
   SectionHeader,
   NumberedList,
@@ -12,7 +13,6 @@ import {
   ContentBlock,
   EditorialBlock,
   Diagram,
-  VisualStoryBlock,
 } from "@/components/sections";
 import { CtaBlock, TextLink } from "@/components/buttons";
 import { BodyText, Heading } from "@/components/typography";
@@ -101,24 +101,15 @@ export default async function IndustryPage({ params }: PageProps) {
   const industryVisual = getIndustryImage(slug);
 
   /*
-   * Editorial context enriched with topic-specific industry visual.
+   * The sector photograph is the hero band now. Each industry owns exactly
+   * one image and none is ever shown twice, so this section carries the
+   * argument in type instead of cropping the same picture a second time.
    */
   const context = (
     <Section key="context" spacing="md" width="content">
-      {industryVisual ? (
-        <VisualStoryBlock
-          image={industryVisual}
-          variant="B"
-          reverse
-          eyebrow="Sector Context"
-          title={`Digital growth for ${industry.title}`}
-          lead={industry.context}
-        />
-      ) : (
-        <ContentBlock>
-          <BodyText size="lg">{industry.context}</BodyText>
-        </ContentBlock>
-      )}
+      <ContentBlock>
+        <BodyText size="lg">{industry.context}</BodyText>
+      </ContentBlock>
     </Section>
   );
 
@@ -180,15 +171,29 @@ export default async function IndustryPage({ params }: PageProps) {
       <JsonLd data={faqSchema(industry.faqs ?? [])} />
 
       {/* The sector's problems appear in the hero, before any capability. */}
-      <Hero
-        eyebrow="Industries"
-        title={industry.title}
-        lead={industry.answer}
-        breadcrumbs={breadcrumbs}
-        asideHeading="What we see in this sector"
-        asideItems={industry.problems.map((problem) => problem.title)}
-        actions={<CtaBlock cta={industry.cta} size="lg" />}
-      />
+      {industryVisual ? (
+        <CinematicHero
+          image={industryVisual}
+          composition="banner"
+          eyebrow="Industries"
+          title={industry.title}
+          lead={industry.answer}
+          breadcrumbs={breadcrumbs}
+          factsHeading="What we see in this sector"
+          facts={toHeroFacts(industry.problems.map((problem) => problem.title))}
+          actions={<CtaBlock cta={industry.cta} size="lg" />}
+        />
+      ) : (
+        <Hero
+          eyebrow="Industries"
+          title={industry.title}
+          lead={industry.answer}
+          breadcrumbs={breadcrumbs}
+          asideHeading="What we see in this sector"
+          asideItems={industry.problems.map((problem) => problem.title)}
+          actions={<CtaBlock cta={industry.cta} size="lg" />}
+        />
+      )}
 
       {order}
 
@@ -223,6 +228,10 @@ export default async function IndustryPage({ params }: PageProps) {
           </div>
         </Section>
       ) : null}
+
+      <Section spacing="md">
+        <ExploreNext href={path} />
+      </Section>
 
       <ConversionBand cta={industry.cta} />
     </>

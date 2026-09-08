@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/layout/Section";
+import { ExploreNext } from "@/components/navigation";
 import {
   SectionHeader,
   FAQBlock,
@@ -250,6 +251,10 @@ export default async function ResourcePage({ params }: PageProps) {
           <RelatedContent mode="split" heading="Read next" items={resource.related} />
         </Section>
       ) : null}
+
+      <Section spacing="md">
+        <ExploreNext href={`/resources/${slug}/`} />
+      </Section>
 
       {/* Glossary pages carry no hard CTA — tier T1 at most. */}
       {isGlossary ? (
