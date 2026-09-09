@@ -5,16 +5,38 @@ import { SectionNav } from "@/components/navigation";
 import { EditorialHero } from "@/components/hero";
 import {
   SectionHeader,
-  RelatedContent,
+  CardTrack,
   ConversionBand,
+  type CardTrackEntry,
 } from "@/components/sections";
 import { Button, ButtonGroup, TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { services } from "@/content/services";
 import { practices } from "@/content/practices";
+import { getServiceImage } from "@/content/images";
 import { serviceGroups } from "@/content/service-meta";
 import { primaryCta } from "@/content/navigation";
 import { buildMetadata } from "@/lib/seo";
+
+/*
+ * Each discipline carries the photograph already assigned to its practice
+ * page, so the card and the page it opens show the same frame. All six
+ * resolve; none is shared with another practice.
+ */
+const practiceCards: CardTrackEntry[] = practices
+  .map((practice, index) => {
+    const image = getServiceImage(practice.slug);
+    return image
+      ? {
+          index: String(index + 1).padStart(2, "0"),
+          title: practice.title,
+          description: practice.menuDescription,
+          href: `/services/${practice.slug}/`,
+          image,
+        }
+      : null;
+  })
+  .filter((entry): entry is CardTrackEntry => entry !== null);
 import { site } from "@/content/site";
 import styles from "./services.module.css";
 
@@ -179,14 +201,25 @@ export default function ServicesIndexPage() {
           title="Or browse by discipline"
           lead="The same services, grouped by the team that delivers them rather than by the problem they solve."
         />
-        <RelatedContent
-          mode="list"
-          items={practices.map((practice) => ({
-            label: practice.title,
-            href: `/services/${practice.slug}/`,
-            type: "PRACTICE",
-            description: practice.menuDescription,
-          }))}
+        {/*
+          The six disciplines as a card row rather than the numbered list they
+          were.
+
+          This section follows a directory of forty-five service links, so a
+          second dense list of text was the worst thing that could sit here —
+          the disciplines are the coarse way in, and giving each one a frame
+          is what separates them from the catalogue above.
+
+          No autoplay. Six cards drift for about two seconds before looping,
+          which is motion without discovery; the track stays draggable and
+          keyed instead. Contrast with the industries showcase, where
+          twenty-six items make the drift the point.
+        */}
+        <CardTrack
+          entries={practiceCards}
+          label="Practices"
+          action="View practice"
+          autoplay={false}
         />
       </Section>
 

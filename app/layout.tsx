@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Funnel_Sans, Poppins } from "next/font/google";
 import { Header } from "@/components/navigation/Header";
+import { ValueTicker } from "@/components/navigation/ValueTicker";
 import { Footer } from "@/components/footer/Footer";
 import { BackToTop } from "@/components/navigation/BackToTop";
 import { site, locale } from "@/content/site";
@@ -161,6 +162,12 @@ export default function RootLayout({
           Skip to content
         </a>
         <div className="site">
+          {/*
+            Above the header in the document, and the header is sticky — so the
+            strip scrolls away on the first gesture instead of occupying the
+            fixed chrome for the whole session.
+          */}
+          <ValueTicker />
           <Header nav={primaryNav} cta={primaryCta} />
           <main id="main" className="main">
             {children}

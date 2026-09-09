@@ -155,6 +155,52 @@
   }
 }
 
+/*
+ * ROW ALIGNMENT ACROSS THE FOUR STAGES.
+ *
+ * Each stage laid its five blocks out in its own normal flow, so every block
+ * sat wherever the block above it happened to end — and the four stages do
+ * not carry the same amount of text. Scale needs two rows of pills where the
+ * others need one, and Convert runs three lines of constraint where Discover
+ * runs five. The result was four columns whose pills, paragraphs and divider
+ * rules all started at different heights: read across, nothing lined up.
+ *
+ * The fix is to make the row structure belong to the TRACK rather than to
+ * each stage. The track declares five rows — head, outcome, disciplines,
+ * constraint, items — and each stage spans all five as a subgrid, so a row
+ * is as tall as the tallest stage needs and every stage starts that row on
+ * the same line. Alignment then holds for any copy, including copy that has
+ * not been written yet, which a hand-set min-height would not.
+ *
+ * row-gap: 0 because the blocks already carry their own top margins, and
+ * those margins are equal across the four stages. Letting the inherited
+ * 40px column gap apply to five rows as well would add 160px of air.
+ *
+ * align-items: start so each block sits at the top of its row and keeps its
+ * natural height — stretch would spread the item list's rows down the tallest
+ * column's spare space.
+ *
+ * Behind @supports because the fallback has to be the old behaviour, not a
+ * broken one: `grid-row: span 5` without subgrid would span rows the stage
+ * cannot fill.
+ */
+@media (min-width: 900px) {
+  @supports (grid-template-rows: subgrid) {
+    .track {
+      grid-template-rows: repeat(5, auto);
+      row-gap: 0;
+    }
+
+    .stage {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 5;
+      align-self: stretch;
+      align-items: start;
+    }
+  }
+}
+
 /* --- Head: node, index, name --------------------------------------------- */
 .head {
   display: grid;

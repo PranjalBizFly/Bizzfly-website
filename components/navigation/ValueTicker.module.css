@@ -1,0 +1,51 @@
+/*
+ * The strip above the header.
+ *
+ * Deliberately quiet: it is the first thing on the page and it is not the
+ * point of the page. Inverse ground so it reads as chrome rather than as a
+ * section, one hairline below it, and a line height tight enough that the
+ * whole band is under 40px.
+ */
+.band {
+  background: var(--surface-inverse);
+  color: var(--text-inverse);
+  border-bottom: 1px solid var(--border-inverse);
+  padding-block: var(--space-2);
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/*
+ * The mark takes the brand green here, which is the pairing this ground was
+ * chosen for: green cannot be text on a light surface at any weight, and on
+ * ink it reaches 10.28:1. As a separator at 0.7em it is a shape rather than
+ * a character, so it never has to carry meaning on its own.
+ */
+.glyph {
+  flex: none;
+  color: var(--green-500);
+}
+
+.text {
+  font-family: var(--font-label);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-meta);
+  color: var(--text-inverse-muted);
+  white-space: nowrap;
+}
+
+/*
+ * The band is the one piece of chrome a phone can most afford to lose: it is
+ * six statements a visitor cannot act on, above a header they can. Below the
+ * width where the statements would be more scroll than signal, it goes.
+ */
+@media (max-width: 639px) {
+  .band {
+    display: none;
+  }
+}

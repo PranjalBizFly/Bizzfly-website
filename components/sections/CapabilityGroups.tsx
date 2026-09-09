@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useId, useState } from "react";
+import { Glyph } from "@/components/brand/Glyph";
 import { capabilityGroups } from "@/content/homepage";
 import type { ImageMetadata } from "@/content/images/types";
 import styles from "./CapabilityGroups.module.css";
@@ -111,6 +112,13 @@ export function CapabilityGroups({ images }: CapabilityGroupsProps) {
                         {group.items.map((item) => (
                           <li key={item.href}>
                             <Link href={item.href} className={styles.railLink}>
+                              {/*
+                                The mark stands in for a bullet. The rail
+                                wraps, so a list marker would be lost the
+                                moment a row broke — carrying it inside each
+                                link keeps every item marked wherever it lands.
+                              */}
+                              <Glyph className={styles.railGlyph} size="0.6em" />
                               {item.label}
                             </Link>
                           </li>

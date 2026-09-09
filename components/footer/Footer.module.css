@@ -1,10 +1,11 @@
 /*
  * The footer is a directory.
  *
- * A brand column carrying the lockup, the address and the two actions, then
- * seven section columns, then a centred legal bar. It is the densest block on
- * the site by design — this is where someone who did not find what they came
- * for goes looking.
+ * A brand column carrying the lockup, the positioning, the three published
+ * values and the verified contact record; then five section columns; then a
+ * sixth that stacks the Company links, the commitments and the two actions.
+ * It is the densest block on the site by design — this is where someone who
+ * did not find what they came for goes looking.
  */
 .footer {
   position: relative;
@@ -54,16 +55,19 @@
   gap: var(--section-sm) var(--space-12);
 }
 
-@media (min-width: 1024px) {
+/*
+ * The brand column takes a side track only where there is width for both.
+ *
+ * At 1024 it did: 19rem out of a 944px content width left the four directory
+ * tracks about 115px each, which is where "We're hiring" broke over two lines
+ * and the commitment pills came out four words tall. Below 1280 the brand
+ * block sits above the directory instead and the directory gets the full
+ * width, which is what those tracks actually need.
+ */
+@media (min-width: 1280px) {
   .main {
     /* The brand column is fixed; the directory takes whatever is left. */
-    grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
-    /*
-     * 48px, not 64. The directory columns were given a wider gutter between
-     * them and that width has to come from somewhere — taking it here costs
-     * one gap that nothing reads across, rather than narrowing seven columns
-     * whose links already wrap.
-     */
+    grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
     gap: var(--space-12);
   }
 }
@@ -73,23 +77,21 @@
 .brand {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   gap: var(--space-6);
 }
 
 .brandLogo {
   display: block;
+  align-self: flex-start;
 }
 
 /*
  * One paragraph, wrapping to its column.
  *
- * It was capped at --measure-narrow (30ch, about 250px at this size) inside a
- * 288px column, so the cap rather than the column decided the wrap and the
- * sentence broke a word or two earlier than it needed to on every line. With
- * the column governing on desktop it reads as a paragraph; the card measure
- * only takes over on a phone, where the column is the full viewport and
- * something has to stop the line running the width of the screen.
+ * The card measure only takes over on a phone, where the column is the full
+ * viewport and something has to stop the line running the width of the
+ * screen. On desktop the column governs, and it reads as a paragraph.
  */
 .brandLine {
   font-size: var(--text-body-sm);
@@ -99,81 +101,198 @@
   text-wrap: pretty;
 }
 
-.address,
-.contactLines {
-  font-style: normal;
-  font-size: var(--text-body-sm);
-  line-height: var(--leading-relaxed);
-  color: var(--muted);
-  margin: 0;
-}
-
+/* --- Social row ---------------------------------------------------------- */
+/*
+ * Built, and empty. `site.social` carries no entries because the profile URLs
+ * were never verified, so nothing renders — the styles are here so that
+ * adding those URLs is a content change and not a design one.
+ */
 .social {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
 .socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--touch-target-min);
+  block-size: var(--touch-target-min);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-label);
+  font-size: var(--text-caption);
+  color: var(--muted);
+  text-decoration: none;
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
+}
+
+.socialLink:hover {
+  color: var(--foreground);
+  border-color: var(--border-strong);
+}
+
+/* --- The value cards ----------------------------------------------------- */
+/*
+ * The three values BizzFly publishes, one card each: a mark, the name, the
+ * opening sentence of its own description, and its published index.
+ *
+ * A row rather than a stack of paragraphs, because the value of this block is
+ * that three things can be taken in at a glance — and because the index has
+ * somewhere to sit at the end of the row rather than fighting the title for
+ * the start of it.
+ */
+.valueCards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.valueCard {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+/* A tinted tile, so the mark reads as an icon rather than as stray line art. */
+.valueIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--accent-edge) 16%, transparent);
+  color: var(--accent-text);
+}
+
+.markSm {
+  inline-size: var(--text-icon);
+  block-size: var(--text-icon);
+}
+
+.valueText {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.valueTitle {
   font-family: var(--font-label);
   font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+}
+
+.valueNote {
+  font-size: var(--text-caption);
+  line-height: var(--leading-snug);
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+/*
+ * The published index, as a pill.
+ *
+ * The values are numbered 01-03 wherever else they appear, so the badge
+ * carries that number rather than a category word invented for this slot.
+ */
+.valueBadge {
+  font-family: var(--font-label);
+  font-size: var(--text-caption);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-meta);
+  color: var(--accent-text);
+  border: 1px solid color-mix(in srgb, var(--accent-edge) 40%, transparent);
+  border-radius: var(--radius-full);
+  padding: 2px var(--space-3);
+}
+
+/*
+ * Where the brand block runs the full width — between the tablet breakpoint
+ * and the 1280 split — the cards and the contact rows spread across it
+ * instead of running as one long ribbon down the page.
+ */
+@media (min-width: 640px) and (max-width: 1279px) {
+  .valueCards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* --- Contact ------------------------------------------------------------- */
+
+.contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+/*
+ * The mark holds its own column, so a wrapping address indents under itself
+ * rather than running back under the icon.
+ */
+.contactRow {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: start;
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+}
+
+.contactMark {
+  inline-size: var(--text-icon);
+  block-size: var(--text-icon);
+  color: var(--accent-text);
+  /* Sits on the first line's cap height rather than its box. */
+  margin-top: 1px;
+}
+
+.address {
+  font-style: normal;
+  text-wrap: pretty;
+}
+
+.contactLink {
   color: var(--muted);
   text-decoration: none;
   /* WCAG 2.5.8 target size */
   min-height: 24px;
   display: inline-flex;
   align-items: center;
+  transition: color var(--dur-fast) var(--ease-standard);
 }
 
-.socialLink:hover {
+.contactLink:hover {
   color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 4px;
 }
 
-/* --- The two actions ----------------------------------------------------- */
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-top: var(--space-2);
-}
-
-.actionPrimary,
-.actionSecondary {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  border-radius: var(--radius-full);
-  padding: var(--space-3) var(--space-6);
-  font-family: var(--font-label);
-  font-size: var(--text-button);
-  text-decoration: none;
-  min-height: var(--touch-target-min);
-  transition:
-    background var(--dur-fast) var(--ease-standard),
-    color var(--dur-fast) var(--ease-standard);
-}
-
-.actionPrimary {
-  background: var(--cta-primary);
-  color: var(--cta-primary-text);
-}
-
-.actionPrimary:hover {
-  background: var(--cta-primary-hover);
-}
-
-/* Outlined, so the two actions are not read as equal weight. */
-.actionSecondary {
-  border: 1px solid var(--border-strong);
-  color: var(--foreground);
-}
-
-.actionSecondary:hover {
-  background: var(--surface);
+@media (min-width: 640px) and (max-width: 1279px) {
+  .contact {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: var(--space-6);
+  }
 }
 
 /* --- Section columns ----------------------------------------------------- */
@@ -181,10 +300,10 @@
 /*
  * Two across from 360px, not from 640.
  *
- * Seven single-file columns put the footer at 3,032px on a phone — every
- * page ended in three screens of links before the copyright. The labels are
- * short enough to survive a half-width column at this size, and pairing them
- * halves that without collapsing anything or dropping a single link.
+ * Six single-file columns put the footer at three screens of links before the
+ * copyright on a phone. The labels are short enough to survive a half-width
+ * column at this size, and pairing them halves that without collapsing
+ * anything or dropping a single link.
  */
 .columns {
   display: grid;
@@ -200,55 +319,38 @@
 
 @media (min-width: 640px) {
   .columns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-8);
   }
 }
 
-/*
- * The gutter widens with the viewport rather than being one desktop figure.
- *
- * At four tracks there is room for a 40px gutter and the groups need it —
- * at 32px the longer resource titles were running close enough to the next
- * column to be read as one list.
- */
 @media (min-width: 1024px) {
   .columns {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--space-10);
+    gap: var(--space-10) var(--space-8);
   }
 }
 
 /*
- * Seven across only at the width that can carry it. Below this the columns
- * fall to four, because seven tracks in a 1,280px container leaves each one
- * about 150px wide and every second link breaks over two lines.
- */
-/*
- * Seven across only at the width that can carry it, and with a 32px gutter
- * rather than 24. Seven tracks is the tightest arrangement on the site, so
- * the gutter cannot go as wide as the four-track one without squeezing the
- * columns into more wrapping than the extra air buys back — 32px is where
- * the groups separate and the titles still hold their line count.
+ * Six across only at the width that can carry it.
+ *
+ * At 1,560 the six tracks come out around 165px each, which is where the
+ * longer service and resource titles wrap to two lines and still read. At
+ * 1,440 the same six would be about 145px and every second link breaks, so
+ * the directory holds at four until there is genuinely room.
  */
 @media (min-width: 1560px) {
   .columns {
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: var(--space-8);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--space-10) var(--space-6);
   }
+}
 
-  /*
-   * The brand column gives back 32px here, and only here.
-   *
-   * Widening the gutter has to come out of the tracks, and at seven tracks
-   * that is the difference between "Search & AI Visibility" holding one line
-   * and breaking to two — which costs more scannability than the extra air
-   * buys. The brand column is the one element on this row with slack: at
-   * 16rem its paragraph still runs three lines. Below this width the layout
-   * is four tracks with room to spare and the column keeps its full 18rem.
-   */
-  .main {
-    grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
-  }
+/* The sixth track carries the Company list, the commitments and the actions. */
+.tail {
+  display: grid;
+  align-content: start;
+  gap: var(--space-8);
 }
 
 .group {
@@ -270,17 +372,12 @@
 
 /*
  * The heading takes the accent, which on this dark ground resolves to the
- * brand green (10.28:1). It is what turns seven lists into seven columns.
+ * brand green (10.28:1). It is what turns six lists into six columns.
  *
- * The hierarchy used to be inverted: the heading was 13px at the inherited
- * regular weight and its links were 14px, so the label was literally smaller
- * and no heavier than the list it introduced. Colour and capitals were doing
- * all the work, which is why the columns read as seven similar blocks.
- *
- * 15px at 600 against 14px at 400 puts the size and the weight on the same
- * side as the colour. Tracking eases from 0.08em to 0.06em because capitals
- * at this size are already wide, and the wider ones — TECHNOLOGIES, USE
- * CASES — have to survive a 7-column track without breaking.
+ * 15px at 600 against 14px at 400 puts size and weight on the same side as
+ * the colour. Tracking eases to 0.06em because capitals at this size are
+ * already wide, and the wider ones — TECHNOLOGIES, USE CASES — have to
+ * survive a six-column track without breaking.
  */
 .groupHeading {
   font-family: var(--font-label);
@@ -315,8 +412,17 @@
 @media (min-width: 640px) {
   .groupHeading {
     cursor: default;
-    /* 16px: the heading grew, so the gap under it does not need to. */
+    /*
+     * A rule under the label, not a gap.
+     *
+     * Six lists of muted links down a dark ground read as one field of text;
+     * the rule is what gives each column a head and a body. It sits on the
+     * heading rather than the group so it stops at the column edge and does
+     * not run past the shorter lists.
+     */
     margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--border);
     /*
      * 24px, not 0. The summary is still a focusable, clickable control up
      * here even though it is styled as a plain label, so WCAG 2.5.8 still
@@ -365,16 +471,150 @@
   text-underline-offset: 4px;
 }
 
-/* --- The legal bar ------------------------------------------------------- */
+/* --- Commitments --------------------------------------------------------- */
+/*
+ * Three lines from the value strip, each already a restatement of something
+ * the site publishes and commits to elsewhere. They are set as pills so the
+ * block does not read as a fourth list of links.
+ */
+.commitHeading {
+  font-family: var(--font-label);
+  font-size: var(--text-nav);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--space-4);
+}
 
+.commitList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.commitItem {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: start;
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  font-size: var(--text-caption);
+  line-height: var(--leading-snug);
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.commitMark {
+  inline-size: 1rem;
+  block-size: 1rem;
+  color: var(--accent-text);
+  margin-top: 1px;
+}
+
+/* --- The two actions ----------------------------------------------------- */
+/*
+ * Stacked and full width at the foot of the last column, so they close the
+ * directory rather than sitting halfway up the brand column where the eye has
+ * already passed them.
+ */
+.actions {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.actionPrimary,
+.actionSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border-radius: var(--radius-full);
+  padding: var(--space-3) var(--space-5);
+  font-family: var(--font-label);
+  font-size: var(--text-button);
+  text-align: center;
+  text-decoration: none;
+  min-height: var(--touch-target-min);
+  transition:
+    background var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
+}
+
+.actionPrimary {
+  background: var(--cta-primary);
+  color: var(--cta-primary-text);
+}
+
+.actionPrimary:hover {
+  background: var(--cta-primary-hover);
+}
+
+/* Outlined, so the two actions are not read as equal weight. */
+.actionSecondary {
+  border: 1px solid var(--border-strong);
+  color: var(--foreground);
+}
+
+.actionSecondary:hover {
+  background: var(--surface);
+}
+
+/* --- The base bar -------------------------------------------------------- */
+/*
+ * Copyright left, legal right, on one line.
+ *
+ * The legal links were a column of their own, which made the directory seven
+ * uneven tracks. Down here they sit where a reader looks for a privacy
+ * policy, and the directory divides evenly into six.
+ */
 .base {
   margin-top: var(--section-sm);
   padding-top: var(--space-8);
   border-top: 1px solid var(--border);
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-8);
 }
 
 .copyright {
   font-size: var(--text-caption);
   color: var(--muted);
+}
+
+.baseLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
+}
+
+.baseLink {
+  font-size: var(--text-caption);
+  color: var(--muted);
+  text-decoration: none;
+  /* WCAG 2.5.8 target size */
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+
+.baseLink:hover {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 4px;
 }

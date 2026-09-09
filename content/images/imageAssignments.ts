@@ -77,6 +77,35 @@ export function getNarrativeImages(): NarrativeImages {
   };
 }
 
+/**
+ * Imagery for the lifecycle stages on the homepage — Start, Grow, Scale and
+ * Transform.
+ *
+ * Each stage takes the photograph of its own LEAD SERVICE: the first entry in
+ * that stage's work list. So the frame a reader clicks and the page the first
+ * link opens show the same picture, and the pairing is derived from the
+ * content rather than chosen by eye.
+ *
+ * Same authorised reuse as getNarrativeImages above — these four are assigned
+ * to their service pages and appear here a second time. See the note there
+ * for why that exception exists and what it costs.
+ */
+export function getStageImages(): Record<string, ImageMetadata> {
+  const lead: Record<string, string> = {
+    Start: "corporate-websites",
+    Grow: "seo",
+    Scale: "workflow-automation",
+    Transform: "ai-consulting",
+  };
+
+  const out: Record<string, ImageMetadata> = {};
+  for (const [stage, slug] of Object.entries(lead)) {
+    const image = getServiceImage(slug);
+    if (image) out[stage] = image;
+  }
+  return out;
+}
+
 /** Map of service and practice slugs to image IDs. */
 export const serviceImageAssignments: Record<string, string> = {
   "search-ai-visibility": "practice-search-ai-visibility",

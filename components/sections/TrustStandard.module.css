@@ -1,6 +1,13 @@
+/*
+ * Three commitments as staggered panels.
+ *
+ * Was a level three-column grid of plain text. The stagger and the alternating
+ * fill are the whole change: same content, same order, but the row now has a
+ * shape, and the eye is given somewhere to start.
+ */
 .wrapper {
   display: grid;
-  gap: var(--space-10);
+  gap: var(--gap-stack-lg);
 }
 
 .list {
@@ -8,56 +15,158 @@
   margin: 0;
   padding: 0;
   display: grid;
-  gap: var(--gap-stack-sm);
-  border-top: 1px solid var(--border);
-  padding-top: var(--space-8);
+  gap: var(--gap-stack-md);
 }
 
 @media (min-width: 768px) {
   .list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-10);
+    gap: var(--space-8);
+    /*
+     * The offsets push panels DOWN, so the row needs headroom at the foot
+     * rather than the top. align-items:start stops the shorter panels
+     * stretching to the tallest and flattening the stagger out again.
+     */
+    align-items: start;
+    padding-bottom: var(--space-12);
   }
 }
 
+/* --- A panel ------------------------------------------------------------- */
 .item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6) var(--space-8);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  transition: transform var(--dur-base) var(--ease-standard);
 }
 
-/* A numbered badge, not a floating figure — the step reads as a token. */
-.index {
-  font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  font-variant-numeric: tabular-nums;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
-  inline-size: 2rem;
-  block-size: 2rem;
-  border-radius: var(--radius-full);
+/*
+ * A two-pixel lift, and nothing else. The panels are already carrying a fill
+ * and a folio; adding a shadow or a scale on top would make three commitments
+ * behave like three buttons.
+ */
+@media (hover: hover) {
+  .item:hover {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item {
+    transition: none;
+  }
+  .item:hover {
+    transform: none;
+  }
+}
+
+/*
+ * The stagger. A wave rather than a staircase: a descending stair leaves the
+ * last panel a long way below the first and the section grows a ragged foot,
+ * where 0 / 48 / 24 reads as deliberate rhythm and costs 48px of height.
+ *
+ * Desktop only. Stacked, the panels are already in sequence and an offset
+ * would just be an odd indent.
+ */
+@media (min-width: 768px) {
+  .item:nth-child(2) {
+    margin-top: var(--space-12);
+  }
+
+  .item:nth-child(3) {
+    margin-top: var(--space-6);
+  }
+}
+
+/* --- Tones ---------------------------------------------------------------
+   Three fills, cycling by position.
+
+   nth-child rather than a data attribute: StaggerItem takes only the props it
+   declares and does not forward unknown ones, so a `data-tone` passed to it
+   is silently dropped — which is exactly what happened, and the panels
+   rendered with no fill at all. The offsets below already cycle on position,
+   so keeping the fill on the same mechanism means the two cannot fall out of
+   step with each other.
+
+   Every pairing is one the palette already asserts: white on blue-500 is
+   4.83:1, ink on green-500 is 10.28:1, and the neutral panel is the ordinary
+   surface. Nothing here invents a colour, and nothing sets brand green as
+   text on a light ground, which it cannot do at any weight.
+   ------------------------------------------------------------------------- */
+.item:nth-child(3n + 1) {
   background: var(--surface-muted);
-  font-weight: var(--weight-semibold);
-  color: var(--accent-text);
+  color: var(--foreground);
 }
 
+.item:nth-child(3n + 2) {
+  background: var(--cta-primary);
+  color: var(--text-on-brand);
+}
+
+.item:nth-child(3n) {
+  background: var(--secondary);
+  color: var(--text-on-green);
+}
+
+/* --- The folio ----------------------------------------------------------- */
+/*
+ * Set large and pushed into the corner, at low contrast. It is a folio, not
+ * a label — it marks position in the sequence and is meant to be read as
+ * texture, which is why it is behind the content rather than above it.
+ *
+ * color-mix rather than a new token: the ghost has to be derived from
+ * whichever text colour its panel is using, and three fixed values would be
+ * three more colours to keep in step with the tones above.
+ */
+.index {
+  position: absolute;
+  top: calc(var(--space-2) * -1);
+  inset-inline-end: var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--text-display-lg);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+  font-variant-numeric: tabular-nums;
+  color: color-mix(in srgb, currentColor 14%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+
+.glyph {
+  color: color-mix(in srgb, currentColor 70%, transparent);
+}
+
+.item:nth-child(3n + 1) .glyph {
+  color: var(--accent-edge);
+}
+
+/* --- Content ------------------------------------------------------------- */
 .title {
+  position: relative;
   font-family: var(--font-display);
   font-size: var(--text-h4);
   font-weight: var(--weight-semibold);
   letter-spacing: -0.01em;
   max-width: var(--measure-title);
+  text-wrap: balance;
 }
 
 .body {
+  position: relative;
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
-  color: var(--muted);
   max-width: var(--measure-card);
+  text-wrap: pretty;
+  /* Slightly held back from the title without dropping out of AA. */
+  color: color-mix(in srgb, currentColor 88%, transparent);
 }
 
+/* --- The closing note ---------------------------------------------------- */
 .note {
   font-size: var(--text-body);
   line-height: var(--leading-relaxed);
@@ -65,6 +174,7 @@
   max-width: var(--measure-body);
   border-top: 1px solid var(--border);
   padding-top: var(--space-6);
+  text-wrap: pretty;
 }
 
 .noteLink {

@@ -176,10 +176,29 @@
  * the practice page the row links to, so following the link is continuous
  * rather than a jump to an unrelated image.
  */
+/*
+ * The open row becomes a branded field rather than loose content under a
+ * heading. A tinted ground, one radius, and the image sitting inside it —
+ * so an expanded capability reads as a composition the width of the page
+ * instead of a paragraph that appeared.
+ *
+ * The tint is the ordinary surface, not a saturated brand fill: this panel
+ * can be open while three others are closed, and a blue field repeated down
+ * a column of rows would turn the section into a stack of banners.
+ */
 .split {
   display: grid;
   gap: var(--gap-stack-md);
-  padding-bottom: var(--space-8);
+  margin-bottom: var(--space-8);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+@media (min-width: 768px) {
+  .split {
+    padding: var(--space-8);
+  }
 }
 
 @media (min-width: 900px) {
@@ -189,6 +208,16 @@
     grid-template-columns: 5fr 7fr;
     gap: var(--space-10);
     align-items: start;
+  }
+
+  /*
+   * A vertical rule between the frame and the copy. It only exists at the
+   * width where the two are actually side by side — stacked, a rule down the
+   * left of the text would be a quote mark.
+   */
+  .copy {
+    padding-inline-start: var(--space-10);
+    border-inline-start: 1px solid var(--border);
   }
 }
 
@@ -257,6 +286,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2) var(--space-4);
+}
+
+.railGlyph {
+  color: var(--accent-edge);
+  flex: none;
+  margin-inline-end: var(--space-2);
+  transition: color var(--dur-fast) var(--ease-standard);
 }
 
 .railLink {

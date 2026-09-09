@@ -1,0 +1,2702 @@
+[
+  {
+    "id": "home-hero-growth-team",
+    "src": "/images/home/hero-growth-ai-team.webp",
+    "category": "digital-growth",
+    "type": "human",
+    "alt": "Digital growth and engineering team collaborating around shared monitors in a modern technology office",
+    "topic": "Digital Growth & AI",
+    "page": "Homepage > hero"
+  },
+  {
+    "id": "home-what-we-do-strategists",
+    "src": "/images/home/what-we-do-strategists.webp",
+    "category": "digital-growth",
+    "type": "human",
+    "alt": "Digital strategists analyzing business growth roadmap and multi-channel discoverability opportunities",
+    "topic": "What BizzFly Does",
+    "page": "Homepage > whatWeDo"
+  },
+  {
+    "id": "home-search-visibility-analyst",
+    "src": "/images/home/search-visibility-analyst.webp",
+    "category": "services",
+    "type": "editorial",
+    "alt": "Search visibility specialist evaluating organic search query trends and performance analytics",
+    "topic": "Search Visibility",
+    "page": "Homepage > visibility"
+  },
+  {
+    "id": "home-ai-search-workflow",
+    "src": "/images/home/ai-search-workflow.webp",
+    "category": "technology",
+    "type": "human",
+    "alt": "Consultants researching AI search answer engine citations and generative retrieval patterns",
+    "topic": "AI Search & AEO",
+    "page": "Homepage > aiSearch"
+  },
+  {
+    "id": "home-automation-operations",
+    "src": "/images/home/automation-operations-workflow.webp",
+    "category": "automation",
+    "type": "business",
+    "alt": "Operations professionals reviewing automated business workflow diagrams and connected services",
+    "topic": "Business Automation",
+    "page": "Homepage > automation"
+  },
+  {
+    "id": "home-technology-engineers",
+    "src": "/images/home/technology-engineering-team.webp",
+    "category": "technology",
+    "type": "human",
+    "alt": "Software engineers and technical architects collaborating on application code and infrastructure standards",
+    "topic": "Technology & Engineering",
+    "page": "Homepage > technology"
+  },
+  {
+    "id": "practice-search-ai-visibility",
+    "src": "/images/services/practice-search-ai-visibility.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Search visibility team reviewing multi-platform presence across Google, AI Overviews, and maps",
+    "topic": "Search & AI Visibility Practice",
+    "page": "Services > /services/search-ai-visibility"
+  },
+  {
+    "id": "practice-digital-marketing",
+    "src": "/images/services/practice-digital-marketing.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Digital marketing specialists reviewing organic and paid acquisition performance data",
+    "topic": "Digital Marketing Practice",
+    "page": "Services > /services/digital-marketing"
+  },
+  {
+    "id": "practice-web-development",
+    "src": "/images/services/practice-web-development.webp",
+    "category": "services",
+    "type": "technology",
+    "alt": "Web development engineers working with modern Next.js and TypeScript codebases on laptop screens",
+    "topic": "Web Development Practice",
+    "page": "Services > /services/web-development"
+  },
+  {
+    "id": "practice-software-development",
+    "src": "/images/services/practice-software-development.webp",
+    "category": "services",
+    "type": "technology",
+    "alt": "Software engineering workspace displaying source code architecture and integration testing",
+    "topic": "Software Development Practice",
+    "page": "Services > /services/software-development"
+  },
+  {
+    "id": "practice-ai-automation",
+    "src": "/images/services/practice-ai-automation.webp",
+    "category": "services",
+    "type": "business",
+    "alt": "Automation and artificial intelligence engineers deploying intelligent business agents",
+    "topic": "AI & Automation Practice",
+    "page": "Services > /services/ai-automation"
+  },
+  {
+    "id": "practice-data-analytics",
+    "src": "/images/services/practice-data-analytics.webp",
+    "category": "services",
+    "type": "editorial",
+    "alt": "Data visualization dashboard showing commercial metrics, conversion rates, and revenue performance",
+    "topic": "Data & Analytics Practice",
+    "page": "Services > /services/data-analytics"
+  },
+  {
+    "id": "service-seo",
+    "src": "/images/services/service-seo-strategy.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "SEO professional explaining technical crawl optimization and keyword intent to team members",
+    "topic": "Search Engine Optimisation",
+    "page": "Services > /services/seo"
+  },
+  {
+    "id": "service-ai-search-optimisation",
+    "src": "/images/services/service-ai-search-optimisation.webp",
+    "category": "services",
+    "type": "technology",
+    "alt": "Modern computer interface analyzing knowledge graph entities and AI citation paths",
+    "topic": "AI Search Optimisation",
+    "page": "Services > /services/ai-search-optimisation"
+  },
+  {
+    "id": "service-technical-seo",
+    "src": "/images/services/service-technical-seo.webp",
+    "category": "services",
+    "type": "technology",
+    "alt": "Technical SEO developer examining HTML source code and structured data validation",
+    "topic": "Technical SEO",
+    "page": "Services > /services/technical-seo"
+  },
+  {
+    "id": "service-ai-agents",
+    "src": "/images/services/service-ai-agents.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Software engineer configuring autonomous AI agents for document and operational handling",
+    "topic": "AI Agents",
+    "page": "Services > /services/ai-agents"
+  },
+  {
+    "id": "service-workflow-automation",
+    "src": "/images/services/service-workflow-automation.webp",
+    "category": "services",
+    "type": "process",
+    "alt": "Operations consultant mapping multi-stage business workflow steps on a desk surface",
+    "topic": "Workflow Automation",
+    "page": "Services > /services/workflow-automation"
+  },
+  {
+    "id": "service-corporate-websites",
+    "src": "/images/services/service-corporate-websites.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Corporate executive reviewing new corporate website layout on tablet in modern boardroom",
+    "topic": "Corporate Websites",
+    "page": "Services > /services/corporate-websites"
+  },
+  {
+    "id": "service-answer-engine-optimisation",
+    "src": "/images/services/service-answer-engine-optimisation.webp",
+    "category": "services",
+    "type": "editorial",
+    "alt": "Content strategist writing direct answer definitions optimized for search engine featured snippets",
+    "topic": "Answer Engine Optimisation",
+    "page": "Services > /services/answer-engine-optimisation"
+  },
+  {
+    "id": "service-generative-engine-optimisation",
+    "src": "/images/services/service-generative-engine-optimisation.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Technical team analyzing generative AI query results and brand source citations",
+    "topic": "Generative Engine Optimisation",
+    "page": "Services > /services/generative-engine-optimisation"
+  },
+  {
+    "id": "service-ai-optimisation",
+    "src": "/images/services/service-ai-optimisation.webp",
+    "category": "services",
+    "type": "technology",
+    "alt": "Machine learning practitioner testing prompt evaluations and output quality parameters",
+    "topic": "AI Optimisation",
+    "page": "Services > /services/ai-optimisation"
+  },
+  {
+    "id": "service-search-experience-optimisation",
+    "src": "/images/services/service-search-experience-optimisation.webp",
+    "category": "services",
+    "type": "process",
+    "alt": "UX designer analyzing digital user interactions and scroll heatmaps across web pages",
+    "topic": "Search Experience Optimisation",
+    "page": "Services > /services/search-experience-optimisation"
+  },
+  {
+    "id": "service-google-business-profile",
+    "src": "/images/services/service-google-business-profile.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Local business owner managing storefront discovery, Google Maps listings, and customer reviews",
+    "topic": "Google Business Profile",
+    "page": "Services > /services/google-business-profile"
+  },
+  {
+    "id": "service-custom-software",
+    "src": "/images/services/service-custom-software.webp",
+    "category": "services",
+    "type": "technology",
+    "alt": "Software engineer designing custom enterprise application architecture on dual monitors",
+    "topic": "Custom Software",
+    "page": "Services > /services/custom-software"
+  },
+  {
+    "id": "service-web-applications",
+    "src": "/images/services/service-web-applications.webp",
+    "category": "services",
+    "type": "technology",
+    "alt": "Full-stack developer building robust web application APIs and responsive user interfaces",
+    "topic": "Web Applications",
+    "page": "Services > /services/web-applications"
+  },
+  {
+    "id": "service-ui-ux-design",
+    "src": "/images/services/service-ui-ux-design.webp",
+    "category": "services",
+    "type": "process",
+    "alt": "Digital product designer sketching wireframes and user interface flows in notebook",
+    "topic": "UI/UX Design",
+    "page": "Services > /services/ui-ux-design"
+  },
+  {
+    "id": "service-systems-integration",
+    "src": "/images/services/service-systems-integration.webp",
+    "category": "services",
+    "type": "technology",
+    "alt": "Server infrastructure and networked cloud systems facilitating enterprise data exchange",
+    "topic": "Systems Integration",
+    "page": "Services > /services/systems-integration"
+  },
+  {
+    "id": "service-ai-chatbots",
+    "src": "/images/services/service-ai-chatbots.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Customer support specialist collaborating with AI chatbot assistant to resolve client inquiries",
+    "topic": "AI Chatbots",
+    "page": "Services > /services/ai-chatbots"
+  },
+  {
+    "id": "service-sales-automation",
+    "src": "/images/services/service-sales-automation.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Sales development team reviewing automated lead qualification metrics and follow-up cadences",
+    "topic": "Sales Automation",
+    "page": "Services > /services/sales-automation"
+  },
+  {
+    "id": "service-ai-consulting",
+    "src": "/images/services/service-ai-consulting.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "AI strategy consultant presenting technical adoption roadmap to executive stakeholders",
+    "topic": "AI Consulting",
+    "page": "Services > /services/ai-consulting"
+  },
+  {
+    "id": "service-digital-strategy",
+    "src": "/images/services/service-digital-strategy.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Business leadership team evaluating digital transformation priorities in conference room",
+    "topic": "Digital Strategy",
+    "page": "Services > /services/digital-strategy"
+  },
+  {
+    "id": "service-performance-marketing",
+    "src": "/images/services/service-performance-marketing.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Growth marketing team measuring paid and organic acquisition metrics across digital channels",
+    "topic": "Performance Marketing",
+    "page": "Services > /services/performance-marketing"
+  },
+  {
+    "id": "service-conversion-rate-optimization",
+    "src": "/images/services/service-conversion-rate-optimization.webp",
+    "category": "services",
+    "type": "editorial",
+    "alt": "UX and conversion analyst inspecting user journey drop-off data on modern laptop",
+    "topic": "Conversion Rate Optimization",
+    "page": "Services > /services/conversion-rate-optimization"
+  },
+  {
+    "id": "service-business-intelligence",
+    "src": "/images/services/service-business-intelligence.webp",
+    "category": "services",
+    "type": "editorial",
+    "alt": "Executive reviewing consolidated business intelligence charts and growth forecasting figures",
+    "topic": "Business Intelligence",
+    "page": "Services > /services/business-intelligence"
+  },
+  {
+    "id": "service-analytics-implementation",
+    "src": "/images/services/service-analytics-implementation.webp",
+    "category": "services",
+    "type": "technology",
+    "alt": "Measurement engineer validating custom event telemetry and server-side tracking pipelines",
+    "topic": "Analytics Implementation",
+    "page": "Services > /services/analytics-implementation"
+  },
+  {
+    "id": "service-website-performance",
+    "src": "/images/services/service-website-performance.webp",
+    "category": "services",
+    "type": "technology",
+    "alt": "Web engineer optimizing browser rendering speed, server caching, and network waterfall",
+    "topic": "Website Performance",
+    "page": "Services > /services/website-performance"
+  },
+  {
+    "id": "service-website-redesign",
+    "src": "/images/services/service-website-redesign.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Design team collaborating on modern typography, color systems, and page layouts for web redesign",
+    "topic": "Website Redesign",
+    "page": "Services > /services/website-redesign"
+  },
+  {
+    "id": "service-seo-audit",
+    "src": "/images/services/service-seo-audit.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "SEO director auditing website architecture, indexation barriers, and organic competitive rank",
+    "topic": "SEO Audit",
+    "page": "Services > /services/seo-audit"
+  },
+  {
+    "id": "service-on-page-seo",
+    "src": "/images/services/service-on-page-seo.webp",
+    "category": "services",
+    "type": "editorial",
+    "alt": "Content specialist writing semantic content with clear heading hierarchy and descriptive internal links",
+    "topic": "On-Page SEO",
+    "page": "Services > /services/on-page-seo"
+  },
+  {
+    "id": "service-local-seo",
+    "src": "/images/services/service-local-seo.webp",
+    "category": "services",
+    "type": "editorial",
+    "alt": "Urban area map highlighting geographic local search visibility markers for regional businesses",
+    "topic": "Local SEO",
+    "page": "Services > /services/local-seo"
+  },
+  {
+    "id": "service-enterprise-seo",
+    "src": "/images/services/service-enterprise-seo.webp",
+    "category": "services",
+    "type": "business",
+    "alt": "Corporate enterprise headquarters representing large-scale multi-market digital discoverability",
+    "topic": "Enterprise SEO",
+    "page": "Services > /services/enterprise-seo"
+  },
+  {
+    "id": "service-ecommerce-seo",
+    "src": "/images/services/service-ecommerce-seo.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Retail commerce team analyzing product category organic rankings and checkout conversion funnel",
+    "topic": "E-commerce SEO",
+    "page": "Services > /services/ecommerce-seo"
+  },
+  {
+    "id": "service-seo-migration",
+    "src": "/images/services/service-seo-migration.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Engineering team monitoring website traffic transition and DNS redirection during platform migration",
+    "topic": "SEO Migration",
+    "page": "Services > /services/seo-migration"
+  },
+  {
+    "id": "service-content-strategy",
+    "src": "/images/services/service-content-strategy.webp",
+    "category": "services",
+    "type": "process",
+    "alt": "Strategist researching customer intent clusters and outlining authoritative informational guides",
+    "topic": "Content Strategy",
+    "page": "Services > /services/content-strategy"
+  },
+  {
+    "id": "service-digital-pr",
+    "src": "/images/services/service-digital-pr.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Communication professionals networking and building media relationships for earned brand authority",
+    "topic": "Digital PR",
+    "page": "Services > /services/digital-pr"
+  },
+  {
+    "id": "service-structured-data",
+    "src": "/images/services/service-structured-data.webp",
+    "category": "services",
+    "type": "technology",
+    "alt": "Developer writing Schema JSON-LD markup to enrich search results with structured organization data",
+    "topic": "Structured Data",
+    "page": "Services > /services/structured-data"
+  },
+  {
+    "id": "service-site-architecture",
+    "src": "/images/services/service-site-architecture.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Information architect planning URL hierarchy and taxonomy relationships on whiteboard",
+    "topic": "Site Architecture",
+    "page": "Services > /services/site-architecture"
+  },
+  {
+    "id": "service-ai-readiness-assessment",
+    "src": "/images/services/service-ai-readiness-assessment.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Enterprise consultant conducting an evaluation of data governance and AI technical readiness",
+    "topic": "AI Readiness Assessment",
+    "page": "Services > /services/ai-readiness-assessment"
+  },
+  {
+    "id": "service-ai-document-processing",
+    "src": "/images/services/service-ai-document-processing.webp",
+    "category": "services",
+    "type": "process",
+    "alt": "Digital document capture and optical character recognition converting physical records into data",
+    "topic": "AI Document Processing",
+    "page": "Services > /services/ai-document-processing"
+  },
+  {
+    "id": "service-api-development",
+    "src": "/images/services/service-api-development.webp",
+    "category": "services",
+    "type": "technology",
+    "alt": "Backend engineer programming robust REST and GraphQL endpoints in development environment",
+    "topic": "API Development",
+    "page": "Services > /services/api-development"
+  },
+  {
+    "id": "service-crm-implementation",
+    "src": "/images/services/service-crm-implementation.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "CRM systems administrator configuring customer record stages and automated deal tracking",
+    "topic": "CRM Implementation",
+    "page": "Services > /services/crm-implementation"
+  },
+  {
+    "id": "service-marketing-automation",
+    "src": "/images/services/service-marketing-automation.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Marketing operations specialist building email nurture workflows and automated lead scoring",
+    "topic": "Marketing Automation",
+    "page": "Services > /services/marketing-automation"
+  },
+  {
+    "id": "service-customer-portals",
+    "src": "/images/services/service-customer-portals.webp",
+    "category": "services",
+    "type": "business",
+    "alt": "Modern business office where clients access self-service account management and document portals",
+    "topic": "Customer Portals",
+    "page": "Services > /services/customer-portals"
+  },
+  {
+    "id": "service-reporting-dashboards",
+    "src": "/images/services/service-reporting-dashboards.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Data specialist discussing real-time executive dashboard visualizations with colleagues",
+    "topic": "Reporting Dashboards",
+    "page": "Services > /services/reporting-dashboards"
+  },
+  {
+    "id": "service-cloud-migration",
+    "src": "/images/services/service-cloud-migration.webp",
+    "category": "services",
+    "type": "technology",
+    "alt": "Global digital cloud network representing secure data center migration and scalable architecture",
+    "topic": "Cloud Migration",
+    "page": "Services > /services/cloud-migration"
+  },
+  {
+    "id": "service-website-maintenance",
+    "src": "/images/services/service-website-maintenance.webp",
+    "category": "services",
+    "type": "technology",
+    "alt": "Support engineer verifying server health checks, security patches, and automated backup routines",
+    "topic": "Website Maintenance",
+    "page": "Services > /services/website-maintenance"
+  },
+  {
+    "id": "service-accessibility-audit",
+    "src": "/images/services/service-accessibility-audit.webp",
+    "category": "services",
+    "type": "human",
+    "alt": "Accessibility specialist testing screen reader navigation, keyboard focus rings, and WCAG contrast",
+    "topic": "Accessibility Audit",
+    "page": "Services > /services/accessibility-audit"
+  },
+  {
+    "id": "industry-manufacturing",
+    "src": "/images/industries/industry-manufacturing.webp",
+    "category": "industries",
+    "type": "business",
+    "alt": "Industrial engineer inspecting automated manufacturing production machinery and equipment",
+    "topic": "Manufacturing",
+    "page": "Industries > /industries/manufacturing"
+  },
+  {
+    "id": "industry-real-estate",
+    "src": "/images/industries/industry-real-estate.webp",
+    "category": "industries",
+    "type": "business",
+    "alt": "Modern commercial real estate architecture showcasing property development projects",
+    "topic": "Real Estate",
+    "page": "Industries > /industries/real-estate"
+  },
+  {
+    "id": "industry-education",
+    "src": "/images/industries/industry-education.webp",
+    "category": "industries",
+    "type": "human",
+    "alt": "Students and faculty collaborating in contemporary higher education academic library",
+    "topic": "Education",
+    "page": "Industries > /industries/education"
+  },
+  {
+    "id": "industry-professional-services",
+    "src": "/images/industries/industry-professional-services.webp",
+    "category": "industries",
+    "type": "human",
+    "alt": "Professional advisors discussing client advisory engagement in corporate meeting space",
+    "topic": "Professional Services",
+    "page": "Industries > /industries/professional-services"
+  },
+  {
+    "id": "industry-saas",
+    "src": "/images/industries/industry-saas.webp",
+    "category": "industries",
+    "type": "human",
+    "alt": "SaaS product team mapping user onboarding journey and subscription metrics",
+    "topic": "SaaS",
+    "page": "Industries > /industries/saas"
+  },
+  {
+    "id": "industry-healthcare",
+    "src": "/images/industries/industry-healthcare.webp",
+    "category": "industries",
+    "type": "human",
+    "alt": "Healthcare professionals reviewing clinical records on digital tablet in medical setting",
+    "topic": "Healthcare",
+    "page": "Industries > /industries/healthcare"
+  },
+  {
+    "id": "industry-financial-services",
+    "src": "/images/industries/industry-financial-services.webp",
+    "category": "industries",
+    "type": "editorial",
+    "alt": "Finance professional reviewing investment portfolios and banking analytics on dual screens",
+    "topic": "Financial Services",
+    "page": "Industries > /industries/financial-services"
+  },
+  {
+    "id": "industry-ecommerce",
+    "src": "/images/industries/industry-ecommerce.webp",
+    "category": "industries",
+    "type": "business",
+    "alt": "Modern fulfillment warehouse and online retail distribution operations",
+    "topic": "E-commerce",
+    "page": "Industries > /industries/ecommerce"
+  },
+  {
+    "id": "industry-logistics",
+    "src": "/images/industries/industry-logistics.webp",
+    "category": "industries",
+    "type": "business",
+    "alt": "Logistics supply chain manager coordinating freight shipments and warehouse storage",
+    "topic": "Logistics",
+    "page": "Industries > /industries/logistics"
+  },
+  {
+    "id": "industry-it-services",
+    "src": "/images/industries/industry-it-services.webp",
+    "category": "industries",
+    "type": "human",
+    "alt": "IT services and systems support team collaborating in networked enterprise operations center",
+    "topic": "IT Services",
+    "page": "Industries > /industries/it-services"
+  },
+  {
+    "id": "industry-hospitality",
+    "src": "/images/industries/industry-hospitality.webp",
+    "category": "industries",
+    "type": "editorial",
+    "alt": "Boutique luxury hotel lobby highlighting digital guest booking and hospitality services",
+    "topic": "Hospitality",
+    "page": "Industries > /industries/hospitality"
+  },
+  {
+    "id": "industry-startups",
+    "src": "/images/industries/industry-startups.webp",
+    "category": "industries",
+    "type": "human",
+    "alt": "Early-stage technology startup founders pitching growth roadmap in agile workspace",
+    "topic": "Startups",
+    "page": "Industries > /industries/startups"
+  },
+  {
+    "id": "industry-technology",
+    "src": "/images/industries/industry-technology.webp",
+    "category": "industries",
+    "type": "technology",
+    "alt": "Semiconductor microchip and advanced electronics engineering hardware",
+    "topic": "Technology Sector",
+    "page": "Industries > /industries/technology"
+  },
+  {
+    "id": "industry-automotive",
+    "src": "/images/industries/industry-automotive.webp",
+    "category": "industries",
+    "type": "business",
+    "alt": "Modern automotive engineering laboratory developing connected vehicle systems",
+    "topic": "Automotive",
+    "page": "Industries > /industries/automotive"
+  },
+  {
+    "id": "industry-construction",
+    "src": "/images/industries/industry-construction.webp",
+    "category": "industries",
+    "type": "human",
+    "alt": "Civil engineer inspecting commercial building construction blueprints and structural site work",
+    "topic": "Construction",
+    "page": "Industries > /industries/construction"
+  },
+  {
+    "id": "industry-legal-services",
+    "src": "/images/industries/industry-legal-services.webp",
+    "category": "industries",
+    "type": "editorial",
+    "alt": "Legal counsel library symbolizing corporate legal practice, compliance, and governance",
+    "topic": "Legal Services",
+    "page": "Industries > /industries/legal-services"
+  },
+  {
+    "id": "industry-accounting",
+    "src": "/images/industries/industry-accounting.webp",
+    "category": "industries",
+    "type": "process",
+    "alt": "Chartered accountant auditing corporate financial statements and tax filings",
+    "topic": "Accounting",
+    "page": "Industries > /industries/accounting"
+  },
+  {
+    "id": "industry-recruitment",
+    "src": "/images/industries/industry-recruitment.webp",
+    "category": "industries",
+    "type": "human",
+    "alt": "Talent acquisition partner conducting interview consultation with career candidate",
+    "topic": "Recruitment",
+    "page": "Industries > /industries/recruitment"
+  },
+  {
+    "id": "industry-energy",
+    "src": "/images/industries/industry-energy.webp",
+    "category": "industries",
+    "type": "editorial",
+    "alt": "Renewable solar and wind energy infrastructure powering sustainable electrical grid",
+    "topic": "Energy",
+    "page": "Industries > /industries/energy"
+  },
+  {
+    "id": "industry-travel",
+    "src": "/images/industries/industry-travel.webp",
+    "category": "industries",
+    "type": "editorial",
+    "alt": "Travel technology platform user booking flight and itinerary routes on mobile device",
+    "topic": "Travel",
+    "page": "Industries > /industries/travel"
+  },
+  {
+    "id": "industry-nonprofit",
+    "src": "/images/industries/industry-nonprofit.webp",
+    "category": "industries",
+    "type": "human",
+    "alt": "Community non-profit volunteers collaborating on social impact initiative",
+    "topic": "Nonprofit",
+    "page": "Industries > /industries/nonprofit"
+  },
+  {
+    "id": "industry-media",
+    "src": "/images/industries/industry-media.webp",
+    "category": "industries",
+    "type": "editorial",
+    "alt": "Digital publishing editorial workspace with newspapers and digital journalism content",
+    "topic": "Media",
+    "page": "Industries > /industries/media"
+  },
+  {
+    "id": "industry-agriculture",
+    "src": "/images/industries/industry-agriculture.webp",
+    "category": "industries",
+    "type": "business",
+    "alt": "Agricultural technologist monitoring automated crop irrigation and yield analytics",
+    "topic": "Agriculture",
+    "page": "Industries > /industries/agriculture"
+  },
+  {
+    "id": "industry-b2b-services",
+    "src": "/images/industries/industry-b2b-services.webp",
+    "category": "industries",
+    "type": "human",
+    "alt": "B2B enterprise service partners meeting to discuss contract deliverables and scope",
+    "topic": "B2B Services",
+    "page": "Industries > /industries/b2b-services"
+  },
+  {
+    "id": "industry-d2c-brands",
+    "src": "/images/industries/industry-d2c-brands.webp",
+    "category": "industries",
+    "type": "editorial",
+    "alt": "Contemporary retail boutique showcasing direct-to-consumer lifestyle merchandise",
+    "topic": "D2C Brands",
+    "page": "Industries > /industries/d2c-brands"
+  },
+  {
+    "id": "industry-smes",
+    "src": "/images/industries/industry-smes.webp",
+    "category": "industries",
+    "type": "human",
+    "alt": "Small and medium business owners discussing operations and cash flow in studio office",
+    "topic": "SMEs",
+    "page": "Industries > /industries/smes"
+  },
+  {
+    "id": "use-case-generate-more-leads",
+    "src": "/images/use-cases/use-case-generate-more-leads.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Marketing director evaluating commercial lead pipeline growth charts and attribution reports",
+    "topic": "Generate More Leads",
+    "page": "Use Cases > /use-cases/generate-more-leads"
+  },
+  {
+    "id": "use-case-get-found-in-ai-search",
+    "src": "/images/use-cases/use-case-get-found-in-ai-search.webp",
+    "category": "use-cases",
+    "type": "editorial",
+    "alt": "Professional searching across AI conversational interfaces and structured knowledge cards",
+    "topic": "Get Found in AI Search",
+    "page": "Use Cases > /use-cases/get-found-in-ai-search"
+  },
+  {
+    "id": "use-case-reduce-manual-work",
+    "src": "/images/use-cases/use-case-reduce-manual-work.webp",
+    "category": "use-cases",
+    "type": "business",
+    "alt": "Organized modern workplace representing automated administrative efficiency and paperless workflows",
+    "topic": "Reduce Manual Work",
+    "page": "Use Cases > /use-cases/reduce-manual-work"
+  },
+  {
+    "id": "use-case-increase-organic-traffic",
+    "src": "/images/use-cases/use-case-increase-organic-traffic.webp",
+    "category": "use-cases",
+    "type": "editorial",
+    "alt": "Analytics display illustrating strong upward trajectory in organic web visitors over quarters",
+    "topic": "Increase Organic Traffic",
+    "page": "Use Cases > /use-cases/increase-organic-traffic"
+  },
+  {
+    "id": "use-case-automate-sales-follow-up",
+    "src": "/images/use-cases/use-case-automate-sales-follow-up.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Account executive conducting scheduled client consultation with CRM record on laptop",
+    "topic": "Automate Sales Follow-Up",
+    "page": "Use Cases > /use-cases/automate-sales-follow-up"
+  },
+  {
+    "id": "use-case-automate-customer-support",
+    "src": "/images/use-cases/use-case-automate-customer-support.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Customer support specialist assisting user queries supported by automated response knowledge base",
+    "topic": "Automate Customer Support",
+    "page": "Use Cases > /use-cases/automate-customer-support"
+  },
+  {
+    "id": "use-case-improve-website-conversion",
+    "src": "/images/use-cases/use-case-improve-website-conversion.webp",
+    "category": "use-cases",
+    "type": "process",
+    "alt": "Product team testing landing page variants to eliminate conversion friction points",
+    "topic": "Improve Website Conversion",
+    "page": "Use Cases > /use-cases/improve-website-conversion"
+  },
+  {
+    "id": "use-case-rank-in-local-search",
+    "src": "/images/use-cases/use-case-rank-in-local-search.webp",
+    "category": "use-cases",
+    "type": "editorial",
+    "alt": "Smartphone displaying localized search results and map navigation to verified regional business",
+    "topic": "Rank in Local Search",
+    "page": "Use Cases > /use-cases/rank-in-local-search"
+  },
+  {
+    "id": "use-case-improve-operational-efficiency",
+    "src": "/images/use-cases/use-case-improve-operational-efficiency.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Operations directors identifying bottlenecks and streamlining internal project handoffs",
+    "topic": "Improve Operational Efficiency",
+    "page": "Use Cases > /use-cases/improve-operational-efficiency"
+  },
+  {
+    "id": "use-case-connect-business-systems",
+    "src": "/images/use-cases/use-case-connect-business-systems.webp",
+    "category": "use-cases",
+    "type": "technology",
+    "alt": "Seamless digital integration connecting databases, billing gateways, and customer portals",
+    "topic": "Connect Business Systems",
+    "page": "Use Cases > /use-cases/connect-business-systems"
+  },
+  {
+    "id": "use-case-modernise-legacy-processes",
+    "src": "/images/use-cases/use-case-modernise-legacy-processes.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Enterprise team replacing manual spreadsheet tracking with real-time digital software",
+    "topic": "Modernise Legacy Processes",
+    "page": "Use Cases > /use-cases/modernise-legacy-processes"
+  },
+  {
+    "id": "use-case-introduce-ai-into-operations",
+    "src": "/images/use-cases/use-case-introduce-ai-into-operations.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Business team integrating machine learning automation into daily back-office workflows",
+    "topic": "Introduce AI into Operations",
+    "page": "Use Cases > /use-cases/introduce-ai-into-operations"
+  },
+  {
+    "id": "use-case-build-a-custom-business-platform",
+    "src": "/images/use-cases/use-case-build-a-custom-business-platform.webp",
+    "category": "use-cases",
+    "type": "editorial",
+    "alt": "Operations manager interacting with bespoke company platform dashboard on modern tablet",
+    "topic": "Build a Custom Business Platform",
+    "page": "Use Cases > /use-cases/build-a-custom-business-platform"
+  },
+  {
+    "id": "use-case-improve-digital-presence",
+    "src": "/images/use-cases/use-case-improve-digital-presence.webp",
+    "category": "use-cases",
+    "type": "editorial",
+    "alt": "Unified brand experience displayed across multiple mobile, tablet, and desktop monitors",
+    "topic": "Improve Digital Presence",
+    "page": "Use Cases > /use-cases/improve-digital-presence"
+  },
+  {
+    "id": "use-case-build-scalable-digital-infrastructure",
+    "src": "/images/use-cases/use-case-build-scalable-digital-infrastructure.webp",
+    "category": "use-cases",
+    "type": "technology",
+    "alt": "High-performance enterprise cloud data center providing fault-tolerant uptime",
+    "topic": "Build Scalable Digital Infrastructure",
+    "page": "Use Cases > /use-cases/build-scalable-digital-infrastructure"
+  },
+  {
+    "id": "use-case-improve-customer-experience",
+    "src": "/images/use-cases/use-case-improve-customer-experience.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Client enjoying smooth digital interaction and immediate service delivery",
+    "topic": "Improve Customer Experience",
+    "page": "Use Cases > /use-cases/improve-customer-experience"
+  },
+  {
+    "id": "use-case-reduce-customer-churn",
+    "src": "/images/use-cases/use-case-reduce-customer-churn.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Account executive conducting quarterly check-in to secure customer satisfaction and renewal",
+    "topic": "Reduce Customer Churn",
+    "page": "Use Cases > /use-cases/reduce-customer-churn"
+  },
+  {
+    "id": "use-case-shorten-sales-cycle",
+    "src": "/images/use-cases/use-case-shorten-sales-cycle.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Business partners concluding agreement terms following streamlined evaluation process",
+    "topic": "Shorten Sales Cycle",
+    "page": "Use Cases > /use-cases/shorten-sales-cycle"
+  },
+  {
+    "id": "use-case-qualify-leads-automatically",
+    "src": "/images/use-cases/use-case-qualify-leads-automatically.webp",
+    "category": "use-cases",
+    "type": "process",
+    "alt": "Automated routing system sorting high-intent inbound inquiries directly to technical specialists",
+    "topic": "Qualify Leads Automatically",
+    "page": "Use Cases > /use-cases/qualify-leads-automatically"
+  },
+  {
+    "id": "use-case-speed-up-quoting",
+    "src": "/images/use-cases/use-case-speed-up-quoting.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Sales engineer generating dynamic pricing and instant scope estimates using configured CPQ software",
+    "topic": "Speed Up Quoting",
+    "page": "Use Cases > /use-cases/speed-up-quoting"
+  },
+  {
+    "id": "use-case-prove-marketing-roi",
+    "src": "/images/use-cases/use-case-prove-marketing-roi.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Finance and marketing leaders reviewing transparent customer acquisition cost and return calculations",
+    "topic": "Prove Marketing ROI",
+    "page": "Use Cases > /use-cases/prove-marketing-roi"
+  },
+  {
+    "id": "use-case-recover-lost-traffic",
+    "src": "/images/use-cases/use-case-recover-lost-traffic.webp",
+    "category": "use-cases",
+    "type": "technology",
+    "alt": "Senior web technologist diagnosing search penalty drops and restoring organic crawl pathways",
+    "topic": "Recover Lost Traffic",
+    "page": "Use Cases > /use-cases/recover-lost-traffic"
+  },
+  {
+    "id": "use-case-enter-a-new-market",
+    "src": "/images/use-cases/use-case-enter-a-new-market.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Growth team charting international territory rollout and localized search visibility strategy",
+    "topic": "Enter a New Market",
+    "page": "Use Cases > /use-cases/enter-a-new-market"
+  },
+  {
+    "id": "use-case-reduce-support-tickets",
+    "src": "/images/use-cases/use-case-reduce-support-tickets.webp",
+    "category": "use-cases",
+    "type": "editorial",
+    "alt": "Support operations showing decreased ticket volume following self-service documentation rollout",
+    "topic": "Reduce Support Tickets",
+    "page": "Use Cases > /use-cases/reduce-support-tickets"
+  },
+  {
+    "id": "use-case-improve-data-quality",
+    "src": "/images/use-cases/use-case-improve-data-quality.webp",
+    "category": "use-cases",
+    "type": "technology",
+    "alt": "Data engineer validating schema constraints and automated data sanitization routines",
+    "topic": "Improve Data Quality",
+    "page": "Use Cases > /use-cases/improve-data-quality"
+  },
+  {
+    "id": "use-case-consolidate-business-tools",
+    "src": "/images/use-cases/use-case-consolidate-business-tools.webp",
+    "category": "use-cases",
+    "type": "business",
+    "alt": "Unified digital workspace replacing fragmented SaaS subscriptions with integrated software",
+    "topic": "Consolidate Business Tools",
+    "page": "Use Cases > /use-cases/consolidate-business-tools"
+  },
+  {
+    "id": "use-case-onboard-customers-faster",
+    "src": "/images/use-cases/use-case-onboard-customers-faster.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Customer success consultant leading rapid product onboarding session with new enterprise account",
+    "topic": "Onboard Customers Faster",
+    "page": "Use Cases > /use-cases/onboard-customers-faster"
+  },
+  {
+    "id": "use-case-scale-without-hiring",
+    "src": "/images/use-cases/use-case-scale-without-hiring.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Compact high-leverage business team handling increasing transaction volume via automated pipelines",
+    "topic": "Scale Without Hiring",
+    "page": "Use Cases > /use-cases/scale-without-hiring"
+  },
+  {
+    "id": "use-case-launch-a-digital-product",
+    "src": "/images/use-cases/use-case-launch-a-digital-product.webp",
+    "category": "use-cases",
+    "type": "human",
+    "alt": "Product engineering squad celebrating successful public release of new digital web application",
+    "topic": "Launch a Digital Product",
+    "page": "Use Cases > /use-cases/launch-a-digital-product"
+  },
+  {
+    "id": "use-case-replace-spreadsheet-processes",
+    "src": "/images/use-cases/use-case-replace-spreadsheet-processes.webp",
+    "category": "use-cases",
+    "type": "technology",
+    "alt": "Modern web database application structured cleanly with role-based permissions and audits",
+    "topic": "Replace Spreadsheet Processes",
+    "page": "Use Cases > /use-cases/replace-spreadsheet-processes"
+  },
+  {
+    "id": "tech-web-stack",
+    "src": "/images/technologies/tech-web-stack.webp",
+    "category": "technology",
+    "type": "technology",
+    "alt": "Front-end engineers architecting Next.js App Router applications with static site generation",
+    "topic": "Web Stack",
+    "page": "Technologies > /technologies/web-stack"
+  },
+  {
+    "id": "tech-ai-stack",
+    "src": "/images/technologies/tech-ai-stack.webp",
+    "category": "technology",
+    "type": "technology",
+    "alt": "AI infrastructure and neural model inference frameworks powering production intelligence",
+    "topic": "AI Stack",
+    "page": "Technologies > /technologies/ai-stack"
+  },
+  {
+    "id": "tech-automation-platforms",
+    "src": "/images/technologies/tech-automation-platforms.webp",
+    "category": "technology",
+    "type": "technology",
+    "alt": "Enterprise workflow orchestration engines triggering event-driven business microservices",
+    "topic": "Automation Platforms",
+    "page": "Technologies > /technologies/automation-platforms"
+  },
+  {
+    "id": "tech-engineering-standards",
+    "src": "/images/technologies/tech-engineering-standards.webp",
+    "category": "technology",
+    "type": "human",
+    "alt": "Lead engineers conducting peer code review against strict type-safety and performance rules",
+    "topic": "Engineering Standards",
+    "page": "Technologies > /technologies/engineering-standards"
+  },
+  {
+    "id": "tech-search-and-analytics",
+    "src": "/images/technologies/tech-search-and-analytics.webp",
+    "category": "technology",
+    "type": "technology",
+    "alt": "Search retrieval algorithms and server-side log analytics monitoring indexing rates",
+    "topic": "Search & Analytics Stack",
+    "page": "Technologies > /technologies/search-and-analytics"
+  },
+  {
+    "id": "tech-integrations",
+    "src": "/images/technologies/tech-integrations.webp",
+    "category": "technology",
+    "type": "technology",
+    "alt": "Middleware software bridging legacy relational databases with modern cloud webhook services",
+    "topic": "Integrations Stack",
+    "page": "Technologies > /technologies/integrations"
+  },
+  {
+    "id": "tech-content-platforms",
+    "src": "/images/technologies/tech-content-platforms.webp",
+    "category": "technology",
+    "type": "editorial",
+    "alt": "Decoupled headless content architecture distributing structured text across multiple surfaces",
+    "topic": "Content Platforms",
+    "page": "Technologies > /technologies/content-platforms"
+  },
+  {
+    "id": "tech-cloud-and-hosting",
+    "src": "/images/technologies/tech-cloud-and-hosting.webp",
+    "category": "technology",
+    "type": "technology",
+    "alt": "DevOps specialist configuring edge caching, container deployment, and automated scaling",
+    "topic": "Cloud & Hosting",
+    "page": "Technologies > /technologies/cloud-and-hosting"
+  },
+  {
+    "id": "tech-data-platforms",
+    "src": "/images/technologies/tech-data-platforms.webp",
+    "category": "technology",
+    "type": "technology",
+    "alt": "Structured SQL warehouse tables and ETL transformation pipelines for business intelligence",
+    "topic": "Data Platforms",
+    "page": "Technologies > /technologies/data-platforms"
+  },
+  {
+    "id": "tech-crm-platforms",
+    "src": "/images/technologies/tech-crm-platforms.webp",
+    "category": "technology",
+    "type": "process",
+    "alt": "Enterprise CRM interface orchestrating multi-channel client communications and lead history",
+    "topic": "CRM Platforms",
+    "page": "Technologies > /technologies/crm-platforms"
+  },
+  {
+    "id": "tech-mobile-platforms",
+    "src": "/images/technologies/tech-mobile-platforms.webp",
+    "category": "technology",
+    "type": "editorial",
+    "alt": "Responsive viewport testing ensuring zero layout shift and touch target compliance",
+    "topic": "Mobile Platforms",
+    "page": "Technologies > /technologies/mobile-platforms"
+  },
+  {
+    "id": "tech-security-and-access",
+    "src": "/images/technologies/tech-security-and-access.webp",
+    "category": "technology",
+    "type": "technology",
+    "alt": "Cybersecurity governance and identity access management protecting sensitive client data",
+    "topic": "Security & Access",
+    "page": "Technologies > /technologies/security-and-access"
+  },
+  {
+    "id": "tech-testing-and-quality",
+    "src": "/images/technologies/tech-testing-and-quality.webp",
+    "category": "technology",
+    "type": "technology",
+    "alt": "Automated regression testing test harness verifying end-to-end user journeys before deployment",
+    "topic": "Testing & Quality",
+    "page": "Technologies > /technologies/testing-and-quality"
+  },
+  {
+    "id": "tech-observability",
+    "src": "/images/technologies/tech-observability.webp",
+    "category": "technology",
+    "type": "technology",
+    "alt": "Real-time system observability charts tracking server latencies, error budgets, and API response rates",
+    "topic": "Observability",
+    "page": "Technologies > /technologies/observability"
+  },
+  {
+    "id": "tech-payments-and-billing",
+    "src": "/images/technologies/tech-payments-and-billing.webp",
+    "category": "technology",
+    "type": "business",
+    "alt": "PCI-compliant payment processing infrastructure handling recurring subscriptions and global invoices",
+    "topic": "Payments & Billing",
+    "page": "Technologies > /technologies/payments-and-billing"
+  },
+  {
+    "id": "tech-accessibility-standards",
+    "src": "/images/technologies/tech-accessibility-standards.webp",
+    "category": "technology",
+    "type": "human",
+    "alt": "User testing assistive technology, high-contrast tokens, and keyboard accessibility navigation",
+    "topic": "Accessibility Standards",
+    "page": "Technologies > /technologies/accessibility-standards"
+  },
+  {
+    "id": "company-hub",
+    "src": "/images/company/company-hub.webp",
+    "category": "company",
+    "type": "human",
+    "alt": "Technology team collaborating in open plan office workspace in Pune",
+    "topic": "BizzFly Company Hub",
+    "page": "Company > /company"
+  },
+  {
+    "id": "company-about",
+    "src": "/images/company/company-about-team.webp",
+    "category": "company",
+    "type": "human",
+    "alt": "BizzFly team members collaborating in bright, modern office space in Pune, India",
+    "topic": "About BizzFly",
+    "page": "Company > /company/about"
+  },
+  {
+    "id": "company-how-we-work",
+    "src": "/images/company/company-how-we-work.webp",
+    "category": "company",
+    "type": "process",
+    "alt": "Strategy and delivery leads mapping agile project milestones and technical dependencies",
+    "topic": "How We Work",
+    "page": "Company > /company/how-we-work"
+  },
+  {
+    "id": "company-approach",
+    "src": "/images/company/company-approach-diagnosis.webp",
+    "category": "company",
+    "type": "human",
+    "alt": "Engineering and consulting partners analyzing core business constraints prior to proposing code",
+    "topic": "Our Approach",
+    "page": "Company > /company/approach"
+  },
+  {
+    "id": "company-careers",
+    "src": "/images/company/company-careers-workplace.webp",
+    "category": "company",
+    "type": "human",
+    "alt": "Contemporary engineering and growth workspace supporting professional development and focus",
+    "topic": "Careers at BizzFly",
+    "page": "Company > /company/careers"
+  },
+  {
+    "id": "company-discovery-process",
+    "src": "/images/company/company-discovery-process.webp",
+    "category": "company",
+    "type": "human",
+    "alt": "Consultants conducting an initial discovery consultation to understand customer intent and systems",
+    "topic": "Discovery Process",
+    "page": "Company > /company/discovery-process"
+  },
+  {
+    "id": "company-working-with-us",
+    "src": "/images/company/company-working-with-us.webp",
+    "category": "company",
+    "type": "human",
+    "alt": "Collaborative partnership between client team and BizzFly technical specialists",
+    "topic": "Working With Us",
+    "page": "Company > /company/working-with-us"
+  },
+  {
+    "id": "contact-consultation",
+    "src": "/images/contact/contact-consultation-strategy.webp",
+    "category": "company",
+    "type": "human",
+    "alt": "Senior digital growth advisor conducting an introductory 30-minute discovery conversation",
+    "topic": "Contact Consultation",
+    "page": "Contact > /contact"
+  },
+  {
+    "id": "case-studies-standard",
+    "src": "/images/case-studies/case-studies-verified-standard.webp",
+    "category": "case-studies",
+    "type": "editorial",
+    "alt": "Technical documentation and verified measurement standard governing published client outcomes",
+    "topic": "Case Studies Publishing Standard",
+    "page": "Case Studies > /case-studies"
+  },
+  {
+    "id": "case-studies-audit",
+    "src": "/images/case-studies/case-studies-engineering-audit.webp",
+    "category": "case-studies",
+    "type": "process",
+    "alt": "Architects reviewing quantitative benchmark metrics before and after system implementation",
+    "topic": "Implementation Verification",
+    "page": "Case Studies > /case-studies (audit)"
+  },
+  {
+    "id": "resource-ai-overviews-clicks",
+    "src": "/images/resources/resource-ai-overviews-clicks.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "User searching on mobile device observing AI Overview summarization pushing organic links down",
+    "topic": "AI Overviews Impact",
+    "page": "Resources > /resources/why-ai-overviews-cut-your-clicks"
+  },
+  {
+    "id": "resource-redesign-traffic-loss",
+    "src": "/images/resources/resource-redesign-traffic-loss.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Web analytics screen displaying sudden organic traffic reduction following an unmapped website relaunch",
+    "topic": "Website Redesign Traffic Loss",
+    "page": "Resources > /resources/why-your-website-redesign-lost-traffic"
+  },
+  {
+    "id": "resource-when-to-replatform",
+    "src": "/images/resources/resource-when-to-replatform.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Engineering team evaluating CMS replatforming tradeoffs between monolithic and headless stacks",
+    "topic": "When to Replatform a Website",
+    "page": "Resources > /resources/when-to-replatform-a-website"
+  },
+  {
+    "id": "resource-invest-in-analytics",
+    "src": "/images/resources/resource-invest-in-analytics.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Strategists reviewing event telemetry and attribution modeling to justify analytics investment",
+    "topic": "When to Invest in Analytics",
+    "page": "Resources > /resources/when-to-invest-in-analytics"
+  },
+  {
+    "id": "resource-outsource-development",
+    "src": "/images/resources/resource-outsource-development.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "In-house technical lead onboarding external development specialists to accelerate feature delivery",
+    "topic": "When to Outsource Development",
+    "page": "Resources > /resources/when-to-outsource-development"
+  },
+  {
+    "id": "resource-guide-seo-audit",
+    "src": "/images/resources/resource-guide-seo-audit.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "SEO consultant systematically auditing enterprise website crawl logs and index coverage",
+    "topic": "Enterprise SEO Audit Guide",
+    "page": "Resources > /resources/how-to-audit-your-own-website"
+  },
+  {
+    "id": "resource-checklist-technical-seo",
+    "src": "/images/resources/resource-checklist-technical-seo.webp",
+    "category": "resources",
+    "type": "process",
+    "alt": "Technical checklist outlining crawlability, canonicals, schema data, and mobile readiness tests",
+    "topic": "Technical SEO Checklist",
+    "page": "Resources > /resources/technical-seo-checklist"
+  },
+  {
+    "id": "resource-comparison-framework",
+    "src": "/images/resources/resource-comparison-framework.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Comparative matrix illustrating the structural differences between traditional search indexing and AI answer retrieval",
+    "topic": "SEO vs AEO Comparison",
+    "page": "Resources > /resources/seo-vs-aeo"
+  },
+  {
+    "id": "resource-decision-tree",
+    "src": "/images/resources/resource-decision-tree.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Decision framework weighing custom internal software development against commercial SaaS licensing",
+    "topic": "Build vs Buy Decision Framework",
+    "page": "Resources > /resources/custom-software-vs-off-the-shelf"
+  },
+  {
+    "id": "resource-glossary-knowledge",
+    "src": "/images/resources/resource-glossary-knowledge.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Authoritative digital reference library and terminology definitions for digital growth and AI",
+    "topic": "BizzFly Reference Glossary",
+    "page": "Resources > /resources/what-is-generative-engine-optimisation"
+  },
+  {
+    "id": "company-digital-growth-methodology",
+    "src": "/images/company/company-digital-growth-methodology.webp",
+    "category": "company",
+    "type": "human",
+    "alt": "Growth engineering team reviewing multi-stage digital acquisition and conversion funnels on whiteboard",
+    "topic": "Digital Growth Methodology",
+    "page": "Company > /company/digital-growth-methodology"
+  },
+  {
+    "id": "company-seo-methodology",
+    "src": "/images/company/company-seo-methodology.webp",
+    "category": "company",
+    "type": "business",
+    "alt": "Technical search specialists reviewing search architecture and indexing performance graphs",
+    "topic": "SEO Methodology",
+    "page": "Company > /company/seo-methodology"
+  },
+  {
+    "id": "company-ai-search-methodology",
+    "src": "/images/company/company-ai-search-methodology.webp",
+    "category": "company",
+    "type": "technology",
+    "alt": "Engineers inspecting knowledge graph embeddings and answer engine synthesis patterns on monitors",
+    "topic": "AI Search Methodology",
+    "page": "Company > /company/ai-search-methodology"
+  },
+  {
+    "id": "company-website-development-process",
+    "src": "/images/company/company-website-development-process.webp",
+    "category": "company",
+    "type": "editorial",
+    "alt": "Frontend engineers testing accessible component patterns and responsive web layouts",
+    "topic": "Website Development Process",
+    "page": "Company > /company/website-development-process"
+  },
+  {
+    "id": "company-software-development-process",
+    "src": "/images/company/company-software-development-process.webp",
+    "category": "company",
+    "type": "business",
+    "alt": "Software development team mapping domain entities and distributed service architecture in conference room",
+    "topic": "Software Development Process",
+    "page": "Company > /company/software-development-process"
+  },
+  {
+    "id": "company-automation-approach",
+    "src": "/images/company/company-automation-approach.webp",
+    "category": "company",
+    "type": "technology",
+    "alt": "Automation engineers reviewing end-to-end integration workflows across cloud applications",
+    "topic": "Automation Approach",
+    "page": "Company > /company/automation-approach"
+  },
+  {
+    "id": "company-engagement-models",
+    "src": "/images/company/company-engagement-models.webp",
+    "category": "company",
+    "type": "human",
+    "alt": "Client partners and technology consultants discussing structured engagement scope and deliverables",
+    "topic": "Engagement Models",
+    "page": "Company > /company/engagement-models"
+  },
+  {
+    "id": "company-how-we-price",
+    "src": "/images/company/company-how-we-price.webp",
+    "category": "company",
+    "type": "business",
+    "alt": "Finance and delivery managers reviewing milestone-based scope estimates and transparent pricing models",
+    "topic": "How We Price",
+    "page": "Company > /company/how-we-price"
+  },
+  {
+    "id": "company-how-we-report",
+    "src": "/images/company/company-how-we-report.webp",
+    "category": "company",
+    "type": "editorial",
+    "alt": "Performance analysts reviewing executive dashboards connecting traffic metrics to revenue outcomes",
+    "topic": "How We Report",
+    "page": "Company > /company/how-we-report"
+  },
+  {
+    "id": "company-what-we-do-not-do",
+    "src": "/images/company/company-what-we-do-not-do.webp",
+    "category": "company",
+    "type": "human",
+    "alt": "Technology leadership defining clear operational boundaries and rejecting low-value practices",
+    "topic": "What We Do Not Do",
+    "page": "Company > /company/what-we-do-not-do"
+  },
+  {
+    "id": "company-content-standards",
+    "src": "/images/company/company-content-standards.webp",
+    "category": "company",
+    "type": "editorial",
+    "alt": "Editorial team validating factual accuracy, source citations, and content clarity at a workstation",
+    "topic": "Content Standards",
+    "page": "Company > /company/content-standards"
+  },
+  {
+    "id": "company-accessibility-commitment",
+    "src": "/images/company/company-accessibility-commitment.webp",
+    "category": "company",
+    "type": "human",
+    "alt": "Designers testing digital interfaces with assistive screen reader technologies for WCAG compliance",
+    "topic": "Accessibility Commitment",
+    "page": "Company > /company/accessibility-commitment"
+  },
+  {
+    "id": "company-data-and-privacy-approach",
+    "src": "/images/company/company-data-and-privacy-approach.webp",
+    "category": "company",
+    "type": "technology",
+    "alt": "Security specialists auditing data governance controls and zero-trust encryption policies",
+    "topic": "Data & Privacy Approach",
+    "page": "Company > /company/data-and-privacy-approach"
+  },
+  {
+    "id": "company-faq",
+    "src": "/images/company/company-faq.webp",
+    "category": "company",
+    "type": "human",
+    "alt": "Advisors holding a candid consultation answering operational and technical questions with a client",
+    "topic": "Company FAQ",
+    "page": "Company > /company/faq"
+  },
+  {
+    "id": "company-privacy-policy",
+    "src": "/images/company/company-privacy-policy.webp",
+    "category": "company",
+    "type": "business",
+    "alt": "Compliance professional reviewing data handling policies and transparent privacy governance terms",
+    "topic": "Privacy Policy",
+    "page": "Company > /company/privacy-policy"
+  },
+  {
+    "id": "company-terms",
+    "src": "/images/company/company-terms.webp",
+    "category": "company",
+    "type": "business",
+    "alt": "Business executives reviewing contract terms, intellectual property clauses, and service guarantees",
+    "topic": "Terms of Service",
+    "page": "Company > /company/terms"
+  },
+  {
+    "id": "resource-what-is-answer-engine-optimisation",
+    "src": "/images/resources/resource-what-is-answer-engine-optimisation.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "AI engineers and research analysts working with answer engine optimisation? models and semantic retrieval workflows",
+    "topic": "What Is Answer Engine Optimisation?",
+    "page": "Resources > /resources/what-is-answer-engine-optimisation"
+  },
+  {
+    "id": "resource-what-the-first-90-days-of-seo-look-like",
+    "src": "/images/resources/resource-what-the-first-90-days-of-seo-look-like.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "SEO consultants mapping out a 90-day crawl technical audit and content optimization sprint roadmap",
+    "topic": "What the first 90 days of SEO actually look like",
+    "page": "Resources > /resources/what-the-first-90-days-of-seo-look-like"
+  },
+  {
+    "id": "resource-what-is-ai-optimisation",
+    "src": "/images/resources/resource-what-is-ai-optimisation.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "AI engineers and research analysts working with ai optimisation? models and semantic retrieval workflows",
+    "topic": "What Is AI Optimisation?",
+    "page": "Resources > /resources/what-is-ai-optimisation"
+  },
+  {
+    "id": "resource-what-is-search-experience-optimisation",
+    "src": "/images/resources/resource-what-is-search-experience-optimisation.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing search experience optimisation? metrics and search crawler behavior",
+    "topic": "What Is Search Experience Optimisation?",
+    "page": "Resources > /resources/what-is-search-experience-optimisation"
+  },
+  {
+    "id": "resource-how-to-choose-a-first-automation-project",
+    "src": "/images/resources/resource-how-to-choose-a-first-automation-project.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Operations leads assessing high-impact, low-complexity manual processes on a priority matrix board",
+    "topic": "How to choose a first automation project",
+    "page": "Resources > /resources/how-to-choose-a-first-automation-project"
+  },
+  {
+    "id": "resource-how-ai-search-works",
+    "src": "/images/resources/resource-how-ai-search-works.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Engineers examining semantic embeddings and vector space similarity clusters on high-resolution displays",
+    "topic": "How AI Search Works",
+    "page": "Resources > /resources/how-ai-search-works"
+  },
+  {
+    "id": "resource-how-to-prepare-content-for-ai-search",
+    "src": "/images/resources/resource-how-to-prepare-content-for-ai-search.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Content strategists structuring factual schema hierarchies and clear direct answer blocks for LLM extraction",
+    "topic": "How to Prepare Content for AI Search",
+    "page": "Resources > /resources/how-to-prepare-content-for-ai-search"
+  },
+  {
+    "id": "resource-how-to-build-search-visibility",
+    "src": "/images/resources/resource-how-to-build-search-visibility.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "Growth team reviewing multi-channel search discoverability frameworks and topical authority clusters",
+    "topic": "How to Build Search Visibility",
+    "page": "Resources > /resources/how-to-build-search-visibility"
+  },
+  {
+    "id": "resource-how-to-measure-search-visibility",
+    "src": "/images/resources/resource-how-to-measure-search-visibility.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Search analyst reviewing impression share, average position trends, and share of voice metrics",
+    "topic": "How to Measure Search Visibility",
+    "page": "Resources > /resources/how-to-measure-search-visibility"
+  },
+  {
+    "id": "resource-how-search-intent-works",
+    "src": "/images/resources/resource-how-search-intent-works.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "Product researchers mapping informational, commercial, and transactional user search journeys",
+    "topic": "How Search Intent Works",
+    "page": "Resources > /resources/how-search-intent-works"
+  },
+  {
+    "id": "resource-how-to-run-a-content-audit",
+    "src": "/images/resources/resource-how-to-run-a-content-audit.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Editorial strategists auditing content inventory matrices, page traffic decays, and update priorities",
+    "topic": "How to Run a Content Audit",
+    "page": "Resources > /resources/how-to-run-a-content-audit"
+  },
+  {
+    "id": "resource-how-to-build-an-automation-roadmap",
+    "src": "/images/resources/resource-how-to-build-an-automation-roadmap.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Enterprise architects laying out multi-quarter automation milestones and system integration dependencies",
+    "topic": "How to Build an Automation Roadmap",
+    "page": "Resources > /resources/how-to-build-an-automation-roadmap"
+  },
+  {
+    "id": "resource-how-to-structure-a-website-for-search",
+    "src": "/images/resources/resource-how-to-structure-a-website-for-search.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Information architects mapping hierarchical URL taxonomy and internal linking silo structures on glass board",
+    "topic": "How to Structure a Website for Search",
+    "page": "Resources > /resources/how-to-structure-a-website-for-search"
+  },
+  {
+    "id": "resource-seo-vs-paid-search",
+    "src": "/images/resources/resource-seo-vs-paid-search.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Marketing directors comparing customer acquisition cost between paid search ads and organic organic search channels",
+    "topic": "SEO vs Paid Search",
+    "page": "Resources > /resources/seo-vs-paid-search"
+  },
+  {
+    "id": "resource-aeo-vs-geo",
+    "src": "/images/resources/resource-aeo-vs-geo.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Search engineers comparing answer engine direct response extraction with generative engine content synthesis",
+    "topic": "AEO vs GEO",
+    "page": "Resources > /resources/aeo-vs-geo"
+  },
+  {
+    "id": "resource-traditional-search-vs-ai-search",
+    "src": "/images/resources/resource-traditional-search-vs-ai-search.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Researchers comparing ten blue links search results against conversational generative answer summaries",
+    "topic": "Traditional Search vs AI Search",
+    "page": "Resources > /resources/traditional-search-vs-ai-search"
+  },
+  {
+    "id": "resource-website-redesign-vs-rebuild",
+    "src": "/images/resources/resource-website-redesign-vs-rebuild.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Designers and architects debating frontend UI reskinning versus complete underlying technology replatforming",
+    "topic": "Website Redesign vs Rebuild",
+    "page": "Resources > /resources/website-redesign-vs-rebuild"
+  },
+  {
+    "id": "resource-automation-vs-manual-operations",
+    "src": "/images/resources/resource-automation-vs-manual-operations.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Operations managers comparing manual repetitive data entry workflows with automated API pipelines",
+    "topic": "Automation vs Manual Operations",
+    "page": "Resources > /resources/automation-vs-manual-operations"
+  },
+  {
+    "id": "resource-ai-automation-vs-rule-based-automation",
+    "src": "/images/resources/resource-ai-automation-vs-rule-based-automation.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Technical leads comparing deterministic if-then logic workflows with probabilistic machine learning models",
+    "topic": "AI Automation vs Rule-Based Automation",
+    "page": "Resources > /resources/ai-automation-vs-rule-based-automation"
+  },
+  {
+    "id": "resource-in-house-seo-vs-agency-seo",
+    "src": "/images/resources/resource-in-house-seo-vs-agency-seo.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "Marketing leadership discussing internal team bandwidth compared to specialized external agency execution",
+    "topic": "In-House SEO vs Agency SEO",
+    "page": "Resources > /resources/in-house-seo-vs-agency-seo"
+  },
+  {
+    "id": "resource-headless-vs-traditional-cms",
+    "src": "/images/resources/resource-headless-vs-traditional-cms.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Web architects comparing decoupled headless CMS APIs with monolithic CMS template rendering engines",
+    "topic": "Headless vs Traditional CMS",
+    "page": "Resources > /resources/headless-vs-traditional-cms"
+  },
+  {
+    "id": "resource-when-do-you-need-an-seo-agency",
+    "src": "/images/resources/resource-when-do-you-need-an-seo-agency.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "Corporate executives evaluating whether to engage an external search optimization partner for growth",
+    "topic": "When Do You Need an SEO Agency?",
+    "page": "Resources > /resources/when-do-you-need-an-seo-agency"
+  },
+  {
+    "id": "resource-when-should-you-redesign-your-website",
+    "src": "/images/resources/resource-when-should-you-redesign-your-website.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Marketing directors evaluating website conversion decay and outdated brand positioning in redesign meeting",
+    "topic": "When Should You Redesign Your Website?",
+    "page": "Resources > /resources/when-should-you-redesign-your-website"
+  },
+  {
+    "id": "resource-when-should-you-build-custom-software",
+    "src": "/images/resources/resource-when-should-you-build-custom-software.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Technology leaders discussing competitive advantage gained from proprietary internal software platforms",
+    "topic": "When Should You Build Custom Software?",
+    "page": "Resources > /resources/when-should-you-build-custom-software"
+  },
+  {
+    "id": "resource-when-should-you-automate-a-process",
+    "src": "/images/resources/resource-when-should-you-automate-a-process.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Operations teams evaluating transaction volume and manual error frequency before approving automation workflows",
+    "topic": "When Should You Automate a Process?",
+    "page": "Resources > /resources/when-should-you-automate-a-process"
+  },
+  {
+    "id": "resource-when-should-a-business-invest-in-ai",
+    "src": "/images/resources/resource-when-should-a-business-invest-in-ai.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Executive leadership reviewing clean proprietary datasets and clear business use cases for AI deployment",
+    "topic": "When Should a Business Invest in AI?",
+    "page": "Resources > /resources/when-should-a-business-invest-in-ai"
+  },
+  {
+    "id": "resource-how-to-choose-a-digital-growth-partner",
+    "src": "/images/resources/resource-how-to-choose-a-digital-growth-partner.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "Founders interviewing prospective digital growth partners about methodology, transparency, and past results",
+    "topic": "How to Choose a Digital Growth Partner",
+    "page": "Resources > /resources/how-to-choose-a-digital-growth-partner"
+  },
+  {
+    "id": "resource-how-to-evaluate-seo-services",
+    "src": "/images/resources/resource-how-to-evaluate-seo-services.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Marketing executive scrutinizing SEO service deliverables, contractual terms, and technical audit depth",
+    "topic": "How to Evaluate SEO Services",
+    "page": "Resources > /resources/how-to-evaluate-seo-services"
+  },
+  {
+    "id": "resource-how-to-evaluate-a-software-development-partner",
+    "src": "/images/resources/resource-how-to-evaluate-a-software-development-partner.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "CTO conducting technical vetting of software engineering agency code quality, testing standards, and architecture",
+    "topic": "How to Evaluate a Software Development Partner",
+    "page": "Resources > /resources/how-to-evaluate-a-software-development-partner"
+  },
+  {
+    "id": "resource-how-to-plan-a-website-redesign",
+    "src": "/images/resources/resource-how-to-plan-a-website-redesign.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Cross-functional team establishing milestone schedules, content inventories, and staging deadlines for website launch",
+    "topic": "How to Plan a Website Redesign",
+    "page": "Resources > /resources/how-to-plan-a-website-redesign"
+  },
+  {
+    "id": "resource-how-to-plan-a-digital-transformation-project",
+    "src": "/images/resources/resource-how-to-plan-a-digital-transformation-project.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Enterprise executives mapping phased digital transformation initiatives across legacy enterprise systems",
+    "topic": "How to Plan a Digital Transformation Project",
+    "page": "Resources > /resources/how-to-plan-a-digital-transformation-project"
+  },
+  {
+    "id": "resource-ai-search-readiness-checklist",
+    "src": "/images/resources/resource-ai-search-readiness-checklist.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Search engineers systematically auditing structured entity markup and authoritative citations for AI search",
+    "topic": "AI Search Readiness Checklist",
+    "page": "Resources > /resources/ai-search-readiness-checklist"
+  },
+  {
+    "id": "resource-website-launch-checklist",
+    "src": "/images/resources/resource-website-launch-checklist.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Developers conducting pre-flight launch verification including SSL certificates, 404 handlers, and analytics tags",
+    "topic": "Website Launch Checklist",
+    "page": "Resources > /resources/website-launch-checklist"
+  },
+  {
+    "id": "resource-local-seo-checklist",
+    "src": "/images/resources/resource-local-seo-checklist.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Local business marketers auditing Google Business Profile attributes, local directory citations, and reviews",
+    "topic": "Local SEO Checklist",
+    "page": "Resources > /resources/local-seo-checklist"
+  },
+  {
+    "id": "resource-website-conversion-checklist",
+    "src": "/images/resources/resource-website-conversion-checklist.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Conversion optimization team reviewing lead capture forms, value propositions, and trust signals on landing page",
+    "topic": "Website Conversion Checklist",
+    "page": "Resources > /resources/website-conversion-checklist"
+  },
+  {
+    "id": "resource-digital-growth-audit-checklist",
+    "src": "/images/resources/resource-digital-growth-audit-checklist.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Growth consultant checking off full-funnel audit items across organic traffic, conversion, and retention systems",
+    "topic": "Digital Growth Audit Checklist",
+    "page": "Resources > /resources/digital-growth-audit-checklist"
+  },
+  {
+    "id": "resource-automation-readiness-checklist",
+    "src": "/images/resources/resource-automation-readiness-checklist.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Process engineers reviewing API documentation and data formatting readiness before workflow deployment",
+    "topic": "Automation Readiness Checklist",
+    "page": "Resources > /resources/automation-readiness-checklist"
+  },
+  {
+    "id": "resource-what-is-search-intent",
+    "src": "/images/resources/resource-what-is-search-intent.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Digital technology and search specialists evaluating search intent architecture and implementation principles",
+    "topic": "Search Intent",
+    "page": "Resources > /resources/what-is-search-intent"
+  },
+  {
+    "id": "resource-what-is-entity-optimisation",
+    "src": "/images/resources/resource-what-is-entity-optimisation.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "AI engineers and research analysts working with entity optimisation models and semantic retrieval workflows",
+    "topic": "Entity Optimisation",
+    "page": "Resources > /resources/what-is-entity-optimisation"
+  },
+  {
+    "id": "resource-what-is-a-knowledge-graph",
+    "src": "/images/resources/resource-what-is-a-knowledge-graph.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "AI engineers and research analysts working with knowledge graph models and semantic retrieval workflows",
+    "topic": "Knowledge Graph",
+    "page": "Resources > /resources/what-is-a-knowledge-graph"
+  },
+  {
+    "id": "resource-what-is-schema-markup",
+    "src": "/images/resources/resource-what-is-schema-markup.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing schema markup metrics and search crawler behavior",
+    "topic": "Schema Markup",
+    "page": "Resources > /resources/what-is-schema-markup"
+  },
+  {
+    "id": "resource-what-is-zero-click-search",
+    "src": "/images/resources/resource-what-is-zero-click-search.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "AI engineers and research analysts working with zero-click search models and semantic retrieval workflows",
+    "topic": "Zero-Click Search",
+    "page": "Resources > /resources/what-is-zero-click-search"
+  },
+  {
+    "id": "resource-what-is-a-featured-snippet",
+    "src": "/images/resources/resource-what-is-a-featured-snippet.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Digital technology and search specialists evaluating featured snippet architecture and implementation principles",
+    "topic": "Featured Snippet",
+    "page": "Resources > /resources/what-is-a-featured-snippet"
+  },
+  {
+    "id": "resource-what-is-crawl-budget",
+    "src": "/images/resources/resource-what-is-crawl-budget.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing crawl budget metrics and search crawler behavior",
+    "topic": "Crawl Budget",
+    "page": "Resources > /resources/what-is-crawl-budget"
+  },
+  {
+    "id": "resource-what-is-index-coverage",
+    "src": "/images/resources/resource-what-is-index-coverage.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing index coverage metrics and search crawler behavior",
+    "topic": "Index Coverage",
+    "page": "Resources > /resources/what-is-index-coverage"
+  },
+  {
+    "id": "resource-what-is-canonicalisation",
+    "src": "/images/resources/resource-what-is-canonicalisation.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing canonicalisation metrics and search crawler behavior",
+    "topic": "Canonicalisation",
+    "page": "Resources > /resources/what-is-canonicalisation"
+  },
+  {
+    "id": "resource-what-is-core-web-vitals",
+    "src": "/images/resources/resource-what-is-core-web-vitals.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing core web vitals metrics and search crawler behavior",
+    "topic": "Core Web Vitals",
+    "page": "Resources > /resources/what-is-core-web-vitals"
+  },
+  {
+    "id": "resource-what-is-internal-linking",
+    "src": "/images/resources/resource-what-is-internal-linking.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing internal linking metrics and search crawler behavior",
+    "topic": "Internal Linking",
+    "page": "Resources > /resources/what-is-internal-linking"
+  },
+  {
+    "id": "resource-what-is-topical-authority",
+    "src": "/images/resources/resource-what-is-topical-authority.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing topical authority metrics and search crawler behavior",
+    "topic": "Topical Authority",
+    "page": "Resources > /resources/what-is-topical-authority"
+  },
+  {
+    "id": "resource-what-is-a-large-language-model",
+    "src": "/images/resources/resource-what-is-a-large-language-model.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "AI engineers and research analysts working with large language model (llm) models and semantic retrieval workflows",
+    "topic": "Large Language Model (LLM)",
+    "page": "Resources > /resources/what-is-a-large-language-model"
+  },
+  {
+    "id": "resource-what-is-retrieval-augmented-generation",
+    "src": "/images/resources/resource-what-is-retrieval-augmented-generation.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "AI engineers and research analysts working with retrieval-augmented generation (rag) models and semantic retrieval workflows",
+    "topic": "Retrieval-Augmented Generation (RAG)",
+    "page": "Resources > /resources/what-is-retrieval-augmented-generation"
+  },
+  {
+    "id": "resource-what-is-vector-search",
+    "src": "/images/resources/resource-what-is-vector-search.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "AI engineers and research analysts working with vector search models and semantic retrieval workflows",
+    "topic": "Vector Search",
+    "page": "Resources > /resources/what-is-vector-search"
+  },
+  {
+    "id": "resource-what-is-an-ai-agent",
+    "src": "/images/resources/resource-what-is-an-ai-agent.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "AI engineers and research analysts working with ai agent models and semantic retrieval workflows",
+    "topic": "AI Agent",
+    "page": "Resources > /resources/what-is-an-ai-agent"
+  },
+  {
+    "id": "resource-what-is-hallucination-in-ai",
+    "src": "/images/resources/resource-what-is-hallucination-in-ai.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "AI engineers and research analysts working with hallucination (ai) models and semantic retrieval workflows",
+    "topic": "Hallucination (AI)",
+    "page": "Resources > /resources/what-is-hallucination-in-ai"
+  },
+  {
+    "id": "resource-what-is-robotic-process-automation",
+    "src": "/images/resources/resource-what-is-robotic-process-automation.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Software engineers collaborating on robotic process automation (rpa) architecture, component code, and system standards",
+    "topic": "Robotic Process Automation (RPA)",
+    "page": "Resources > /resources/what-is-robotic-process-automation"
+  },
+  {
+    "id": "resource-what-is-an-api",
+    "src": "/images/resources/resource-what-is-an-api.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Software engineers collaborating on api architecture, component code, and system standards",
+    "topic": "API",
+    "page": "Resources > /resources/what-is-an-api"
+  },
+  {
+    "id": "resource-what-is-a-webhook",
+    "src": "/images/resources/resource-what-is-a-webhook.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Software engineers collaborating on webhook architecture, component code, and system standards",
+    "topic": "Webhook",
+    "page": "Resources > /resources/what-is-a-webhook"
+  },
+  {
+    "id": "resource-what-is-technical-debt",
+    "src": "/images/resources/resource-what-is-technical-debt.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Software engineers collaborating on technical debt architecture, component code, and system standards",
+    "topic": "Technical Debt",
+    "page": "Resources > /resources/what-is-technical-debt"
+  },
+  {
+    "id": "resource-what-is-a-headless-cms",
+    "src": "/images/resources/resource-what-is-a-headless-cms.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Software engineers collaborating on headless cms architecture, component code, and system standards",
+    "topic": "Headless CMS",
+    "page": "Resources > /resources/what-is-a-headless-cms"
+  },
+  {
+    "id": "resource-what-is-server-side-rendering",
+    "src": "/images/resources/resource-what-is-server-side-rendering.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Software engineers collaborating on server-side rendering architecture, component code, and system standards",
+    "topic": "Server-Side Rendering",
+    "page": "Resources > /resources/what-is-server-side-rendering"
+  },
+  {
+    "id": "resource-what-is-marketing-attribution",
+    "src": "/images/resources/resource-what-is-marketing-attribution.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Data analysts reviewing marketing attribution pipelines, metrics dashboards, and performance trends",
+    "topic": "Marketing Attribution",
+    "page": "Resources > /resources/what-is-marketing-attribution"
+  },
+  {
+    "id": "resource-what-is-eeat",
+    "src": "/images/resources/resource-what-is-eeat.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing e-e-a-t metrics and search crawler behavior",
+    "topic": "E-E-A-T",
+    "page": "Resources > /resources/what-is-eeat"
+  },
+  {
+    "id": "resource-what-is-keyword-cannibalisation",
+    "src": "/images/resources/resource-what-is-keyword-cannibalisation.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing keyword cannibalisation metrics and search crawler behavior",
+    "topic": "Keyword Cannibalisation",
+    "page": "Resources > /resources/what-is-keyword-cannibalisation"
+  },
+  {
+    "id": "resource-what-is-a-content-cluster",
+    "src": "/images/resources/resource-what-is-a-content-cluster.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing content cluster metrics and search crawler behavior",
+    "topic": "Content Cluster",
+    "page": "Resources > /resources/what-is-a-content-cluster"
+  },
+  {
+    "id": "resource-what-is-an-xml-sitemap",
+    "src": "/images/resources/resource-what-is-an-xml-sitemap.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing xml sitemap metrics and search crawler behavior",
+    "topic": "XML Sitemap",
+    "page": "Resources > /resources/what-is-an-xml-sitemap"
+  },
+  {
+    "id": "resource-what-is-robots-txt",
+    "src": "/images/resources/resource-what-is-robots-txt.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing robots.txt metrics and search crawler behavior",
+    "topic": "robots.txt",
+    "page": "Resources > /resources/what-is-robots-txt"
+  },
+  {
+    "id": "resource-what-is-a-redirect",
+    "src": "/images/resources/resource-what-is-a-redirect.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing redirect metrics and search crawler behavior",
+    "topic": "Redirect",
+    "page": "Resources > /resources/what-is-a-redirect"
+  },
+  {
+    "id": "resource-what-is-local-seo",
+    "src": "/images/resources/resource-what-is-local-seo.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Digital technology and search specialists evaluating local seo? architecture and implementation principles",
+    "topic": "What Is Local SEO?",
+    "page": "Resources > /resources/what-is-local-seo"
+  },
+  {
+    "id": "resource-what-is-programmatic-seo",
+    "src": "/images/resources/resource-what-is-programmatic-seo.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing programmatic seo metrics and search crawler behavior",
+    "topic": "Programmatic SEO",
+    "page": "Resources > /resources/what-is-programmatic-seo"
+  },
+  {
+    "id": "resource-what-is-log-file-analysis",
+    "src": "/images/resources/resource-what-is-log-file-analysis.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing log file analysis metrics and search crawler behavior",
+    "topic": "Log File Analysis",
+    "page": "Resources > /resources/what-is-log-file-analysis"
+  },
+  {
+    "id": "resource-what-is-conversion-rate",
+    "src": "/images/resources/resource-what-is-conversion-rate.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Digital technology and search specialists evaluating conversion rate architecture and implementation principles",
+    "topic": "Conversion Rate",
+    "page": "Resources > /resources/what-is-conversion-rate"
+  },
+  {
+    "id": "resource-what-is-customer-lifetime-value",
+    "src": "/images/resources/resource-what-is-customer-lifetime-value.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Data analysts reviewing customer lifetime value pipelines, metrics dashboards, and performance trends",
+    "topic": "Customer Lifetime Value",
+    "page": "Resources > /resources/what-is-customer-lifetime-value"
+  },
+  {
+    "id": "resource-what-is-machine-learning",
+    "src": "/images/resources/resource-what-is-machine-learning.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "AI engineers and research analysts working with machine learning models and semantic retrieval workflows",
+    "topic": "Machine Learning",
+    "page": "Resources > /resources/what-is-machine-learning"
+  },
+  {
+    "id": "resource-what-is-prompt-engineering",
+    "src": "/images/resources/resource-what-is-prompt-engineering.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "AI engineers and research analysts working with prompt engineering models and semantic retrieval workflows",
+    "topic": "Prompt Engineering",
+    "page": "Resources > /resources/what-is-prompt-engineering"
+  },
+  {
+    "id": "resource-what-is-fine-tuning",
+    "src": "/images/resources/resource-what-is-fine-tuning.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "AI engineers and research analysts working with fine-tuning models and semantic retrieval workflows",
+    "topic": "Fine-Tuning",
+    "page": "Resources > /resources/what-is-fine-tuning"
+  },
+  {
+    "id": "resource-what-is-middleware",
+    "src": "/images/resources/resource-what-is-middleware.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Software engineers collaborating on middleware architecture, component code, and system standards",
+    "topic": "Middleware",
+    "page": "Resources > /resources/what-is-middleware"
+  },
+  {
+    "id": "resource-what-is-structured-content",
+    "src": "/images/resources/resource-what-is-structured-content.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Software engineers collaborating on structured content architecture, component code, and system standards",
+    "topic": "Structured Content",
+    "page": "Resources > /resources/what-is-structured-content"
+  },
+  {
+    "id": "resource-what-is-a-data-warehouse",
+    "src": "/images/resources/resource-what-is-a-data-warehouse.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Data analysts reviewing data warehouse pipelines, metrics dashboards, and performance trends",
+    "topic": "Data Warehouse",
+    "page": "Resources > /resources/what-is-a-data-warehouse"
+  },
+  {
+    "id": "resource-what-is-a-digital-growth-engine",
+    "src": "/images/resources/resource-what-is-a-digital-growth-engine.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Digital technology and search specialists evaluating digital growth engine architecture and implementation principles",
+    "topic": "Digital Growth Engine",
+    "page": "Resources > /resources/what-is-a-digital-growth-engine"
+  },
+  {
+    "id": "resource-what-is-organic-traffic",
+    "src": "/images/resources/resource-what-is-organic-traffic.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Data analysts reviewing organic traffic pipelines, metrics dashboards, and performance trends",
+    "topic": "Organic Traffic",
+    "page": "Resources > /resources/what-is-organic-traffic"
+  },
+  {
+    "id": "resource-what-is-bounce-rate",
+    "src": "/images/resources/resource-what-is-bounce-rate.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Data analysts reviewing bounce rate pipelines, metrics dashboards, and performance trends",
+    "topic": "Bounce Rate",
+    "page": "Resources > /resources/what-is-bounce-rate"
+  },
+  {
+    "id": "resource-what-is-domain-authority",
+    "src": "/images/resources/resource-what-is-domain-authority.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing domain authority metrics and search crawler behavior",
+    "topic": "Domain Authority",
+    "page": "Resources > /resources/what-is-domain-authority"
+  },
+  {
+    "id": "resource-what-is-a-backlink",
+    "src": "/images/resources/resource-what-is-a-backlink.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing backlink metrics and search crawler behavior",
+    "topic": "Backlink",
+    "page": "Resources > /resources/what-is-a-backlink"
+  },
+  {
+    "id": "resource-what-is-anchor-text",
+    "src": "/images/resources/resource-what-is-anchor-text.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing anchor text metrics and search crawler behavior",
+    "topic": "Anchor Text",
+    "page": "Resources > /resources/what-is-anchor-text"
+  },
+  {
+    "id": "resource-what-is-page-speed",
+    "src": "/images/resources/resource-what-is-page-speed.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search specialists analyzing page speed metrics and search crawler behavior",
+    "topic": "Page Speed",
+    "page": "Resources > /resources/what-is-page-speed"
+  },
+  {
+    "id": "resource-what-is-a-conversion-funnel",
+    "src": "/images/resources/resource-what-is-a-conversion-funnel.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Digital technology and search specialists evaluating conversion funnel architecture and implementation principles",
+    "topic": "Conversion Funnel",
+    "page": "Resources > /resources/what-is-a-conversion-funnel"
+  },
+  {
+    "id": "resource-what-is-lead-scoring",
+    "src": "/images/resources/resource-what-is-lead-scoring.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Digital technology and search specialists evaluating lead scoring architecture and implementation principles",
+    "topic": "Lead Scoring",
+    "page": "Resources > /resources/what-is-lead-scoring"
+  },
+  {
+    "id": "resource-what-is-a-customer-data-platform",
+    "src": "/images/resources/resource-what-is-a-customer-data-platform.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Data analysts reviewing customer data platform pipelines, metrics dashboards, and performance trends",
+    "topic": "Customer Data Platform",
+    "page": "Resources > /resources/what-is-a-customer-data-platform"
+  },
+  {
+    "id": "resource-what-is-etl",
+    "src": "/images/resources/resource-what-is-etl.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Data analysts reviewing etl pipelines, metrics dashboards, and performance trends",
+    "topic": "ETL",
+    "page": "Resources > /resources/what-is-etl"
+  },
+  {
+    "id": "resource-what-is-a-data-pipeline",
+    "src": "/images/resources/resource-what-is-a-data-pipeline.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Data analysts reviewing data pipeline pipelines, metrics dashboards, and performance trends",
+    "topic": "Data Pipeline",
+    "page": "Resources > /resources/what-is-a-data-pipeline"
+  },
+  {
+    "id": "resource-what-is-single-sign-on",
+    "src": "/images/resources/resource-what-is-single-sign-on.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Software engineers collaborating on single sign-on architecture, component code, and system standards",
+    "topic": "Single Sign-On",
+    "page": "Resources > /resources/what-is-single-sign-on"
+  },
+  {
+    "id": "resource-what-is-a-design-system",
+    "src": "/images/resources/resource-what-is-a-design-system.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Software engineers collaborating on design system architecture, component code, and system standards",
+    "topic": "Design System",
+    "page": "Resources > /resources/what-is-a-design-system"
+  },
+  {
+    "id": "resource-what-is-progressive-enhancement",
+    "src": "/images/resources/resource-what-is-progressive-enhancement.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Software engineers collaborating on progressive enhancement architecture, component code, and system standards",
+    "topic": "Progressive Enhancement",
+    "page": "Resources > /resources/what-is-progressive-enhancement"
+  },
+  {
+    "id": "resource-what-is-a-service-level-agreement",
+    "src": "/images/resources/resource-what-is-a-service-level-agreement.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Digital technology and search specialists evaluating service level agreement architecture and implementation principles",
+    "topic": "Service Level Agreement",
+    "page": "Resources > /resources/what-is-a-service-level-agreement"
+  },
+  {
+    "id": "resource-what-is-total-cost-of-ownership",
+    "src": "/images/resources/resource-what-is-total-cost-of-ownership.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Digital technology and search specialists evaluating total cost of ownership architecture and implementation principles",
+    "topic": "Total Cost of Ownership",
+    "page": "Resources > /resources/what-is-total-cost-of-ownership"
+  },
+  {
+    "id": "resource-what-is-a-minimum-viable-product",
+    "src": "/images/resources/resource-what-is-a-minimum-viable-product.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Software engineers collaborating on minimum viable product architecture, component code, and system standards",
+    "topic": "Minimum Viable Product",
+    "page": "Resources > /resources/what-is-a-minimum-viable-product"
+  },
+  {
+    "id": "resource-what-is-workflow-orchestration",
+    "src": "/images/resources/resource-what-is-workflow-orchestration.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Software engineers collaborating on workflow orchestration architecture, component code, and system standards",
+    "topic": "Workflow Orchestration",
+    "page": "Resources > /resources/what-is-workflow-orchestration"
+  },
+  {
+    "id": "resource-seo-audit-checklist",
+    "src": "/images/resources/resource-seo-audit-checklist.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Technical search auditor running automated crawl diagnostics and checking off indexability criteria",
+    "topic": "SEO Audit Checklist",
+    "page": "Resources > /resources/seo-audit-checklist"
+  },
+  {
+    "id": "resource-content-audit-checklist",
+    "src": "/images/resources/resource-content-audit-checklist.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Content manager auditing article freshness, search performance decay, and editorial accuracy standards",
+    "topic": "Content Audit Checklist",
+    "page": "Resources > /resources/content-audit-checklist"
+  },
+  {
+    "id": "resource-site-migration-checklist",
+    "src": "/images/resources/resource-site-migration-checklist.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Lead engineers executing a step-by-step site migration checklist during evening domain cutover",
+    "topic": "Site Migration Checklist",
+    "page": "Resources > /resources/site-migration-checklist"
+  },
+  {
+    "id": "resource-ecommerce-seo-checklist",
+    "src": "/images/resources/resource-ecommerce-seo-checklist.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "E-commerce SEO team verifying canonicalization across faceted navigation filters and product schema",
+    "topic": "E-commerce SEO Checklist",
+    "page": "Resources > /resources/ecommerce-seo-checklist"
+  },
+  {
+    "id": "resource-crm-implementation-checklist",
+    "src": "/images/resources/resource-crm-implementation-checklist.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Sales operations lead auditing contact field mappings and automated lead routing rules in CRM setup",
+    "topic": "CRM Implementation Checklist",
+    "page": "Resources > /resources/crm-implementation-checklist"
+  },
+  {
+    "id": "resource-integration-readiness-checklist",
+    "src": "/images/resources/resource-integration-readiness-checklist.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Integration engineers verifying OAuth2 token scopes, webhook retry queues, and rate limits on systems diagram",
+    "topic": "Integration Readiness Checklist",
+    "page": "Resources > /resources/integration-readiness-checklist"
+  },
+  {
+    "id": "resource-ai-project-checklist",
+    "src": "/images/resources/resource-ai-project-checklist.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Data science leads reviewing model evaluation metrics, dataset licensing, and latency thresholds for AI launch",
+    "topic": "AI Project Readiness Checklist",
+    "page": "Resources > /resources/ai-project-checklist"
+  },
+  {
+    "id": "resource-accessibility-checklist",
+    "src": "/images/resources/resource-accessibility-checklist.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Quality assurance engineer verifying keyboard focus states and color contrast ratios against WCAG 2.1 AA",
+    "topic": "Website Accessibility Checklist",
+    "page": "Resources > /resources/accessibility-checklist"
+  },
+  {
+    "id": "resource-analytics-implementation-checklist",
+    "src": "/images/resources/resource-analytics-implementation-checklist.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Web analyst testing event firing triggers and data layer variable consistency in tag management debugger",
+    "topic": "Analytics Implementation Checklist",
+    "page": "Resources > /resources/analytics-implementation-checklist"
+  },
+  {
+    "id": "resource-pre-launch-seo-checklist",
+    "src": "/images/resources/resource-pre-launch-seo-checklist.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Search specialist verifying that noindex headers are removed and sitemap XML files are accessible on staging",
+    "topic": "Pre-Launch SEO Checklist",
+    "page": "Resources > /resources/pre-launch-seo-checklist"
+  },
+  {
+    "id": "resource-seo-audit-vs-seo-strategy",
+    "src": "/images/resources/resource-seo-audit-vs-seo-strategy.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Strategists reviewing a diagnostic technical SEO audit report before shaping long-term organic growth roadmap",
+    "topic": "SEO Audit vs SEO Strategy",
+    "page": "Resources > /resources/seo-audit-vs-seo-strategy"
+  },
+  {
+    "id": "resource-local-seo-vs-national-seo",
+    "src": "/images/resources/resource-local-seo-vs-national-seo.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Local marketing specialists analyzing regional map pack rankings versus national organic search visibility",
+    "topic": "Local SEO vs National SEO",
+    "page": "Resources > /resources/local-seo-vs-national-seo"
+  },
+  {
+    "id": "resource-in-house-vs-outsourced-development",
+    "src": "/images/resources/resource-in-house-vs-outsourced-development.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "Engineering directors weighing long-term in-house payroll against dedicated external engineering teams",
+    "topic": "In-House vs Outsourced Development",
+    "page": "Resources > /resources/in-house-vs-outsourced-development"
+  },
+  {
+    "id": "resource-no-code-vs-custom-development",
+    "src": "/images/resources/resource-no-code-vs-custom-development.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Software developers comparing rapid visual application builders with maintainable custom codebase architecture",
+    "topic": "No-Code vs Custom Development",
+    "page": "Resources > /resources/no-code-vs-custom-development"
+  },
+  {
+    "id": "resource-chatbot-vs-ai-agent",
+    "src": "/images/resources/resource-chatbot-vs-ai-agent.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "AI engineers comparing script-based conversational chatbots with autonomous goal-directed AI agents executing actions",
+    "topic": "Chatbot vs AI Agent",
+    "page": "Resources > /resources/chatbot-vs-ai-agent"
+  },
+  {
+    "id": "resource-rag-vs-fine-tuning",
+    "src": "/images/resources/resource-rag-vs-fine-tuning.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Machine learning engineers evaluating context retrieval latency versus domain-adapted model weights fine-tuning",
+    "topic": "RAG vs Fine-Tuning",
+    "page": "Resources > /resources/rag-vs-fine-tuning"
+  },
+  {
+    "id": "resource-data-warehouse-vs-spreadsheets",
+    "src": "/images/resources/resource-data-warehouse-vs-spreadsheets.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Data analysts contrasting scalable cloud data warehouse SQL queries with fragile desktop spreadsheets",
+    "topic": "Data Warehouse vs Spreadsheets",
+    "page": "Resources > /resources/data-warehouse-vs-spreadsheets"
+  },
+  {
+    "id": "resource-native-vs-web-apps",
+    "src": "/images/resources/resource-native-vs-web-apps.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Mobile product designers comparing native iOS Swift applications with responsive Progressive Web Applications",
+    "topic": "Native Apps vs Web Apps",
+    "page": "Resources > /resources/native-vs-web-apps"
+  },
+  {
+    "id": "resource-organic-vs-paid-social",
+    "src": "/images/resources/resource-organic-vs-paid-social.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "Social media strategists evaluating organic community advocacy metrics alongside paid sponsored advertising campaigns",
+    "topic": "Organic vs Paid Social",
+    "page": "Resources > /resources/organic-vs-paid-social"
+  },
+  {
+    "id": "resource-agency-vs-freelancer",
+    "src": "/images/resources/resource-agency-vs-freelancer.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "Business founders comparing full-service multi-disciplinary agency capabilities with independent solo contractors",
+    "topic": "Agency vs Freelancer",
+    "page": "Resources > /resources/agency-vs-freelancer"
+  },
+  {
+    "id": "resource-when-to-hire-an-seo-specialist",
+    "src": "/images/resources/resource-when-to-hire-an-seo-specialist.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "Hiring managers interviewing an experienced in-house SEO technical specialist for internal growth leadership",
+    "topic": "When to Hire an In-House SEO Specialist",
+    "page": "Resources > /resources/when-to-hire-an-seo-specialist"
+  },
+  {
+    "id": "resource-when-to-build-a-mobile-app",
+    "src": "/images/resources/resource-when-to-build-a-mobile-app.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Product teams discussing mobile app push notifications, offline utility, and camera hardware integrations",
+    "topic": "When to Build a Mobile App",
+    "page": "Resources > /resources/when-to-build-a-mobile-app"
+  },
+  {
+    "id": "resource-how-to-choose-a-cms",
+    "src": "/images/resources/resource-how-to-choose-a-cms.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Digital team evaluating CMS authoring workflows, developer ergonomics, and API integration flexibility",
+    "topic": "How to Choose a CMS",
+    "page": "Resources > /resources/how-to-choose-a-cms"
+  },
+  {
+    "id": "resource-how-to-set-a-digital-budget",
+    "src": "/images/resources/resource-how-to-set-a-digital-budget.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Chief financial officer and marketing head reviewing digital growth budget allocations and expected ROI",
+    "topic": "How to Set a Digital Budget",
+    "page": "Resources > /resources/how-to-set-a-digital-budget"
+  },
+  {
+    "id": "resource-how-to-brief-an-seo-agency",
+    "src": "/images/resources/resource-how-to-brief-an-seo-agency.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Brand manager writing a comprehensive technical SEO brief detailing commercial targets and technical constraints",
+    "topic": "How to Brief an SEO Agency",
+    "page": "Resources > /resources/how-to-brief-an-seo-agency"
+  },
+  {
+    "id": "resource-how-to-prioritise-digital-work",
+    "src": "/images/resources/resource-how-to-prioritise-digital-work.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Product leadership prioritizing digital initiatives on an impact-versus-effort matrix board",
+    "topic": "How to Prioritise Digital Work",
+    "page": "Resources > /resources/how-to-prioritise-digital-work"
+  },
+  {
+    "id": "resource-seo-reporting-framework",
+    "src": "/images/resources/resource-seo-reporting-framework.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Analytics consultant presenting executive search performance trends and revenue attribution figures",
+    "topic": "SEO Reporting Framework",
+    "page": "Resources > /resources/seo-reporting-framework"
+  },
+  {
+    "id": "resource-enterprise-seo-framework",
+    "src": "/images/resources/resource-enterprise-seo-framework.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Cross-functional enterprise teams collaborating on large-scale web governance and indexing frameworks",
+    "topic": "Enterprise SEO Framework",
+    "page": "Resources > /resources/enterprise-seo-framework"
+  },
+  {
+    "id": "resource-content-planning-framework",
+    "src": "/images/resources/resource-content-planning-framework.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "Editorial directors developing quarterly content topic clusters and research-backed publishing schedules",
+    "topic": "Content Planning Framework",
+    "page": "Resources > /resources/content-planning-framework"
+  },
+  {
+    "id": "resource-technical-seo-migration-guide",
+    "src": "/images/resources/resource-technical-seo-migration-guide.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "DevOps and SEO engineers monitoring 301 redirect map executions and DNS cutover latency in terminal",
+    "topic": "Technical SEO Migration Guide",
+    "page": "Resources > /resources/technical-seo-migration-guide"
+  },
+  {
+    "id": "resource-ai-visibility-measurement-guide",
+    "src": "/images/resources/resource-ai-visibility-measurement-guide.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Data scientists benchmarking generative AI citation frequencies across major LLM search interfaces",
+    "topic": "AI Visibility Measurement Guide",
+    "page": "Resources > /resources/ai-visibility-measurement-guide"
+  },
+  {
+    "id": "resource-automation-business-case-guide",
+    "src": "/images/resources/resource-automation-business-case-guide.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Operations directors calculating labor hour savings and return on investment for workflow automation proposals",
+    "topic": "Building the Business Case for Automation",
+    "page": "Resources > /resources/automation-business-case-guide"
+  },
+  {
+    "id": "resource-ai-governance-guide",
+    "src": "/images/resources/resource-ai-governance-guide.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "Technology leadership team reviewing generative AI usage policies and data confidentiality safeguards",
+    "topic": "AI Governance for Small Teams",
+    "page": "Resources > /resources/ai-governance-guide"
+  },
+  {
+    "id": "resource-website-brief-guide",
+    "src": "/images/resources/resource-website-brief-guide.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Product manager detailing website technical requirements, user personas, and conversion objectives in brief",
+    "topic": "How to Write a Website Brief",
+    "page": "Resources > /resources/website-brief-guide"
+  },
+  {
+    "id": "resource-software-requirements-guide",
+    "src": "/images/resources/resource-software-requirements-guide.webp",
+    "category": "resources",
+    "type": "editorial",
+    "alt": "Systems analyst writing detailed functional specifications, acceptance criteria, and edge case rules",
+    "topic": "How to Write Software Requirements",
+    "page": "Resources > /resources/software-requirements-guide"
+  },
+  {
+    "id": "resource-data-quality-framework",
+    "src": "/images/resources/resource-data-quality-framework.webp",
+    "category": "resources",
+    "type": "technology",
+    "alt": "Data engineers reviewing automated validation test results and data pipeline completeness metrics",
+    "topic": "Data Quality Framework",
+    "page": "Resources > /resources/data-quality-framework"
+  },
+  {
+    "id": "resource-conversion-research-guide",
+    "src": "/images/resources/resource-conversion-research-guide.webp",
+    "category": "resources",
+    "type": "human",
+    "alt": "UX researchers evaluating session recording heatmaps and checkout funnel abandonment analytics",
+    "topic": "Conversion Research Guide",
+    "page": "Resources > /resources/conversion-research-guide"
+  },
+  {
+    "id": "resource-first-90-days-automation",
+    "src": "/images/resources/resource-first-90-days-automation.webp",
+    "category": "resources",
+    "type": "business",
+    "alt": "Operations team celebrating initial milestone deployment of automated order processing workflow",
+    "topic": "The First 90 Days of Automation",
+    "page": "Resources > /resources/first-90-days-automation"
+  }
+]

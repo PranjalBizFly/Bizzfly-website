@@ -1,4 +1,5 @@
 export { Header } from "./Header";
+export { ValueTicker } from "./ValueTicker";
 export { MegaMenu } from "./MegaMenu";
 export { MobileNav } from "./MobileNav";
 export { Breadcrumbs } from "./Breadcrumbs";

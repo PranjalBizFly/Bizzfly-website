@@ -9,7 +9,9 @@ import {
   FAQBlock,
   RelatedContent,
   RelationshipMap,
+  CardTrack,
   ConversionBand,
+  type CardTrackEntry,
   ContentBlock,
   EditorialBlock,
   Diagram,
@@ -52,6 +54,28 @@ export default async function IndustryPage({ params }: PageProps) {
   const path = `/industries/${slug}/`;
   const layout = industry.layout ?? "challenge-led";
   const rel = relationshipsForIndustry(slug);
+
+  /*
+   * Every other published sector, each with the frame already assigned to its
+   * own page. Filtered on `isPublished` for the same reason the route is:
+   * a card is a link, and linking to a page that 404s is worse than omitting
+   * the sector.
+   */
+  const otherSectors: CardTrackEntry[] = industries
+    .filter((entry) => entry.slug !== slug && isPublished(entry))
+    .map((entry, index) => {
+      const image = getIndustryImage(entry.slug);
+      return image
+        ? {
+            index: String(index + 1).padStart(2, "0"),
+            title: entry.title,
+            description: entry.problems[0]?.description ?? entry.answer,
+            href: `/industries/${entry.slug}/`,
+            image,
+          }
+        : null;
+    })
+    .filter((entry): entry is CardTrackEntry => entry !== null);
 
   const breadcrumbs = [
     { label: "Home", href: "/" },
@@ -226,6 +250,31 @@ export default async function IndustryPage({ params }: PageProps) {
           <div className="mt-8">
             <TextLink href="/industries/">All industries</TextLink>
           </div>
+        </Section>
+      ) : null}
+
+      {/*
+        Cross-sector discovery, and the one place on this page that offers it.
+        The relationship map above covers what is relevant WITHIN this sector —
+        its services, use cases and technologies — and says nothing about the
+        other twenty-five, which is exactly what a reader who has decided this
+        is not their sector needs next.
+
+        Autoplay is on here: twenty-five items is a set nobody scrolls through
+        by hand, and the drift is what makes the range visible at all.
+      */}
+      {otherSectors.length > 0 ? (
+        <Section spacing="lg">
+          <SectionHeader
+            split
+            eyebrow="Other sectors"
+            title="Not your industry?"
+            lead="We publish a sector page only where we can name that sector's real problems in its own vocabulary. These are the rest of them."
+          />
+          <CardTrack
+            entries={otherSectors}
+            label="Other sectors we work with"
+          />
         </Section>
       ) : null}
 

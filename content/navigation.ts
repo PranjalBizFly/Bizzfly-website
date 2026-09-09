@@ -499,12 +499,19 @@ export const primaryNav: PrimaryNavItem[] = [
  *
  * The footer renders on all 300 pages, so its length is not a footer
  * decision — it is a site-wide one. Mapping every entity into it put 26
- * industries, 30 use cases and 16 technologies at the foot of every page.
- * Five and a link is enough to show what a section contains; the hub page
- * is what holds the complete list, and it is what the sitemap and the
- * crawler read.
+ * industries, 30 use cases and 16 technologies at the foot of every page,
+ * which is the link wall this cap exists to prevent. The hub page is what
+ * holds the complete list, and it is what the sitemap and the crawler read.
+ *
+ * Nine rather than five, since the directory went to six columns.
+ *
+ * Five left four of the six tracks ending less than half way down a block
+ * the brand column carries to the bottom, so the middle of the footer was
+ * empty space rather than a directory. Nine and a link fills the tracks to
+ * roughly even depth and still shows a fraction of each section: it is 9 of
+ * 26, 30, 16 and 145, not all of them.
  */
-const FOOTER_COLUMN_LIMIT = 5;
+const FOOTER_COLUMN_LIMIT = 9;
 
 const footerColumn = (
   heading: string,
@@ -576,4 +583,30 @@ export const legalNav: NavigationItem[] = [
   { label: "Privacy Policy", href: "/company/privacy-policy/" },
   { label: "Terms & Conditions", href: "/company/terms/" },
   { label: "Search", href: "/search/" },
+];
+
+/* ==========================================================================
+   The value ticker
+   --------------------------------------------------------------------------
+   The strip above the header. Six short statements of position, cycling.
+
+   Every line here is a restatement of something the site already publishes
+   and commits to elsewhere — the homepage tagline, the diagnosis-first
+   engagement model on /company/how-we-work/, the reporting standard on
+   /company/how-we-report/, the five discoverability surfaces, and the
+   registered office. NOTHING in this list is a metric, a result, a client
+   count or a duration, because a ticker is the easiest place on a site for
+   an unverifiable claim to slip in unnoticed and the hardest place for a
+   reader to check one.
+
+   Kept to six: the band loops, and a longer list means a visitor waits
+   through statements they have already read before the loop closes.
+   ========================================================================== */
+export const valuePropositions: string[] = [
+  "Get found. Build well. Automate the rest.",
+  "Search results, AI answers and maps — one programme",
+  "Diagnosis before proposal",
+  "The team that finds the problem is the team that fixes it",
+  "Reported against enquiries, not impressions",
+  "Digital growth, AI and automation — Pune, India",
 ];

@@ -1,10 +1,19 @@
-/* Horizontal band on desktop — reads as a progression, not four packages */
+/*
+ * Four lifecycle stages, each a two-state card: a square photograph at rest,
+ * the stage's own detail in the same space under the pointer.
+ */
 .list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: var(--space-6);
+  gap: var(--gap-stack-md);
+}
+
+@media (min-width: 640px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 1024px) {
@@ -14,38 +23,231 @@
   }
 }
 
+/*
+ * The grid stretches the item to the row height; this passes that height on
+ * to the card inside it, so the four sit level whatever their copy runs to.
+ */
 .item {
+  min-width: 0;
+  display: grid;
+}
+
+/* --- The state switch ---------------------------------------------------- */
+/*
+ * The whole interaction is these three blocks of custom properties.
+ *
+ * Writing the state as values rather than as a second copy of the animation
+ * means the transitions, the delays and the visibility handoff are declared
+ * once, on the faces, and cannot drift apart between the pointer case and the
+ * touch case. Each state below is only which values are in force.
+ *
+ * REST: photograph shown, detail hidden.
+ */
+.stack {
+  --image-opacity: 1;
+  --image-scale: 1;
+  --image-visibility: visible;
+  /* Waits for the detail to clear before coming back. */
+  --image-delay: var(--dur-fast);
+  --image-visibility-delay: 0s;
+
+  --content-opacity: 0;
+  --content-shift: var(--space-4);
+  --content-visibility: hidden;
+  --content-duration: var(--dur-base);
+  --content-delay: 0s;
+  /* Stays laid out until it has finished fading, then leaves the tab order. */
+  --content-visibility-delay: var(--dur-base);
+}
+
+/*
+ * HOVER: detail shown, photograph hidden. Pointer only.
+ *
+ * :focus-within is here too, so a keyboard reaches exactly what a mouse does
+ * — the card is the tab stop, and the service links inside keep it open while
+ * they are tabbed through.
+ */
+@media (hover: hover) {
+  .stack:hover,
+  .stack:focus-within {
+    --image-opacity: 0;
+    --image-scale: 0.96;
+    --image-visibility: hidden;
+    --image-delay: 0s;
+    --image-visibility-delay: var(--dur-slow);
+
+    --content-opacity: 1;
+    --content-shift: 0px;
+    --content-visibility: visible;
+    --content-duration: var(--dur-slow);
+    --content-delay: var(--dur-fast);
+    --content-visibility-delay: 0s;
+  }
+}
+
+/*
+ * TOUCH: the same two states, reached by tapping, because a finger cannot
+ * hover. Deliberately NOT :hover — a touch browser fires a sticky :hover on
+ * tap that survives until the next tap somewhere else, which would leave a
+ * card stuck open with no way back.
+ */
+@media (hover: none) {
+  .stack[data-open="true"] {
+    --image-opacity: 0;
+    --image-scale: 0.96;
+    --image-visibility: hidden;
+    --image-delay: 0s;
+    --image-visibility-delay: var(--dur-slow);
+
+    --content-opacity: 1;
+    --content-shift: 0px;
+    --content-visibility: visible;
+    --content-duration: var(--dur-slow);
+    --content-delay: var(--dur-fast);
+    --content-visibility-delay: 0s;
+  }
+}
+
+/*
+ * The stack.
+ *
+ * Both faces sit in the same single-cell grid, so the card is always as tall
+ * as the taller of the two and cannot change height when the state flips.
+ * That is the whole reason this is a grid rather than absolute positioning:
+ * an absolutely positioned face contributes nothing to the height, so the
+ * card would collapse to whichever face happened to be in flow — and a card
+ * that resized under the pointer would move out from under it and flicker
+ * between the two states.
+ */
+.stack {
+  display: grid;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.stack:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.imageFace,
+.contentFace {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+/*
+ * The photograph leaves first and returns last; the detail arrives last and
+ * leaves first. One is always clearing the space before the other takes it,
+ * which is what stops the swap reading as a crossfade.
+ *
+ * Total either way: 160ms of hold plus 360ms of travel — a little over half a
+ * second, and the same in both directions.
+ *
+ * visibility is stepped, not eased, so it is transitioned with a zero
+ * duration and a delay. That is what makes the hidden face genuinely gone —
+ * unfocusable and unread — without it vanishing mid-fade.
+ */
+.imageFace {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  padding-top: var(--space-5);
-  border-top: 2px solid var(--border);
+  opacity: var(--image-opacity);
+  visibility: var(--image-visibility);
+  transform: scale(var(--image-scale));
+  transition:
+    opacity var(--dur-slow) var(--ease-standard) var(--image-delay),
+    transform var(--dur-slow) var(--ease-standard) var(--image-delay),
+    visibility 0s linear var(--image-visibility-delay);
 }
 
-.item:first-child {
-  border-top-color: var(--accent-edge);
+.contentFace {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+  opacity: var(--content-opacity);
+  visibility: var(--content-visibility);
+  transform: translate3d(0, var(--content-shift), 0);
+  transition:
+    opacity var(--content-duration) var(--ease-standard) var(--content-delay),
+    transform var(--content-duration) var(--ease-standard) var(--content-delay),
+    visibility 0s linear var(--content-visibility-delay);
 }
 
+.workLink:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* --- The image face ------------------------------------------------------ */
+/*
+ * A true square, flush to the card edges. aspect-ratio on the frame rather
+ * than on the image, so the ratio belongs to the container and the photograph
+ * is cropped into it — a landscape original fills a square slot instead of
+ * letterboxing inside one.
+ */
+.imageFrame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-standard);
+}
+
+/*
+ * The name, on the card surface under the photograph. No scrim and no inverse
+ * palette: it is not over an image, so it takes the ordinary text colours and
+ * their verified contrast.
+ *
+ * margin-block: auto centres it in whatever the square leaves over. At four
+ * columns the detail face is the taller of the two, and centring turns that
+ * remainder into a caption area rather than a gap at the foot of the card.
+ */
+.imageLabel {
+  margin-block: auto;
+  padding: var(--space-5);
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  color: var(--foreground);
+}
+
+.imageIndex {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--accent-text);
+}
+
+.imageStage {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-snug);
+}
+
+/* --- The content face ---------------------------------------------------- */
 .head {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: var(--space-1);
 }
 
-/* A numbered badge, not a floating figure — the step reads as a token. */
 .index {
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   font-variant-numeric: tabular-nums;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
-  inline-size: 2rem;
-  block-size: 2rem;
-  border-radius: var(--radius-full);
-  background: var(--surface-muted);
-  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-eyebrow);
   color: var(--accent-text);
 }
 
@@ -54,40 +256,44 @@
   font-size: var(--text-h3);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
 }
 
 .situation {
   font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
   color: var(--muted);
 }
 
 .focus {
+  margin-top: var(--space-4);
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
   color: var(--foreground);
   max-width: var(--measure-card);
+  text-wrap: pretty;
 }
 
+/* margin-top:auto pins the services to the foot, so they line up across the row. */
 .work {
   list-style: none;
   margin: auto 0 0;
-  padding: var(--space-4) 0 0;
+  padding-top: var(--space-4);
   border-top: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: var(--space-2);
 }
 
 .workLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
   font-size: var(--text-body-sm);
   color: var(--muted);
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 4px;
-  display: inline-block;
-  padding-block: var(--space-1);
-  /* WCAG 2.5.8 target size */
-  min-height: 24px;
   transition:
     color var(--dur-fast) var(--ease-standard),
     text-decoration-color var(--dur-fast) var(--ease-standard);
@@ -96,4 +302,34 @@
 .workLink:hover {
   color: var(--foreground);
   text-decoration-color: var(--link-underline);
+}
+
+/* --- Reduced motion ------------------------------------------------------ */
+/*
+ * The state change stays — it is the point of the section — but nothing
+ * travels, scales or waits to get there. The two faces swap on the spot.
+ */
+/*
+ * The active states are listed alongside the resting one because they set the
+ * same properties at a higher specificity — overriding only `.stack` leaves
+ * `.stack:hover` still scaling and still waiting, which is exactly what this
+ * block exists to switch off.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .stack,
+  .stack:hover,
+  .stack:focus-within,
+  .stack[data-open="true"] {
+    --image-delay: 0s;
+    --image-visibility-delay: 0s;
+    --content-delay: 0s;
+    --content-visibility-delay: 0s;
+    --image-scale: 1;
+    --content-shift: 0px;
+  }
+  .imageFace,
+  .contentFace,
+  .image {
+    transition: none;
+  }
 }

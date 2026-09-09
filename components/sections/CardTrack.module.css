@@ -1,0 +1,306 @@
+/*
+ * A horizontal track of image-led cards.
+ *
+ * Native overflow with scroll snapping. Everything the reader can do to move
+ * the set — swipe, drag, shift-wheel, arrow keys, the two buttons — drives one
+ * scroll position, so there is no second source of truth to keep in step.
+ */
+.wrapper {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/*
+ * A flex row holding two identical tracks, so the drift always has an
+ * identical frame to wrap onto.
+ *
+ * NO scroll snapping. Snap points fight a continuous drift and would haul the
+ * track from card to card, which is the stepped motion this section exists to
+ * avoid.
+ */
+.viewport {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /*
+   * Keeps a swipe that starts slightly off-axis on the track instead of
+   * fighting the page's vertical scroll.
+   */
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+
+  /*
+   * NOT scroll-behavior: smooth.
+   *
+   * The loop wraps by subtracting one full set from scrollLeft — about 9,600px
+   * — and with smooth scrolling declared here the browser ANIMATES that jump,
+   * so the seamless wrap becomes a long visible scroll backwards. Instant is
+   * the whole point: the frame it lands on is identical, so nothing appears to
+   * happen.
+   *
+   * The two buttons still animate, because they ask for it per call via
+   * scrollBy({ behavior: "smooth" }) rather than relying on this.
+   */
+  scroll-behavior: auto;
+
+  /*
+   * The scrollbar is hidden because the two controls and the partial card at
+   * the edge are the affordance. The region stays keyboard-scrollable, which
+   * is the part that actually matters.
+   */
+  scrollbar-width: none;
+}
+
+.viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.viewport:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--radius-lg);
+}
+
+/*
+ * Each track is one full copy of the set and never shrinks, so the two halves
+ * of the scroll width are exactly equal.
+ */
+.track {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex: none;
+  /*
+   * A little room so a card's focus ring and its hover lift are not clipped
+   * by the scroll container.
+   */
+  padding-block: var(--space-1) var(--space-2);
+}
+
+/*
+ * Card width by breakpoint, sized so the next card is always partly visible —
+ * that sliver is what tells a reader the set continues sideways, and it does
+ * the job no scrollbar or instruction can.
+ *
+ * Measured rather than guessed: at 46% the tablet showed 2.02 cards, so the
+ * "slice" was two per cent of a card and told the reader nothing. The values
+ * below land at roughly 1.2 / 2.3 / 3.1 cards, where the partial is wide
+ * enough to read as a card that continues.
+ *
+ *   phone   78%  — one card and a fifth of the next
+ *   tablet  40%  — two and a third
+ *   desktop 30%  — three and a tenth
+ */
+/*
+ * The gap is a TRAILING MARGIN on each card, not a gap on the container.
+ *
+ * That is what makes the loop seamless. With a container gap, N cards give
+ * N-1 gaps, so half the scroll width lands half a gap away from the matching
+ * frame and the wrap shows as a small sideways twitch. With a margin, every
+ * card occupies exactly width+gap, the two copies are identical in width, and
+ * scrollWidth/2 is precisely one set.
+ */
+/*
+ * Card width is a LENGTH, not a percentage.
+ *
+ * The track is now a flex item sized to its own content, so a percentage
+ * basis on the cards resolves against a width the cards themselves determine
+ * — a circular dependency the browser settles by making each card enormous.
+ * Measured at 7,916px per card before this changed.
+ *
+ * A viewport-relative clamp has no such loop and still adapts: a readable
+ * minimum on a phone, growing through the middle sizes, stopping before a
+ * card becomes a poster on a wide screen.
+ */
+.item {
+  flex: 0 0 clamp(16.5rem, 24vw, 22.25rem);
+  margin-inline-end: var(--space-6);
+  min-width: 0;
+}
+
+/* --- The card ------------------------------------------------------------ */
+/*
+ * A column so every card is the same height whatever its description runs to,
+ * and the call to action can be pinned to the foot of all of them.
+ */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius-lg);
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+.frame {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+/*
+ * One ratio for every frame in the track. The images are landscape shots of
+ * very different subjects, so without a fixed crop the cards would sit at
+ * different heights and the row would read as a mistake.
+ */
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--ratio-card);
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-standard);
+}
+
+.card:hover .image,
+.card:focus-visible .image {
+  transform: scale(1.04);
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--space-5);
+}
+
+.index {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--accent-text);
+}
+
+.title {
+  margin-top: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+  text-wrap: balance;
+  transition: color var(--dur-base) var(--ease-standard);
+}
+
+/*
+ * Clamped rather than truncated: the full sentence stays in the DOM for
+ * search and for anyone reading with styles off, and holding every card to
+ * the same depth is what keeps the row level.
+ */
+.description {
+  margin-top: var(--space-3);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+/* margin-top:auto pins this to the foot, so it lines up across the row. */
+.action {
+  margin: auto 0 0;
+  padding-top: var(--space-5);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--touch-target-min);
+  font-family: var(--font-label);
+  font-size: var(--text-button);
+  font-weight: var(--weight-medium);
+  color: var(--foreground);
+}
+
+.arrow {
+  color: var(--accent-edge);
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+.card:hover .arrow,
+.card:focus-visible .arrow {
+  transform: translate3d(var(--space-2), 0, 0);
+}
+
+.card:hover .title,
+.card:focus-visible .title {
+  color: var(--accent-text);
+}
+
+/* --- Controls ------------------------------------------------------------ */
+/*
+ * Two small circular controls, sized to the touch target and no larger. The
+ * default carousel arrow sits over the content and competes with it; these
+ * sit under the track where they read as chrome.
+ */
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+.control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--touch-target-min);
+  block-size: var(--touch-target-min);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: var(--background);
+  color: var(--foreground);
+  transition:
+    background var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard),
+    opacity var(--dur-fast) var(--ease-standard);
+}
+
+.control:hover:not(:disabled) {
+  background: var(--surface-muted);
+  border-color: var(--border-strong);
+}
+
+/*
+ * Disabled at the ends rather than hidden: a control that disappears moves
+ * the one beside it, and a reader who has just used it loses their target.
+ */
+.control:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewport {
+    scroll-behavior: auto;
+  }
+  .card,
+  .image,
+  .arrow,
+  .title,
+  .control {
+    transition: none;
+  }
+  .card:hover {
+    transform: none;
+  }
+  .card:hover .image,
+  .card:focus-visible .image {
+    transform: none;
+  }
+  .card:hover .arrow,
+  .card:focus-visible .arrow {
+    transform: none;
+  }
+}

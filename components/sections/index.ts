@@ -35,3 +35,5 @@ export { WhyBizzFly } from "./WhyBizzFly";
 export { GrowthEngine } from "./GrowthEngine";
 export { FounderNote } from "./FounderNote";
 export { TestimonialCarousel } from "./TestimonialCarousel";
+export { CardTrack } from "./CardTrack";
+export type { CardTrackEntry } from "./CardTrack";

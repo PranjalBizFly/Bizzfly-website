@@ -4,7 +4,7 @@ import { Section } from "@/components/layout/Section";
 import { HomeHero } from "@/components/hero";
 import {
   SectionHeader,
-  NumberedList,
+  CardTrack,
   CapabilityGroups,
   VisibilitySpectrum,
   ProblemList,
@@ -21,7 +21,7 @@ import {
   GrowthEngine,
   FounderNote,
   TestimonialCarousel,
-  type NumberedEntry,
+  type CardTrackEntry,
   type ShowcaseEntry,
   type Stat,
   type InsightEntry,
@@ -38,7 +38,9 @@ import { allCompanyPages } from "@/content/company";
 import { site } from "@/content/site";
 import {
   getHomepageImages,
+  getIndustryImage,
   getNarrativeImages,
+  getStageImages,
   getResourceImage,
   resourceImageAssignments,
 } from "@/content/images";
@@ -78,36 +80,34 @@ export const metadata: Metadata = {
 };
 
 /*
- * The homepage shows a chosen six, not the catalogue.
+ * The homepage carries all twenty-six sectors.
  *
- * It used to map every industry. At twelve that was a long section; at
- * twenty-six it measured 7,848px with 105 links — a third of the page, and
- * more scrolling than any visitor gives a homepage before deciding. The
- * complete set is one click away on /industries/, which is where the
- * sitemap and the crawler find them, so nothing is hidden by choosing here.
+ * It used to show a chosen six. The reason was height: as a stacked list of
+ * rows, twenty-six measured 7,848px with 105 links, a third of the page, and
+ * more scrolling than any visitor gives a homepage before deciding.
  *
- * These six are picked for spread — a maker, a seller, a regulated buyer, a
- * software business, a services firm and a network operator — so the section
- * demonstrates range rather than listing inventory.
+ * A drifting track removes that constraint entirely. The section is one card
+ * tall whether it holds six sectors or twenty-six, so the whole catalogue now
+ * costs the page nothing in height — and the range is the point of the
+ * section, which a curated six could only imply.
+ *
+ * Each card carries the same photograph as the sector page it opens, so
+ * following the link is continuous rather than a jump to an unrelated image.
+ * All twenty-six already have their own frame in the registry — verified as
+ * twenty-six unique images, none missing and none shared — so nothing here
+ * needed new artwork.
  */
-const HOME_INDUSTRIES = [
-  "manufacturing",
-  "professional-services",
-  "saas",
-  "healthcare",
-  "ecommerce",
-  "logistics",
-];
-
-const industryEntries: NumberedEntry[] = HOME_INDUSTRIES.map(
-  (slug) => industries.find((i) => i.slug === slug),
-)
-  .filter((industry): industry is NonNullable<typeof industry> => Boolean(industry))
-  .map((industry, index) => ({
+const industryEntries: CardTrackEntry[] = industries.map((industry) => {
+  const image = getIndustryImage(industry.slug);
+  return image ? { industry, image } : null;
+})
+  .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+  .map(({ industry, image }, index) => ({
     index: String(index + 1).padStart(2, "0"),
     title: industry.title,
     description: industry.problems[0]?.description ?? industry.answer,
     href: `/industries/${industry.slug}/`,
+    image,
   }));
 
 /*
@@ -185,6 +185,8 @@ export default function HomePage() {
    * it costs.
    */
   const narrative = getNarrativeImages();
+  /* One frame per lifecycle stage — see getStageImages for the pairing rule. */
+  const stageImages = getStageImages();
 
   /*
    * The showcase.
@@ -410,7 +412,7 @@ export default function HomePage() {
           title="The right work depends on the constraint you actually have"
           lead="Businesses move between these. The mistake is buying the work that suits the stage you wish you were at."
         />
-        <StageList />
+        <StageList images={stageImages} />
       </Section>
 
       {/* 08 — Industries */}
@@ -421,7 +423,7 @@ export default function HomePage() {
           title="Context matters more than templates"
           lead="A manufacturer and an education group have almost nothing in common except that both are hard to find. We publish a sector page only where we can name that sector's real problems in its own vocabulary."
         />
-        <NumberedList items={industryEntries} />
+        <CardTrack entries={industryEntries} label="Industries we publish for" />
         <div className={styles.sectionFooter}>
           <TextLink href="/industries/">
             All {industries.length} industries
@@ -479,7 +481,6 @@ export default function HomePage() {
           split
           eyebrow="12 / Start here"
           title="What are you trying to do?"
-          lead="Pick the sentence closest to your situation."
         />
         <JourneyList />
       </Section>
