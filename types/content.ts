@@ -373,8 +373,6 @@ export interface NavigationColumn {
    * the one a grouped menu creates by grouping.
    */
   viewAll?: NavigationItem;
-  /** Count or qualifier shown beside the heading, e.g. "26 sectors". */
-  meta?: string;
 }
 
 export interface NavigationFeature {

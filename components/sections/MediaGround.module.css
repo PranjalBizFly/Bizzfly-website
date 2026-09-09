@@ -1,0 +1,74 @@
+/*
+ * A section whose ground is a photograph.
+ *
+ * Full-bleed by construction: the section is the width of the viewport and
+ * the container inside it keeps the type on the page grid, so the image runs
+ * edge to edge without any element needing a negative margin.
+ */
+.ground {
+  position: relative;
+  isolation: isolate;
+  padding-block: var(--section-lg);
+  background: var(--ink-900);
+  color: var(--text-inverse);
+  overflow: hidden;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+}
+
+/*
+ * object-fit with an explicit ratio-free box: the frame is whatever the
+ * section turns out to be, and the photograph covers it. Height is set here
+ * rather than by an aspect-ratio because the section's height comes from its
+ * content, which is the point of a ground.
+ */
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /*
+   * A slow settle as the section arrives. Transform only — the image is never
+   * faded, because a photograph that fades in behind text makes the text look
+   * like it is sitting on nothing for the length of the animation.
+   */
+  animation: groundSettle var(--dur-reveal) var(--ease-decelerate) both;
+}
+
+@keyframes groundSettle {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/*
+ * --scrim-hero, not --scrim-strong. This is the one place type is set over a
+ * photograph, and the lighter wash does not hold white text at AA over the
+ * paler frames in the set. See the token's note in tokens.css.
+ */
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--scrim-hero);
+}
+
+/* For compositions that also set body-size text over the frame. */
+.deep .scrim {
+  background: var(--scrim-ground);
+}
+
+.container {
+  position: relative;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image {
+    animation: none;
+  }
+}

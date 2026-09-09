@@ -54,7 +54,7 @@
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 52ch;
+  max-width: var(--measure-card);
 }
 
 .columnLabel {
@@ -127,5 +127,5 @@
   font-size: var(--text-body);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 62ch;
+  max-width: var(--measure-body);
 }

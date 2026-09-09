@@ -1,0 +1,120 @@
+/*
+ * S-04 Accordion set.
+ *
+ * Moved out of Sections.module.css when the block gained its open/close
+ * animation — the styles now describe a behaviour rather than a static
+ * pattern, and they were the only rules in that file with a state machine
+ * attached.
+ */
+.list {
+  border-top: 1px solid var(--border);
+  max-width: var(--container-content);
+}
+
+.item {
+  border-bottom: 1px solid var(--border);
+}
+
+.question {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-6);
+  width: 100%;
+  padding-block: var(--space-6);
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  color: var(--muted);
+  text-align: left;
+  min-height: var(--touch-target-min);
+  transition: color var(--dur-base) var(--ease-standard);
+}
+
+/* Safari still paints the disclosure triangle without this. */
+.question::-webkit-details-marker {
+  display: none;
+}
+
+.question:hover,
+.item[data-expanded="true"] .question {
+  color: var(--foreground);
+}
+
+.questionText {
+  max-width: var(--measure-title);
+  text-wrap: pretty;
+}
+
+.marker {
+  color: var(--ink-400);
+  flex-shrink: 0;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    color var(--dur-base) var(--ease-standard);
+}
+
+.item[data-expanded="true"] .marker {
+  transform: rotate(90deg);
+  color: var(--accent-edge);
+}
+
+/*
+ * The panel.
+ *
+ * grid-template-rows 0fr -> 1fr, which is the only way to transition to a
+ * content-derived height without measuring it in JavaScript. It is a layout
+ * animation, which this system otherwise avoids — but a disclosure changes
+ * the height of the document by definition, it runs once per interaction
+ * rather than continuously, and the alternative is the jump this replaces.
+ */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-base) var(--ease-standard);
+}
+
+.item[data-expanded="true"] .panel {
+  grid-template-rows: 1fr;
+}
+
+/* min-height:0 is what lets a grid item shrink below its content. */
+.panelInner {
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-standard);
+}
+
+.item[data-expanded="true"] .panelInner {
+  opacity: 1;
+  /* Fades in behind the opening panel rather than racing it. */
+  transition-delay: var(--dur-fast);
+}
+
+.answer {
+  padding-bottom: var(--space-6);
+  max-width: var(--measure-body);
+  color: var(--muted);
+  line-height: var(--leading-body);
+  text-wrap: pretty;
+}
+
+/*
+ * Reduced motion keeps the transition rather than removing it.
+ *
+ * The close is sequenced on transitionend, so a transition of `none` would
+ * never fire the event and the panel would stay open. The durations are
+ * already collapsed to 1ms by the token overrides in tokens.css, which makes
+ * this instant to a reader while still firing.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .marker {
+    transition: none;
+  }
+  .item[data-expanded="true"] .marker {
+    transform: rotate(90deg);
+  }
+}

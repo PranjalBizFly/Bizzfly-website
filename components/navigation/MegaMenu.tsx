@@ -151,15 +151,6 @@ export function MegaMenu({ id, label, panel, onClose }: MegaMenuProps) {
                       ) : (
                         column.heading
                       )}
-                      {/*
-                        The count is the honest part of a capped column: it
-                        says the five shown are five of twenty-six, which is
-                        what makes the "all" link below read as a route to
-                        the rest rather than as a repeat of the heading.
-                      */}
-                      {column.meta ? (
-                        <span className={styles.columnMeta}>{column.meta}</span>
-                      ) : null}
                     </p>
 
                     <ul className={styles.linkList}>

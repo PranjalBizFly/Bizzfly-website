@@ -235,9 +235,6 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
                           ) : (
                             column.heading
                           )}
-                          {column.meta ? (
-                            <span className={styles.subMeta}>{column.meta}</span>
-                          ) : null}
                         </p>
 
                         <ul className={styles.subList}>

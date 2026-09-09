@@ -8,8 +8,7 @@
  */
 .grid {
   display: grid;
-  gap: var(--space-10) var(--space-8);
-  margin-top: var(--space-12);
+  gap: var(--gap-stack-md) var(--space-8);
 }
 
 @media (min-width: 720px) {
@@ -49,7 +48,7 @@
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: var(--ratio-card);
   object-fit: cover;
   transition: transform var(--dur-slow) var(--ease-standard);
 }

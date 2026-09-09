@@ -118,7 +118,7 @@
   font-size: var(--text-body-sm);
   color: var(--muted);
   margin-top: var(--space-1);
-  max-width: 62ch;
+  max-width: var(--measure-body);
 }
 
 .rowType {
@@ -166,7 +166,7 @@
   font-size: var(--text-h3);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-h3);
-  max-width: 20ch;
+  max-width: var(--measure-title);
 }
 
 .splitList {
@@ -210,13 +210,13 @@
   font-size: var(--text-body-sm);
   color: var(--muted);
   margin-top: var(--space-1);
-  max-width: 46ch;
+  max-width: var(--measure-card);
 }
 
 /* --- map: grouped by dimension ---------------------------------------- */
 .map {
   display: grid;
-  gap: var(--space-8);
+  gap: var(--gap-stack-sm);
   border-top: 1px solid var(--border);
   padding-top: var(--space-8);
 }

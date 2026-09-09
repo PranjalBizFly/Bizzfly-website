@@ -31,7 +31,7 @@
   line-height: var(--leading-snug);
   letter-spacing: -0.01em;
   color: var(--foreground);
-  max-width: 30ch;
+  max-width: var(--measure-title);
 }
 
 .quote::before {
@@ -49,7 +49,7 @@
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 52ch;
+  max-width: var(--measure-card);
 }
 
 .link {
@@ -91,9 +91,5 @@
   .list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: var(--space-10);
-  }
-
-  .detail {
-    max-width: 42ch;
   }
 }

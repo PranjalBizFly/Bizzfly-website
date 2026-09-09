@@ -23,12 +23,12 @@
 
 .title {
   margin-top: var(--space-4);
-  max-width: 22ch;
+  max-width: var(--measure-display);
 }
 
 .answer {
   margin-top: var(--space-6);
-  max-width: 60ch;
+  max-width: var(--measure-lead);
   /* The extractable answer, visually separated from the body */
   border-left: 2px solid var(--accent-edge);
   padding-left: var(--space-5);

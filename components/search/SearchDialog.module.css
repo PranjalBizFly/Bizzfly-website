@@ -288,7 +288,7 @@
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 56ch;
+  max-width: var(--measure-body);
   margin: var(--space-2) 0 var(--space-6);
 }
 
@@ -397,5 +397,5 @@
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 60ch;
+  max-width: var(--measure-body);
 }

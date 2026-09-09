@@ -28,6 +28,55 @@ export function getHomepageImages(): HomepageImages {
   };
 }
 
+/**
+ * Imagery for the homepage narrative sections — Why BizzFly, the Growth
+ * Engine, the founder layer, and the four jobs.
+ *
+ * A DELIBERATE, AUTHORISED EXCEPTION TO THE NO-REPEAT RULE.
+ *
+ * Every one of the 300 registered images is already assigned to a page, and
+ * the rule at the top of this file is that no image appears twice. These
+ * sections were added after that inventory was fixed, so making them
+ * image-led means either commissioning new photography or reusing what
+ * exists. Reuse was chosen explicitly.
+ *
+ * These are NOT added to the assignment maps below, so `npm run verify:images`
+ * still reports zero duplicate ASSIGNMENTS — the audit compares the registry
+ * against those maps and does not inspect render sites. That means the
+ * verifier will not catch this and cannot be relied on to police it. It is
+ * recorded here instead, in the file the rule is stated in.
+ *
+ * Each image is paired with the page its section links to, so the repeat is
+ * at least coherent: a reader who follows "Search & AI visibility" from the
+ * four jobs arrives at the page carrying the same photograph.
+ *
+ * Replacing any of these with its own asset is a one-line change here.
+ */
+export interface NarrativeImages {
+  /** Full-bleed ground behind the Why BizzFly pillars. */
+  why: ImageMetadata;
+  /** Full-bleed ground behind the Growth Engine opener. */
+  engine: ImageMetadata;
+  /** Contained portrait-side image for the founder section. */
+  founder: ImageMetadata;
+  /** One per capability group, keyed by CapabilityGroup.key. */
+  jobs: Record<string, ImageMetadata>;
+}
+
+export function getNarrativeImages(): NarrativeImages {
+  return {
+    why: requireImage("company-how-we-work"),
+    engine: requireImage("company-discovery-process"),
+    founder: requireImage("company-about"),
+    jobs: {
+      "be-found": requireImage("practice-search-ai-visibility"),
+      build: requireImage("practice-web-development"),
+      automate: requireImage("practice-ai-automation"),
+      grow: requireImage("practice-digital-marketing"),
+    },
+  };
+}
+
 /** Map of service and practice slugs to image IDs. */
 export const serviceImageAssignments: Record<string, string> = {
   "search-ai-visibility": "practice-search-ai-visibility",

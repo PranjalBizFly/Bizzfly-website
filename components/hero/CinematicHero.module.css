@@ -101,21 +101,21 @@
 }
 
 .title {
-  margin-top: var(--space-5);
+  margin-top: var(--gap-eyebrow);
   font-size: var(--text-display-lg);
   text-wrap: balance;
-  max-width: 18ch;
+  max-width: var(--measure-display);
 }
 
 .lead {
-  margin-top: var(--space-6);
+  margin-top: var(--gap-heading-lead);
   color: var(--foreground);
-  max-width: 54ch;
+  max-width: var(--measure-lead);
   text-wrap: pretty;
 }
 
 .actions {
-  margin-top: var(--space-8);
+  margin-top: var(--space-10);
 }
 
 /* --- Fact panels --------------------------------------------------------- */
@@ -194,7 +194,7 @@
 
   .bleedRight .title {
     font-size: var(--text-display-xl);
-    max-width: 15ch;
+    max-width: var(--measure-display);
   }
 
   .bleedRight .factsWrap {
@@ -202,13 +202,22 @@
   }
 }
 
-/* bleed-left — services. Type pushed to the right half of the frame. */
+/*
+ * bleed-left — services.
+ *
+ * The type used to sit in the right half, right-aligned. It now reads from
+ * the left like every other hero on the site: a reader moving between page
+ * types should not have to find the headline in a different corner each
+ * time, and right-aligned body copy is harder to track back on a long line.
+ *
+ * What still separates this composition from the homepage is the crop and
+ * the measure, not the alignment. The frame is pushed to its right edge so
+ * the photograph's subject sits opposite the type rather than underneath it,
+ * which is the arrangement that makes an image-led hero legible.
+ */
 @media (min-width: 1024px) {
-  .bleedLeft .container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
+  .bleedLeft .image {
+    object-position: right center;
   }
 
   .bleedLeft .content,
@@ -216,43 +225,26 @@
     width: 100%;
     max-width: 44rem;
   }
-
-  .bleedLeft .title,
-  .bleedLeft .lead {
-    margin-inline-start: auto;
-  }
-
-  .bleedLeft .fact {
-    text-align: left;
-  }
 }
 
-/* banner — industries. Centred type, the widest measure. */
+/*
+ * banner — industries.
+ *
+ * Was centred. Now left, for the same reason as bleed-left above: the
+ * headline should be in the same place on every page type. A centred hero
+ * also forces a narrower measure to stay readable, which was costing the
+ * industry headlines a line break they did not need.
+ *
+ * It keeps the widest content measure on the site, so it is still the most
+ * open of the five frames.
+ */
 @media (min-width: 1024px) {
-  .banner .container {
-    text-align: center;
-  }
-
   .banner .content {
     max-width: 52rem;
-    margin-inline: auto;
   }
 
-  .banner .title {
-    max-width: 22ch;
-    margin-inline: auto;
-  }
-
-  .banner .lead {
-    margin-inline: auto;
-  }
-
-  .banner .breadcrumbs {
-    text-align: start;
-  }
-
-  .banner .fact {
-    text-align: start;
+  .banner .factsWrap {
+    max-width: 52rem;
   }
 }
 
@@ -301,5 +293,104 @@
 
   .inset .facts {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ==========================================================================
+   ENTRANCE
+   --------------------------------------------------------------------------
+   The hero is above the fold, so this is a load animation rather than a
+   scroll reveal — no IntersectionObserver, no client component, no
+   hydration. Pure CSS, which is also why it cannot fail to un-hide content:
+   there is no JavaScript gate to go wrong.
+
+   THE IMAGE NEVER FADES. It is the LCP element on every page that uses this
+   hero, and Largest Contentful Paint is only recorded once the element is
+   actually visible — so starting it at opacity 0 would push LCP out by the
+   length of the animation. It scales instead, from 1.03 to 1, which is a
+   composited transform and does not delay the paint it is animating.
+
+   The type stagger is deliberately short and starts immediately: 60ms steps
+   with the headline at 60ms, so even if the headline rather than the image
+   turns out to be the largest element on some viewport, the most LCP can
+   slip is a frame or two.
+   ========================================================================== */
+@keyframes heroImageIn {
+  from {
+    transform: scale(1.03);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--space-4), 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes heroFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.image {
+  animation: heroImageIn var(--dur-reveal) var(--ease-decelerate) both;
+}
+
+/* An overlay rather than content, so fading it costs nothing measurable. */
+.scrim {
+  animation: heroFade var(--dur-reveal) var(--ease-standard) both;
+}
+
+.eyebrow,
+.title,
+.lead,
+.actions,
+.factsWrap {
+  animation: heroRise var(--dur-slow) var(--ease-decelerate) both;
+}
+
+.eyebrow {
+  animation-delay: 0ms;
+}
+.title {
+  animation-delay: 60ms;
+}
+.lead {
+  animation-delay: 120ms;
+}
+.actions {
+  animation-delay: 180ms;
+}
+.factsWrap {
+  animation-delay: 240ms;
+}
+
+/*
+ * Reduced motion removes the sequence outright rather than shortening it.
+ * The durations in tokens.css already collapse to 1ms, but an animation that
+ * still runs is still a thing appearing, and the point of the preference is
+ * that nothing should move.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .image,
+  .scrim,
+  .eyebrow,
+  .title,
+  .lead,
+  .actions,
+  .factsWrap {
+    animation: none;
   }
 }

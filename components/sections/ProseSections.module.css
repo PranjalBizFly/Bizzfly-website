@@ -19,7 +19,7 @@
   line-height: var(--leading-snug);
   color: var(--foreground);
   text-wrap: balance;
-  max-width: 32rem;
+  max-width: var(--measure-title);
 }
 
 /*
@@ -33,7 +33,7 @@
   font-size: var(--text-body-lg);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 68ch;
+  max-width: var(--measure-lead);
   text-wrap: pretty;
 }
 
@@ -48,7 +48,7 @@
   padding: 0;
   display: grid;
   gap: var(--space-4);
-  max-width: 62ch;
+  max-width: var(--measure-body);
 }
 
 .point {

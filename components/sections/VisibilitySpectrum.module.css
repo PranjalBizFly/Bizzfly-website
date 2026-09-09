@@ -123,7 +123,7 @@
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-h2);
   line-height: var(--leading-heading);
-  max-width: 18ch;
+  max-width: var(--measure-heading);
   margin-top: calc(var(--space-4) * -1);
 }
 
@@ -131,7 +131,7 @@
   font-size: var(--text-body-lg);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 54ch;
+  max-width: var(--measure-lead);
   grid-column: 1;
 }
 

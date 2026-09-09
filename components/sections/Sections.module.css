@@ -1,31 +1,56 @@
 /* Section patterns from docs/design-system/04. */
 
 /* --- SectionHeader ------------------------------------------------------- */
+
 /*
- * rem, not ch — the same unit trap as `.headerCentred .header` below.
+ * The eyebrow-and-heading unit.
  *
- * This wrapper sits at body font-size, so `30ch` resolved to about 240px and
- * became the binding constraint on every section heading on the site,
- * regardless of the column it was placed in. That is what was breaking
- * nine-word titles into six lines and making the split header tower over its
- * own two-line lead. 30rem lets the grid column govern, which is what the
- * asymmetric layout was designed to do.
+ * Flex with a token gap, because there was previously no gap at all: base.css
+ * zeroes every margin and nothing put one back, so a section eyebrow sat
+ * flush against the heading beneath it while the identical eyebrow in a hero
+ * carried 20px. Same role, two treatments, neither of them declared.
  */
 .header {
-  max-width: 30rem;
-  margin-bottom: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-eyebrow);
+}
+
+/*
+ * The measure sits on the HEADING, not on this wrapper.
+ *
+ * A ch cap on the wrapper resolves against body size rather than against the
+ * heading inside it — 30ch came out around 240px and guillotined nine-word
+ * titles into six lines, which is why it had to be written in rem to be
+ * survivable at all. On the heading itself the unit means what it says, and
+ * one token is then correct at h2 and at h3. In the split composition the 5fr
+ * column is narrower than this cap and still governs, which is what the
+ * asymmetric layout was designed to do.
+ */
+.headerTitle {
+  max-width: var(--measure-heading);
 }
 
 .headerLead {
-  max-width: 62ch;
-  margin-top: var(--space-4);
+  max-width: var(--measure-lead);
   color: var(--muted);
+}
+
+/*
+ * Stacked — the default, and the base for the centred variant.
+ * This is where the header-to-content gap is owned; see --gap-header.
+ */
+.headerStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-heading-lead);
+  margin-bottom: var(--gap-header);
 }
 
 .headerSplit {
   display: grid;
-  gap: var(--space-6);
-  margin-bottom: var(--space-12);
+  gap: var(--gap-heading-lead);
+  margin-bottom: var(--gap-header);
 }
 
 @media (min-width: 1024px) {
@@ -33,12 +58,6 @@
     grid-template-columns: 5fr 7fr;
     gap: var(--space-16);
     align-items: start;
-  }
-  .headerSplit .header {
-    margin-bottom: 0;
-  }
-  .headerSplit .headerLead {
-    margin-top: 0;
   }
 }
 
@@ -99,7 +118,7 @@
 .numberedDescription {
   color: var(--muted);
   font-size: var(--text-body);
-  max-width: 60ch;
+  max-width: var(--measure-body);
 }
 
 .numberedArrow {
@@ -178,7 +197,7 @@
 /* --- S-09 Statement + evidence ------------------------------------------ */
 .statement {
   display: grid;
-  gap: var(--space-10);
+  gap: var(--space-6);
 }
 
 @media (min-width: 1024px) {
@@ -189,7 +208,7 @@
 }
 
 .statementTitle {
-  max-width: 22ch;
+  max-width: var(--measure-heading);
 }
 
 .evidenceList {
@@ -282,7 +301,7 @@
 }
 
 .quoteText {
-  max-width: 30ch;
+  max-width: var(--measure-narrow);
 }
 
 .quoteAttribution {
@@ -293,58 +312,10 @@
   letter-spacing: var(--tracking-meta);
 }
 
-/* --- S-04 FAQ accordion --------------------------------------------------- */
-.faqList {
-  border-top: 1px solid var(--border);
-  max-width: var(--container-content);
-}
-
-.faqItem {
-  border-bottom: 1px solid var(--border);
-}
-
-.faqQuestion {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-6);
-  width: 100%;
-  padding-block: var(--space-6);
-  cursor: pointer;
-  list-style: none;
-  font-family: var(--font-display);
-  font-size: var(--text-h4);
-  font-weight: var(--weight-semibold);
-  color: var(--foreground);
-  text-align: left;
-  min-height: var(--touch-target-min);
-}
-
-.faqQuestion::-webkit-details-marker {
-  display: none;
-}
-
-.faqMarker {
-  color: var(--ink-400);
-  flex-shrink: 0;
-  transition: transform var(--dur-base) var(--ease-standard);
-}
-
-.faqItem[open] .faqMarker {
-  transform: rotate(90deg);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .faqMarker {
-    transition: none;
-  }
-}
-
-.faqAnswer {
-  padding-bottom: var(--space-6);
-  max-width: 68ch;
-  color: var(--muted);
-}
+/* --- S-04 FAQ accordion ---------------------------------------------------
+   Moved to FAQBlock.module.css: the block gained an open/close animation and
+   its rules now describe a state machine rather than a static pattern.
+   -------------------------------------------------------------------------- */
 
 /* --- S-19 Next steps / related ------------------------------------------ */
 .related {
@@ -420,13 +391,13 @@
 }
 
 .conversionTitle {
-  max-width: 20ch;
+  max-width: var(--measure-heading);
 }
 
 .conversionLead {
   color: var(--muted);
   margin-top: var(--space-5);
-  max-width: 52ch;
+  max-width: var(--measure-lead);
 }
 
 /* --- Content block / split layout / media block -------------------------- */
@@ -463,10 +434,18 @@
   border: 1px solid var(--border);
 }
 
+/*
+ * A ratio, not height:auto. Without one the proportion of an editorial
+ * figure came from whatever the source file happened to be, so two figures
+ * in the same article could differ by a hundred pixels in height for no
+ * reason a reader could see. next/image still receives the intrinsic
+ * width/height, so the CLS reservation is unaffected — the frame crops.
+ */
 .mediaBlock img {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: var(--ratio-editorial);
   object-fit: cover;
 }
 
@@ -486,13 +465,13 @@
 }
 
 .emptyTitle {
-  max-width: 26ch;
+  max-width: var(--measure-title);
 }
 
 .emptyBody {
   color: var(--muted);
   margin-top: var(--space-5);
-  max-width: 62ch;
+  max-width: var(--measure-body);
 }
 
 .emptyActions {
@@ -515,31 +494,46 @@
  * Centred section header.
  *
  * Sits above a grid of cards, where the content below is symmetrical and a
- * left-weighted header would start the eye in the wrong place. The measures
- * are tighter than the left-aligned variants — centred text is harder to
- * track across a long line, so the heading is held to 22ch and the lead to
- * 58ch rather than the 30/62 the editorial header uses.
+ * left-weighted header would start the eye in the wrong place. It is a
+ * modifier on .headerStack rather than a third composition, so it inherits
+ * the same measures and the same gap to the content — the previous version
+ * declared its own, which is how the centred sections ended up with 96px of
+ * header-to-content space where the editorial ones had 48.
  */
 .headerCentred {
   text-align: center;
-  margin-bottom: var(--space-12);
+  align-items: center;
 }
 
-/*
- * rem, not ch.
- *
- * `.header` is a wrapper div at body font-size, so a `ch` measure here
- * resolves against 16px and not against the 44px heading inside it — 22ch
- * came out around 176px and broke a nine-word title into five lines. A rem
- * cap is measured in the same units whatever the child is set in.
- */
 .headerCentred .header {
-  max-width: 36rem;
-  margin-inline: auto;
-  margin-bottom: var(--space-5);
+  align-items: center;
 }
 
-.headerCentred p {
-  max-width: 58ch;
+.headerCentred .headerTitle,
+.headerCentred .headerLead {
   margin-inline: auto;
+}
+
+/* ==========================================================================
+   EditorialBlock text column
+   --------------------------------------------------------------------------
+   The statement's eyebrow, heading and lead are three separate elements in a
+   plain div, and base.css zeroes every margin — so their spacing came from a
+   margin on .headerLead, which is the same element the section header uses
+   inside a flex-gap container. One element, two owners of its spacing.
+
+   The gap belongs to the parent here as it does everywhere else in the
+   system, so the child carries no margin and cannot be double-spaced.
+   ========================================================================== */
+.statementText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-heading-lead);
+  align-items: flex-start;
+}
+
+/* Matches the hero's action spacing, so a CTA sits the same distance below
+   its argument wherever that argument appears. */
+.statementActions {
+  margin-top: var(--space-10);
 }

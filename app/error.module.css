@@ -1,11 +1,11 @@
 .title {
   margin-top: var(--space-4);
-  max-width: 18ch;
+  max-width: var(--measure-display);
 }
 
 .lead {
   margin-top: var(--space-6);
-  max-width: 52ch;
+  max-width: var(--measure-lead);
 }
 
 .actions {
@@ -18,7 +18,7 @@
   border-top: 1px solid var(--border);
   font-size: var(--text-body-sm);
   color: var(--muted);
-  max-width: 60ch;
+  max-width: var(--measure-body);
 }
 
 .contact a {

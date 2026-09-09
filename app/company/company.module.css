@@ -1,6 +1,6 @@
 .values {
   display: grid;
-  gap: var(--space-10);
+  gap: var(--gap-stack-md);
   border-top: 1px solid var(--border);
   padding-top: var(--space-10);
 }

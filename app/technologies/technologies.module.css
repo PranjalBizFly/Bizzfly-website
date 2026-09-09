@@ -34,7 +34,7 @@
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 42ch;
+  max-width: var(--measure-card);
 }
 
 .items {
@@ -42,7 +42,7 @@
   margin: 0;
   padding: 0;
   display: grid;
-  gap: var(--space-8);
+  gap: var(--gap-stack-sm);
 }
 
 @media (min-width: 768px) {
@@ -81,7 +81,7 @@
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 52ch;
+  max-width: var(--measure-card);
 }
 
 .itemApplied {
@@ -107,7 +107,7 @@
   font-size: var(--text-body);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 62ch;
+  max-width: var(--measure-body);
 }
 
 .marker {

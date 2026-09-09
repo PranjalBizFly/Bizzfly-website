@@ -411,36 +411,19 @@
 
 @media (min-width: 1024px) {
   /*
-   * Three regions: the numbered selection, the categories, the feature.
-   * The categories get the most room because they carry the breadth —
-   * the numbered column is six entries and the feature is one.
+   * Three regions: the editorial selection, the categories, the feature card.
+   *
+   * Sized to content rather than by ratio. The old `1fr 2.5fr 1.05fr` gave
+   * the first track about 280px for entries that need barely 180 — the
+   * remainder showed up as a channel of dead space between the selection and
+   * the categories beside it, which is the gap that made the panel look
+   * mostly empty. Fixed outer tracks and a flexible middle put the width
+   * where the content actually is.
    */
   .panelGrid {
-    grid-template-columns: 1fr 2.5fr 1.05fr;
+    grid-template-columns: minmax(0, 13rem) minmax(0, 1fr) minmax(0, 16rem);
     gap: var(--space-10);
     padding-block: var(--space-6) var(--space-10);
-  }
-
-  /*
-   * Services carries three groups and no feature card. The wrapper steps out
-   * of the grid with `display: contents` so each group becomes a column in
-   * its own right — an editorial four-column menu rather than three long
-   * lists stacked into one region.
-   */
-  .panelGrid[data-columns="3"][data-feature="false"] {
-    grid-template-columns: 1fr 2.5fr 1.05fr;
-    gap: var(--space-8);
-  }
-
-  /*
-   * Both wrappers step out of the grid, not just the outer one. The region
-   * exists to carry the "browse by" label; the inner .columns is a grid in
-   * its own right everywhere else, and leaving it as a box here put three
-   * groups into one track and made the panel 1,195px tall.
-   */
-  .panelGrid[data-columns="3"][data-feature="false"] .columnsRegion,
-  .panelGrid[data-columns="3"][data-feature="false"] .columns {
-    display: contents;
   }
 }
 
@@ -453,7 +436,7 @@
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 78ch;
+  max-width: var(--measure-body);
   padding-top: var(--space-8);
   text-wrap: pretty;
 }
@@ -551,16 +534,6 @@
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: var(--space-5);
-}
-
-/*
- * The count, so a capped column says so. Tabular figures because these sit
- * in a row of columns and ragged digits read as misalignment.
- */
-.columnMeta {
-  margin-left: auto;
-  font-variant-numeric: tabular-nums;
-  color: var(--muted);
 }
 
 .linkList {
@@ -795,35 +768,61 @@
  * Industries and Use Cases panels taller than a laptop viewport — the panel
  * scrolled, which turns a menu back into the list it was grouped to escape.
  */
+/*
+ * Multi-column flow, not a grid.
+ *
+ * As a grid this was the single biggest source of dead space in the panel.
+ * Grid rows equalise to their tallest cell, so a group of one item placed
+ * beside a group of four was given four items' worth of height and three
+ * items' worth of emptiness beneath it — on the technologies panel that was
+ * six groups producing three rows of ragged voids.
+ *
+ * Column flow has no rows to equalise. Each group is an unbreakable block and
+ * they pack down the first column before starting the second, so the region
+ * is as tall as its content and no taller, and the groups read as a
+ * continuous list rather than as cells in a table.
+ */
 .columns {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-8);
+  columns: 1;
+  column-gap: var(--space-10);
+}
+
+.column {
+  /* Never split a heading from the links it names. */
+  break-inside: avoid;
+  /* The gap between stacked groups; column-gap handles the horizontal one. */
+  margin-bottom: var(--space-8);
+}
+
+/* The last block in each flow column should not push the region taller. */
+.column:last-child {
+  margin-bottom: 0;
 }
 
 @media (min-width: 768px) {
   .columns {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: var(--space-8);
-    row-gap: var(--space-8);
+    columns: 2;
   }
 }
 
+/*
+ * Three across from three groups up.
+ *
+ * A group is unbreakable, so the balancer can only distribute whole groups
+ * between columns. Three groups over two columns therefore splits 1 / 2 and
+ * leaves the short column a third of the region tall and empty — the same
+ * void this rule set exists to remove, just moved. Three columns gives each
+ * group its own track and lines all three headings up on one baseline.
+ *
+ * Panels with two groups keep two columns: a third track there would be the
+ * empty column this is avoiding.
+ */
 @media (min-width: 1280px) {
-  .columns {
-    column-gap: var(--space-10);
-  }
-
-  /*
-   * Three groups go three across rather than two-and-a-wrap.
-   * Two tracks left the third group hanging under the first and a column of
-   * dead space under the second, which is the thing that made the panel look
-   * unbalanced next to the card. Panels with four or more groups keep the
-   * two-track grid — at three narrow tracks their longer titles start
-   * breaking mid-word.
-   */
-  .panelGrid[data-columns="3"] .columns {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .panelGrid[data-columns="3"] .columns,
+  .panelGrid[data-columns="4"] .columns,
+  .panelGrid[data-columns="5"] .columns,
+  .panelGrid[data-columns="6"] .columns {
+    columns: 3;
   }
 }
 

@@ -1,0 +1,2068 @@
+{
+  "generated": "2026-09-09T05:24:41.293Z",
+  "summary": [
+    {
+      "width": 320,
+      "path": "/",
+      "pageHeight": 28815,
+      "sections": 19,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1581
+    },
+    {
+      "width": 320,
+      "path": "/services/",
+      "pageHeight": 10853,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 601
+    },
+    {
+      "width": 320,
+      "path": "/services/seo/",
+      "pageHeight": 12983,
+      "sections": 14,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1109
+    },
+    {
+      "width": 320,
+      "path": "/services/search-ai-visibility/",
+      "pageHeight": 20281,
+      "sections": 10,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 685
+    },
+    {
+      "width": 320,
+      "path": "/industries/",
+      "pageHeight": 12705,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 553
+    },
+    {
+      "width": 320,
+      "path": "/industries/manufacturing/",
+      "pageHeight": 13187,
+      "sections": 12,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 985
+    },
+    {
+      "width": 320,
+      "path": "/use-cases/",
+      "pageHeight": 9717,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 465
+    },
+    {
+      "width": 320,
+      "path": "/use-cases/generate-more-leads/",
+      "pageHeight": 10559,
+      "sections": 11,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 921
+    },
+    {
+      "width": 320,
+      "path": "/technologies/",
+      "pageHeight": 10883,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 441
+    },
+    {
+      "width": 320,
+      "path": "/technologies/ai-stack/",
+      "pageHeight": 11998,
+      "sections": 13,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1169
+    },
+    {
+      "width": 320,
+      "path": "/resources/",
+      "pageHeight": 16308,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 665
+    },
+    {
+      "width": 320,
+      "path": "/resources/what-is-generative-engine-optimisation/",
+      "pageHeight": 7558,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 461
+    },
+    {
+      "width": 320,
+      "path": "/case-studies/",
+      "pageHeight": 8990,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 737
+    },
+    {
+      "width": 320,
+      "path": "/company/",
+      "pageHeight": 7252,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 601
+    },
+    {
+      "width": 320,
+      "path": "/company/about/",
+      "pageHeight": 7625,
+      "sections": 9,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 777
+    },
+    {
+      "width": 320,
+      "path": "/company/terms/",
+      "pageHeight": 4534,
+      "sections": 5,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 353
+    },
+    {
+      "width": 320,
+      "path": "/contact/",
+      "pageHeight": 6700,
+      "sections": 4,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 225
+    },
+    {
+      "width": 320,
+      "path": "/search/",
+      "pageHeight": 19090,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 113
+    },
+    {
+      "width": 320,
+      "path": "/does-not-exist/",
+      "pageHeight": 4237,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 169
+    },
+    {
+      "width": 360,
+      "path": "/",
+      "pageHeight": 26235,
+      "sections": 19,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1588
+    },
+    {
+      "width": 360,
+      "path": "/services/",
+      "pageHeight": 9241,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 601
+    },
+    {
+      "width": 360,
+      "path": "/services/seo/",
+      "pageHeight": 11568,
+      "sections": 14,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1109
+    },
+    {
+      "width": 360,
+      "path": "/services/search-ai-visibility/",
+      "pageHeight": 17561,
+      "sections": 10,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 685
+    },
+    {
+      "width": 360,
+      "path": "/industries/",
+      "pageHeight": 11361,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 553
+    },
+    {
+      "width": 360,
+      "path": "/industries/manufacturing/",
+      "pageHeight": 11350,
+      "sections": 12,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 985
+    },
+    {
+      "width": 360,
+      "path": "/use-cases/",
+      "pageHeight": 8401,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 465
+    },
+    {
+      "width": 360,
+      "path": "/use-cases/generate-more-leads/",
+      "pageHeight": 9208,
+      "sections": 11,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 921
+    },
+    {
+      "width": 360,
+      "path": "/technologies/",
+      "pageHeight": 9276,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 441
+    },
+    {
+      "width": 360,
+      "path": "/technologies/ai-stack/",
+      "pageHeight": 10525,
+      "sections": 13,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1169
+    },
+    {
+      "width": 360,
+      "path": "/resources/",
+      "pageHeight": 14625,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 665
+    },
+    {
+      "width": 360,
+      "path": "/resources/what-is-generative-engine-optimisation/",
+      "pageHeight": 6392,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 461
+    },
+    {
+      "width": 360,
+      "path": "/case-studies/",
+      "pageHeight": 7675,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 737
+    },
+    {
+      "width": 360,
+      "path": "/company/",
+      "pageHeight": 6162,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 601
+    },
+    {
+      "width": 360,
+      "path": "/company/about/",
+      "pageHeight": 6393,
+      "sections": 9,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 777
+    },
+    {
+      "width": 360,
+      "path": "/company/terms/",
+      "pageHeight": 3491,
+      "sections": 5,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 353
+    },
+    {
+      "width": 360,
+      "path": "/contact/",
+      "pageHeight": 5536,
+      "sections": 4,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 225
+    },
+    {
+      "width": 360,
+      "path": "/search/",
+      "pageHeight": 17854,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 113
+    },
+    {
+      "width": 360,
+      "path": "/does-not-exist/",
+      "pageHeight": 3263,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 169
+    },
+    {
+      "width": 375,
+      "path": "/",
+      "pageHeight": 25648,
+      "sections": 19,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1626
+    },
+    {
+      "width": 375,
+      "path": "/services/",
+      "pageHeight": 9002,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 606
+    },
+    {
+      "width": 375,
+      "path": "/services/seo/",
+      "pageHeight": 11210,
+      "sections": 14,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1116
+    },
+    {
+      "width": 375,
+      "path": "/services/search-ai-visibility/",
+      "pageHeight": 16868,
+      "sections": 10,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 689
+    },
+    {
+      "width": 375,
+      "path": "/industries/",
+      "pageHeight": 11101,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 557
+    },
+    {
+      "width": 375,
+      "path": "/industries/manufacturing/",
+      "pageHeight": 10957,
+      "sections": 12,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 993
+    },
+    {
+      "width": 375,
+      "path": "/use-cases/",
+      "pageHeight": 8283,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 467
+    },
+    {
+      "width": 375,
+      "path": "/use-cases/generate-more-leads/",
+      "pageHeight": 8958,
+      "sections": 11,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 929
+    },
+    {
+      "width": 375,
+      "path": "/technologies/",
+      "pageHeight": 9004,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 445
+    },
+    {
+      "width": 375,
+      "path": "/technologies/ai-stack/",
+      "pageHeight": 10261,
+      "sections": 13,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1178
+    },
+    {
+      "width": 375,
+      "path": "/resources/",
+      "pageHeight": 14287,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 671
+    },
+    {
+      "width": 375,
+      "path": "/resources/what-is-generative-engine-optimisation/",
+      "pageHeight": 6201,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 464
+    },
+    {
+      "width": 375,
+      "path": "/case-studies/",
+      "pageHeight": 7544,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 740
+    },
+    {
+      "width": 375,
+      "path": "/company/",
+      "pageHeight": 6013,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 605
+    },
+    {
+      "width": 375,
+      "path": "/company/about/",
+      "pageHeight": 6285,
+      "sections": 9,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 782
+    },
+    {
+      "width": 375,
+      "path": "/company/terms/",
+      "pageHeight": 3364,
+      "sections": 5,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 355
+    },
+    {
+      "width": 375,
+      "path": "/contact/",
+      "pageHeight": 5399,
+      "sections": 4,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 226
+    },
+    {
+      "width": 375,
+      "path": "/search/",
+      "pageHeight": 17714,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 114
+    },
+    {
+      "width": 375,
+      "path": "/does-not-exist/",
+      "pageHeight": 3112,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 171
+    },
+    {
+      "width": 390,
+      "path": "/",
+      "pageHeight": 25544,
+      "sections": 19,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 2,
+      "wasted": 1639
+    },
+    {
+      "width": 390,
+      "path": "/services/",
+      "pageHeight": 8753,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 1,
+      "wasted": 608
+    },
+    {
+      "width": 390,
+      "path": "/services/seo/",
+      "pageHeight": 11165,
+      "sections": 14,
+      "dead": 0,
+      "gaps": 1,
+      "tall": 0,
+      "wasted": 1126
+    },
+    {
+      "width": 390,
+      "path": "/services/search-ai-visibility/",
+      "pageHeight": 16641,
+      "sections": 10,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 2,
+      "wasted": 695
+    },
+    {
+      "width": 390,
+      "path": "/industries/",
+      "pageHeight": 11030,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 1,
+      "wasted": 560
+    },
+    {
+      "width": 390,
+      "path": "/industries/manufacturing/",
+      "pageHeight": 10884,
+      "sections": 12,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1000
+    },
+    {
+      "width": 390,
+      "path": "/use-cases/",
+      "pageHeight": 8148,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 1,
+      "wasted": 473
+    },
+    {
+      "width": 390,
+      "path": "/use-cases/generate-more-leads/",
+      "pageHeight": 8910,
+      "sections": 11,
+      "dead": 0,
+      "gaps": 1,
+      "tall": 0,
+      "wasted": 935
+    },
+    {
+      "width": 390,
+      "path": "/technologies/",
+      "pageHeight": 8934,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 1,
+      "wasted": 448
+    },
+    {
+      "width": 390,
+      "path": "/technologies/ai-stack/",
+      "pageHeight": 10192,
+      "sections": 13,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1186
+    },
+    {
+      "width": 390,
+      "path": "/resources/",
+      "pageHeight": 14050,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 1,
+      "wasted": 677
+    },
+    {
+      "width": 390,
+      "path": "/resources/what-is-generative-engine-optimisation/",
+      "pageHeight": 6059,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 469
+    },
+    {
+      "width": 390,
+      "path": "/case-studies/",
+      "pageHeight": 7501,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 1,
+      "tall": 0,
+      "wasted": 747
+    },
+    {
+      "width": 390,
+      "path": "/company/",
+      "pageHeight": 5949,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 609
+    },
+    {
+      "width": 390,
+      "path": "/company/about/",
+      "pageHeight": 6178,
+      "sections": 9,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 787
+    },
+    {
+      "width": 390,
+      "path": "/company/terms/",
+      "pageHeight": 3339,
+      "sections": 5,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 358
+    },
+    {
+      "width": 390,
+      "path": "/contact/",
+      "pageHeight": 5388,
+      "sections": 4,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 229
+    },
+    {
+      "width": 390,
+      "path": "/search/",
+      "pageHeight": 17705,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 1,
+      "wasted": 116
+    },
+    {
+      "width": 390,
+      "path": "/does-not-exist/",
+      "pageHeight": 3044,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 172
+    },
+    {
+      "width": 414,
+      "path": "/",
+      "pageHeight": 25043,
+      "sections": 19,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1657
+    },
+    {
+      "width": 414,
+      "path": "/services/",
+      "pageHeight": 8520,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 615
+    },
+    {
+      "width": 414,
+      "path": "/services/seo/",
+      "pageHeight": 11017,
+      "sections": 14,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1138
+    },
+    {
+      "width": 414,
+      "path": "/services/search-ai-visibility/",
+      "pageHeight": 16069,
+      "sections": 10,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 704
+    },
+    {
+      "width": 414,
+      "path": "/industries/",
+      "pageHeight": 10831,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 567
+    },
+    {
+      "width": 414,
+      "path": "/industries/manufacturing/",
+      "pageHeight": 10651,
+      "sections": 12,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1010
+    },
+    {
+      "width": 414,
+      "path": "/use-cases/",
+      "pageHeight": 7928,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 477
+    },
+    {
+      "width": 414,
+      "path": "/use-cases/generate-more-leads/",
+      "pageHeight": 8743,
+      "sections": 11,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 943
+    },
+    {
+      "width": 414,
+      "path": "/technologies/",
+      "pageHeight": 8612,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 452
+    },
+    {
+      "width": 414,
+      "path": "/technologies/ai-stack/",
+      "pageHeight": 9980,
+      "sections": 13,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1199
+    },
+    {
+      "width": 414,
+      "path": "/resources/",
+      "pageHeight": 13651,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 683
+    },
+    {
+      "width": 414,
+      "path": "/resources/what-is-generative-engine-optimisation/",
+      "pageHeight": 5947,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 473
+    },
+    {
+      "width": 414,
+      "path": "/case-studies/",
+      "pageHeight": 7446,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 753
+    },
+    {
+      "width": 414,
+      "path": "/company/",
+      "pageHeight": 5892,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 617
+    },
+    {
+      "width": 414,
+      "path": "/company/about/",
+      "pageHeight": 6120,
+      "sections": 9,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 795
+    },
+    {
+      "width": 414,
+      "path": "/company/terms/",
+      "pageHeight": 3300,
+      "sections": 5,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 362
+    },
+    {
+      "width": 414,
+      "path": "/contact/",
+      "pageHeight": 5280,
+      "sections": 4,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 232
+    },
+    {
+      "width": 414,
+      "path": "/search/",
+      "pageHeight": 17589,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 116
+    },
+    {
+      "width": 414,
+      "path": "/does-not-exist/",
+      "pageHeight": 3016,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 175
+    },
+    {
+      "width": 430,
+      "path": "/",
+      "pageHeight": 24972,
+      "sections": 19,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1668
+    },
+    {
+      "width": 430,
+      "path": "/services/",
+      "pageHeight": 8312,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 619
+    },
+    {
+      "width": 430,
+      "path": "/services/seo/",
+      "pageHeight": 10996,
+      "sections": 14,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1149
+    },
+    {
+      "width": 430,
+      "path": "/services/search-ai-visibility/",
+      "pageHeight": 15638,
+      "sections": 10,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 709
+    },
+    {
+      "width": 430,
+      "path": "/industries/",
+      "pageHeight": 10809,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 573
+    },
+    {
+      "width": 430,
+      "path": "/industries/manufacturing/",
+      "pageHeight": 10559,
+      "sections": 12,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1019
+    },
+    {
+      "width": 430,
+      "path": "/use-cases/",
+      "pageHeight": 7825,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 481
+    },
+    {
+      "width": 430,
+      "path": "/use-cases/generate-more-leads/",
+      "pageHeight": 8692,
+      "sections": 11,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 953
+    },
+    {
+      "width": 430,
+      "path": "/technologies/",
+      "pageHeight": 8544,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 457
+    },
+    {
+      "width": 430,
+      "path": "/technologies/ai-stack/",
+      "pageHeight": 9962,
+      "sections": 13,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1206
+    },
+    {
+      "width": 430,
+      "path": "/resources/",
+      "pageHeight": 13514,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 690
+    },
+    {
+      "width": 430,
+      "path": "/resources/what-is-generative-engine-optimisation/",
+      "pageHeight": 5927,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 478
+    },
+    {
+      "width": 430,
+      "path": "/case-studies/",
+      "pageHeight": 7374,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 757
+    },
+    {
+      "width": 430,
+      "path": "/company/",
+      "pageHeight": 5902,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 621
+    },
+    {
+      "width": 430,
+      "path": "/company/about/",
+      "pageHeight": 6048,
+      "sections": 9,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 802
+    },
+    {
+      "width": 430,
+      "path": "/company/terms/",
+      "pageHeight": 3275,
+      "sections": 5,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 364
+    },
+    {
+      "width": 430,
+      "path": "/contact/",
+      "pageHeight": 5257,
+      "sections": 4,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 235
+    },
+    {
+      "width": 430,
+      "path": "/search/",
+      "pageHeight": 17580,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 118
+    },
+    {
+      "width": 430,
+      "path": "/does-not-exist/",
+      "pageHeight": 3008,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 178
+    },
+    {
+      "width": 768,
+      "path": "/",
+      "pageHeight": 19748,
+      "sections": 19,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 2018
+    },
+    {
+      "width": 768,
+      "path": "/services/",
+      "pageHeight": 7315,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 712
+    },
+    {
+      "width": 768,
+      "path": "/services/seo/",
+      "pageHeight": 9610,
+      "sections": 14,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1345
+    },
+    {
+      "width": 768,
+      "path": "/services/search-ai-visibility/",
+      "pageHeight": 13003,
+      "sections": 10,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 842
+    },
+    {
+      "width": 768,
+      "path": "/industries/",
+      "pageHeight": 9885,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 664
+    },
+    {
+      "width": 768,
+      "path": "/industries/manufacturing/",
+      "pageHeight": 9113,
+      "sections": 12,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1179
+    },
+    {
+      "width": 768,
+      "path": "/use-cases/",
+      "pageHeight": 6849,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 560
+    },
+    {
+      "width": 768,
+      "path": "/use-cases/generate-more-leads/",
+      "pageHeight": 7536,
+      "sections": 11,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1103
+    },
+    {
+      "width": 768,
+      "path": "/technologies/",
+      "pageHeight": 7398,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 528
+    },
+    {
+      "width": 768,
+      "path": "/technologies/ai-stack/",
+      "pageHeight": 9047,
+      "sections": 13,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1393
+    },
+    {
+      "width": 768,
+      "path": "/resources/",
+      "pageHeight": 10818,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 801
+    },
+    {
+      "width": 768,
+      "path": "/resources/what-is-generative-engine-optimisation/",
+      "pageHeight": 5449,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 577
+    },
+    {
+      "width": 768,
+      "path": "/case-studies/",
+      "pageHeight": 6591,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 867
+    },
+    {
+      "width": 768,
+      "path": "/company/",
+      "pageHeight": 5582,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 712
+    },
+    {
+      "width": 768,
+      "path": "/company/about/",
+      "pageHeight": 5513,
+      "sections": 9,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 925
+    },
+    {
+      "width": 768,
+      "path": "/company/terms/",
+      "pageHeight": 3379,
+      "sections": 5,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 423
+    },
+    {
+      "width": 768,
+      "path": "/contact/",
+      "pageHeight": 4804,
+      "sections": 4,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 279
+    },
+    {
+      "width": 768,
+      "path": "/search/",
+      "pageHeight": 10842,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 143
+    },
+    {
+      "width": 768,
+      "path": "/does-not-exist/",
+      "pageHeight": 2701,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 217
+    },
+    {
+      "width": 1024,
+      "path": "/",
+      "pageHeight": 17211,
+      "sections": 19,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 2222
+    },
+    {
+      "width": 1024,
+      "path": "/services/",
+      "pageHeight": 6361,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 783
+    },
+    {
+      "width": 1024,
+      "path": "/services/seo/",
+      "pageHeight": 8000,
+      "sections": 14,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1499
+    },
+    {
+      "width": 1024,
+      "path": "/services/search-ai-visibility/",
+      "pageHeight": 10162,
+      "sections": 10,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 949
+    },
+    {
+      "width": 1024,
+      "path": "/industries/",
+      "pageHeight": 6681,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 738
+    },
+    {
+      "width": 1024,
+      "path": "/industries/manufacturing/",
+      "pageHeight": 7600,
+      "sections": 12,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1299
+    },
+    {
+      "width": 1024,
+      "path": "/use-cases/",
+      "pageHeight": 5364,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 617
+    },
+    {
+      "width": 1024,
+      "path": "/use-cases/generate-more-leads/",
+      "pageHeight": 5989,
+      "sections": 11,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1218
+    },
+    {
+      "width": 1024,
+      "path": "/technologies/",
+      "pageHeight": 6070,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 585
+    },
+    {
+      "width": 1024,
+      "path": "/technologies/ai-stack/",
+      "pageHeight": 7327,
+      "sections": 13,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1532
+    },
+    {
+      "width": 1024,
+      "path": "/resources/",
+      "pageHeight": 8984,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 889
+    },
+    {
+      "width": 1024,
+      "path": "/resources/what-is-generative-engine-optimisation/",
+      "pageHeight": 4714,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 653
+    },
+    {
+      "width": 1024,
+      "path": "/case-studies/",
+      "pageHeight": 5218,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 949
+    },
+    {
+      "width": 1024,
+      "path": "/company/",
+      "pageHeight": 4211,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 784
+    },
+    {
+      "width": 1024,
+      "path": "/company/about/",
+      "pageHeight": 4694,
+      "sections": 9,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1018
+    },
+    {
+      "width": 1024,
+      "path": "/company/terms/",
+      "pageHeight": 2643,
+      "sections": 5,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 467
+    },
+    {
+      "width": 1024,
+      "path": "/contact/",
+      "pageHeight": 3192,
+      "sections": 4,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 315
+    },
+    {
+      "width": 1024,
+      "path": "/search/",
+      "pageHeight": 8022,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 162
+    },
+    {
+      "width": 1024,
+      "path": "/does-not-exist/",
+      "pageHeight": 1944,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 248
+    },
+    {
+      "width": 1440,
+      "path": "/",
+      "pageHeight": 16389,
+      "sections": 19,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 1,
+      "wasted": 2557
+    },
+    {
+      "width": 1440,
+      "path": "/services/",
+      "pageHeight": 6282,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 1,
+      "wasted": 897
+    },
+    {
+      "width": 1440,
+      "path": "/services/seo/",
+      "pageHeight": 8052,
+      "sections": 14,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1744
+    },
+    {
+      "width": 1440,
+      "path": "/services/search-ai-visibility/",
+      "pageHeight": 10112,
+      "sections": 10,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 2,
+      "wasted": 1113
+    },
+    {
+      "width": 1440,
+      "path": "/industries/",
+      "pageHeight": 6505,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 1,
+      "wasted": 849
+    },
+    {
+      "width": 1440,
+      "path": "/industries/manufacturing/",
+      "pageHeight": 7764,
+      "sections": 12,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1496
+    },
+    {
+      "width": 1440,
+      "path": "/use-cases/",
+      "pageHeight": 5362,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 713
+    },
+    {
+      "width": 1440,
+      "path": "/use-cases/generate-more-leads/",
+      "pageHeight": 6130,
+      "sections": 11,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1401
+    },
+    {
+      "width": 1440,
+      "path": "/technologies/",
+      "pageHeight": 5746,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 1,
+      "wasted": 672
+    },
+    {
+      "width": 1440,
+      "path": "/technologies/ai-stack/",
+      "pageHeight": 7435,
+      "sections": 13,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1761
+    },
+    {
+      "width": 1440,
+      "path": "/resources/",
+      "pageHeight": 8785,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 1,
+      "wasted": 1025
+    },
+    {
+      "width": 1440,
+      "path": "/resources/what-is-generative-engine-optimisation/",
+      "pageHeight": 4739,
+      "sections": 8,
+      "dead": 1,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 776
+    },
+    {
+      "width": 1440,
+      "path": "/case-studies/",
+      "pageHeight": 5213,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1081
+    },
+    {
+      "width": 1440,
+      "path": "/company/",
+      "pageHeight": 4252,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 897
+    },
+    {
+      "width": 1440,
+      "path": "/company/about/",
+      "pageHeight": 4737,
+      "sections": 9,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1169
+    },
+    {
+      "width": 1440,
+      "path": "/company/terms/",
+      "pageHeight": 2584,
+      "sections": 5,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 537
+    },
+    {
+      "width": 1440,
+      "path": "/contact/",
+      "pageHeight": 3219,
+      "sections": 4,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 369
+    },
+    {
+      "width": 1440,
+      "path": "/search/",
+      "pageHeight": 7893,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 1,
+      "wasted": 193
+    },
+    {
+      "width": 1440,
+      "path": "/does-not-exist/",
+      "pageHeight": 1865,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 297
+    },
+    {
+      "width": 1920,
+      "path": "/",
+      "pageHeight": 16392,
+      "sections": 19,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 2741
+    },
+    {
+      "width": 1920,
+      "path": "/services/",
+      "pageHeight": 6131,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 937
+    },
+    {
+      "width": 1920,
+      "path": "/services/seo/",
+      "pageHeight": 7964,
+      "sections": 14,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1833
+    },
+    {
+      "width": 1920,
+      "path": "/services/search-ai-visibility/",
+      "pageHeight": 9997,
+      "sections": 10,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1185
+    },
+    {
+      "width": 1920,
+      "path": "/industries/",
+      "pageHeight": 6354,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 889
+    },
+    {
+      "width": 1920,
+      "path": "/industries/manufacturing/",
+      "pageHeight": 7644,
+      "sections": 12,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1553
+    },
+    {
+      "width": 1920,
+      "path": "/use-cases/",
+      "pageHeight": 5211,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 753
+    },
+    {
+      "width": 1920,
+      "path": "/use-cases/generate-more-leads/",
+      "pageHeight": 6026,
+      "sections": 11,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1473
+    },
+    {
+      "width": 1920,
+      "path": "/technologies/",
+      "pageHeight": 5578,
+      "sections": 6,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 697
+    },
+    {
+      "width": 1920,
+      "path": "/technologies/ai-stack/",
+      "pageHeight": 7333,
+      "sections": 13,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1849
+    },
+    {
+      "width": 1920,
+      "path": "/resources/",
+      "pageHeight": 8649,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1081
+    },
+    {
+      "width": 1920,
+      "path": "/resources/what-is-generative-engine-optimisation/",
+      "pageHeight": 4572,
+      "sections": 8,
+      "dead": 1,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 800
+    },
+    {
+      "width": 1920,
+      "path": "/case-studies/",
+      "pageHeight": 5061,
+      "sections": 8,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1121
+    },
+    {
+      "width": 1920,
+      "path": "/company/",
+      "pageHeight": 4100,
+      "sections": 7,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 937
+    },
+    {
+      "width": 1920,
+      "path": "/company/about/",
+      "pageHeight": 4585,
+      "sections": 9,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 1209
+    },
+    {
+      "width": 1920,
+      "path": "/company/terms/",
+      "pageHeight": 2417,
+      "sections": 5,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 561
+    },
+    {
+      "width": 1920,
+      "path": "/contact/",
+      "pageHeight": 3051,
+      "sections": 4,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 393
+    },
+    {
+      "width": 1920,
+      "path": "/search/",
+      "pageHeight": 7709,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 201
+    },
+    {
+      "width": 1920,
+      "path": "/does-not-exist/",
+      "pageHeight": 1698,
+      "sections": 3,
+      "dead": 0,
+      "gaps": 0,
+      "tall": 0,
+      "wasted": 321
+    }
+  ],
+  "findings": [
+    {
+      "width": 390,
+      "path": "/",
+      "kind": "TALL",
+      "label": "work",
+      "detail": "3211px"
+    },
+    {
+      "width": 390,
+      "path": "/",
+      "kind": "TALL",
+      "label": "problems",
+      "detail": "2863px"
+    },
+    {
+      "width": 390,
+      "path": "/services/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "3612px"
+    },
+    {
+      "width": 390,
+      "path": "/services/seo/",
+      "kind": "GAP",
+      "label": "Section_section__vCyY6 → Section_section__vCyY6",
+      "detail": "150px"
+    },
+    {
+      "width": 390,
+      "path": "/services/search-ai-visibility/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "6194px"
+    },
+    {
+      "width": 390,
+      "path": "/services/search-ai-visibility/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "3819px"
+    },
+    {
+      "width": 390,
+      "path": "/industries/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "5278px"
+    },
+    {
+      "width": 390,
+      "path": "/use-cases/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "2834px"
+    },
+    {
+      "width": 390,
+      "path": "/use-cases/generate-more-leads/",
+      "kind": "GAP",
+      "label": "Section_section__vCyY6 → Section_section__vCyY6",
+      "detail": "149px"
+    },
+    {
+      "width": 390,
+      "path": "/technologies/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "5152px"
+    },
+    {
+      "width": 390,
+      "path": "/resources/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "7688px"
+    },
+    {
+      "width": 390,
+      "path": "/case-studies/",
+      "kind": "GAP",
+      "label": "Section_section__vCyY6 → Section_section__vCyY6",
+      "detail": "137px"
+    },
+    {
+      "width": 390,
+      "path": "/search/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "15524px"
+    },
+    {
+      "width": 1440,
+      "path": "/",
+      "kind": "TALL",
+      "label": "work",
+      "detail": "2803px"
+    },
+    {
+      "width": 1440,
+      "path": "/services/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "2653px"
+    },
+    {
+      "width": 1440,
+      "path": "/services/search-ai-visibility/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "2866px"
+    },
+    {
+      "width": 1440,
+      "path": "/services/search-ai-visibility/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "2601px"
+    },
+    {
+      "width": 1440,
+      "path": "/industries/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "2628px"
+    },
+    {
+      "width": 1440,
+      "path": "/technologies/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "3101px"
+    },
+    {
+      "width": 1440,
+      "path": "/resources/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "4426px"
+    },
+    {
+      "width": 1440,
+      "path": "/resources/what-is-generative-engine-optimisation/",
+      "kind": "DEAD",
+      "label": "Section_section__vCyY6",
+      "detail": "62% padding in 220px"
+    },
+    {
+      "width": 1440,
+      "path": "/search/",
+      "kind": "TALL",
+      "label": "Section_section__vCyY6",
+      "detail": "6742px"
+    },
+    {
+      "width": 1920,
+      "path": "/resources/what-is-generative-engine-optimisation/",
+      "kind": "DEAD",
+      "label": "Section_section__vCyY6",
+      "detail": "62% padding in 220px"
+    }
+  ]
+}

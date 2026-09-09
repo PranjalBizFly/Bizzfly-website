@@ -197,11 +197,6 @@
   min-height: 24px;
 }
 
-.subMeta {
-  margin-left: auto;
-  font-variant-numeric: tabular-nums;
-}
-
 .subGroup + .subGroup {
   margin-top: var(--space-2);
 }

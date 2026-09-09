@@ -1,0 +1,322 @@
+/*
+ * Why BizzFly — set over a photograph.
+ *
+ * Centred opener, then a translucent panel carrying the interactive pillars.
+ * The section sits inside MediaGround, which supplies the frame, the scrim
+ * and the inverse token context — so nothing here needs to know it is on a
+ * dark ground.
+ */
+
+/* --- Opener -------------------------------------------------------------- */
+.header {
+  text-align: center;
+  max-width: 44rem;
+  margin-inline: auto;
+  margin-bottom: var(--gap-header);
+}
+
+/*
+ * The eyebrow as a capsule rather than a bare label.
+ *
+ * On the page ground a section eyebrow is small tracked text and that is
+ * enough. Over a photograph it is 13px type competing with whatever is in the
+ * frame behind it, and a contained shape is what makes it read as a label
+ * rather than as part of the picture. Used only in the two image-ground
+ * sections, so it stays a response to the surface rather than a new house
+ * style.
+ */
+.eyebrow {
+  display: inline-block;
+  padding: var(--space-2) var(--space-5);
+  border: 1px solid var(--border-inverse);
+  border-radius: var(--radius-full);
+  background: var(--pill-over-media);
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--text-inverse);
+}
+
+.title {
+  margin-top: var(--space-6);
+  font-family: var(--font-display);
+  font-size: var(--text-display-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  color: var(--text-inverse);
+  text-wrap: balance;
+}
+
+/*
+ * One sentence, held narrow. The reference sets a very large heading against
+ * a deliberately short supporting line, and the restraint is what makes the
+ * heading read as large — a paragraph underneath would flatten it.
+ */
+.lead {
+  margin-top: var(--space-5);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-inverse-muted);
+  max-width: var(--measure-lead);
+  margin-inline: auto;
+  text-wrap: pretty;
+}
+
+/* --- The panel over the frame -------------------------------------------- */
+/*
+ * A second wash on top of the section scrim. The rail and the detail column
+ * set body and label sizes over the photograph, and the section's own scrim
+ * is tuned for display type — this is what carries the small text.
+ *
+ * backdrop-filter is a progressive enhancement and is deliberately light:
+ * a heavy blur over a full-bleed image is one of the more expensive things
+ * a page can composite, and the panel already works without it.
+ */
+.panel {
+  border: 1px solid var(--border-inverse);
+  border-radius: var(--radius-lg);
+  background: var(--panel-over-media);
+  padding: var(--space-6);
+  display: grid;
+  gap: var(--gap-stack-lg);
+}
+
+@supports (backdrop-filter: blur(4px)) {
+  .panel {
+    backdrop-filter: blur(6px);
+  }
+}
+
+@media (min-width: 768px) {
+  .panel {
+    padding: var(--space-10);
+  }
+}
+
+@media (min-width: 1024px) {
+  .panel {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+}
+
+/* --- The rail ------------------------------------------------------------ */
+.rail {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-inverse);
+}
+
+.tab {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: var(--space-4);
+  width: 100%;
+  padding-block: var(--space-4);
+  padding-inline-start: var(--space-4);
+  border-bottom: 1px solid var(--border-inverse);
+  text-align: left;
+  color: var(--text-inverse-muted);
+  transition: color var(--dur-base) var(--ease-standard);
+  min-height: var(--touch-target-min);
+}
+
+/* A rule that grows down the leading edge, rather than a filled row. */
+.tab::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 2px;
+  background: var(--accent-edge);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+.tab[data-selected="true"]::before {
+  transform: scaleY(1);
+}
+
+.tab[data-selected="true"],
+.tab:hover {
+  color: var(--text-inverse);
+}
+
+.tabIndex {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-250);
+  transition: color var(--dur-base) var(--ease-standard);
+}
+
+.tab[data-selected="true"] .tabIndex {
+  color: var(--accent-text);
+}
+
+.tabName {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  text-wrap: balance;
+}
+
+@media (min-width: 1024px) {
+  .tabName {
+    font-size: var(--text-h3);
+    letter-spacing: var(--tracking-h3);
+  }
+}
+
+/* --- The detail column --------------------------------------------------- */
+.panels {
+  min-width: 0;
+}
+
+.detailPanel {
+  animation: panelIn var(--dur-base) var(--ease-decelerate) both;
+}
+
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--space-2), 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.claim {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-snug);
+  color: var(--text-inverse);
+  max-width: var(--measure-title);
+  text-wrap: balance;
+}
+
+.detail {
+  margin-top: var(--space-5);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--text-inverse-muted);
+  max-width: var(--measure-body);
+  text-wrap: pretty;
+}
+
+.mechanism {
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border-inverse);
+  display: grid;
+  gap: var(--space-2);
+}
+
+@media (min-width: 640px) {
+  .mechanism {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+.mechanismLabel {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--ink-250);
+  margin: 0;
+}
+
+.mechanismValue {
+  margin: 0;
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--text-inverse);
+  max-width: var(--measure-body);
+  text-wrap: pretty;
+}
+
+.panelLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  min-height: var(--touch-target-min);
+  font-family: var(--font-label);
+  font-size: var(--text-button);
+  font-weight: var(--weight-medium);
+  color: var(--text-inverse);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 4px;
+}
+
+.panelLink span {
+  color: var(--accent-edge);
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+.panelLink:hover span {
+  transform: translate3d(var(--space-2), 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detailPanel {
+    animation: none;
+  }
+  .tab::before,
+  .panelLink span {
+    transition: none;
+  }
+  .panelLink:hover span {
+    transform: none;
+  }
+}
+
+/* --- Section footer link, on the dark ground ----------------------------- */
+.footer {
+  margin-top: var(--gap-section-foot);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-inverse);
+  text-align: center;
+}
+
+.footerLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--touch-target-min);
+  font-family: var(--font-label);
+  font-size: var(--text-button);
+  font-weight: var(--weight-medium);
+  color: var(--text-inverse);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 4px;
+}
+
+.footerLink span {
+  color: var(--accent-edge);
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+.footerLink:hover span {
+  transform: translate3d(var(--space-2), 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footerLink:hover span {
+    transform: none;
+  }
+}

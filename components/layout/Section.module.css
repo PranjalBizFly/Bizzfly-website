@@ -1,29 +1,45 @@
+/*
+ * The band's vertical inset.
+ *
+ * Authored as a custom property rather than as four competing padding rules,
+ * because the dark-section bump below has to ADD to the chosen spacing rather
+ * than replace it. It previously set `padding-block` outright and, being a
+ * single class selector declared after `.lg`, it won on source order — so
+ * `spacing="lg"` was silently discarded on five of the six dark sections on
+ * the site, which then sat at a larger inset than their light neighbours on
+ * mobile and a smaller one on desktop. Composing through a variable makes the
+ * two decisions independent, which is what the props already implied.
+ */
 .section {
+  --section-inset: var(--section-md);
+  --section-inset-bump: 0px;
+
   background: var(--background);
   color: var(--foreground);
+  padding-block: calc(var(--section-inset) + var(--section-inset-bump));
 }
 
 .sm {
-  padding-block: var(--section-sm);
+  --section-inset: var(--section-sm);
 }
 .md {
-  padding-block: var(--section-md);
+  --section-inset: var(--section-md);
 }
 .lg {
-  padding-block: var(--section-lg);
+  --section-inset: var(--section-lg);
 }
 .xl {
-  padding-block: var(--section-xl);
+  --section-inset: var(--section-xl);
 }
 
 .surface {
   background: var(--surface);
 }
 
-/* Dark sections carry one step more internal padding — they read tighter */
+/* Dark sections carry one step more internal padding — they read tighter. */
 .inverse,
 .inverseAlt {
-  padding-block: calc(var(--section-md) + var(--space-6));
+  --section-inset-bump: var(--space-6);
 }
 
 /*

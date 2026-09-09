@@ -17,22 +17,28 @@ import {
   StatBand,
   InsightGrid,
   SurfacePresence,
+  WhyBizzFly,
+  GrowthEngine,
+  FounderNote,
+  TestimonialCarousel,
   type NumberedEntry,
   type ShowcaseEntry,
   type Stat,
   type InsightEntry,
 } from "@/components/sections";
-import { Marquee, MarqueeItem } from "@/components/motion";
+import { Marquee, MarqueeItem, Reveal } from "@/components/motion";
 import { TextLink } from "@/components/buttons";
 import { BodyText } from "@/components/typography";
 import { JsonLd } from "@/components/JsonLd";
 import { industries } from "@/content/industries";
 import { technologies } from "@/content/technologies";
 import { resources } from "@/content/resources";
+import { testimonials } from "@/content/testimonials";
 import { allCompanyPages } from "@/content/company";
 import { site } from "@/content/site";
 import {
   getHomepageImages,
+  getNarrativeImages,
   getResourceImage,
   resourceImageAssignments,
 } from "@/content/images";
@@ -117,21 +123,25 @@ const stats: Stat[] = [
     label: "Services",
     value: String(entriesByKind("service").length),
     note: "Each states what it covers, what it does not, and what skipping it costs you.",
+    href: "/services/",
   },
   {
     label: "Industries",
     value: String(industries.length),
     note: "Published only where we can name that sector's problems in its own vocabulary.",
+    href: "/industries/",
   },
   {
     label: "Use cases",
     value: String(entriesByKind("use-case").length),
     note: "Written from the problem the visitor arrived with, not the service we would sell.",
+    href: "/use-cases/",
   },
   {
     label: "Technologies",
     value: String(technologies.length),
     note: "What we build with, why, and when we would tell you to use something else.",
+    href: "/technologies/",
   },
 ];
 
@@ -169,6 +179,12 @@ const homeFaqs =
 
 export default function HomePage() {
   const homeImages = getHomepageImages();
+  /*
+   * Imagery for the narrative sections, reusing frames already assigned
+   * elsewhere. See getNarrativeImages for why that exception exists and what
+   * it costs.
+   */
+  const narrative = getNarrativeImages();
 
   /*
    * The showcase.
@@ -180,11 +196,25 @@ export default function HomePage() {
    * not happen.
    */
   const showcase: ShowcaseEntry[] = [
+    /*
+     * Outcome first, mechanism second.
+     *
+     * These headings used to lead with the discipline's internal vocabulary —
+     * "Multi-surface search query analysis", "Entity-first retrieval for
+     * modern answer engines". Both are accurate and neither means anything to
+     * the person who signs the contract, which on this page is a business
+     * owner rather than a search practitioner. The technical framing has not
+     * been removed; it has moved one line down, where it now does the work of
+     * evidencing the claim above it rather than being the claim.
+     *
+     * The deep vocabulary still leads on the service and technology pages,
+     * where the reader has self-selected into it.
+     */
     {
       image: homeImages.whatWeDo,
       eyebrow: "Advisory & Architecture",
-      title: "Strategic alignment across growth and engineering",
-      lead: "Our strategists and developers in Pune evaluate your entire customer discovery journey, ensuring organic search visibility translates into reliable backend systems.",
+      title: "Know which problem to fix first",
+      lead: "Most engagements start by buying the wrong thing. The first two weeks establish where growth is actually constrained — visibility, the website, or the operations behind it — and you keep those findings whether or not you continue with us.",
       tags: ["Digital strategy", "Architecture", "Measurement"],
       href: "/services/digital-strategy/",
       linkLabel: "Digital growth strategy",
@@ -192,8 +222,8 @@ export default function HomePage() {
     {
       image: homeImages.visibility,
       eyebrow: "Search Intelligence",
-      title: "Multi-surface search query analysis",
-      lead: "Monitoring how your audience searches across organic engines, vertical directories, and local map packs to capture high-intent demand.",
+      title: "Be found wherever buyers look",
+      lead: "Ranked results, map packs and vertical directories are separate retrieval systems, and being strong in one tells you nothing about the others. We measure each surface and fix the ones that are failing.",
       tags: ["SEO", "Technical SEO", "Local search"],
       href: "/services/seo/",
       linkLabel: "Search engine optimisation",
@@ -201,8 +231,8 @@ export default function HomePage() {
     {
       image: homeImages.aiSearch,
       eyebrow: "Generative AI & AEO",
-      title: "Entity-first retrieval for modern answer engines",
-      lead: "We structure company knowledge bases and structured schema so AI search models—including Google AI Overviews and ChatGPT—cite your business accurately.",
+      title: "Get your business cited by AI search",
+      lead: "Assistants increasingly answer instead of linking, and they cite the sources they can parse. Structured data, a clear entity and machine-readable content are what put you among them.",
       tags: ["GEO", "AEO", "Structured data"],
       href: "/services/generative-engine-optimisation/",
       linkLabel: "Generative engine optimisation",
@@ -210,8 +240,8 @@ export default function HomePage() {
     {
       image: homeImages.automation,
       eyebrow: "Operations",
-      title: "Connected business automation",
-      lead: "Automating repetitive workflows, lead routing, and customer support handoffs so your team scales revenue without proportional overhead.",
+      title: "Handle the demand without hiring for it",
+      lead: "Quoting, lead routing and support handoffs are the steps that break first when enquiries rise. Automating them is what stops growth turning into a backlog.",
       tags: ["Workflow automation", "AI agents", "Integration"],
       href: "/services/workflow-automation/",
       linkLabel: "Business automation",
@@ -219,8 +249,8 @@ export default function HomePage() {
     {
       image: homeImages.technology,
       eyebrow: "Engineering Standards",
-      title: "Software developers who build for search performance",
-      lead: "We engineer fast, accessible web applications and custom software that satisfy Google's Core Web Vitals while scaling your business logic.",
+      title: "A site fast enough to rank, clear enough to convert",
+      lead: "Speed, accessibility and structure are the same engineering decisions that decide whether you rank at all. We build them in rather than optimising for them afterwards.",
       tags: ["Web development", "Custom software", "Core Web Vitals"],
       href: "/services/web-development/",
       linkLabel: "Web & software development",
@@ -250,11 +280,11 @@ export default function HomePage() {
       <Section spacing="lg" id="what-we-do">
         <SectionHeader
           centred
-          eyebrow="What we do"
+          eyebrow="02 / What we do"
           title="Four jobs, in the order they actually matter"
           lead="Visibility with nothing behind it wastes budget. A good website nobody finds wastes more. We work across all four because in practice they are one problem."
         />
-        <CapabilityGroups />
+        <CapabilityGroups images={narrative.jobs} />
       </Section>
 
       {/*
@@ -266,7 +296,7 @@ export default function HomePage() {
       <Section background="surface" spacing="lg" id="work">
         <SectionHeader
           centred
-          eyebrow="How we work"
+          eyebrow="03 / How we work"
           title="Five disciplines, one engagement"
           lead="Most agencies sell one of these and subcontract the rest. The team that finds the problem is the team that fixes it, so the handovers that usually lose a project do not exist here."
         />
@@ -277,21 +307,43 @@ export default function HomePage() {
       </Section>
 
       {/*
+        04 — Why BizzFly.
+        The live site carries a "Why choose us" section with four named
+        pillars and this one had nothing equivalent: the page explained what
+        we do at length and never answered why us rather than anyone else.
+        The pillar names are the company's own; the supporting copy is
+        rewritten so each one states a mechanism a reader can check instead
+        of an adjective every competitor could also claim.
+      */}
+      {/*
+        Full-bleed rather than a contained Section: the photograph is the
+        ground for this one, so it owns its own header, container and footer
+        link. Section would wrap it in a container and cap the image.
+      */}
+      <WhyBizzFly image={narrative.why} />
+
+      {/*
         04 — The figures, on a dark band.
         A light section of numbers between two other light sections did not
         read as a band at all. Inverted it punctuates the page, which is the
         job this block is doing.
       */}
       <Section background="inverse" spacing="md" id="scale">
-        <SectionHeader
-          centred
-          eyebrow="Published"
-          title="What is actually on this site"
-          lead="Not awards, not client counts. These are the pages we have written and stand behind — the only numbers we can currently put a source against."
-        />
-        <div className={styles.statWrap}>
-          <StatBand stats={stats} />
-        </div>
+        {/*
+          Revealed here rather than inside SectionHeader: that component is on
+          fifteen page files and giving it a reveal would animate every
+          section on the site, which is a different decision from animating
+          this one.
+        */}
+        <Reveal>
+          <SectionHeader
+            centred
+            eyebrow="05 / Published"
+            title="What is actually on this site"
+            lead="Not awards, not client counts. These are the pages we have written and stand behind — the only numbers we can currently put a source against."
+          />
+        </Reveal>
+        <StatBand stats={stats} />
       </Section>
 
       {/*
@@ -307,7 +359,7 @@ export default function HomePage() {
       <Section background="tint" spacing="lg" id="visibility">
         <SectionHeader
           split
-          eyebrow="Discoverability"
+          eyebrow="06 / Discoverability"
           title="SEO was one surface. Now there are five."
           lead="These are not five names for the same work. Each layer describes a different retrieval mechanism, and a business can be strong on one and invisible on the next."
         />
@@ -318,7 +370,7 @@ export default function HomePage() {
       <Section spacing="lg" id="problems">
         <SectionHeader
           split
-          eyebrow="Sound familiar?"
+          eyebrow="07 / Sound familiar?"
           title="Your customers do not discover businesses the way they used to"
           lead="Most engagements start with one of these sentences. Each links to how we would approach it."
         />
@@ -335,11 +387,26 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/*
+        08 — the Growth Engine.
+
+        Deliberately placed here rather than beside the four jobs at the top,
+        because it answers a different question and the two would otherwise
+        read as the same list twice. Section 02 is the catalogue — what the
+        four areas are and what sits under each. This is the sequence: the
+        order they have to be solved in, and what specifically breaks when
+        one is skipped. It follows the problem section because that is where
+        a reader has just recognised their own situation and wants to know
+        where it sits.
+      */}
+      {/* Full-bleed, for the same reason as the Why section above. */}
+      <GrowthEngine image={narrative.engine} />
+
       {/* 07 — By business situation. No pricing, no packages. */}
       <Section background="surface" spacing="lg" id="stages">
         <SectionHeader
           split
-          eyebrow="Where you are"
+          eyebrow="09 / Where you are"
           title="The right work depends on the constraint you actually have"
           lead="Businesses move between these. The mistake is buying the work that suits the stage you wish you were at."
         />
@@ -350,7 +417,7 @@ export default function HomePage() {
       <Section spacing="lg" id="industries">
         <SectionHeader
           split
-          eyebrow="Industries"
+          eyebrow="10 / Industries"
           title="Context matters more than templates"
           lead="A manufacturer and an education group have almost nothing in common except that both are hard to find. We publish a sector page only where we can name that sector's real problems in its own vocabulary."
         />
@@ -370,7 +437,7 @@ export default function HomePage() {
       <Section background="tint" spacing="lg" id="technology">
         <SectionHeader
           split
-          eyebrow="Technology"
+          eyebrow="11 / Technology"
           title="We are not a marketing agency with a developer attached"
           lead="The same team that finds the crawl problem capping your visibility can fix the template causing it. Every technology page states what we use, why, and when we would tell you to use something else."
         />
@@ -410,7 +477,7 @@ export default function HomePage() {
       <Section spacing="lg" id="journeys">
         <SectionHeader
           split
-          eyebrow="Start here"
+          eyebrow="12 / Start here"
           title="What are you trying to do?"
           lead="Pick the sentence closest to your situation."
         />
@@ -421,18 +488,58 @@ export default function HomePage() {
       <Section background="surface" spacing="lg" id="trust">
         <SectionHeader
           centred
-          eyebrow="Proof"
+          eyebrow="13 / Proof"
           title="What we will show you, and what we will not"
           lead="We have no client-approved case studies published yet. Rather than fill this space with logos and numbers we cannot evidence, here is the standard we hold ourselves to."
         />
         <TrustStandard />
       </Section>
 
+      {/*
+        Client testimonials.
+
+        The section renders only once content/testimonials.ts holds an
+        approved quote, and that array is deliberately empty — see the note at
+        the top of that file. The old site publishes four testimonials plus a
+        "4.9/5 from 1,500+ reviews" rating with no verifiable source, and this
+        site has published a promise that it carries none of that. The
+        component and the section are built and wired so that adding the first
+        approved quote is the only step required.
+      */}
+      {testimonials.length > 0 ? (
+        <Section spacing="lg" id="testimonials">
+          <SectionHeader
+            centred
+            eyebrow="In their words"
+            title="What clients say about working with us"
+            lead="Published with the wording and attribution each client approved."
+          />
+          <div className={styles.testimonialWrap}>
+            <TestimonialCarousel />
+          </div>
+        </Section>
+      ) : null}
+
+      {/*
+        14 — the human layer.
+
+        The old site names a founder and gives him a photograph; this one had
+        reduced him to one sentence inside a company page. That was the single
+        clearest trust signal the old site had that this one had lost. No
+        portrait exists in the repository and none is invented, so the
+        composition is typographic rather than a profile card with a hole in
+        it.
+      */}
+      <Section spacing="lg" id="founder">
+        {/* No image passed — see the note in FounderNote. */}
+        <FounderNote />
+      </Section>
+
       {/* 12 — The questions that come before a first call */}
       <Section background="tint" spacing="lg" id="faq">
         <SectionHeader
           centred
-          eyebrow="Questions"
+          eyebrow="15 / Questions"
           title="Asked before every first call"
           lead="Procedural rather than technical: how this starts, how long it takes, what we will not promise, and who owns what we build."
         />
@@ -448,7 +555,7 @@ export default function HomePage() {
       <Section spacing="lg" id="insights">
         <SectionHeader
           centred
-          eyebrow="Insights"
+          eyebrow="16 / Insights"
           title="What we have worked out, written down"
           lead="Nothing here is gated. If content is worth reading, putting a form in front of it just means fewer people read it."
         />

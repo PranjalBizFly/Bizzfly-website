@@ -4,7 +4,7 @@
 
 .layout {
   display: grid;
-  gap: var(--space-12);
+  gap: var(--space-8);
 }
 
 @media (min-width: 1024px) {
@@ -17,13 +17,13 @@
 
 .title {
   margin-top: var(--space-4);
-  max-width: 16ch;
+  max-width: var(--measure-display);
 }
 
 .lead {
   margin-top: var(--space-5);
   color: var(--muted);
-  max-width: 48ch;
+  max-width: var(--measure-lead);
 }
 
 .trust {
@@ -92,12 +92,12 @@
 
 /* --- Conversion paths by intent ---------------------------------------- */
 .pathsHeading {
-  max-width: 24ch;
+  max-width: var(--measure-title);
 }
 
 .pathsLead {
   margin-top: var(--space-4);
-  max-width: 56ch;
+  max-width: var(--measure-lead);
 }
 
 .paths {

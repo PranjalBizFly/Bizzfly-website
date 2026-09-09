@@ -1,0 +1,223 @@
+/*
+ * The human layer — contained image beside the argument.
+ *
+ * 5/7: the photograph takes the smaller track and the words the larger one.
+ * The reverse of what an image-led section usually does, and deliberate — the
+ * picture here is corroboration rather than the subject, so it should not
+ * outweigh the sentence it corroborates.
+ */
+.wrapper {
+  display: grid;
+  gap: var(--gap-stack-lg);
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+}
+
+/* --- The photograph ------------------------------------------------------ */
+.figure {
+  position: relative;
+  min-width: 0;
+}
+
+.frame {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--elev-1);
+}
+
+/*
+ * 4:5 — the only portrait crop on the homepage.
+ *
+ * Every other frame here is landscape (16:9 showcase, 4:3 insight, 21:9
+ * feature). A taller frame beside a column of text is what makes this read as
+ * an editorial spread rather than as another card, and it is the proportion
+ * a picture of people is usually cut to.
+ */
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-standard);
+}
+
+.figure:hover .image {
+  transform: scale(1.02);
+}
+
+/*
+ * The attribution, overlapping the lower edge of the frame.
+ *
+ * Solid rather than translucent: it carries a name, and a name half-legible
+ * through a photograph is worse than no overlap at all. The overlap is what
+ * ties the block to the picture — without it this is a caption.
+ */
+/*
+ * With a frame above it, the block overlaps the image edge. With no frame
+ * there is nothing to overlap, so it becomes a plain signature under a rule —
+ * a negative margin pulling it into empty space would just look like a bug.
+ */
+.signature {
+  position: relative;
+  border-top: 2px solid var(--accent-edge);
+  padding-top: var(--space-5);
+}
+
+[data-has-image="true"] .signature {
+  margin-top: calc(var(--space-10) * -1);
+  margin-inline: var(--space-5);
+  padding: var(--space-5) var(--space-6);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elev-2);
+}
+
+@media (min-width: 640px) {
+  [data-has-image="true"] .signature {
+    margin-inline-end: var(--space-16);
+  }
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+
+.role {
+  margin-top: var(--space-1);
+  font-family: var(--font-label);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  color: var(--muted);
+}
+
+.separator {
+  margin-inline: var(--space-2);
+  color: var(--ink-400);
+}
+
+/* --- The argument -------------------------------------------------------- */
+.body {
+  min-width: 0;
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--muted);
+}
+
+.title {
+  margin-top: var(--gap-eyebrow);
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-h2);
+  color: var(--foreground);
+  max-width: var(--measure-heading);
+  text-wrap: balance;
+}
+
+/*
+ * The premise is set larger than the paragraphs under it, so the section has
+ * a single sentence a reader can leave with. It is the closest thing this
+ * page has to a statement of belief, and burying it in body copy would waste
+ * the only place the company speaks in the first person plural.
+ */
+.premise {
+  margin-top: var(--space-6);
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-h3);
+  color: var(--foreground);
+  max-width: var(--measure-title);
+  text-wrap: balance;
+}
+
+.paragraph {
+  margin-top: var(--space-5);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  max-width: var(--measure-lead);
+  text-wrap: pretty;
+}
+
+.actions {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-6);
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--touch-target-min);
+  font-family: var(--font-label);
+  font-size: var(--text-button);
+  font-weight: var(--weight-medium);
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 4px;
+}
+
+.primary span {
+  color: var(--accent-edge);
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+.primary:hover span {
+  transform: translate3d(var(--space-2), 0, 0);
+}
+
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-target-min);
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    text-decoration-color var(--dur-fast) var(--ease-standard);
+}
+
+.secondary:hover {
+  color: var(--foreground);
+  text-decoration-color: var(--link-underline);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image,
+  .figure:hover .image,
+  .primary:hover span {
+    transform: none;
+    transition: none;
+  }
+}

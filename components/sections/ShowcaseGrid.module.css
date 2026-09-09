@@ -8,8 +8,7 @@
  */
 .grid {
   display: grid;
-  gap: var(--space-10) var(--space-8);
-  margin-top: var(--space-12);
+  gap: var(--gap-stack-md) var(--space-8);
 }
 
 @media (min-width: 720px) {
@@ -28,6 +27,35 @@
 @media (min-width: 720px) {
   .cardFeature {
     grid-column: 1 / -1;
+  }
+
+  /*
+   * The feature card centres; the two-up cards below it do not.
+   *
+   * It runs the full width under a centred section header, so a left-aligned
+   * block beneath a centred heading and a full-bleed image reads as though it
+   * came loose. The paired cards keep their left edge — centring text in a
+   * half-width column costs a reader the start of every line, and the point
+   * of centring here is that the block is the width of the page.
+   */
+  /*
+   * text-align only. `align-items: center` here would size the tag row to
+   * its max-content instead of the column, so a long set of tags would
+   * overflow rather than wrap — the rows stay full width and centre their
+   * own contents instead.
+   */
+  .cardFeature .body {
+    text-align: center;
+  }
+
+  .cardFeature .title,
+  .cardFeature .lead {
+    margin-inline: auto;
+  }
+
+  .cardFeature .tags,
+  .cardFeature .action {
+    justify-content: center;
   }
 }
 
@@ -49,7 +77,7 @@
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: var(--ratio-wide);
   object-fit: cover;
   transition: transform var(--dur-slow) var(--ease-standard);
 }
@@ -65,7 +93,7 @@
 
 @media (min-width: 1100px) {
   .cardFeature .image {
-    aspect-ratio: 21 / 9;
+    aspect-ratio: var(--ratio-banner);
   }
 
   /* The widest media on the page takes the softest corner in the scale. */
@@ -74,8 +102,19 @@
   }
 }
 
+/*
+ * A flex column that fills the card, so the read-more line can be pinned to
+ * its foot. Grid stretches every card in a row to the tallest, but that only
+ * levels the CARD — without this the body was a plain block and the action
+ * sat wherever the copy happened to end, so two cards side by side finished
+ * their CTAs at different heights whenever their leads differed by a line.
+ * The insight cards already worked this way; this is the same structure.
+ */
 .body {
   padding-top: var(--space-6);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .eyebrow {
@@ -96,11 +135,16 @@
   text-wrap: balance;
 }
 
+/*
+ * The feature card runs the full width of the grid, so its headline takes
+ * the headline measure rather than the section-heading one. At 24ch this was
+ * wrapping after two words with roughly half the card empty to the right.
+ */
 @media (min-width: 1100px) {
   .cardFeature .title {
     font-size: var(--text-h2);
     letter-spacing: var(--tracking-h2);
-    max-width: 22ch;
+    max-width: var(--measure-headline);
   }
 }
 
@@ -120,7 +164,7 @@
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 62ch;
+  max-width: var(--measure-body);
   text-wrap: pretty;
 }
 
@@ -147,8 +191,10 @@
   padding: var(--space-1) var(--space-4);
 }
 
+/* margin-top:auto pins this to the foot of the card — see .body above. */
 .action {
-  margin: var(--space-6) 0 0;
+  margin: auto 0 0;
+  padding-top: var(--space-6);
   display: flex;
   align-items: center;
   gap: var(--space-2);

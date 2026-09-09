@@ -1,68 +1,80 @@
 /*
- * Four pillars as separate soft cards.
+ * The four jobs, as editorial rows that open.
  *
- * They used to share one hairline grid — a single bordered block divided by
- * 1px rules. That reads as a table. Separating them onto their own rounded,
- * tinted panels with air between is what turns the section from a
- * specification into four things a person can pick up, and it is the same
- * card language the showcase and insight grids now use.
+ * Rules rather than cards. Four bordered boxes under a hero is the shape of
+ * every template on the internet; a ruled list is what a publication does,
+ * and it lets the row be as wide as the page without looking empty.
  */
 .groups {
-  display: grid;
-  gap: var(--space-6);
-  margin-top: var(--space-12);
-}
-
-@media (min-width: 720px) {
-  .groups {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1100px) {
-  .groups {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
 }
 
 .group {
+  border-bottom: 1px solid var(--border);
   position: relative;
-  display: flex;
-  flex-direction: column;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--elev-1);
-  padding: var(--space-8) var(--space-6) var(--space-16);
-  transition:
-    box-shadow var(--dur-base) var(--ease-standard),
-    transform var(--dur-base) var(--ease-standard);
 }
 
-/* The lift is the whole hover state — a shadow step and 2px of travel. */
-.group:hover {
-  box-shadow: var(--elev-2);
-  transform: translate3d(0, -2px, 0);
+/*
+ * The hover rule. It extends along the bottom edge rather than filling the
+ * row, which is the same restraint the numbered list further down the page
+ * uses — the page should feel like one hand drew it.
+ */
+.group::after {
+  content: "";
+  position: absolute;
+  inset-block-end: -1px;
+  inset-inline-start: 0;
+  height: 2px;
+  width: 0;
+  background: var(--accent-edge);
+  transition: width var(--dur-base) var(--ease-standard);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .group:hover {
-    transform: none;
+.group:hover::after,
+.group[data-expanded="true"]::after {
+  width: 100%;
+}
+
+/* The heading carries no visual weight of its own; the button inside does. */
+.headingRow {
+  margin: 0;
+  font: inherit;
+  font-weight: inherit;
+}
+
+.trigger {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "index label marker"
+    ".     question question";
+  align-items: baseline;
+  gap: var(--space-2) var(--space-5);
+  width: 100%;
+  text-align: left;
+  padding-block: var(--space-8);
+  color: var(--foreground);
+  min-height: var(--touch-target-min);
+}
+
+@media (min-width: 900px) {
+  .trigger {
+    grid-template-columns: auto minmax(0, 16rem) minmax(0, 1fr) auto;
+    grid-template-areas: "index label question marker";
+    gap: var(--space-10);
+    align-items: center;
   }
 }
 
-.head {
-  display: flex;
-  /* center, not baseline: the index is a 2rem badge now, not a figure. */
-  align-items: center;
-  gap: var(--space-3);
-}
-
-/* A numbered badge, not a floating figure — the step reads as a token. */
 .index {
+  grid-area: index;
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   font-variant-numeric: tabular-nums;
+  font-weight: var(--weight-semibold);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -71,73 +83,192 @@
   block-size: 2rem;
   border-radius: var(--radius-full);
   background: var(--surface-muted);
-  font-weight: var(--weight-semibold);
   color: var(--accent-text);
+  transition:
+    background var(--dur-base) var(--ease-standard),
+    color var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
+}
+
+/* The number is the active marker — it fills when its row is open. */
+.group[data-expanded="true"] .index {
+  background: var(--accent-edge);
+  color: var(--text-on-brand);
+  transform: scale(1.08);
 }
 
 .label {
+  grid-area: label;
   font-family: var(--font-display);
-  font-size: var(--text-h2);
+  font-size: var(--text-h3);
   font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-h2);
-  line-height: var(--leading-tight);
-  margin: 0;
-}
-
-/*
- * Stretched link: the card is the target, the heading carries the name.
- * The rail links below sit on their own stacking context so they stay
- * individually clickable rather than being covered by this.
- */
-.labelLink {
-  color: inherit;
-  text-decoration: none;
-}
-
-.labelLink::after {
-  content: "";
-  position: absolute;
-  inset: 0;
+  letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-snug);
 }
 
 .question {
-  margin: var(--space-6) 0 0;
+  grid-area: question;
   font-size: var(--text-body-lg);
   line-height: var(--leading-snug);
-  color: var(--foreground);
+  color: var(--muted);
+  max-width: var(--measure-lead);
   text-wrap: pretty;
+  transition: color var(--dur-base) var(--ease-standard);
+}
+
+.group[data-expanded="true"] .question {
+  color: var(--foreground);
+}
+
+.marker {
+  grid-area: marker;
+  color: var(--ink-400);
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    color var(--dur-base) var(--ease-standard);
+}
+
+.group:hover .marker {
+  color: var(--foreground);
+  transform: translate3d(var(--space-2), 0, 0);
+}
+
+/* Points down when the row is open — the row itself is the affordance. */
+.group[data-expanded="true"] .marker {
+  transform: rotate(90deg);
+  color: var(--accent-edge);
+}
+
+/* --- The panel ----------------------------------------------------------- */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-base) var(--ease-standard);
+}
+
+.panel[data-expanded="true"] {
+  grid-template-rows: 1fr;
+}
+
+/*
+ * The row that actually collapses. `min-height: 0` is what allows a grid item
+ * to shrink below its content, and the overflow clip is what hides the text
+ * while it does.
+ */
+.panelInner {
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-standard);
+}
+
+.panel[data-expanded="true"] .panelInner {
+  opacity: 1;
+  transition-delay: var(--dur-fast);
+}
+
+/*
+ * The open row is an image beside its copy.
+ *
+ * This is the one place the four jobs become pictures rather than words, and
+ * it is why the row opens at all — a reader who expands "Automate" gets the
+ * work shown as well as described. The frame carries the same photograph as
+ * the practice page the row links to, so following the link is continuous
+ * rather than a jump to an unrelated image.
+ */
+.split {
+  display: grid;
+  gap: var(--gap-stack-md);
+  padding-bottom: var(--space-8);
+}
+
+@media (min-width: 900px) {
+  .split {
+    /* Aligned under the question, not under the number. */
+    margin-inline-start: calc(2rem + var(--space-10));
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-10);
+    align-items: start;
+  }
+}
+
+.frame {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+/*
+ * 3:2, which is neither the 16:9 of the showcase above nor the 4:5 of the
+ * founder frame below. Three landscape ratios on one page would be an
+ * accident; three distinct ones are a rhythm.
+ */
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--ratio-editorial);
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-standard);
+}
+
+.group:hover .image {
+  transform: scale(1.03);
+}
+
+.copy {
+  min-width: 0;
 }
 
 .summary {
-  margin: var(--space-4) 0 0;
-  font-size: var(--text-body-sm);
+  font-size: var(--text-body);
   line-height: var(--leading-relaxed);
   color: var(--muted);
+  max-width: var(--measure-body);
+  text-wrap: pretty;
+}
+
+.services {
+  margin-top: var(--space-6);
+  display: grid;
+  gap: var(--space-3);
+}
+
+@media (min-width: 640px) {
+  .services {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--space-6);
+    align-items: baseline;
+  }
+}
+
+.servicesLabel {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--ink-400);
 }
 
 .rail {
-  position: relative;
-  z-index: 0;
   list-style: none;
-  margin: var(--space-8) 0 0;
-  padding: var(--space-6) 0 0;
-  border-top: 1px solid var(--border);
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
 }
 
 .railLink {
-  font-family: var(--font-label);
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding-block: var(--space-1);
   font-size: var(--text-body-sm);
   color: var(--muted);
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 4px;
-  display: inline-block;
-  padding-block: var(--space-1);
-  /* WCAG 2.5.8 target size */
-  min-height: 24px;
   transition:
     color var(--dur-fast) var(--ease-standard),
     text-decoration-color var(--dur-fast) var(--ease-standard);
@@ -148,22 +279,52 @@
   text-decoration-color: var(--link-underline);
 }
 
-/* Sits in the corner the card padding reserves for it. */
-.arrow {
-  position: absolute;
-  left: var(--space-6);
-  bottom: var(--space-8);
-  font-size: var(--text-icon);
+.groupLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  min-height: var(--touch-target-min);
+  font-family: var(--font-label);
+  font-size: var(--text-button);
+  font-weight: var(--weight-medium);
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 4px;
+}
+
+.groupLink span {
   color: var(--accent-edge);
   transition: transform var(--dur-base) var(--ease-standard);
 }
 
-.group:hover .arrow {
+.groupLink:hover span {
   transform: translate3d(var(--space-2), 0, 0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .group:hover .arrow {
+  .image,
+  .group:hover .image {
     transform: none;
+    transition: none;
+  }
+  .panel,
+  .panelInner,
+  .index,
+  .marker,
+  .group::after,
+  .groupLink span {
+    transition: none;
+  }
+  .group[data-expanded="true"] .index {
+    transform: none;
+  }
+  .group:hover .marker,
+  .groupLink:hover span {
+    transform: none;
+  }
+  .group[data-expanded="true"] .marker {
+    transform: rotate(90deg);
   }
 }

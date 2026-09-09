@@ -1,6 +1,6 @@
 .lead {
   margin-top: var(--space-6);
-  max-width: 52ch;
+  max-width: var(--measure-lead);
 }
 .actions {
   margin-top: var(--space-10);

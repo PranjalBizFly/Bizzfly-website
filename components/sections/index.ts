@@ -31,3 +31,7 @@ export type { Stat } from "./StatBand";
 export { InsightGrid } from "./InsightGrid";
 export type { InsightEntry } from "./InsightGrid";
 export { ProseSections } from "./ProseSections";
+export { WhyBizzFly } from "./WhyBizzFly";
+export { GrowthEngine } from "./GrowthEngine";
+export { FounderNote } from "./FounderNote";
+export { TestimonialCarousel } from "./TestimonialCarousel";

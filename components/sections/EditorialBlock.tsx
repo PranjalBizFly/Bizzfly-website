@@ -23,17 +23,21 @@ export function EditorialBlock({
 }: EditorialBlockProps) {
   return (
     <div className={styles.statement}>
-      <div>
-        {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-        <Heading level={level} size="h2" className={styles.statementTitle}>
-          {title}
-        </Heading>
+      <div className={styles.statementText}>
+        <div className={styles.header}>
+          {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
+          <Heading level={level} size="h2" className={styles.statementTitle}>
+            {title}
+          </Heading>
+        </div>
         {lead ? (
           <BodyText size="lg" className={styles.headerLead}>
             {lead}
           </BodyText>
         ) : null}
-        {actions ? <div className={styles.emptyActions}>{actions}</div> : null}
+        {actions ? (
+          <div className={styles.statementActions}>{actions}</div>
+        ) : null}
       </div>
 
       {evidence?.length ? (

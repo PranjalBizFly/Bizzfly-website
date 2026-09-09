@@ -29,7 +29,7 @@
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-h1);
   margin-top: var(--space-5);
-  max-width: 20ch;
+  max-width: var(--measure-display);
 }
 
 .featuredTitle a {
@@ -48,7 +48,7 @@
   font-size: var(--text-body-lg);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 60ch;
+  max-width: var(--measure-lead);
 }
 
 /* --- Proof-pending state ------------------------------------------------ */
@@ -61,13 +61,13 @@
 }
 
 .pendingTitle {
-  max-width: 26ch;
+  max-width: var(--measure-title);
 }
 
 .pendingBody {
   margin-top: var(--space-5);
   color: var(--muted);
-  max-width: 62ch;
+  max-width: var(--measure-body);
 }
 
 .pendingActions {

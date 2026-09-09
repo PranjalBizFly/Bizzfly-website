@@ -22,10 +22,15 @@
   border: 1px solid var(--border);
 }
 
+/*
+ * A ratio, so every story frame crops to the same proportion instead of
+ * inheriting whatever shape its source file happened to have.
+ */
 .imageFrame img {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: var(--ratio-wide);
   object-fit: cover;
   transition: transform var(--dur-reveal) var(--ease-standard);
 }
@@ -87,11 +92,16 @@
   gap: var(--space-6);
 }
 
-.variantC .imageFrame {
-  max-height: 480px;
-}
-
+/*
+ * The banner crops wider rather than being clipped.
+ *
+ * This used to cap the FRAME at 480px while the image inside was height:auto,
+ * which does not crop — it hides the bottom of the picture, and the
+ * object-position below could not take effect because the image was never
+ * constrained. A ratio on the image is the crop that was intended.
+ */
 .variantC .imageFrame img {
+  aspect-ratio: var(--ratio-banner);
   object-position: center 35%;
 }
 

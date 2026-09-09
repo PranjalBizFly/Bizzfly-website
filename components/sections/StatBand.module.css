@@ -2,19 +2,30 @@
  * Figures at display size, centred, no boxes.
  *
  * This sits on a dark section, so whitespace does the separating rather than
- * rules — a hairline grid here would fight the band it is set on. The order
- * is reversed in CSS so the number reads first and the label sits under it,
- * while the markup keeps `dt` as the term and `dd` as the value.
+ * rules — a hairline grid here would fight the band it is set on. The one
+ * rule that does appear runs UNDER the figures and is shared by all four,
+ * which is what makes them read as one row rather than four tiles.
  */
 .band {
-  display: grid;
-  gap: var(--space-10) var(--space-8);
+  list-style: none;
   margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--gap-stack-md);
 }
 
+/*
+ * The column gap closes from the width the row goes horizontal.
+ *
+ * Each stat draws its own full-width segment of the shared hairline, so any
+ * gap between the columns would break that line into four. The separation
+ * comes from padding inside each stat instead, which keeps the rule
+ * continuous and gives the active state a box to tint.
+ */
 @media (min-width: 640px) {
   .band {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 0;
   }
 }
 
@@ -25,15 +36,66 @@
 }
 
 .stat {
+  min-width: 0;
+}
+
+/*
+ * The interactive body.
+ *
+ * A link when the figure has a destination, a plain div when it does not, so
+ * nothing here assumes it is clickable.
+ */
+.inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: var(--space-2);
+  height: 100%;
+  padding: var(--space-5) var(--space-4) var(--space-6);
+  border-radius: var(--radius-lg);
+  color: inherit;
+  text-decoration: none;
+  /*
+   * A flat tint, not a glow. A radial wash would be the obvious way to light
+   * the active figure and it is a brand violation here — the system asserts a
+   * flat token colour everywhere, so the emphasis is a quiet surface lift
+   * instead. It reads at 1.2:1 off the band, which is enough to locate the
+   * active item without drawing a card around it.
+   */
+  background: transparent;
+  transition:
+    background var(--dur-base) var(--ease-standard),
+    opacity var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
 }
 
+a.inner {
+  cursor: pointer;
+}
+
+.inner[data-active="true"] {
+  background: var(--surface-muted);
+  transform: translate3d(0, -2px, 0);
+}
+
+/*
+ * The resting items recede while one is current — 0.8, not the half-opacity
+ * that would read as "disabled". At 0.8 the muted note still composites to
+ * about 5.4:1 on this ground, so nothing drops under AA in a state the
+ * reader put it into.
+ */
+.inner[data-dimmed="true"] {
+  opacity: 0.8;
+}
+
+.inner:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* --- The figure ---------------------------------------------------------- */
 .value {
-  order: 1;
   margin: 0;
   font-family: var(--font-display);
   font-size: var(--text-metric);
@@ -44,20 +106,119 @@
   color: var(--foreground);
 }
 
+/* --- The shared rule ----------------------------------------------------- */
+/*
+ * A hairline the width of the stat, so four of them abut into one line.
+ * The active segment thickens and takes the accent rather than growing in
+ * from an edge — the capability rows further up the page already grow a rule
+ * from the left, and repeating that here would make two different sections
+ * feel like the same control.
+ */
+.rule {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-block: var(--space-4) var(--space-3);
+  background: var(--border);
+  transition: background var(--dur-base) var(--ease-standard);
+}
+
+.inner[data-active="true"] .rule {
+  height: 2px;
+  margin-block: calc(var(--space-4) - 0.5px) calc(var(--space-3) - 0.5px);
+  background: var(--accent-edge);
+}
+
+/* --- Label and note ------------------------------------------------------ */
 .label {
-  order: 2;
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
+  font-weight: var(--weight-medium);
   letter-spacing: var(--tracking-eyebrow);
   color: var(--accent-text);
+  transition: color var(--dur-base) var(--ease-standard);
+}
+
+/* Brand green on ink is already 10.28:1; this lifts it, it does not rescue it. */
+.inner[data-active="true"] .label {
+  color: var(--green-300);
 }
 
 .note {
-  order: 3;
   margin: var(--space-2) 0 0;
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
-  color: var(--muted);
-  max-width: 30ch;
+  color: var(--text-inverse-muted);
+  max-width: var(--measure-narrow);
   text-wrap: pretty;
+  transition: color var(--dur-base) var(--ease-standard);
+}
+
+.inner[data-active="true"] .note {
+  color: var(--text-inverse);
+}
+
+/* --- The destination ----------------------------------------------------- */
+/*
+ * Held in the layout at all times and revealed on activation, so nothing
+ * moves when it appears. The cards elsewhere on this page slide a permanent
+ * arrow sideways; this one is simply not there until the figure is current.
+ */
+.explore {
+  margin-top: auto;
+  padding-top: var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-label);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-meta);
+  color: var(--text-inverse);
+  opacity: 0;
+  transform: translate3d(0, var(--space-1), 0);
+  transition:
+    opacity var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
+}
+
+.inner[data-active="true"] .explore {
+  opacity: 1;
+  transform: none;
+}
+
+.exploreArrow {
+  color: var(--accent-edge);
+}
+
+/*
+ * Touch has no hover, so the affordance would never appear on a phone. Any
+ * pointer that cannot hover gets it permanently instead of never.
+ */
+@media (hover: none) {
+  .explore {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Reduced motion ------------------------------------------------------ */
+/*
+ * The state changes stay — they are how the interface answers a pointer, and
+ * removing them would leave the section unresponsive rather than calm. What
+ * goes is the movement: no lift, no slide, colour and opacity only.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .inner,
+  .explore,
+  .rule,
+  .label,
+  .note {
+    transition-duration: 1ms;
+  }
+  .inner[data-active="true"] {
+    transform: none;
+  }
+  .explore {
+    transform: none;
+  }
 }

@@ -68,7 +68,6 @@ const groupedColumns = (
       return {
         heading: group.heading,
         headingHref: anchor,
-        meta: String(found.length),
         items: found.slice(0, MENU_GROUP_LIMIT).map((entity) => ({
           label: entity.title,
           href: `${base}${entity.slug}/`,
@@ -91,7 +90,6 @@ const technologyColumns = (): NavigationColumn[] =>
       return {
         heading: group.label,
         headingHref: anchor,
-        meta: String(items.length),
         items: items.slice(0, MENU_GROUP_LIMIT).map((t) => ({
           label: t.title,
           href: `/technologies/${t.slug}/`,
@@ -138,7 +136,6 @@ const resourceColumns = (): NavigationColumn[] =>
     return {
       heading: kind.heading,
       headingHref: anchor,
-      meta: String(items.length),
       items: items.slice(0, RESOURCE_ITEM_LIMIT).map((r) => ({
         label: r.title,
         href: `/resources/${r.slug}/`,
@@ -188,7 +185,6 @@ const companyColumns = (): NavigationColumn[] =>
       return {
         heading: group.heading,
         headingHref: group.anchor,
-        meta: String(group.pages.length),
         items: group.pages.slice(0, MENU_GROUP_LIMIT).map((page) => ({
           label: page.title,
           href: `/company/${page.slug}/`,
@@ -225,11 +221,7 @@ const serviceGroups = (): NavigationColumn[] => {
   const keep = (items: (NavigationItem | null)[]) =>
     items.filter((i): i is NavigationItem => i !== null);
 
-  /* The count makes a group's size honest before it is opened. */
-  const withMeta = (columns: NavigationColumn[]): NavigationColumn[] =>
-    columns.map((column) => ({ ...column, meta: String(column.items.length) }));
-
-  return withMeta([
+  return ([
     {
       heading: "Digital Growth",
       headingHref: "/services/search-ai-visibility/",

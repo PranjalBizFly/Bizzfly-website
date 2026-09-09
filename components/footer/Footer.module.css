@@ -58,7 +58,13 @@
   .main {
     /* The brand column is fixed; the directory takes whatever is left. */
     grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
-    gap: var(--space-16);
+    /*
+     * 48px, not 64. The directory columns were given a wider gutter between
+     * them and that width has to come from somewhere — taking it here costs
+     * one gap that nothing reads across, rather than narrowing seven columns
+     * whose links already wrap.
+     */
+    gap: var(--space-12);
   }
 }
 
@@ -75,11 +81,22 @@
   display: block;
 }
 
+/*
+ * One paragraph, wrapping to its column.
+ *
+ * It was capped at --measure-narrow (30ch, about 250px at this size) inside a
+ * 288px column, so the cap rather than the column decided the wrap and the
+ * sentence broke a word or two earlier than it needed to on every line. With
+ * the column governing on desktop it reads as a paragraph; the card measure
+ * only takes over on a phone, where the column is the full viewport and
+ * something has to stop the line running the width of the screen.
+ */
 .brandLine {
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: 34ch;
+  max-width: var(--measure-card);
+  text-wrap: pretty;
 }
 
 .address,
@@ -161,22 +178,43 @@
 
 /* --- Section columns ----------------------------------------------------- */
 
+/*
+ * Two across from 360px, not from 640.
+ *
+ * Seven single-file columns put the footer at 3,032px on a phone — every
+ * page ended in three screens of links before the copyright. The labels are
+ * short enough to survive a half-width column at this size, and pairing them
+ * halves that without collapsing anything or dropping a single link.
+ */
 .columns {
   display: grid;
   gap: var(--space-6);
 }
 
-@media (min-width: 640px) {
+@media (min-width: 360px) {
   .columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6) var(--space-5);
+  }
+}
+
+@media (min-width: 640px) {
+  .columns {
     gap: var(--space-8);
   }
 }
 
+/*
+ * The gutter widens with the viewport rather than being one desktop figure.
+ *
+ * At four tracks there is room for a 40px gutter and the groups need it —
+ * at 32px the longer resource titles were running close enough to the next
+ * column to be read as one list.
+ */
 @media (min-width: 1024px) {
   .columns {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--space-10) var(--space-8);
+    gap: var(--space-10);
   }
 }
 
@@ -185,10 +223,31 @@
  * fall to four, because seven tracks in a 1,280px container leaves each one
  * about 150px wide and every second link breaks over two lines.
  */
+/*
+ * Seven across only at the width that can carry it, and with a 32px gutter
+ * rather than 24. Seven tracks is the tightest arrangement on the site, so
+ * the gutter cannot go as wide as the four-track one without squeezing the
+ * columns into more wrapping than the extra air buys back — 32px is where
+ * the groups separate and the titles still hold their line count.
+ */
 @media (min-width: 1560px) {
   .columns {
     grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: var(--space-8) var(--space-6);
+    gap: var(--space-8);
+  }
+
+  /*
+   * The brand column gives back 32px here, and only here.
+   *
+   * Widening the gutter has to come out of the tracks, and at seven tracks
+   * that is the difference between "Search & AI Visibility" holding one line
+   * and breaking to two — which costs more scannability than the extra air
+   * buys. The brand column is the one element on this row with slack: at
+   * 16rem its paragraph still runs three lines. Below this width the layout
+   * is four tracks with room to spare and the column keeps its full 18rem.
+   */
+  .main {
+    grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
   }
 }
 
@@ -197,8 +256,12 @@
   padding-bottom: var(--space-4);
 }
 
-/* From sm up the columns are always open and need no affordance. */
-@media (min-width: 640px) {
+/*
+ * The rules belong to the single-file layout, where they separate one
+ * column's links from the next heading. Once the columns pair up they read
+ * as cell borders instead, so they go at the same width the pairing starts.
+ */
+@media (min-width: 360px) {
   .group {
     border-bottom: 0;
     padding-bottom: 0;
@@ -208,11 +271,22 @@
 /*
  * The heading takes the accent, which on this dark ground resolves to the
  * brand green (10.28:1). It is what turns seven lists into seven columns.
+ *
+ * The hierarchy used to be inverted: the heading was 13px at the inherited
+ * regular weight and its links were 14px, so the label was literally smaller
+ * and no heavier than the list it introduced. Colour and capitals were doing
+ * all the work, which is why the columns read as seven similar blocks.
+ *
+ * 15px at 600 against 14px at 400 puts the size and the weight on the same
+ * side as the colour. Tracking eases from 0.08em to 0.06em because capitals
+ * at this size are already wide, and the wider ones — TECHNOLOGIES, USE
+ * CASES — have to survive a 7-column track without breaking.
  */
 .groupHeading {
   font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  letter-spacing: 0.08em;
+  font-size: var(--text-nav);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent-text);
   cursor: pointer;
@@ -241,7 +315,8 @@
 @media (min-width: 640px) {
   .groupHeading {
     cursor: default;
-    margin-bottom: var(--space-5);
+    /* 16px: the heading grew, so the gap under it does not need to. */
+    margin-bottom: var(--space-4);
     /*
      * 24px, not 0. The summary is still a focusable, clickable control up
      * here even though it is styled as a plain label, so WCAG 2.5.8 still
@@ -270,8 +345,10 @@
   }
 }
 
+/* Explicitly regular, so the link can never drift up towards its heading. */
 .link {
   font-size: var(--text-body-sm);
+  font-weight: var(--weight-regular);
   line-height: var(--leading-snug);
   color: var(--muted);
   text-decoration: none;

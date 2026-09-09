@@ -1,0 +1,380 @@
+/*
+ * The Growth Engine.
+ *
+ * Four stages on a rule. Vertical on a phone (the rule runs down the leading
+ * edge), horizontal from lg (the rule runs across, behind the nodes). The
+ * same markup in both, so the sequence never has to be re-authored.
+ *
+ * Sits inside MediaGround, which supplies the frame, the scrim and the
+ * inverse token context. Unlike the Why section, the content here sits
+ * DIRECTLY on the frame with no panel behind it — the connecting rule and the
+ * numerals ARE the structure, and boxing them would hide the one thing the
+ * composition exists for. Two image-ground sections, two different
+ * relationships to the image.
+ */
+
+/* --- Opener -------------------------------------------------------------- */
+.header {
+  text-align: center;
+  max-width: 46rem;
+  margin-inline: auto;
+  margin-bottom: var(--gap-header);
+}
+
+/* The capsule label. See the note in WhyBizzFly.module.css. */
+.eyebrow {
+  display: inline-block;
+  padding: var(--space-2) var(--space-5);
+  border: 1px solid var(--border-inverse);
+  border-radius: var(--radius-full);
+  background: var(--pill-over-media);
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--text-inverse);
+}
+
+.title {
+  margin-top: var(--space-6);
+  font-family: var(--font-display);
+  font-size: var(--text-display-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  color: var(--text-inverse);
+  text-wrap: balance;
+}
+
+.lead {
+  margin-top: var(--space-5);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-inverse-muted);
+  max-width: var(--measure-lead);
+  margin-inline: auto;
+  text-wrap: pretty;
+}
+
+/* --- The track ----------------------------------------------------------- */
+.track {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: grid;
+  gap: var(--gap-stack-lg);
+  counter-reset: stage;
+}
+
+/*
+ * The connecting rule. It is a pseudo-element on the track rather than a
+ * border on each stage, so it can animate as one continuous line — which is
+ * the point of the drawing: the stages are a sequence, not four boxes.
+ *
+ * Scale, not width: a transform is composited, a width change is a layout.
+ */
+.track::before {
+  content: "";
+  position: absolute;
+  background: var(--border);
+  /* Vertical rule, phone layout. */
+  inset-block: 0;
+  inset-inline-start: calc(var(--node-size) / 2 - 0.5px);
+  width: 1px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--dur-reveal) var(--ease-decelerate);
+}
+
+.track[data-reveal="visible"]::before {
+  transform: scaleY(1);
+}
+
+.track {
+  --node-size: 0.75rem;
+}
+
+@media (min-width: 900px) {
+  .track {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-10);
+    align-items: start;
+  }
+
+  /* Horizontal rule, sitting on the node centre line. */
+  .track::before {
+    inset-block: auto;
+    inset-inline: 0;
+    top: calc(var(--node-size) / 2 - 0.5px);
+    width: auto;
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .track[data-reveal="visible"]::before {
+    transform: scaleX(1);
+  }
+}
+
+/* --- A stage ------------------------------------------------------------- */
+.stage {
+  /*
+   * No z-index. The track rule is an absolutely positioned ::before, which
+   * is generated as the first child of the track, and these stages are
+   * positioned too — so in the same stacking context DOM order already paints
+   * the nodes above the line. Reaching for the layer scale here would be
+   * spending a global token on a local paint order.
+   */
+  position: relative;
+  padding-inline-start: calc(var(--node-size) + var(--space-5));
+  /*
+   * Sequential entrance. The delay is derived from the stage index so the
+   * four arrive in order rather than together, which is what makes the line
+   * read as being drawn through them.
+   */
+  opacity: 0;
+  transform: translate3d(0, var(--space-4), 0);
+  transition:
+    opacity var(--dur-reveal) var(--ease-decelerate),
+    transform var(--dur-reveal) var(--ease-decelerate);
+  transition-delay: calc(var(--stage-index, 0) * var(--stagger-step));
+}
+
+.track[data-reveal="visible"] .stage,
+.track:not([data-reveal]) .stage {
+  opacity: 1;
+  transform: none;
+}
+
+@media (min-width: 900px) {
+  .stage {
+    padding-inline-start: 0;
+    padding-block-start: calc(var(--node-size) + var(--space-5));
+  }
+}
+
+/* --- Head: node, index, name --------------------------------------------- */
+.head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: var(--space-3);
+  width: 100%;
+  text-align: left;
+  padding: 0;
+  min-height: var(--touch-target-min);
+}
+
+@media (min-width: 900px) {
+  .head {
+    min-height: 0;
+  }
+}
+
+/*
+ * The node sits on the rule. Absolutely positioned so it lands on the line
+ * whichever direction the line is running, and filled rather than outlined
+ * when its stage is current.
+ */
+.node {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: calc(var(--space-1) * -1);
+  inline-size: var(--node-size);
+  block-size: var(--node-size);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-strong);
+  background: var(--ink-900);
+  transition:
+    background var(--dur-base) var(--ease-standard),
+    border-color var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
+}
+
+@media (min-width: 900px) {
+  .node {
+    inset-block-start: 0;
+  }
+}
+
+.stage[data-active="true"] .node {
+  background: var(--accent-edge);
+  border-color: var(--accent-edge);
+  transform: scale(1.25);
+}
+
+/*
+ * Set large. A numbered process only reads AS a sequence if the numerals
+ * carry weight — at label size they become decoration beside the stage name
+ * rather than the spine of the section.
+ */
+.index {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  letter-spacing: var(--tracking-h2);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-250);
+  transition: color var(--dur-base) var(--ease-standard);
+}
+
+.stage[data-active="true"] .index {
+  color: var(--accent-text);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+}
+
+/* --- Body ---------------------------------------------------------------- */
+.outcome {
+  margin-top: var(--space-3);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  max-width: var(--measure-card);
+  text-wrap: pretty;
+}
+
+.disciplines {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.discipline {
+  font-family: var(--font-label);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-meta);
+  color: var(--text-inverse-muted);
+  background: var(--pill-over-media);
+  border: 1px solid var(--border-inverse);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+}
+
+/*
+ * The constraint recedes on the stages that are not current.
+ *
+ * The recede is a COLOUR change, not an opacity one. It was opacity 0.55,
+ * which was a mistake on this surface: ink-250 is 8.8:1 on the ink ground,
+ * but compositing it at 55% drops it to roughly 3.5:1 — under the 4.5:1 AA
+ * floor for body text, and worse again because the ground here is a
+ * photograph showing through a scrim rather than a flat colour. Three of the
+ * four stages were therefore unreadable at rest, which is not a hierarchy,
+ * it is a bug.
+ *
+ * Both states are now verified pairings from the palette: ink-250 at 8.80:1
+ * for the resting stages and ink-050 at 17.19:1 for the current one. The
+ * difference between them still reads as emphasis, and neither falls below
+ * AA in either theme — this band is dark in both, so there is one answer.
+ */
+.constraint {
+  margin-top: var(--space-5);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--text-inverse-muted);
+  max-width: var(--measure-card);
+  transition: color var(--dur-base) var(--ease-standard);
+  text-wrap: pretty;
+}
+
+.stage[data-active="true"] .constraint {
+  color: var(--text-inverse);
+}
+
+.items {
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+  display: grid;
+  gap: var(--space-2);
+}
+
+.itemLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    text-decoration-color var(--dur-fast) var(--ease-standard);
+}
+
+.itemLink:hover {
+  color: var(--foreground);
+  text-decoration-color: var(--link-underline);
+}
+
+/* --- Reduced motion ------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .track::before,
+  .track[data-reveal="visible"]::before {
+    transform: none;
+    transition: none;
+  }
+  .stage {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .node {
+    transition: none;
+  }
+  .stage[data-active="true"] .node {
+    transform: none;
+  }
+}
+
+/* --- Section footer link, on the dark ground ----------------------------- */
+.footer {
+  margin-top: var(--gap-section-foot);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-inverse);
+  text-align: center;
+}
+
+.footerLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--touch-target-min);
+  font-family: var(--font-label);
+  font-size: var(--text-button);
+  font-weight: var(--weight-medium);
+  color: var(--text-inverse);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 4px;
+}
+
+.footerLink span {
+  color: var(--accent-edge);
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+.footerLink:hover span {
+  transform: translate3d(var(--space-2), 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footerLink:hover span {
+    transform: none;
+  }
+}

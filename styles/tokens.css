@@ -247,6 +247,41 @@
      --------------------------------------------------------------------- */
   --scrim-hero:            rgb(13 20 32 / 0.68);
 
+  /* ---------------------------------------------------------------------
+     GROUND SCRIM — for a section whose whole field is a photograph.
+
+     Heavier than --scrim-hero and graded rather than flat. A hero sets one
+     headline and a short lead over the frame; a section ground carries a
+     heading, body copy and interactive items down the full height of the
+     band, so the wash has to hold at body size near the foot of the image
+     where a flat scrim is at its weakest against a bright sky.
+
+     Flat, not graded. A vertical gradient would hold the type better at the
+     foot of the frame, and the reference this composition comes from uses
+     one — but a gradient is a brand violation here (verify:brand asserts a
+     flat token colour), and the brand rule outranks the reference. 0.78 is
+     the single value that holds white at 4.5:1 across the full height of
+     every frame in the current set, which is what the gradient was for.
+     --------------------------------------------------------------------- */
+  --scrim-ground:          rgb(13 20 32 / 0.78);
+
+  /* ---------------------------------------------------------------------
+     SURFACES THAT SIT ON A PHOTOGRAPH.
+
+     A panel over a full-bleed frame cannot use --surface: the point is that
+     the picture stays visible through it. These two are the only translucent
+     surfaces in the system, and they exist because a section ground scrim is
+     tuned for display type — small text laid on the same frame needs its own
+     carrier.
+
+     --panel-over-media is 0.55 on top of the 0.78 ground, which composites to
+     roughly 0.90 and holds --text-inverse at AA over every frame in the set.
+     --pill-over-media is a light lift for a label capsule, which sits on the
+     scrim alone and carries no body text.
+     --------------------------------------------------------------------- */
+  --panel-over-media:      rgb(13 20 32 / 0.55);
+  --pill-over-media:       rgb(245 247 250 / 0.08);
+
   /* --- Focus ---------------------------------------------------------- */
   --focus-ring:            var(--ink-900);
   --focus-ring-inverse:    var(--green-500);
@@ -369,11 +404,50 @@
   --space-40: 10rem;    /* 160 */
   --space-48: 12rem;    /* 192 */
 
-  /* Section rhythm — mobile and desktop authored separately, not scaled */
-  --section-sm: clamp(3rem, 2.5000rem + 2.2222vw, 4.5rem);    /*  48→72  */
-  --section-md: clamp(4rem, 3.0000rem + 4.4444vw, 7rem);      /*  64→112 */
-  --section-lg: clamp(5rem, 3.3333rem + 7.4074vw, 10rem);     /*  80→160 */
-  --section-xl: clamp(6rem, 3.8333rem + 9.6296vw, 12.5rem);   /*  96→200 */
+  /* ---------------------------------------------------------------------
+     STACK GAPS — for grids and flex rows that collapse to one column.
+
+     A gap does two different jobs at two different widths. Wide, it holds
+     two columns apart and 40px reads as composure. Narrow, the same
+     declaration becomes the vertical space between two stacked blocks, and
+     40px there reads as a hole — the layout changed role and the value did
+     not follow it.
+
+     A measured pass at 390px found sixteen containers still applying their
+     desktop figure after stacking, one of them (the stage list) larger on a
+     phone than on a desktop.
+
+     Each token's MAXIMUM is the desktop value it replaces, so nothing above
+     1440px moves by a pixel. Only the narrow end changes.
+     --------------------------------------------------------------------- */
+  --gap-stack-sm: clamp(1.25rem, 0.9714rem + 1.1429vw, 2rem);   /* 20→32 */
+  --gap-stack-md: clamp(1.5rem,  1.1286rem + 1.5238vw, 2.5rem); /* 24→40 */
+  --gap-stack-lg: clamp(1.5rem,  0.9429rem + 2.2857vw, 3rem);   /* 24→48 */
+  --gap-stack-xl: clamp(1.75rem, 0.9143rem + 3.4286vw, 4rem);   /* 28→64 */
+
+  /* ---------------------------------------------------------------------
+     SECTION RHYTHM — mobile and desktop authored separately, not scaled.
+
+     These are insets, and the number that matters is not the inset but the
+     BOUNDARY: two adjacent sections each apply their own, so the space a
+     visitor sees between them is the sum of the two.
+
+     The scale was authored as though each value stood alone. At the old
+     figures `lg` was 160px, so the ordinary case — one lg section following
+     another — produced a 320px hole, and a measured pass over nineteen
+     representative pages found 24% of all desktop page height sitting in
+     inter-section gaps, median 296px. That is not breathing room; it is a
+     scroll tax on every page of the site.
+
+     Retuned so the BOUNDARY lands where the inset used to: two lg sections
+     now meet at 192px, lg against md at 168px. Generous for a chapter break
+     and nowhere near cramped, but roughly 40% of the old figure — which is
+     the space that was doing no work.
+     --------------------------------------------------------------------- */
+  --section-sm: clamp(2.25rem, 1.9167rem + 1.4815vw, 3.25rem); /* 36→52  */
+  --section-md: clamp(2.75rem, 2.2500rem + 2.2222vw, 4.25rem); /* 44→68  */
+  --section-lg: clamp(3.5rem, 2.8333rem + 2.9630vw, 6rem);     /* 56→96  */
+  --section-xl: clamp(4.5rem, 3.5000rem + 4.4444vw, 8rem);     /* 72→128 */
 
   /* ---------------------------------------------------------------------
      LAYOUT
@@ -383,6 +457,91 @@
   --container-content: 65rem;    /* 1040 */
   --container-text:    40rem;    /*  640 — 62–72ch at the wider Poppins set */
   --container-narrow:  35rem;    /*  560 */
+  /* ---------------------------------------------------------------------
+     MEASURE — the line-length cap for each typographic role.
+
+     Containers bound a COLUMN; these bound a LINE, and the two are not the
+     same job. Before this block existed the site carried twenty distinct
+     max-width values covering about six roles: hero headlines were capped at
+     15, 16, 18, 20 and 22ch in five different files, leads at 48 through
+     62ch, card descriptions at 30 through 54ch. Every one was defensible on
+     its own and no two agreed, which is why the same component family broke
+     to two lines in one section and four in the next.
+
+     Expressed in ch, so a cap tracks the size of the type it is applied to.
+     That is what makes ONE lead token correct at both --text-body-lg and
+     --text-body: the three reading roles below land within a few pixels of
+     each other, and of --container-text, at their intended sizes —
+
+       lead  56ch @ 19px  ~ 638px
+       body  66ch @ 16px  ~ 634px      --container-text = 640px
+       card  46ch @ 14px  ~ 386px      deliberately narrower: it is a column
+
+     — so a reading column is the same physical width whatever size it is
+     set in, which is the property that actually makes a page feel designed.
+
+     THE CH TRAP: ch resolves against the font-size of the element the rule
+     lands on. These must therefore be applied to the element carrying the
+     type, never to a wrapper div sitting at body size — a 24ch cap on a
+     wrapper resolves to about 190px and guillotines the heading inside it.
+     Where a wrapper genuinely has to carry the cap, use a rem value.
+     --------------------------------------------------------------------- */
+  --measure-display:  18ch;   /* h1 and display — the hero headline        */
+  --measure-heading:  24ch;   /* h2 — the section headline                 */
+  --measure-title:    26ch;   /* h3/h4 — a card or list-item title         */
+  --measure-lead:     56ch;   /* body-lg — section intro, hero lead        */
+  --measure-body:     66ch;   /* body — running prose                      */
+  --measure-card:     46ch;   /* body-sm — description inside a column     */
+  --measure-narrow:   30ch;   /* a tight column: metric note, pull quote   */
+  /*
+   * A headline on a block that is the width of the PAGE rather than of a
+   * column — the feature card at the head of a showcase, and anything else
+   * that spans the full grid.
+   *
+   * --measure-heading is 24ch because a section heading sits in a reading
+   * column and should not outrun it. A full-width headline has no column to
+   * respect, and capping it at the column measure is what made a five-word
+   * headline break in half with half the block left empty beside it. 30ch is
+   * about 790px at h2 — enough for a short headline to run on one line, and
+   * still short of the 1,180px the block itself offers.
+   */
+  --measure-headline: 30ch;
+
+  /* ---------------------------------------------------------------------
+     SECTION RHYTHM, INTERNAL — the gaps inside a section.
+
+     --section-* above governs the space BETWEEN sections. These govern the
+     space within one, and they exist because that space used to be the sum
+     of two independent margins: the header set its own bottom margin and
+     each content block set its own top margin, so the header-to-content gap
+     on the homepage was 96px under the showcase, 80px under the figures and
+     48px under every split section — three values for one relationship, none
+     of them chosen.
+
+     The rule is now: THE HEADER OWNS THE GAP. A content block sets no top
+     margin, so the distance is one number and cannot drift again.
+     --------------------------------------------------------------------- */
+  --gap-eyebrow:      var(--space-4);   /* eyebrow → heading               */
+  --gap-heading-lead: var(--space-5);   /* heading → its lead              */
+  /* 40→56. Clearly more than the gaps inside the content below it, clearly
+     less than the section inset around it, so the header reads as attached
+     to what it introduces rather than floating above it. */
+  --gap-header:       clamp(2.5rem, 2.0833rem + 1.8519vw, 3.5rem);
+  --gap-section-foot: var(--space-10);  /* content → the "all X" link      */
+
+  /* ---------------------------------------------------------------------
+     MEDIA RATIOS — every repeated image frame crops to one of these.
+
+     Images used to be set height:auto with no ratio, which means the
+     proportion of the frame came from whatever the source file happened to
+     be. Two cards side by side in the same grid could therefore differ in
+     height by a hundred pixels for no reason a reader could see.
+     --------------------------------------------------------------------- */
+  --ratio-card:      4 / 3;    /* an editorial card in a row of two or three */
+  --ratio-editorial: 3 / 2;    /* an inline figure in running content        */
+  --ratio-wide:      16 / 9;   /* an image-led card                          */
+  --ratio-banner:    21 / 9;   /* the widest media on a page                 */
+
 
   /*
    * 24px, not the 20px this used to be. The header logo sits at the leading
