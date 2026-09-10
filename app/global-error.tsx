@@ -57,7 +57,7 @@ export default function GlobalError({
           </h1>
           <p style={{ color: brand.inkMuted, lineHeight: 1.6, marginTop: "1rem" }}>
             The site failed to load. Please try again, or email
-            sales@bizzfly.com
+            sales@BizzFly.com
             {error.digest ? ` and quote reference ${error.digest}` : ""}.
           </p>
           <button

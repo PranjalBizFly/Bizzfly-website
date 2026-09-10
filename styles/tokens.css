@@ -342,7 +342,7 @@
                                     the neutral grotesque this replaced    */
   --text-body-sm:    0.875rem;   /* 14px */
   --text-caption:    0.8125rem;  /* 13px */
-  --text-eyebrow:    0.8125rem;  /* 13px — sentence case needs the size back */
+  --text-eyebrow:    clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem); /* 18→20px — authoritative section kicker */
   --text-meta:       0.8125rem;  /* 13px */
   --text-metric:     clamp(2.5rem, 1.8333rem + 2.9630vw, 4.5rem);      /* 40→72 */
   --text-quote:      clamp(1.5rem, 1.2917rem + 0.9259vw, 2.125rem);    /* 24→34 */

@@ -1,0 +1,92 @@
+User-Agent: *
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: Googlebot
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: Bingbot
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: DuckDuckBot
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: GPTBot
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: ChatGPT-User
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: OAI-SearchBot
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: ClaudeBot
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: Claude-SearchBot
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: PerplexityBot
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: Google-Extended
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: Applebot
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: Applebot-Extended
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: Amazonbot
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: Bytespider
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: CCBot
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: DuckAssistBot
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+User-Agent: meta-externalagent
+Allow: /
+Disallow: /search/
+Disallow: /api/
+
+Host: https://bizzfly.com
+Sitemap: https://bizzfly.com/sitemap.xml

@@ -1,0 +1,822 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:file((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+)/",
+      "destination": "/:file",
+      "internal": true,
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "statusCode": 308,
+      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+))/$"
+    },
+    {
+      "source": "/:notfile((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+)",
+      "destination": "/:notfile/",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+))$"
+    },
+    {
+      "source": "/about",
+      "destination": "/about-us/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/about(?:/)?$"
+    },
+    {
+      "source": "/aboutus",
+      "destination": "/about-us/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/aboutus(?:/)?$"
+    },
+    {
+      "source": "/about-company",
+      "destination": "/about-us/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/about-company(?:/)?$"
+    },
+    {
+      "source": "/company/about",
+      "destination": "/about-us/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/company/about(?:/)?$"
+    },
+    {
+      "source": "/company/about/",
+      "destination": "/about-us/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/company/about/(?:/)?$"
+    },
+    {
+      "source": "/approach",
+      "destination": "/our-approach/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/approach(?:/)?$"
+    },
+    {
+      "source": "/company/approach",
+      "destination": "/our-approach/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/company/approach(?:/)?$"
+    },
+    {
+      "source": "/company/approach/",
+      "destination": "/our-approach/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/company/approach/(?:/)?$"
+    },
+    {
+      "source": "/company/how-we-work",
+      "destination": "/how-we-work/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/company/how-we-work(?:/)?$"
+    },
+    {
+      "source": "/company/how-we-work/",
+      "destination": "/how-we-work/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/company/how-we-work/(?:/)?$"
+    },
+    {
+      "source": "/company/discovery-process",
+      "destination": "/discovery-process/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/company/discovery-process(?:/)?$"
+    },
+    {
+      "source": "/company/discovery-process/",
+      "destination": "/discovery-process/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/company/discovery-process/(?:/)?$"
+    },
+    {
+      "source": "/company/engagement-models",
+      "destination": "/engagement-models/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/company/engagement-models(?:/)?$"
+    },
+    {
+      "source": "/company/engagement-models/",
+      "destination": "/engagement-models/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/company/engagement-models/(?:/)?$"
+    },
+    {
+      "source": "/career",
+      "destination": "/careers/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/career(?:/)?$"
+    },
+    {
+      "source": "/carrer",
+      "destination": "/careers/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/carrer(?:/)?$"
+    },
+    {
+      "source": "/jobs",
+      "destination": "/careers/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/jobs(?:/)?$"
+    },
+    {
+      "source": "/company/careers",
+      "destination": "/careers/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/company/careers(?:/)?$"
+    },
+    {
+      "source": "/company/careers/",
+      "destination": "/careers/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/company/careers/(?:/)?$"
+    },
+    {
+      "source": "/presskit",
+      "destination": "/press-kit/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/presskit(?:/)?$"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blogs/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/blog(?:/)?$"
+    },
+    {
+      "source": "/services/website-design-development",
+      "destination": "/services/web-development/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/services/website-design-development(?:/)?$"
+    },
+    {
+      "source": "/services/custom-software-development",
+      "destination": "/services/software-development/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/services/custom-software-development(?:/)?$"
+    },
+    {
+      "source": "/services/business-automation",
+      "destination": "/services/ai-automation/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/services/business-automation(?:/)?$"
+    },
+    {
+      "source": "/services/ai-powered-solutions",
+      "destination": "/services/ai-automation/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/services/ai-powered-solutions(?:/)?$"
+    },
+    {
+      "source": "/services/digital-growth-solutions",
+      "destination": "/services/digital-marketing/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/services/digital-growth-solutions(?:/)?$"
+    },
+    {
+      "source": "/service/search-optimization",
+      "destination": "/services/search-ai-visibility/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/search-optimization(?:/)?$"
+    },
+    {
+      "source": "/service/website-design-development",
+      "destination": "/services/web-development/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/website-design-development(?:/)?$"
+    },
+    {
+      "source": "/service/custom-software-development",
+      "destination": "/services/software-development/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/custom-software-development(?:/)?$"
+    },
+    {
+      "source": "/service/business-automation",
+      "destination": "/services/ai-automation/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/business-automation(?:/)?$"
+    },
+    {
+      "source": "/service/ai-powered-solutions",
+      "destination": "/services/ai-automation/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/ai-powered-solutions(?:/)?$"
+    },
+    {
+      "source": "/service/digital-growth-solutions",
+      "destination": "/services/digital-marketing/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/digital-growth-solutions(?:/)?$"
+    },
+    {
+      "source": "/service/higher-visibility",
+      "destination": "/services/seo/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/higher-visibility(?:/)?$"
+    },
+    {
+      "source": "/service/enhanced-visibility",
+      "destination": "/services/seo/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/enhanced-visibility(?:/)?$"
+    },
+    {
+      "source": "/service/qualified-traffic",
+      "destination": "/services/seo/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/qualified-traffic(?:/)?$"
+    },
+    {
+      "source": "/service/stronger-authority",
+      "destination": "/services/seo/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/stronger-authority(?:/)?$"
+    },
+    {
+      "source": "/service/stronger-presence",
+      "destination": "/services/search-ai-visibility/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/stronger-presence(?:/)?$"
+    },
+    {
+      "source": "/service/better-conversions",
+      "destination": "/services/conversion-rate-optimisation/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/better-conversions(?:/)?$"
+    },
+    {
+      "source": "/service/higher-conversions",
+      "destination": "/services/conversion-rate-optimisation/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/higher-conversions(?:/)?$"
+    },
+    {
+      "source": "/service/increased-conversions",
+      "destination": "/services/conversion-rate-optimisation/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/increased-conversions(?:/)?$"
+    },
+    {
+      "source": "/service/better-engagement",
+      "destination": "/services/ui-ux-design/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/better-engagement(?:/)?$"
+    },
+    {
+      "source": "/service/scalable-foundation",
+      "destination": "/services/web-development/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/scalable-foundation(?:/)?$"
+    },
+    {
+      "source": "/service/better-performance",
+      "destination": "/services/website-performance/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/better-performance(?:/)?$"
+    },
+    {
+      "source": "/service/improved-scalability",
+      "destination": "/services/software-development/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/improved-scalability(?:/)?$"
+    },
+    {
+      "source": "/service/better-control",
+      "destination": "/services/web-applications/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/better-control(?:/)?$"
+    },
+    {
+      "source": "/service/enhanced-productivity",
+      "destination": "/services/workflow-automation/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/enhanced-productivity(?:/)?$"
+    },
+    {
+      "source": "/service/operational-efficiency",
+      "destination": "/use-cases/improve-operational-efficiency/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/operational-efficiency(?:/)?$"
+    },
+    {
+      "source": "/service/improved-efficiency",
+      "destination": "/use-cases/improve-operational-efficiency/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/improved-efficiency(?:/)?$"
+    },
+    {
+      "source": "/service/greater-efficiency",
+      "destination": "/use-cases/improve-operational-efficiency/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/greater-efficiency(?:/)?$"
+    },
+    {
+      "source": "/service/faster-operations",
+      "destination": "/services/workflow-automation/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/faster-operations(?:/)?$"
+    },
+    {
+      "source": "/service/reduced-errors",
+      "destination": "/services/workflow-automation/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/reduced-errors(?:/)?$"
+    },
+    {
+      "source": "/service/time-savings",
+      "destination": "/use-cases/reduce-manual-work/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/time-savings(?:/)?$"
+    },
+    {
+      "source": "/service/smarter-decisions",
+      "destination": "/services/business-intelligence/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/smarter-decisions(?:/)?$"
+    },
+    {
+      "source": "/service/strategic-direction",
+      "destination": "/services/digital-strategy/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/strategic-direction(?:/)?$"
+    },
+    {
+      "source": "/service/sustainable-growth",
+      "destination": "/services/digital-strategy/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/sustainable-growth(?:/)?$"
+    },
+    {
+      "source": "/service/competitive-advantage",
+      "destination": "/about-us/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/service/competitive-advantage(?:/)?$"
+    },
+    {
+      "source": "/project/dynamic-data-ecosystem",
+      "destination": "/case-studies/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/project/dynamic-data-ecosystem(?:/)?$"
+    },
+    {
+      "source": "/project/intelligent-conversion-hub",
+      "destination": "/case-studies/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/project/intelligent-conversion-hub(?:/)?$"
+    },
+    {
+      "source": "/project/next-gen-ecosystem",
+      "destination": "/case-studies/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/project/next-gen-ecosystem(?:/)?$"
+    },
+    {
+      "source": "/project/cloud-marketing-infrastructure",
+      "destination": "/case-studies/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/project/cloud-marketing-infrastructure(?:/)?$"
+    },
+    {
+      "source": "/project/fast-conversion-optimization",
+      "destination": "/case-studies/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/project/fast-conversion-optimization(?:/)?$"
+    },
+    {
+      "source": "/project/intelligent-conversion-model",
+      "destination": "/case-studies/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/project/intelligent-conversion-model(?:/)?$"
+    },
+    {
+      "source": "/project/agile-digital-expansion",
+      "destination": "/case-studies/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/project/agile-digital-expansion(?:/)?$"
+    },
+    {
+      "source": "/project/scalable-business-growth",
+      "destination": "/case-studies/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/project/scalable-business-growth(?:/)?$"
+    },
+    {
+      "source": "/project/ai-driven-marketing",
+      "destination": "/case-studies/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/project/ai-driven-marketing(?:/)?$"
+    },
+    {
+      "source": "/project/data-powered-growth",
+      "destination": "/case-studies/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/project/data-powered-growth(?:/)?$"
+    },
+    {
+      "source": "/project/smart-digital-growth",
+      "destination": "/case-studies/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/project/smart-digital-growth(?:/)?$"
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/contact-us(?:/)?$"
+    },
+    {
+      "source": "/blog",
+      "destination": "/resources/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/blog(?:/)?$"
+    },
+    {
+      "source": "/faqs-page",
+      "destination": "/resources/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/faqs-page(?:/)?$"
+    },
+    {
+      "source": "/privacy-policy-2",
+      "destination": "/company/privacy-policy/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/privacy-policy-2(?:/)?$"
+    },
+    {
+      "source": "/terms-and-conditions",
+      "destination": "/company/terms/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/terms-and-conditions(?:/)?$"
+    },
+    {
+      "source": "/seo",
+      "destination": "/services/seo/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/seo(?:/)?$"
+    },
+    {
+      "source": "/website-design-development",
+      "destination": "/services/web-development/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/website-design-development(?:/)?$"
+    },
+    {
+      "source": "/custom-software-development",
+      "destination": "/services/software-development/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/custom-software-development(?:/)?$"
+    },
+    {
+      "source": "/business-automation",
+      "destination": "/services/ai-automation/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/business-automation(?:/)?$"
+    },
+    {
+      "source": "/ai-powered-solutions",
+      "destination": "/services/ai-automation/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/ai-powered-solutions(?:/)?$"
+    },
+    {
+      "source": "/blog-2/privacy-policy-2",
+      "destination": "/company/privacy-policy/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/blog-2/privacy-policy-2(?:/)?$"
+    },
+    {
+      "source": "/beyond-aesthetics-why-speed-and-core-web-vitals-are-non-negotiable-for-agency-themes-in-2026",
+      "destination": "/resources/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/beyond-aesthetics-why-speed-and-core-web-vitals-are-non-negotiable-for-agency-themes-in-2026(?:/)?$"
+    },
+    {
+      "source": "/seo-ready-architecture-building-a-website-that-ranks-while-you-sleep",
+      "destination": "/resources/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/seo-ready-architecture-building-a-website-that-ranks-while-you-sleep(?:/)?$"
+    },
+    {
+      "source": "/9-essential-wordpress-features-every-digital-marketing-agency-needs-to-boost-conversions",
+      "destination": "/resources/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/9-essential-wordpress-features-every-digital-marketing-agency-needs-to-boost-conversions(?:/)?$"
+    },
+    {
+      "source": "/what-it-companies-should-write-about-in-their-corporate-blogs",
+      "destination": "/resources/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/what-it-companies-should-write-about-in-their-corporate-blogs(?:/)?$"
+    },
+    {
+      "source": "/digital-transformation-101-moving-from-a-traditional-agency-to-a-full-service-digital-partner",
+      "destination": "/resources/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/digital-transformation-101-moving-from-a-traditional-agency-to-a-full-service-digital-partner(?:/)?$"
+    },
+    {
+      "source": "/mastering-multichannel-engagement-how-to-sync-your-website-with-your-social-and-ad-strategies",
+      "destination": "/resources/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/mastering-multichannel-engagement-how-to-sync-your-website-with-your-social-and-ad-strategies(?:/)?$"
+    },
+    {
+      "source": "/services/conversion-rate-optimization",
+      "destination": "/services/conversion-rate-optimisation/",
+      "statusCode": 301,
+      "regex": "^(?!/_next)/services/conversion-rate-optimization(?:/)?$"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/:path*",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; form-action 'self'; frame-ancestors 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "X-DNS-Prefetch-Control",
+          "value": "on"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    },
+    {
+      "source": "/og",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400, immutable"
+        }
+      ],
+      "regex": "^/og(?:/)?$"
+    }
+  ],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/case-studies/[slug]",
+      "regex": "^/case\\-studies/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/case\\-studies/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/company/[slug]",
+      "regex": "^/company/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/company/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/industries/[slug]",
+      "regex": "^/industries/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/industries/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/resources/[slug]",
+      "regex": "^/resources/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/resources/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/services/[slug]",
+      "regex": "^/services/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/services/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/technologies/[slug]",
+      "regex": "^/technologies/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/technologies/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/use-cases/[slug]",
+      "regex": "^/use\\-cases/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/use\\-cases/(?<nxtPslug>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about-us",
+      "regex": "^/about\\-us(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about\\-us(?:/)?$"
+    },
+    {
+      "page": "/blogs",
+      "regex": "^/blogs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blogs(?:/)?$"
+    },
+    {
+      "page": "/careers",
+      "regex": "^/careers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/careers(?:/)?$"
+    },
+    {
+      "page": "/case-studies",
+      "regex": "^/case\\-studies(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/case\\-studies(?:/)?$"
+    },
+    {
+      "page": "/company",
+      "regex": "^/company(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/company(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/discovery-process",
+      "regex": "^/discovery\\-process(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/discovery\\-process(?:/)?$"
+    },
+    {
+      "page": "/engagement-models",
+      "regex": "^/engagement\\-models(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/engagement\\-models(?:/)?$"
+    },
+    {
+      "page": "/how-we-work",
+      "regex": "^/how\\-we\\-work(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/how\\-we\\-work(?:/)?$"
+    },
+    {
+      "page": "/icon.svg",
+      "regex": "^/icon\\.svg(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/icon\\.svg(?:/)?$"
+    },
+    {
+      "page": "/industries",
+      "regex": "^/industries(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/industries(?:/)?$"
+    },
+    {
+      "page": "/llms.txt",
+      "regex": "^/llms\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/llms\\.txt(?:/)?$"
+    },
+    {
+      "page": "/media",
+      "regex": "^/media(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/media(?:/)?$"
+    },
+    {
+      "page": "/og",
+      "regex": "^/og(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/og(?:/)?$"
+    },
+    {
+      "page": "/our-approach",
+      "regex": "^/our\\-approach(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/our\\-approach(?:/)?$"
+    },
+    {
+      "page": "/press-kit",
+      "regex": "^/press\\-kit(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/press\\-kit(?:/)?$"
+    },
+    {
+      "page": "/resources",
+      "regex": "^/resources(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/resources(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/search",
+      "regex": "^/search(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/search(?:/)?$"
+    },
+    {
+      "page": "/services",
+      "regex": "^/services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    },
+    {
+      "page": "/technologies",
+      "regex": "^/technologies(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/technologies(?:/)?$"
+    },
+    {
+      "page": "/use-cases",
+      "regex": "^/use\\-cases(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/use\\-cases(?:/)?$"
+    },
+    {
+      "page": "/vendor",
+      "regex": "^/vendor(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/vendor(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

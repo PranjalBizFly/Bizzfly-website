@@ -21,13 +21,35 @@
   gap: var(--space-2);
 }
 
+/*
+ * The hit area is larger than the type.
+ *
+ * These used to be exactly 24px tall — the WCAG 2.5.8 minimum, met on the
+ * nose, which the layout audit then reported as a failure at several
+ * viewports because sub-pixel rounding lands the measured box at 23.99. A
+ * target that passes or fails on a rounding error is not really passing.
+ *
+ * The padding grows the tappable box and the negative margin gives the space
+ * back to the layout, so the breadcrumb row occupies exactly what it did
+ * before while being a comfortable target — and a genuinely large one on a
+ * touch screen, where the row sits directly under a thumb.
+ */
 .link {
   color: var(--muted);
   text-decoration: none;
-  /* WCAG 2.5.8 target size */
   display: inline-flex;
   align-items: center;
-  min-height: 24px;
+  min-height: 32px;
+  padding-block: var(--space-1);
+  margin-block: calc(var(--space-1) * -1);
+}
+
+@media (pointer: coarse) {
+  .link {
+    min-height: 44px;
+    padding-block: var(--space-2);
+    margin-block: calc(var(--space-2) * -1);
+  }
 }
 
 .link:hover {

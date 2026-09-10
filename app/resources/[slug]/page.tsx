@@ -156,7 +156,7 @@ export default async function ResourcePage({ params }: PageProps) {
 
         <div className={showToc ? styles.withToc : undefined}>
           <div className={styles.main}>
-            <Eyebrow>
+            <Eyebrow className={styles.kicker}>
               {isGlossary ? "Glossary" : resource.topic}
               {resource.readingTime ? ` · ${resource.readingTime}` : ""}
             </Eyebrow>
@@ -227,7 +227,7 @@ export default async function ResourcePage({ params }: PageProps) {
 
       {resource.faqs?.length ? (
         <Section background="surface" spacing="lg" width="content">
-          <SectionHeader split eyebrow="Questions" title="Related questions" />
+          <SectionHeader split eyebrow="Questions" title="Related Questions" />
           <FAQBlock faqs={resource.faqs} />
         </Section>
       ) : null}
@@ -240,7 +240,7 @@ export default async function ResourcePage({ params }: PageProps) {
             level={2}
           />
           <RelationshipMap relationships={{ ...relationships, all: allRelated }} />
-          <div className="mt-8">
+          <div className="mt-6">
             <TextLink href="/resources/">All resources</TextLink>
           </div>
         </Section>

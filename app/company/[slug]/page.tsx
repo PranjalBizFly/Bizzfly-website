@@ -133,21 +133,42 @@ export default async function CompanyPage({ params }: PageProps) {
         actions={isLegal ? undefined : <CtaBlock cta={page.cta} size="lg" />}
       />
 
+      {/*
+        The frame and the opening of the argument are one section.
+        They used to be two: a banner photograph in a band of its own,
+        then a column of prose in a band of its own under it. Neither
+        supported the other — the picture had nothing to be about, and the
+        writing had nothing beside it — and the page opened with two blocks
+        of empty ground between the hero and its first sentence. Split, the
+        photograph illustrates the paragraph it is set against, which is what
+        the same pairing does on the homepage.
+      */}
       {companyVisual ? (
-        <Section spacing="md" width="content">
+        <Section spacing="lg">
           <VisualStoryBlock
             image={companyVisual}
-            variant="C"
+            variant="B"
+            reverse
             priority={slug === "about"}
+            lead={
+              page.body?.length ? (
+                <BodyText size="lg">{page.body[0]}</BodyText>
+              ) : undefined
+            }
             caption={companyVisual.caption}
           />
         </Section>
       ) : null}
 
-      {page.body?.length ? (
-        <Section spacing="lg" width="text">
+      {/*
+        Whatever the split did not take. With a frame present that is the
+        argument from its second paragraph on; with no frame it is the whole
+        of it, and the section is the reading column it always was.
+      */}
+      {(companyVisual ? page.body?.slice(1) : page.body)?.length ? (
+        <Section background="surface" spacing="lg" width="content">
           <ContentBlock>
-            {page.body.map((paragraph) => (
+            {(companyVisual ? page.body!.slice(1) : page.body!).map((paragraph) => (
               <p key={paragraph.slice(0, 48)}>{paragraph}</p>
             ))}
           </ContentBlock>
@@ -157,18 +178,18 @@ export default async function CompanyPage({ params }: PageProps) {
       {/* Approach: process-led composition */}
       {slug === "approach" ? (
         <>
-          <Section background="surface" spacing="lg">
+          <Section spacing="lg">
             <SectionHeader
               split
               eyebrow="Process"
               title="How an engagement runs"
               lead="Five stages. The first two are the ones most suppliers skip, and the reason most engagements miss."
             />
-            <ProcessBlock steps={engagement} />
+            <ProcessBlock steps={engagement} label="How an engagement runs" />
           </Section>
 
           {relatedServices.length > 0 ? (
-            <Section spacing="md">
+            <Section background="surface" spacing="md">
               <SectionHeader
                 eyebrow="Applied"
                 title="The same method across every practice"
@@ -182,7 +203,7 @@ export default async function CompanyPage({ params }: PageProps) {
 
       {/* Careers: opportunity-led, with an honest no-openings state */}
       {isCareers ? (
-        <Section background="surface" spacing="lg">
+        <Section spacing="lg">
           <EmptyState
             title="No current openings"
             body="We are not hiring for a specific role at the moment. We would still rather hear from someone good than miss them because the timing did not line up — tell us what you want to work on and we will keep it on file."
@@ -200,7 +221,7 @@ export default async function CompanyPage({ params }: PageProps) {
 
       {/* About: verified values only */}
       {slug === "about" ? (
-        <Section background="surface" spacing="lg">
+        <Section background="tint" spacing="lg">
           <SectionHeader
             split
             eyebrow="What we optimise for"
@@ -226,7 +247,7 @@ export default async function CompanyPage({ params }: PageProps) {
 
       {page.faqs?.length ? (
         <Section spacing="lg">
-          <SectionHeader split eyebrow="Questions" title="Common questions" />
+          <SectionHeader split eyebrow="Questions" title="Common Questions" />
           <FAQBlock faqs={page.faqs} />
         </Section>
       ) : null}

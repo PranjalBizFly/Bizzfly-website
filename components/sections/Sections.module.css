@@ -16,6 +16,15 @@
   gap: var(--gap-eyebrow);
 }
 
+.headerEyebrow {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--accent-text);
+  line-height: var(--leading-snug);
+}
+
 /*
  * The measure sits on the HEADING, not on this wrapper.
  *
@@ -28,7 +37,8 @@
  * asymmetric layout was designed to do.
  */
 .headerTitle {
-  max-width: var(--measure-heading);
+  max-width: none;
+  text-wrap: balance;
 }
 
 .headerLead {
@@ -94,7 +104,7 @@
 
 .numberedIndex {
   font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-body-sm);
   font-variant-numeric: tabular-nums;
   display: inline-flex;
   align-items: center;
@@ -208,7 +218,8 @@
 }
 
 .statementTitle {
-  max-width: var(--measure-heading);
+  max-width: none;
+  text-wrap: balance;
 }
 
 .evidenceList {
@@ -234,64 +245,11 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* --- S-06 Process timeline ---------------------------------------------- */
-.process {
-  display: grid;
-  gap: var(--space-8);
-  counter-reset: step;
-}
-
-@media (min-width: 1024px) {
-  .process {
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-    gap: var(--space-8);
-  }
-}
-
-.step {
-  border-top: 2px solid var(--border);
-  padding-top: var(--space-5);
-}
-
-.step[data-first="true"] {
-  border-top-color: var(--accent-edge);
-}
-
-.stepIndex {
-  font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  font-variant-numeric: tabular-nums;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
-  inline-size: 2rem;
-  block-size: 2rem;
-  border-radius: var(--radius-full);
-  background: var(--surface-muted);
-  font-weight: var(--weight-semibold);
-  color: var(--accent-text);
-}
-
-.stepTitle {
-  font-family: var(--font-display);
-  font-size: var(--text-h4);
-  font-weight: var(--weight-semibold);
-  margin-block: var(--space-3) var(--space-2);
-}
-
-.stepDescription {
-  font-size: var(--text-body-sm);
-  color: var(--muted);
-}
-
-.stepDuration {
-  font-family: var(--font-label);
-  font-size: var(--text-caption);
-  color: var(--ink-400);
-  margin-top: var(--space-3);
-  display: block;
-}
+/* --- S-06 Process timeline ----------------------------------------------
+   Moved to ProcessBlock.module.css. The pattern is no longer a row of
+   bordered columns but a drawn path with its own states, and those rules
+   describe a component rather than a shared section shape.
+   -------------------------------------------------------------------------- */
 
 /* --- S-10 Pull quote ----------------------------------------------------- */
 .quote {
@@ -391,7 +349,8 @@
 }
 
 .conversionTitle {
-  max-width: var(--measure-heading);
+  max-width: none;
+  text-wrap: balance;
 }
 
 .conversionLead {

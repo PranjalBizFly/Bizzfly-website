@@ -125,7 +125,7 @@ export default function UseCasesIndexPage() {
       <Section spacing="lg">
         <SectionHeader
           split
-          eyebrow="Start here"
+          eyebrow="01 / Start here"
           title="Seven ways in"
           lead="Each route names the capabilities behind it, so you can see what the work actually involves before speaking to anyone."
         />
@@ -163,10 +163,10 @@ export default function UseCasesIndexPage() {
       </Section>
 
       {/* The full index, for visitors who prefer to browse */}
-      <Section background="surface" spacing="lg">
+      <Section background="tint" spacing="lg">
         <SectionHeader
           split
-          eyebrow="All use cases"
+          eyebrow="02 / All use cases"
           title="Or browse everything"
           lead="Every use case starts with the symptoms rather than with what we would sell you."
         />
@@ -179,7 +179,7 @@ export default function UseCasesIndexPage() {
           className="mt-8"
         />
         <div className="mt-10">
-          <Directory groups={useCaseGroups} />
+          <Directory groups={useCaseGroups} filter={{ noun: "use cases" }} />
         </div>
         <div className="mt-8">
           <TextLink href="/services/">Browse by service instead</TextLink>

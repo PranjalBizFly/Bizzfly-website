@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/layout/Section";
-import { EditorialHero } from "@/components/hero";
+import { SplitHero } from "@/components/hero";
 import {
   ConversionBand,
   EditorialBlock,
@@ -122,11 +122,18 @@ export default function EngagementModelsPage() {
         }}
       />
 
-      <EditorialHero
+      {/*
+        The three shapes are named in the hero, because the page exists to be
+        chosen from and a reader should not have to scroll to learn what the
+        options are called.
+      */}
+      <SplitHero
         eyebrow="Methodology"
         title="Engagement Models"
         lead="We work in three shapes: a fixed-scope diagnostic, a defined project with a stated outcome, and an ongoing programme with a monthly scope. Which fits depends on how well the problem is understood, not on budget."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Engagement Models" }]}
+        asideHeading="The three shapes"
+        asideItems={models.map((model) => model.name)}
         actions={<CtaBlock cta={cta} size="lg" />}
       />
 

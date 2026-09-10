@@ -94,7 +94,7 @@ export const legalPages: CompanyPage[] = [
     body: [
       "A full privacy policy is being prepared and will be published here once it has completed legal review.",
       "In the meantime, here is what this site does today: the contact form collects the name, email address, optional phone number and message you submit, together with the page you submitted it from. That information is used to respond to your enquiry. Analytics are not enabled on this build.",
-      "To ask what we hold about you, or to have it deleted, email sales@bizzfly.com.",
+      "To ask what we hold about you, or to have it deleted, email sales@BizzFly.com.",
     ],
     seo: {
       title: "Privacy Policy",

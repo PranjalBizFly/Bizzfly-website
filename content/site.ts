@@ -18,7 +18,7 @@ export const site = {
 
   /** VERIFIED — /contact-us/ */
   contact: {
-    email: "sales@bizzfly.com",
+    email: "sales@BizzFly.com",
     phone: "+91 91 9815 9815",
     phoneHref: "tel:+919198159815",
     address: {

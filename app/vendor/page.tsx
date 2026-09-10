@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/layout/Section";
-import { EditorialHero } from "@/components/hero";
+import { SplitHero } from "@/components/hero";
 import {
   ContentBlock,
   ConversionBand,
@@ -88,11 +88,13 @@ export default function VendorPage() {
         }}
       />
 
-      <EditorialHero
+      <SplitHero
         eyebrow="Company"
         title="Vendor Information & Procurement"
         lead="Information for technology suppliers, software vendors, and professional partners working with BizzFly. Our procurement standards, compliance requirements, and payment processes."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Vendor" }]}
+        asideHeading="What we commit to"
+        asideItems={standards.map((item) => item.title)}
         actions={<CtaBlock cta={cta} size="lg" />}
       />
 

@@ -5,7 +5,7 @@ import { ExploreNext } from "@/components/navigation";
 import { SplitHero, EditorialHero, CinematicHero, toHeroFacts } from "@/components/hero";
 import {
   SectionHeader,
-  NumberedList,
+  ProblemMap,
   FAQBlock,
   RelatedContent,
   RelationshipMap,
@@ -25,6 +25,15 @@ import { getIndustryImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import { relationshipsForIndustry } from "@/lib/relationships";
 import { buildMetadata, faqSchema, serviceSchema } from "@/lib/seo";
+
+/** The two light grounds a band alternates between. See `composed` below. */
+type SectionGround = "bg" | "surface";
+
+/** A section that decides its eyebrow number and its ground from its position. */
+type PlacedSection = (position: number, ground: SectionGround) => React.ReactElement;
+
+/** Zero-padded position, so the eyebrows read 01, 02 rather than 1, 2. */
+const pad = (position: number) => String(position).padStart(2, "0");
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -87,40 +96,75 @@ export default async function IndustryPage({ params }: PageProps) {
     Industry variants. Healthcare should not read like manufacturing, so the
     emphasis moves: challenge-led opens on the problems, opportunity-led opens
     on what is available, journey-led opens on the sequence of work.
+
+    Each section is a function of where it lands rather than a finished
+    element, for the same reason the service template is: the order changes
+    per sector, so the eyebrow numbers and the alternating ground can only be
+    decided once the order is known. The journey band keeps its dark ground
+    wherever it falls — it is the one section on the page that is a
+    recommendation rather than an inventory, and it should read that way.
   */
-  const problems = (
-    <Section key="problems" background="surface" spacing="lg">
-      <SectionHeader
-        split
-        eyebrow="The problems"
-        title="Where growth actually stalls in this sector"
-        lead="Named in the sector's own vocabulary, because a generic list would tell you nothing about whether we understand your business."
-      />
-      <NumberedList
-        items={industry.problems.map((problem, index) => ({
-          index: String(index + 1).padStart(2, "0"),
+  /*
+   * The problems and the work that answers them, as one mapping.
+   *
+   * They used to be two sections several screens apart — a numbered list of
+   * what stalls, and a list of services under "The work that addresses those
+   * problems" — which asserted a relationship the reader had to hold in their
+   * head to see. `addressedBy` already records that relationship per problem,
+   * so the section draws it: pick a problem, the capabilities that answer it
+   * are marked, and every capability carries the numbers of the problems it
+   * answers whether or not anything is touched.
+   */
+  const problemSolutions = [
+    ...new Map(
+      [
+        ...industry.problems.flatMap((problem) => problem.addressedBy),
+        ...rel.services
+          .map((link) => link.href.replace(/^\/services\/|\/$/g, ""))
+          .filter(Boolean),
+      ]
+        .map((slug) => services.find((service) => service.slug === slug))
+        .filter((service): service is NonNullable<typeof service> => Boolean(service))
+        .map((service) => [service.slug, service] as const),
+    ).values(),
+  ].slice(0, 8);
+
+  const problems: PlacedSection = (position, ground) => (
+    <Section key="problems" background={ground} spacing="lg">
+      <ProblemMap
+        problemsEyebrow={`${pad(position)} / The problems`}
+        problemsTitle="Where growth actually stalls in this sector"
+        problemsLead="Named in the sector's own vocabulary, because a generic list would tell you nothing about whether we understand your business."
+        solutionsEyebrow="The work that answers them"
+        solutionsTitle="What we would put against each"
+        solutionsLead="Mapped to a problem on the left, not offered because it is on our service list."
+        problems={industry.problems.map((problem) => ({
           title: problem.title,
           description: problem.description,
-          href: `/services/${problem.addressedBy[0] ?? "seo"}/`,
-          rail: problem.addressedBy
-            .map((s) => services.find((x) => x.slug === s))
-            .filter((s): s is NonNullable<typeof s> => Boolean(s))
-            .map((s) => ({ label: s.title, href: `/services/${s.slug}/` })),
+          solutions: problem.addressedBy,
+        }))}
+        solutions={problemSolutions.map((service) => ({
+          key: service.slug,
+          label: service.title,
+          description: service.answer,
+          href: `/services/${service.slug}/`,
         }))}
       />
     </Section>
   );
 
-  const opportunity = industry.opportunity ? (
-    <Section key="opportunity" spacing="lg">
-      <EditorialBlock
-        eyebrow="The opportunity"
-        title="What is actually available here"
-        lead={industry.opportunity}
-        evidence={industry.problems.map((p) => p.title)}
-      />
-    </Section>
-  ) : null;
+  const opportunity: PlacedSection | null = industry.opportunity
+    ? (position, ground) => (
+        <Section key="opportunity" background={ground} spacing="lg">
+          <EditorialBlock
+            eyebrow={`${pad(position)} / The opportunity`}
+            title="What is actually available here"
+            lead={industry.opportunity}
+            evidence={industry.problems.map((p) => p.title)}
+          />
+        </Section>
+      )
+    : null;
 
   const industryVisual = getIndustryImage(slug);
 
@@ -129,63 +173,73 @@ export default async function IndustryPage({ params }: PageProps) {
    * one image and none is ever shown twice, so this section carries the
    * argument in type instead of cropping the same picture a second time.
    */
-  const context = (
-    <Section key="context" spacing="md" width="content">
+  const context: PlacedSection = (_position, ground) => (
+    <Section key="context" background={ground} spacing="md" width="content">
       <ContentBlock>
         <BodyText size="lg">{industry.context}</BodyText>
       </ContentBlock>
     </Section>
   );
 
-  const capabilities =
-    rel.services.length > 0 ? (
-      <Section key="capabilities" spacing="lg">
-        <SectionHeader
-          split
-          eyebrow="How we help"
-          title="The work that addresses those problems"
-          lead="Each of these is mapped to a problem above, not offered because it is on our service list."
-        />
-        <RelatedContent mode="list" items={rel.services} />
-      </Section>
-    ) : null;
+  /*
+   * Folded into the mapping above. Kept as null rather than deleted so the
+   * three layout orders below still read as the same set of slots.
+   */
+  const capabilities: PlacedSection | null = null;
 
-  const journey =
-    rel.useCases.length > 0 ? (
-      <Section key="journey" background="inverse" spacing="lg">
-        <SectionHeader
-          split
-          eyebrow="Recommended journey"
-          title="Where most engagements in this sector start"
-          lead="Usually with the constraint that is capping everything else, rather than with the most visible symptom."
-        />
-        <RelatedContent mode="list" items={rel.useCases} />
-      </Section>
-    ) : null;
+  const journey: PlacedSection | null =
+    rel.useCases.length > 0
+      ? (position) => (
+          <Section key="journey" background="inverse" spacing="lg">
+            <SectionHeader
+              split
+              eyebrow={`${pad(position)} / Recommended journey`}
+              title="Where most engagements in this sector start"
+              lead="Usually with the constraint that is capping everything else, rather than with the most visible symptom."
+            />
+            <RelatedContent mode="list" items={rel.useCases} />
+          </Section>
+        )
+      : null;
 
-  const technology =
-    rel.technologies.length > 0 ? (
-      <Section key="technology" background="surface" spacing="md">
-        <SectionHeader
-          split
-          eyebrow="Technology"
-          title="What tends to be involved"
-        />
-        <RelatedContent mode="compact" items={rel.technologies} />
-        {industry.diagram && industry.diagram !== "none" ? (
-          <div className="mt-10">
-            <Diagram kind={industry.diagram} />
-          </div>
-        ) : null}
-      </Section>
-    ) : null;
+  const technology: PlacedSection | null =
+    rel.technologies.length > 0
+      ? (position, ground) => (
+          <Section key="technology" background={ground} spacing="md">
+            <SectionHeader
+              split
+              eyebrow={`${pad(position)} / Technology`}
+              title="What tends to be involved"
+            />
+            <RelatedContent mode="compact" items={rel.technologies} />
+            {industry.diagram && industry.diagram !== "none" ? (
+              <div className="mt-10">
+                <Diagram kind={industry.diagram} />
+              </div>
+            ) : null}
+          </Section>
+        )
+      : null;
 
-  const order =
+  const order = (
     layout === "opportunity-led"
       ? [context, opportunity, capabilities, problems, technology, journey]
       : layout === "journey-led"
         ? [context, journey, problems, capabilities, technology, opportunity]
-        : [context, problems, capabilities, journey, technology, opportunity];
+        : [context, problems, capabilities, journey, technology, opportunity]
+  ).filter((section): section is PlacedSection => section !== null);
+
+  /*
+   * The dark band is placed, not alternated, so the light sections either
+   * side of it both take the page background rather than one of them landing
+   * on grey against black.
+   */
+  let lightIndex = 0;
+  const composed = order.map((section, index) => {
+    const ground: SectionGround = lightIndex % 2 === 0 ? "bg" : "surface";
+    if (section !== journey) lightIndex += 1;
+    return section(index + 1, ground);
+  });
 
   const Hero = layout === "opportunity-led" ? EditorialHero : SplitHero;
 
@@ -219,10 +273,10 @@ export default async function IndustryPage({ params }: PageProps) {
         />
       )}
 
-      {order}
+      {composed}
 
       {industry.complianceNotes ? (
-        <Section spacing="md" width="text">
+        <Section spacing="md" width="content">
           <ContentBlock>
             <Heading level={2} size="h3">
               Sector considerations
@@ -234,7 +288,11 @@ export default async function IndustryPage({ params }: PageProps) {
 
       {industry.faqs?.length ? (
         <Section spacing="lg">
-          <SectionHeader split eyebrow="Questions" title="Sector questions" />
+          <SectionHeader
+            split
+            eyebrow={`${pad(composed.length + 1)} / Questions`}
+            title="Sector Questions"
+          />
           <FAQBlock faqs={industry.faqs} />
         </Section>
       ) : null}
@@ -247,7 +305,7 @@ export default async function IndustryPage({ params }: PageProps) {
             level={2}
           />
           <RelationshipMap relationships={rel} />
-          <div className="mt-8">
+          <div className="mt-6">
             <TextLink href="/industries/">All industries</TextLink>
           </div>
         </Section>

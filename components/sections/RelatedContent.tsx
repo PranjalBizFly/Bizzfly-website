@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Cascade } from "@/components/motion";
 import type { RelatedLink } from "@/types/content";
 import type { ResolvedRelationships } from "@/lib/relationships";
 import styles from "./Sections.module.css";
@@ -65,7 +66,7 @@ export function RelatedContent({
 
   if (mode === "list") {
     return (
-      <ul className={related.rows}>
+      <Cascade as="ul" className={related.rows}>
         {items.map((item, index) => (
           <li key={item.href} className={related.row}>
             <Link href={item.href} className={related.rowLink}>
@@ -87,7 +88,7 @@ export function RelatedContent({
             </Link>
           </li>
         ))}
-      </ul>
+      </Cascade>
     );
   }
 
@@ -95,7 +96,7 @@ export function RelatedContent({
     return (
       <div className={related.split}>
         {heading ? <h2 className={related.splitHeading}>{heading}</h2> : null}
-        <ul className={related.splitList}>
+        <Cascade as="ul" className={related.splitList}>
           {items.map((item) => (
             <li key={item.href}>
               <Link href={item.href} className={related.splitLink}>
@@ -107,14 +108,14 @@ export function RelatedContent({
               ) : null}
             </li>
           ))}
-        </ul>
+        </Cascade>
       </div>
     );
   }
 
   /* Default: editorial three-column */
   return (
-    <div className={styles.related}>
+    <Cascade className={styles.related}>
       {items.map((item) => (
         <Link key={item.href} href={item.href} className={styles.relatedItem}>
           {item.type ? <span className={styles.relatedType}>{item.type}</span> : null}
@@ -129,7 +130,7 @@ export function RelatedContent({
           ) : null}
         </Link>
       ))}
-    </div>
+    </Cascade>
   );
 }
 
@@ -165,7 +166,7 @@ export function RelationshipMap({
   if (groups.length === 0) return null;
 
   return (
-    <div className={related.map}>
+    <Cascade className={related.map} data-groups={groups.length}>
       {groups.map((group) => (
         <section key={group.key} className={related.mapGroup}>
           <h3 className={related.mapHeading}>{group.label}</h3>
@@ -180,6 +181,6 @@ export function RelationshipMap({
           </ul>
         </section>
       ))}
-    </div>
+    </Cascade>
   );
 }

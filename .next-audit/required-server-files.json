@@ -1,0 +1,745 @@
+{
+  "version": 1,
+  "config": {
+    "env": {},
+    "webpack": null,
+    "eslint": {
+      "ignoreDuringBuilds": false
+    },
+    "typescript": {
+      "ignoreBuildErrors": false,
+      "tsconfigPath": "tsconfig.json"
+    },
+    "typedRoutes": false,
+    "distDir": ".next-audit",
+    "cleanDistDir": true,
+    "assetPrefix": "",
+    "cacheMaxMemorySize": 52428800,
+    "configOrigin": "next.config.ts",
+    "useFileSystemPublicRoutes": true,
+    "generateEtags": true,
+    "pageExtensions": [
+      "tsx",
+      "ts",
+      "jsx",
+      "js"
+    ],
+    "poweredByHeader": false,
+    "compress": true,
+    "images": {
+      "deviceSizes": [
+        640,
+        768,
+        1024,
+        1280,
+        1440,
+        1920
+      ],
+      "imageSizes": [
+        16,
+        32,
+        48,
+        64,
+        96,
+        128,
+        256,
+        384
+      ],
+      "path": "/_next/image/",
+      "loader": "default",
+      "loaderFile": "",
+      "domains": [],
+      "disableStaticImages": false,
+      "minimumCacheTTL": 60,
+      "formats": [
+        "image/avif",
+        "image/webp"
+      ],
+      "maximumResponseBody": 50000000,
+      "dangerouslyAllowSVG": false,
+      "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
+      "contentDispositionType": "attachment",
+      "remotePatterns": [],
+      "unoptimized": false
+    },
+    "devIndicators": {
+      "position": "bottom-left"
+    },
+    "onDemandEntries": {
+      "maxInactiveAge": 60000,
+      "pagesBufferLength": 5
+    },
+    "amp": {
+      "canonicalBase": ""
+    },
+    "basePath": "",
+    "sassOptions": {},
+    "trailingSlash": true,
+    "i18n": null,
+    "productionBrowserSourceMaps": false,
+    "excludeDefaultMomentLocales": true,
+    "serverRuntimeConfig": {},
+    "publicRuntimeConfig": {},
+    "reactProductionProfiling": false,
+    "reactStrictMode": true,
+    "reactMaxHeadersLength": 6000,
+    "httpAgentOptions": {
+      "keepAlive": true
+    },
+    "logging": {},
+    "compiler": {},
+    "expireTime": 31536000,
+    "staticPageGenerationTimeout": 60,
+    "modularizeImports": {
+      "@mui/icons-material": {
+        "transform": "@mui/icons-material/{{member}}"
+      },
+      "lodash": {
+        "transform": "lodash/{{member}}"
+      }
+    },
+    "outputFileTracingRoot": "C:\\Projects\\Bizzfly-website",
+    "experimental": {
+      "useSkewCookie": false,
+      "cacheLife": {
+        "default": {
+          "stale": 300,
+          "revalidate": 900,
+          "expire": 4294967294
+        },
+        "seconds": {
+          "stale": 30,
+          "revalidate": 1,
+          "expire": 60
+        },
+        "minutes": {
+          "stale": 300,
+          "revalidate": 60,
+          "expire": 3600
+        },
+        "hours": {
+          "stale": 300,
+          "revalidate": 3600,
+          "expire": 86400
+        },
+        "days": {
+          "stale": 300,
+          "revalidate": 86400,
+          "expire": 604800
+        },
+        "weeks": {
+          "stale": 300,
+          "revalidate": 604800,
+          "expire": 2592000
+        },
+        "max": {
+          "stale": 300,
+          "revalidate": 2592000,
+          "expire": 4294967294
+        }
+      },
+      "cacheHandlers": {},
+      "cssChunking": true,
+      "multiZoneDraftMode": false,
+      "appNavFailHandling": false,
+      "prerenderEarlyExit": true,
+      "serverMinification": true,
+      "serverSourceMaps": false,
+      "linkNoTouchStart": false,
+      "caseSensitiveRoutes": false,
+      "clientSegmentCache": false,
+      "clientParamParsing": false,
+      "dynamicOnHover": false,
+      "preloadEntriesOnStart": true,
+      "clientRouterFilter": true,
+      "clientRouterFilterRedirects": false,
+      "fetchCacheKeyPrefix": "",
+      "middlewarePrefetch": "flexible",
+      "optimisticClientCache": true,
+      "manualClientBasePath": false,
+      "cpus": 11,
+      "memoryBasedWorkersCount": false,
+      "imgOptConcurrency": null,
+      "imgOptTimeoutInSeconds": 7,
+      "imgOptMaxInputPixels": 268402689,
+      "imgOptSequentialRead": null,
+      "isrFlushToDisk": true,
+      "workerThreads": false,
+      "optimizeCss": false,
+      "nextScriptWorkers": false,
+      "scrollRestoration": false,
+      "externalDir": false,
+      "disableOptimizedLoading": false,
+      "gzipSize": true,
+      "craCompat": false,
+      "esmExternals": true,
+      "fullySpecified": false,
+      "swcTraceProfiling": false,
+      "forceSwcTransforms": false,
+      "largePageDataBytes": 128000,
+      "typedEnv": false,
+      "parallelServerCompiles": false,
+      "parallelServerBuildTraces": false,
+      "ppr": false,
+      "authInterrupts": false,
+      "webpackMemoryOptimizations": false,
+      "optimizeServerReact": true,
+      "viewTransition": false,
+      "routerBFCache": false,
+      "removeUncaughtErrorAndRejectionListeners": false,
+      "validateRSCRequestHeaders": false,
+      "staleTimes": {
+        "dynamic": 0,
+        "static": 300
+      },
+      "serverComponentsHmrCache": true,
+      "staticGenerationMaxConcurrency": 8,
+      "staticGenerationMinPagesPerWorker": 25,
+      "cacheComponents": false,
+      "inlineCss": false,
+      "useCache": false,
+      "globalNotFound": false,
+      "devtoolSegmentExplorer": true,
+      "browserDebugInfoInTerminal": false,
+      "optimizeRouterScrolling": false,
+      "middlewareClientMaxBodySize": 10485760,
+      "optimizePackageImports": [
+        "lucide-react",
+        "date-fns",
+        "lodash-es",
+        "ramda",
+        "antd",
+        "react-bootstrap",
+        "ahooks",
+        "@ant-design/icons",
+        "@headlessui/react",
+        "@headlessui-float/react",
+        "@heroicons/react/20/solid",
+        "@heroicons/react/24/solid",
+        "@heroicons/react/24/outline",
+        "@visx/visx",
+        "@tremor/react",
+        "rxjs",
+        "@mui/material",
+        "@mui/icons-material",
+        "recharts",
+        "react-use",
+        "effect",
+        "@effect/schema",
+        "@effect/platform",
+        "@effect/platform-node",
+        "@effect/platform-browser",
+        "@effect/platform-bun",
+        "@effect/sql",
+        "@effect/sql-mssql",
+        "@effect/sql-mysql2",
+        "@effect/sql-pg",
+        "@effect/sql-sqlite-node",
+        "@effect/sql-sqlite-bun",
+        "@effect/sql-sqlite-wasm",
+        "@effect/sql-sqlite-react-native",
+        "@effect/rpc",
+        "@effect/rpc-http",
+        "@effect/typeclass",
+        "@effect/experimental",
+        "@effect/opentelemetry",
+        "@material-ui/core",
+        "@material-ui/icons",
+        "@tabler/icons-react",
+        "mui-core",
+        "react-icons/ai",
+        "react-icons/bi",
+        "react-icons/bs",
+        "react-icons/cg",
+        "react-icons/ci",
+        "react-icons/di",
+        "react-icons/fa",
+        "react-icons/fa6",
+        "react-icons/fc",
+        "react-icons/fi",
+        "react-icons/gi",
+        "react-icons/go",
+        "react-icons/gr",
+        "react-icons/hi",
+        "react-icons/hi2",
+        "react-icons/im",
+        "react-icons/io",
+        "react-icons/io5",
+        "react-icons/lia",
+        "react-icons/lib",
+        "react-icons/lu",
+        "react-icons/md",
+        "react-icons/pi",
+        "react-icons/ri",
+        "react-icons/rx",
+        "react-icons/si",
+        "react-icons/sl",
+        "react-icons/tb",
+        "react-icons/tfi",
+        "react-icons/ti",
+        "react-icons/vsc",
+        "react-icons/wi"
+      ],
+      "trustHostHeader": false,
+      "isExperimentalCompile": false
+    },
+    "htmlLimitedBots": "[\\w-]+-Google|Google-[\\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight",
+    "bundlePagesRouterDependencies": false,
+    "configFileName": "next.config.ts",
+    "turbopack": {
+      "root": "C:\\Projects\\Bizzfly-website"
+    },
+    "_originalRedirects": [
+      {
+        "source": "/about",
+        "destination": "/about-us/",
+        "statusCode": 301
+      },
+      {
+        "source": "/aboutus",
+        "destination": "/about-us/",
+        "statusCode": 301
+      },
+      {
+        "source": "/about-company",
+        "destination": "/about-us/",
+        "statusCode": 301
+      },
+      {
+        "source": "/company/about",
+        "destination": "/about-us/",
+        "statusCode": 301
+      },
+      {
+        "source": "/company/about/",
+        "destination": "/about-us/",
+        "statusCode": 301
+      },
+      {
+        "source": "/approach",
+        "destination": "/our-approach/",
+        "statusCode": 301
+      },
+      {
+        "source": "/company/approach",
+        "destination": "/our-approach/",
+        "statusCode": 301
+      },
+      {
+        "source": "/company/approach/",
+        "destination": "/our-approach/",
+        "statusCode": 301
+      },
+      {
+        "source": "/company/how-we-work",
+        "destination": "/how-we-work/",
+        "statusCode": 301
+      },
+      {
+        "source": "/company/how-we-work/",
+        "destination": "/how-we-work/",
+        "statusCode": 301
+      },
+      {
+        "source": "/company/discovery-process",
+        "destination": "/discovery-process/",
+        "statusCode": 301
+      },
+      {
+        "source": "/company/discovery-process/",
+        "destination": "/discovery-process/",
+        "statusCode": 301
+      },
+      {
+        "source": "/company/engagement-models",
+        "destination": "/engagement-models/",
+        "statusCode": 301
+      },
+      {
+        "source": "/company/engagement-models/",
+        "destination": "/engagement-models/",
+        "statusCode": 301
+      },
+      {
+        "source": "/career",
+        "destination": "/careers/",
+        "statusCode": 301
+      },
+      {
+        "source": "/carrer",
+        "destination": "/careers/",
+        "statusCode": 301
+      },
+      {
+        "source": "/jobs",
+        "destination": "/careers/",
+        "statusCode": 301
+      },
+      {
+        "source": "/company/careers",
+        "destination": "/careers/",
+        "statusCode": 301
+      },
+      {
+        "source": "/company/careers/",
+        "destination": "/careers/",
+        "statusCode": 301
+      },
+      {
+        "source": "/presskit",
+        "destination": "/press-kit/",
+        "statusCode": 301
+      },
+      {
+        "source": "/blog",
+        "destination": "/blogs/",
+        "statusCode": 301
+      },
+      {
+        "source": "/services/website-design-development",
+        "destination": "/services/web-development/",
+        "statusCode": 301
+      },
+      {
+        "source": "/services/custom-software-development",
+        "destination": "/services/software-development/",
+        "statusCode": 301
+      },
+      {
+        "source": "/services/business-automation",
+        "destination": "/services/ai-automation/",
+        "statusCode": 301
+      },
+      {
+        "source": "/services/ai-powered-solutions",
+        "destination": "/services/ai-automation/",
+        "statusCode": 301
+      },
+      {
+        "source": "/services/digital-growth-solutions",
+        "destination": "/services/digital-marketing/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/search-optimization",
+        "destination": "/services/search-ai-visibility/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/website-design-development",
+        "destination": "/services/web-development/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/custom-software-development",
+        "destination": "/services/software-development/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/business-automation",
+        "destination": "/services/ai-automation/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/ai-powered-solutions",
+        "destination": "/services/ai-automation/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/digital-growth-solutions",
+        "destination": "/services/digital-marketing/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/higher-visibility",
+        "destination": "/services/seo/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/enhanced-visibility",
+        "destination": "/services/seo/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/qualified-traffic",
+        "destination": "/services/seo/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/stronger-authority",
+        "destination": "/services/seo/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/stronger-presence",
+        "destination": "/services/search-ai-visibility/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/better-conversions",
+        "destination": "/services/conversion-rate-optimisation/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/higher-conversions",
+        "destination": "/services/conversion-rate-optimisation/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/increased-conversions",
+        "destination": "/services/conversion-rate-optimisation/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/better-engagement",
+        "destination": "/services/ui-ux-design/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/scalable-foundation",
+        "destination": "/services/web-development/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/better-performance",
+        "destination": "/services/website-performance/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/improved-scalability",
+        "destination": "/services/software-development/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/better-control",
+        "destination": "/services/web-applications/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/enhanced-productivity",
+        "destination": "/services/workflow-automation/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/operational-efficiency",
+        "destination": "/use-cases/improve-operational-efficiency/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/improved-efficiency",
+        "destination": "/use-cases/improve-operational-efficiency/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/greater-efficiency",
+        "destination": "/use-cases/improve-operational-efficiency/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/faster-operations",
+        "destination": "/services/workflow-automation/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/reduced-errors",
+        "destination": "/services/workflow-automation/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/time-savings",
+        "destination": "/use-cases/reduce-manual-work/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/smarter-decisions",
+        "destination": "/services/business-intelligence/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/strategic-direction",
+        "destination": "/services/digital-strategy/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/sustainable-growth",
+        "destination": "/services/digital-strategy/",
+        "statusCode": 301
+      },
+      {
+        "source": "/service/competitive-advantage",
+        "destination": "/about-us/",
+        "statusCode": 301
+      },
+      {
+        "source": "/project/dynamic-data-ecosystem",
+        "destination": "/case-studies/",
+        "statusCode": 301
+      },
+      {
+        "source": "/project/intelligent-conversion-hub",
+        "destination": "/case-studies/",
+        "statusCode": 301
+      },
+      {
+        "source": "/project/next-gen-ecosystem",
+        "destination": "/case-studies/",
+        "statusCode": 301
+      },
+      {
+        "source": "/project/cloud-marketing-infrastructure",
+        "destination": "/case-studies/",
+        "statusCode": 301
+      },
+      {
+        "source": "/project/fast-conversion-optimization",
+        "destination": "/case-studies/",
+        "statusCode": 301
+      },
+      {
+        "source": "/project/intelligent-conversion-model",
+        "destination": "/case-studies/",
+        "statusCode": 301
+      },
+      {
+        "source": "/project/agile-digital-expansion",
+        "destination": "/case-studies/",
+        "statusCode": 301
+      },
+      {
+        "source": "/project/scalable-business-growth",
+        "destination": "/case-studies/",
+        "statusCode": 301
+      },
+      {
+        "source": "/project/ai-driven-marketing",
+        "destination": "/case-studies/",
+        "statusCode": 301
+      },
+      {
+        "source": "/project/data-powered-growth",
+        "destination": "/case-studies/",
+        "statusCode": 301
+      },
+      {
+        "source": "/project/smart-digital-growth",
+        "destination": "/case-studies/",
+        "statusCode": 301
+      },
+      {
+        "source": "/contact-us",
+        "destination": "/contact/",
+        "statusCode": 301
+      },
+      {
+        "source": "/blog",
+        "destination": "/resources/",
+        "statusCode": 301
+      },
+      {
+        "source": "/faqs-page",
+        "destination": "/resources/",
+        "statusCode": 301
+      },
+      {
+        "source": "/privacy-policy-2",
+        "destination": "/company/privacy-policy/",
+        "statusCode": 301
+      },
+      {
+        "source": "/terms-and-conditions",
+        "destination": "/company/terms/",
+        "statusCode": 301
+      },
+      {
+        "source": "/seo",
+        "destination": "/services/seo/",
+        "statusCode": 301
+      },
+      {
+        "source": "/website-design-development",
+        "destination": "/services/web-development/",
+        "statusCode": 301
+      },
+      {
+        "source": "/custom-software-development",
+        "destination": "/services/software-development/",
+        "statusCode": 301
+      },
+      {
+        "source": "/business-automation",
+        "destination": "/services/ai-automation/",
+        "statusCode": 301
+      },
+      {
+        "source": "/ai-powered-solutions",
+        "destination": "/services/ai-automation/",
+        "statusCode": 301
+      },
+      {
+        "source": "/blog-2/privacy-policy-2",
+        "destination": "/company/privacy-policy/",
+        "statusCode": 301
+      },
+      {
+        "source": "/beyond-aesthetics-why-speed-and-core-web-vitals-are-non-negotiable-for-agency-themes-in-2026",
+        "destination": "/resources/",
+        "statusCode": 301
+      },
+      {
+        "source": "/seo-ready-architecture-building-a-website-that-ranks-while-you-sleep",
+        "destination": "/resources/",
+        "statusCode": 301
+      },
+      {
+        "source": "/9-essential-wordpress-features-every-digital-marketing-agency-needs-to-boost-conversions",
+        "destination": "/resources/",
+        "statusCode": 301
+      },
+      {
+        "source": "/what-it-companies-should-write-about-in-their-corporate-blogs",
+        "destination": "/resources/",
+        "statusCode": 301
+      },
+      {
+        "source": "/digital-transformation-101-moving-from-a-traditional-agency-to-a-full-service-digital-partner",
+        "destination": "/resources/",
+        "statusCode": 301
+      },
+      {
+        "source": "/mastering-multichannel-engagement-how-to-sync-your-website-with-your-social-and-ad-strategies",
+        "destination": "/resources/",
+        "statusCode": 301
+      },
+      {
+        "source": "/services/conversion-rate-optimization",
+        "destination": "/services/conversion-rate-optimisation/",
+        "statusCode": 301
+      }
+    ]
+  },
+  "appDir": "C:\\Projects\\Bizzfly-website",
+  "relativeAppDir": "",
+  "files": [
+    ".next-audit\\routes-manifest.json",
+    ".next-audit\\server\\pages-manifest.json",
+    ".next-audit\\build-manifest.json",
+    ".next-audit\\prerender-manifest.json",
+    ".next-audit\\server\\functions-config-manifest.json",
+    ".next-audit\\server\\middleware-manifest.json",
+    ".next-audit\\server\\middleware-build-manifest.js",
+    ".next-audit\\server\\middleware-react-loadable-manifest.js",
+    ".next-audit\\react-loadable-manifest.json",
+    ".next-audit\\server\\app-paths-manifest.json",
+    ".next-audit\\app-path-routes-manifest.json",
+    ".next-audit\\app-build-manifest.json",
+    ".next-audit\\server\\server-reference-manifest.js",
+    ".next-audit\\server\\server-reference-manifest.json",
+    ".next-audit\\BUILD_ID",
+    ".next-audit\\server\\next-font-manifest.js",
+    ".next-audit\\server\\next-font-manifest.json",
+    ".next-audit\\required-server-files.json"
+  ],
+  "ignore": [
+    "node_modules\\next\\dist\\compiled\\@ampproject\\toolbox-optimizer\\**\\*"
+  ]
+}

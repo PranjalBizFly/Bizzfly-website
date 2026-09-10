@@ -9,7 +9,15 @@
 
 @media (min-width: 1024px) {
   .layout {
-    grid-template-columns: 5fr 7fr;
+    /*
+     * 6/7 rather than 5/7. The narrower share broke the h1 into five short
+     * lines, two of them a single word, and left the photograph small enough
+     * that the intro column ran ~180px past the form column. Widening the
+     * left share shortens the intro, grows the image and costs the form about
+     * forty pixels — after which the two columns end within a line of each
+     * other, which is all the balance this composition needs.
+     */
+    grid-template-columns: 6fr 7fr;
     gap: var(--space-16);
     align-items: start;
   }
@@ -56,7 +64,23 @@
 }
 
 .direct {
-  margin-top: var(--space-10);
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+}
+
+/* Phone/email and the postal address sit side by side once there is room. */
+.directDetails {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 560px) {
+  .directDetails {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
+    align-items: start;
+  }
 }
 
 .directHeading {
@@ -82,7 +106,6 @@
   font-style: normal;
   font-size: var(--text-body-sm);
   color: var(--muted);
-  margin-top: var(--space-4);
   line-height: var(--leading-relaxed);
 }
 
@@ -161,6 +184,11 @@
   }
 }
 
+/* The story block carries its own block margin; this owns the spacing instead. */
 .visual {
-  margin-top: var(--space-8);
+  margin-top: var(--space-10);
+}
+
+.visual > * {
+  margin-block: 0;
 }

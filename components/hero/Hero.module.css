@@ -116,3 +116,96 @@
 .actions {
   margin-top: var(--space-10);
 }
+
+/* ==========================================================================
+   ENTRANCE
+   --------------------------------------------------------------------------
+   The same load animation CinematicHero uses, so a text-led hub page opens
+   the way an image-led entity page does. It has to be a load animation
+   rather than a scroll reveal for the same reason: this content is above the
+   fold, and IntersectionObserver reveals deliberately skip anything already
+   painted — which would leave every hub and standalone page opening flat
+   while the detail pages under them rose in.
+
+   Pure CSS, so there is no JavaScript gate that can fail to un-hide the
+   headline, and no client component on a page that otherwise needs none.
+
+   The steps are 60ms and the headline goes second, which caps how far LCP
+   can slip on a page where the H1 is the largest element: one or two frames.
+   ========================================================================== */
+@keyframes heroTextRise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--space-4), 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.breadcrumbs,
+.eyebrow,
+.editorial,
+.editorialLead,
+.declaration,
+.declarationLead,
+.splitTitle,
+.splitLead,
+.actions,
+.splitAside {
+  animation: heroTextRise var(--dur-slow) var(--ease-decelerate) both;
+}
+
+.breadcrumbs {
+  animation-delay: 0ms;
+}
+
+.eyebrow {
+  animation-delay: 40ms;
+}
+
+.editorial,
+.declaration,
+.splitTitle {
+  animation-delay: 80ms;
+}
+
+.editorialLead,
+.declarationLead,
+.splitLead {
+  animation-delay: 140ms;
+}
+
+.actions {
+  animation-delay: 200ms;
+}
+
+/*
+ * The aside is a column of its own rather than the next line of the
+ * statement, so it arrives after the whole statement has, not interleaved
+ * with it.
+ */
+.splitAside {
+  animation-delay: 260ms;
+}
+
+/*
+ * Reduced motion removes the sequence rather than shortening it: the tokens
+ * already collapse to 1ms, but an animation that still runs is still a thing
+ * appearing, and the preference asks for nothing to move.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .breadcrumbs,
+  .eyebrow,
+  .editorial,
+  .editorialLead,
+  .declaration,
+  .declarationLead,
+  .splitTitle,
+  .splitLead,
+  .actions,
+  .splitAside {
+    animation: none;
+  }
+}

@@ -1,194 +1,693 @@
-/*
- * Where one buyer question lands.
- *
- * Every colour here comes from the semantic roles, so the block is correct
- * on the light ground, on the tinted band and inside an inverse section
- * without a single context branch.
- */
+/* ==========================================================================
+   SurfacePresence — Multi-Surface Discovery Architecture
+
+   One question, three surfaces, drawn. The left column carries the claim and
+   the drawing: a question node, a hairline running down through three surface
+   nodes, each node naming its retrieval mechanism and what that mechanism
+   produces. The right column carries whichever surface is selected, in full.
+
+   The drawing is CSS, not SVG and not a charting library: it is a rule, three
+   dots and three stubs, all of which have to inherit the theme's border and
+   accent tokens and reflow into a single column on a phone. A drawn asset
+   would do neither.
+
+   Nothing is boxed. Separation is space, a hairline, and the rule itself —
+   the same vocabulary the rest of the page uses.
+   ========================================================================== */
+
 .wrapper {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--elev-1);
-  padding: var(--space-8);
-  max-width: 44rem;
-}
-
-/* --- The question -------------------------------------------------------- */
-
-.question {
-  padding-bottom: var(--space-6);
-  margin-bottom: var(--space-6);
-  border-bottom: 1px solid var(--border);
-}
-
-.questionLabel {
-  font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
-  color: var(--accent-text);
-}
-
-.questionText {
-  margin-top: var(--space-2);
-  font-family: var(--font-display);
-  font-size: var(--text-h4);
-  font-weight: var(--weight-medium);
-  color: var(--foreground);
-}
-
-/* --- The table ----------------------------------------------------------- */
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-/*
- * The caption states what the table is for. It sits under the table rather
- * than above it, because the question block above already introduces the
- * subject and a second heading there would read as a repeat.
- */
-.caption {
-  caption-side: bottom;
-  padding-top: var(--space-4);
-  font-size: var(--text-body-sm);
-  line-height: var(--leading-relaxed);
-  color: var(--muted);
-  text-align: left;
-}
-
-.table th,
-.table td {
-  padding-block: var(--space-4);
-  border-bottom: 1px solid var(--border);
-  vertical-align: baseline;
-}
-
-.table thead th {
-  font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
-  font-weight: var(--weight-medium);
-  color: var(--muted);
-  padding-block: 0 var(--space-3);
-}
-
-.table tbody tr:last-child th,
-.table tbody tr:last-child td {
-  border-bottom: 0;
-}
-
-.table td {
-  font-size: var(--text-body-sm);
-  color: var(--foreground);
-}
-
-/* The layer code is the row's name, so it carries the accent. */
-.code {
-  font-family: var(--font-label);
-  font-size: var(--text-body-sm);
-  font-weight: var(--weight-medium);
-  color: var(--accent-text);
-  white-space: nowrap;
-  padding-inline-end: var(--space-6);
-}
-
-.stateHead,
-.stateCell {
-  text-align: right;
-}
-
-/*
- * Present and absent are drawn as a filled chip and an outlined one — the
- * same distinction the old diagram made, without needing the reader to
- * decode which rectangle was dashed.
- */
-.state {
-  display: inline-block;
-  font-family: var(--font-label);
-  font-size: var(--text-caption);
-  border-radius: var(--radius-full);
-  padding: var(--space-1) var(--space-4);
-  white-space: nowrap;
-}
-
-.state[data-present="true"] {
-  background: var(--cta-primary);
-  color: var(--cta-primary-text);
-}
-
-.state[data-present="false"] {
-  border: 1px dashed var(--border-strong);
-  color: var(--muted);
-}
-
-/* --- The two foundations ------------------------------------------------- */
-
-.foundations {
-  margin-top: var(--space-8);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--border);
-}
-
-.foundationsLabel {
-  font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
-  color: var(--muted);
-  margin-bottom: var(--space-4);
-}
-
-.foundationsList {
-  list-style: none;
   margin: 0;
-  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  border-top: 2px solid var(--accent-edge);
+  padding-top: var(--space-6);
+  display: grid;
+  gap: var(--section-sm);
+}
+
+/* --- The interactive half ------------------------------------------------ */
+
+.top {
+  display: grid;
+  gap: var(--space-10);
+}
+
+@media (min-width: 1024px) {
+  .top {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--space-16);
+    align-items: start;
+  }
+}
+
+/*
+ * The drawing follows the reading on tall screens, so the surface being read
+ * stays connected to the question it answers. Gated on height as well as
+ * width: pinned content taller than the viewport strands its own bottom edge,
+ * and the aside is roughly 600px before the panel is even considered.
+ */
+@media (min-width: 1024px) and (min-height: 800px) {
+  .aside {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-6));
+  }
+}
+
+.header {
   display: grid;
   gap: var(--space-3);
 }
 
-.foundation {
-  background: var(--surface-muted);
-  border-radius: var(--radius-md);
-  padding: var(--space-3) var(--space-5);
-  font-size: var(--text-body-sm);
-  color: var(--foreground);
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--accent-text);
+  text-transform: uppercase;
 }
 
-.note {
-  margin-top: var(--space-6);
-  font-size: var(--text-body-sm);
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  margin: 0;
+  max-width: var(--measure-title);
+  text-wrap: balance;
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
   line-height: var(--leading-relaxed);
   color: var(--muted);
+  max-width: var(--measure-lead);
+  margin: 0;
   text-wrap: pretty;
 }
 
-/* Narrow screens: the state column moves under the surface it belongs to. */
-@media (max-width: 480px) {
-  .wrapper {
-    padding: var(--space-6);
+/* --- The drawing --------------------------------------------------------- */
+
+.diagram {
+  --dot-size: 0.6875rem;
+  --gutter: calc(var(--dot-size) + var(--space-5));
+  --dot-top: var(--space-5);
+  --spine-x: calc(var(--dot-size) / 2 - 0.5px);
+
+  margin-top: var(--space-8);
+  /*
+   * No gap between the question and the rail, and none between the rows: the
+   * rule is assembled from one segment per row, so any gap would break the
+   * line. Rows carry their own padding instead.
+   */
+  display: grid;
+}
+
+/* The question the whole section is about, sitting at the head of the rule. */
+.origin {
+  position: relative;
+  padding-inline-start: var(--gutter);
+  padding-bottom: var(--space-6);
+  --dot-top: 0.2rem;
+}
+
+.origin::before {
+  content: "";
+  position: absolute;
+  left: var(--spine-x);
+  top: calc(var(--dot-top) + var(--dot-size) / 2);
+  bottom: 0;
+  width: 1px;
+  background: var(--accent-edge);
+  transform-origin: top;
+}
+
+.originBody {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.originLabel {
+  font-family: var(--font-label);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  font-weight: var(--weight-medium);
+  color: var(--muted);
+}
+
+.originQuestion {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  max-width: var(--measure-title);
+  text-wrap: balance;
+}
+
+/* The dot on the rule. Hollow by default, filled when the node is selected. */
+.dot {
+  position: absolute;
+  left: 0;
+  top: var(--dot-top);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--accent-edge);
+  background: var(--background);
+  transition:
+    background var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
+}
+
+.origin .dot {
+  background: var(--accent-edge);
+}
+
+.rail {
+  display: grid;
+}
+
+/* --- A surface node ------------------------------------------------------ */
+
+.node {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: var(--space-5) 0 var(--space-5) var(--gutter);
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: start;
+  cursor: pointer;
+  min-height: var(--touch-target-min);
+}
+
+/* This row's segment of the rule. */
+.node::before {
+  content: "";
+  position: absolute;
+  left: var(--spine-x);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border-strong);
+  transform-origin: top;
+  transition: background var(--dur-base) var(--ease-standard);
+}
+
+/* The rule stops at the last dot rather than running past it. */
+.node:last-child::before {
+  bottom: auto;
+  height: calc(var(--dot-top) + var(--dot-size) / 2);
+}
+
+/* The stub joining the rule to the label. */
+.node::after {
+  content: "";
+  position: absolute;
+  left: var(--dot-size);
+  top: calc(var(--dot-top) + var(--dot-size) / 2);
+  width: calc(var(--gutter) - var(--dot-size) - var(--space-2));
+  height: 1px;
+  background: var(--border-strong);
+  transform: scaleX(0.55);
+  transform-origin: left;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    background var(--dur-base) var(--ease-standard);
+}
+
+/*
+ * The path the question took to reach the selected surface: every segment
+ * from the question down to the active node carries the accent, the ones
+ * below it stay hairline. That is the whole point of the drawing — the rule
+ * is shared, and the buyer takes one branch off it.
+ */
+.node[data-onpath="true"]::before {
+  background: var(--accent-edge);
+}
+
+.node[data-selected="true"]::after {
+  transform: scaleX(1);
+  background: var(--accent-edge);
+}
+
+.node[data-selected="true"] .dot {
+  background: var(--accent-edge);
+}
+
+.nodeBody {
+  display: grid;
+  gap: var(--space-1);
+  /*
+   * Unselected surfaces recede rather than disappear. Held at 0.72 rather
+   * than the 0.5 a dimmed state usually takes: these labels are the only
+   * copy naming the other two surfaces, and they still have to pass contrast
+   * while receded.
+   */
+  opacity: 0.72;
+  transition: opacity var(--dur-base) var(--ease-standard);
+}
+
+.node[data-selected="true"] .nodeBody,
+.node:hover .nodeBody {
+  opacity: 1;
+}
+
+.nodeCode {
+  font-family: var(--font-label);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  font-weight: var(--weight-medium);
+  color: var(--accent-text);
+}
+
+.nodeName {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+}
+
+/* Retrieval → outcome: how this surface answers, and what the buyer sees. */
+.nodePath {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-body);
+  color: var(--muted);
+}
+
+.nodeArrow {
+  color: var(--accent-edge);
+}
+
+.nodeOutcome {
+  color: var(--foreground);
+  font-weight: var(--weight-medium);
+}
+
+/* --- Entrance ------------------------------------------------------------ *
+ * The rule draws down, the nodes arrive in order behind it. Driven by the
+ * data-reveal attribute useReveal sets, so with no JavaScript — or before the
+ * observer registers — everything is simply present and static.
+ */
+.diagram[data-reveal="pending"] .origin::before,
+.diagram[data-reveal="pending"] .node::before {
+  transform: scaleY(0);
+}
+
+.diagram[data-reveal="pending"] .dot {
+  transform: scale(0);
+}
+
+.diagram[data-reveal="pending"] .originBody,
+.diagram[data-reveal="pending"] .nodeBody {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-distance), 0);
+}
+
+.diagram[data-reveal="visible"] .origin::before,
+.diagram[data-reveal="visible"] .node::before {
+  transform: scaleY(1);
+  transition:
+    transform var(--dur-slow) var(--ease-decelerate),
+    background var(--dur-base) var(--ease-standard);
+  transition-delay: calc(var(--node-index) * var(--stagger-step));
+}
+
+.diagram[data-reveal="visible"] .dot {
+  transform: scale(1);
+  transition: transform var(--dur-base) var(--ease-decelerate);
+  transition-delay: calc(var(--node-index) * var(--stagger-step));
+}
+
+.diagram[data-reveal="visible"] .originBody,
+.diagram[data-reveal="visible"] .nodeBody {
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity var(--dur-reveal) var(--ease-decelerate),
+    transform var(--dur-reveal) var(--ease-decelerate);
+  transition-delay: calc(var(--node-index) * var(--stagger-step) + 60ms);
+}
+
+/* Opacity on the way in is not restated: once the pending rule stops
+   applying, the node's own emphasis rules above take the value back. */
+
+@media (prefers-reduced-motion: reduce) {
+  .diagram[data-reveal="pending"] .origin::before,
+  .diagram[data-reveal="pending"] .node::before,
+  .diagram[data-reveal="pending"] .dot {
+    transform: none;
   }
 
-  .table thead {
-    display: none;
+  .diagram[data-reveal="pending"] .originBody,
+  .diagram[data-reveal="pending"] .nodeBody {
+    transform: none;
+    opacity: 1;
   }
+}
 
-  .table tr {
-    display: grid;
-    gap: var(--space-1);
-    padding-block: var(--space-4);
-    border-bottom: 1px solid var(--border);
-  }
+/* --- The selected surface ------------------------------------------------ */
 
-  .table th,
-  .table td {
-    padding-block: 0;
-    border-bottom: 0;
-  }
+.panels {
+  min-width: 0;
+}
 
-  .stateCell {
-    text-align: left;
-    margin-top: var(--space-2);
+.panel {
+  min-width: 0;
+}
+
+/*
+ * Panels are toggled with the `hidden` attribute, so switching surface takes
+ * the panel from display:none to displayed — which restarts the animation
+ * below without needing a key change or a remount.
+ */
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--reveal-distance), 0);
   }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.panel:not([hidden]) {
+  animation: panelIn var(--dur-base) var(--ease-decelerate) both;
+}
+
+.panelHead {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-5);
+}
+
+.surfaceCode {
+  display: block;
+  font-family: var(--font-label);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  font-weight: var(--weight-medium);
+  color: var(--accent-text);
+}
+
+.surfaceTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  margin: var(--space-2) 0 0;
+  max-width: var(--measure-title);
+  text-wrap: balance;
+}
+
+.surfaceMeta {
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-body);
+  color: var(--muted);
+  margin: var(--space-3) 0 0;
+  max-width: var(--measure-body);
+}
+
+.surfaceStanding {
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-body);
+  color: var(--foreground);
+  margin: var(--space-1) 0 0;
+  max-width: var(--measure-body);
+}
+
+/* --- The four passages --------------------------------------------------- */
+
+.passages {
+  display: grid;
+  gap: var(--space-6);
+  margin: var(--space-8) 0 0;
+}
+
+.passage {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.passageLabel {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  font-family: var(--font-label);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  font-weight: var(--weight-medium);
+  color: var(--foreground);
+}
+
+.passageIndex {
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.passageBody {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  max-width: var(--measure-body);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* The passages arrive just behind the panel, in reading order. */
+.panel:not([hidden]) .passage {
+  animation: panelIn var(--dur-base) var(--ease-decelerate) both;
+}
+
+.panel:not([hidden]) .passage:nth-child(1) { animation-delay: 40ms; }
+.panel:not([hidden]) .passage:nth-child(2) { animation-delay: 80ms; }
+.panel:not([hidden]) .passage:nth-child(3) { animation-delay: 120ms; }
+.panel:not([hidden]) .passage:nth-child(n + 4) { animation-delay: 160ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .panel:not([hidden]) .passage {
+    animation-delay: 0ms;
+  }
+}
+
+/* --- Where BizzFly answers it -------------------------------------------- */
+
+/*
+ * The one marked block in the drawing's half of the section. The turn from
+ * "here is what happens to you" to "here is what we do" is the argument's
+ * hinge, and it gets a rule on its leading edge rather than a card.
+ */
+.response {
+  margin-top: var(--space-8);
+  padding-inline-start: var(--space-6);
+  border-inline-start: 2px solid var(--accent-edge);
+}
+
+.responseLabel {
+  display: block;
+  font-family: var(--font-label);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  font-weight: var(--weight-medium);
+  color: var(--accent-text);
+}
+
+/* --- Running prose ------------------------------------------------------- */
+
+.paragraph {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  max-width: var(--measure-body);
+  margin: var(--space-3) 0 0;
+  text-wrap: pretty;
+}
+
+.question {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+  max-width: var(--measure-lead);
+  margin: var(--space-3) 0 0;
+  text-wrap: pretty;
+}
+
+/* --- Lists --------------------------------------------------------------- */
+
+.listLabel {
+  font-family: var(--font-label);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  font-weight: var(--weight-medium);
+  color: var(--muted);
+  margin: var(--space-6) 0 0;
+}
+
+.points {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--measure-body);
+}
+
+/*
+ * A rule rather than a bullet glyph or a tick, matching the prose sections
+ * elsewhere on the site: it sits on the text's baseline band and does not
+ * depend on the font shipping a mark that suits the type.
+ */
+.point {
+  position: relative;
+  padding-left: var(--space-6);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+}
+
+.point::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: var(--space-4);
+  height: 1px;
+  background: var(--accent-edge);
+}
+
+/* --- Subsequent blocks: substrates, self-assessment, closing ------------- */
+
+.block {
+  display: grid;
+  gap: var(--space-3);
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-8);
+}
+
+.blockTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  margin: 0;
+  max-width: var(--measure-title);
+  text-wrap: balance;
+}
+
+/* A grid gap already separates the block's parts; paragraphs inside it that
+   open a passage should not add their own top margin on top of that. */
+.block > .paragraph {
+  margin-top: 0;
+}
+
+/*
+ * The two substrates sit side by side once there is room. They are a pair by
+ * definition — both are asked of every surface above — and stacking them made
+ * the section's last third read as more sequence than it is.
+ */
+.foundations {
+  display: grid;
+  gap: var(--space-10);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 900px) {
+  .foundations {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-12);
+    align-items: start;
+  }
+}
+
+.foundationTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  margin: var(--space-2) 0 0;
+  max-width: var(--measure-title);
+  text-wrap: balance;
+}
+
+/* --- The self-assessment ------------------------------------------------- */
+
+.checkList {
+  display: grid;
+  gap: var(--space-8);
+  margin: var(--space-4) 0 0;
+}
+
+@media (min-width: 900px) {
+  .checkList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-10);
+    align-items: start;
+  }
+}
+
+.checkItem {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+}
+
+.checkTerm {
+  font-family: var(--font-label);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  font-weight: var(--weight-medium);
+  color: var(--accent-text);
+}
+
+.checkBody {
+  margin: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.checkStatement {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.checkNote {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  margin: 0;
+  text-wrap: pretty;
 }

@@ -252,10 +252,10 @@ table {
 .t-eyebrow {
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  font-weight: var(--weight-medium);
-  line-height: 1.2;
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
   letter-spacing: var(--tracking-eyebrow);
-  color: var(--muted);
+  color: var(--accent-text);
 }
 
 .t-meta {

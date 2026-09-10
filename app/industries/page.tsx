@@ -66,7 +66,7 @@ export default function IndustriesIndexPage() {
       <Section spacing="lg">
         <SectionHeader
           split
-          eyebrow="Sectors"
+          eyebrow="01 / Sectors"
           title="Where we work, and what we see there"
           lead="Six shown in full — the sector context, the problems we hear most, and the work that addresses them. Every sector we publish is listed below."
         />
@@ -128,10 +128,16 @@ export default function IndustriesIndexPage() {
       </Section>
 
       {/* The complete set, grouped by how the business earns. */}
-      <Section background="surface" spacing="lg">
+      {/*
+        The tinted band rather than the grey one. Six sectors were shown in
+        full above; this is where the whole set is, and the page needs the
+        change of ground to say that the reader has moved from the selection
+        to the index.
+      */}
+      <Section background="tint" spacing="lg">
         <SectionHeader
           split
-          eyebrow="Every sector"
+          eyebrow="02 / Every sector"
           title={`All ${industries.length} industries`}
           lead="Grouped by business model rather than by category, because the digital problem a manufacturer has looks far more like a logistics operator's than like another company that happens to share its industry code."
         />
@@ -144,13 +150,13 @@ export default function IndustriesIndexPage() {
           className="mt-8"
         />
         <div className="mt-10">
-          <Directory groups={sectorGroups} />
+          <Directory groups={sectorGroups} filter={{ noun: "industries" }} />
         </div>
       </Section>
 
-      <Section spacing="md" width="content">
+      <Section background="surface" spacing="md" width="content">
         <SectionHeader
-          eyebrow="Not listed?"
+          eyebrow="03 / Not listed?"
           title="Sector fluency is earned, not claimed"
           level={2}
         />

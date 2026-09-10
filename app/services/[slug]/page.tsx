@@ -12,12 +12,13 @@ import {
   RelationshipMap,
   ConversionBand,
   EditorialBlock,
+  BeforeAfter,
   ContentBlock,
   Diagram,
   ProseSections,
 } from "@/components/sections";
 import { CtaBlock, TextLink } from "@/components/buttons";
-import { BodyText, Heading } from "@/components/typography";
+import { BodyText, Eyebrow, Heading } from "@/components/typography";
 import { JsonLd } from "@/components/JsonLd";
 import { practices, getPractice } from "@/content/practices";
 import { services, getService } from "@/content/services";
@@ -26,6 +27,19 @@ import { getServiceImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import { relationshipsForService } from "@/lib/relationships";
 import { buildMetadata, faqSchema, serviceSchema } from "@/lib/seo";
+
+/**
+ * The grounds an alternating band can take.
+ *
+ * Deliberately only the two light ones. Tint is reserved for the diagram
+ * section, which has to read as a different kind of thing wherever it lands,
+ * and inverse belongs to the conversion band that closes the page — a second
+ * dark band above it would take the emphasis off the one that matters.
+ */
+type SectionGround = "bg" | "surface";
+
+/** Zero-padded position, so the eyebrows read 01, 02 rather than 1, 2. */
+const pad = (position: number) => String(position).padStart(2, "0");
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -115,6 +129,16 @@ export default async function ServicePage({ params }: PageProps) {
       ]
     : [];
 
+  /*
+   * The problem and the outcomes become one section wherever a service states
+   * both. They are the two ends of the same engagement, and set several
+   * screens apart in identical shapes — heading, lead, numbered list — a
+   * reader never connects them.
+   */
+  const pairsProblemWithOutcome = Boolean(
+    service?.problems?.length && service?.outcomes?.length,
+  );
+
   const process = service?.approach ?? practice?.process ?? [];
   const hasDiagram = diagramKind !== "none";
 
@@ -130,7 +154,20 @@ export default async function ServicePage({ params }: PageProps) {
     layout, so a technology-led service does not read like a process-led one —
     without either needing a bespoke component.
   */
-  const sections = {
+  /*
+   * Every section is a function of the position it ends up in, because the
+   * order is composed below rather than fixed here.
+   *
+   * That buys two things the old map could not have. The eyebrows number
+   * themselves — "01 / The problem", "02 / Scope" — so a service page has the
+   * same spine the homepage does however its sections were ordered. And the
+   * ground alternates by position rather than by section name, so no two
+   * bands in a row share a background whatever the layout dropped or kept.
+   */
+  const sections: Record<
+    string,
+    ((position: number, ground: SectionGround) => React.ReactNode) | null
+  > = {
     /*
      * The explanation, before any of the lists.
      *
@@ -140,20 +177,46 @@ export default async function ServicePage({ params }: PageProps) {
      * read as specifications. This is where the page explains itself, and it
      * comes first because a reader needs the argument before the inventory.
      */
-    explainer: entity.sections?.length ? (
-      <ProseSections key="explainer" sections={entity.sections} />
-    ) : null,
+    explainer: entity.sections?.length
+      ? (_position, ground) => (
+          <ProseSections
+            key="explainer"
+            sections={entity.sections!}
+            background={ground}
+          />
+        )
+      : null,
 
-    problem: service?.problems?.length ? (
-      <Section key="problem" background="surface" spacing="lg">
-        <EditorialBlock
-          eyebrow="The problem"
-          title="What this is usually brought in to fix"
-          lead="Stated as we hear it, before any mention of what we would do about it."
-          evidence={service.problems}
-        />
-      </Section>
-    ) : null,
+    problem: service?.problems?.length
+      ? (position, ground) => (
+          <Section key="problem" background={ground} spacing="lg">
+            {pairsProblemWithOutcome ? (
+              <BeforeAfter
+                label="What this is brought in to fix, and what it is designed to improve"
+                before={{
+                  eyebrow: `${pad(position)} / The problem`,
+                  title: "What this is usually brought in to fix",
+                  lead: "Stated as we hear it, before any mention of what we would do about it.",
+                  items: service.problems,
+                }}
+                after={{
+                  eyebrow: "The intended result",
+                  title: "What this is designed to improve",
+                  lead: "Qualitative, because we do not publish numbers we cannot evidence.",
+                  items: service.outcomes,
+                }}
+              />
+            ) : (
+              <EditorialBlock
+                eyebrow={`${pad(position)} / The problem`}
+                title="What this is usually brought in to fix"
+                lead="Stated as we hear it, before any mention of what we would do about it."
+                evidence={service.problems}
+              />
+            )}
+          </Section>
+        )
+      : null,
 
     /*
      * The photograph moved to the hero.
@@ -166,71 +229,92 @@ export default async function ServicePage({ params }: PageProps) {
      */
     visual: null,
 
-    included: service?.included?.length ? (
-      <Section key="included" spacing="lg">
-        <EditorialBlock
-          eyebrow="Scope"
-          title="What is included"
-          lead="Stated plainly, so there is no ambiguity about what you are buying."
-          evidence={service.included}
-        />
-      </Section>
-    ) : null,
+    included: service?.included?.length
+      ? (position, ground) => (
+          <Section key="included" background={ground} spacing="lg">
+            <EditorialBlock
+              eyebrow={`${pad(position)} / Scope`}
+              title="What is included"
+              lead="Stated plainly, so there is no ambiguity about what you are buying."
+              evidence={service.included}
+            />
+          </Section>
+        )
+      : null,
 
-    process: process.length ? (
-      <Section key="process" background="surface" spacing="lg">
-        <SectionHeader
-          split
-          eyebrow="Approach"
-          title="How we work through it"
-          lead={service?.timeline}
-        />
-        <ProcessBlock steps={process} />
-      </Section>
-    ) : null,
+    process: process.length
+      ? (position, ground) => (
+          <Section key="process" background={ground} spacing="lg">
+            <SectionHeader
+              split
+              eyebrow={`${pad(position)} / Approach`}
+              title="How we work through it"
+              lead={service?.timeline}
+            />
+            <ProcessBlock steps={process} label="How we work through it" />
+          </Section>
+        )
+      : null,
 
-    diagram: hasDiagram ? (
-      <Section key="diagram" spacing="md" width="content">
-        <SectionHeader
-          eyebrow="How it works"
-          title="The mechanism, not the marketing"
-          level={2}
-        />
-        <div className="mt-8">
-          <Diagram kind={diagramKind} />
-        </div>
-      </Section>
-    ) : null,
+    /*
+     * The mechanism, on the tinted band whatever position it lands in.
+     *
+     * This is the one section on the page that is a drawing rather than a
+     * list, and it is the page's centre of gravity. Alternating grey with
+     * everything around it left it reading as one more band; the tint marks
+     * it as a different kind of thing, which is what the homepage does with
+     * its own signature section.
+     */
+    diagram: hasDiagram
+      ? (position) => (
+          <Section key="diagram" background="tint" spacing="lg" width="content">
+            <SectionHeader
+              eyebrow={`${pad(position)} / How it works`}
+              title="The mechanism, not the marketing"
+              level={2}
+            />
+            <div className="mt-8">
+              <Diagram kind={diagramKind} />
+            </div>
+          </Section>
+        )
+      : null,
 
-    outcomes: service?.outcomes?.length ? (
-      <Section key="outcomes" spacing="lg">
-        <EditorialBlock
-          eyebrow="Outcomes"
-          title="What this is designed to improve"
-          lead="Qualitative, because we do not publish numbers we cannot evidence."
-          evidence={service.outcomes}
-        />
-      </Section>
-    ) : null,
+    /* Only when it was not already paired with the problem above. */
+    outcomes: !pairsProblemWithOutcome && service?.outcomes?.length
+      ? (position, ground) => (
+          <Section key="outcomes" background={ground} spacing="lg">
+            <EditorialBlock
+              eyebrow={`${pad(position)} / Outcomes`}
+              title="What this is designed to improve"
+              lead="Qualitative, because we do not publish numbers we cannot evidence."
+              evidence={service.outcomes}
+            />
+          </Section>
+        )
+      : null,
 
-    boundary: service?.outOfScope?.length ? (
-      <Section key="boundary" background="surface" spacing="md">
-        <ContentBlock>
-          <Heading level={2} size="h3">
-            What this does not include
-          </Heading>
-          <ul>
-            {service.outOfScope.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <BodyText muted>
-            Naming the boundary early removes the most common source of
-            disappointment in an engagement.
-          </BodyText>
-        </ContentBlock>
-      </Section>
-    ) : null,
+    boundary: service?.outOfScope?.length
+      ? (position, ground) => (
+          <Section key="boundary" background={ground} spacing="md">
+            <ContentBlock>
+              <Eyebrow>{`${pad(position)} / The boundary`}</Eyebrow>
+              <Heading level={2} size="h3">
+                What this does not include
+              </Heading>
+              <ul>
+                {service.outOfScope!.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <BodyText muted>
+                Naming the boundary early removes the most common source of
+                disappointment in an engagement.
+              </BodyText>
+            </ContentBlock>
+          </Section>
+        )
+      : null,
   };
 
   /*
@@ -354,11 +438,32 @@ export default async function ServicePage({ params }: PageProps) {
         </Section>
       ) : null}
 
-      {composed.map((key) => sections[key])}
+      {/*
+        Position decides the eyebrow number and the ground: the explainer
+        opens on the page background, and every band after it alternates.
+        Nothing here knows which sections a given service happens to have,
+        which is the point — a service with no process steps still gets a
+        page whose bands alternate and whose eyebrows count from one.
+      */}
+      {composed.map((key, index) =>
+        sections[key]?.(index + 1, index % 2 === 0 ? "bg" : "surface"),
+      )}
 
+      {/*
+        The questions carry on the same count rather than restarting at an
+        unnumbered eyebrow, and take whichever ground the alternation is on
+        when the composed sections run out.
+      */}
       {entity.faqs?.length ? (
-        <Section spacing="lg">
-          <SectionHeader split eyebrow="Questions" title="Common questions" />
+        <Section
+          spacing="lg"
+          background={composed.length % 2 === 0 ? "bg" : "surface"}
+        >
+          <SectionHeader
+            split
+            eyebrow={`${pad(composed.length + 1)} / Questions`}
+            title="Common Questions"
+          />
           <FAQBlock faqs={entity.faqs} />
         </Section>
       ) : null}
@@ -382,15 +487,16 @@ export default async function ServicePage({ params }: PageProps) {
             level={2}
           />
           <RelationshipMap relationships={rel} />
-          <div className="mt-8">
+          <div className="mt-6 mb-10">
             <TextLink href="/services/">All services</TextLink>
           </div>
+          <ExploreNext href={path} />
         </Section>
-      ) : null}
-
-      <Section spacing="md">
-        <ExploreNext href={path} />
-      </Section>
+      ) : (
+        <Section spacing="md">
+          <ExploreNext href={path} />
+        </Section>
+      )}
 
       <ConversionBand cta={entity.cta} />
     </>

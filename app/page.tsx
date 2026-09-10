@@ -26,7 +26,7 @@ import {
   type Stat,
   type InsightEntry,
 } from "@/components/sections";
-import { Marquee, MarqueeItem, Reveal } from "@/components/motion";
+import { Marquee, MarqueeItem } from "@/components/motion";
 import { TextLink } from "@/components/buttons";
 import { BodyText } from "@/components/typography";
 import { JsonLd } from "@/components/JsonLd";
@@ -341,19 +341,18 @@ export default function HomePage() {
       */}
       <Section background="inverse" spacing="md" id="scale">
         {/*
-          Revealed here rather than inside SectionHeader: that component is on
-          fifteen page files and giving it a reveal would animate every
-          section on the site, which is a different decision from animating
-          this one.
+          The reveal now lives in SectionHeader itself. It used to be here
+          because animating every section on the site was a bigger decision
+          than animating this one; the subpages have since been brought up to
+          the homepage's motion, so that decision has been taken and the
+          wrapper would only reveal an element that already reveals itself.
         */}
-        <Reveal>
-          <SectionHeader
-            centred
-            eyebrow="05 / Published"
-            title="What is actually on this site"
-            lead="Not awards, not client counts. These are the pages we have written and stand behind — the only numbers we can currently put a source against."
-          />
-        </Reveal>
+        <SectionHeader
+          centred
+          eyebrow="05 / Published"
+          title="What is actually on this site"
+          lead="Not awards, not client counts. These are the pages we have written and stand behind — the only numbers we can currently put a source against."
+        />
         <StatBand stats={stats} />
       </Section>
 
@@ -555,7 +554,7 @@ export default function HomePage() {
         <div className={styles.faqWrap}>
           <FAQBlock faqs={homeFaqs} />
           <div className={styles.sectionFooter}>
-            <TextLink href="/company/faq/">All questions</TextLink>
+            <TextLink href="/company/faq/">All Questions</TextLink>
           </div>
         </div>
       </Section>

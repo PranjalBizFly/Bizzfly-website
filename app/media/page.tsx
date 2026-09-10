@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
-import { EditorialHero } from "@/components/hero";
+import { SplitHero } from "@/components/hero";
 import {
   ContentBlock,
   ConversionBand,
@@ -89,11 +89,13 @@ export default function MediaPage() {
         }}
       />
 
-      <EditorialHero
+      <SplitHero
         eyebrow="Company"
         title="Media & Press Enquiries"
         lead="Official media relations desk and company information for journalists, editors, and industry analysts covering search, AI visibility, software engineering, and automation in India."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Media" }]}
+        asideHeading="What we can speak to"
+        asideItems={topics.map((item) => item.title)}
         actions={<CtaBlock cta={cta} size="lg" />}
       />
 

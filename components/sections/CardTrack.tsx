@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ImageMetadata } from "@/content/images/types";
+import { Reveal } from "@/components/motion";
 import styles from "./CardTrack.module.css";
 
 export interface CardTrackEntry {
@@ -265,7 +266,7 @@ export function CardTrack({
     ));
 
   return (
-    <div className={styles.wrapper}>
+    <Reveal className={styles.wrapper}>
       <div
         ref={viewportRef}
         className={styles.viewport}
@@ -310,6 +311,6 @@ export function CardTrack({
           <span aria-hidden="true">&rarr;</span>
         </button>
       </div>
-    </div>
+    </Reveal>
   );
 }

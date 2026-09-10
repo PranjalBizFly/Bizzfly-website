@@ -18,8 +18,16 @@
   letter-spacing: var(--tracking-h3);
   line-height: var(--leading-snug);
   color: var(--foreground);
+  text-align: center;
+  margin-inline: auto;
+  max-width: none;
   text-wrap: balance;
-  max-width: var(--measure-title);
+}
+
+@media (min-width: 768px) {
+  .heading {
+    white-space: nowrap;
+  }
 }
 
 /*
@@ -30,6 +38,7 @@
  */
 .paragraph {
   margin-top: var(--space-5);
+  margin-inline: auto;
   font-size: var(--text-body-lg);
   line-height: var(--leading-relaxed);
   color: var(--muted);
@@ -44,7 +53,7 @@
 
 .points {
   list-style: none;
-  margin: var(--space-8) 0 0;
+  margin: var(--space-8) auto 0;
   padding: 0;
   display: grid;
   gap: var(--space-4);

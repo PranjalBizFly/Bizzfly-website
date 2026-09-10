@@ -85,7 +85,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
   const sections = {
     context: hasContent(study.context) ? (
-      <Section key="context" spacing="lg" width="text">
+      <Section key="context" spacing="lg" width="content">
         <ContentBlock>
           <Heading level={2} size="h3">
             Context
@@ -96,7 +96,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
     ) : null,
 
     challenge: hasContent(study.challenge) ? (
-      <Section key="challenge" background="surface" spacing="lg" width="text">
+      <Section key="challenge" background="surface" spacing="lg" width="content">
         <ContentBlock>
           <Heading level={2} size="h3">
             The business problem
@@ -118,7 +118,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
     ) : null,
 
     strategy: hasContent(study.strategy) ? (
-      <Section key="strategy" spacing="lg" width="text">
+      <Section key="strategy" spacing="lg" width="content">
         <ContentBlock>
           <Heading level={2} size="h3">
             Strategy
@@ -137,7 +137,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
     /* Mandatory in the model — a case study without it reads as fiction. */
     challenges: hasContent(study.challenges) ? (
-      <Section key="challenges" spacing="lg" width="text">
+      <Section key="challenges" spacing="lg" width="content">
         <ContentBlock>
           <Heading level={2} size="h3">
             What went wrong
@@ -182,7 +182,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
     ) : null,
 
     lessons: hasContent(study.lessons) ? (
-      <Section key="lessons" spacing="lg" width="text">
+      <Section key="lessons" spacing="lg" width="content">
         <ContentBlock>
           <Heading level={2} size="h3">
             What we learned
@@ -245,7 +245,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             level={2}
           />
           <RelationshipMap relationships={{ ...relationships, all: allRelated }} />
-          <div className="mt-8">
+          <div className="mt-6">
             <TextLink href="/case-studies/">All case studies</TextLink>
           </div>
         </Section>

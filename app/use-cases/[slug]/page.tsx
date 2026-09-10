@@ -10,12 +10,12 @@ import {
   RelatedContent,
   RelationshipMap,
   ConversionBand,
-  EditorialBlock,
+  BeforeAfter,
   ContentBlock,
   Diagram,
 } from "@/components/sections";
 import { CtaBlock, TextLink } from "@/components/buttons";
-import { BodyText, Heading } from "@/components/typography";
+import { BodyText, Eyebrow, Heading } from "@/components/typography";
 import { JsonLd } from "@/components/JsonLd";
 import { useCases, getUseCase } from "@/content/use-cases";
 import { getUseCaseImage } from "@/content/images";
@@ -23,6 +23,15 @@ import { isPublished } from "@/lib/registry";
 import { relationshipsForUseCase } from "@/lib/relationships";
 import { buildMetadata, faqSchema } from "@/lib/seo";
 import { site } from "@/content/site";
+
+/** The two light grounds a band alternates between. */
+type SectionGround = "bg" | "surface";
+
+/** A section that takes its eyebrow number and ground from its position. */
+type PlacedSection = (position: number, ground: SectionGround) => React.ReactElement;
+
+/** Zero-padded position, so the eyebrows read 01, 02 rather than 1, 2. */
+const pad = (position: number) => String(position).padStart(2, "0");
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -70,86 +79,127 @@ export default async function UseCasePage({ params }: PageProps) {
         }
       : null;
 
-  const diagnosis = (
-    <Section key="diagnosis" background="surface" spacing="lg">
-      <EditorialBlock
-        eyebrow="Diagnosis"
-        title="Why this usually happens"
-        lead="The visible symptom is rarely the cause. These are the underlying reasons we find most often."
-        evidence={useCase.rootCauses}
+  /*
+   * Each section decides its eyebrow number and its ground from where the
+   * layout puts it, rather than carrying a fixed one. Three layouts reorder
+   * these, so a hard-coded background meant two grey bands could end up
+   * adjacent and the numbering could not exist at all.
+   *
+   * The mechanism keeps the tint wherever it lands: it is the one section
+   * that is a drawing rather than a statement, and it should not read as
+   * another band of prose.
+   */
+  /*
+   * The diagnosis and the outcome, in one band.
+   *
+   * "What good looks like" was a single paragraph in a section of its own —
+   * 350px for two sentences, several screens below the causes it resolves.
+   * Set opposite those causes with the direction of travel drawn between
+   * them, it says the thing the page is actually claiming: these are the
+   * reasons it happens, and this is the state on the other side of the work.
+   */
+  const diagnosis: PlacedSection = (position, ground) => (
+    <Section key="diagnosis" background={ground} spacing="lg">
+      <BeforeAfter
+        label="Why this happens, and what good looks like"
+        before={{
+          eyebrow: `${pad(position)} / Diagnosis`,
+          title: "Why this usually happens",
+          lead: "The visible symptom is rarely the cause. These are the underlying reasons we find most often.",
+          items: useCase.rootCauses,
+        }}
+        after={{
+          eyebrow: "The outcome",
+          title: "What good looks like",
+          text: useCase.targetState,
+        }}
       />
     </Section>
   );
 
   const useCaseVisual = getUseCaseImage(slug);
 
-  const matters = useCase.whyItMatters ? (
-    <Section key="matters" spacing="lg" width="content">
-      {/*
-        The photograph opens the page as the hero's portrait column. Each use
-        case owns one image and none is shown twice, so this section makes its
-        case in type.
-      */}
-      <ContentBlock>
-        <Heading level={2} size="h3">
-          Why it matters
-        </Heading>
-        <BodyText size="lg">{useCase.whyItMatters}</BodyText>
-      </ContentBlock>
-    </Section>
-  ) : null;
+  const matters: PlacedSection | null = useCase.whyItMatters
+    ? (position, ground) => (
+        <Section key="matters" background={ground} spacing="lg" width="content">
+          {/*
+            The photograph opens the page as the hero's portrait column. Each
+            use case owns one image and none is shown twice, so this section
+            makes its case in type.
+          */}
+          <ContentBlock>
+            <Eyebrow>{`${pad(position)} / Context`}</Eyebrow>
+            <Heading level={2} size="h3">
+              Why it matters
+            </Heading>
+            <BodyText size="lg">{useCase.whyItMatters}</BodyText>
+          </ContentBlock>
+        </Section>
+      )
+    : null;
 
-  const approach = (
-    <Section key="approach" spacing="lg">
+  const approach: PlacedSection = (position, ground) => (
+    <Section key="approach" background={ground} spacing="lg">
       <SectionHeader
         split
-        eyebrow="How we solve it"
+        eyebrow={`${pad(position)} / How we solve it`}
         title="The sequence that works"
         lead={useCase.realisticTimeline}
       />
-      <ProcessBlock steps={useCase.approach} />
+      <ProcessBlock steps={useCase.approach} label="The sequence that works" />
     </Section>
   );
 
-  const target = (
-    <Section key="target" background="surface" spacing="md" width="text">
-      <ContentBlock>
-        <Heading level={2} size="h3">
-          What good looks like
-        </Heading>
-        <BodyText size="lg">{useCase.targetState}</BodyText>
-      </ContentBlock>
-    </Section>
-  );
+  /* Folded into the diagnosis band above; the slot stays so the three layout
+     orders below still describe the same set. */
+  const target: PlacedSection | null = null;
 
-  const diagram =
-    useCase.diagram && useCase.diagram !== "none" ? (
-      <Section key="diagram" spacing="md" width="content">
-        <SectionHeader
-          eyebrow="How it works"
-          title="The mechanism behind the change"
-          level={2}
-        />
-        <div className="mt-8">
-          <Diagram kind={useCase.diagram} />
-        </div>
-      </Section>
-    ) : null;
+  const diagram: PlacedSection | null =
+    useCase.diagram && useCase.diagram !== "none"
+      ? (position) => (
+          <Section key="diagram" background="tint" spacing="lg" width="content">
+            <SectionHeader
+              eyebrow={`${pad(position)} / How it works`}
+              title="The mechanism behind the change"
+              level={2}
+            />
+            <div className="mt-8">
+              <Diagram kind={useCase.diagram!} />
+            </div>
+          </Section>
+        )
+      : null;
 
-  const capabilities =
-    rel.services.length > 0 ? (
-      <Section key="capabilities" spacing="lg">
-        <SectionHeader split eyebrow="Capabilities" title="Services involved" />
-        <RelatedContent mode="list" items={rel.services} />
-      </Section>
-    ) : null;
+  const capabilities: PlacedSection | null =
+    rel.services.length > 0
+      ? (position, ground) => (
+          <Section key="capabilities" background={ground} spacing="lg">
+            <SectionHeader
+              split
+              eyebrow={`${pad(position)} / Capabilities`}
+              title="Services involved"
+            />
+            <RelatedContent mode="list" items={rel.services} />
+          </Section>
+        )
+      : null;
 
-  const order =
+  const order = (
     layout === "workflow-led"
       ? [diagnosis, approach, diagram, target, capabilities, matters]
       : layout === "outcome-led"
         ? [matters, target, diagnosis, approach, capabilities, diagram]
-        : [diagnosis, matters, approach, target, capabilities, diagram];
+        : [diagnosis, matters, approach, target, capabilities, diagram]
+  ).filter((section): section is PlacedSection => section !== null);
+
+  /* The tinted mechanism sits outside the alternation, so the light bands
+     either side of it still differ from each other. */
+  let lightIndex = 0;
+  const composed = order.map((section, index) => {
+    const ground: SectionGround = lightIndex % 2 === 0 ? "bg" : "surface";
+    if (section !== diagram) lightIndex += 1;
+    return section(index + 1, ground);
+  });
 
   return (
     <>
@@ -199,11 +249,15 @@ export default async function UseCasePage({ params }: PageProps) {
         />
       )}
 
-      {order}
+      {composed}
 
       {useCase.faqs?.length ? (
         <Section background="surface" spacing="lg">
-          <SectionHeader split eyebrow="Questions" title="Common questions" />
+          <SectionHeader
+            split
+            eyebrow={`${pad(composed.length + 1)} / Questions`}
+            title="Common Questions"
+          />
           <FAQBlock faqs={useCase.faqs} />
         </Section>
       ) : null}
@@ -216,15 +270,16 @@ export default async function UseCasePage({ params }: PageProps) {
             level={2}
           />
           <RelationshipMap relationships={rel} />
-          <div className="mt-8">
+          <div className="mt-6 mb-10">
             <TextLink href="/use-cases/">All use cases</TextLink>
           </div>
+          <ExploreNext href={`/use-cases/${slug}/`} />
         </Section>
-      ) : null}
-
-      <Section spacing="md">
-        <ExploreNext href={`/use-cases/${slug}/`} />
-      </Section>
+      ) : (
+        <Section spacing="md">
+          <ExploreNext href={`/use-cases/${slug}/`} />
+        </Section>
+      )}
 
       <ConversionBand cta={useCase.cta} />
     </>

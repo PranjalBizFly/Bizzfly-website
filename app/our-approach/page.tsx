@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/layout/Section";
-import { EditorialHero } from "@/components/hero";
+import { CinematicHero, EditorialHero } from "@/components/hero";
 import {
   SectionHeader,
   ProcessBlock,
@@ -8,7 +8,6 @@ import {
   ConversionBand,
   RelatedContent,
   FAQBlock,
-  VisualStoryBlock,
 } from "@/components/sections";
 import { CtaBlock } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
@@ -127,32 +126,55 @@ export default function OurApproachPage() {
       />
       <JsonLd data={faqSchema(faqs)} />
 
-      <EditorialHero
-        eyebrow="Company"
-        title="Our Approach"
-        lead="Every engagement starts with diagnosis rather than a proposal. We spend the first two weeks establishing which constraint is actually binding, because fixing the wrong one is the expensive mistake — and you keep those findings whether or not you continue with us."
-        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Our Approach" }]}
-        actions={<CtaBlock cta={cta} size="lg" />}
-      />
-
+      {/*
+        The engagement photograph opens the page instead of sitting in a band
+        of its own halfway down it. It was doing nothing there — a picture
+        with no argument beside it — and this page had no opening composition
+        at all, which is what made it read as a document rather than as part
+        of the same site as the homepage. The fact cards carry the three
+        commitments the page already makes further down; none of them is a
+        number this site cannot evidence.
+      */}
       {companyVisual ? (
-        <Section spacing="md" width="content">
-          <VisualStoryBlock
-            image={companyVisual}
-            variant="C"
-            caption={companyVisual.caption}
-          />
-        </Section>
-      ) : null}
+        <CinematicHero
+          image={companyVisual}
+          composition="inset"
+          eyebrow="Company"
+          title="Our Approach"
+          lead="Every engagement starts with diagnosis rather than a proposal. We spend the first two weeks establishing which constraint is actually binding, because fixing the wrong one is the expensive mistake — and you keep those findings whether or not you continue with us."
+          breadcrumbs={[{ label: "Home", href: "/" }, { label: "Our Approach" }]}
+          factsHeading="What that means in practice"
+          facts={[
+            { label: "Week 0", value: "Thirty minutes on the problem, not a pitch" },
+            { label: "Weeks 1–2", value: "Diagnosis you keep either way" },
+            { label: "Day one", value: "Intellectual property is yours" },
+          ]}
+          actions={<CtaBlock cta={cta} size="lg" />}
+        />
+      ) : (
+        <EditorialHero
+          eyebrow="Company"
+          title="Our Approach"
+          lead="Every engagement starts with diagnosis rather than a proposal. We spend the first two weeks establishing which constraint is actually binding, because fixing the wrong one is the expensive mistake — and you keep those findings whether or not you continue with us."
+          breadcrumbs={[{ label: "Home", href: "/" }, { label: "Our Approach" }]}
+          actions={<CtaBlock cta={cta} size="lg" />}
+        />
+      )}
 
-      <Section spacing="lg" width="text">
+      {/*
+        01 — the argument, as a section rather than as a column of text
+        floating in the middle of the page. The claim is the heading and the
+        reasoning sits beside it, which is the shape every argument on the
+        homepage takes.
+      */}
+      <Section background="tint" spacing="lg">
+        <SectionHeader
+          split
+          eyebrow="01 / Why this order"
+          title="Most agency relationships fail the same way"
+          lead="A proposal is written before anyone understands the problem, work is delivered against that proposal, and six months later the commercial result has not moved because the original diagnosis was wrong. The work was done competently; it was simply the wrong work."
+        />
         <ContentBlock>
-          <p>
-            Most agency relationships fail the same way. A proposal is written before anyone
-            understands the problem, work is delivered against that proposal, and six months
-            later the commercial result has not moved because the original diagnosis was wrong.
-            The work was done competently; it was simply the wrong work.
-          </p>
           <p>
             We run it in the other order. Diagnosis first, scoped proposal second. That means our
             first deliverable is usually a document telling you what is broken — including the
@@ -161,29 +183,31 @@ export default function OurApproachPage() {
         </ContentBlock>
       </Section>
 
-      <Section background="surface" spacing="lg">
+      {/* 02 — the engagement itself, drawn as the path it is. */}
+      <Section spacing="lg">
         <SectionHeader
           split
-          eyebrow="Process"
+          eyebrow="02 / Process"
           title="How an engagement runs"
           lead="Five stages. The first two are the ones most suppliers skip, and the reason most engagements miss."
         />
-        <ProcessBlock steps={engagement} />
+        <ProcessBlock steps={engagement} label="How an engagement runs" />
       </Section>
 
       {relatedServices.length > 0 ? (
-        <Section spacing="md">
+        <Section background="surface" spacing="lg">
           <SectionHeader
-            eyebrow="Applied"
+            split
+            eyebrow="03 / Applied"
             title="The same method across every practice"
-            level={2}
+            lead="The order does not change with the discipline. What changes is what the diagnosis is looking at."
           />
           <RelatedContent mode="list" items={relatedServices} />
         </Section>
       ) : null}
 
       <Section spacing="lg">
-        <SectionHeader split eyebrow="Questions" title="Common questions" />
+        <SectionHeader split eyebrow="04 / Questions" title="Common Questions" />
         <FAQBlock faqs={faqs} />
       </Section>
 

@@ -108,7 +108,7 @@ export default function CompanyIndexPage() {
       <Section spacing="lg">
         <SectionHeader
           split
-          eyebrow="What we optimise for"
+          eyebrow="01 / What we optimise for"
           title="Three things we hold every engagement against"
           lead="Not slogans. Each one has cost us work we would otherwise have taken."
         />
@@ -129,10 +129,10 @@ export default function CompanyIndexPage() {
         </div>
       </Section>
 
-      <Section background="surface" spacing="lg">
+      <Section background="tint" spacing="lg">
         <SectionHeader
           split
-          eyebrow="More"
+          eyebrow="02 / More"
           title="About the company"
           lead="Everything we publish about how we work, priced, scoped and bounded."
         />

@@ -275,7 +275,7 @@ export const transparencyPages: CompanyPage[] = [
   {
     slug: "faq",
     section: "about",
-    title: "Frequently asked questions",
+    title: "Frequently Asked Questions",
     eyebrow: "Working together",
     answer:
       "The questions that come up before a first call: what we do, how engagements start, how long things take, what we guarantee, and who owns what we build. Answered directly, including where the answer is unwelcome.",
@@ -326,7 +326,7 @@ export const transparencyPages: CompanyPage[] = [
       },
     ],
     seo: {
-      title: "Frequently asked questions",
+      title: "Frequently Asked Questions",
       description:
         "What we do, how engagements start, how long results take, what we guarantee, and who owns the code. The questions asked before a first call.",
       primaryTopic: "bizzfly faq",

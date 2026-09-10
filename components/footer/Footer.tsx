@@ -280,7 +280,7 @@ export function Footer() {
               ) : null}
 
               <div className={styles.commitBlock}>
-                <p className={styles.commitHeading}>What we commit to</p>
+                <p className={styles.commitHeading}>What we commit&nbsp;to</p>
                 <ul className={styles.commitList}>
                   {commitments.map((line) => (
                     <li key={line} className={styles.commitItem}>

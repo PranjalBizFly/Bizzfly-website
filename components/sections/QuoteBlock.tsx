@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion";
 import styles from "./Sections.module.css";
 
 interface QuoteBlockProps {
@@ -11,13 +12,13 @@ interface QuoteBlockProps {
  */
 export function QuoteBlock({ quote, attribution }: QuoteBlockProps) {
   return (
-    <figure className={styles.quote}>
+    <Reveal as="figure" className={styles.quote}>
       <blockquote>
         <p className={`t-quote ${styles.quoteText}`}>{quote}</p>
       </blockquote>
       {attribution ? (
         <figcaption className={styles.quoteAttribution}>{attribution}</figcaption>
       ) : null}
-    </figure>
+    </Reveal>
   );
 }

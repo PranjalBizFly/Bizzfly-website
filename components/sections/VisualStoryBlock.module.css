@@ -80,6 +80,14 @@
   }
 }
 
+/*
+ * Image-only: the split grid has one child, so a 5fr/7fr template would size
+ * the figure to 5/12 of the column and leave the rest empty. One track instead.
+ */
+.variantB.solo {
+  grid-template-columns: 1fr;
+}
+
 .variantBContent {
   display: flex;
   flex-direction: column;

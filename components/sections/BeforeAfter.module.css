@@ -1,0 +1,237 @@
+/* ==========================================================================
+   BeforeAfter — two states of one engagement, and the movement between them
+
+   A three-track grid: the situation, a drawn connector, the intended result.
+   Stacked below 900px with the connector rotated to run down the page, so the
+   direction of travel survives the reflow instead of being implied by order.
+   ========================================================================== */
+
+.band {
+  display: grid;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .band {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: var(--space-10);
+  }
+}
+
+/* --- A side ------------------------------------------------------------- */
+
+.side {
+  min-width: 0;
+}
+
+/*
+ * The result side is set on the page ground with a hairline down its leading
+ * edge rather than in a panel: the two sides are the same kind of statement,
+ * and boxing one of them would rank it above the other.
+ */
+@media (min-width: 900px) {
+  .side[data-tone="after"] {
+    padding-inline-start: var(--space-10);
+    border-inline-start: 1px solid var(--border);
+  }
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--accent-text);
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  margin: var(--space-3) 0 0;
+  max-width: var(--measure-title);
+  text-wrap: balance;
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  margin: var(--space-3) 0 0;
+  max-width: var(--measure-body);
+  text-wrap: pretty;
+}
+
+/* --- The enumerated statements ------------------------------------------ */
+
+.items {
+  list-style: none;
+  margin: var(--space-8) 0 0;
+  padding: 0;
+  display: grid;
+  border-top: 1px solid var(--border);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--border);
+  transition: background var(--dur-fast) var(--ease-standard);
+}
+
+/*
+ * Emphasis on hover, and on the row a keyboard visitor has landed inside.
+ * It reveals nothing — every word is in the DOM at all times — it only makes
+ * the row being read separable from the ones around it.
+ */
+.item:hover,
+.item:focus-within {
+  background: var(--surface);
+}
+
+.index {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+  padding-inline-start: var(--space-2);
+}
+
+.side[data-tone="after"] .index {
+  color: var(--accent-text);
+}
+
+.itemText {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+  padding-inline-end: var(--space-2);
+  text-wrap: pretty;
+}
+
+.text {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+  margin: var(--space-6) 0 0;
+  max-width: var(--measure-lead);
+  text-wrap: pretty;
+}
+
+/* --- The connector ------------------------------------------------------ */
+
+/*
+ * Horizontal on a phone, vertical from 900px. The arrow sits on the rule and
+ * carries the page ground behind it so the line appears to pass through it.
+ */
+.connector {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: var(--space-10);
+}
+
+@media (min-width: 900px) {
+  .connector {
+    min-height: 0;
+    align-self: stretch;
+    width: var(--space-6);
+  }
+}
+
+.rule {
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--accent-edge);
+  transform-origin: left;
+}
+
+@media (min-width: 900px) {
+  .rule {
+    inset-inline: auto;
+    inset-block: 0;
+    left: 50%;
+    width: 1px;
+    height: auto;
+    transform-origin: top;
+  }
+}
+
+.arrow {
+  position: relative;
+  padding: var(--space-2);
+  background: var(--background);
+  color: var(--accent-edge);
+  font-size: var(--text-body-lg);
+  line-height: 1;
+}
+
+/* Stacked, the travel is down the page; in two columns it is across them. */
+.arrow {
+  transform: rotate(90deg);
+}
+
+@media (min-width: 900px) {
+  .arrow {
+    transform: none;
+  }
+}
+
+/*
+ * Cascade puts data-reveal on this element and fades the three tracks in by
+ * position. The rule and the arrow are inside a track, so they need their own
+ * pass: the line draws first, the arrow lands on it.
+ */
+.band[data-reveal="pending"] .rule {
+  transform: scaleX(0);
+}
+
+@media (min-width: 900px) {
+  .band[data-reveal="pending"] .rule {
+    transform: scaleY(0);
+  }
+}
+
+.band[data-reveal="pending"] .arrow {
+  opacity: 0;
+}
+
+.band[data-reveal="visible"] .rule {
+  transform: scaleX(1);
+  transition: transform var(--dur-reveal) var(--ease-decelerate);
+  transition-delay: var(--stagger-step);
+}
+
+@media (min-width: 900px) {
+  .band[data-reveal="visible"] .rule {
+    transform: scaleY(1);
+  }
+}
+
+.band[data-reveal="visible"] .arrow {
+  opacity: 1;
+  transition: opacity var(--dur-base) var(--ease-standard);
+  transition-delay: calc(var(--stagger-step) * 3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .band[data-reveal="pending"] .rule {
+    transform: none;
+  }
+
+  .band[data-reveal="pending"] .arrow {
+    opacity: 1;
+  }
+}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import type { ImageMetadata } from "@/content/images/types";
+import { Reveal } from "@/components/motion";
 import styles from "./VisualStoryBlock.module.css";
 
 export interface VisualStoryBlockProps {
@@ -78,8 +79,22 @@ export function VisualStoryBlock({
             ? styles.variantDContent
             : styles.variantBContent
     }>
-      {eyebrow ? <span className={styles.eyebrow}>{eyebrow}</span> : null}
-      {title ? <HeadingTag className={styles.title}>{title}</HeadingTag> : null}
+      {/*
+        The eyebrow and the title are one unit.
+        Variant C lays this content out as a two-column grid — label column,
+        reading column — and an eyebrow, a title and a lead are three
+        children. The grid placed them one per cell, which put the title in
+        the reading column and pushed the lead back under the eyebrow, so the
+        section read as three fragments rather than as a heading and its
+        paragraph. Grouping them makes the child count match the columns, and
+        costs the other variants nothing: they are flex columns either way.
+      */}
+      {eyebrow || title ? (
+        <div className={styles.titleGroup}>
+          {eyebrow ? <span className={styles.eyebrow}>{eyebrow}</span> : null}
+          {title ? <HeadingTag className={styles.title}>{title}</HeadingTag> : null}
+        </div>
+      ) : null}
       {lead ? (
         typeof lead === "string" ? (
           <p className={styles.lead}>{lead}</p>
@@ -93,45 +108,46 @@ export function VisualStoryBlock({
 
   if (variant === "A") {
     return (
-      <div className={`${styles.wrapper} ${styles.variantA} ${className ?? ""}`}>
+      <Reveal className={`${styles.wrapper} ${styles.variantA} ${className ?? ""}`}>
         {imageElement}
         {textContent}
-      </div>
+      </Reveal>
     );
   }
 
   if (variant === "C") {
     return (
-      <div className={`${styles.wrapper} ${styles.variantC} ${className ?? ""}`}>
+      <Reveal className={`${styles.wrapper} ${styles.variantC} ${className ?? ""}`}>
         {imageElement}
         {textContent}
-      </div>
+      </Reveal>
     );
   }
 
   if (variant === "D") {
     return (
-      <div className={`${styles.wrapper} ${styles.variantD} ${className ?? ""}`}>
+      <Reveal className={`${styles.wrapper} ${styles.variantD} ${className ?? ""}`}>
         {imageElement}
         {textContent}
-      </div>
+      </Reveal>
     );
   }
 
   if (variant === "E") {
     return (
-      <div className={`${styles.wrapper} ${styles.variantE} ${className ?? ""}`}>
+      <Reveal className={`${styles.wrapper} ${styles.variantE} ${className ?? ""}`}>
         {imageElement}
-      </div>
+      </Reveal>
     );
   }
 
-  // Default: Variant B (split)
+  // Default: Variant B (split). With nothing beside it, the split would strand
+  // the figure in the 5fr track, so an image-only block collapses to one column.
   return (
-    <div
+    <Reveal
       className={`${styles.wrapper} ${styles.variantB} ${
-        reverse ? styles.variantBReverse : ""
-      } ${className ?? ""}`}
+        hasText && reverse ? styles.variantBReverse : ""
+      } ${hasText ? "" : styles.solo} ${className ?? ""}`}
     >
       {reverse ? (
         <>
@@ -144,6 +160,6 @@ export function VisualStoryBlock({
           {imageElement}
         </>
       )}
-    </div>
+    </Reveal>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/layout/Section";
-import { EditorialHero } from "@/components/hero";
+import { SplitHero } from "@/components/hero";
 import {
   ContentBlock,
   ConversionBand,
@@ -127,11 +127,13 @@ export default function PressKitPage() {
         }}
       />
 
-      <EditorialHero
+      <SplitHero
         eyebrow="Company"
         title="BizzFly Press Kit & Brand Assets"
         lead="Official brand assets, company descriptions, leadership profiles, and usage standards for editors, conference organisers, and industry publications."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Press Kit" }]}
+        asideHeading="The four disciplines"
+        asideItems={disciplines.map((item) => item.title)}
         actions={<CtaBlock cta={cta} size="lg" />}
       />
 

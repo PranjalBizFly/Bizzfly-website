@@ -129,34 +129,44 @@ export default function ContactPage() {
                 caption="First consultations focus on diagnosing core constraints before any commercial work is scoped."
               />
             </div>
+          </div>
+
+          {/*
+            The direct-contact details sit under the form: they are the
+            alternative to sending the message, and putting them here is what
+            lets the two columns end within a line of each other rather than
+            one running far past the other.
+          */}
+          <div className={styles.formColumn}>
+            <ContactForm />
 
             <div className={styles.direct}>
               <p className={styles.directHeading}>Or reach us directly</p>
-              <p>
-                <a href={site.contact.phoneHref} className={styles.directLink}>
-                  {site.contact.phone}
-                </a>
-              </p>
-              <p>
-                <a
-                  href={`mailto:${site.contact.email}`}
-                  className={styles.directLink}
-                >
-                  {site.contact.email}
-                </a>
-              </p>
-              <address className={styles.address}>
-                {site.contact.address.street}
-                <br />
-                {site.contact.address.city} {site.contact.address.postalCode}
-                <br />
-                {site.contact.address.region}, India
-              </address>
+              <div className={styles.directDetails}>
+                <div>
+                  <p>
+                    <a href={site.contact.phoneHref} className={styles.directLink}>
+                      {site.contact.phone}
+                    </a>
+                  </p>
+                  <p>
+                    <a
+                      href={`mailto:${site.contact.email}`}
+                      className={styles.directLink}
+                    >
+                      {site.contact.email}
+                    </a>
+                  </p>
+                </div>
+                <address className={styles.address}>
+                  {site.contact.address.street}
+                  <br />
+                  {site.contact.address.city} {site.contact.address.postalCode}
+                  <br />
+                  {site.contact.address.region}, India
+                </address>
+              </div>
             </div>
-          </div>
-
-          <div className={styles.formColumn}>
-            <ContactForm />
           </div>
         </div>
       </Section>

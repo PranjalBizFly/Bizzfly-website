@@ -383,7 +383,7 @@
   font-family: var(--font-label);
   font-size: var(--text-nav);
   font-weight: var(--weight-semibold);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--accent-text);
   cursor: pointer;
@@ -392,6 +392,7 @@
   align-items: center;
   justify-content: space-between;
   min-height: var(--touch-target-min);
+  white-space: nowrap;
 }
 
 .groupHeading::-webkit-details-marker {
@@ -481,12 +482,13 @@
   font-family: var(--font-label);
   font-size: var(--text-nav);
   font-weight: var(--weight-semibold);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--accent-text);
   padding-bottom: var(--space-3);
   border-bottom: 1px solid var(--border);
   margin-bottom: var(--space-4);
+  white-space: nowrap;
 }
 
 .commitList {

@@ -79,21 +79,21 @@
 }
 
 /*
- * The diagram under the problem list. Centred and held to a readable width:
- * the SVG is drawn at 420×300 and stretching it the full 1280px would make
- * the labels float apart from the boxes they belong to.
+ * The multi-surface discovery framework under the problem list. Spans the
+ * full container width to present a balanced 3-column comparative architecture.
  */
 .sectionDiagram {
-  margin-top: var(--space-12);
-  padding-top: var(--space-10);
+  margin-top: var(--space-8);
+  padding-top: var(--space-8);
   border-top: 1px solid var(--border);
-  display: flex;
-  justify-content: center;
+  width: 100%;
 }
 
 .sectionDiagram > * {
-  max-width: 34rem;
+  width: 100%;
+  max-width: 100%;
 }
+
 
 /*
  * The testimonial column.

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/layout/Section";
-import { EditorialHero } from "@/components/hero";
+import { SplitHero } from "@/components/hero";
 import {
   NumberedList,
   SectionHeader,
@@ -97,11 +97,18 @@ export default function CareersPage() {
         }}
       />
 
-      <EditorialHero
+      {/*
+        The disciplines sit beside the statement rather than only in the
+        section below it: a candidate's first question is which of these
+        they would be, and the answer was two screens down.
+      */}
+      <SplitHero
         eyebrow="Company"
         title="Careers at BizzFly"
         lead="We hire people who want work that needs judgement rather than volume. The team spans search and AI visibility, web and software engineering, and automation delivery — and the work moves between them."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Careers" }]}
+        asideHeading="Four disciplines"
+        asideItems={disciplines.map((discipline) => discipline.title)}
         actions={<CtaBlock cta={cta} size="lg" />}
       />
 

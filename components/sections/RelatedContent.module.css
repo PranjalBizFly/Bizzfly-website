@@ -216,21 +216,35 @@
 /* --- map: grouped by dimension ---------------------------------------- */
 .map {
   display: grid;
-  gap: var(--gap-stack-sm);
+  gap: var(--space-6);
   border-top: 1px solid var(--border);
-  padding-top: var(--space-8);
+  padding-top: var(--space-5);
 }
 
 @media (min-width: 768px) {
   .map {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-10);
+    gap: var(--space-6) var(--space-8);
   }
 }
 
 @media (min-width: 1024px) {
   .map {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+
+  .map[data-groups="1"] {
+    grid-template-columns: 1fr;
+  }
+
+  .map[data-groups="2"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-10);
+  }
+
+  .map[data-groups="3"] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-8);
   }
 }
@@ -242,6 +256,7 @@
 .mapHeading {
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
+  font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-eyebrow);
   color: var(--muted);
   padding-bottom: var(--space-3);
@@ -255,6 +270,31 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+}
+
+/* When there is only 1 group (e.g. Related services), distribute items in a responsive multi-column grid across the full width */
+.map[data-groups="1"] .mapList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3) var(--space-8);
+}
+
+@media (min-width: 640px) {
+  .map[data-groups="1"] .mapList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .map[data-groups="1"] .mapList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .map[data-groups="2"] .mapList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-3) var(--space-6);
+  }
 }
 
 .mapLink {

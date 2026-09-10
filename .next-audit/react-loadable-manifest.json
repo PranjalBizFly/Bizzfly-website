@@ -1,0 +1,22 @@
+{
+  "components\\navigation\\Header.tsx -> @/components/search/SearchDialog": {
+    "id": 2113,
+    "files": [
+      "static/css/828b18b4d369b0df.css",
+      "static/chunks/1352-e25769002aea2a87.js",
+      "static/chunks/2113.75d886ee9fe46519.js"
+    ]
+  },
+  "node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
+    "id": 5139,
+    "files": [
+      "static/chunks/5139.c5e46d26064a85db.js"
+    ]
+  },
+  "node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
+    "id": 1646,
+    "files": [
+      "static/chunks/1646.9123ee47220ed70b.js"
+    ]
+  }
+}

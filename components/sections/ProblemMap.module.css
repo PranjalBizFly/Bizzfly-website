@@ -1,0 +1,312 @@
+/* ==========================================================================
+   ProblemMap — what stalls, and the work that addresses it
+
+   Two columns holding one relationship. The left column is operable, the
+   right one responds; below 900px they stack and the mapping is carried by
+   the numbers on each capability rather than by position.
+
+   No cards. Rows are separated by hairlines and the active row is marked on
+   its leading edge, which is how every list on this site is marked.
+   ========================================================================== */
+
+.map {
+  display: grid;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .map {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--space-16);
+  }
+}
+
+.column {
+  min-width: 0;
+}
+
+/* --- Headings ------------------------------------------------------------ */
+
+.head {
+  display: grid;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--accent-text);
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  margin: 0;
+  max-width: var(--measure-title);
+  text-wrap: balance;
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  margin: 0;
+  max-width: var(--measure-body);
+  text-wrap: pretty;
+}
+
+/* --- The problems -------------------------------------------------------- */
+
+.problems {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.problem {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-4);
+  width: 100%;
+  margin: 0;
+  padding: var(--space-5) var(--space-4) var(--space-5) var(--space-4);
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: start;
+  cursor: pointer;
+  min-height: var(--touch-target-min);
+  transition: background var(--dur-fast) var(--ease-standard);
+}
+
+/* The leading rule that marks the selected row. */
+.problem::before {
+  content: "";
+  position: absolute;
+  inset-block: -1px 0;
+  inset-inline-start: 0;
+  width: 2px;
+  background: var(--accent-edge);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+.problem[data-selected="true"] {
+  background: var(--surface);
+}
+
+.problem[data-selected="true"]::before {
+  transform: scaleY(1);
+}
+
+.problemIndex {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  color: var(--ink-400);
+  font-variant-numeric: tabular-nums;
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+
+.problem[data-selected="true"] .problemIndex {
+  color: var(--accent-text);
+}
+
+.problemBody {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.problemTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+}
+
+.problemText {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  max-width: var(--measure-body);
+  text-wrap: pretty;
+}
+
+.problemMeta {
+  font-family: var(--font-label);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  color: var(--ink-400);
+}
+
+.problem[data-selected="true"] .problemMeta {
+  color: var(--accent-text);
+}
+
+/* --- The capabilities ---------------------------------------------------- */
+
+.solutions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.solution {
+  position: relative;
+  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-4);
+  border-bottom: 1px solid var(--border);
+  transition: background var(--dur-base) var(--ease-standard);
+}
+
+.solution::before {
+  content: "";
+  position: absolute;
+  inset-block: -1px 0;
+  inset-inline-start: 0;
+  width: 2px;
+  background: var(--accent-edge);
+  transform: scaleY(0);
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+/*
+ * Matched rows gain emphasis; unmatched rows are left exactly as they are.
+ * Fading them would make real links harder to read to decorate a state.
+ */
+.solution[data-matched="true"] {
+  background: var(--surface);
+}
+
+.solution[data-matched="true"]::before {
+  transform: scaleY(1);
+}
+
+.solutionLink {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-4);
+  text-decoration: none;
+  color: var(--foreground);
+  min-height: var(--touch-target-min);
+  align-content: center;
+}
+
+.solutionLabel {
+  font-family: var(--font-display);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+/*
+ * Clamped rather than truncated: the full sentence stays in the DOM for
+ * search and for anyone reading with styles off, and the column stays close
+ * to the height of the problems it answers instead of running 400px past it.
+ */
+.solutionText {
+  grid-column: 1;
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-body);
+  color: var(--muted);
+  text-wrap: pretty;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.solutionArrow {
+  grid-row: 1 / 3;
+  grid-column: 2;
+  color: var(--ink-400);
+  transition:
+    transform var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
+}
+
+.solutionLink:hover .solutionArrow {
+  transform: translateX(4px);
+  color: var(--foreground);
+}
+
+/* --- Which problems a capability answers --------------------------------- */
+
+.answers {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 0;
+}
+
+.answersLabel {
+  font-family: var(--font-label);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+.answerChip {
+  font-family: var(--font-label);
+  font-size: var(--text-meta);
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  padding: 2px var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition:
+    border-color var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
+}
+
+.answerChip[data-current="true"] {
+  border-color: var(--accent-edge);
+  color: var(--accent-text);
+}
+
+/* --- Entrance ------------------------------------------------------------ */
+
+.map[data-reveal="pending"] .problem,
+.map[data-reveal="pending"] .solution {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-distance), 0);
+}
+
+.map[data-reveal="visible"] .problem,
+.map[data-reveal="visible"] .solution {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity var(--dur-reveal) var(--ease-decelerate),
+    transform var(--dur-reveal) var(--ease-decelerate),
+    background var(--dur-base) var(--ease-standard);
+  transition-delay: calc(min(var(--row-index, 0), 6) * var(--stagger-step));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map[data-reveal="pending"] .problem,
+  .map[data-reveal="pending"] .solution {
+    opacity: 1;
+    transform: none;
+  }
+}

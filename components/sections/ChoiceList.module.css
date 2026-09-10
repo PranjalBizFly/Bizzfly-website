@@ -1,0 +1,51 @@
+/* ==========================================================================
+   ChoiceList — the stack, as a reference
+
+   Two columns from 768px, three from 1280px. Rows are separated by a hairline
+   on their top edge only, so the set reads as a table of entries rather than
+   as a stack of boxes.
+   ========================================================================== */
+
+.list {
+  display: grid;
+  gap: var(--space-8) var(--space-12);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.choice {
+  display: grid;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+  align-content: start;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  margin: 0;
+}
+
+.rationale {
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-body);
+  color: var(--muted);
+  margin: 0;
+  text-wrap: pretty;
+}

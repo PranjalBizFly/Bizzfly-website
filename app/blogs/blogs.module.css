@@ -40,7 +40,8 @@
 
 .leadTitle {
   margin-top: var(--space-4);
-  max-width: var(--measure-heading);
+  max-width: none;
+  text-wrap: balance;
 }
 
 /*

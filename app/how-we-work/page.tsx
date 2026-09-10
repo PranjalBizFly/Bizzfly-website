@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/layout/Section";
-import { EditorialHero } from "@/components/hero";
+import { SplitHero } from "@/components/hero";
 import {
   ConversionBand,
   EditorialBlock,
@@ -97,11 +97,20 @@ export default function HowWeWorkPage() {
         }}
       />
 
-      <EditorialHero
+      {/*
+        The three commitments sit in the hero rather than only halfway down
+        the page. They are the answer to the question the title asks, and a
+        reader who reads nothing else has now read the page. The photograph
+        cannot open this one: it is the same frame the homepage gives its
+        "why us" band, and no image on this site appears in two places.
+      */}
+      <SplitHero
         eyebrow="Company"
         title="How We Work"
         lead="Every engagement starts with diagnosis, not a proposal. We spend the first two weeks establishing what is actually wrong, because fixing the wrong constraint is the expensive mistake — and you keep those findings whether or not you continue with us."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "How We Work" }]}
+        asideHeading="The three commitments"
+        asideItems={principles.map((principle) => principle.title)}
         actions={<CtaBlock cta={cta} size="lg" />}
       />
 
@@ -131,9 +140,16 @@ export default function HowWeWorkPage() {
       {/* 03 — the frame, so the page changes shape before it closes. */}
       {companyVisual ? (
         <Section background="surface" spacing="lg" width="content">
+          {/*
+            Split rather than the stacked card: variant D put a 1040px-wide
+            frame above two lines of type, which spent a full screen on one
+            sentence. Beside it, the same words and the same photograph read
+            in half the height.
+          */}
           <VisualStoryBlock
             image={companyVisual}
-            variant="D"
+            variant="B"
+            reverse
             eyebrow="03 / In practice"
             title="You keep the findings either way"
             lead="Discovery is scoped and priced on its own, so continuing is a decision made with the diagnosis in hand rather than a commitment made before it."

@@ -135,7 +135,8 @@
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-h2);
   line-height: var(--leading-heading);
-  max-width: var(--measure-heading);
+  max-width: none;
+  text-wrap: balance;
   margin-top: calc(var(--space-4) * -1);
 }
 

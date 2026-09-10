@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Heading, BodyText, Eyebrow } from "@/components/typography";
+import { Reveal, Cascade } from "@/components/motion";
 import styles from "./Sections.module.css";
 
 interface EditorialBlockProps {
@@ -12,7 +13,13 @@ interface EditorialBlockProps {
   level?: 2 | 3;
 }
 
-/** S-09 Statement + Evidence. The core editorial section. */
+/**
+ * S-09 Statement + Evidence. The core editorial section.
+ *
+ * The statement rises as one piece and the evidence counts in beneath it,
+ * which is the order the section is read in — the claim, then what backs it.
+ * Two observers per block, no extra markup, and the list stays a list.
+ */
 export function EditorialBlock({
   eyebrow,
   title,
@@ -23,7 +30,7 @@ export function EditorialBlock({
 }: EditorialBlockProps) {
   return (
     <div className={styles.statement}>
-      <div className={styles.statementText}>
+      <Reveal className={styles.statementText}>
         <div className={styles.header}>
           {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
           <Heading level={level} size="h2" className={styles.statementTitle}>
@@ -38,10 +45,10 @@ export function EditorialBlock({
         {actions ? (
           <div className={styles.statementActions}>{actions}</div>
         ) : null}
-      </div>
+      </Reveal>
 
       {evidence?.length ? (
-        <ul className={styles.evidenceList}>
+        <Cascade as="ul" className={styles.evidenceList}>
           {evidence.map((item, index) => (
             <li key={item} className={styles.evidenceItem}>
               <span className={styles.evidenceIndex}>
@@ -50,7 +57,7 @@ export function EditorialBlock({
               <span>{item}</span>
             </li>
           ))}
-        </ul>
+        </Cascade>
       ) : null}
     </div>
   );

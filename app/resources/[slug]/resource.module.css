@@ -130,3 +130,60 @@
 .visual {
   margin-top: var(--space-8);
 }
+
+/* ==========================================================================
+   ENTRANCE
+   --------------------------------------------------------------------------
+   An article opens with its own header rather than with one of the hero
+   components, so it was the one page type on the site where the top of the
+   page did not arrive — the reader landed on a finished screen while every
+   other template rose into place.
+
+   Same keyframe, same tokens and the same short 60ms steps the heroes use.
+   A load animation rather than a scroll reveal, because this content is
+   above the fold; and pure CSS, so nothing here can fail to un-hide a
+   definition that exists to be read and cited.
+   ========================================================================== */
+@keyframes articleRise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--space-4), 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.crumbs,
+.kicker,
+.title,
+.answer {
+  animation: articleRise var(--dur-slow) var(--ease-decelerate) both;
+}
+
+.crumbs {
+  animation-delay: 0ms;
+}
+
+.kicker {
+  animation-delay: 30ms;
+}
+
+.title {
+  /* Second, and early: on an article the H1 is usually the LCP element. */
+  animation-delay: 60ms;
+}
+
+.answer {
+  animation-delay: 120ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crumbs,
+  .kicker,
+  .title,
+  .answer {
+    animation: none;
+  }
+}

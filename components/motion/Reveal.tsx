@@ -7,13 +7,19 @@ import styles from "./Reveal.module.css";
 
 type Direction = "up" | "down" | "left" | "right" | "none";
 
-interface RevealProps {
+type RevealProps = {
   direction?: Direction;
   delay?: number;
   as?: ElementType;
   className?: string;
   children: ReactNode;
-}
+} & /**
+ * Anything else the rendered element needs — an id, an aria-label, a role.
+ * Without this the wrapper could only ever be a plain div, which forces an
+ * extra element around every landmark that wants to animate. Intersected
+ * rather than declared as an index signature, which would widen `children`
+ * to unknown for every caller.
+ */ Record<string, unknown>;
 
 const offsets: Record<Direction, CSSProperties> = {
   up: { "--reveal-y": "var(--reveal-distance)" } as CSSProperties,
@@ -32,6 +38,7 @@ export function Reveal({
   as: Tag = "div",
   className = "",
   children,
+  ...rest
 }: RevealProps) {
   const ref = useReveal<HTMLDivElement>();
 
@@ -40,6 +47,7 @@ export function Reveal({
       ref={ref}
       className={`${styles.reveal} ${className}`.trim()}
       style={{ ...offsets[direction], "--reveal-delay": `${delay}ms` } as CSSProperties}
+      {...rest}
     >
       {children}
     </Tag>
@@ -47,9 +55,9 @@ export function Reveal({
 }
 
 /** Convenience wrappers over the same primitive — no extra JS. */
-export function FadeIn({ children, ...rest }: Omit<RevealProps, "direction">) {
+export function FadeIn({ children, ...rest }: RevealProps) {
   return (
-    <Reveal direction="none" {...rest}>
+    <Reveal {...rest} direction="none">
       {children}
     </Reveal>
   );

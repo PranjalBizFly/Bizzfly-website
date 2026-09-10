@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Heading, BodyText } from "@/components/typography";
+import { Reveal } from "@/components/motion";
 import styles from "./Sections.module.css";
 
 interface EmptyStateProps {
@@ -15,12 +16,12 @@ interface EmptyStateProps {
  */
 export function EmptyState({ title, body, actions }: EmptyStateProps) {
   return (
-    <div className={styles.empty}>
+    <Reveal className={styles.empty}>
       <Heading level={2} size="h3" className={styles.emptyTitle}>
         {title}
       </Heading>
       <BodyText className={styles.emptyBody}>{body}</BodyText>
       {actions ? <div className={styles.emptyActions}>{actions}</div> : null}
-    </div>
+    </Reveal>
   );
 }

@@ -53,7 +53,7 @@ export default function TechnologiesIndexPage() {
       <Section spacing="lg">
         <SectionHeader
           split
-          eyebrow="Ecosystem"
+          eyebrow="01 / Ecosystem"
           title="Organised by what it enables"
           lead="Grouped by the business capability each layer supports, because a list of product names tells a buyer nothing useful."
         />
@@ -128,9 +128,9 @@ export default function TechnologiesIndexPage() {
       </Section>
 
       {/* Honest note about what is and is not confirmed for publication */}
-      <Section background="surface" spacing="md" width="content">
+      <Section background="tint" spacing="md" width="content">
         <SectionHeader
-          eyebrow="A note on specifics"
+          eyebrow="02 / A note on specifics"
           title="We name a tool only when we would defend the choice"
           level={2}
         />

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal } from "@/components/motion";
 import { publishedEntries } from "@/lib/registry";
 import { SECTION_HUB } from "@/lib/search";
 import styles from "./ExploreNext.module.css";
@@ -49,7 +50,7 @@ export function ExploreNext({ href, allLabel }: ExploreNextProps) {
   const hub = SECTION_HUB[section] ?? "/search/";
 
   return (
-    <nav className={styles.wrap} aria-label={`More in ${section}`}>
+    <Reveal as="nav" className={styles.wrap} aria-label={`More in ${section}`}>
       <div className={styles.head}>
         <p className={styles.eyebrow}>Explore next</p>
         <Link href={hub} className={styles.all}>
@@ -75,6 +76,6 @@ export function ExploreNext({ href, allLabel }: ExploreNextProps) {
           <span className={styles.description}>{next.description}</span>
         </Link>
       </div>
-    </nav>
+    </Reveal>
   );
 }

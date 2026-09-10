@@ -36,3 +36,84 @@
     transition-delay: 0ms;
   }
 }
+
+/* ==========================================================================
+   CASCADE
+   --------------------------------------------------------------------------
+   A staggered reveal driven entirely by the container: one observed element,
+   children delayed by position. Used for lists and grids, where wrapping
+   every child in its own observed div would break the markup a `ul` needs
+   and register an observer per row.
+
+   The delays stop at the eighth child and everything after it shares that
+   delay, for the same reason --stagger-max exists: a twenty-six item
+   directory cascading all the way down would still be arriving long after
+   the reader had started reading it.
+   ========================================================================== */
+.cascade[data-reveal="pending"] > * {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-distance), 0);
+}
+
+.cascade[data-reveal="visible"] > * {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity var(--dur-reveal) var(--ease-decelerate),
+    transform var(--dur-reveal) var(--ease-decelerate);
+}
+
+/*
+ * Each child publishes its own delay as a custom property as well as taking
+ * it as a transition-delay.
+ *
+ * The property is what lets something INSIDE a child animate on that child's
+ * beat — the connector segments in the process path, for one. transition-delay
+ * is not inherited, and asking for it with `inherit` would also delay every
+ * unrelated transition on that element, so a hover state would sit there for
+ * half a second before responding. A custom property inherits without
+ * touching anything else.
+ */
+.cascade[data-reveal="visible"] > *:nth-child(1) {
+  --cascade-delay: 0ms;
+  transition-delay: var(--cascade-delay);
+}
+.cascade[data-reveal="visible"] > *:nth-child(2) {
+  --cascade-delay: calc(1 * var(--stagger-step));
+  transition-delay: var(--cascade-delay);
+}
+.cascade[data-reveal="visible"] > *:nth-child(3) {
+  --cascade-delay: calc(2 * var(--stagger-step));
+  transition-delay: var(--cascade-delay);
+}
+.cascade[data-reveal="visible"] > *:nth-child(4) {
+  --cascade-delay: calc(3 * var(--stagger-step));
+  transition-delay: var(--cascade-delay);
+}
+.cascade[data-reveal="visible"] > *:nth-child(5) {
+  --cascade-delay: calc(4 * var(--stagger-step));
+  transition-delay: var(--cascade-delay);
+}
+.cascade[data-reveal="visible"] > *:nth-child(6) {
+  --cascade-delay: calc(5 * var(--stagger-step));
+  transition-delay: var(--cascade-delay);
+}
+.cascade[data-reveal="visible"] > *:nth-child(7) {
+  --cascade-delay: calc(6 * var(--stagger-step));
+  transition-delay: var(--cascade-delay);
+}
+.cascade[data-reveal="visible"] > *:nth-child(n + 8) {
+  --cascade-delay: calc(7 * var(--stagger-step));
+  transition-delay: var(--cascade-delay);
+}
+
+/* Reduced motion: nothing moves, nothing waits. */
+@media (prefers-reduced-motion: reduce) {
+  .cascade[data-reveal="pending"] > * {
+    transform: none;
+    opacity: 1;
+  }
+  .cascade[data-reveal="visible"] > * {
+    transition-delay: 0ms;
+  }
+}

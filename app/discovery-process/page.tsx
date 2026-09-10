@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/layout/Section";
-import { EditorialHero } from "@/components/hero";
+import { SplitHero } from "@/components/hero";
 import {
   ConversionBand,
   EditorialBlock,
@@ -100,11 +100,20 @@ export default function DiscoveryProcessPage() {
         }}
       />
 
-      <EditorialHero
+      {/*
+        The four layers open the page as a specification beside the
+        statement, so the sequence this methodology is built on is visible
+        before the argument for it. The frame stays where it is: it belongs
+        to the deliverable section, and it is also the homepage's growth
+        engine image, which rules it out of a hero here.
+      */}
+      <SplitHero
         eyebrow="Methodology"
         title="Discovery Process"
         lead="Discovery establishes which constraint is actually binding before anything is proposed. It runs for roughly two weeks, produces a written diagnosis, and the findings are yours whether or not the engagement continues."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Discovery Process" }]}
+        asideHeading="Four layers, in order"
+        asideItems={layers.map((layer) => layer.title)}
         actions={<CtaBlock cta={cta} size="lg" />}
       />
 
@@ -124,7 +133,7 @@ export default function DiscoveryProcessPage() {
           title="Four layers, in order"
           lead="The order matters, because a constraint at an earlier layer makes work at a later one worthless."
         />
-        <ProcessBlock steps={layers} />
+        <ProcessBlock steps={layers} label="The four layers discovery examines" />
       </Section>
 
       {/* 03 — the deliverable, set against the frame so the page changes shape here. */}

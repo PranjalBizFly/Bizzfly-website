@@ -153,10 +153,10 @@ export default function ResourcesIndexPage() {
       ) : null}
 
       {selected.length > 0 ? (
-        <Section background="surface" spacing="lg">
+        <Section background="tint" spacing="lg">
           <SectionHeader
             split
-            eyebrow="Start here"
+            eyebrow="01 / Start here"
             title="One of each, to show what these are"
             lead="Written for people making a decision, not for a keyword. The complete set is below."
           />
@@ -176,7 +176,7 @@ export default function ResourcesIndexPage() {
       <Section spacing="lg">
         <SectionHeader
           split
-          eyebrow="Everything"
+          eyebrow="02 / Everything"
           title={`All ${published.length} resources`}
           lead="Grouped by what each one is for. A guide gives you a method, a comparison weighs two options, a decision guide helps you work out whether to act at all, and the glossary just defines the term."
         />
@@ -192,7 +192,7 @@ export default function ResourcesIndexPage() {
           className="mt-8"
         />
         <div className="mt-10">
-          <Directory groups={byType} />
+          <Directory groups={byType} filter={{ noun: "resources" }} />
         </div>
       </Section>
 
@@ -200,7 +200,7 @@ export default function ResourcesIndexPage() {
       {byCapability.length > 0 ? (
         <Section background="surface" spacing="md">
           <SectionHeader
-            eyebrow="Browse"
+            eyebrow="03 / Browse"
             title="By capability"
             level={2}
             lead="Each service page carries the reading that supports it."

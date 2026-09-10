@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useId, useState } from "react";
 import type { CSSProperties } from "react";
+import { Reveal } from "@/components/motion";
 import styles from "./LayerTabs.module.css";
 
 export interface LayerFact {
@@ -57,7 +58,7 @@ export function LayerTabs({ items, label }: LayerTabsProps) {
   };
 
   return (
-    <div
+    <Reveal
       className={styles.wrapper}
       style={{ "--rail-count": items.length } as CSSProperties}
     >
@@ -128,6 +129,6 @@ export function LayerTabs({ items, label }: LayerTabsProps) {
           ) : null}
         </div>
       ))}
-    </div>
+    </Reveal>
   );
 }
