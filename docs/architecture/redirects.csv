@@ -16,9 +16,9 @@ legacy_url,new_url,http_status,note
 /service/qualified-traffic/,/services/search-ai-visibility/seo/,301,Thin fragment
 /service/stronger-authority/,/services/search-ai-visibility/seo/off-page-seo/,301,Thin fragment
 /service/stronger-presence/,/services/search-ai-visibility/,301,Thin fragment
-/service/better-conversions/,/services/digital-marketing/conversion-rate-optimization/,301,Thin fragment
-/service/higher-conversions/,/services/digital-marketing/conversion-rate-optimization/,301,Thin fragment
-/service/increased-conversions/,/services/digital-marketing/conversion-rate-optimization/,301,Thin fragment
+/service/better-conversions/,/services/digital-marketing/conversion-rate-optimisation/,301,Thin fragment
+/service/higher-conversions/,/services/digital-marketing/conversion-rate-optimisation/,301,Thin fragment
+/service/increased-conversions/,/services/digital-marketing/conversion-rate-optimisation/,301,Thin fragment
 /service/better-engagement/,/services/web-development/ui-ux-design/,301,Thin fragment
 /service/scalable-foundation/,/services/web-development/,301,Thin fragment
 /service/better-performance/,/services/web-development/website-performance/,301,Thin fragment
@@ -34,7 +34,7 @@ legacy_url,new_url,http_status,note
 /service/smarter-decisions/,/services/data-analytics/business-intelligence/,301,Thin fragment
 /service/strategic-direction/,/services/digital-marketing/digital-strategy/,301,Thin fragment
 /service/sustainable-growth/,/services/digital-marketing/growth-strategy/,301,Thin fragment
-/service/competitive-advantage/,/about/why-bizzfly/,301,Thin fragment
+/service/competitive-advantage/,/about-us/,301,Thin fragment
 /project/dynamic-data-ecosystem/,/work/,301,Fabricated demo content
 /project/intelligent-conversion-hub/,/work/,301,Fabricated demo content
 /project/next-gen-ecosystem/,/work/,301,Fabricated demo content
@@ -46,7 +46,6 @@ legacy_url,new_url,http_status,note
 /project/ai-driven-marketing/,/work/,301,Fabricated demo content
 /project/data-powered-growth/,/work/,301,Fabricated demo content
 /project/smart-digital-growth/,/work/,301,Fabricated demo content
-/about-us/,/about/,301,Slug cleanup
 /contact-us/,/contact/,301,Slug cleanup
 /blog/,/insights/blog/,301,Moved into Insights
 /faqs-page/,/insights/faqs/,301,Slug cleanup
@@ -66,3 +65,4 @@ legacy_url,new_url,http_status,note
 /mastering-multichannel-engagement-how-to-sync-your-website-with-your-social-and-ad-strategies/,/insights/blog/,301,Off-strategy - no direct equivalent
 /hello-world/,,410,WordPress default post - remove from index
 /?page_id=28,,410,Unslugged artefact - remove from index
+/services/conversion-rate-optimization/,/services/conversion-rate-optimisation/,301,British spelling — matches sibling -optimisation services

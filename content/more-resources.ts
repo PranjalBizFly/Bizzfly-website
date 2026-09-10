@@ -72,7 +72,7 @@ export const moreResources: Resource[] = [
       "The work is unglamorous: match the page to the intent behind the query, remove the friction between arrival and enquiry, make the next step obvious, and measure the result properly. It usually produces faster commercial movement than acquisition work, because you are improving the conversion of traffic you already have.",
       "It also compounds. Every channel feeding that page benefits from the same improvement, which is why it is normally the first thing worth fixing rather than the last.",
     ],
-    supports: ["search-experience-optimisation", "conversion-rate-optimization"],
+    supports: ["search-experience-optimisation", "conversion-rate-optimisation"],
     relatedUseCases: ["improve-website-conversion"],
     seo: {
       title: "What Is Search Experience Optimisation (SXO)?",
@@ -106,7 +106,7 @@ export const moreResources: Resource[] = [
     slug: "how-to-choose-a-first-automation-project",
     type: "article",
     topic: "Automation",
-    title: "How to choose a first automation project",
+    title: "How to Choose a First Automation Project",
     answer:
       "Pick the process that is repetitive, stable, high-volume and owned by someone. Automating an unstable process locks in the wrong version of it, and automating an unowned one just makes the confusion faster.",
     readingTime: "6 min read",
@@ -144,7 +144,7 @@ export const moreResources: Resource[] = [
     ],
     related: [
       {
-        label: "Workflow automation",
+        label: "Workflow Automation",
         href: "/services/workflow-automation/",
         type: "SERVICE",
       },
@@ -159,7 +159,7 @@ export const moreResources: Resource[] = [
     slug: "why-your-website-redesign-lost-traffic",
     type: "article",
     topic: "Web Development",
-    title: "Why your website redesign lost traffic",
+    title: "Why Your Website Redesign Lost Traffic",
     answer:
       "Traffic loss after a redesign is almost never caused by the design. It is caused by the migration: missing redirects, changed URL structures with no mapping, and content quietly dropped because nobody checked what it was earning.",
     readingTime: "5 min read",
@@ -175,7 +175,7 @@ export const moreResources: Resource[] = [
     seo: {
       title: "Why Your Website Redesign Lost Traffic",
       description:
-        "Traffic loss after a redesign comes from the migration, not the design — missing redirects, restructured URLs and dropped content. How to prevent and recover it.",
+        "Traffic loss after a redesign comes from the migration, not the design — missing redirects, restructured URLs, dropped content. How to prevent and recover it.",
       primaryTopic: "website redesign traffic loss",
       secondaryTopics: ["site migration", "redirects", "SEO"],
       intent: "informational",
@@ -196,7 +196,7 @@ export const moreResources: Resource[] = [
     ],
     related: [
       {
-        label: "Website redesign",
+        label: "Website Redesign",
         href: "/services/website-redesign/",
         type: "SERVICE",
       },

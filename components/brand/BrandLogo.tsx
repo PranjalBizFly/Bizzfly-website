@@ -108,7 +108,20 @@ export function BrandLogo({
     ? ({ "--logo-size": height } as React.CSSProperties)
     : undefined;
 
-  const mark = (key: BrandLogoVariant, extra?: string) => {
+  const mark = (
+    key: BrandLogoVariant,
+    extra?: string,
+    /*
+     * Only the member of a polarity pair that is actually painted first gets
+     * `priority`. Both lockups are emitted — that is what lets CSS pick the
+     * right one with no flash — but marking both `priority` put two
+     * `<link rel="preload" as="image">` tags in the head of every page for a
+     * mark that is hidden either way, competing with the hero image that is
+     * the real LCP element. The hidden one still loads; it is a ~2KB SVG
+     * already in the markup, so the preload bought nothing.
+     */
+    prioritise = priority,
+  ) => {
     const asset = ASSETS[key];
     return (
       <Image
@@ -117,7 +130,7 @@ export function BrandLogo({
         width={asset.width}
         height={asset.height}
         alt={alt}
-        priority={priority}
+        priority={prioritise}
         className={[styles.mark, extra].filter(Boolean).join(" ")}
       />
     );
@@ -128,7 +141,7 @@ export function BrandLogo({
     return (
       <span className={wrap} style={style}>
         {mark(pair.light, styles.onLight)}
-        {mark(pair.dark, styles.onDark)}
+        {mark(pair.dark, styles.onDark, false)}
       </span>
     );
   }

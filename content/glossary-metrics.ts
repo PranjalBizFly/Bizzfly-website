@@ -46,8 +46,8 @@ export const metricsGlossary: Resource[] = [
       },
     ],
     related: [
-      { label: "Zero-click search", href: "/resources/what-is-zero-click-search/", type: "GLOSSARY" },
-      { label: "How to measure search visibility", href: "/resources/how-to-measure-search-visibility/", type: "GUIDE" },
+      { label: "Zero-Click Search", href: "/resources/what-is-zero-click-search/", type: "GLOSSARY" },
+      { label: "How to Measure Search Visibility", href: "/resources/how-to-measure-search-visibility/", type: "GUIDE" },
     ],
   },
   {
@@ -62,7 +62,7 @@ export const metricsGlossary: Resource[] = [
       "It also varies by page type in ways that mean nothing. A glossary page will always bounce more than a pricing page, because it is doing a different job. Comparing them, or comparing your site to a benchmark, compares two different mixes of page type.",
       "Where it is genuinely useful is as a change signal on a single page: a rate that jumps after a redesign or a template change is worth investigating, because the page's job did not change but something else did.",
     ],
-    supports: ["analytics-implementation", "conversion-rate-optimization"],
+    supports: ["analytics-implementation", "conversion-rate-optimisation"],
     seo: {
       title: "What Is Bounce Rate?",
       description:
@@ -87,8 +87,8 @@ export const metricsGlossary: Resource[] = [
       },
     ],
     related: [
-      { label: "Conversion rate", href: "/resources/what-is-conversion-rate/", type: "GLOSSARY" },
-      { label: "Website conversion checklist", href: "/resources/website-conversion-checklist/", type: "CHECKLIST" },
+      { label: "Conversion Rate", href: "/resources/what-is-conversion-rate/", type: "GLOSSARY" },
+      { label: "Website Conversion Checklist", href: "/resources/website-conversion-checklist/", type: "CHECKLIST" },
     ],
   },
   {
@@ -169,8 +169,8 @@ export const metricsGlossary: Resource[] = [
       },
     ],
     related: [
-      { label: "Domain authority", href: "/resources/what-is-domain-authority/", type: "GLOSSARY" },
-      { label: "How to build search visibility", href: "/resources/how-to-build-search-visibility/", type: "GUIDE" },
+      { label: "Domain Authority", href: "/resources/what-is-domain-authority/", type: "GLOSSARY" },
+      { label: "How to Build Search Visibility", href: "/resources/how-to-build-search-visibility/", type: "GUIDE" },
     ],
   },
   {
@@ -210,8 +210,8 @@ export const metricsGlossary: Resource[] = [
       },
     ],
     related: [
-      { label: "Internal linking", href: "/resources/what-is-internal-linking/", type: "GLOSSARY" },
-      { label: "Website accessibility checklist", href: "/resources/accessibility-checklist/", type: "CHECKLIST" },
+      { label: "Internal Linking", href: "/resources/what-is-internal-linking/", type: "GLOSSARY" },
+      { label: "Website Accessibility Checklist", href: "/resources/accessibility-checklist/", type: "CHECKLIST" },
     ],
   },
   {
@@ -267,7 +267,7 @@ export const metricsGlossary: Resource[] = [
       "Where it misleads is in implying a single orderly path. Real buyers enter at the middle, leave, return through a different channel, and consult sources you never see. Treating the model as a literal sequence produces measurement that reports a tidy journey nobody took.",
       "Used well, it is a way of checking coverage rather than tracking individuals: is there a page for each stage, does each link sensibly to the next, and is each measured against the job it is actually doing.",
     ],
-    supports: ["conversion-rate-optimization", "digital-strategy"],
+    supports: ["conversion-rate-optimisation", "digital-strategy"],
     seo: {
       title: "What Is a Conversion Funnel?",
       description:
@@ -278,7 +278,7 @@ export const metricsGlossary: Resource[] = [
     },
     audience: ["A3", "A4"],
     phase: "P1",
-    cta: { label: "Read about Conversion Optimisation", href: "/services/conversion-rate-optimization/", tier: "T1" },
+    cta: { label: "Read about Conversion Optimisation", href: "/services/conversion-rate-optimisation/", tier: "T1" },
     faqs: [
       {
         question: "Do buyers really follow a funnel?",
@@ -292,8 +292,8 @@ export const metricsGlossary: Resource[] = [
       },
     ],
     related: [
-      { label: "Search intent", href: "/resources/what-is-search-intent/", type: "GLOSSARY" },
-      { label: "Marketing attribution", href: "/resources/what-is-marketing-attribution/", type: "GLOSSARY" },
+      { label: "Search Intent", href: "/resources/what-is-search-intent/", type: "GLOSSARY" },
+      { label: "Marketing Attribution", href: "/resources/what-is-marketing-attribution/", type: "GLOSSARY" },
     ],
   },
   {
@@ -415,8 +415,8 @@ export const metricsGlossary: Resource[] = [
       },
     ],
     related: [
-      { label: "Data pipeline", href: "/resources/what-is-a-data-pipeline/", type: "GLOSSARY" },
-      { label: "Data warehouse", href: "/resources/what-is-a-data-warehouse/", type: "GLOSSARY" },
+      { label: "Data Pipeline", href: "/resources/what-is-a-data-pipeline/", type: "GLOSSARY" },
+      { label: "Data Warehouse", href: "/resources/what-is-a-data-warehouse/", type: "GLOSSARY" },
     ],
   },
   {
@@ -457,7 +457,7 @@ export const metricsGlossary: Resource[] = [
     ],
     related: [
       { label: "ETL", href: "/resources/what-is-etl/", type: "GLOSSARY" },
-      { label: "Workflow orchestration", href: "/resources/what-is-workflow-orchestration/", type: "GLOSSARY" },
+      { label: "Workflow Orchestration", href: "/resources/what-is-workflow-orchestration/", type: "GLOSSARY" },
     ],
   },
   {
@@ -538,7 +538,7 @@ export const metricsGlossary: Resource[] = [
       },
     ],
     related: [
-      { label: "Structured content", href: "/resources/what-is-structured-content/", type: "GLOSSARY" },
+      { label: "Structured Content", href: "/resources/what-is-structured-content/", type: "GLOSSARY" },
       { label: "UI/UX Design", href: "/services/ui-ux-design/", type: "SERVICE" },
     ],
   },
@@ -579,7 +579,7 @@ export const metricsGlossary: Resource[] = [
       },
     ],
     related: [
-      { label: "Server-side rendering", href: "/resources/what-is-server-side-rendering/", type: "GLOSSARY" },
+      { label: "Server-Side Rendering", href: "/resources/what-is-server-side-rendering/", type: "GLOSSARY" },
       { label: "Web Stack", href: "/technologies/web-stack/", type: "TECHNOLOGY" },
     ],
   },
@@ -621,7 +621,7 @@ export const metricsGlossary: Resource[] = [
     ],
     related: [
       { label: "Website Maintenance & Support", href: "/services/website-maintenance/", type: "SERVICE" },
-      { label: "Total cost of ownership", href: "/resources/what-is-total-cost-of-ownership/", type: "GLOSSARY" },
+      { label: "Total Cost of Ownership", href: "/resources/what-is-total-cost-of-ownership/", type: "GLOSSARY" },
     ],
   },
   {
@@ -661,8 +661,8 @@ export const metricsGlossary: Resource[] = [
       },
     ],
     related: [
-      { label: "Custom software vs off-the-shelf", href: "/resources/custom-software-vs-off-the-shelf/", type: "COMPARISON" },
-      { label: "Technical debt", href: "/resources/what-is-technical-debt/", type: "GLOSSARY" },
+      { label: "Custom Software vs Off-the-Shelf", href: "/resources/custom-software-vs-off-the-shelf/", type: "COMPARISON" },
+      { label: "Technical Debt", href: "/resources/what-is-technical-debt/", type: "GLOSSARY" },
     ],
   },
   {
@@ -743,7 +743,7 @@ export const metricsGlossary: Resource[] = [
       },
     ],
     related: [
-      { label: "Data pipeline", href: "/resources/what-is-a-data-pipeline/", type: "GLOSSARY" },
+      { label: "Data Pipeline", href: "/resources/what-is-a-data-pipeline/", type: "GLOSSARY" },
       { label: "Automation Platforms", href: "/technologies/automation-platforms/", type: "TECHNOLOGY" },
     ],
   },

@@ -46,7 +46,7 @@ const coreIndustries: Industry[] = [
     useCases: ["generate-more-leads", "reduce-manual-work"],
     services: ["seo", "corporate-websites", "workflow-automation", "ai-agents"],
     seo: {
-      title: "Manufacturing",
+      title: "Digital Growth for Manufacturing",
       description:
         "Digital growth and automation for manufacturers — specification search visibility, faster RFQ response, and websites that match the capability behind them.",
       primaryTopic: "manufacturing digital and automation",
@@ -66,7 +66,7 @@ const coreIndustries: Industry[] = [
     related: [
       { label: "SEO Services", href: "/services/seo/", type: "SERVICE" },
       {
-        label: "Workflow automation",
+        label: "Workflow Automation",
         href: "/services/workflow-automation/",
         type: "SERVICE",
       },
@@ -108,7 +108,7 @@ const coreIndustries: Industry[] = [
     useCases: ["generate-more-leads", "reduce-manual-work"],
     services: ["seo", "corporate-websites", "workflow-automation"],
     seo: {
-      title: "Real Estate",
+      title: "Digital Growth for Real Estate",
       description:
         "Direct enquiry generation for real estate — locality search visibility, faster response, and less dependence on listing portals.",
       primaryTopic: "real estate digital growth",
@@ -163,9 +163,9 @@ const coreIndustries: Industry[] = [
     useCases: ["generate-more-leads", "get-found-in-ai-search"],
     services: ["seo", "ai-search-optimisation", "workflow-automation"],
     seo: {
-      title: "Education & EdTech",
+      title: "Digital Growth for Education & EdTech",
       description:
-        "Admissions visibility and enquiry automation for education institutions — course search rankings, AI answer accuracy, and follow-up that does not depend on peak-week effort.",
+        "Admissions visibility and enquiry automation for education providers — course search rankings, AI answer accuracy, and follow-up that holds through peak weeks.",
       primaryTopic: "education sector digital",
       secondaryTopics: ["education SEO", "admissions automation"],
       intent: "commercial",
@@ -217,7 +217,7 @@ const coreIndustries: Industry[] = [
     useCases: ["generate-more-leads", "get-found-in-ai-search"],
     services: ["seo", "ai-search-optimisation", "workflow-automation"],
     seo: {
-      title: "Professional Services",
+      title: "Digital Growth for Professional Services",
       description:
         "Visibility and efficiency for consultancies and professional firms — published expertise, AI-assistant presence, and less administrative load.",
       primaryTopic: "professional services growth",

@@ -71,7 +71,7 @@ export const moreUseCases: UseCase[] = [
     phase: "P1",
     cta: { label: "Get a lead-flow assessment", href: "/contact/", tier: "T3" },
     related: [
-      { label: "Sales automation", href: "/services/sales-automation/", type: "SERVICE" },
+      { label: "Sales Automation", href: "/services/sales-automation/", type: "SERVICE" },
       { label: "Generate more leads", href: "/use-cases/generate-more-leads/", type: "USE CASE" },
     ],
   },
@@ -193,7 +193,7 @@ export const moreUseCases: UseCase[] = [
       "A higher share of existing visitors becoming enquiries, and enough measurement to know which pages are responsible.",
     realisticTimeline:
       "Four to six weeks for the first round. Conversion work usually shows results faster than acquisition work.",
-    services: ["conversion-rate-optimization", "ui-ux-design", "search-experience-optimisation"],
+    services: ["conversion-rate-optimisation", "ui-ux-design", "search-experience-optimisation"],
     seo: {
       title: "Improve website conversion",
       description:
@@ -206,8 +206,8 @@ export const moreUseCases: UseCase[] = [
     phase: "P1",
     cta: { label: "Request a CRO assessment", href: "/contact/", tier: "T3" },
     related: [
-      { label: "Conversion optimisation", href: "/services/conversion-rate-optimization/", type: "SERVICE" },
-      { label: "UI/UX design", href: "/services/ui-ux-design/", type: "SERVICE" },
+      { label: "Conversion Optimisation", href: "/services/conversion-rate-optimisation/", type: "SERVICE" },
+      { label: "UI/UX Design", href: "/services/ui-ux-design/", type: "SERVICE" },
     ],
   },
   {
@@ -337,7 +337,7 @@ export const moreUseCases: UseCase[] = [
     phase: "P1",
     cta: { label: "Request an automation assessment", href: "/contact/", tier: "T3" },
     related: [
-      { label: "Workflow automation", href: "/services/workflow-automation/", type: "SERVICE" },
+      { label: "Workflow Automation", href: "/services/workflow-automation/", type: "SERVICE" },
       { label: "Reduce manual work", href: "/use-cases/reduce-manual-work/", type: "USE CASE" },
     ],
   },

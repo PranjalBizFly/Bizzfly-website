@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Section } from "@/components/layout/Section";
 import { Heading, BodyText, Eyebrow } from "@/components/typography";
 import { SearchResults } from "@/components/search/SearchResults";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { totalPageCount } from "@/lib/search";
 
 export const metadata: Metadata = {
@@ -24,6 +25,8 @@ export const metadata: Metadata = {
 export default function SearchPage() {
   return (
     <Section spacing="md" width="default">
+      {/* The one inner page that carried no trail. Label matches the route. */}
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Search" }]} />
       <Eyebrow>Search</Eyebrow>
       <Heading level={1} size="h1">
         Find anything on this site

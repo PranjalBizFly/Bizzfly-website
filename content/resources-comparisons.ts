@@ -48,7 +48,7 @@ export const moreComparisons: Resource[] = [
     ],
     related: [
       { label: "SEO Audit", href: "/services/seo-audit/", type: "SERVICE" },
-      { label: "SEO audit checklist", href: "/resources/seo-audit-checklist/", type: "CHECKLIST" },
+      { label: "SEO Audit Checklist", href: "/resources/seo-audit-checklist/", type: "CHECKLIST" },
     ],
   },
   {
@@ -90,7 +90,7 @@ export const moreComparisons: Resource[] = [
     ],
     related: [
       { label: "Local SEO", href: "/services/local-seo/", type: "SERVICE" },
-      { label: "Local SEO checklist", href: "/resources/local-seo-checklist/", type: "CHECKLIST" },
+      { label: "Local SEO Checklist", href: "/resources/local-seo-checklist/", type: "CHECKLIST" },
     ],
   },
   {
@@ -131,7 +131,7 @@ export const moreComparisons: Resource[] = [
       },
     ],
     related: [
-      { label: "How to evaluate a software development partner", href: "/resources/how-to-evaluate-a-software-development-partner/", type: "DECISION" },
+      { label: "How to Evaluate a Software Development Partner", href: "/resources/how-to-evaluate-a-software-development-partner/", type: "DECISION" },
       { label: "Custom Software Development", href: "/services/custom-software/", type: "SERVICE" },
     ],
   },
@@ -173,7 +173,7 @@ export const moreComparisons: Resource[] = [
       },
     ],
     related: [
-      { label: "Minimum viable product", href: "/resources/what-is-a-minimum-viable-product/", type: "GLOSSARY" },
+      { label: "Minimum Viable Product", href: "/resources/what-is-a-minimum-viable-product/", type: "GLOSSARY" },
       { label: "Automation Platforms", href: "/technologies/automation-platforms/", type: "TECHNOLOGY" },
     ],
   },
@@ -215,7 +215,7 @@ export const moreComparisons: Resource[] = [
       },
     ],
     related: [
-      { label: "AI agent", href: "/resources/what-is-an-ai-agent/", type: "GLOSSARY" },
+      { label: "AI Agent", href: "/resources/what-is-an-ai-agent/", type: "GLOSSARY" },
       { label: "AI Chatbots", href: "/services/ai-chatbots/", type: "SERVICE" },
     ],
   },
@@ -258,7 +258,7 @@ export const moreComparisons: Resource[] = [
     ],
     related: [
       { label: "Retrieval-augmented generation", href: "/resources/what-is-retrieval-augmented-generation/", type: "GLOSSARY" },
-      { label: "Fine-tuning", href: "/resources/what-is-fine-tuning/", type: "GLOSSARY" },
+      { label: "Fine-Tuning", href: "/resources/what-is-fine-tuning/", type: "GLOSSARY" },
     ],
   },
   {
@@ -299,7 +299,7 @@ export const moreComparisons: Resource[] = [
       },
     ],
     related: [
-      { label: "Data warehouse", href: "/resources/what-is-a-data-warehouse/", type: "GLOSSARY" },
+      { label: "Data Warehouse", href: "/resources/what-is-a-data-warehouse/", type: "GLOSSARY" },
       { label: "Replace spreadsheet processes", href: "/use-cases/replace-spreadsheet-processes/", type: "USE CASE" },
     ],
   },
@@ -383,8 +383,8 @@ export const moreComparisons: Resource[] = [
       },
     ],
     related: [
-      { label: "SEO vs paid search", href: "/resources/seo-vs-paid-search/", type: "COMPARISON" },
-      { label: "Marketing attribution", href: "/resources/what-is-marketing-attribution/", type: "GLOSSARY" },
+      { label: "SEO vs Paid Search", href: "/resources/seo-vs-paid-search/", type: "COMPARISON" },
+      { label: "Marketing Attribution", href: "/resources/what-is-marketing-attribution/", type: "GLOSSARY" },
     ],
   },
   {
@@ -411,7 +411,7 @@ export const moreComparisons: Resource[] = [
     },
     audience: ["A1", "A3"],
     phase: "P2",
-    cta: { label: "See how we work", href: "/company/how-we-work/", tier: "T1" },
+    cta: { label: "See How We Work", href: "/how-we-work/", tier: "T1" },
     faqs: [
       {
         question: "Is a freelancer always cheaper?",
@@ -425,8 +425,8 @@ export const moreComparisons: Resource[] = [
       },
     ],
     related: [
-      { label: "How to choose a digital growth partner", href: "/resources/how-to-choose-a-digital-growth-partner/", type: "DECISION" },
-      { label: "In-house SEO vs agency SEO", href: "/resources/in-house-seo-vs-agency-seo/", type: "COMPARISON" },
+      { label: "How to Choose a Digital Growth Partner", href: "/resources/how-to-choose-a-digital-growth-partner/", type: "DECISION" },
+      { label: "In-House SEO vs Agency SEO", href: "/resources/in-house-seo-vs-agency-seo/", type: "COMPARISON" },
     ],
   },
 ];

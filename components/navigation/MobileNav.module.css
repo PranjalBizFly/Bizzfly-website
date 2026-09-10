@@ -7,7 +7,8 @@
   flex-direction: column;
 }
 
-@media (min-width: 1024px) {
+/* Matches the header: the desktop bar only appears at 1280. */
+@media (min-width: 1280px) {
   .overlay {
     display: none;
   }

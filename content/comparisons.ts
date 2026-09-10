@@ -217,7 +217,7 @@ export const comparisons: Resource[] = [
         type: "SERVICE",
       },
       {
-        label: "Zero-click search",
+        label: "Zero-Click Search",
         href: "/resources/what-is-zero-click-search/",
         type: "GLOSSARY",
       },
@@ -271,7 +271,7 @@ export const comparisons: Resource[] = [
         type: "SERVICE",
       },
       {
-        label: "Why your website redesign lost traffic",
+        label: "Why Your Website Redesign Lost Traffic",
         href: "/resources/why-your-website-redesign-lost-traffic/",
         type: "ARTICLE",
       },
@@ -325,7 +325,7 @@ export const comparisons: Resource[] = [
         type: "SERVICE",
       },
       {
-        label: "When should you build custom software?",
+        label: "When Should You Build Custom Software?",
         href: "/resources/when-should-you-build-custom-software/",
         type: "DECISION",
       },
@@ -478,11 +478,11 @@ export const comparisons: Resource[] = [
     ],
     related: [
       {
-        label: "How to evaluate SEO services",
+        label: "How to Evaluate SEO Services",
         href: "/resources/how-to-evaluate-seo-services/",
         type: "DECISION",
       },
-      { label: "How we work", href: "/company/how-we-work/", type: "COMPANY" },
+      { label: "How We Work", href: "/how-we-work/", type: "COMPANY" },
     ],
   },
   {

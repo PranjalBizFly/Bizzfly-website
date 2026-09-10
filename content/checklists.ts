@@ -53,7 +53,7 @@ export const checklists: Resource[] = [
     related: [
       { label: "Technical SEO", href: "/services/technical-seo/", type: "SERVICE" },
       {
-        label: "Index coverage",
+        label: "Index Coverage",
         href: "/resources/what-is-index-coverage/",
         type: "GLOSSARY",
       },
@@ -107,7 +107,7 @@ export const checklists: Resource[] = [
         type: "USE CASE",
       },
       {
-        label: "How AI search works",
+        label: "How AI Search Works",
         href: "/resources/how-ai-search-works/",
         type: "GUIDE",
       },
@@ -156,12 +156,12 @@ export const checklists: Resource[] = [
     ],
     related: [
       {
-        label: "How to plan a website redesign",
+        label: "How to Plan a Website Redesign",
         href: "/resources/how-to-plan-a-website-redesign/",
         type: "DECISION",
       },
       {
-        label: "Why your website redesign lost traffic",
+        label: "Why Your Website Redesign Lost Traffic",
         href: "/resources/why-your-website-redesign-lost-traffic/",
         type: "ARTICLE",
       },
@@ -234,7 +234,7 @@ export const checklists: Resource[] = [
       "Then the form. Every field should be one you genuinely act on. Fields collected because they might be useful cost completions measurably. Ask what happens to the enquiry, tell the visitor, and make the confirmation state a real one — a fake success message is worse than an honest failure.",
       "Then friction and trust. Test on a mid-range phone: tap targets big enough, no layout shift moving a button under a thumb, no interstitial covering the content. Where proof is offered it must be real and attributable; invented logos and unsourced statistics reduce trust in everything around them.",
     ],
-    supports: ["conversion-rate-optimization", "ui-ux-design"],
+    supports: ["conversion-rate-optimisation", "ui-ux-design"],
     seo: {
       title: "Website Conversion Checklist",
       description:
@@ -247,7 +247,7 @@ export const checklists: Resource[] = [
     phase: "P1",
     cta: {
       label: "Read about Conversion Optimisation",
-      href: "/services/conversion-rate-optimization/",
+      href: "/services/conversion-rate-optimisation/",
       tier: "T1",
     },
     faqs: [
@@ -288,7 +288,7 @@ export const checklists: Resource[] = [
       "Then conversion. Whether the primary action is obvious and appropriate for the stage the visitor is at, whether the form is proportionate, and whether enquiries are actually received, routed and answered quickly enough to matter.",
       "Then capacity, which is the layer most audits skip. Growth that breaks fulfilment is not growth. Check what happens to response time, delivery quality and support load if enquiries doubled — because if the answer is unacceptable, the constraint is operational rather than marketing.",
     ],
-    supports: ["digital-strategy", "conversion-rate-optimization"],
+    supports: ["digital-strategy", "conversion-rate-optimisation"],
     seo: {
       title: "Digital Growth Audit Checklist",
       description:
@@ -318,7 +318,7 @@ export const checklists: Resource[] = [
         href: "/services/digital-strategy/",
         type: "SERVICE",
       },
-      { label: "Our approach", href: "/company/approach/", type: "COMPANY" },
+      { label: "Our Approach", href: "/our-approach/", type: "COMPANY" },
     ],
   },
   {
@@ -364,7 +364,7 @@ export const checklists: Resource[] = [
     ],
     related: [
       {
-        label: "When should you automate a process?",
+        label: "When Should You Automate a Process?",
         href: "/resources/when-should-you-automate-a-process/",
         type: "DECISION",
       },

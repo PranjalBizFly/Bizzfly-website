@@ -217,7 +217,7 @@ const coreServices: Service[] = [
     ],
     related: [
       { label: "SEO Services", href: "/services/seo/", type: "SERVICE" },
-      { label: "Website performance", href: "/services/website-performance/", type: "SERVICE" },
+      { label: "Website Performance", href: "/services/website-performance/", type: "SERVICE" },
     ],
   },
   {
@@ -275,7 +275,7 @@ const coreServices: Service[] = [
     ],
     related: [
       { label: "AI Chatbots", href: "/services/ai-chatbots/", type: "SERVICE" },
-      { label: "Workflow automation", href: "/services/workflow-automation/", type: "SERVICE" },
+      { label: "Workflow Automation", href: "/services/workflow-automation/", type: "SERVICE" },
       { label: "Reduce manual work", href: "/use-cases/reduce-manual-work/", type: "USE CASE" },
     ],
   },
@@ -346,8 +346,8 @@ const coreServices: Service[] = [
     timeline: "8–14 weeks depending on page count and content readiness.",
     cta: { label: "Discuss your project", href: "/contact/", tier: "T4" },
     related: [
-      { label: "Website redesign", href: "/services/website-redesign/", type: "SERVICE" },
-      { label: "UI/UX design", href: "/services/ui-ux-design/", type: "SERVICE" },
+      { label: "Website Redesign", href: "/services/website-redesign/", type: "SERVICE" },
+      { label: "UI/UX Design", href: "/services/ui-ux-design/", type: "SERVICE" },
     ],
   },
 ];

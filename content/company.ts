@@ -37,7 +37,7 @@ export const companyPages: CompanyPage[] = [
     phase: "P1",
     cta: { label: "Book a consultation", href: "/contact/", tier: "T4" },
     related: [
-      { label: "How we work", href: "/company/how-we-work/", type: "COMPANY" },
+      { label: "How We Work", href: "/how-we-work/", type: "COMPANY" },
       { label: "Services", href: "/services/", type: "SECTION" },
       { label: "Contact", href: "/contact/", type: "CONTACT" },
     ],
@@ -45,7 +45,7 @@ export const companyPages: CompanyPage[] = [
   {
     slug: "how-we-work",
     section: "about",
-    title: "How we work",
+    title: "How We Work",
     answer:
       "Every engagement starts with diagnosis, not a proposal. We spend the first two weeks establishing what is actually wrong, because fixing the wrong constraint is the expensive mistake — and you keep those findings whether or not you continue with us.",
     body: [
@@ -55,7 +55,7 @@ export const companyPages: CompanyPage[] = [
       `On delivery, we report against agreed commercial measures — enquiries, response times, hours removed — rather than against activity. A monthly report full of impressions and rankings that avoids the commercial question is a way of not being accountable.`,
     ],
     seo: {
-      title: "How we work",
+      title: "How We Work",
       description:
         "Our engagement process: diagnosis before proposal, boundaries stated in writing, and reporting against commercial measures rather than activity.",
       primaryTopic: "how BizzFly works",
@@ -66,8 +66,8 @@ export const companyPages: CompanyPage[] = [
     phase: "P1",
     cta: { label: "Book a consultation", href: "/contact/", tier: "T4" },
     related: [
-      { label: "About BizzFly", href: "/company/about/", type: "COMPANY" },
-      { label: "Our engineering standards", href: "/technologies/engineering-standards/", type: "TECHNOLOGY" },
+      { label: "About Us", href: "/about-us/", type: "COMPANY" },
+      { label: "Our Engineering Standards", href: "/technologies/engineering-standards/", type: "TECHNOLOGY" },
       { label: "Contact", href: "/contact/", type: "CONTACT" },
     ],
   },
@@ -89,9 +89,11 @@ export const legalPages: CompanyPage[] = [
     title: "Privacy Policy",
     answer:
       "This page will set out what personal data BizzFly collects through this website, why it is collected, how long it is kept, and how to request its deletion.",
-    body: [
+    reviewNote:
       "[VERIFY_WITH_BIZZFLY] The privacy policy on the current site is published at a duplicated URL and has not been verified as bespoke rather than theme boilerplate. It requires legal review before it is republished here.",
-      "Pending that review, here is what this site does today: the contact form collects the name, email address, optional phone number and message you submit, together with the page you submitted it from. That information is used to respond to your enquiry. Analytics are not enabled on this build.",
+    body: [
+      "A full privacy policy is being prepared and will be published here once it has completed legal review.",
+      "In the meantime, here is what this site does today: the contact form collects the name, email address, optional phone number and message you submit, together with the page you submitted it from. That information is used to respond to your enquiry. Analytics are not enabled on this build.",
       "To ask what we hold about you, or to have it deleted, email sales@bizzfly.com.",
     ],
     seo: {
@@ -112,8 +114,10 @@ export const legalPages: CompanyPage[] = [
     title: "Terms & Conditions",
     answer:
       "This page will set out the terms governing use of this website and the basis on which BizzFly provides services.",
-    body: [
+    reviewNote:
       "[VERIFY_WITH_BIZZFLY] Terms require review and confirmation of the contracting entity before publication. Drafting commercial terms without that confirmation would put wrong information in front of buyers.",
+    body: [
+      "Full website terms are being prepared and will be published here once they have completed legal review.",
       "Engagement terms — scope, payment, intellectual property and notice — are set out in the proposal for each engagement. Intellectual property in work we deliver is yours.",
     ],
     seo: {

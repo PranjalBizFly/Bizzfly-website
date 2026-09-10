@@ -30,6 +30,7 @@ import { Marquee, MarqueeItem, Reveal } from "@/components/motion";
 import { TextLink } from "@/components/buttons";
 import { BodyText } from "@/components/typography";
 import { JsonLd } from "@/components/JsonLd";
+import { faqSchema } from "@/lib/seo";
 import { industries } from "@/content/industries";
 import { technologies } from "@/content/technologies";
 import { resources } from "@/content/resources";
@@ -274,6 +275,14 @@ export default function HomePage() {
           about: { "@id": `${site.url}/#organization` },
         }}
       />
+
+      {/*
+        The homepage renders the same six questions every entity page marks up,
+        and was the one page carrying them without the schema. Built from the
+        same `homeFaqs` array the block below renders, so the markup cannot
+        describe questions the page does not actually show.
+      */}
+      {homeFaqs.length ? <JsonLd data={faqSchema(homeFaqs)} /> : null}
 
       {/* 01 — Hero at display scale, closed by the discovery ticker. */}
       <HomeHero />
@@ -532,8 +541,7 @@ export default function HomePage() {
         it.
       */}
       <Section spacing="lg" id="founder">
-        {/* No image passed — see the note in FounderNote. */}
-        <FounderNote />
+        <FounderNote image={narrative.founder} />
       </Section>
 
       {/* 12 — The questions that come before a first call */}

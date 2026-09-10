@@ -29,11 +29,22 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+const RELOCATED_COMPANY_SLUGS = new Set([
+  "about",
+  "approach",
+  "how-we-work",
+  "discovery-process",
+  "engagement-models",
+  "careers",
+]);
+
 /** Unknown slugs 404 at the routing layer — see /services/[slug]. */
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return allCompanyPages.filter(isPublished).map((page) => ({ slug: page.slug }));
+  return allCompanyPages
+    .filter((page) => isPublished(page) && !RELOCATED_COMPANY_SLUGS.has(page.slug))
+    .map((page) => ({ slug: page.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -85,7 +96,7 @@ const engagement = [
 export default async function CompanyPage({ params }: PageProps) {
   const { slug } = await params;
   const page = getCompanyPage(slug);
-  if (!page || !isPublished(page)) notFound();
+  if (!page || !isPublished(page) || RELOCATED_COMPANY_SLUGS.has(slug)) notFound();
 
   const isLegal = page.section === "legal";
   const isCareers = page.section === "careers";
@@ -180,7 +191,7 @@ export default async function CompanyPage({ params }: PageProps) {
                 <Button href="/contact/" withArrow>
                   Introduce yourself
                 </Button>
-                <TextLink href="/company/approach/">How we work</TextLink>
+                <TextLink href="/our-approach/">How we work</TextLink>
               </div>
             }
           />

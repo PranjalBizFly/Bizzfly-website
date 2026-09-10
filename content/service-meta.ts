@@ -197,7 +197,7 @@ export const serviceMeta: Record<string, ServiceMeta> = {
     layout: "capability-led",
     diagram: "none",
   },
-  "conversion-rate-optimization": {
+  "conversion-rate-optimisation": {
     group: "growth",
     layout: "process-led",
     diagram: "none",

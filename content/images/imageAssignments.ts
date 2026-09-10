@@ -67,7 +67,7 @@ export function getNarrativeImages(): NarrativeImages {
   return {
     why: requireImage("company-how-we-work"),
     engine: requireImage("company-discovery-process"),
-    founder: requireImage("company-about"),
+    founder: requireImage("home-founder"),
     jobs: {
       "be-found": requireImage("practice-search-ai-visibility"),
       build: requireImage("practice-web-development"),
@@ -75,6 +75,10 @@ export function getNarrativeImages(): NarrativeImages {
       grow: requireImage("practice-digital-marketing"),
     },
   };
+}
+
+export function getFounderImage(): ImageMetadata {
+  return requireImage("home-founder");
 }
 
 /**
@@ -134,7 +138,7 @@ export const serviceImageAssignments: Record<string, string> = {
   "ai-consulting": "service-ai-consulting",
   "digital-strategy": "service-digital-strategy",
   "performance-marketing": "service-performance-marketing",
-  "conversion-rate-optimization": "service-conversion-rate-optimization",
+  "conversion-rate-optimisation": "service-conversion-rate-optimisation",
   "business-intelligence": "service-business-intelligence",
   "analytics-implementation": "service-analytics-implementation",
   "website-performance": "service-website-performance",

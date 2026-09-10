@@ -103,7 +103,7 @@ export const technologyGlossary: Resource[] = [
     related: [
       { label: "AI Agents", href: "/services/ai-agents/", type: "SERVICE" },
       {
-        label: "Vector search",
+        label: "Vector Search",
         href: "/resources/what-is-vector-search/",
         type: "GLOSSARY",
       },
@@ -307,7 +307,7 @@ export const technologyGlossary: Resource[] = [
         type: "SERVICE",
       },
       {
-        label: "Automation vs manual operations",
+        label: "Automation vs Manual Operations",
         href: "/resources/automation-vs-manual-operations/",
         type: "COMPARISON",
       },
@@ -519,7 +519,7 @@ export const technologyGlossary: Resource[] = [
         type: "TECHNOLOGY",
       },
       {
-        label: "Headless vs traditional CMS",
+        label: "Headless vs Traditional CMS",
         href: "/resources/headless-vs-traditional-cms/",
         type: "COMPARISON",
       },
@@ -623,7 +623,7 @@ export const technologyGlossary: Resource[] = [
         type: "SERVICE",
       },
       {
-        label: "How to measure search visibility",
+        label: "How to Measure Search Visibility",
         href: "/resources/how-to-measure-search-visibility/",
         type: "GUIDE",
       },

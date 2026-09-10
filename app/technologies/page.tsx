@@ -17,7 +17,7 @@ export const metadata: Metadata = buildMetadata(
   {
     title: "Technologies",
     description:
-      "The technologies BizzFly builds on, organised by the business capability each one enables — with the reasoning behind every choice and when we would advise against it.",
+      "The technologies BizzFly builds on, organised by the business capability each enables — the reasoning behind every choice, and when we would advise against it.",
     primaryTopic: "technology capability",
     secondaryTopics: ["AI", "automation", "web", "software", "data"],
     intent: "commercial",

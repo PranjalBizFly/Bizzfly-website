@@ -155,6 +155,16 @@ const STATIC_PAGE_META: Record<string, { category: string; type: string; indexab
   "/company/": { category: "Company", type: "Section index", indexable: true },
   "/contact/": { category: "Other", type: "Conversion", indexable: true },
   "/search/": { category: "Other", type: "Utility", indexable: false },
+  "/about-us/": { category: "Company", type: "Company page", indexable: true },
+  "/our-approach/": { category: "Company", type: "Company page", indexable: true },
+  "/how-we-work/": { category: "Company", type: "Company page", indexable: true },
+  "/discovery-process/": { category: "Company", type: "Company page", indexable: true },
+  "/engagement-models/": { category: "Company", type: "Company page", indexable: true },
+  "/careers/": { category: "Company", type: "Company page", indexable: true },
+  "/media/": { category: "Company", type: "Company page", indexable: true },
+  "/vendor/": { category: "Company", type: "Company page", indexable: true },
+  "/press-kit/": { category: "Company", type: "Company page", indexable: true },
+  "/blogs/": { category: "Resources", type: "Section index", indexable: true },
 };
 
 /** Markers present in a route's own source file, for static pages. */
@@ -301,11 +311,36 @@ const dynamicSources: DynamicSource[] = [
     category: "Company",
     type: "Company page",
     records: allCompanyPages
-      .filter((c) => published(c.status))
+      .filter(
+        (c) =>
+          published(c.status) &&
+          ![
+            "about",
+            "approach",
+            "how-we-work",
+            "discovery-process",
+            "engagement-models",
+            "careers",
+          ].includes(c.slug),
+      )
       .map((c) => ({ slug: c.slug, title: c.title, status: c.status, seo: c.seo })),
-    excluded: allCompanyPages
-      .filter((c) => !published(c.status))
-      .map((c) => ({ slug: c.slug, reason: c.status ?? "unknown" })),
+    excluded: [
+      ...allCompanyPages
+        .filter((c) => !published(c.status))
+        .map((c) => ({ slug: c.slug, reason: c.status ?? "unknown" })),
+      ...allCompanyPages
+        .filter((c) =>
+          [
+            "about",
+            "approach",
+            "how-we-work",
+            "discovery-process",
+            "engagement-models",
+            "careers",
+          ].includes(c.slug),
+        )
+        .map((c) => ({ slug: c.slug, reason: "relocated to root canonical route" })),
+    ],
   },
 ];
 
@@ -329,8 +364,13 @@ for (const i of industries) registerRaw(`/industries/${i.slug}/`, i);
 for (const u of useCases) registerRaw(`/use-cases/${u.slug}/`, u);
 for (const t of technologies) registerRaw(`/technologies/${t.slug}/`, t);
 for (const r of resources) registerRaw(`/resources/${r.slug}/`, r);
-for (const c of caseStudies) registerRaw(`/case-studies/${c.slug}/`, c);
 for (const c of allCompanyPages) registerRaw(`/company/${c.slug}/`, c);
+registerRaw("/about-us/", allCompanyPages.find((c) => c.slug === "about"));
+registerRaw("/our-approach/", allCompanyPages.find((c) => c.slug === "approach"));
+registerRaw("/how-we-work/", allCompanyPages.find((c) => c.slug === "how-we-work"));
+registerRaw("/discovery-process/", allCompanyPages.find((c) => c.slug === "discovery-process"));
+registerRaw("/engagement-models/", allCompanyPages.find((c) => c.slug === "engagement-models"));
+registerRaw("/careers/", allCompanyPages.find((c) => c.slug === "careers"));
 
 for (const source of dynamicSources) {
   const prefix = source.template.replace("[slug]/", "");
@@ -459,10 +499,6 @@ const missingFromSitemap = indexablePages
 const discoverable = new Set<string>(["/"]);
 const reach = (href?: string) => {
   if (!href || href.startsWith("http") || href.startsWith("#")) return;
-  /*
-    noUncheckedIndexedAccess types every index access as possibly undefined,
-    so the split chain has to be guarded rather than assumed.
-  */
   const path = href.split("?")[0]?.split("#")[0];
   if (path) discoverable.add(path);
 };
@@ -470,7 +506,6 @@ const reach = (href?: string) => {
 /* Header, mega menu, footer, legal bar. */
 for (const item of primaryNav) {
   reach(item.href);
-  for (const link of item.panel?.primary ?? []) reach(link.href);
   for (const column of item.panel?.columns ?? []) {
     reach(column.headingHref);
     for (const link of column.items) reach(link.href);
@@ -512,7 +547,18 @@ for (const resource of resources) {
 }
 for (const page of allCompanyPages) {
   /* /company/ lists about + extra pages; legal reaches via the footer bar. */
-  if (page.section !== "legal" && published(page.status))
+  if (
+    page.section !== "legal" &&
+    published(page.status) &&
+    ![
+      "about",
+      "approach",
+      "how-we-work",
+      "discovery-process",
+      "engagement-models",
+      "careers",
+    ].includes(page.slug)
+  )
     reach(`/company/${page.slug}/`);
 }
 for (const study of publishedCaseStudies) reach(`/case-studies/${study.slug}/`);

@@ -82,64 +82,37 @@
   padding-inline-end: var(--logo-clearspace);
 }
 
-/*
- * The full lockup everywhere except the lg band, where the nav, search and
- * CTA need the 102px the symbol gives back. Swapped in CSS rather than
- * JavaScript so it is correct in the first paint and cannot flash.
- */
-.brandCompact {
-  display: none;
-}
-
-@media (min-width: 1024px) and (max-width: 1279.98px) {
-  .brandFull {
-    display: none;
-  }
-
-  .brandCompact {
-    display: inline-flex;
-  }
-}
-
 /* --- Desktop nav --------------------------------------------------------- */
 .nav {
   display: none;
 }
 
-@media (min-width: 1024px) {
+/*
+ * The bar goes to the drawer below 1280, not below 1024.
+ *
+ * The 1024–1279 band never actually fitted: the seven items, the search and
+ * theme controls and the CTA measure ~1071px against a 944px container, and
+ * the page scrolled sideways by 97px on every route. It used to be held
+ * together by swapping the lockup for the symbol across that band, which
+ * bought 102px; with that swap gone the budget is simply not there, and
+ * compacting type further would put the nav under a legible size.
+ *
+ * So the band gets the drawer instead. It carries the same categories and
+ * the same panels as the desktop menu, so nothing becomes unreachable — and
+ * a hamburger at tablet-landscape width is the ordinary answer rather than a
+ * new pattern. From 1280 up the bar measures inside its container.
+ */
+@media (min-width: 1280px) {
   .nav {
     display: flex;
     align-items: center;
-    /*
-     * Deliberately tight. At 1024 the seven items, the search and theme
-     * controls and the CTA total more than the container, and the drawer is
-     * already hidden at this width — so the toggle cannot simply move there.
-     * Compacting the nav is what keeps every control reachable.
-     */
-    gap: var(--space-2);
-    margin-inline-end: auto;
-    margin-inline-start: var(--space-3);
-    font-size: var(--text-nav-sub);
-  }
-
-  /* Label to chevron; the default 8px is more than the mark needs. */
-  .nav .navLink {
-    gap: var(--space-1);
-    font-size: inherit;
-  }
-
-  .actions {
-    gap: var(--space-2);
-  }
-}
-
-@media (min-width: 1280px) {
-  .nav {
     gap: var(--space-5);
+    margin-inline-end: auto;
     margin-inline-start: var(--space-6);
     font-size: var(--text-nav);
   }
 
+  /* Label to chevron; the default 8px is more than the mark needs. */
   .nav .navLink {
     gap: var(--space-2);
   }
@@ -356,7 +329,8 @@
   background: var(--surface);
 }
 
-@media (min-width: 1024px) {
+/* The drawer trigger stays until the bar itself appears at 1280. */
+@media (min-width: 1280px) {
   .menuToggle {
     display: none;
   }
@@ -409,121 +383,38 @@
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 1024px) {
-  /*
-   * Three regions: the editorial selection, the categories, the feature card.
-   *
-   * Sized to content rather than by ratio. The old `1fr 2.5fr 1.05fr` gave
-   * the first track about 280px for entries that need barely 180 — the
-   * remainder showed up as a channel of dead space between the selection and
-   * the categories beside it, which is the gap that made the panel look
-   * mostly empty. Fixed outer tracks and a flexible middle put the width
-   * where the content actually is.
-   */
+/*
+ * Two regions from the width the desktop bar appears at: the groups, and the
+ * card beside them.
+ *
+ * There used to be a third — a narrow track holding a numbered editorial
+ * selection, styled unlike the groups next to it. Every panel now reads as
+ * one set of equally-weighted categories, so the track it needed goes back to
+ * the groups, which is where the links actually are. The card keeps a fixed
+ * 16rem because its measure is set by its own paragraph, not by the menu.
+ */
+@media (min-width: 1280px) {
   .panelGrid {
-    grid-template-columns: minmax(0, 13rem) minmax(0, 1fr) minmax(0, 16rem);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 15rem);
     gap: var(--space-10);
-    padding-block: var(--space-6) var(--space-10);
+    padding-block: var(--space-8) var(--space-10);
+  }
+
+  /* No card, no second track — otherwise the groups stop 16rem short. */
+  .panelGrid[data-feature="false"] {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
 /*
- * The panel's own sentence. A grouped menu is a table of contents, and a
- * table of contents with no title leaves the reader inferring the subject
- * from the entries.
+ * Group wrapper. min-width:0 so a long entry cannot push a grid column past
+ * its track and force the panel to scroll sideways.
  */
-.panelLead {
-  font-size: var(--text-body-sm);
-  line-height: var(--leading-relaxed);
-  color: var(--muted);
-  max-width: var(--measure-body);
-  padding-top: var(--space-8);
-  text-wrap: pretty;
-}
-
-/* Names what a region of the panel is, in the eyebrow voice used site-wide. */
-.regionHeading {
-  font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: var(--space-5);
-}
-
-/*
- * Services puts its groups straight into the panel grid, where a heading
- * above them would sit in the numbered column instead. The label is
- * redundant there anyway: four titled columns already read as categories.
- */
-.panelGrid[data-columns="3"][data-feature="false"] .columnsRegion > .regionHeading {
-  display: none;
-}
-
-/*
- * Region wrappers. min-width:0 so a long menu label cannot push a grid
- * column past its track and force the panel to scroll sideways.
- */
-.primaryRegion,
-.columnsRegion,
 .column {
   min-width: 0;
 }
 
-/* Column 1 — numbered primary list, the control column. Not cards. */
-.primaryList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.primaryItem + .primaryItem {
-  margin-top: var(--space-4);
-}
-
-.primaryLink {
-  display: block;
-  padding-block: var(--space-2);
-  text-decoration: none;
-  color: var(--foreground);
-}
-
-.primaryIndex,
-.primaryArrow {
-  display: none;
-}
-
-.primaryTitle {
-  display: block;
-  font-size: var(--text-nav-sub);
-  font-weight: var(--weight-medium);
-  color: var(--foreground);
-}
-
-.primaryDescription {
-  display: block;
-  font-size: var(--text-body-sm);
-  color: var(--muted);
-  margin-top: var(--space-1);
-}
-
-.primaryArrow {
-  color: var(--muted);
-  transition: transform var(--dur-base) var(--ease-standard);
-}
-
-.primaryLink:hover .primaryArrow {
-  transform: translateX(4px);
-  color: var(--foreground);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .primaryLink:hover .primaryArrow {
-    transform: none;
-  }
-}
-
-/* Column 2 — plain text links, not cards */
+/* Group entries — plain text links, not cards */
 .columnHeading {
   display: flex;
   align-items: baseline;
@@ -631,6 +522,19 @@
   background: var(--surface-inverse);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
+}
+
+/*
+ * In the dark theme --surface-inverse resolves to --ink-900, which is also
+ * what --background resolves to: the card was painting itself the exact
+ * colour of the panel behind it and disappearing. It went unnoticed while
+ * the panel had a numbered column and a region heading to give it structure;
+ * with those gone the card is the panel's only surface, so it takes the
+ * theme's raised one and stays a card in both themes. The on-dark text roles
+ * below are correct against either.
+ */
+:global(:root[data-theme="dark"]) .featureRegion {
+  background: var(--surface);
 }
 
 /*
@@ -785,6 +689,8 @@
 .columns {
   columns: 1;
   column-gap: var(--space-10);
+  /* A direct grid child now, so it needs the same floor .column has. */
+  min-width: 0;
 }
 
 .column {
@@ -816,13 +722,26 @@
  *
  * Panels with two groups keep two columns: a third track there would be the
  * empty column this is avoiding.
+ *
+ * Four groups and up take a fourth track. Four over three tracks is the worst
+ * case the balancer has: it can only move whole groups, so it stacks two in
+ * one track and leaves the other two ending half way up the panel — a column
+ * of white where the fourth category should be. A track each lines every
+ * heading up on one baseline, which is the arrangement this layout is for.
  */
 @media (min-width: 1280px) {
-  .panelGrid[data-columns="3"] .columns,
+  .panelGrid[data-columns="3"] .columns {
+    columns: 3;
+  }
+
   .panelGrid[data-columns="4"] .columns,
   .panelGrid[data-columns="5"] .columns,
-  .panelGrid[data-columns="6"] .columns {
-    columns: 3;
+  .panelGrid[data-columns="6"] .columns,
+  .panelGrid[data-columns="7"] .columns,
+  .panelGrid[data-columns="8"] .columns {
+    columns: 4;
+    /* Four tracks inside the same region; the wider gutter no longer fits. */
+    column-gap: var(--space-6);
   }
 }
 

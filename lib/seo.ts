@@ -19,9 +19,14 @@ import { site, locale } from "@/content/site";
 const TITLE_PATTERN: Partial<Record<RegistryKind, (title: string) => string>> = {
   service: (t) => t,
   practice: (t) => t,
-  industry: (t) => `Digital Growth & Technology for ${t}`,
+  /* Industry entities carry a self-describing SEO title ("Digital Growth for
+     Manufacturing"), so no prefix is added here — one used to be, which
+     produced "Digital Growth & Technology for Digital Growth for ...". */
+  industry: (t) => t,
   "use-case": (t) => t,
-  technology: (t) => `${t} — Technology at BizzFly`,
+  /* The root layout already appends "| BizzFly", so the brand is not repeated
+     here — it used to be, giving "Web Stack — Technology at BizzFly | BizzFly". */
+  technology: (t) => `${t} — Technology`,
   "case-study": (t) => t,
   resource: (t) => t,
   company: (t) => t,

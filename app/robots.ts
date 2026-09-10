@@ -26,6 +26,15 @@ const AI_CRAWLERS = [
 
 const SEARCH_CRAWLERS = ["Googlebot", "Bingbot", "DuckDuckBot"];
 
+/*
+ * A named user-agent group replaces the "*" group outright rather than adding
+ * to it, so every group has to repeat the exclusions. Without this the
+ * wildcard disallow below was ignored by precisely the crawlers it matters
+ * for — Googlebot and the AI agents each matched their own group and were
+ * free to walk internal search URLs.
+ */
+const DISALLOW = ["/search/", "/api/"];
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
@@ -33,10 +42,18 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
         // Internal search results must not be indexed.
-        disallow: ["/search/", "/api/"],
+        disallow: DISALLOW,
       },
-      ...SEARCH_CRAWLERS.map((userAgent) => ({ userAgent, allow: "/" })),
-      ...AI_CRAWLERS.map((userAgent) => ({ userAgent, allow: "/" })),
+      ...SEARCH_CRAWLERS.map((userAgent) => ({
+        userAgent,
+        allow: "/",
+        disallow: DISALLOW,
+      })),
+      ...AI_CRAWLERS.map((userAgent) => ({
+        userAgent,
+        allow: "/",
+        disallow: DISALLOW,
+      })),
     ],
     sitemap: `${site.url}/sitemap.xml`,
     host: site.url,

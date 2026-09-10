@@ -44,6 +44,15 @@ export default function CompanyIndexPage() {
    * Company mega menu: that panel renders on open, so its links never reach
    * the served HTML and cannot keep a page off the orphan list.
    */
+  const canonicalMap: Record<string, string> = {
+    about: "/about-us/",
+    approach: "/our-approach/",
+    "how-we-work": "/how-we-work/",
+    "discovery-process": "/discovery-process/",
+    "engagement-models": "/engagement-models/",
+    careers: "/careers/",
+  };
+
   const companyGroups = [
     {
       heading: "The company",
@@ -56,7 +65,7 @@ export default function CompanyIndexPage() {
       heading: group.heading,
       items: group.items.map((page) => ({
         label: page.title,
-        href: `/company/${page.slug}/`,
+        href: canonicalMap[page.slug] ?? `/company/${page.slug}/`,
       })),
     }))
     .filter((group) => group.items.length > 0);

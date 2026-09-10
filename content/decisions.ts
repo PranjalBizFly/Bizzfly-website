@@ -73,7 +73,7 @@ export const decisions: Resource[] = [
       "Timing matters more than most teams expect. A redesign freezes ordinary improvement for its duration, and a rebuild carries real risk to existing search visibility. Doing one during a peak season, or while another major change is in flight, converts a manageable project into a stressful one.",
       "The strongest case is a structural constraint plus a commercial cost you can name. The weakest is a new stakeholder who dislikes the current design. If you cannot state what will be true afterwards that is not true now, the project has no finish line.",
     ],
-    supports: ["website-redesign", "conversion-rate-optimization"],
+    supports: ["website-redesign", "corporate-websites"],
     seo: {
       title: "When Should You Redesign Your Website?",
       description:
@@ -199,7 +199,7 @@ export const decisions: Resource[] = [
     ],
     related: [
       {
-        label: "How to choose a first automation project",
+        label: "How to Choose a First Automation Project",
         href: "/resources/how-to-choose-a-first-automation-project/",
         type: "ARTICLE",
       },
@@ -280,7 +280,7 @@ export const decisions: Resource[] = [
     },
     audience: ["A1", "A2", "A8"],
     phase: "P1",
-    cta: { label: "See how we work", href: "/company/how-we-work/", tier: "T1" },
+    cta: { label: "See How We Work", href: "/how-we-work/", tier: "T1" },
     faqs: [
       {
         question: "What should we ask in a first meeting?",
@@ -294,7 +294,7 @@ export const decisions: Resource[] = [
       },
     ],
     related: [
-      { label: "How we work", href: "/company/how-we-work/", type: "COMPANY" },
+      { label: "How We Work", href: "/how-we-work/", type: "COMPANY" },
       {
         label: "How to evaluate SEO services",
         href: "/resources/how-to-evaluate-seo-services/",

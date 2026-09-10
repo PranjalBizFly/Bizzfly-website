@@ -41,9 +41,9 @@ export const methodologyPages: CompanyPage[] = [
     },
     relatedServices: ["digital-strategy"],
     related: [
-      { label: "Our approach", href: "/company/approach/", type: "COMPANY" },
+      { label: "Our Approach", href: "/our-approach/", type: "COMPANY" },
       {
-        label: "Digital growth audit checklist",
+        label: "Digital Growth Audit Checklist",
         href: "/resources/digital-growth-audit-checklist/",
         type: "CHECKLIST",
       },
@@ -78,14 +78,14 @@ export const methodologyPages: CompanyPage[] = [
       tier: "T3",
       note: "Thirty minutes on the problem, not a pitch.",
     },
-    relatedServices: ["digital-strategy", "seo", "conversion-rate-optimization"],
+    relatedServices: ["digital-strategy", "seo", "conversion-rate-optimisation"],
     related: [
       {
         label: "Digital Strategy",
         href: "/services/digital-strategy/",
         type: "SERVICE",
       },
-      { label: "Discovery process", href: "/company/discovery-process/", type: "COMPANY" },
+      { label: "Discovery Process", href: "/discovery-process/", type: "COMPANY" },
     ],
   },
   {
@@ -121,7 +121,7 @@ export const methodologyPages: CompanyPage[] = [
     relatedServices: ["seo", "technical-seo"],
     related: [
       {
-        label: "How to build search visibility",
+        label: "How to Build Search Visibility",
         href: "/resources/how-to-build-search-visibility/",
         type: "GUIDE",
       },
@@ -160,12 +160,12 @@ export const methodologyPages: CompanyPage[] = [
     relatedServices: ["ai-search-optimisation", "generative-engine-optimisation"],
     related: [
       {
-        label: "How AI search works",
+        label: "How AI Search Works",
         href: "/resources/how-ai-search-works/",
         type: "GUIDE",
       },
       {
-        label: "AI search readiness checklist",
+        label: "AI Search Readiness Checklist",
         href: "/resources/ai-search-readiness-checklist/",
         type: "CHECKLIST",
       },
@@ -203,12 +203,12 @@ export const methodologyPages: CompanyPage[] = [
     relatedServices: ["corporate-websites", "website-redesign"],
     related: [
       {
-        label: "Website launch checklist",
+        label: "Website Launch Checklist",
         href: "/resources/website-launch-checklist/",
         type: "CHECKLIST",
       },
       {
-        label: "How to plan a website redesign",
+        label: "How to Plan a Website Redesign",
         href: "/resources/how-to-plan-a-website-redesign/",
         type: "DECISION",
       },
@@ -251,7 +251,7 @@ export const methodologyPages: CompanyPage[] = [
         type: "TECHNOLOGY",
       },
       {
-        label: "How to evaluate a software development partner",
+        label: "How to Evaluate a Software Development Partner",
         href: "/resources/how-to-evaluate-a-software-development-partner/",
         type: "DECISION",
       },
@@ -290,12 +290,12 @@ export const methodologyPages: CompanyPage[] = [
     relatedServices: ["workflow-automation", "systems-integration"],
     related: [
       {
-        label: "How to build an automation roadmap",
+        label: "How to Build an Automation Roadmap",
         href: "/resources/how-to-build-an-automation-roadmap/",
         type: "GUIDE",
       },
       {
-        label: "Automation readiness checklist",
+        label: "Automation Readiness Checklist",
         href: "/resources/automation-readiness-checklist/",
         type: "CHECKLIST",
       },
@@ -332,9 +332,9 @@ export const methodologyPages: CompanyPage[] = [
     },
     relatedServices: ["digital-strategy"],
     related: [
-      { label: "How we work", href: "/company/how-we-work/", type: "COMPANY" },
+      { label: "How We Work", href: "/how-we-work/", type: "COMPANY" },
       {
-        label: "How to choose a digital growth partner",
+        label: "How to Choose a Digital Growth Partner",
         href: "/resources/how-to-choose-a-digital-growth-partner/",
         type: "DECISION",
       },

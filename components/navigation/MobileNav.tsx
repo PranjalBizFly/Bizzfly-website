@@ -195,33 +195,13 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
                       <p className={styles.subLead}>{item.panel.lead}</p>
                     ) : null}
 
-                    {item.panel.primaryHeading ? (
-                      <p className={styles.subHeading}>
-                        {item.panel.primaryHeading}
-                      </p>
-                    ) : null}
-
-                    <ul className={styles.subList}>
-                      {item.panel.primary.map((entry) => (
-                        <li key={entry.href}>
-                          <Link
-                            href={entry.href}
-                            className={styles.subLink}
-                            onClick={onClose}
-                          >
-                            {entry.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-
                     {/*
-                      The drawer carries the same categories the desktop panel
-                      does. Without them a phone visitor got six entries out of
-                      twenty-six and no way to see the rest except the hub —
-                      which is a different, worse menu on the smaller screen.
+                      The same categories the desktop panel carries, and only
+                      those. The drawer used to lead with the panel's `primary`
+                      shortlist above them, which on Services and Company
+                      listed the very entries the first category then repeated.
                     */}
-                    {item.panel.columns?.map((column) => (
+                    {item.panel.columns.map((column) => (
                       <div key={column.heading} className={styles.subGroup}>
                         <p className={styles.subHeading}>
                           {column.headingHref ? (

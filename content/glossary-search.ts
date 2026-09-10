@@ -110,7 +110,7 @@ export const searchGlossary: Resource[] = [
         type: "SERVICE",
       },
       {
-        label: "Knowledge graph",
+        label: "Knowledge Graph",
         href: "/resources/what-is-a-knowledge-graph/",
         type: "GLOSSARY",
       },
@@ -159,12 +159,12 @@ export const searchGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Entity optimisation",
+        label: "Entity Optimisation",
         href: "/resources/what-is-entity-optimisation/",
         type: "GLOSSARY",
       },
       {
-        label: "Schema markup",
+        label: "Schema Markup",
         href: "/resources/what-is-schema-markup/",
         type: "GLOSSARY",
       },
@@ -214,7 +214,7 @@ export const searchGlossary: Resource[] = [
     related: [
       { label: "Technical SEO", href: "/services/technical-seo/", type: "SERVICE" },
       {
-        label: "Knowledge graph",
+        label: "Knowledge Graph",
         href: "/resources/what-is-a-knowledge-graph/",
         type: "GLOSSARY",
       },
@@ -322,7 +322,7 @@ export const searchGlossary: Resource[] = [
         type: "SERVICE",
       },
       {
-        label: "Zero-click search",
+        label: "Zero-Click Search",
         href: "/resources/what-is-zero-click-search/",
         type: "GLOSSARY",
       },
@@ -372,7 +372,7 @@ export const searchGlossary: Resource[] = [
     related: [
       { label: "Technical SEO", href: "/services/technical-seo/", type: "SERVICE" },
       {
-        label: "Index coverage",
+        label: "Index Coverage",
         href: "/resources/what-is-index-coverage/",
         type: "GLOSSARY",
       },
@@ -421,7 +421,7 @@ export const searchGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Crawl budget",
+        label: "Crawl Budget",
         href: "/resources/what-is-crawl-budget/",
         type: "GLOSSARY",
       },
@@ -475,7 +475,7 @@ export const searchGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Index coverage",
+        label: "Index Coverage",
         href: "/resources/what-is-index-coverage/",
         type: "GLOSSARY",
       },
@@ -553,7 +553,7 @@ export const searchGlossary: Resource[] = [
     seo: {
       title: "What Is Internal Linking?",
       description:
-        "Internal linking connects pages so crawlers can discover them and relevance is distributed deliberately. Depth, anchor text, and the structural approach that scales.",
+        "Internal linking connects pages so crawlers discover them and relevance is distributed deliberately. Depth, anchor text, and a structural approach that scales.",
       primaryTopic: "internal linking",
       secondaryTopics: ["site architecture", "anchor text", "crawl depth"],
       intent: "informational",
@@ -580,7 +580,7 @@ export const searchGlossary: Resource[] = [
     related: [
       { label: "SEO Services", href: "/services/seo/", type: "SERVICE" },
       {
-        label: "Topical authority",
+        label: "Topical Authority",
         href: "/resources/what-is-topical-authority/",
         type: "GLOSSARY",
       },
@@ -629,7 +629,7 @@ export const searchGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Internal linking",
+        label: "Internal Linking",
         href: "/resources/what-is-internal-linking/",
         type: "GLOSSARY",
       },

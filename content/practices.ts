@@ -179,7 +179,7 @@ export const practices: Practice[] = [
     services: [
       "digital-strategy",
       "performance-marketing",
-      "conversion-rate-optimization",
+      "conversion-rate-optimisation",
     ],
     process: [
       {

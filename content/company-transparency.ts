@@ -41,8 +41,8 @@ export const transparencyPages: CompanyPage[] = [
     },
     relatedServices: ["digital-strategy"],
     related: [
-      { label: "Engagement models", href: "/company/engagement-models/", type: "COMPANY" },
-      { label: "How we work", href: "/company/how-we-work/", type: "COMPANY" },
+      { label: "Engagement Models", href: "/engagement-models/", type: "COMPANY" },
+      { label: "How We Work", href: "/how-we-work/", type: "COMPANY" },
     ],
   },
   {
@@ -77,7 +77,7 @@ export const transparencyPages: CompanyPage[] = [
     relatedServices: ["analytics-implementation", "seo"],
     related: [
       {
-        label: "How to measure search visibility",
+        label: "How to Measure Search Visibility",
         href: "/resources/how-to-measure-search-visibility/",
         type: "GUIDE",
       },
@@ -116,7 +116,7 @@ export const transparencyPages: CompanyPage[] = [
     relatedServices: ["digital-strategy"],
     related: [
       {
-        label: "How to evaluate SEO services",
+        label: "How to Evaluate SEO Services",
         href: "/resources/how-to-evaluate-seo-services/",
         type: "DECISION",
       },
@@ -193,7 +193,7 @@ export const transparencyPages: CompanyPage[] = [
         type: "TECHNOLOGY",
       },
       {
-        label: "Website accessibility checklist",
+        label: "Website Accessibility Checklist",
         href: "/resources/accessibility-checklist/",
         type: "CHECKLIST",
       },
@@ -268,8 +268,8 @@ export const transparencyPages: CompanyPage[] = [
     },
     relatedServices: ["digital-strategy"],
     related: [
-      { label: "Discovery process", href: "/company/discovery-process/", type: "COMPANY" },
-      { label: "Engagement models", href: "/company/engagement-models/", type: "COMPANY" },
+      { label: "Discovery Process", href: "/discovery-process/", type: "COMPANY" },
+      { label: "Engagement Models", href: "/engagement-models/", type: "COMPANY" },
     ],
   },
   {

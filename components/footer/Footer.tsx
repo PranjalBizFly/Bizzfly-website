@@ -292,8 +292,8 @@ export function Footer() {
               </div>
 
               <div className={styles.actions}>
-                <Link href="/company/careers/" className={styles.actionSecondary}>
-                  We&rsquo;re hiring
+                <Link href="/careers/" className={styles.actionSecondary}>
+                  We&#39;re hiring
                   <span aria-hidden="true">&rarr;</span>
                 </Link>
                 <Link href={primaryCta.href} className={styles.actionPrimary}>

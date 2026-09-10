@@ -81,17 +81,17 @@
   },
   {
     "source": "/service/better-conversions",
-    "destination": "/services/conversion-rate-optimization/",
+    "destination": "/services/conversion-rate-optimisation/",
     "permanent": true
   },
   {
     "source": "/service/higher-conversions",
-    "destination": "/services/conversion-rate-optimization/",
+    "destination": "/services/conversion-rate-optimisation/",
     "permanent": true
   },
   {
     "source": "/service/increased-conversions",
-    "destination": "/services/conversion-rate-optimization/",
+    "destination": "/services/conversion-rate-optimisation/",
     "permanent": true
   },
   {
@@ -171,7 +171,7 @@
   },
   {
     "source": "/service/competitive-advantage",
-    "destination": "/company/about/",
+    "destination": "/about-us/",
     "permanent": true
   },
   {
@@ -227,11 +227,6 @@
   {
     "source": "/project/smart-digital-growth",
     "destination": "/case-studies/",
-    "permanent": true
-  },
-  {
-    "source": "/about-us",
-    "destination": "/company/about/",
     "permanent": true
   },
   {
@@ -317,6 +312,11 @@
   {
     "source": "/mastering-multichannel-engagement-how-to-sync-your-website-with-your-social-and-ad-strategies",
     "destination": "/resources/",
+    "permanent": true
+  },
+  {
+    "source": "/services/conversion-rate-optimization",
+    "destination": "/services/conversion-rate-optimisation/",
     "permanent": true
   }
 ]

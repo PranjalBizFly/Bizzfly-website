@@ -50,7 +50,7 @@ export const frameworks: Resource[] = [
       },
     ],
     related: [
-      { label: "How to measure search visibility", href: "/resources/how-to-measure-search-visibility/", type: "GUIDE" },
+      { label: "How to Measure Search Visibility", href: "/resources/how-to-measure-search-visibility/", type: "GUIDE" },
       { label: "How we report", href: "/company/how-we-report/", type: "COMPANY" },
     ],
   },
@@ -138,8 +138,8 @@ export const frameworks: Resource[] = [
       },
     ],
     related: [
-      { label: "Content cluster", href: "/resources/what-is-a-content-cluster/", type: "GLOSSARY" },
-      { label: "How search intent works", href: "/resources/how-search-intent-works/", type: "GUIDE" },
+      { label: "Content Cluster", href: "/resources/what-is-a-content-cluster/", type: "GLOSSARY" },
+      { label: "How Search Intent Works", href: "/resources/how-search-intent-works/", type: "GUIDE" },
     ],
   },
   {
@@ -183,8 +183,8 @@ export const frameworks: Resource[] = [
       },
     ],
     related: [
-      { label: "Site migration checklist", href: "/resources/site-migration-checklist/", type: "CHECKLIST" },
-      { label: "Why your website redesign lost traffic", href: "/resources/why-your-website-redesign-lost-traffic/", type: "ARTICLE" },
+      { label: "Site Migration Checklist", href: "/resources/site-migration-checklist/", type: "CHECKLIST" },
+      { label: "Why Your Website Redesign Lost Traffic", href: "/resources/why-your-website-redesign-lost-traffic/", type: "ARTICLE" },
     ],
   },
   {
@@ -227,8 +227,8 @@ export const frameworks: Resource[] = [
       },
     ],
     related: [
-      { label: "How AI search works", href: "/resources/how-ai-search-works/", type: "GUIDE" },
-      { label: "AI search readiness checklist", href: "/resources/ai-search-readiness-checklist/", type: "CHECKLIST" },
+      { label: "How AI Search Works", href: "/resources/how-ai-search-works/", type: "GUIDE" },
+      { label: "AI Search Readiness Checklist", href: "/resources/ai-search-readiness-checklist/", type: "CHECKLIST" },
     ],
   },
   {
@@ -271,8 +271,8 @@ export const frameworks: Resource[] = [
       },
     ],
     related: [
-      { label: "Automation readiness checklist", href: "/resources/automation-readiness-checklist/", type: "CHECKLIST" },
-      { label: "Total cost of ownership", href: "/resources/what-is-total-cost-of-ownership/", type: "GLOSSARY" },
+      { label: "Automation Readiness Checklist", href: "/resources/automation-readiness-checklist/", type: "CHECKLIST" },
+      { label: "Total Cost of Ownership", href: "/resources/what-is-total-cost-of-ownership/", type: "GLOSSARY" },
     ],
   },
   {
@@ -315,7 +315,7 @@ export const frameworks: Resource[] = [
       },
     ],
     related: [
-      { label: "AI project readiness checklist", href: "/resources/ai-project-checklist/", type: "CHECKLIST" },
+      { label: "AI Project Readiness Checklist", href: "/resources/ai-project-checklist/", type: "CHECKLIST" },
       { label: "Data and privacy approach", href: "/company/data-and-privacy-approach/", type: "COMPANY" },
     ],
   },
@@ -359,7 +359,7 @@ export const frameworks: Resource[] = [
       },
     ],
     related: [
-      { label: "How to plan a website redesign", href: "/resources/how-to-plan-a-website-redesign/", type: "DECISION" },
+      { label: "How to Plan a Website Redesign", href: "/resources/how-to-plan-a-website-redesign/", type: "DECISION" },
       { label: "Website development process", href: "/company/website-development-process/", type: "COMPANY" },
     ],
   },
@@ -403,7 +403,7 @@ export const frameworks: Resource[] = [
       },
     ],
     related: [
-      { label: "Minimum viable product", href: "/resources/what-is-a-minimum-viable-product/", type: "GLOSSARY" },
+      { label: "Minimum Viable Product", href: "/resources/what-is-a-minimum-viable-product/", type: "GLOSSARY" },
       { label: "Custom Software Development", href: "/services/custom-software/", type: "SERVICE" },
     ],
   },
@@ -466,7 +466,7 @@ export const frameworks: Resource[] = [
       "Then fix the obvious before testing anything. If research reveals a broken mobile form or an unanswerable question, fix it. A/B testing a known fault is a way of spending traffic to confirm something you already established.",
       "Test only where the answer is genuinely uncertain and traffic supports significance. Below a few hundred conversions a month, tests rarely conclude, and teams read noise as insight — which is worse than not testing, because it produces confident wrong decisions.",
     ],
-    supports: ["conversion-rate-optimization", "ui-ux-design"],
+    supports: ["conversion-rate-optimisation", "ui-ux-design"],
     seo: {
       title: "Conversion Research Guide",
       description:
@@ -477,7 +477,7 @@ export const frameworks: Resource[] = [
     },
     audience: ["A3", "A4"],
     phase: "P1",
-    cta: { label: "Read about Conversion Optimisation", href: "/services/conversion-rate-optimization/", tier: "T1" },
+    cta: { label: "Read about Conversion Optimisation", href: "/services/conversion-rate-optimisation/", tier: "T1" },
     faqs: [
       {
         question: "Do we need A/B testing to improve conversion?",
@@ -491,8 +491,8 @@ export const frameworks: Resource[] = [
       },
     ],
     related: [
-      { label: "Website conversion checklist", href: "/resources/website-conversion-checklist/", type: "CHECKLIST" },
-      { label: "Conversion funnel", href: "/resources/what-is-a-conversion-funnel/", type: "GLOSSARY" },
+      { label: "Website Conversion Checklist", href: "/resources/website-conversion-checklist/", type: "CHECKLIST" },
+      { label: "Conversion Funnel", href: "/resources/what-is-a-conversion-funnel/", type: "GLOSSARY" },
     ],
   },
   {
@@ -535,7 +535,7 @@ export const frameworks: Resource[] = [
       },
     ],
     related: [
-      { label: "How to build an automation roadmap", href: "/resources/how-to-build-an-automation-roadmap/", type: "GUIDE" },
+      { label: "How to Build an Automation Roadmap", href: "/resources/how-to-build-an-automation-roadmap/", type: "GUIDE" },
       { label: "Automation approach", href: "/company/automation-approach/", type: "COMPANY" },
     ],
   },

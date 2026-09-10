@@ -47,8 +47,8 @@ export const moreDecisions: Resource[] = [
       },
     ],
     related: [
-      { label: "In-house SEO vs agency SEO", href: "/resources/in-house-seo-vs-agency-seo/", type: "COMPARISON" },
-      { label: "When do you need an SEO agency?", href: "/resources/when-do-you-need-an-seo-agency/", type: "DECISION" },
+      { label: "In-House SEO vs Agency SEO", href: "/resources/in-house-seo-vs-agency-seo/", type: "COMPARISON" },
+      { label: "When Do You Need an SEO Agency?", href: "/resources/when-do-you-need-an-seo-agency/", type: "DECISION" },
     ],
   },
   {
@@ -89,8 +89,8 @@ export const moreDecisions: Resource[] = [
       },
     ],
     related: [
-      { label: "Website redesign vs rebuild", href: "/resources/website-redesign-vs-rebuild/", type: "COMPARISON" },
-      { label: "Site migration checklist", href: "/resources/site-migration-checklist/", type: "CHECKLIST" },
+      { label: "Website Redesign vs Rebuild", href: "/resources/website-redesign-vs-rebuild/", type: "COMPARISON" },
+      { label: "Site Migration Checklist", href: "/resources/site-migration-checklist/", type: "CHECKLIST" },
     ],
   },
   {
@@ -131,7 +131,7 @@ export const moreDecisions: Resource[] = [
       },
     ],
     related: [
-      { label: "Native apps vs web apps", href: "/resources/native-vs-web-apps/", type: "COMPARISON" },
+      { label: "Native Apps vs Web Apps", href: "/resources/native-vs-web-apps/", type: "COMPARISON" },
       { label: "Mobile Platforms", href: "/technologies/mobile-platforms/", type: "TECHNOLOGY" },
     ],
   },
@@ -173,7 +173,7 @@ export const moreDecisions: Resource[] = [
       },
     ],
     related: [
-      { label: "Analytics implementation checklist", href: "/resources/analytics-implementation-checklist/", type: "CHECKLIST" },
+      { label: "Analytics Implementation Checklist", href: "/resources/analytics-implementation-checklist/", type: "CHECKLIST" },
       { label: "Prove marketing ROI", href: "/use-cases/prove-marketing-roi/", type: "USE CASE" },
     ],
   },
@@ -215,7 +215,7 @@ export const moreDecisions: Resource[] = [
       },
     ],
     related: [
-      { label: "In-house vs outsourced development", href: "/resources/in-house-vs-outsourced-development/", type: "COMPARISON" },
+      { label: "In-House vs Outsourced Development", href: "/resources/in-house-vs-outsourced-development/", type: "COMPARISON" },
       { label: "Software development process", href: "/company/software-development-process/", type: "COMPANY" },
     ],
   },
@@ -257,8 +257,8 @@ export const moreDecisions: Resource[] = [
       },
     ],
     related: [
-      { label: "Headless vs traditional CMS", href: "/resources/headless-vs-traditional-cms/", type: "COMPARISON" },
-      { label: "Structured content", href: "/resources/what-is-structured-content/", type: "GLOSSARY" },
+      { label: "Headless vs Traditional CMS", href: "/resources/headless-vs-traditional-cms/", type: "COMPARISON" },
+      { label: "Structured Content", href: "/resources/what-is-structured-content/", type: "GLOSSARY" },
     ],
   },
   {
@@ -300,7 +300,7 @@ export const moreDecisions: Resource[] = [
     ],
     related: [
       { label: "Digital growth methodology", href: "/company/digital-growth-methodology/", type: "COMPANY" },
-      { label: "How to prioritise digital work", href: "/resources/how-to-prioritise-digital-work/", type: "DECISION" },
+      { label: "How to Prioritise Digital Work", href: "/resources/how-to-prioritise-digital-work/", type: "DECISION" },
     ],
   },
   {
@@ -341,8 +341,8 @@ export const moreDecisions: Resource[] = [
       },
     ],
     related: [
-      { label: "How to evaluate SEO services", href: "/resources/how-to-evaluate-seo-services/", type: "DECISION" },
-      { label: "Discovery process", href: "/company/discovery-process/", type: "COMPANY" },
+      { label: "How to Evaluate SEO Services", href: "/resources/how-to-evaluate-seo-services/", type: "DECISION" },
+      { label: "Discovery Process", href: "/discovery-process/", type: "COMPANY" },
     ],
   },
   {
@@ -358,7 +358,7 @@ export const moreDecisions: Resource[] = [
       "Then use it on a mid-range phone on mobile data, not on your desktop. Time how long the main content takes to appear, check whether anything jumps as it loads, and see whether buttons are comfortably tappable.",
       "Then complete your own enquiry form and see what happens. Does the confirmation say anything useful, does an email arrive, how quickly does someone respond. A surprising number of forms are broken, and nobody notices because nobody submits them.",
     ],
-    supports: ["seo-audit", "conversion-rate-optimization"],
+    supports: ["seo-audit", "conversion-rate-optimisation"],
     seo: {
       title: "How to Audit Your Own Website",
       description:
@@ -383,8 +383,8 @@ export const moreDecisions: Resource[] = [
       },
     ],
     related: [
-      { label: "Technical SEO checklist", href: "/resources/technical-seo-checklist/", type: "CHECKLIST" },
-      { label: "Server-side rendering", href: "/resources/what-is-server-side-rendering/", type: "GLOSSARY" },
+      { label: "Technical SEO Checklist", href: "/resources/technical-seo-checklist/", type: "CHECKLIST" },
+      { label: "Server-Side Rendering", href: "/resources/what-is-server-side-rendering/", type: "GLOSSARY" },
     ],
   },
   {
@@ -426,7 +426,7 @@ export const moreDecisions: Resource[] = [
     ],
     related: [
       { label: "Digital growth methodology", href: "/company/digital-growth-methodology/", type: "COMPANY" },
-      { label: "How to set a digital budget", href: "/resources/how-to-set-a-digital-budget/", type: "DECISION" },
+      { label: "How to Set a Digital Budget", href: "/resources/how-to-set-a-digital-budget/", type: "DECISION" },
     ],
   },
 ];

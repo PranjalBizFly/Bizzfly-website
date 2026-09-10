@@ -201,7 +201,7 @@ export const serviceContent: Record<string, ServiceContent> = {
       "An honest answer where a rule engine would be cheaper and more reliable",
     ],
   },
-  "conversion-rate-optimization": {
+  "conversion-rate-optimisation": {
     problems: [
       "Traffic is healthy and enquiry volume is not",
       "Visitors reach the contact page and abandon the form",

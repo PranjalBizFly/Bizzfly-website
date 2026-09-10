@@ -31,7 +31,7 @@ export const marketIndustries: Industry[] = [
         title: "The direct booking path is worse than the intermediary's",
         description:
           "More steps, slower pages, unclear availability. Customers who arrived intending to book direct still leave for the platform that makes it easier.",
-        addressedBy: ["conversion-rate-optimization", "website-performance"],
+        addressedBy: ["conversion-rate-optimisation", "website-performance"],
       },
       {
         title: "Research increasingly ends without a click",
@@ -41,9 +41,9 @@ export const marketIndustries: Industry[] = [
       },
     ],
     useCases: ["improve-website-conversion", "get-found-in-ai-search", "rank-in-local-search"],
-    services: ["conversion-rate-optimization", "generative-engine-optimisation", "website-performance", "local-seo"],
+    services: ["conversion-rate-optimisation", "generative-engine-optimisation", "website-performance", "local-seo"],
     seo: {
-      title: "Digital Services for Travel & Tourism",
+      title: "Digital Growth for Travel & Tourism",
       description:
         "Recovering direct bookings against intermediaries: search visibility, a booking path worth using, and presence in AI-assisted research.",
       primaryTopic: "travel digital marketing",
@@ -67,7 +67,7 @@ export const marketIndustries: Industry[] = [
     ],
     related: [
       { label: "Hospitality", href: "/industries/hospitality/", type: "INDUSTRY" },
-      { label: "Conversion Optimisation", href: "/services/conversion-rate-optimization/", type: "SERVICE" },
+      { label: "Conversion Optimisation", href: "/services/conversion-rate-optimisation/", type: "SERVICE" },
     ],
   },
   {
@@ -103,7 +103,7 @@ export const marketIndustries: Industry[] = [
     useCases: ["improve-digital-presence", "improve-customer-experience", "reduce-manual-work"],
     services: ["corporate-websites", "accessibility-audit", "website-maintenance", "site-architecture"],
     seo: {
-      title: "Digital Services for Non-Profits",
+      title: "Digital Growth for Non-Profits",
       description:
         "Serving service users and funders without one crowding out the other, on a site a small team can genuinely maintain.",
       primaryTopic: "nonprofit digital strategy",
@@ -164,7 +164,7 @@ export const marketIndustries: Industry[] = [
     useCases: ["recover-lost-traffic", "get-found-in-ai-search", "increase-organic-traffic"],
     services: ["generative-engine-optimisation", "technical-seo", "structured-data", "content-strategy"],
     seo: {
-      title: "Digital Services for Media & Publishing",
+      title: "Digital Growth for Media & Publishing",
       description:
         "Publishing under AI answers: what still earns the click, archive technical debt, and attribution that makes authority accumulate.",
       primaryTopic: "media publishing seo",
@@ -187,7 +187,7 @@ export const marketIndustries: Industry[] = [
       },
     ],
     related: [
-      { label: "AI visibility measurement guide", href: "/resources/ai-visibility-measurement-guide/", type: "GUIDE" },
+      { label: "AI Visibility Measurement Guide", href: "/resources/ai-visibility-measurement-guide/", type: "GUIDE" },
       { label: "Digital PR & Link Earning", href: "/services/digital-pr/", type: "SERVICE" },
     ],
   },
@@ -225,7 +225,7 @@ export const marketIndustries: Industry[] = [
     useCases: ["reduce-manual-work", "modernise-legacy-processes", "improve-data-quality"],
     services: ["custom-software", "workflow-automation", "content-strategy", "reporting-dashboards"],
     seo: {
-      title: "Digital Services for Agriculture & Agritech",
+      title: "Digital Growth for Agriculture & Agritech",
       description:
         "Offline-capable field data capture, compliance records built as work happens, and visibility timed to the season rather than the quarter.",
       primaryTopic: "agritech digital transformation",
@@ -286,7 +286,7 @@ export const marketIndustries: Industry[] = [
     useCases: ["generate-more-leads", "shorten-sales-cycle", "qualify-leads-automatically"],
     services: ["content-strategy", "seo", "crm-implementation", "marketing-automation"],
     seo: {
-      title: "Digital Services for B2B Services Firms",
+      title: "Digital Growth for B2B Services Firms",
       description:
         "Building an inbound channel alongside referral: publishing the expertise you already have, and handling enquiries consistently.",
       primaryTopic: "b2b services marketing",
@@ -310,7 +310,7 @@ export const marketIndustries: Industry[] = [
     ],
     related: [
       { label: "Professional Services", href: "/industries/professional-services/", type: "INDUSTRY" },
-      { label: "Content planning framework", href: "/resources/content-planning-framework/", type: "GUIDE" },
+      { label: "Content Planning Framework", href: "/resources/content-planning-framework/", type: "GUIDE" },
     ],
   },
   {
@@ -334,7 +334,7 @@ export const marketIndustries: Industry[] = [
         title: "First purchase is optimised and repeat purchase is not",
         description:
           "Effort concentrates on the initial conversion while the post-purchase experience — which decides lifetime value — receives almost none.",
-        addressedBy: ["marketing-automation", "conversion-rate-optimization"],
+        addressedBy: ["marketing-automation", "conversion-rate-optimisation"],
       },
       {
         title: "Product discovery is moving to surfaces the brand does not control",
@@ -344,9 +344,9 @@ export const marketIndustries: Industry[] = [
       },
     ],
     useCases: ["improve-website-conversion", "increase-organic-traffic", "reduce-customer-churn"],
-    services: ["ecommerce-seo", "marketing-automation", "conversion-rate-optimization", "structured-data"],
+    services: ["ecommerce-seo", "marketing-automation", "conversion-rate-optimisation", "structured-data"],
     seo: {
-      title: "Digital Services for D2C Brands",
+      title: "Digital Growth for D2C Brands",
       description:
         "Building owned demand as paid acquisition costs rise: organic visibility, repeat purchase, and presence where products are now recommended.",
       primaryTopic: "d2c brand growth",
@@ -407,7 +407,7 @@ export const marketIndustries: Industry[] = [
     useCases: ["improve-digital-presence", "reduce-manual-work", "generate-more-leads"],
     services: ["digital-strategy", "workflow-automation", "website-maintenance", "systems-integration"],
     seo: {
-      title: "Digital Services for SMEs",
+      title: "Digital Growth for SMEs",
       description:
         "What to do with no dedicated digital team: a small number of things done consistently, and automation of the work nobody has time for.",
       primaryTopic: "sme digital growth",

@@ -44,7 +44,7 @@ export const expandedIndustries: Industry[] = [
         title: "Signups arrive unqualified",
         description:
           "Volume rises while activation does not, because the site sells the category rather than describing who the product is genuinely right for.",
-        addressedBy: ["conversion-rate-optimization", "ui-ux-design"],
+        addressedBy: ["conversion-rate-optimisation", "ui-ux-design"],
       },
     ],
     useCases: [
@@ -56,7 +56,7 @@ export const expandedIndustries: Industry[] = [
     services: [
       "seo",
       "ai-search-optimisation",
-      "conversion-rate-optimization",
+      "conversion-rate-optimisation",
       "answer-engine-optimisation",
     ],
     seo: {
@@ -293,7 +293,7 @@ export const expandedIndustries: Industry[] = [
         title: "Category pages are thin",
         description:
           "A heading and a product grid gives a search engine almost nothing to rank, on exactly the pages that should capture discovery queries.",
-        addressedBy: ["seo", "conversion-rate-optimization"],
+        addressedBy: ["seo", "conversion-rate-optimisation"],
       },
       {
         title: "Speed costs conversion on mobile",
@@ -317,7 +317,7 @@ export const expandedIndustries: Industry[] = [
     services: [
       "technical-seo",
       "website-performance",
-      "conversion-rate-optimization",
+      "conversion-rate-optimisation",
       "workflow-automation",
     ],
     seo: {
@@ -470,7 +470,7 @@ export const expandedIndustries: Industry[] = [
         title: "Enquiries are poorly qualified",
         description:
           "Without a clear statement of who the firm is right for, sales time is spent on conversations that were never going to fit.",
-        addressedBy: ["conversion-rate-optimization", "ui-ux-design"],
+        addressedBy: ["conversion-rate-optimisation", "ui-ux-design"],
       },
       {
         title: "Internal delivery is less systematic than the pitch",
@@ -488,7 +488,7 @@ export const expandedIndustries: Industry[] = [
     services: [
       "seo",
       "digital-strategy",
-      "conversion-rate-optimization",
+      "conversion-rate-optimisation",
       "workflow-automation",
     ],
     seo: {
@@ -551,7 +551,7 @@ export const expandedIndustries: Industry[] = [
         title: "Direct booking loses to aggregators",
         description:
           "A slow or awkward booking path sends guests to a platform that charges commission for a customer the venue had already earned.",
-        addressedBy: ["conversion-rate-optimization", "website-performance"],
+        addressedBy: ["conversion-rate-optimisation", "website-performance"],
       },
       {
         title: "Mobile experience is an afterthought",
@@ -574,7 +574,7 @@ export const expandedIndustries: Industry[] = [
     ],
     services: [
       "google-business-profile",
-      "conversion-rate-optimization",
+      "conversion-rate-optimisation",
       "website-performance",
       "workflow-automation",
     ],
@@ -613,7 +613,7 @@ export const expandedIndustries: Industry[] = [
         type: "USE CASE",
       },
       {
-        label: "Local SEO checklist",
+        label: "Local SEO Checklist",
         href: "/resources/local-seo-checklist/",
         type: "CHECKLIST",
       },
@@ -644,7 +644,7 @@ export const expandedIndustries: Industry[] = [
         title: "The site explains the product, not the problem",
         description:
           "Founders describe what they built. Buyers search the problem they have, and never encounter a page written in their words.",
-        addressedBy: ["conversion-rate-optimization", "seo"],
+        addressedBy: ["conversion-rate-optimisation", "seo"],
       },
       {
         title: "Manual processes are rebuilt rather than removed",
@@ -661,7 +661,7 @@ export const expandedIndustries: Industry[] = [
     ],
     services: [
       "digital-strategy",
-      "conversion-rate-optimization",
+      "conversion-rate-optimisation",
       "seo",
       "corporate-websites",
     ],
@@ -700,7 +700,7 @@ export const expandedIndustries: Industry[] = [
         type: "SERVICE",
       },
       {
-        label: "SEO vs paid search",
+        label: "SEO vs Paid Search",
         href: "/resources/seo-vs-paid-search/",
         type: "COMPARISON",
       },

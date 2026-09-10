@@ -8,6 +8,12 @@ import styles from "./not-found.module.css";
 export const metadata: Metadata = {
   title: "Page not found",
   robots: { index: false, follow: true },
+  /*
+   * Without this the page inherits the root layout's canonical, so every
+   * missing URL declares itself a duplicate of the homepage. A 404 should
+   * claim no canonical at all.
+   */
+  alternates: { canonical: null },
 };
 
 export default function NotFound() {

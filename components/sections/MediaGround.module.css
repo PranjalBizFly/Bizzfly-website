@@ -30,21 +30,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  /*
-   * A slow settle as the section arrives. Transform only — the image is never
-   * faded, because a photograph that fades in behind text makes the text look
-   * like it is sitting on nothing for the length of the animation.
-   */
-  animation: groundSettle var(--dur-reveal) var(--ease-decelerate) both;
-}
-
-@keyframes groundSettle {
-  from {
-    transform: scale(1.04);
-  }
-  to {
-    transform: scale(1);
-  }
+  transform: none;
 }
 
 /*
@@ -67,8 +53,4 @@
   position: relative;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .image {
-    animation: none;
-  }
-}
+

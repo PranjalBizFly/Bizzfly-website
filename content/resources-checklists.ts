@@ -48,7 +48,7 @@ export const moreChecklists: Resource[] = [
     ],
     related: [
       { label: "SEO Audit", href: "/services/seo-audit/", type: "SERVICE" },
-      { label: "Technical SEO checklist", href: "/resources/technical-seo-checklist/", type: "CHECKLIST" },
+      { label: "Technical SEO Checklist", href: "/resources/technical-seo-checklist/", type: "CHECKLIST" },
     ],
   },
   {
@@ -89,8 +89,8 @@ export const moreChecklists: Resource[] = [
       },
     ],
     related: [
-      { label: "How to run a content audit", href: "/resources/how-to-run-a-content-audit/", type: "GUIDE" },
-      { label: "Keyword cannibalisation", href: "/resources/what-is-keyword-cannibalisation/", type: "GLOSSARY" },
+      { label: "How to Run a Content Audit", href: "/resources/how-to-run-a-content-audit/", type: "GUIDE" },
+      { label: "Keyword Cannibalisation", href: "/resources/what-is-keyword-cannibalisation/", type: "GLOSSARY" },
     ],
   },
   {
@@ -174,7 +174,7 @@ export const moreChecklists: Resource[] = [
     ],
     related: [
       { label: "E-commerce & Retail", href: "/industries/ecommerce/", type: "INDUSTRY" },
-      { label: "Crawl budget", href: "/resources/what-is-crawl-budget/", type: "GLOSSARY" },
+      { label: "Crawl Budget", href: "/resources/what-is-crawl-budget/", type: "GLOSSARY" },
     ],
   },
   {
@@ -216,7 +216,7 @@ export const moreChecklists: Resource[] = [
     ],
     related: [
       { label: "CRM Platforms", href: "/technologies/crm-platforms/", type: "TECHNOLOGY" },
-      { label: "Lead scoring", href: "/resources/what-is-lead-scoring/", type: "GLOSSARY" },
+      { label: "Lead Scoring", href: "/resources/what-is-lead-scoring/", type: "GLOSSARY" },
     ],
   },
   {
@@ -299,7 +299,7 @@ export const moreChecklists: Resource[] = [
       },
     ],
     related: [
-      { label: "When should a business invest in AI?", href: "/resources/when-should-a-business-invest-in-ai/", type: "DECISION" },
+      { label: "When Should a Business Invest in AI?", href: "/resources/when-should-a-business-invest-in-ai/", type: "DECISION" },
       { label: "Introduce AI into operations", href: "/use-cases/introduce-ai-into-operations/", type: "USE CASE" },
     ],
   },
@@ -358,7 +358,7 @@ export const moreChecklists: Resource[] = [
       "Verify each event fires once, on the real interaction, with the expected properties, on both desktop and mobile. Conversion events are the ones most often broken and least often checked, because nobody submits the live form after launch.",
       "Then handle the boundaries: exclude internal traffic, keep personal data out of URLs and event properties, respect consent, and document the definition of each metric alongside its implementation so two reports cannot quietly diverge.",
     ],
-    supports: ["analytics-implementation", "conversion-rate-optimization"],
+    supports: ["analytics-implementation", "conversion-rate-optimisation"],
     seo: {
       title: "Analytics Implementation Checklist",
       description:
@@ -383,7 +383,7 @@ export const moreChecklists: Resource[] = [
       },
     ],
     related: [
-      { label: "Marketing attribution", href: "/resources/what-is-marketing-attribution/", type: "GLOSSARY" },
+      { label: "Marketing Attribution", href: "/resources/what-is-marketing-attribution/", type: "GLOSSARY" },
       { label: "Prove marketing ROI", href: "/use-cases/prove-marketing-roi/", type: "USE CASE" },
     ],
   },
@@ -425,8 +425,8 @@ export const moreChecklists: Resource[] = [
       },
     ],
     related: [
-      { label: "Website launch checklist", href: "/resources/website-launch-checklist/", type: "CHECKLIST" },
-      { label: "Site migration checklist", href: "/resources/site-migration-checklist/", type: "CHECKLIST" },
+      { label: "Website Launch Checklist", href: "/resources/website-launch-checklist/", type: "CHECKLIST" },
+      { label: "Site Migration Checklist", href: "/resources/site-migration-checklist/", type: "CHECKLIST" },
     ],
   },
 ];

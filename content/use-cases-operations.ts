@@ -195,7 +195,7 @@ export const operationsUseCases: UseCase[] = [
         type: "SERVICE",
       },
       {
-        label: "How to plan a digital transformation project",
+        label: "How to Plan a Digital Transformation Project",
         href: "/resources/how-to-plan-a-digital-transformation-project/",
         type: "DECISION",
       },
@@ -288,7 +288,7 @@ export const operationsUseCases: UseCase[] = [
     related: [
       { label: "AI Consulting", href: "/services/ai-consulting/", type: "SERVICE" },
       {
-        label: "When should a business invest in AI?",
+        label: "When Should a Business Invest in AI?",
         href: "/resources/when-should-a-business-invest-in-ai/",
         type: "DECISION",
       },
@@ -385,7 +385,7 @@ export const operationsUseCases: UseCase[] = [
         type: "SERVICE",
       },
       {
-        label: "Custom software vs off-the-shelf",
+        label: "Custom Software vs Off-the-Shelf",
         href: "/resources/custom-software-vs-off-the-shelf/",
         type: "COMPARISON",
       },
@@ -477,7 +477,7 @@ export const operationsUseCases: UseCase[] = [
     ],
     related: [
       {
-        label: "Entity optimisation",
+        label: "Entity Optimisation",
         href: "/resources/what-is-entity-optimisation/",
         type: "GLOSSARY",
       },
@@ -579,7 +579,7 @@ export const operationsUseCases: UseCase[] = [
         type: "TECHNOLOGY",
       },
       {
-        label: "Technical debt",
+        label: "Technical Debt",
         href: "/resources/what-is-technical-debt/",
         type: "GLOSSARY",
       },

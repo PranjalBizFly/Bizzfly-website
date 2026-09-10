@@ -44,7 +44,7 @@ export const sectorIndustries: Industry[] = [
     useCases: ["get-found-in-ai-search", "launch-a-digital-product", "shorten-sales-cycle"],
     services: ["content-strategy", "generative-engine-optimisation", "api-development", "digital-strategy"],
     seo: {
-      title: "Digital Services for Technology Companies",
+      title: "Digital Growth for Technology Companies",
       description:
         "Specificity over category vocabulary, documentation that survives technical evaluation, and entity clarity for AI-assisted research.",
       primaryTopic: "technology company marketing",
@@ -103,9 +103,9 @@ export const sectorIndustries: Industry[] = [
       },
     ],
     useCases: ["rank-in-local-search", "qualify-leads-automatically", "improve-website-conversion"],
-    services: ["local-seo", "workflow-automation", "systems-integration", "conversion-rate-optimization"],
+    services: ["local-seo", "workflow-automation", "systems-integration", "conversion-rate-optimisation"],
     seo: {
-      title: "Digital Services for Automotive Businesses",
+      title: "Digital Growth for Automotive Businesses",
       description:
         "Multi-location local visibility, enquiry routing across channels, and stock data that stays accurate.",
       primaryTopic: "automotive digital marketing",
@@ -165,7 +165,7 @@ export const sectorIndustries: Industry[] = [
     useCases: ["qualify-leads-automatically", "rank-in-local-search", "speed-up-quoting"],
     services: ["local-seo", "workflow-automation", "corporate-websites", "content-strategy"],
     seo: {
-      title: "Digital Services for Construction Businesses",
+      title: "Digital Growth for Construction Businesses",
       description:
         "Qualification before quotation, capability explained rather than displayed, and local visibility in a sector that largely ignores it.",
       primaryTopic: "construction digital marketing",
@@ -228,7 +228,7 @@ export const sectorIndustries: Industry[] = [
     useCases: ["increase-organic-traffic", "generate-more-leads", "improve-customer-experience"],
     services: ["content-strategy", "seo", "corporate-websites", "crm-implementation"],
     seo: {
-      title: "Digital Services for Legal Practices",
+      title: "Digital Growth for Legal Practices",
       description:
         "Publishing expertise within professional conduct rules, organising around client situations, and consistent enquiry handling.",
       primaryTopic: "legal sector digital marketing",
@@ -291,7 +291,7 @@ export const sectorIndustries: Industry[] = [
     useCases: ["onboard-customers-faster", "reduce-manual-work", "generate-more-leads"],
     services: ["workflow-automation", "systems-integration", "content-strategy", "customer-portals"],
     seo: {
-      title: "Digital Services for Accounting Practices",
+      title: "Digital Growth for Accounting Practices",
       description:
         "Onboarding automation that frees capacity in the busiest weeks, plus differentiation beyond a list of compliance services.",
       primaryTopic: "accounting firm marketing",
@@ -352,7 +352,7 @@ export const sectorIndustries: Industry[] = [
     useCases: ["qualify-leads-automatically", "improve-digital-presence", "reduce-manual-work"],
     services: ["site-architecture", "technical-seo", "workflow-automation", "ui-ux-design"],
     seo: {
-      title: "Digital Services for Recruitment Agencies",
+      title: "Digital Growth for Recruitment Agencies",
       description:
         "Separate client and candidate journeys, job listing URL handling that does not degrade the site, and faster application response.",
       primaryTopic: "recruitment agency marketing",
@@ -413,7 +413,7 @@ export const sectorIndustries: Industry[] = [
     useCases: ["reduce-manual-work", "shorten-sales-cycle", "modernise-legacy-processes"],
     services: ["workflow-automation", "custom-software", "content-strategy", "crm-implementation"],
     seo: {
-      title: "Digital Services for Energy & Utilities",
+      title: "Digital Growth for Energy & Utilities",
       description:
         "Technical content for informed specifiers, and automation of survey-to-installation process with its compliance record-keeping.",
       primaryTopic: "energy sector digital",

@@ -23,7 +23,7 @@ import styles from "./case-studies.module.css";
 
 export const metadata: Metadata = buildMetadata(
   {
-    title: "Case studies",
+    title: "Case Studies",
     description:
       "How BizzFly publishes client work — verified metrics with sources, named challenges, and written client approval before anything goes live.",
     primaryTopic: "client case studies",
@@ -87,7 +87,7 @@ export default function CaseStudiesPage() {
         eyebrow="Work"
         title="Client work, published honestly"
         lead="We publish a case study only when the client has approved it in writing and every number in it has a source and a measurement window. That is a slower way to build a portfolio, and the only one worth trusting."
-        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Case studies" }]}
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Case Studies" }]}
         actions={
           <Button href={primaryCta.href} withArrow>
             {primaryCta.label}
@@ -152,7 +152,7 @@ export default function CaseStudiesPage() {
               <Button href="/contact/" withArrow>
                 Ask about work in your sector
               </Button>
-              <TextLink href="/company/approach/">See how we work</TextLink>
+              <TextLink href="/our-approach/">See how we work</TextLink>
             </div>
           </div>
         </Section>

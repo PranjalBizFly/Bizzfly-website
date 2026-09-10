@@ -46,12 +46,12 @@ export const seoTermsGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Topical authority",
+        label: "Topical Authority",
         href: "/resources/what-is-topical-authority/",
         type: "GLOSSARY",
       },
       {
-        label: "Entity optimisation",
+        label: "Entity Optimisation",
         href: "/resources/what-is-entity-optimisation/",
         type: "GLOSSARY",
       },
@@ -95,12 +95,12 @@ export const seoTermsGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "How to run a content audit",
+        label: "How to Run a Content Audit",
         href: "/resources/how-to-run-a-content-audit/",
         type: "GUIDE",
       },
       {
-        label: "Search intent",
+        label: "Search Intent",
         href: "/resources/what-is-search-intent/",
         type: "GLOSSARY",
       },
@@ -144,12 +144,12 @@ export const seoTermsGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Topical authority",
+        label: "Topical Authority",
         href: "/resources/what-is-topical-authority/",
         type: "GLOSSARY",
       },
       {
-        label: "How to structure a website for search",
+        label: "How to Structure a Website for Search",
         href: "/resources/how-to-structure-a-website-for-search/",
         type: "GUIDE",
       },
@@ -197,12 +197,12 @@ export const seoTermsGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Index coverage",
+        label: "Index Coverage",
         href: "/resources/what-is-index-coverage/",
         type: "GLOSSARY",
       },
       {
-        label: "Technical SEO checklist",
+        label: "Technical SEO Checklist",
         href: "/resources/technical-seo-checklist/",
         type: "CHECKLIST",
       },
@@ -250,12 +250,12 @@ export const seoTermsGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Crawl budget",
+        label: "Crawl Budget",
         href: "/resources/what-is-crawl-budget/",
         type: "GLOSSARY",
       },
       {
-        label: "AI search readiness checklist",
+        label: "AI Search Readiness Checklist",
         href: "/resources/ai-search-readiness-checklist/",
         type: "CHECKLIST",
       },
@@ -303,7 +303,7 @@ export const seoTermsGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "How to plan a website redesign",
+        label: "How to Plan a Website Redesign",
         href: "/resources/how-to-plan-a-website-redesign/",
         type: "DECISION",
       },
@@ -356,7 +356,7 @@ export const seoTermsGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Local SEO checklist",
+        label: "Local SEO Checklist",
         href: "/resources/local-seo-checklist/",
         type: "CHECKLIST",
       },
@@ -405,7 +405,7 @@ export const seoTermsGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Topical authority",
+        label: "Topical Authority",
         href: "/resources/what-is-topical-authority/",
         type: "GLOSSARY",
       },
@@ -458,7 +458,7 @@ export const seoTermsGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Crawl budget",
+        label: "Crawl Budget",
         href: "/resources/what-is-crawl-budget/",
         type: "GLOSSARY",
       },

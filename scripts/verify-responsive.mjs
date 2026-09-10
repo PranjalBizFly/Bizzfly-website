@@ -88,7 +88,16 @@ const PAGES = [
   "/resources/seo-audit-checklist/",
 
   /* Company, conversion, utility, error */
-  "/company/about/",
+  "/about-us/",
+  "/our-approach/",
+  "/how-we-work/",
+  "/discovery-process/",
+  "/engagement-models/",
+  "/careers/",
+  "/media/",
+  "/vendor/",
+  "/press-kit/",
+  "/blogs/",
   "/company/how-we-price/",
   "/contact/",
   "/search/",
@@ -183,6 +192,10 @@ const AUDIT_FN = `(() => {
   const doc = document.documentElement;
   const vw = window.innerWidth;
 
+  if (location.protocol === 'chrome-error:' || document.getElementById('main-frame-error') || document.querySelector('.offline')) {
+    return null;
+  }
+
   const overflowing = [];
   const smallText = [];
   const smallTargets = [];
@@ -260,7 +273,8 @@ const AUDIT_FN = `(() => {
     }
   }
 
-  for (const img of document.querySelectorAll('img')) {
+  for (const img of document.querySelectorAll('body img')) {
+    if (img.closest('#offline-resources') || img.classList.contains('offline')) continue;
     const hasDims =
       (img.getAttribute('width') && img.getAttribute('height')) ||
       getComputedStyle(img).aspectRatio !== 'auto';

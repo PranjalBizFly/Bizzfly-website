@@ -42,9 +42,9 @@ export const capabilityGroups: CapabilityGroup[] = [
     href: "/services/web-development/",
     items: [
       { label: "Website design & development", href: "/services/corporate-websites/" },
-      { label: "Custom software development", href: "/services/custom-software/" },
+      { label: "Custom Software Development", href: "/services/custom-software/" },
       { label: "Web applications", href: "/services/web-applications/" },
-      { label: "UI/UX design", href: "/services/ui-ux-design/" },
+      { label: "UI/UX Design", href: "/services/ui-ux-design/" },
     ],
   },
   {
@@ -57,8 +57,8 @@ export const capabilityGroups: CapabilityGroup[] = [
     items: [
       { label: "Business automation", href: "/services/workflow-automation/" },
       { label: "AI-powered solutions", href: "/services/ai-agents/" },
-      { label: "AI chatbots", href: "/services/ai-chatbots/" },
-      { label: "Sales automation", href: "/services/sales-automation/" },
+      { label: "AI Chatbots", href: "/services/ai-chatbots/" },
+      { label: "Sales Automation", href: "/services/sales-automation/" },
     ],
   },
   {
@@ -70,9 +70,9 @@ export const capabilityGroups: CapabilityGroup[] = [
     href: "/services/digital-marketing/",
     items: [
       { label: "Digital growth strategy", href: "/services/digital-strategy/" },
-      { label: "Performance marketing", href: "/services/performance-marketing/" },
-      { label: "Conversion optimisation", href: "/services/conversion-rate-optimization/" },
-      { label: "Business intelligence", href: "/services/business-intelligence/" },
+      { label: "Performance Marketing", href: "/services/performance-marketing/" },
+      { label: "Conversion Optimisation", href: "/services/conversion-rate-optimisation/" },
+      { label: "Business Intelligence", href: "/services/business-intelligence/" },
     ],
   },
 ];
@@ -222,7 +222,7 @@ export const businessStages: BusinessStage[] = [
     work: [
       { label: "Website design & development", href: "/services/corporate-websites/" },
       { label: "Local search visibility", href: "/services/google-business-profile/" },
-      { label: "Analytics implementation", href: "/services/analytics-implementation/" },
+      { label: "Analytics Implementation", href: "/services/analytics-implementation/" },
     ],
   },
   {
@@ -233,8 +233,8 @@ export const businessStages: BusinessStage[] = [
       "The foundation exists but demand is flat. Work concentrates on search and AI visibility, conversion, and closing the gap between traffic and enquiries.",
     work: [
       { label: "SEO", href: "/services/seo/" },
-      { label: "AI search optimisation", href: "/services/ai-search-optimisation/" },
-      { label: "Conversion optimisation", href: "/services/conversion-rate-optimization/" },
+      { label: "AI Search Optimisation", href: "/services/ai-search-optimisation/" },
+      { label: "Conversion Optimisation", href: "/services/conversion-rate-optimisation/" },
     ],
   },
   {
@@ -246,7 +246,7 @@ export const businessStages: BusinessStage[] = [
     work: [
       { label: "Business automation", href: "/services/workflow-automation/" },
       { label: "Custom software", href: "/services/custom-software/" },
-      { label: "Systems integration", href: "/services/systems-integration/" },
+      { label: "Systems Integration", href: "/services/systems-integration/" },
     ],
   },
   {
@@ -256,9 +256,9 @@ export const businessStages: BusinessStage[] = [
     focus:
       "Changing how the business operates rather than optimising what exists. Sequenced deliberately, because most AI programmes fail on scope rather than technology.",
     work: [
-      { label: "AI consulting", href: "/services/ai-consulting/" },
-      { label: "AI agents", href: "/services/ai-agents/" },
-      { label: "Business intelligence", href: "/services/business-intelligence/" },
+      { label: "AI Consulting", href: "/services/ai-consulting/" },
+      { label: "AI Agents", href: "/services/ai-agents/" },
+      { label: "Business Intelligence", href: "/services/business-intelligence/" },
     ],
   },
 ];

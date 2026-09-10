@@ -61,7 +61,7 @@ export const guides: Resource[] = [
         type: "SERVICE",
       },
       {
-        label: "AI search readiness checklist",
+        label: "AI Search Readiness Checklist",
         href: "/resources/ai-search-readiness-checklist/",
         type: "CHECKLIST",
       },
@@ -113,12 +113,12 @@ export const guides: Resource[] = [
     ],
     related: [
       {
-        label: "How AI search works",
+        label: "How AI Search Works",
         href: "/resources/how-ai-search-works/",
         type: "GUIDE",
       },
       {
-        label: "Featured snippet",
+        label: "Featured Snippet",
         href: "/resources/what-is-a-featured-snippet/",
         type: "GLOSSARY",
       },
@@ -166,7 +166,7 @@ export const guides: Resource[] = [
     ],
     related: [
       {
-        label: "Topical authority",
+        label: "Topical Authority",
         href: "/resources/what-is-topical-authority/",
         type: "GLOSSARY",
       },
@@ -223,12 +223,12 @@ export const guides: Resource[] = [
     ],
     related: [
       {
-        label: "Zero-click search",
+        label: "Zero-Click Search",
         href: "/resources/what-is-zero-click-search/",
         type: "GLOSSARY",
       },
       {
-        label: "Marketing attribution",
+        label: "Marketing Attribution",
         href: "/resources/what-is-marketing-attribution/",
         type: "GLOSSARY",
       },
@@ -276,12 +276,12 @@ export const guides: Resource[] = [
     ],
     related: [
       {
-        label: "Search intent",
+        label: "Search Intent",
         href: "/resources/what-is-search-intent/",
         type: "GLOSSARY",
       },
       {
-        label: "How to run a content audit",
+        label: "How to Run a Content Audit",
         href: "/resources/how-to-run-a-content-audit/",
         type: "GUIDE",
       },
@@ -329,12 +329,12 @@ export const guides: Resource[] = [
     ],
     related: [
       {
-        label: "How search intent works",
+        label: "How Search Intent Works",
         href: "/resources/how-search-intent-works/",
         type: "GUIDE",
       },
       {
-        label: "Internal linking",
+        label: "Internal Linking",
         href: "/resources/what-is-internal-linking/",
         type: "GLOSSARY",
       },
@@ -386,7 +386,7 @@ export const guides: Resource[] = [
     ],
     related: [
       {
-        label: "Automation readiness checklist",
+        label: "Automation Readiness Checklist",
         href: "/resources/automation-readiness-checklist/",
         type: "CHECKLIST",
       },
@@ -443,12 +443,12 @@ export const guides: Resource[] = [
     ],
     related: [
       {
-        label: "Internal linking",
+        label: "Internal Linking",
         href: "/resources/what-is-internal-linking/",
         type: "GLOSSARY",
       },
       {
-        label: "How to build search visibility",
+        label: "How to Build Search Visibility",
         href: "/resources/how-to-build-search-visibility/",
         type: "GUIDE",
       },

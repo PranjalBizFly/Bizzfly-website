@@ -69,6 +69,7 @@ async function verify() {
     getContactImage,
     getCaseStudiesImage,
     getCaseStudiesAuditImage,
+    getFounderImage,
   } = await import("../content/images/imageAssignments.ts");
 
   const registeredList = Object.values(imageRegistry);
@@ -136,6 +137,7 @@ async function verify() {
   recordAssignment("Homepage: aiSearch", homeImages.aiSearch?.id);
   recordAssignment("Homepage: automation", homeImages.automation?.id);
   recordAssignment("Homepage: technology", homeImages.technology?.id);
+  recordAssignment("Homepage: founder", getFounderImage()?.id);
 
   // Services assignments
   for (const [slug, imgId] of Object.entries(serviceImageAssignments)) {

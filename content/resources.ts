@@ -118,7 +118,7 @@ const coreResources: Resource[] = [
     slug: "why-ai-overviews-cut-your-clicks",
     type: "article",
     topic: "AI Search",
-    title: "Why AI Overviews are cutting your clicks",
+    title: "Why AI Overviews Are Cutting Your Clicks",
     answer:
       "If your rankings have held steady but organic clicks are falling, the most likely cause is that an AI-generated summary now answers the query above your result — and a share of the people who would have clicked no longer need to.",
     readingTime: "5 min read",
@@ -157,7 +157,7 @@ const coreResources: Resource[] = [
     slug: "what-the-first-90-days-of-seo-look-like",
     type: "article",
     topic: "SEO",
-    title: "What the first 90 days of SEO actually look like",
+    title: "What the First 90 Days of SEO Actually Look Like",
     answer:
       "The first 90 days of an SEO engagement are mostly diagnosis and repair, not publishing. Expect two weeks of audit, a month of technical fixes, and the first meaningful ranking movement somewhere around week ten.",
     readingTime: "6 min read",

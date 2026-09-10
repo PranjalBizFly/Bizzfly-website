@@ -53,30 +53,12 @@
 }
 
 /*
- * A slow drift on the ground, done by the compositor rather than by script.
- * Scroll-driven animation costs nothing in the bundle and simply does not
- * apply where the browser has not shipped it, which leaves a static image
- * rather than a broken effect. The scale gives the translate somewhere to go
- * without exposing an edge.
+ * The hero ground image is stable, static, and compositor-friendly.
+ * No scroll-timeline transforms are applied to prevent initial paint
+ * jumping or layout flashing during page load.
  */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .image {
-      animation: heroDrift linear both;
-      animation-timeline: view();
-      animation-range: entry 0% exit 100%;
-      will-change: transform;
-    }
-  }
-}
-
-@keyframes heroDrift {
-  from {
-    transform: scale(1.1) translate3d(0, -2%, 0);
-  }
-  to {
-    transform: scale(1.1) translate3d(0, 2%, 0);
-  }
+.image {
+  transform: none;
 }
 
 /* --- Type ---------------------------------------------------------------- */

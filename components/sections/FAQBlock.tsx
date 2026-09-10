@@ -146,6 +146,8 @@ function FaqItem({
     if (expanded && !isOpen && el.open) close(el, false);
   }, [controlled, expanded, isOpen, close]);
 
+  const panelId = `faq-panel-${faq.question.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 32)}`;
+
   return (
     <details
       ref={ref}
@@ -153,14 +155,19 @@ function FaqItem({
       open={defaultOpen}
       data-expanded={expanded}
     >
-      <summary className={styles.question} onClick={onSummaryClick}>
+      <summary
+        className={styles.question}
+        onClick={onSummaryClick}
+        aria-expanded={expanded}
+        aria-controls={panelId}
+      >
         <span className={styles.questionText}>{faq.question}</span>
         <span className={styles.marker} aria-hidden="true">
           &#8250;
         </span>
       </summary>
 
-      <div className={styles.panel}>
+      <div className={styles.panel} id={panelId} role="region" aria-label={faq.question}>
         <div className={styles.panelInner}>
           <p className={styles.answer}>{faq.answer}</p>
         </div>

@@ -1,0 +1,65 @@
+/*
+ * The orthography rule.
+ *
+ * The correct form is set at display size because that is the one thing a
+ * writer has to copy exactly; the wrong forms sit beside it as a checklist,
+ * struck through so the distinction survives a glance rather than needing to
+ * be read. Tokens only — this inherits the surrounding context class the way
+ * every other block on the page does.
+ */
+.orthography {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .orthography {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.correct,
+.incorrect {
+  border-top: 2px solid var(--border);
+  padding-top: var(--space-5);
+}
+
+.correct {
+  border-top-color: var(--accent-edge);
+}
+
+.orthLabel {
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--muted);
+}
+
+.orthValue {
+  margin-top: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h2);
+  line-height: var(--leading-heading);
+  color: var(--foreground);
+}
+
+.orthList {
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.orthList li {
+  font-family: var(--font-display);
+  font-size: var(--text-body-lg);
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--border-strong);
+}

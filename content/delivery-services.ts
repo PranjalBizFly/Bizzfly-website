@@ -58,7 +58,7 @@ export const deliveryServices: Service[] = [
     ],
     related: [
       { label: "Web applications", href: "/services/web-applications/", type: "SERVICE" },
-      { label: "Systems integration", href: "/services/systems-integration/", type: "SERVICE" },
+      { label: "Systems Integration", href: "/services/systems-integration/", type: "SERVICE" },
     ],
   },
   {
@@ -92,8 +92,8 @@ export const deliveryServices: Service[] = [
     timeline: "10–16 weeks for a first release.",
     cta: { label: "Technical discovery call", href: "/contact/", tier: "T4" },
     related: [
-      { label: "Custom software development", href: "/services/custom-software/", type: "SERVICE" },
-      { label: "UI/UX design", href: "/services/ui-ux-design/", type: "SERVICE" },
+      { label: "Custom Software Development", href: "/services/custom-software/", type: "SERVICE" },
+      { label: "UI/UX Design", href: "/services/ui-ux-design/", type: "SERVICE" },
     ],
   },
   {
@@ -127,7 +127,7 @@ export const deliveryServices: Service[] = [
     timeline: "4–8 weeks depending on the number of flows.",
     cta: { label: "Discuss your project", href: "/contact/", tier: "T4" },
     related: [
-      { label: "Corporate websites", href: "/services/corporate-websites/", type: "SERVICE" },
+      { label: "Corporate Websites", href: "/services/corporate-websites/", type: "SERVICE" },
       { label: "Improve website conversion", href: "/use-cases/improve-website-conversion/", type: "USE CASE" },
     ],
   },
@@ -161,8 +161,8 @@ export const deliveryServices: Service[] = [
     timeline: "4–10 weeks depending on how many systems are involved.",
     cta: { label: "Technical discovery call", href: "/contact/", tier: "T4" },
     related: [
-      { label: "Workflow automation", href: "/services/workflow-automation/", type: "SERVICE" },
-      { label: "Custom software development", href: "/services/custom-software/", type: "SERVICE" },
+      { label: "Workflow Automation", href: "/services/workflow-automation/", type: "SERVICE" },
+      { label: "Custom Software Development", href: "/services/custom-software/", type: "SERVICE" },
     ],
   },
 
@@ -245,7 +245,7 @@ export const deliveryServices: Service[] = [
     cta: { label: "Get a lead-flow assessment", href: "/contact/", tier: "T3" },
     related: [
       { label: "Automate sales follow-up", href: "/use-cases/automate-sales-follow-up/", type: "USE CASE" },
-      { label: "Workflow automation", href: "/services/workflow-automation/", type: "SERVICE" },
+      { label: "Workflow Automation", href: "/services/workflow-automation/", type: "SERVICE" },
     ],
   },
   {
@@ -322,8 +322,8 @@ export const deliveryServices: Service[] = [
     timeline: "4–6 weeks.",
     cta: { label: "Talk to a strategist", href: "/contact/", tier: "T4" },
     related: [
-      { label: "Performance marketing", href: "/services/performance-marketing/", type: "SERVICE" },
-      { label: "Business intelligence", href: "/services/business-intelligence/", type: "SERVICE" },
+      { label: "Performance Marketing", href: "/services/performance-marketing/", type: "SERVICE" },
+      { label: "Business Intelligence", href: "/services/business-intelligence/", type: "SERVICE" },
     ],
   },
   {
@@ -358,12 +358,12 @@ export const deliveryServices: Service[] = [
     outOfScope: ["Spending budget on channels where your buyers demonstrably are not"],
     cta: { label: "Request a performance audit", href: "/contact/", tier: "T3" },
     related: [
-      { label: "Conversion optimisation", href: "/services/conversion-rate-optimization/", type: "SERVICE" },
+      { label: "Conversion Optimisation", href: "/services/conversion-rate-optimisation/", type: "SERVICE" },
       { label: "Generate more leads", href: "/use-cases/generate-more-leads/", type: "USE CASE" },
     ],
   },
   {
-    slug: "conversion-rate-optimization",
+    slug: "conversion-rate-optimisation",
     practice: "digital-marketing",
     title: "Conversion Optimisation",
     answer:
@@ -433,8 +433,8 @@ export const deliveryServices: Service[] = [
     timeline: "6–10 weeks.",
     cta: { label: "Request an assessment", href: "/contact/", tier: "T3" },
     related: [
-      { label: "Analytics implementation", href: "/services/analytics-implementation/", type: "SERVICE" },
-      { label: "Systems integration", href: "/services/systems-integration/", type: "SERVICE" },
+      { label: "Analytics Implementation", href: "/services/analytics-implementation/", type: "SERVICE" },
+      { label: "Systems Integration", href: "/services/systems-integration/", type: "SERVICE" },
     ],
   },
   {
@@ -467,8 +467,8 @@ export const deliveryServices: Service[] = [
     timeline: "2–4 weeks.",
     cta: { label: "Request an assessment", href: "/contact/", tier: "T3" },
     related: [
-      { label: "Business intelligence", href: "/services/business-intelligence/", type: "SERVICE" },
-      { label: "Conversion optimisation", href: "/services/conversion-rate-optimization/", type: "SERVICE" },
+      { label: "Business Intelligence", href: "/services/business-intelligence/", type: "SERVICE" },
+      { label: "Conversion Optimisation", href: "/services/conversion-rate-optimisation/", type: "SERVICE" },
     ],
   },
 ];

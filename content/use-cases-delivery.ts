@@ -167,7 +167,7 @@ export const deliveryUseCases: UseCase[] = [
       },
     ],
     related: [
-      { label: "Data quality framework", href: "/resources/data-quality-framework/", type: "GUIDE" },
+      { label: "Data Quality Framework", href: "/resources/data-quality-framework/", type: "GUIDE" },
       { label: "Data Platforms", href: "/technologies/data-platforms/", type: "TECHNOLOGY" },
     ],
   },
@@ -249,7 +249,7 @@ export const deliveryUseCases: UseCase[] = [
     ],
     related: [
       { label: "Connect business systems", href: "/use-cases/connect-business-systems/", type: "USE CASE" },
-      { label: "Total cost of ownership", href: "/resources/what-is-total-cost-of-ownership/", type: "GLOSSARY" },
+      { label: "Total Cost of Ownership", href: "/resources/what-is-total-cost-of-ownership/", type: "GLOSSARY" },
     ],
   },
   {
@@ -491,7 +491,7 @@ export const deliveryUseCases: UseCase[] = [
       },
     ],
     related: [
-      { label: "Minimum viable product", href: "/resources/what-is-a-minimum-viable-product/", type: "GLOSSARY" },
+      { label: "Minimum Viable Product", href: "/resources/what-is-a-minimum-viable-product/", type: "GLOSSARY" },
       { label: "Startups", href: "/industries/startups/", type: "INDUSTRY" },
     ],
   },
@@ -573,7 +573,7 @@ export const deliveryUseCases: UseCase[] = [
     ],
     related: [
       { label: "Modernise legacy processes", href: "/use-cases/modernise-legacy-processes/", type: "USE CASE" },
-      { label: "Data warehouse vs spreadsheets", href: "/resources/data-warehouse-vs-spreadsheets/", type: "COMPARISON" },
+      { label: "Data Warehouse vs Spreadsheets", href: "/resources/data-warehouse-vs-spreadsheets/", type: "COMPARISON" },
     ],
   },
 ];

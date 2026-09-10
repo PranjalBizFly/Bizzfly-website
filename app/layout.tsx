@@ -46,6 +46,10 @@ const poppins = Poppins({
   weight: ["400", "500", "700"],
 });
 
+const defaultOgImage = `/og/?title=${encodeURIComponent(
+  `${site.name} — Digital Growth, AI & Automation`,
+)}&kind=page`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -67,11 +71,18 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} — Digital Growth, AI & Automation`,
     description: site.description,
+    /*
+     * The default share image. Pages built through buildMetadata override it
+     * with one generated from their own title; this covers the few that set
+     * their metadata directly and would otherwise ship no og:image at all.
+     */
+    images: [{ url: defaultOgImage, width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — Digital Growth, AI & Automation`,
     description: site.description,
+    images: [defaultOgImage],
   },
   formatDetection: { telephone: false },
 };

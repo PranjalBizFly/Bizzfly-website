@@ -12,7 +12,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "home-hero-growth-team": {
     id: "home-hero-growth-team",
     src: "/images/home/hero-growth-ai-team.webp",
-    alt: "Digital growth and engineering team collaborating around shared monitors in a modern technology office",
+    alt: "BizzFly digital growth and engineering team collaborating around shared monitors in a modern technology office",
     topic: "Digital Growth & AI",
     category: "digital-growth",
     type: "human",
@@ -25,7 +25,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "home-what-we-do-strategists": {
     id: "home-what-we-do-strategists",
     src: "/images/home/what-we-do-strategists.webp",
-    alt: "Digital strategists analyzing business growth roadmap and multi-channel discoverability opportunities",
+    alt: "BizzFly digital strategists and consultants reviewing growth metrics in a corporate conference room",
     topic: "What BizzFly Does",
     category: "digital-growth",
     type: "human",
@@ -38,7 +38,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "home-search-visibility-analyst": {
     id: "home-search-visibility-analyst",
     src: "/images/home/search-visibility-analyst.webp",
-    alt: "Search visibility specialist evaluating organic search query trends and performance analytics",
+    alt: "Professional Indian search visibility analyst reviewing search performance analytics at workstation in tech office",
     topic: "Search Visibility",
     category: "services",
     type: "editorial",
@@ -64,7 +64,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "home-automation-operations": {
     id: "home-automation-operations",
     src: "/images/home/automation-operations-workflow.webp",
-    alt: "Operations professionals reviewing automated business workflow diagrams and connected services",
+    alt: "Professional Indian operations leaders and technology consultants in a strategic business meeting in modern office",
     topic: "Business Automation",
     category: "automation",
     type: "business",
@@ -87,10 +87,23 @@ export const imageRegistry: Record<string, ImageMetadata> = {
     usage: "section",
     caption: "Engineers building reliable, accessible web applications and custom software.",
   },
+  "home-founder": {
+    id: "home-founder",
+    src: "/images/home/founder-rahul-jadhav.webp",
+    alt: "Rahul Jadhav, Founder of BizzFly",
+    topic: "Founder Rahul Jadhav",
+    category: "company",
+    type: "human",
+    aspectRatio: "1:1",
+    width: 666,
+    height: 663,
+    usage: "editorial",
+    caption: "Rahul Jadhav, Founder of BizzFly",
+  },
   "practice-search-ai-visibility": {
     id: "practice-search-ai-visibility",
     src: "/images/services/practice-search-ai-visibility.webp",
-    alt: "Search visibility team reviewing multi-platform presence across Google, AI Overviews, and maps",
+    alt: "Indian search visibility director and analyst reviewing organic search analytics on ultra-wide monitors",
     topic: "Search & AI Visibility Practice",
     category: "services",
     type: "human",
@@ -102,7 +115,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "practice-digital-marketing": {
     id: "practice-digital-marketing",
     src: "/images/services/practice-digital-marketing.webp",
-    alt: "Digital marketing specialists reviewing organic and paid acquisition performance data",
+    alt: "Indian digital marketing strategists collaborating across modern glass desk with tablet and laptop analysing growth metrics",
     topic: "Digital Marketing Practice",
     category: "services",
     type: "human",
@@ -114,10 +127,10 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "practice-web-development": {
     id: "practice-web-development",
     src: "/images/services/practice-web-development.webp",
-    alt: "Web development engineers working with modern Next.js and TypeScript codebases on laptop screens",
+    alt: "Indian full-stack web developer building responsive enterprise applications at a standing desk with dual monitors",
     topic: "Web Development Practice",
     category: "services",
-    type: "technology",
+    type: "human",
     aspectRatio: "3:2",
     width: 1200,
     height: 800,
@@ -126,7 +139,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "practice-software-development": {
     id: "practice-software-development",
     src: "/images/services/practice-software-development.webp",
-    alt: "Software engineering workspace displaying source code architecture and integration testing",
+    alt: "Professional Indian software engineer architecting enterprise systems at modern workstation",
     topic: "Software Development Practice",
     category: "services",
     type: "technology",
@@ -138,10 +151,10 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "practice-ai-automation": {
     id: "practice-ai-automation",
     src: "/images/services/practice-ai-automation.webp",
-    alt: "Automation and artificial intelligence engineers deploying intelligent business agents",
+    alt: "Indian female automation solutions engineer in corporate blazer reviewing enterprise workflow automation on monitor",
     topic: "AI & Automation Practice",
     category: "services",
-    type: "business",
+    type: "human",
     aspectRatio: "3:2",
     width: 1200,
     height: 800,
@@ -150,10 +163,10 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "practice-data-analytics": {
     id: "practice-data-analytics",
     src: "/images/services/practice-data-analytics.webp",
-    alt: "Data visualization dashboard showing commercial metrics, conversion rates, and revenue performance",
+    alt: "Indian data science leader presenting predictive business intelligence models on large conference room display to colleagues",
     topic: "Data & Analytics Practice",
     category: "services",
-    type: "editorial",
+    type: "human",
     aspectRatio: "3:2",
     width: 1200,
     height: 800,
@@ -162,7 +175,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-seo": {
     id: "service-seo",
     src: "/images/services/service-seo-strategy.webp",
-    alt: "SEO professional explaining technical crawl optimization and keyword intent to team members",
+    alt: "Indian technical SEO specialist analysing search performance metrics and indexing status on computer at desk",
     topic: "Search Engine Optimisation",
     category: "services",
     type: "human",
@@ -174,7 +187,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-ai-search-optimisation": {
     id: "service-ai-search-optimisation",
     src: "/images/services/service-ai-search-optimisation.webp",
-    alt: "Modern computer interface analyzing knowledge graph entities and AI citation paths",
+    alt: "Modern computer interface analysing knowledge graph entities and AI citation paths",
     topic: "AI Search Optimisation",
     category: "services",
     type: "technology",
@@ -210,10 +223,10 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-workflow-automation": {
     id: "service-workflow-automation",
     src: "/images/services/service-workflow-automation.webp",
-    alt: "Operations consultant mapping multi-stage business workflow steps on a desk surface",
+    alt: "Indian process systems consultant in clean dress shirt reviewing automated operational workflows",
     topic: "Workflow Automation",
     category: "services",
-    type: "process",
+    type: "human",
     aspectRatio: "3:2",
     width: 1200,
     height: 800,
@@ -222,7 +235,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-corporate-websites": {
     id: "service-corporate-websites",
     src: "/images/services/service-corporate-websites.webp",
-    alt: "Corporate executive reviewing new corporate website layout on tablet in modern boardroom",
+    alt: "Professional Indian digital enterprise consultant designing corporate web platforms at workstation",
     topic: "Corporate Websites",
     category: "services",
     type: "human",
@@ -234,7 +247,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-answer-engine-optimisation": {
     id: "service-answer-engine-optimisation",
     src: "/images/services/service-answer-engine-optimisation.webp",
-    alt: "Content strategist writing direct answer definitions optimized for search engine featured snippets",
+    alt: "Content strategist writing direct answer definitions optimised for search engine featured snippets",
     topic: "Answer Engine Optimisation",
     category: "services",
     type: "editorial",
@@ -246,7 +259,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-generative-engine-optimisation": {
     id: "service-generative-engine-optimisation",
     src: "/images/services/service-generative-engine-optimisation.webp",
-    alt: "Technical team analyzing generative AI query results and brand source citations",
+    alt: "Technical team analysing generative AI query results and brand source citations",
     topic: "Generative Engine Optimisation",
     category: "services",
     type: "human",
@@ -270,7 +283,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-search-experience-optimisation": {
     id: "service-search-experience-optimisation",
     src: "/images/services/service-search-experience-optimisation.webp",
-    alt: "UX designer analyzing digital user interactions and scroll heatmaps across web pages",
+    alt: "UX designer analysing digital user interactions and scroll heatmaps across web pages",
     topic: "Search Experience Optimisation",
     category: "services",
     type: "process",
@@ -294,10 +307,10 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-custom-software": {
     id: "service-custom-software",
     src: "/images/services/service-custom-software.webp",
-    alt: "Software engineer designing custom enterprise application architecture on dual monitors",
+    alt: "Indian senior software engineer analysing enterprise application code and system metrics across dual monitors at workstation",
     topic: "Custom Software",
     category: "services",
-    type: "technology",
+    type: "human",
     aspectRatio: "3:2",
     width: 1200,
     height: 800,
@@ -306,10 +319,10 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-web-applications": {
     id: "service-web-applications",
     src: "/images/services/service-web-applications.webp",
-    alt: "Full-stack developer building robust web application APIs and responsive user interfaces",
+    alt: "Indian female frontend engineer building responsive cloud web application interfaces on laptop at modern workstation",
     topic: "Web Applications",
     category: "services",
-    type: "technology",
+    type: "human",
     aspectRatio: "3:2",
     width: 1200,
     height: 800,
@@ -318,10 +331,10 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-ui-ux-design": {
     id: "service-ui-ux-design",
     src: "/images/services/service-ui-ux-design.webp",
-    alt: "Digital product designer sketching wireframes and user interface flows in notebook",
+    alt: "Indian digital product designer evaluating user experience workflows and interface prototypes on laptop",
     topic: "UI/UX Design",
     category: "services",
-    type: "process",
+    type: "human",
     aspectRatio: "3:2",
     width: 1200,
     height: 800,
@@ -342,7 +355,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-ai-chatbots": {
     id: "service-ai-chatbots",
     src: "/images/services/service-ai-chatbots.webp",
-    alt: "Customer support specialist collaborating with AI chatbot assistant to resolve client inquiries",
+    alt: "Professional Indian customer experience specialist managing automated conversational support",
     topic: "AI Chatbots",
     category: "services",
     type: "human",
@@ -366,7 +379,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-ai-consulting": {
     id: "service-ai-consulting",
     src: "/images/services/service-ai-consulting.webp",
-    alt: "AI strategy consultant presenting technical adoption roadmap to executive stakeholders",
+    alt: "Professional Indian enterprise AI strategy consultants advising executive leadership in modern glass conference room",
     topic: "AI Consulting",
     category: "services",
     type: "human",
@@ -399,9 +412,9 @@ export const imageRegistry: Record<string, ImageMetadata> = {
     height: 800,
     usage: "editorial",
   },
-  "service-conversion-rate-optimization": {
-    id: "service-conversion-rate-optimization",
-    src: "/images/services/service-conversion-rate-optimization.webp",
+  "service-conversion-rate-optimisation": {
+    id: "service-conversion-rate-optimisation",
+    src: "/images/services/service-conversion-rate-optimisation.webp",
     alt: "UX and conversion analyst inspecting user journey drop-off data on modern laptop",
     topic: "Conversion Rate Optimization",
     category: "services",
@@ -438,7 +451,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-website-performance": {
     id: "service-website-performance",
     src: "/images/services/service-website-performance.webp",
-    alt: "Web engineer optimizing browser rendering speed, server caching, and network waterfall",
+    alt: "Web engineer optimising browser rendering speed, server caching, and network waterfall",
     topic: "Website Performance",
     category: "services",
     type: "technology",
@@ -510,7 +523,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-ecommerce-seo": {
     id: "service-ecommerce-seo",
     src: "/images/services/service-ecommerce-seo.webp",
-    alt: "Retail commerce team analyzing product category organic rankings and checkout conversion funnel",
+    alt: "Retail commerce team analysing product category organic rankings and checkout conversion funnel",
     topic: "E-commerce SEO",
     category: "services",
     type: "human",
@@ -558,7 +571,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-structured-data": {
     id: "service-structured-data",
     src: "/images/services/service-structured-data.webp",
-    alt: "Developer writing Schema JSON-LD markup to enrich search results with structured organization data",
+    alt: "Developer writing Schema JSON-LD markup to enrich search results with structured organisation data",
     topic: "Structured Data",
     category: "services",
     type: "technology",
@@ -582,7 +595,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-ai-readiness-assessment": {
     id: "service-ai-readiness-assessment",
     src: "/images/services/service-ai-readiness-assessment.webp",
-    alt: "Enterprise consultant conducting an evaluation of data governance and AI technical readiness",
+    alt: "Professional Indian enterprise technology consultant conducting digital audit and AI readiness assessment",
     topic: "AI Readiness Assessment",
     category: "services",
     type: "human",
@@ -618,7 +631,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-crm-implementation": {
     id: "service-crm-implementation",
     src: "/images/services/service-crm-implementation.webp",
-    alt: "CRM systems administrator configuring customer record stages and automated deal tracking",
+    alt: "Indian enterprise CRM consultant in business suit presenting pipeline automation architecture on laptop",
     topic: "CRM Implementation",
     category: "services",
     type: "human",
@@ -654,7 +667,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-reporting-dashboards": {
     id: "service-reporting-dashboards",
     src: "/images/services/service-reporting-dashboards.webp",
-    alt: "Data specialist discussing real-time executive dashboard visualizations with colleagues",
+    alt: "Indian business intelligence analyst monitoring live executive KPI reporting dashboards on laptop",
     topic: "Reporting Dashboards",
     category: "services",
     type: "human",
@@ -690,7 +703,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "service-accessibility-audit": {
     id: "service-accessibility-audit",
     src: "/images/services/service-accessibility-audit.webp",
-    alt: "Accessibility specialist testing screen reader navigation, keyboard focus rings, and WCAG contrast",
+    alt: "Professional Indian digital accessibility specialist evaluating user interface compliance at workstation",
     topic: "Accessibility Audit",
     category: "services",
     type: "human",
@@ -702,10 +715,10 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "industry-manufacturing": {
     id: "industry-manufacturing",
     src: "/images/industries/industry-manufacturing.webp",
-    alt: "Industrial engineer inspecting automated manufacturing production machinery and equipment",
+    alt: "Indian industrial engineer managing manufacturing operations and CNC machinery in a metal fabrication facility",
     topic: "Manufacturing",
     category: "industries",
-    type: "business",
+    type: "human",
     aspectRatio: "3:2",
     width: 1200,
     height: 800,
@@ -726,7 +739,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "industry-education": {
     id: "industry-education",
     src: "/images/industries/industry-education.webp",
-    alt: "Students and faculty collaborating in contemporary higher education academic library",
+    alt: "Professional Indian higher education administrators and educators collaborating in modern academic setting",
     topic: "Education",
     category: "industries",
     type: "human",
@@ -750,7 +763,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "industry-saas": {
     id: "industry-saas",
     src: "/images/industries/industry-saas.webp",
-    alt: "SaaS product team mapping user onboarding journey and subscription metrics",
+    alt: "Indian SaaS technology entrepreneur reviewing user growth metrics and subscription churn analytics on laptop",
     topic: "SaaS",
     category: "industries",
     type: "human",
@@ -834,7 +847,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "industry-startups": {
     id: "industry-startups",
     src: "/images/industries/industry-startups.webp",
-    alt: "Early-stage technology startup founders pitching growth roadmap in agile workspace",
+    alt: "Professional Indian tech startup founders and engineers collaborating in a modern agile innovation hub",
     topic: "Startups",
     category: "industries",
     type: "human",
@@ -942,7 +955,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "industry-nonprofit": {
     id: "industry-nonprofit",
     src: "/images/industries/industry-nonprofit.webp",
-    alt: "Community non-profit volunteers collaborating on social impact initiative",
+    alt: "Professional Indian social impact and non-profit organisation leaders planning programs in corporate office",
     topic: "Nonprofit",
     category: "industries",
     type: "human",
@@ -978,7 +991,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "industry-b2b-services": {
     id: "industry-b2b-services",
     src: "/images/industries/industry-b2b-services.webp",
-    alt: "B2B enterprise service partners meeting to discuss contract deliverables and scope",
+    alt: "Professional Indian B2B leadership executive in corporate office",
     topic: "B2B Services",
     category: "industries",
     type: "human",
@@ -1002,7 +1015,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "industry-smes": {
     id: "industry-smes",
     src: "/images/industries/industry-smes.webp",
-    alt: "Small and medium business owners discussing operations and cash flow in studio office",
+    alt: "Professional Indian SME business owner discussing growth strategy in modern workspace",
     topic: "SMEs",
     category: "industries",
     type: "human",
@@ -1038,7 +1051,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "use-case-reduce-manual-work": {
     id: "use-case-reduce-manual-work",
     src: "/images/use-cases/use-case-reduce-manual-work.webp",
-    alt: "Organized modern workplace representing automated administrative efficiency and paperless workflows",
+    alt: "Organised modern workplace representing automated administrative efficiency and paperless workflows",
     topic: "Reduce Manual Work",
     category: "use-cases",
     type: "business",
@@ -1062,7 +1075,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "use-case-automate-sales-follow-up": {
     id: "use-case-automate-sales-follow-up",
     src: "/images/use-cases/use-case-automate-sales-follow-up.webp",
-    alt: "Account executive conducting scheduled client consultation with CRM record on laptop",
+    alt: "Professional Indian enterprise sales executive reviewing pipeline and client follow-ups",
     topic: "Automate Sales Follow-Up",
     category: "use-cases",
     type: "human",
@@ -1074,7 +1087,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "use-case-automate-customer-support": {
     id: "use-case-automate-customer-support",
     src: "/images/use-cases/use-case-automate-customer-support.webp",
-    alt: "Customer support specialist assisting user queries supported by automated response knowledge base",
+    alt: "Professional Indian customer support specialist managing automated service desk workflows",
     topic: "Automate Customer Support",
     category: "use-cases",
     type: "human",
@@ -1134,7 +1147,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "use-case-modernise-legacy-processes": {
     id: "use-case-modernise-legacy-processes",
     src: "/images/use-cases/use-case-modernise-legacy-processes.webp",
-    alt: "Enterprise team replacing manual spreadsheet tracking with real-time digital software",
+    alt: "Professional Indian business operations colleagues collaborating over digital workflow transformation",
     topic: "Modernise Legacy Processes",
     category: "use-cases",
     type: "human",
@@ -1146,7 +1159,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "use-case-introduce-ai-into-operations": {
     id: "use-case-introduce-ai-into-operations",
     src: "/images/use-cases/use-case-introduce-ai-into-operations.webp",
-    alt: "Business team integrating machine learning automation into daily back-office workflows",
+    alt: "Professional Indian technology lead architecting AI integration into operational workflows",
     topic: "Introduce AI into Operations",
     category: "use-cases",
     type: "human",
@@ -1326,7 +1339,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "use-case-onboard-customers-faster": {
     id: "use-case-onboard-customers-faster",
     src: "/images/use-cases/use-case-onboard-customers-faster.webp",
-    alt: "Customer success consultant leading rapid product onboarding session with new enterprise account",
+    alt: "Professional Indian client onboarding team reviewing project deliverables and timelines",
     topic: "Onboard Customers Faster",
     category: "use-cases",
     type: "human",
@@ -1374,10 +1387,10 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "tech-web-stack": {
     id: "tech-web-stack",
     src: "/images/technologies/tech-web-stack.webp",
-    alt: "Front-end engineers architecting Next.js App Router applications with static site generation",
+    alt: "Indian web technology lead architecting modern full-stack web applications at engineering desk",
     topic: "Web Stack",
     category: "technology",
-    type: "technology",
+    type: "human",
     aspectRatio: "3:2",
     width: 1200,
     height: 800,
@@ -1386,10 +1399,10 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "tech-ai-stack": {
     id: "tech-ai-stack",
     src: "/images/technologies/tech-ai-stack.webp",
-    alt: "AI infrastructure and neural model inference frameworks powering production intelligence",
+    alt: "Indian machine learning engineer with headphones fine-tuning AI model pipelines and neural parameters at workstation",
     topic: "AI Stack",
     category: "technology",
-    type: "technology",
+    type: "human",
     aspectRatio: "3:2",
     width: 1200,
     height: 800,
@@ -1458,10 +1471,10 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "tech-cloud-and-hosting": {
     id: "tech-cloud-and-hosting",
     src: "/images/technologies/tech-cloud-and-hosting.webp",
-    alt: "DevOps specialist configuring edge caching, container deployment, and automated scaling",
+    alt: "Indian cloud infrastructure engineer configuring scalable multi-cloud hosting environments on laptop",
     topic: "Cloud & Hosting",
     category: "technology",
-    type: "technology",
+    type: "human",
     aspectRatio: "3:2",
     width: 1200,
     height: 800,
@@ -1470,10 +1483,10 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "tech-data-platforms": {
     id: "tech-data-platforms",
     src: "/images/technologies/tech-data-platforms.webp",
-    alt: "Structured SQL warehouse tables and ETL transformation pipelines for business intelligence",
+    alt: "Indian data platform engineer monitoring real-time streaming data ingestion pipelines at office workstation",
     topic: "Data Platforms",
     category: "technology",
-    type: "technology",
+    type: "human",
     aspectRatio: "3:2",
     width: 1200,
     height: 800,
@@ -1506,10 +1519,10 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "tech-security-and-access": {
     id: "tech-security-and-access",
     src: "/images/technologies/tech-security-and-access.webp",
-    alt: "Cybersecurity governance and identity access management protecting sensitive client data",
+    alt: "Indian cybersecurity specialist reviewing zero-trust enterprise security protocols on monitor at modern desk",
     topic: "Security & Access",
     category: "technology",
-    type: "technology",
+    type: "human",
     aspectRatio: "3:2",
     width: 1200,
     height: 800,
@@ -1530,10 +1543,10 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "tech-observability": {
     id: "tech-observability",
     src: "/images/technologies/tech-observability.webp",
-    alt: "Real-time system observability charts tracking server latencies, error budgets, and API response rates",
+    alt: "Indian site reliability engineer analysing distributed system telemetry and health metrics at engineering desk",
     topic: "Observability",
     category: "technology",
-    type: "technology",
+    type: "human",
     aspectRatio: "3:2",
     width: 1200,
     height: 800,
@@ -1554,7 +1567,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "tech-accessibility-standards": {
     id: "tech-accessibility-standards",
     src: "/images/technologies/tech-accessibility-standards.webp",
-    alt: "User testing assistive technology, high-contrast tokens, and keyboard accessibility navigation",
+    alt: "Professional Indian UX and accessibility specialist evaluating digital accessibility standards",
     topic: "Accessibility Standards",
     category: "technology",
     type: "human",
@@ -1566,7 +1579,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-hub": {
     id: "company-hub",
     src: "/images/company/company-hub.webp",
-    alt: "Technology team collaborating in open plan office workspace in Pune",
+    alt: "BizzFly engineers and consultants at work in a modern open-plan technology office in India",
     topic: "BizzFly Company Hub",
     category: "company",
     type: "human",
@@ -1592,7 +1605,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-how-we-work": {
     id: "company-how-we-work",
     src: "/images/company/company-how-we-work.webp",
-    alt: "Strategy and delivery leads mapping agile project milestones and technical dependencies",
+    alt: "BizzFly strategy and delivery leads mapping project milestones and technical dependencies",
     topic: "How We Work",
     category: "company",
     type: "process",
@@ -1605,7 +1618,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-approach": {
     id: "company-approach",
     src: "/images/company/company-approach-diagnosis.webp",
-    alt: "Engineering and consulting partners analyzing core business constraints prior to proposing code",
+    alt: "BizzFly technology strategy consultant advising executive leadership during a diagnostic presentation",
     topic: "Our Approach",
     category: "company",
     type: "human",
@@ -1618,7 +1631,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-careers": {
     id: "company-careers",
     src: "/images/company/company-careers-workplace.webp",
-    alt: "Contemporary engineering and growth workspace supporting professional development and focus",
+    alt: "BizzFly software engineer and team lead in a contemporary technology workspace",
     topic: "Careers at BizzFly",
     category: "company",
     type: "human",
@@ -1631,7 +1644,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-discovery-process": {
     id: "company-discovery-process",
     src: "/images/company/company-discovery-process.webp",
-    alt: "Consultants conducting an initial discovery consultation to understand customer intent and systems",
+    alt: "BizzFly consultants running an initial discovery session to understand customer intent and systems",
     topic: "Discovery Process",
     category: "company",
     type: "human",
@@ -1655,7 +1668,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "contact-consultation": {
     id: "contact-consultation",
     src: "/images/contact/contact-consultation-strategy.webp",
-    alt: "Senior digital growth advisor conducting an introductory 30-minute discovery conversation",
+    alt: "Senior BizzFly enterprise growth advisor at an executive desk during a client consultation",
     topic: "Contact Consultation",
     category: "company",
     type: "human",
@@ -1813,7 +1826,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-digital-growth-methodology": {
     id: "company-digital-growth-methodology",
     src: "/images/company/company-digital-growth-methodology.webp",
-    alt: "Growth engineering team reviewing multi-stage digital acquisition and conversion funnels on whiteboard",
+    alt: "BizzFly growth engineering team mapping multi-stage acquisition and conversion funnels on a whiteboard",
     topic: "Digital Growth Methodology",
     category: "company",
     type: "human",
@@ -1826,7 +1839,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-seo-methodology": {
     id: "company-seo-methodology",
     src: "/images/company/company-seo-methodology.webp",
-    alt: "Technical search specialists reviewing search architecture and indexing performance graphs",
+    alt: "BizzFly technical SEO specialists reviewing site architecture and indexing performance graphs",
     topic: "SEO Methodology",
     category: "company",
     type: "business",
@@ -1839,7 +1852,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-ai-search-methodology": {
     id: "company-ai-search-methodology",
     src: "/images/company/company-ai-search-methodology.webp",
-    alt: "Engineers inspecting knowledge graph embeddings and answer engine synthesis patterns on monitors",
+    alt: "BizzFly engineers inspecting knowledge graph and answer engine synthesis patterns on monitors",
     topic: "AI Search Methodology",
     category: "company",
     type: "technology",
@@ -1852,7 +1865,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-website-development-process": {
     id: "company-website-development-process",
     src: "/images/company/company-website-development-process.webp",
-    alt: "Frontend engineers testing accessible component patterns and responsive web layouts",
+    alt: "BizzFly frontend engineers testing accessible component patterns and responsive web layouts",
     topic: "Website Development Process",
     category: "company",
     type: "editorial",
@@ -1865,7 +1878,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-software-development-process": {
     id: "company-software-development-process",
     src: "/images/company/company-software-development-process.webp",
-    alt: "Software development team mapping domain entities and distributed service architecture in conference room",
+    alt: "BizzFly software development team mapping domain entities and service architecture in a conference room",
     topic: "Software Development Process",
     category: "company",
     type: "business",
@@ -1878,7 +1891,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-automation-approach": {
     id: "company-automation-approach",
     src: "/images/company/company-automation-approach.webp",
-    alt: "Automation engineers reviewing end-to-end integration workflows across cloud applications",
+    alt: "BizzFly automation engineers reviewing end-to-end integration workflows across cloud applications",
     topic: "Automation Approach",
     category: "company",
     type: "technology",
@@ -1891,7 +1904,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-engagement-models": {
     id: "company-engagement-models",
     src: "/images/company/company-engagement-models.webp",
-    alt: "Client partners and technology consultants discussing structured engagement scope and deliverables",
+    alt: "BizzFly consulting team planning engagement milestones around a conference table",
     topic: "Engagement Models",
     category: "company",
     type: "human",
@@ -1904,7 +1917,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-how-we-price": {
     id: "company-how-we-price",
     src: "/images/company/company-how-we-price.webp",
-    alt: "Finance and delivery managers reviewing milestone-based scope estimates and transparent pricing models",
+    alt: "BizzFly delivery and finance leads reviewing milestone-based scope estimates and pricing",
     topic: "How We Price",
     category: "company",
     type: "business",
@@ -1917,7 +1930,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-how-we-report": {
     id: "company-how-we-report",
     src: "/images/company/company-how-we-report.webp",
-    alt: "Performance analysts reviewing executive dashboards connecting traffic metrics to revenue outcomes",
+    alt: "BizzFly performance analysts reviewing dashboards connecting traffic metrics to revenue outcomes",
     topic: "How We Report",
     category: "company",
     type: "editorial",
@@ -1930,7 +1943,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-what-we-do-not-do": {
     id: "company-what-we-do-not-do",
     src: "/images/company/company-what-we-do-not-do.webp",
-    alt: "Technology leadership defining clear operational boundaries and rejecting low-value practices",
+    alt: "BizzFly leadership team agreeing the operational delivery standards the company works to",
     topic: "What We Do Not Do",
     category: "company",
     type: "human",
@@ -1943,7 +1956,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-content-standards": {
     id: "company-content-standards",
     src: "/images/company/company-content-standards.webp",
-    alt: "Editorial team validating factual accuracy, source citations, and content clarity at a workstation",
+    alt: "BizzFly editorial team validating factual accuracy, source citations, and content clarity",
     topic: "Content Standards",
     category: "company",
     type: "editorial",
@@ -1956,7 +1969,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-accessibility-commitment": {
     id: "company-accessibility-commitment",
     src: "/images/company/company-accessibility-commitment.webp",
-    alt: "Designers testing digital interfaces with assistive screen reader technologies for WCAG compliance",
+    alt: "BizzFly accessibility engineer verifying WCAG compliance on a laptop in a modern office",
     topic: "Accessibility Commitment",
     category: "company",
     type: "human",
@@ -1969,7 +1982,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-data-and-privacy-approach": {
     id: "company-data-and-privacy-approach",
     src: "/images/company/company-data-and-privacy-approach.webp",
-    alt: "Security specialists auditing data governance controls and zero-trust encryption policies",
+    alt: "BizzFly security specialists auditing data governance controls and encryption policies",
     topic: "Data & Privacy Approach",
     category: "company",
     type: "technology",
@@ -1982,7 +1995,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "company-faq": {
     id: "company-faq",
     src: "/images/company/company-faq.webp",
-    alt: "Advisors holding a candid consultation answering operational and technical questions with a client",
+    alt: "BizzFly client advisor answering operational and technical questions from a prospective client",
     topic: "Company FAQ",
     category: "company",
     type: "human",
@@ -2021,7 +2034,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-answer-engine-optimisation": {
     id: "resource-what-is-answer-engine-optimisation",
     src: "/images/resources/resource-what-is-answer-engine-optimisation.webp",
-    alt: "AI engineers and research analysts working with answer engine optimisation? models and semantic retrieval workflows",
+    alt: "AI engineers and analysts working on answer engine optimisation models and semantic retrieval workflows",
     topic: "What Is Answer Engine Optimisation?",
     category: "resources",
     type: "technology",
@@ -2034,8 +2047,8 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-the-first-90-days-of-seo-look-like": {
     id: "resource-what-the-first-90-days-of-seo-look-like",
     src: "/images/resources/resource-what-the-first-90-days-of-seo-look-like.webp",
-    alt: "SEO consultants mapping out a 90-day crawl technical audit and content optimization sprint roadmap",
-    topic: "What the first 90 days of SEO actually look like",
+    alt: "SEO consultants mapping out a 90-day crawl technical audit and content optimisation sprint roadmap",
+    topic: "What the First 90 Days of SEO Actually Look Like",
     category: "resources",
     type: "human",
     aspectRatio: "3:2",
@@ -2047,7 +2060,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-ai-optimisation": {
     id: "resource-what-is-ai-optimisation",
     src: "/images/resources/resource-what-is-ai-optimisation.webp",
-    alt: "AI engineers and research analysts working with ai optimisation? models and semantic retrieval workflows",
+    alt: "AI engineers and analysts working on AI optimisation models and semantic retrieval workflows",
     topic: "What Is AI Optimisation?",
     category: "resources",
     type: "technology",
@@ -2060,7 +2073,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-search-experience-optimisation": {
     id: "resource-what-is-search-experience-optimisation",
     src: "/images/resources/resource-what-is-search-experience-optimisation.webp",
-    alt: "Technical search specialists analyzing search experience optimisation? metrics and search crawler behavior",
+    alt: "Technical search specialists analysing search experience optimisation metrics and crawler behaviour",
     topic: "What Is Search Experience Optimisation?",
     category: "resources",
     type: "editorial",
@@ -2074,7 +2087,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
     id: "resource-how-to-choose-a-first-automation-project",
     src: "/images/resources/resource-how-to-choose-a-first-automation-project.webp",
     alt: "Operations leads assessing high-impact, low-complexity manual processes on a priority matrix board",
-    topic: "How to choose a first automation project",
+    topic: "How to Choose a First Automation Project",
     category: "resources",
     type: "business",
     aspectRatio: "3:2",
@@ -2268,7 +2281,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-in-house-seo-vs-agency-seo": {
     id: "resource-in-house-seo-vs-agency-seo",
     src: "/images/resources/resource-in-house-seo-vs-agency-seo.webp",
-    alt: "Marketing leadership discussing internal team bandwidth compared to specialized external agency execution",
+    alt: "Professional Indian corporate marketing leader evaluating SEO organisational models",
     topic: "In-House SEO vs Agency SEO",
     category: "resources",
     type: "human",
@@ -2294,7 +2307,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-when-do-you-need-an-seo-agency": {
     id: "resource-when-do-you-need-an-seo-agency",
     src: "/images/resources/resource-when-do-you-need-an-seo-agency.webp",
-    alt: "Corporate executives evaluating whether to engage an external search optimization partner for growth",
+    alt: "Corporate executives evaluating whether to engage an external search optimisation partner for growth",
     topic: "When Do You Need an SEO Agency?",
     category: "resources",
     type: "human",
@@ -2359,7 +2372,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-how-to-choose-a-digital-growth-partner": {
     id: "resource-how-to-choose-a-digital-growth-partner",
     src: "/images/resources/resource-how-to-choose-a-digital-growth-partner.webp",
-    alt: "Founders interviewing prospective digital growth partners about methodology, transparency, and past results",
+    alt: "Professional Indian business partner reviewing digital growth strategies",
     topic: "How to Choose a Digital Growth Partner",
     category: "resources",
     type: "human",
@@ -2463,7 +2476,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-website-conversion-checklist": {
     id: "resource-website-conversion-checklist",
     src: "/images/resources/resource-website-conversion-checklist.webp",
-    alt: "Conversion optimization team reviewing lead capture forms, value propositions, and trust signals on landing page",
+    alt: "Conversion optimisation team reviewing lead capture forms, value propositions, and trust signals on landing page",
     topic: "Website Conversion Checklist",
     category: "resources",
     type: "editorial",
@@ -2541,7 +2554,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-schema-markup": {
     id: "resource-what-is-schema-markup",
     src: "/images/resources/resource-what-is-schema-markup.webp",
-    alt: "Technical search specialists analyzing schema markup metrics and search crawler behavior",
+    alt: "Technical search specialists analysing schema markup metrics and search crawler behaviour",
     topic: "Schema Markup",
     category: "resources",
     type: "editorial",
@@ -2580,7 +2593,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-crawl-budget": {
     id: "resource-what-is-crawl-budget",
     src: "/images/resources/resource-what-is-crawl-budget.webp",
-    alt: "Technical search specialists analyzing crawl budget metrics and search crawler behavior",
+    alt: "Technical search specialists analysing crawl budget metrics and search crawler behaviour",
     topic: "Crawl Budget",
     category: "resources",
     type: "editorial",
@@ -2593,7 +2606,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-index-coverage": {
     id: "resource-what-is-index-coverage",
     src: "/images/resources/resource-what-is-index-coverage.webp",
-    alt: "Technical search specialists analyzing index coverage metrics and search crawler behavior",
+    alt: "Technical search specialists analysing index coverage metrics and search crawler behaviour",
     topic: "Index Coverage",
     category: "resources",
     type: "editorial",
@@ -2606,7 +2619,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-canonicalisation": {
     id: "resource-what-is-canonicalisation",
     src: "/images/resources/resource-what-is-canonicalisation.webp",
-    alt: "Technical search specialists analyzing canonicalisation metrics and search crawler behavior",
+    alt: "Technical search specialists analysing canonicalisation metrics and search crawler behaviour",
     topic: "Canonicalisation",
     category: "resources",
     type: "editorial",
@@ -2619,7 +2632,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-core-web-vitals": {
     id: "resource-what-is-core-web-vitals",
     src: "/images/resources/resource-what-is-core-web-vitals.webp",
-    alt: "Technical search specialists analyzing core web vitals metrics and search crawler behavior",
+    alt: "Technical search specialists analysing core web vitals metrics and search crawler behaviour",
     topic: "Core Web Vitals",
     category: "resources",
     type: "editorial",
@@ -2632,7 +2645,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-internal-linking": {
     id: "resource-what-is-internal-linking",
     src: "/images/resources/resource-what-is-internal-linking.webp",
-    alt: "Technical search specialists analyzing internal linking metrics and search crawler behavior",
+    alt: "Technical search specialists analysing internal linking metrics and search crawler behaviour",
     topic: "Internal Linking",
     category: "resources",
     type: "editorial",
@@ -2645,7 +2658,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-topical-authority": {
     id: "resource-what-is-topical-authority",
     src: "/images/resources/resource-what-is-topical-authority.webp",
-    alt: "Technical search specialists analyzing topical authority metrics and search crawler behavior",
+    alt: "Technical search specialists analysing topical authority metrics and search crawler behaviour",
     topic: "Topical Authority",
     category: "resources",
     type: "editorial",
@@ -2814,7 +2827,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-eeat": {
     id: "resource-what-is-eeat",
     src: "/images/resources/resource-what-is-eeat.webp",
-    alt: "Technical search specialists analyzing e-e-a-t metrics and search crawler behavior",
+    alt: "Technical search specialists analysing e-e-a-t metrics and search crawler behaviour",
     topic: "E-E-A-T",
     category: "resources",
     type: "editorial",
@@ -2827,7 +2840,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-keyword-cannibalisation": {
     id: "resource-what-is-keyword-cannibalisation",
     src: "/images/resources/resource-what-is-keyword-cannibalisation.webp",
-    alt: "Technical search specialists analyzing keyword cannibalisation metrics and search crawler behavior",
+    alt: "Technical search specialists analysing keyword cannibalisation metrics and search crawler behaviour",
     topic: "Keyword Cannibalisation",
     category: "resources",
     type: "editorial",
@@ -2840,7 +2853,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-a-content-cluster": {
     id: "resource-what-is-a-content-cluster",
     src: "/images/resources/resource-what-is-a-content-cluster.webp",
-    alt: "Technical search specialists analyzing content cluster metrics and search crawler behavior",
+    alt: "Technical search specialists analysing content cluster metrics and search crawler behaviour",
     topic: "Content Cluster",
     category: "resources",
     type: "editorial",
@@ -2853,7 +2866,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-an-xml-sitemap": {
     id: "resource-what-is-an-xml-sitemap",
     src: "/images/resources/resource-what-is-an-xml-sitemap.webp",
-    alt: "Technical search specialists analyzing xml sitemap metrics and search crawler behavior",
+    alt: "Technical search specialists analysing xml sitemap metrics and search crawler behaviour",
     topic: "XML Sitemap",
     category: "resources",
     type: "editorial",
@@ -2866,7 +2879,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-robots-txt": {
     id: "resource-what-is-robots-txt",
     src: "/images/resources/resource-what-is-robots-txt.webp",
-    alt: "Technical search specialists analyzing robots.txt metrics and search crawler behavior",
+    alt: "Technical search specialists analysing robots.txt metrics and search crawler behaviour",
     topic: "robots.txt",
     category: "resources",
     type: "editorial",
@@ -2879,7 +2892,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-a-redirect": {
     id: "resource-what-is-a-redirect",
     src: "/images/resources/resource-what-is-a-redirect.webp",
-    alt: "Technical search specialists analyzing redirect metrics and search crawler behavior",
+    alt: "Technical search specialists analysing redirect metrics and search crawler behaviour",
     topic: "Redirect",
     category: "resources",
     type: "editorial",
@@ -2892,7 +2905,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-local-seo": {
     id: "resource-what-is-local-seo",
     src: "/images/resources/resource-what-is-local-seo.webp",
-    alt: "Digital technology and search specialists evaluating local seo? architecture and implementation principles",
+    alt: "Search specialists evaluating local SEO architecture and implementation principles",
     topic: "What Is Local SEO?",
     category: "resources",
     type: "editorial",
@@ -2905,7 +2918,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-programmatic-seo": {
     id: "resource-what-is-programmatic-seo",
     src: "/images/resources/resource-what-is-programmatic-seo.webp",
-    alt: "Technical search specialists analyzing programmatic seo metrics and search crawler behavior",
+    alt: "Technical search specialists analysing programmatic seo metrics and search crawler behaviour",
     topic: "Programmatic SEO",
     category: "resources",
     type: "editorial",
@@ -2918,7 +2931,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-log-file-analysis": {
     id: "resource-what-is-log-file-analysis",
     src: "/images/resources/resource-what-is-log-file-analysis.webp",
-    alt: "Technical search specialists analyzing log file analysis metrics and search crawler behavior",
+    alt: "Technical search specialists analysing log file analysis metrics and search crawler behaviour",
     topic: "Log File Analysis",
     category: "resources",
     type: "editorial",
@@ -3074,7 +3087,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-domain-authority": {
     id: "resource-what-is-domain-authority",
     src: "/images/resources/resource-what-is-domain-authority.webp",
-    alt: "Technical search specialists analyzing domain authority metrics and search crawler behavior",
+    alt: "Technical search specialists analysing domain authority metrics and search crawler behaviour",
     topic: "Domain Authority",
     category: "resources",
     type: "editorial",
@@ -3087,7 +3100,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-a-backlink": {
     id: "resource-what-is-a-backlink",
     src: "/images/resources/resource-what-is-a-backlink.webp",
-    alt: "Technical search specialists analyzing backlink metrics and search crawler behavior",
+    alt: "Technical search specialists analysing backlink metrics and search crawler behaviour",
     topic: "Backlink",
     category: "resources",
     type: "editorial",
@@ -3100,7 +3113,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-anchor-text": {
     id: "resource-what-is-anchor-text",
     src: "/images/resources/resource-what-is-anchor-text.webp",
-    alt: "Technical search specialists analyzing anchor text metrics and search crawler behavior",
+    alt: "Technical search specialists analysing anchor text metrics and search crawler behaviour",
     topic: "Anchor Text",
     category: "resources",
     type: "editorial",
@@ -3113,7 +3126,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-what-is-page-speed": {
     id: "resource-what-is-page-speed",
     src: "/images/resources/resource-what-is-page-speed.webp",
-    alt: "Technical search specialists analyzing page speed metrics and search crawler behavior",
+    alt: "Technical search specialists analysing page speed metrics and search crawler behaviour",
     topic: "Page Speed",
     category: "resources",
     type: "editorial",
@@ -3425,7 +3438,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-local-seo-vs-national-seo": {
     id: "resource-local-seo-vs-national-seo",
     src: "/images/resources/resource-local-seo-vs-national-seo.webp",
-    alt: "Local marketing specialists analyzing regional map pack rankings versus national organic search visibility",
+    alt: "Local marketing specialists analysing regional map pack rankings versus national organic search visibility",
     topic: "Local SEO vs National SEO",
     category: "resources",
     type: "business",
@@ -3438,7 +3451,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-in-house-vs-outsourced-development": {
     id: "resource-in-house-vs-outsourced-development",
     src: "/images/resources/resource-in-house-vs-outsourced-development.webp",
-    alt: "Engineering directors weighing long-term in-house payroll against dedicated external engineering teams",
+    alt: "Professional Indian senior software engineering lead reviewing technical architecture",
     topic: "In-House vs Outsourced Development",
     category: "resources",
     type: "human",
@@ -3529,7 +3542,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-agency-vs-freelancer": {
     id: "resource-agency-vs-freelancer",
     src: "/images/resources/resource-agency-vs-freelancer.webp",
-    alt: "Business founders comparing full-service multi-disciplinary agency capabilities with independent solo contractors",
+    alt: "Professional Indian founder evaluating multi-disciplinary agency vs contractor capabilities",
     topic: "Agency vs Freelancer",
     category: "resources",
     type: "human",
@@ -3542,7 +3555,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-when-to-hire-an-seo-specialist": {
     id: "resource-when-to-hire-an-seo-specialist",
     src: "/images/resources/resource-when-to-hire-an-seo-specialist.webp",
-    alt: "Hiring managers interviewing an experienced in-house SEO technical specialist for internal growth leadership",
+    alt: "Professional Indian executive assessing organic search performance and hiring requirements",
     topic: "When to Hire an In-House SEO Specialist",
     category: "resources",
     type: "human",
@@ -3607,7 +3620,7 @@ export const imageRegistry: Record<string, ImageMetadata> = {
   "resource-how-to-prioritise-digital-work": {
     id: "resource-how-to-prioritise-digital-work",
     src: "/images/resources/resource-how-to-prioritise-digital-work.webp",
-    alt: "Product leadership prioritizing digital initiatives on an impact-versus-effort matrix board",
+    alt: "Product leadership prioritising digital initiatives on an impact-versus-effort matrix board",
     topic: "How to Prioritise Digital Work",
     category: "resources",
     type: "business",

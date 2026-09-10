@@ -50,7 +50,7 @@ export const webServices: Service[] = [
     ],
     related: [
       { label: "Technical SEO", href: "/services/technical-seo/", type: "SERVICE" },
-      { label: "Website redesign", href: "/services/website-redesign/", type: "SERVICE" },
+      { label: "Website Redesign", href: "/services/website-redesign/", type: "SERVICE" },
     ],
   },
   {
@@ -94,8 +94,8 @@ export const webServices: Service[] = [
       },
     ],
     related: [
-      { label: "Website performance", href: "/services/website-performance/", type: "SERVICE" },
-      { label: "Corporate websites", href: "/services/corporate-websites/", type: "SERVICE" },
+      { label: "Website Performance", href: "/services/website-performance/", type: "SERVICE" },
+      { label: "Corporate Websites", href: "/services/corporate-websites/", type: "SERVICE" },
     ],
   },
 ];

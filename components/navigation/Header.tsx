@@ -243,25 +243,7 @@ export function Header({ nav, cta }: HeaderProps) {
                 spending 46px of horizontal room the nav needs at 1024px.
                 alt is empty because the link is already labelled.
               */}
-              <BrandLogo
-                alt=""
-                clearspace={false}
-                priority
-                className={styles.brandFull}
-              />
-              {/*
-                Between lg and xl the full nav, search and CTA leave no room
-                for the 132px lockup — it pushed the CTA off-screen. The
-                official symbol stands in for that band only. It is the same
-                artwork, not a redrawn or condensed lockup.
-              */}
-              <BrandLogo
-                variant="auto-symbol"
-                alt=""
-                clearspace={false}
-                priority
-                className={styles.brandCompact}
-              />
+              <BrandLogo alt="" clearspace={false} priority />
             </Link>
 
             <nav ref={navRef} className={styles.nav} aria-label="Primary">

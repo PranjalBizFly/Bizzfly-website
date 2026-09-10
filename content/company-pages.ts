@@ -31,16 +31,16 @@ export const extraCompanyPages: CompanyPage[] = [
     audience: ["A2", "A7", "A8"],
     phase: "P1",
     cta: {
-      label: "Let's Talk",
+      label: "Let's talk",
       href: "/contact/",
       tier: "T4",
       note: "Thirty minutes on the problem, not a pitch.",
     },
     relatedServices: ["seo", "custom-software", "workflow-automation"],
     related: [
-      { label: "About BizzFly", href: "/company/about/", type: "COMPANY" },
+      { label: "About Us", href: "/about-us/", type: "COMPANY" },
       {
-        label: "Our engineering standards",
+        label: "Our Engineering Standards",
         href: "/technologies/engineering-standards/",
         type: "TECHNOLOGY",
       },
@@ -92,8 +92,8 @@ export const extraCompanyPages: CompanyPage[] = [
       note: "Tell us what you want to work on.",
     },
     related: [
-      { label: "Our approach", href: "/company/approach/", type: "COMPANY" },
-      { label: "About BizzFly", href: "/company/about/", type: "COMPANY" },
+      { label: "Our Approach", href: "/our-approach/", type: "COMPANY" },
+      { label: "About Us", href: "/about-us/", type: "COMPANY" },
     ],
   },
 ];

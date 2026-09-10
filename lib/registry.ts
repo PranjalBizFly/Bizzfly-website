@@ -215,20 +215,32 @@ export const allEntries: RegistryEntry[] = [
   })),
 
   /* --- Company ----------------------------------------------------------- */
-  ...allCompanyPages.map((c) => ({
-    id: `company-${c.slug}`,
-    kind: "company" as const,
-    slug: c.slug,
-    title: c.title,
-    href: `/company/${c.slug}/`,
-    category: "Company",
-    description: c.seo.description,
-    answer: c.answer,
-    keywords: [c.seo.primaryTopic, ...(c.seo.secondaryTopics ?? [])],
-    status: c.status ?? "published",
-    boost: BOOST.company,
-    noindex: c.seo.noindex,
-  })),
+  ...allCompanyPages
+    .filter(
+      (c) =>
+        ![
+          "about",
+          "approach",
+          "how-we-work",
+          "discovery-process",
+          "engagement-models",
+          "careers",
+        ].includes(c.slug),
+    )
+    .map((c) => ({
+      id: `company-${c.slug}`,
+      kind: "company" as const,
+      slug: c.slug,
+      title: c.title,
+      href: `/company/${c.slug}/`,
+      category: "Company",
+      description: c.seo.description,
+      answer: c.answer,
+      keywords: [c.seo.primaryTopic, ...(c.seo.secondaryTopics ?? [])],
+      status: c.status ?? "published",
+      boost: BOOST.company,
+      noindex: c.seo.noindex,
+    })),
 ];
 
 /** Everything publicly routable. */
@@ -252,10 +264,20 @@ export const sectionPages = [
   { href: "/", title: "Home", priority: 1 },
   { href: "/services/", title: "Services", priority: 0.9 },
   { href: "/industries/", title: "Industries", priority: 0.9 },
-  { href: "/use-cases/", title: "Use cases", priority: 0.9 },
+  { href: "/use-cases/", title: "Use Cases", priority: 0.9 },
   { href: "/technologies/", title: "Technologies", priority: 0.7 },
-  { href: "/case-studies/", title: "Case studies", priority: 0.7 },
+  { href: "/case-studies/", title: "Case Studies", priority: 0.7 },
   { href: "/resources/", title: "Resources", priority: 0.7 },
   { href: "/company/", title: "Company", priority: 0.6 },
   { href: "/contact/", title: "Contact", priority: 0.9 },
+  { href: "/about-us/", title: "About Us", priority: 0.8 },
+  { href: "/our-approach/", title: "Our Approach", priority: 0.8 },
+  { href: "/how-we-work/", title: "How We Work", priority: 0.8 },
+  { href: "/discovery-process/", title: "Discovery Process", priority: 0.8 },
+  { href: "/engagement-models/", title: "Engagement Models", priority: 0.8 },
+  { href: "/careers/", title: "Careers", priority: 0.7 },
+  { href: "/media/", title: "Media", priority: 0.7 },
+  { href: "/vendor/", title: "Vendor", priority: 0.6 },
+  { href: "/press-kit/", title: "Press Kit", priority: 0.6 },
+  { href: "/blogs/", title: "Blogs", priority: 0.8 },
 ];

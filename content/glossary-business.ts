@@ -20,7 +20,7 @@ export const businessGlossary: Resource[] = [
       "It can improve for bad reasons. Cutting spend on broad discovery traffic raises conversion rate while reducing total enquiries; so does adding friction that deters the undecided. Rate should be read alongside volume and enquiry quality, or it will reward the wrong changes.",
       "Segmenting is where the useful information is. Conversion by device, by source and by landing page usually reveals one specific failure — a form that breaks on mobile, a campaign sending unqualified traffic — that an aggregate figure conceals entirely.",
     ],
-    supports: ["conversion-rate-optimization", "analytics-implementation"],
+    supports: ["conversion-rate-optimisation", "analytics-implementation"],
     seo: {
       title: "What Is Conversion Rate?",
       description:
@@ -33,7 +33,7 @@ export const businessGlossary: Resource[] = [
     phase: "P1",
     cta: {
       label: "Read about Conversion Optimisation",
-      href: "/services/conversion-rate-optimization/",
+      href: "/services/conversion-rate-optimisation/",
       tier: "T1",
     },
     faqs: [
@@ -50,7 +50,7 @@ export const businessGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Website conversion checklist",
+        label: "Website Conversion Checklist",
         href: "/resources/website-conversion-checklist/",
         type: "CHECKLIST",
       },
@@ -103,7 +103,7 @@ export const businessGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Marketing attribution",
+        label: "Marketing Attribution",
         href: "/resources/what-is-marketing-attribution/",
         type: "GLOSSARY",
       },
@@ -364,7 +364,7 @@ export const businessGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Schema markup",
+        label: "Schema Markup",
         href: "/resources/what-is-schema-markup/",
         type: "GLOSSARY",
       },
@@ -440,7 +440,7 @@ export const businessGlossary: Resource[] = [
       "That framing changes where effort goes. If enquiries arrive and are answered in three days, more visibility makes the customer experience worse rather than better. If the site converts poorly, more traffic amplifies the leak. The useful question is always which link is currently binding.",
       "It also implies measurement across the whole chain rather than per channel. Visibility, engagement, enquiry, qualification and fulfilment each need a number, because a fall at the end is frequently caused by something at the beginning — and channel-level reporting cannot see that.",
     ],
-    supports: ["digital-strategy", "conversion-rate-optimization"],
+    supports: ["digital-strategy", "conversion-rate-optimisation"],
     seo: {
       title: "What Is a Digital Growth Engine?",
       description:
@@ -470,7 +470,7 @@ export const businessGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Digital growth audit checklist",
+        label: "Digital Growth Audit Checklist",
         href: "/resources/digital-growth-audit-checklist/",
         type: "CHECKLIST",
       },

@@ -62,7 +62,7 @@ const routes = [
     detail:
       "Volume is flat, or the enquiries arriving are the wrong size or sector.",
     useCases: ["generate-more-leads", "automate-sales-follow-up"],
-    services: ["performance-marketing", "conversion-rate-optimization"],
+    services: ["performance-marketing", "conversion-rate-optimisation"],
   },
   {
     intent: "I want to automate repetitive work",
@@ -113,7 +113,7 @@ export default function UseCasesIndexPage() {
         eyebrow="Use cases"
         title="What are you trying to achieve?"
         lead="Nobody wakes up wanting to buy search engine optimisation. They want enquiries, or their week back. Pick the sentence closest to your situation."
-        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Use cases" }]}
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Use Cases" }]}
         actions={
           <Button href={primaryCta.href} withArrow>
             {primaryCta.label}

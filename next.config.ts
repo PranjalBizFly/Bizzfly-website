@@ -129,14 +129,40 @@ const nextConfig: NextConfig = {
    * hand. Every destination is a route that exists, single hop, no chains.
    */
   async redirects() {
+    const migrationRedirects = [
+      { source: "/about", destination: "/about-us/", statusCode: 301 as const },
+      { source: "/aboutus", destination: "/about-us/", statusCode: 301 as const },
+      { source: "/about-company", destination: "/about-us/", statusCode: 301 as const },
+      { source: "/company/about", destination: "/about-us/", statusCode: 301 as const },
+      { source: "/company/about/", destination: "/about-us/", statusCode: 301 as const },
+      { source: "/approach", destination: "/our-approach/", statusCode: 301 as const },
+      { source: "/company/approach", destination: "/our-approach/", statusCode: 301 as const },
+      { source: "/company/approach/", destination: "/our-approach/", statusCode: 301 as const },
+      { source: "/company/how-we-work", destination: "/how-we-work/", statusCode: 301 as const },
+      { source: "/company/how-we-work/", destination: "/how-we-work/", statusCode: 301 as const },
+      { source: "/company/discovery-process", destination: "/discovery-process/", statusCode: 301 as const },
+      { source: "/company/discovery-process/", destination: "/discovery-process/", statusCode: 301 as const },
+      { source: "/company/engagement-models", destination: "/engagement-models/", statusCode: 301 as const },
+      { source: "/company/engagement-models/", destination: "/engagement-models/", statusCode: 301 as const },
+      { source: "/career", destination: "/careers/", statusCode: 301 as const },
+      { source: "/carrer", destination: "/careers/", statusCode: 301 as const },
+      { source: "/jobs", destination: "/careers/", statusCode: 301 as const },
+      { source: "/company/careers", destination: "/careers/", statusCode: 301 as const },
+      { source: "/company/careers/", destination: "/careers/", statusCode: 301 as const },
+      { source: "/presskit", destination: "/press-kit/", statusCode: 301 as const },
+      { source: "/blog", destination: "/blogs/", statusCode: 301 as const },
+    ];
+
     // statusCode 301 rather than "permanent: true", which emits 308.
     // The audited redirect map specifies 301, the conventional status for a
     // migration, and the one every SEO tool reports on.
-    return legacyRedirects.map((rule) => ({
+    const mappedLegacy = legacyRedirects.map((rule) => ({
       source: rule.source,
       destination: rule.destination,
       statusCode: 301 as const,
     }));
+
+    return [...migrationRedirects, ...mappedLegacy];
   },
 };
 

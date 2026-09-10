@@ -14,6 +14,8 @@ export { EmptyState } from "./EmptyState";
 export { ConversionBand } from "./ConversionBand";
 export { SurfacePresence } from "./SurfacePresence";
 export { VisibilitySpectrum } from "./VisibilitySpectrum";
+export { LayerTabs } from "./LayerTabs";
+export type { LayerTabItem } from "./LayerTabs";
 export { CapabilityGroups } from "./CapabilityGroups";
 export { ProblemList } from "./ProblemList";
 export { StageList } from "./StageList";

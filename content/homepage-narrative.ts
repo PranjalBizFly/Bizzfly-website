@@ -60,8 +60,8 @@ export const whyPillars: WhyPillar[] = [
       "Visibility and engineering are usually bought from different suppliers, which is why neither gets solved properly. The crawl problem capping your traffic is a template problem, and the template belongs to somebody else.",
     mechanism:
       "One engagement covers the diagnosis and the build, so there is no handover between the people who identified the constraint and the people who change the code.",
-    href: "/company/how-we-work/",
-    linkLabel: "How we work",
+    href: "/how-we-work/",
+    linkLabel: "How We Work",
   },
   {
     index: "03",
@@ -149,7 +149,7 @@ export const growthStages: GrowthStage[] = [
         label: "Website design & development",
         href: "/services/corporate-websites/",
       },
-      { label: "UI/UX design", href: "/services/ui-ux-design/" },
+      { label: "UI/UX Design", href: "/services/ui-ux-design/" },
       {
         label: "Search experience optimisation",
         href: "/services/search-experience-optimisation/",
@@ -168,11 +168,11 @@ export const growthStages: GrowthStage[] = [
     disciplines: ["Leads", "Sales", "Conversion"],
     items: [
       {
-        label: "Conversion optimisation",
-        href: "/services/conversion-rate-optimization/",
+        label: "Conversion Optimisation",
+        href: "/services/conversion-rate-optimisation/",
       },
-      { label: "Performance marketing", href: "/services/performance-marketing/" },
-      { label: "Sales automation", href: "/services/sales-automation/" },
+      { label: "Performance Marketing", href: "/services/performance-marketing/" },
+      { label: "Sales Automation", href: "/services/sales-automation/" },
     ],
     href: "/services/digital-marketing/",
     linkLabel: "Digital marketing & growth",
@@ -187,9 +187,9 @@ export const growthStages: GrowthStage[] = [
     disciplines: ["Automation", "Software", "AI", "Data"],
     items: [
       { label: "Business automation", href: "/services/workflow-automation/" },
-      { label: "Custom software development", href: "/services/custom-software/" },
-      { label: "AI agents", href: "/services/ai-agents/" },
-      { label: "Business intelligence", href: "/services/business-intelligence/" },
+      { label: "Custom Software Development", href: "/services/custom-software/" },
+      { label: "AI Agents", href: "/services/ai-agents/" },
+      { label: "Business Intelligence", href: "/services/business-intelligence/" },
     ],
     href: "/services/ai-automation/",
     linkLabel: "AI & automation",
@@ -229,6 +229,6 @@ export const founderNote = {
     "That is an awkward thing to organise a company around, because it is harder to sell. It is far easier to sell a retainer for one discipline and subcontract the rest — and that handover, between the people who diagnose a problem and the people who fix it, is where most engagements quietly fail.",
     "We work the other way round. The same team that finds the crawl problem capping your visibility can fix the template causing it. And if we are not the right people for what you need, we will say so and point you somewhere better.",
   ],
-  cta: { label: "About BizzFly", href: "/company/about/" },
-  secondary: { label: "How we work", href: "/company/how-we-work/" },
+  cta: { label: "About Us", href: "/about-us/" },
+  secondary: { label: "How We Work", href: "/how-we-work/" },
 };

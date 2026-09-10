@@ -99,8 +99,8 @@ export const platformServices: Service[] = [
       },
     ],
     related: [
-      { label: "AI project readiness checklist", href: "/resources/ai-project-checklist/", type: "CHECKLIST" },
-      { label: "AI governance for small teams", href: "/resources/ai-governance-guide/", type: "GUIDE" },
+      { label: "AI Project Readiness Checklist", href: "/resources/ai-project-checklist/", type: "CHECKLIST" },
+      { label: "AI Governance for Small Teams", href: "/resources/ai-governance-guide/", type: "GUIDE" },
     ],
   },
   {
@@ -332,7 +332,7 @@ export const platformServices: Service[] = [
       },
     ],
     related: [
-      { label: "CRM implementation checklist", href: "/resources/crm-implementation-checklist/", type: "CHECKLIST" },
+      { label: "CRM Implementation Checklist", href: "/resources/crm-implementation-checklist/", type: "CHECKLIST" },
       { label: "CRM Platforms", href: "/technologies/crm-platforms/", type: "TECHNOLOGY" },
     ],
   },
@@ -402,7 +402,7 @@ export const platformServices: Service[] = [
     ],
     related: [
       { label: "Automate sales follow-up", href: "/use-cases/automate-sales-follow-up/", type: "USE CASE" },
-      { label: "Lead scoring", href: "/resources/what-is-lead-scoring/", type: "GLOSSARY" },
+      { label: "Lead Scoring", href: "/resources/what-is-lead-scoring/", type: "GLOSSARY" },
     ],
   },
   {
@@ -539,7 +539,7 @@ export const platformServices: Service[] = [
       },
     ],
     related: [
-      { label: "Data quality framework", href: "/resources/data-quality-framework/", type: "GUIDE" },
+      { label: "Data Quality Framework", href: "/resources/data-quality-framework/", type: "GUIDE" },
       { label: "Business Intelligence", href: "/services/business-intelligence/", type: "SERVICE" },
     ],
   },
@@ -677,7 +677,7 @@ export const platformServices: Service[] = [
       },
     ],
     related: [
-      { label: "Website performance", href: "/services/website-performance/", type: "SERVICE" },
+      { label: "Website Performance", href: "/services/website-performance/", type: "SERVICE" },
       { label: "How we price", href: "/company/how-we-price/", type: "COMPANY" },
     ],
   },

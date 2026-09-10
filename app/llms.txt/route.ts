@@ -79,9 +79,9 @@ ${resources.map((r) => line(r.title, `/resources/${r.slug}/`, r.answer)).join("\
 
 ## Company
 
-- [About BizzFly](${site.url}/company/about/): Who we are and how we work.
-- [Our approach](${site.url}/company/approach/): Diagnosis before proposal; boundaries stated in writing.
-- [Case studies](${site.url}/case-studies/): How we publish client work, and the standard we hold it to.
+- [About Us](${site.url}/about-us/): Who we are and how we work.
+- [Our Approach](${site.url}/our-approach/): Diagnosis before proposal; boundaries stated in writing.
+- [Case Studies](${site.url}/case-studies/): How we publish client work, and the standard we hold it to.
 - [Contact](${site.url}/contact/): Enquiries, consultations and assessments.
 
 ## What we do not claim

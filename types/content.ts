@@ -350,6 +350,17 @@ export interface Resource extends BaseEntity {
 export interface CompanyPage extends BaseEntity {
   section: "about" | "careers" | "legal" | "contact";
   body?: string[];
+  /**
+   * An internal note about what still has to be settled before this page is
+   * final — legal review, a confirmation from the client. Never rendered.
+   *
+   * It exists because these notes were previously written into `body`, with
+   * a [VERIFY_WITH_BIZZFLY] marker in front of them, and `body` is published
+   * copy: visitors to the two legal pages were reading the editorial note
+   * instead of a policy. Keeping the note off the page and out of `body` is
+   * what stops that recurring, while the flag itself survives.
+   */
+  reviewNote?: string;
 }
 
 /* ==========================================================================
@@ -386,18 +397,22 @@ export interface NavigationFeature {
 
 export interface MegaMenuPanel {
   /**
-   * One sentence saying what this section of the site is for. A grouped
-   * menu is a table of contents, and a table of contents with no title
-   * makes the reader infer the subject from the entries.
+   * One sentence saying what this section of the site is for. Drawer only —
+   * the desktop panel is groups and a card, with no room for a lead that
+   * does not push the first heading below the fold.
    */
   lead?: string;
-  /** Label over the numbered column, e.g. "Start here". */
-  primaryHeading?: string;
-  /** Numbered practice/primary list — the control column. */
-  primary: (NavigationItem & { index?: string })[];
-  /** Label over the grouped region, e.g. "Browse by outcome". */
-  columnsHeading?: string;
-  columns?: NavigationColumn[];
+  /**
+   * The categories the section divides into. This is the whole menu, on both
+   * the desktop panel and the drawer.
+   *
+   * Panels used to open with a `primary` shortlist as well — the first five
+   * technologies, the five most-asked-for use cases — styled unlike the
+   * categories beside it and, in four panels out of six, listing entries
+   * those categories already carried. Whatever must be in the menu belongs
+   * in a category here; whatever is left over belongs behind `footerLink`.
+   */
+  columns: NavigationColumn[];
   feature?: NavigationFeature;
   secondaryFeature?: NavigationFeature;
   footerLink: NavigationItem;

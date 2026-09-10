@@ -18,7 +18,7 @@ export const metadata: Metadata = buildMetadata(
   {
     title: "Industries",
     description:
-      "Sector-specific digital growth and automation — manufacturing, real estate, education and professional services, with the problems named in each sector's own vocabulary.",
+      "Sector-specific digital growth and automation — manufacturing, real estate, education and professional services, with problems named in each sector's own words.",
     primaryTopic: "industries served",
     secondaryTopics: ["sectors", "manufacturing", "real estate", "education"],
     intent: "navigational",

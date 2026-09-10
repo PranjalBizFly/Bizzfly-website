@@ -248,7 +248,7 @@ const coreUseCases: UseCase[] = [
     ],
     related: [
       {
-        label: "Workflow automation",
+        label: "Workflow Automation",
         href: "/services/workflow-automation/",
         type: "SERVICE",
       },

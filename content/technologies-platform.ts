@@ -77,7 +77,7 @@ export const platformTechnologies: Technology[] = [
       },
     ],
     related: [
-      { label: "Data warehouse", href: "/resources/what-is-a-data-warehouse/", type: "GLOSSARY" },
+      { label: "Data Warehouse", href: "/resources/what-is-a-data-warehouse/", type: "GLOSSARY" },
       { label: "Reporting Dashboards", href: "/services/reporting-dashboards/", type: "SERVICE" },
     ],
   },
@@ -219,7 +219,7 @@ export const platformTechnologies: Technology[] = [
       },
     ],
     related: [
-      { label: "Native apps vs web apps", href: "/resources/native-vs-web-apps/", type: "COMPARISON" },
+      { label: "Native Apps vs Web Apps", href: "/resources/native-vs-web-apps/", type: "COMPARISON" },
       { label: "Web Stack", href: "/technologies/web-stack/", type: "TECHNOLOGY" },
     ],
   },
@@ -290,7 +290,7 @@ export const platformTechnologies: Technology[] = [
       },
     ],
     related: [
-      { label: "Single sign-on", href: "/resources/what-is-single-sign-on/", type: "GLOSSARY" },
+      { label: "Single Sign-On", href: "/resources/what-is-single-sign-on/", type: "GLOSSARY" },
       { label: "Cloud & Hosting", href: "/technologies/cloud-and-hosting/", type: "TECHNOLOGY" },
     ],
   },
@@ -361,7 +361,7 @@ export const platformTechnologies: Technology[] = [
       },
     ],
     related: [
-      { label: "Technical debt", href: "/resources/what-is-technical-debt/", type: "GLOSSARY" },
+      { label: "Technical Debt", href: "/resources/what-is-technical-debt/", type: "GLOSSARY" },
       { label: "Observability", href: "/technologies/observability/", type: "TECHNOLOGY" },
     ],
   },
@@ -584,7 +584,7 @@ export const platformTechnologies: Technology[] = [
         type: "COMPANY",
       },
       {
-        label: "Website accessibility checklist",
+        label: "Website Accessibility Checklist",
         href: "/resources/accessibility-checklist/",
         type: "CHECKLIST",
       },

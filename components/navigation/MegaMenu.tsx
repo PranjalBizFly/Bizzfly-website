@@ -29,6 +29,7 @@ function Feature({ feature }: { feature: NavigationFeature }) {
 
 export function MegaMenu({ id, label, panel, onClose }: MegaMenuProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const groups = panel.columns;
 
   /* Focus leaving the panel closes it — keyboard parity with mouse-out. */
   useEffect(() => {
@@ -80,110 +81,60 @@ export function MegaMenu({ id, label, panel, onClose }: MegaMenuProps) {
     <div id={id} ref={ref} className={styles.panel} onKeyDown={onKeyDown}>
       <Container>
         {/*
-          The panel's own sentence, full width above the grid rather than
-          inside the numbered column. It reads as a title for the section
-          there, and it stops one region being three lines taller than the
-          others — which was the difference between the panel fitting a
-          laptop viewport and scrolling.
-        */}
-        {panel.lead ? (
-          <p className={styles.panelLead}>{panel.lead}</p>
-        ) : null}
+          Two regions, the same two in every panel: the categories, then the
+          card. The group count drives how many tracks the flow uses — see
+          .columns in Header.module.css — so a two-group panel does not open
+          an empty third track and a six-group one does not run down the page.
 
-        {/*
-          The column count drives the grid. A panel with three groups and no
-          feature card (Services) lays them out as four editorial columns;
-          everything else keeps the three-region layout, with the groups
-          arranged two-up beside a feature rather than stacked into one tall
-          strip — four categories in a single column made the panel taller
-          than the viewport on a laptop.
+          Categories only. The panel used to open with a differently-styled
+          numbered column holding an editorial shortlist — the first five
+          technologies, the five most-asked-for use cases — which put those
+          entries on screen twice, once in the shortlist and again in the
+          category they belong to, and gave the eye a hierarchy to work out
+          before it could read the menu. Where such a group is genuinely a
+          category rather than a selection out of one (Services' practices,
+          Company's own pages) content/navigation.ts states it as a column.
         */}
         <nav
           className={styles.panelGrid}
-          data-columns={panel.columns?.length ?? 0}
+          data-columns={groups.length}
           data-feature={panel.feature ? "true" : "false"}
           aria-label={`${label} menu`}
         >
-          <div className={styles.primaryRegion}>
-            {panel.primaryHeading ? (
-              <p className={styles.regionHeading}>{panel.primaryHeading}</p>
-            ) : null}
+          <div className={styles.columns}>
+            {groups.map((column) => (
+              <div key={column.heading} className={styles.column}>
+                {/* A heading that is not clickable reads as a dead label. */}
+                <p className={styles.columnHeading}>
+                  {column.headingHref ? (
+                    <Link href={column.headingHref}>{column.heading}</Link>
+                  ) : (
+                    column.heading
+                  )}
+                </p>
 
-            <ul className={styles.primaryList}>
-              {panel.primary.map((item) => (
-                <li key={item.href} className={styles.primaryItem}>
-                  <Link href={item.href} className={styles.primaryLink}>
-                    {item.index ? (
-                      <span className={styles.primaryIndex}>{item.index}</span>
-                    ) : (
-                      <span />
-                    )}
-                    <span>
-                      <span className={styles.primaryTitle}>{item.label}</span>
-                      {item.description ? (
-                        <span className={styles.primaryDescription}>
-                          {item.description}
-                        </span>
-                      ) : null}
-                    </span>
-                    <span className={styles.primaryArrow} aria-hidden="true">
-                      &rarr;
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {panel.columns?.length ? (
-            <div className={styles.columnsRegion}>
-              {panel.columnsHeading ? (
-                <p className={styles.regionHeading}>{panel.columnsHeading}</p>
-              ) : null}
-
-              <div className={styles.columns}>
-                {panel.columns.map((column) => (
-                  <div key={column.heading} className={styles.column}>
-                    {/* A heading that is not clickable reads as a dead label. */}
-                    <p className={styles.columnHeading}>
-                      {column.headingHref ? (
-                        <Link href={column.headingHref}>{column.heading}</Link>
-                      ) : (
-                        column.heading
-                      )}
-                    </p>
-
-                    <ul className={styles.linkList}>
-                      {column.items.map((item) => (
-                        <li key={item.href}>
-                          <Link href={item.href} className={styles.plainLink}>
-                            <span className={styles.plainLabel}>{item.label}</span>
-                            {item.description ? (
-                              <span className={styles.plainDescription}>
-                                {item.description}
-                              </span>
-                            ) : null}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {column.viewAll ? (
-                      <Link
-                        href={column.viewAll.href}
-                        className={styles.columnViewAll}
-                      >
-                        {column.viewAll.label}
-                        <span aria-hidden="true">&rarr;</span>
+                <ul className={styles.linkList}>
+                  {column.items.map((item) => (
+                    <li key={item.href}>
+                      <Link href={item.href} className={styles.plainLink}>
+                        <span className={styles.plainLabel}>{item.label}</span>
                       </Link>
-                    ) : null}
-                  </div>
-                ))}
+                    </li>
+                  ))}
+                </ul>
+
+                {column.viewAll ? (
+                  <Link
+                    href={column.viewAll.href}
+                    className={styles.columnViewAll}
+                  >
+                    {column.viewAll.label}
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                ) : null}
               </div>
-            </div>
-          ) : (
-            <div />
-          )}
+            ))}
+          </div>
 
           {panel.feature || panel.secondaryFeature ? (
             <div className={styles.featureRegion}>

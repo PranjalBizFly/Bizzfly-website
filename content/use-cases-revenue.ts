@@ -248,7 +248,7 @@ export const revenueUseCases: UseCase[] = [
       },
     ],
     related: [
-      { label: "Lead scoring", href: "/resources/what-is-lead-scoring/", type: "GLOSSARY" },
+      { label: "Lead Scoring", href: "/resources/what-is-lead-scoring/", type: "GLOSSARY" },
       { label: "Generate more leads", href: "/use-cases/generate-more-leads/", type: "USE CASE" },
     ],
   },
@@ -410,7 +410,7 @@ export const revenueUseCases: UseCase[] = [
       },
     ],
     related: [
-      { label: "SEO reporting framework", href: "/resources/seo-reporting-framework/", type: "GUIDE" },
+      { label: "SEO Reporting Framework", href: "/resources/seo-reporting-framework/", type: "GUIDE" },
       { label: "Analytics Implementation", href: "/services/analytics-implementation/", type: "SERVICE" },
     ],
   },
@@ -491,7 +491,7 @@ export const revenueUseCases: UseCase[] = [
       },
     ],
     related: [
-      { label: "Why your website redesign lost traffic", href: "/resources/why-your-website-redesign-lost-traffic/", type: "ARTICLE" },
+      { label: "Why Your Website Redesign Lost Traffic", href: "/resources/why-your-website-redesign-lost-traffic/", type: "ARTICLE" },
       { label: "SEO Audit", href: "/services/seo-audit/", type: "SERVICE" },
     ],
   },
@@ -573,7 +573,7 @@ export const revenueUseCases: UseCase[] = [
     ],
     related: [
       { label: "Digital Strategy", href: "/services/digital-strategy/", type: "SERVICE" },
-      { label: "Content planning framework", href: "/resources/content-planning-framework/", type: "GUIDE" },
+      { label: "Content Planning Framework", href: "/resources/content-planning-framework/", type: "GUIDE" },
     ],
   },
 ];

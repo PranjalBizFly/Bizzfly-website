@@ -16,7 +16,7 @@
  *   - no CONTENT_REQUIRED or VERIFY_WITH_BIZZFLY marker in published copy
  */
 
-import { allEntries, publishedEntries } from "../lib/registry.ts";
+import { allEntries, publishedEntries, sectionPages } from "../lib/registry.ts";
 import { services } from "../content/services.ts";
 import { practices } from "../content/practices.ts";
 import { industries } from "../content/industries.ts";
@@ -24,6 +24,7 @@ import { useCases } from "../content/use-cases.ts";
 import { technologies } from "../content/technologies.ts";
 import { resources } from "../content/resources.ts";
 import { caseStudies } from "../content/case-studies.ts";
+import { allCompanyPages } from "../content/company.ts";
 
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const MARKERS = ["[CONTENT_REQUIRED]", "[VERIFY_WITH_BIZZFLY]"];
@@ -89,7 +90,10 @@ const useCaseSlugs = new Set(useCases.map((u) => u.slug));
 const technologySlugs = new Set(technologies.map((t) => t.slug));
 const resourceSlugs = new Set(resources.map((r) => r.slug));
 
-const publishedHrefs = new Set(publishedEntries.map((e) => e.href));
+const publishedHrefs = new Set([
+  ...publishedEntries.map((e) => e.href),
+  ...sectionPages.map((s) => s.href),
+]);
 
 function checkRefs(
   owner: string,
@@ -190,6 +194,30 @@ for (const entry of publishedEntries) {
       );
     }
   }
+}
+
+/*
+ * `body` is published copy too, and it was not being checked — which is how
+ * both legal pages came to render "[VERIFY_WITH_BIZZFLY] ..." to visitors
+ * while every guard reported green. An editorial note belongs in the
+ * non-rendered `reviewNote` field, never in the prose.
+ */
+for (const page of allCompanyPages) {
+  for (const paragraph of page.body ?? []) {
+    for (const marker of MARKERS) {
+      if (paragraph.includes(marker)) {
+        fail(
+          `Company page "${page.slug}" contains ${marker} in its body copy, which is rendered to visitors — move the note to reviewNote`,
+        );
+      }
+    }
+  }
+}
+
+/* Outstanding review notes stay visible to the team without reaching a page. */
+const pendingReview = allCompanyPages.filter((page) => page.reviewNote);
+for (const page of pendingReview) {
+  warn(`Company page "${page.slug}" is awaiting sign-off: ${page.reviewNote}`);
 }
 
 /* --- Report -------------------------------------------------------------- */

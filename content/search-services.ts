@@ -117,7 +117,7 @@ export const searchServices: Service[] = [
       },
     ],
     related: [
-      { label: "SEO audit checklist", href: "/resources/seo-audit-checklist/", type: "CHECKLIST" },
+      { label: "SEO Audit Checklist", href: "/resources/seo-audit-checklist/", type: "CHECKLIST" },
       { label: "Technical SEO", href: "/services/technical-seo/", type: "SERVICE" },
     ],
   },
@@ -187,7 +187,7 @@ export const searchServices: Service[] = [
       },
     ],
     related: [
-      { label: "Content cluster", href: "/resources/what-is-a-content-cluster/", type: "GLOSSARY" },
+      { label: "Content Cluster", href: "/resources/what-is-a-content-cluster/", type: "GLOSSARY" },
       { label: "SEO Content Strategy", href: "/services/content-strategy/", type: "SERVICE" },
     ],
   },
@@ -285,7 +285,7 @@ export const searchServices: Service[] = [
     ],
     related: [
       { label: "Rank in local search", href: "/use-cases/rank-in-local-search/", type: "USE CASE" },
-      { label: "Local SEO vs national SEO", href: "/resources/local-seo-vs-national-seo/", type: "COMPARISON" },
+      { label: "Local SEO vs National SEO", href: "/resources/local-seo-vs-national-seo/", type: "COMPARISON" },
     ],
   },
   {
@@ -354,7 +354,7 @@ export const searchServices: Service[] = [
       },
     ],
     related: [
-      { label: "Enterprise SEO framework", href: "/resources/enterprise-seo-framework/", type: "GUIDE" },
+      { label: "Enterprise SEO Framework", href: "/resources/enterprise-seo-framework/", type: "GUIDE" },
       { label: "Site Architecture", href: "/services/site-architecture/", type: "SERVICE" },
     ],
   },
@@ -424,7 +424,7 @@ export const searchServices: Service[] = [
       },
     ],
     related: [
-      { label: "E-commerce SEO checklist", href: "/resources/ecommerce-seo-checklist/", type: "CHECKLIST" },
+      { label: "E-commerce SEO Checklist", href: "/resources/ecommerce-seo-checklist/", type: "CHECKLIST" },
       { label: "E-commerce", href: "/industries/ecommerce/", type: "INDUSTRY" },
     ],
   },
@@ -525,8 +525,8 @@ export const searchServices: Service[] = [
       },
     ],
     related: [
-      { label: "Technical SEO migration guide", href: "/resources/technical-seo-migration-guide/", type: "GUIDE" },
-      { label: "Site migration checklist", href: "/resources/site-migration-checklist/", type: "CHECKLIST" },
+      { label: "Technical SEO Migration Guide", href: "/resources/technical-seo-migration-guide/", type: "GUIDE" },
+      { label: "Site Migration Checklist", href: "/resources/site-migration-checklist/", type: "CHECKLIST" },
     ],
   },
   {
@@ -595,8 +595,8 @@ export const searchServices: Service[] = [
       },
     ],
     related: [
-      { label: "Content planning framework", href: "/resources/content-planning-framework/", type: "GUIDE" },
-      { label: "How search intent works", href: "/resources/how-search-intent-works/", type: "GUIDE" },
+      { label: "Content Planning Framework", href: "/resources/content-planning-framework/", type: "GUIDE" },
+      { label: "How Search Intent Works", href: "/resources/how-search-intent-works/", type: "GUIDE" },
     ],
   },
   {
@@ -736,7 +736,7 @@ export const searchServices: Service[] = [
     ],
     related: [
       { label: "Technical SEO", href: "/services/technical-seo/", type: "SERVICE" },
-      { label: "How AI search works", href: "/resources/how-ai-search-works/", type: "GUIDE" },
+      { label: "How AI Search Works", href: "/resources/how-ai-search-works/", type: "GUIDE" },
     ],
   },
   {
@@ -806,7 +806,7 @@ export const searchServices: Service[] = [
     ],
     related: [
       { label: "Site Architecture and Enterprise SEO", href: "/services/enterprise-seo/", type: "SERVICE" },
-      { label: "Website redesign", href: "/services/website-redesign/", type: "SERVICE" },
+      { label: "Website Redesign", href: "/services/website-redesign/", type: "SERVICE" },
     ],
   },
 ];
