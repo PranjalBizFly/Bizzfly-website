@@ -21,6 +21,15 @@ import "./globals.css";
  * Poppins publishes no variable build, so its three brand weights —
  * Regular 400, Medium 500, Bold 700 — are requested explicitly.
  *
+ * A note for anyone auditing weights: --weight-semibold (600) is a Funnel
+ * Sans weight, and the variable file covers it exactly. Where that token
+ * lands on a Poppins element instead — about a dozen labels and footer
+ * headings per page — CSS font matching resolves it up to the 700 cut, so
+ * it renders as Bold. That is still inside the brand set, which is why the
+ * weights here stay 400/500/700: verify:brand enforces exactly that trio.
+ * Loading a 600 cut to make those elements match the token would put a
+ * non-brand Poppins weight on the wire.
+ *
  * These two are the ENTIRE typeface list, because the brand guidelines
  * specify exactly two families. A third — IBM Plex Mono — was previously
  * loaded here and used for eyebrows, meta lines and labels across the site;
