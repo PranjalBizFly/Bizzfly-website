@@ -1,0 +1,382 @@
+/* ==========================================================================
+   AnchoredStatement — a claim, its frame, and the detail that supports it
+
+   Two tracks on wide screens: the aside (frame, floating note, enumerated
+   points) and the statement.
+
+   6/7 — 46% against 54%. Balanced enough that the picture and the argument
+   carry the same visual weight, which is what this composition is for, while
+   staying off a true 6/6: a symmetric split is deliberately absent from this
+   system, and at 5/7 the frame read as a sidebar next to the text rather than
+   as its equal.
+
+   The statement comes first in the DOM and is placed into the trailing track
+   by CSS, so the reading order is heading-then-picture on a phone while the
+   composition still leads with the frame on a desktop. `.reverse` swaps the
+   tracks for the next section down, which is what stops four of these in a
+   row reading as one repeated block.
+   ========================================================================== */
+
+.wrapper {
+  display: grid;
+  gap: var(--space-10);
+}
+
+@media (min-width: 1000px) {
+  /*
+   * `stretch`, not `center`.
+   *
+   * Centred, the frame sat as a 368px band in the middle of a 780px track
+   * with ~200px of empty ground above and below it — the picture read as a
+   * thumbnail pinned beside the text rather than as one half of a
+   * composition, and the section carried dead space on both sides of it.
+   * Stretched, the frame is as tall as the argument beside it, so the two
+   * columns have comparable weight and the band has no slack in it.
+   */
+  .split {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 7fr);
+    gap: var(--space-16);
+    align-items: stretch;
+  }
+
+  .split > .aside {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .split > .statement {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .split.reverse > .aside {
+    grid-column: 2;
+  }
+
+  .split.reverse > .statement {
+    grid-column: 1;
+  }
+}
+
+/* --- The statement -------------------------------------------------------- */
+
+.statement {
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h2);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  max-width: var(--measure-heading);
+  text-wrap: balance;
+}
+
+/*
+ * The opening paragraph, with its first sentence carrying the emphasis.
+ *
+ * One paragraph, not two: the claim and its elaboration are the sentences the
+ * author wrote in sequence, so breaking them into separate blocks would put a
+ * gap inside a single thought. The weight change is enough to make the claim
+ * the thing the eye lands on.
+ */
+.lead {
+  margin: var(--space-5) 0 0;
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body);
+  color: var(--muted);
+  max-width: var(--measure-lead);
+  text-wrap: pretty;
+}
+
+.claim {
+  font-weight: var(--weight-medium);
+  color: var(--foreground);
+}
+
+.body {
+  margin: var(--space-5) 0 0;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--muted);
+  max-width: var(--measure-body);
+  text-wrap: pretty;
+}
+
+/*
+ * The slot for a composition that belongs beside the frame rather than under
+ * the whole band — PracticeNarrative puts its criteria here, so the sticky
+ * aside travels alongside them instead of sitting above them with the column
+ * empty underneath.
+ */
+.extra {
+  margin-top: var(--space-10);
+}
+
+.actions {
+  margin-top: var(--space-8);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* --- The aside: frame, note, points --------------------------------------- */
+
+/*
+ * A flex column, not a grid.
+ *
+ * As a grid with `align-content: start` the aside stretched to the row height
+ * the split gave it but packed the figure to the top, so the frame kept its
+ * intrinsic height and the empty ground simply moved from above the picture
+ * to below it. In a flex column the figure can be told to take the free space
+ * (see the ≥1000px rule), which is what actually balances the two columns.
+ */
+.aside {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.figure {
+  margin: 0;
+  position: relative;
+  min-width: 0;
+  /* So the frame can take the height the stretched column gives it. */
+  display: flex;
+  flex-direction: column;
+}
+
+.frame {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+}
+
+/*
+ * 4:3 rather than the 3:2 used for inline figures elsewhere.
+ *
+ * The frame sits beside two or three paragraphs and a heading, which at this
+ * measure runs 400–500px tall. A 3:2 crop in the 5fr track came out around
+ * 330px and read as a thumbnail pinned next to a wall of text — the frame has
+ * to carry comparable weight to the argument for the split to look composed
+ * rather than decorated.
+ *
+ * The section frames are stored portrait (1100×1450) because the point-free
+ * variant below stretches the frame to the full height of the argument. The
+ * registry records those true intrinsic dimensions, so Next reserves the right
+ * box and nothing shifts on load; the crop to this ratio happens here.
+ */
+.frame img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: var(--ratio-card);
+  object-fit: cover;
+}
+
+@media (min-width: 1000px) {
+  /*
+   * The figure takes the column's free space — but only when it is the whole
+   * column.
+   *
+   * With points beneath it the aside is already taller than the statement
+   * opposite, so letting the frame grow as well made an 850px picture beside
+   * 590px of writing: the imbalance simply inverted. Where there are points
+   * the frame keeps its ratio and the points take the rest of the column.
+   */
+  /*
+   * The ceiling belongs to the figure, not the frame.
+   *
+   * A five-paragraph section — several of the company pages — would otherwise
+   * stretch the frame past 900px, and a portrait photograph that tall stops
+   * being a composition and becomes a column of wallpaper. Capping the frame
+   * alone left the figure taller than the picture inside it, which dropped
+   * the floating plate into the gap underneath rather than onto the frame.
+   * Capping the figure keeps the two flush, so the plate still lands on the
+   * photograph's lower corner.
+   */
+  /*
+   * Past the ceiling, the frame travels instead of leaving a hole.
+   *
+   * The cap above is the right call for the picture and the wrong one for
+   * the band: on the longer company pages the statement runs past 38rem, so
+   * the frame stopped at its ceiling and left ~200px of empty ground beneath
+   * it — the exact dead space the `stretch` above was chosen to avoid, moved
+   * down the column rather than removed. Sticking the aside keeps the
+   * photograph beside whichever paragraph is being read, which is what the
+   * composition claims to be doing, and the column has no slack left in it.
+   *
+   * `align-self: start` is what makes this work at all: a stretched grid item
+   * fills its row, and an element that fills its scroll container has nothing
+   * to stick within. Both properties belong to the no-points case only —
+   * where points follow the frame the aside is already the taller column and
+   * there is nothing to travel past.
+   */
+  .aside:not([data-points]) {
+    align-self: start;
+    position: sticky;
+    top: calc(var(--header-height-condensed) + var(--space-8));
+  }
+
+  .aside:not([data-points]) .figure {
+    flex: 1 1 auto;
+    min-block-size: 0;
+    max-block-size: 38rem;
+  }
+
+  .aside:not([data-points]) .frame {
+    flex: 1 1 auto;
+    /*
+     * A floor for the stretch, so a two-paragraph section still gets a frame
+     * with presence. Scoped to this breakpoint: below it the 4:3 ratio sets
+     * the height, and a floor there left a strip of empty surface under the
+     * photograph on a phone.
+     */
+    min-block-size: 18rem;
+  }
+
+  .aside:not([data-points]) .frame img {
+    aspect-ratio: auto;
+    block-size: 100%;
+    object-position: center;
+  }
+
+}
+
+.caption {
+  margin: var(--space-3) 0 0;
+  font-family: var(--font-label);
+  font-size: var(--text-caption);
+  line-height: var(--leading-snug);
+  color: var(--ink-400);
+  max-width: var(--measure-card);
+  text-wrap: pretty;
+}
+
+/* --- The floating note ----------------------------------------------------
+   Below 1000px this is an ordinary caption under the frame. An overlay at
+   phone width covers the photograph rather than annotating it.
+   -------------------------------------------------------------------------- */
+
+.note {
+  margin: var(--space-3) 0 0;
+  font-family: var(--font-label);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+@media (min-width: 1000px) {
+  /*
+   * A plate on the frame's lower leading corner, inside its edge. Uses the
+   * same translucent panel token as MediaGround, so text over media has one
+   * treatment across the site rather than a second one invented here.
+   *
+   * Inside rather than overhanging: a negative inset put the plate outside
+   * the container, which risks a horizontal scroll at the widths where the
+   * page gutter is smallest.
+   */
+  .note {
+    position: absolute;
+    inset-inline-start: var(--space-5);
+    inset-block-end: var(--space-5);
+    margin: 0;
+    max-inline-size: calc(100% - var(--space-10));
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--panel-over-media);
+    border: 1px solid var(--border-inverse);
+    color: var(--text-inverse);
+    box-shadow: var(--elev-2);
+    -webkit-backdrop-filter: blur(var(--glass-blur-sm)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur-sm)) saturate(var(--glass-saturate));
+  }
+}
+
+/* --- The drawing, where the visual is a diagram rather than a photograph -- */
+
+.drawing {
+  min-width: 0;
+}
+
+/* --- The enumerated points ------------------------------------------------
+   The section's own points, set beneath the frame rather than after the
+   prose. Each is a label and a rule, not a card: they are clauses of the
+   argument beside them, and boxing them would rank them as separate facts.
+   -------------------------------------------------------------------------- */
+
+.points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-5);
+}
+
+.point {
+  position: relative;
+  padding-inline-start: var(--space-5);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+  text-wrap: pretty;
+}
+
+.point::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  /* Centres on the first line at this size and line height. */
+  inset-block-start: 0.7em;
+  inline-size: var(--space-3);
+  /*
+   * 2px, not 1px. A one-pixel rule positioned at a fractional em offset
+   * lands between device pixels and the browser blends it with the ground,
+   * so a list of five came out with some dashes in the accent and some in a
+   * washed-out grey. Two pixels sits on the pixel grid at every zoom level.
+   */
+  block-size: 2px;
+  border-radius: var(--radius-full);
+  background: var(--accent-edge);
+}
+
+/* ==========================================================================
+   The claim as the statement
+   --------------------------------------------------------------------------
+   Used where the section has no heading of its own — a company page, whose
+   title is already the page H1 in the hero. The author's opening sentence
+   takes the display position rather than a heading invented to sit above it.
+
+   A <p> and not an <h2>: it is a sentence from the middle of the page's
+   argument, and promoting it to a heading would put a claim into the
+   document outline that no one wrote as one.
+   ========================================================================== */
+
+.statementClaim {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h2);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  max-width: var(--measure-heading);
+  text-wrap: balance;
+}

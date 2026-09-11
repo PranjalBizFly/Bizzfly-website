@@ -15,7 +15,7 @@ export const metricsGlossary: Resource[] = [
     topic: "Analytics",
     title: "Organic Traffic",
     answer:
-      "Organic traffic is visits arriving from unpaid search results. It excludes paid clicks, direct arrivals and referrals — and increasingly it excludes people who found you in a search result and never clicked.",
+      "Organic traffic is visits arriving from unpaid search results. It excludes paid clicks, direct arrivals and referrals, and increasingly it excludes people who found you in a search result and never clicked.",
     body: [
       "The definition matters because the number is shrinking for reasons unrelated to performance. As results pages answer more questions directly, a brand can be more visible than last year while its organic sessions fall. Read alone, that reads as failure.",
       "It is also an aggregate that hides its own composition. Organic traffic to a pricing page and organic traffic to a definition page mean entirely different things commercially, and a rise driven by the second while the first falls is usually bad news reported as good.",
@@ -25,14 +25,14 @@ export const metricsGlossary: Resource[] = [
     seo: {
       title: "What Is Organic Traffic?",
       description:
-        "Visits from unpaid search — and why the number now falls for reasons unrelated to performance. What it hides and what to read alongside it.",
+        "Visits from unpaid search, and why the number now falls for reasons unrelated to performance. What it hides and what to read alongside it.",
       primaryTopic: "organic traffic",
       secondaryTopics: ["SEO metrics", "analytics"],
       intent: "informational",
     },
     audience: ["A4", "A3"],
     phase: "P1",
-    cta: { label: "Read about SEO Services", href: "/services/seo/", tier: "T1" },
+    cta: { label: "Read about SEO", href: "/services/seo/", tier: "T1" },
     faqs: [
       {
         question: "Why is our organic traffic falling but rankings are stable?",
@@ -56,7 +56,7 @@ export const metricsGlossary: Resource[] = [
     topic: "Analytics",
     title: "Bounce Rate",
     answer:
-      "Bounce rate is the share of sessions that ended without a second interaction. It measures single-interaction visits, which is not the same as dissatisfaction — and treating the two as identical produces bad decisions.",
+      "Bounce rate is the share of sessions that ended without a second interaction. It measures single-interaction visits, which is not the same as dissatisfaction, and treating the two as identical produces bad decisions.",
     body: [
       "A visitor who arrives, reads a complete answer and leaves satisfied bounces. So does one who arrives, finds the wrong page and leaves immediately. The metric cannot distinguish them, which is why it is one of the most confidently misread numbers in analytics.",
       "It also varies by page type in ways that mean nothing. A glossary page will always bounce more than a pricing page, because it is doing a different job. Comparing them, or comparing your site to a benchmark, compares two different mixes of page type.",
@@ -66,7 +66,7 @@ export const metricsGlossary: Resource[] = [
     seo: {
       title: "What Is Bounce Rate?",
       description:
-        "The share of single-interaction sessions — not a satisfaction measure. Why it is misread, and the one case where it is genuinely useful.",
+        "The share of single-interaction sessions, not a satisfaction measure. Why it is misread, and the one case where it is genuinely useful.",
       primaryTopic: "bounce rate",
       secondaryTopics: ["analytics", "engagement metrics"],
       intent: "informational",
@@ -114,7 +114,7 @@ export const metricsGlossary: Resource[] = [
     },
     audience: ["A3", "A4"],
     phase: "P1",
-    cta: { label: "Read about SEO Services", href: "/services/seo/", tier: "T1" },
+    cta: { label: "Read about SEO", href: "/services/seo/", tier: "T1" },
     faqs: [
       {
         question: "Does Google use Domain Authority?",
@@ -129,7 +129,7 @@ export const metricsGlossary: Resource[] = [
     ],
     related: [
       { label: "Backlink", href: "/resources/what-is-a-backlink/", type: "GLOSSARY" },
-      { label: "Digital PR & Link Earning", href: "/services/digital-pr/", type: "SERVICE" },
+      { label: "Digital PR", href: "/services/digital-pr/", type: "SERVICE" },
     ],
   },
   {
@@ -138,11 +138,11 @@ export const metricsGlossary: Resource[] = [
     topic: "SEO",
     title: "Backlink",
     answer:
-      "A backlink is a link from another website to yours. Search engines treat it as a signal that someone found the page worth referencing — which is why the source matters far more than the count.",
+      "A backlink is a link from another website to yours. Search engines treat it as a signal that someone found the page worth referencing, which is why the source matters far more than the count.",
     body: [
       "One link from a publication your market reads carries more weight than a hundred from directories nobody visits. Volume-based link building persists because volume is easy to sell and easy to report, not because it works better.",
       "Links that were paid for, exchanged reciprocally, or placed in content written purely to host them are against search engine guidelines. The risk is asymmetric: the benefit is temporary, the manual action is not, and it lands on your domain rather than the supplier's.",
-      "What earns links reliably is material worth referencing — original analysis, a genuinely useful tool, a clear explanation of something usually explained badly. That is slow, resists shortcuts, and is why credible providers will not promise a monthly quantity.",
+      "What earns links reliably is material worth referencing: original analysis, a genuinely useful tool, a clear explanation of something usually explained badly. That is slow, resists shortcuts, and is why credible providers will not promise a monthly quantity.",
     ],
     supports: ["digital-pr", "seo"],
     seo: {
@@ -181,7 +181,7 @@ export const metricsGlossary: Resource[] = [
     answer:
       "Anchor text is the visible, clickable words of a link. It tells both a reader and a search engine what the destination is about, which makes it a description rather than a decoration.",
     body: [
-      "Links reading 'click here' or 'read more' describe nothing. They cost nothing in ranking terms directly, but they waste the clearest opportunity a page has to say what it is linking to — and they are worse for screen reader users, who often navigate by link list.",
+      "Links reading 'click here' or 'read more' describe nothing. They cost nothing in ranking terms directly, but they waste the clearest opportunity a page has to say what it is linking to, and they are worse for screen reader users, who often navigate by link list.",
       "The opposite failure is over-optimisation. Every internal link using the identical exact-match phrase reads as manipulation rather than description, and on external links it is one of the clearer patterns associated with manual action.",
       "The workable standard is the one that would apply if search engines did not exist: describe the destination in natural language, varying with context, so the sentence still reads properly with the link removed.",
     ],
@@ -211,7 +211,7 @@ export const metricsGlossary: Resource[] = [
     ],
     related: [
       { label: "Internal Linking", href: "/resources/what-is-internal-linking/", type: "GLOSSARY" },
-      { label: "Website Accessibility Checklist", href: "/resources/accessibility-checklist/", type: "CHECKLIST" },
+      { label: "Accessibility Checklist", href: "/resources/accessibility-checklist/", type: "CHECKLIST" },
     ],
   },
   {
@@ -220,7 +220,7 @@ export const metricsGlossary: Resource[] = [
     topic: "Technical SEO",
     title: "Page Speed",
     answer:
-      "Page speed is how quickly a page becomes visible and usable. It is measured two ways — in a controlled laboratory test, and from what real visitors actually experienced — and the two frequently disagree.",
+      "Page speed is how quickly a page becomes visible and usable. It is measured two ways (in a controlled laboratory test, and from what real visitors actually experienced), and the two frequently disagree.",
     body: [
       "Laboratory tools simulate one device on one connection and produce a repeatable score, which makes them useful for comparing two versions of a page. Field data records what happened to real visitors on their own hardware, which is what search engines assess and what customers experience.",
       "A perfect laboratory score alongside a failing field assessment is common and not a contradiction. It means the test machine is faster than your audience's, and the audience is the one that matters.",
@@ -261,7 +261,7 @@ export const metricsGlossary: Resource[] = [
     topic: "Conversion",
     title: "Conversion Funnel",
     answer:
-      "A conversion funnel is a model of the stages a visitor passes through before acting — typically awareness, consideration, decision. It is a planning tool, not a description of how people actually behave.",
+      "A conversion funnel is a model of the stages a visitor passes through before acting: typically awareness, consideration, decision. It is a planning tool, not a description of how people actually behave.",
     body: [
       "The model is useful because it forces a question most sites never ask: which stage is this page for? Pages that try to serve awareness and decision simultaneously usually convince nobody, and the funnel makes that visible.",
       "Where it misleads is in implying a single orderly path. Real buyers enter at the middle, leave, return through a different channel, and consult sources you never see. Treating the model as a literal sequence produces measurement that reports a tidy journey nobody took.",
@@ -278,7 +278,7 @@ export const metricsGlossary: Resource[] = [
     },
     audience: ["A3", "A4"],
     phase: "P1",
-    cta: { label: "Read about Conversion Optimisation", href: "/services/conversion-rate-optimisation/", tier: "T1" },
+    cta: { label: "Read about Conversion Rate Optimisation", href: "/services/conversion-rate-optimisation/", tier: "T1" },
     faqs: [
       {
         question: "Do buyers really follow a funnel?",
@@ -304,7 +304,7 @@ export const metricsGlossary: Resource[] = [
     answer:
       "Lead scoring assigns a number to an enquiry based on attributes and behaviour, so sales attention goes to the enquiries most likely to convert. It encodes a judgement, which means it inherits whatever bias that judgement had.",
     body: [
-      "Scores usually combine fit — company size, sector, role — with engagement, such as pages viewed or emails opened. The fit half is generally reliable. The engagement half is weaker than it looks: a competitor researching you and a serious buyer behave almost identically.",
+      "Scores usually combine fit (company size, sector, role) with engagement, such as pages viewed or emails opened. The fit half is generally reliable. The engagement half is weaker than it looks: a competitor researching you and a serious buyer behave almost identically.",
       "The most common failure is scoring built from opinion and never checked against outcomes. If nobody has compared scores against which enquiries actually closed, the model is a formalised guess that is now harder to argue with because it produces a number.",
       "It is also easy to over-build. For most businesses a simple, explicit rule that routes obviously good-fit enquiries quickly beats an elaborate weighted model nobody in sales trusts or understands.",
     ],
@@ -384,7 +384,7 @@ export const metricsGlossary: Resource[] = [
     topic: "Data",
     title: "ETL",
     answer:
-      "ETL stands for extract, transform, load — the process of taking data out of source systems, reshaping it into a consistent form, and loading it somewhere it can be analysed.",
+      "ETL stands for extract, transform, load: the process of taking data out of source systems, reshaping it into a consistent form, and loading it somewhere it can be analysed.",
     body: [
       "The ordering matters less than the vocabulary suggests. Modern practice frequently loads raw data first and transforms it afterwards, which keeps the original available when a definition turns out to be wrong. What stays constant is that data has to be moved and reshaped before it can be compared.",
       "Transformation is where the business logic lives, and therefore where the disagreements surface. Deciding that an order counts on dispatch rather than on payment is a business decision expressed as code, which is why transformations belong in version control and not in a settings panel.",
@@ -394,7 +394,7 @@ export const metricsGlossary: Resource[] = [
     seo: {
       title: "What Is ETL?",
       description:
-        "Extract, transform, load — moving and reshaping data for analysis. Why transformation is business logic and why failures are silent.",
+        "Extract, transform, load: moving and reshaping data for analysis. Why transformation is business logic and why failures are silent.",
       primaryTopic: "etl",
       secondaryTopics: ["data pipeline", "ELT", "data engineering"],
       intent: "informational",
@@ -428,7 +428,7 @@ export const metricsGlossary: Resource[] = [
       "A data pipeline is the automated path data takes from a source system to wherever it is used, including the scheduling, transformation, error handling and recovery that keep it running unattended.",
     body: [
       "The distinction from a one-off script is everything that happens when something goes wrong. A script moves data once. A pipeline handles a source being unavailable, a run overlapping the previous one, a partial failure halfway through, and the need to re-process yesterday after a bug is fixed.",
-      "Backfill is the requirement most often missed. When a transformation turns out to be wrong, the correction has to be applied to historical data as well as new — and a pipeline that can only move today's records makes that a manual project.",
+      "Backfill is the requirement most often missed. When a transformation turns out to be wrong, the correction has to be applied to historical data as well as new, and a pipeline that can only move today's records makes that a manual project.",
       "Ownership decides whether it survives. Pipelines break when source systems change, credentials rotate and schemas drift. Without a named owner and an alert that reaches them, the first sign of failure is usually a figure someone did not believe.",
     ],
     supports: ["business-intelligence", "systems-integration"],
@@ -447,7 +447,7 @@ export const metricsGlossary: Resource[] = [
       {
         question: "How is a pipeline different from a script?",
         answer:
-          "A script moves data once. A pipeline handles scheduling, overlapping runs, partial failures, alerting and re-processing history after a fix — which is most of the real work.",
+          "A script moves data once. A pipeline handles scheduling, overlapping runs, partial failures, alerting and re-processing history after a fix, which is most of the real work.",
       },
       {
         question: "What breaks pipelines most often?",
@@ -468,7 +468,7 @@ export const metricsGlossary: Resource[] = [
     answer:
       "Single sign-on lets people access several systems with one set of credentials, authenticated centrally. It reduces password sprawl and makes access something you can grant and revoke in one place.",
     body: [
-      "The operational argument is the strongest one. When someone leaves, access has to be removed everywhere — and access removed from nine systems individually is access that will still be live somewhere. Central identity turns that into a single action.",
+      "The operational argument is the strongest one. When someone leaves, access has to be removed everywhere, and access removed from nine systems individually is access that will still be live somewhere. Central identity turns that into a single action.",
       "It also improves security in a less obvious way: fewer passwords means less reuse, and central authentication makes multi-factor enforcement a policy rather than a per-system project.",
       "The trade is concentration. One identity provider becomes both a single point of failure and a high-value target, so it needs stronger protection than any individual system it fronts. That is usually a good trade, and it should be made deliberately rather than by default.",
     ],
@@ -507,7 +507,7 @@ export const metricsGlossary: Resource[] = [
     topic: "Web",
     title: "Design System",
     answer:
-      "A design system is a set of reusable components and the decisions behind them — colour, type, spacing, states — recorded so that the same problem is not re-solved differently on every page.",
+      "A design system is a set of reusable components and the decisions behind them (colour, type, spacing, states), recorded so that the same problem is not re-solved differently on every page.",
     body: [
       "A component library is only half of it. The half that makes a system durable is the recorded reasoning: which colour pairings are permitted and why, what a heading level means, when a card is appropriate. Without that, teams reuse the components and still produce inconsistent pages.",
       "The economics come from repetition. On a small site a design system is overhead. Across a large site maintained by several people over years, it is what prevents the slow divergence where each new page is slightly different from the last.",
@@ -534,7 +534,7 @@ export const metricsGlossary: Resource[] = [
       {
         question: "What makes a design system actually work?",
         answer:
-          "Enforcement. Constraints checked automatically — contrast, spacing, type scale — hold. Constraints written in a document drift within months of the people who wrote them moving on.",
+          "Enforcement. Constraints checked automatically (contrast, spacing, type scale) hold. Constraints written in a document drift within months of the people who wrote them moving on.",
       },
     ],
     related: [
@@ -550,7 +550,7 @@ export const metricsGlossary: Resource[] = [
     answer:
       "Progressive enhancement is building so the core content and functions work with HTML alone, then layering JavaScript on top. The page is useful before the enhancement arrives, and remains useful if it never does.",
     body: [
-      "It is often mistaken for supporting old browsers. The modern argument is different: scripts fail for ordinary reasons — a flaky connection, a blocked CDN, a parse error, a crawler that does not execute them — and a page whose content only exists after JavaScript runs has no fallback for any of those.",
+      "It is often mistaken for supporting old browsers. The modern argument is different: scripts fail for ordinary reasons (a flaky connection, a blocked CDN, a parse error, a crawler that does not execute them), and a page whose content only exists after JavaScript runs has no fallback for any of those.",
       "It matters more now because of who is reading. Many AI crawlers execute little or no JavaScript, so client-rendered content is invisible to exactly the systems increasingly deciding whether a business gets recommended.",
       "In practice it means server-rendered content, forms that submit without JavaScript, links that are real links, and interactivity added as an improvement rather than as a prerequisite for reading the page.",
     ],
@@ -589,11 +589,11 @@ export const metricsGlossary: Resource[] = [
     topic: "Company",
     title: "Service Level Agreement",
     answer:
-      "A service level agreement states the service a supplier commits to — response times, availability, resolution targets — and what happens when it is missed. Without the consequence, it is a statement of intent.",
+      "A service level agreement states the service a supplier commits to (response times, availability, resolution targets) and what happens when it is missed. Without the consequence, it is a statement of intent.",
     body: [
       "The commitments that matter are usually the boring ones: how quickly someone responds, what counts as an emergency, what hours are covered, and how long a fix should take. Availability percentages get attention and are rarely the thing that hurts.",
       "Read the definitions rather than the numbers. A four-hour response target during business hours in one time zone, on a definition of 'critical' the supplier decides, is a very different commitment from what the headline implies.",
-      "The consequence clause is what makes it an agreement. Service credits are the common mechanism and are usually small relative to the disruption — which is a reason to treat an SLA as an expectation-setting document rather than as insurance.",
+      "The consequence clause is what makes it an agreement. Service credits are the common mechanism and are usually small relative to the disruption, which is a reason to treat an SLA as an expectation-setting document rather than as insurance.",
     ],
     supports: ["website-maintenance"],
     seo: {
@@ -620,7 +620,7 @@ export const metricsGlossary: Resource[] = [
       },
     ],
     related: [
-      { label: "Website Maintenance & Support", href: "/services/website-maintenance/", type: "SERVICE" },
+      { label: "Website Maintenance", href: "/services/website-maintenance/", type: "SERVICE" },
       { label: "Total Cost of Ownership", href: "/resources/what-is-total-cost-of-ownership/", type: "GLOSSARY" },
     ],
   },
@@ -632,7 +632,7 @@ export const metricsGlossary: Resource[] = [
     answer:
       "Total cost of ownership is what something costs across its whole life, not what it costs to acquire. For software it includes hosting, maintenance, updates, support, training and eventual replacement.",
     body: [
-      "The build is usually the smaller number. A system that costs a fixed sum to deliver then needs hosting, dependency updates, security patching, occasional fixes and someone who understands it — every year, for as long as it runs. Business cases that fund the first and not the rest are how systems become liabilities.",
+      "The build is usually the smaller number. A system that costs a fixed sum to deliver then needs hosting, dependency updates, security patching, occasional fixes and someone who understands it, every year, for as long as it runs. Business cases that fund the first and not the rest are how systems become liabilities.",
       "It is also the honest way to compare building against buying. A subscription looks expensive next to a one-off build until the build's ongoing costs are included, at which point the comparison frequently reverses.",
       "The cost most often omitted is knowledge. When the people who built or configured something leave, the cost of the next change rises sharply unless documentation and handover were treated as deliverables rather than courtesies.",
     ],
@@ -647,12 +647,12 @@ export const metricsGlossary: Resource[] = [
     },
     audience: ["A8", "A2"],
     phase: "P1",
-    cta: { label: "Read about Custom Software Development", href: "/services/custom-software/", tier: "T1" },
+    cta: { label: "Read about Custom Software", href: "/services/custom-software/", tier: "T1" },
     faqs: [
       {
         question: "What is usually missing from a software business case?",
         answer:
-          "Ownership after launch — hosting, monitoring, dependency updates, security patching and support — and the cost of the knowledge walking out when the original team moves on.",
+          "Ownership after launch (hosting, monitoring, dependency updates, security patching and support), and the cost of the knowledge walking out when the original team moves on.",
       },
       {
         question: "How does TCO change a build-versus-buy decision?",
@@ -688,7 +688,7 @@ export const metricsGlossary: Resource[] = [
     },
     audience: ["A2", "A7"],
     phase: "P1",
-    cta: { label: "Read about Custom Software Development", href: "/services/custom-software/", tier: "T1" },
+    cta: { label: "Read about Custom Software", href: "/services/custom-software/", tier: "T1" },
     faqs: [
       {
         question: "How small should an MVP be?",
@@ -712,7 +712,7 @@ export const metricsGlossary: Resource[] = [
     topic: "Automation",
     title: "Workflow Orchestration",
     answer:
-      "Workflow orchestration coordinates a sequence of steps across systems, handling order, dependencies, retries and failures — so a process that spans several tools behaves as one thing rather than several.",
+      "Workflow orchestration coordinates a sequence of steps across systems, handling order, dependencies, retries and failures, so a process that spans several tools behaves as one thing rather than several.",
     body: [
       "The need appears as soon as a process has more than two steps that can fail independently. Step three should not run if step two failed; a step that times out should be retried a few times and then escalate; and the whole run should be visible rather than inferred from side effects.",
       "It is distinct from triggering. A webhook starting an action is automation; knowing that the action is the second of five, that the third depends on it, and that the run as a whole either completed or did not, is orchestration.",

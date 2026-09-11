@@ -27,7 +27,17 @@ const useIsomorphicLayoutEffect =
  * straight to `visible` and are never animated; only what is still off
  * screen gets the pending state and the reveal.
  */
-export function useReveal<T extends HTMLElement>(enabled = true) {
+export function useReveal<T extends HTMLElement>(
+  enabled = true,
+  /**
+   * Which data attribute carries the state. Defaults to `data-reveal`, which
+   * the transform-and-fade CSS reads. Kinetic type uses `data-kinetic`
+   * instead so a heading can sit inside an already-revealed block and still
+   * run its own word stagger, rather than the two states fighting over one
+   * attribute.
+   */
+  attribute: "reveal" | "kinetic" = "reveal",
+) {
   const ref = useRef<T>(null);
 
   useIsomorphicLayoutEffect(() => {
@@ -35,7 +45,7 @@ export function useReveal<T extends HTMLElement>(enabled = true) {
     if (!node || !enabled) return;
 
     if (typeof IntersectionObserver === "undefined") {
-      node.dataset.reveal = "visible";
+      node.dataset[attribute] = "visible";
       return;
     }
 
@@ -54,18 +64,18 @@ export function useReveal<T extends HTMLElement>(enabled = true) {
       rect.left < viewportWidth;
 
     if (onScreen) {
-      node.dataset.reveal = "visible";
+      node.dataset[attribute] = "visible";
       return;
     }
 
     // Only hide the element once we know we can reveal it again.
-    node.dataset.reveal = "pending";
+    node.dataset[attribute] = "pending";
 
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
-          (entry.target as HTMLElement).dataset.reveal = "visible";
+          (entry.target as HTMLElement).dataset[attribute] = "visible";
           observer.unobserve(entry.target);
         }
       },
@@ -74,7 +84,7 @@ export function useReveal<T extends HTMLElement>(enabled = true) {
 
     observer.observe(node);
     return () => observer.disconnect();
-  }, [enabled]);
+  }, [enabled, attribute]);
 
   return ref;
 }

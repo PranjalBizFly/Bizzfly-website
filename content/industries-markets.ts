@@ -13,13 +13,13 @@ export const marketIndustries: Industry[] = [
     slug: "travel",
     layout: "challenge-led",
     diagram: "search-surfaces",
-    title: "Travel & Tourism",
+    title: "Travel",
     answer:
       "Travel businesses compete for their own customers against intermediaries that outrank them, spend more, and take a margin on every booking that goes through them.",
     opportunity:
       "Direct bookings carry the commission back. Every percentage point moved from intermediary to direct is margin recovered on demand you already generated.",
     context:
-      "Discovery is dominated by aggregators and marketplaces with large budgets and structural advantages in search. Buyers research across many sessions and devices before booking, and a large share of that research now happens in AI assistants that summarise options without sending a click. Meanwhile the operator's own site often loads slowly, presents availability poorly, and asks for more steps than the intermediary does — so even the customer who arrives directly frequently books elsewhere.",
+      "Discovery is dominated by aggregators and marketplaces with large budgets and structural advantages in search. Buyers research across many sessions and devices before booking, and a large share of that research now happens in AI assistants that summarise options without sending a click. Meanwhile the operator's own site often loads slowly, presents availability poorly, and asks for more steps than the intermediary does, so even the customer who arrives directly frequently books elsewhere.",
     problems: [
       {
         title: "Intermediaries outrank the operator for its own name and offer",
@@ -57,23 +57,23 @@ export const marketIndustries: Industry[] = [
       {
         question: "Can we realistically outrank the big aggregators?",
         answer:
-          "Not on broad category terms, and pursuing those wastes budget. On your own property, location specifics and the detail aggregators cannot cover, you have a genuine advantage — that is where direct demand is recoverable.",
+          "Not on broad category terms, and pursuing those wastes budget. On your own property, location specifics and the detail aggregators cannot cover, you have a genuine advantage: that is where direct demand is recoverable.",
       },
       {
         question: "Is it worth leaving the platforms entirely?",
         answer:
-          "Rarely. They generate real demand you would not otherwise reach. The commercial goal is shifting the margin mix — capturing direct the customers who found you through a platform and would book with you again.",
+          "Rarely. They generate real demand you would not otherwise reach. The commercial goal is shifting the margin mix: capturing direct the customers who found you through a platform and would book with you again.",
       },
     ],
     related: [
       { label: "Hospitality", href: "/industries/hospitality/", type: "INDUSTRY" },
-      { label: "Conversion Optimisation", href: "/services/conversion-rate-optimisation/", type: "SERVICE" },
+      { label: "Conversion Rate Optimisation", href: "/services/conversion-rate-optimisation/", type: "SERVICE" },
     ],
   },
   {
     slug: "nonprofit",
     layout: "opportunity-led",
-    title: "Non-Profit & Social Impact",
+    title: "Non-Profit",
     answer:
       "Non-profits serve two audiences whose needs conflict: funders and donors who need evidence of impact, and service users who need help without navigating a fundraising site to find it.",
     opportunity:
@@ -134,18 +134,18 @@ export const marketIndustries: Industry[] = [
     slug: "media",
     layout: "challenge-led",
     diagram: "search-surfaces",
-    title: "Media & Publishing",
+    title: "Media",
     answer:
       "Publishing economics assumed that answering a question earned a visit. AI answers have broken that assumption for a significant class of content, and the response has to be structural rather than tactical.",
     opportunity:
-      "Content that cannot be summarised away — original reporting, proprietary data, distinctive voice, community — is where publishing value is concentrating. That is a commissioning decision as much as an SEO one.",
+      "Content that cannot be summarised away (original reporting, proprietary data, distinctive voice, community) is where publishing value is concentrating. That is a commissioning decision as much as an SEO one.",
     context:
-      "Advertising revenue depends on sessions, and sessions depend on people clicking through to read. Where an assistant can answer the question from the article, a share of that traffic does not arrive. Definitional and explanatory content is affected first and hardest; investigative work, original data and distinctive analysis hold up better. At the same time, archives of thousands of articles carry technical debt — old templates, broken embeds, outdated markup — that suppresses the pages still capable of earning attention.",
+      "Advertising revenue depends on sessions, and sessions depend on people clicking through to read. Where an assistant can answer the question from the article, a share of that traffic does not arrive. Definitional and explanatory content is affected first and hardest; investigative work, original data and distinctive analysis hold up better. At the same time, archives of thousands of articles carry technical debt (old templates, broken embeds, outdated markup) that suppresses the pages still capable of earning attention.",
     problems: [
       {
         title: "Explanatory content no longer earns the click",
         description:
-          "Impressions hold while clicks fall. The article still ranks and still gets read — inside someone else's answer, with no session recorded.",
+          "Impressions hold while clicks fall. The article still ranks and still gets read, inside someone else's answer, with no session recorded.",
         addressedBy: ["generative-engine-optimisation", "content-strategy"],
       },
       {
@@ -188,20 +188,20 @@ export const marketIndustries: Industry[] = [
     ],
     related: [
       { label: "AI Visibility Measurement Guide", href: "/resources/ai-visibility-measurement-guide/", type: "GUIDE" },
-      { label: "Digital PR & Link Earning", href: "/services/digital-pr/", type: "SERVICE" },
+      { label: "Digital PR", href: "/services/digital-pr/", type: "SERVICE" },
     ],
   },
   {
     slug: "agriculture",
     layout: "journey-led",
     diagram: "system-architecture",
-    title: "Agriculture & Agritech",
+    title: "Agriculture",
     answer:
       "Two constraints shape digital work in agriculture: the season, which compresses activity into narrow windows, and the field, where connectivity is unreliable and data capture has to work offline.",
     opportunity:
-      "Because seasonal peaks are predictable, the administrative load around them can be prepared for months in advance — which is rarer and more valuable than it sounds.",
+      "Because seasonal peaks are predictable, the administrative load around them can be prepared for months in advance, which is rarer and more valuable than it sounds.",
     context:
-      "Buying decisions cluster around seasonal windows, and a supplier who is invisible during the fortnight that matters has effectively missed the year. Record-keeping obligations — traceability, compliance, input records — generate substantial paperwork, often captured on paper in the field and typed up later. Connectivity at the point of work cannot be assumed, so anything requiring a live connection to record data will be worked around. Buyers are practical, evaluate on evidence, and have limited patience for marketing language.",
+      "Buying decisions cluster around seasonal windows, and a supplier who is invisible during the fortnight that matters has effectively missed the year. Record-keeping obligations (traceability, compliance, input records) generate substantial paperwork, often captured on paper in the field and typed up later. Connectivity at the point of work cannot be assumed, so anything requiring a live connection to record data will be worked around. Buyers are practical, evaluate on evidence, and have limited patience for marketing language.",
     problems: [
       {
         title: "Field data is captured on paper and rekeyed",
@@ -212,7 +212,7 @@ export const marketIndustries: Industry[] = [
       {
         title: "Demand is seasonal and presence is not",
         description:
-          "Visibility built during the season is too late — search and content work needs to be in place before the window opens, which requires planning against the calendar.",
+          "Visibility built during the season is too late: search and content work needs to be in place before the window opens, which requires planning against the calendar.",
         addressedBy: ["content-strategy", "seo"],
       },
       {
@@ -258,11 +258,11 @@ export const marketIndustries: Industry[] = [
     diagram: "content-structure",
     title: "B2B Services",
     answer:
-      "Most B2B services firms grew on referral and have no second channel. Building inbound alongside it is not about replacing referral — it is about not being capacity-limited by who happens to be recommending you.",
+      "Most B2B services firms grew on referral and have no second channel. Building inbound alongside it is not about replacing referral; it is about not being capacity-limited by who happens to be recommending you.",
     opportunity:
       "Referral-led firms usually have deep expertise and almost no published material. That gap is the cheapest inbound opportunity available to them, because the content already exists as knowledge.",
     context:
-      "Sales cycles are long and involve several people, each needing different reassurance. Buyers research before making contact and often arrive having already formed a shortlist. Referral produces the best-fit clients but arrives unpredictably, and when it slows there is nothing else running. The firm's expertise is real and almost entirely unpublished, so a buyer researching the problem finds competitors instead — frequently less capable ones who simply wrote it down.",
+      "Sales cycles are long and involve several people, each needing different reassurance. Buyers research before making contact and often arrive having already formed a shortlist. Referral produces the best-fit clients but arrives unpredictably, and when it slows there is nothing else running. The firm's expertise is real and almost entirely unpublished, so a buyer researching the problem finds competitors instead, frequently less capable ones who simply wrote it down.",
     problems: [
       {
         title: "Referral is the only channel and it is not controllable",
@@ -279,7 +279,7 @@ export const marketIndustries: Industry[] = [
       {
         title: "Enquiries are handled inconsistently",
         description:
-          "With no defined process, response quality depends on who picks it up and how busy they are — which is invisible internally and highly visible to the buyer.",
+          "With no defined process, response quality depends on who picks it up and how busy they are, which is invisible internally and highly visible to the buyer.",
         addressedBy: ["crm-implementation", "marketing-automation"],
       },
     ],
@@ -320,9 +320,9 @@ export const marketIndustries: Industry[] = [
     answer:
       "The direct-to-consumer model was built on affordable paid acquisition. As that cost has risen, brands without owned demand find their unit economics no longer work at scale.",
     opportunity:
-      "Owned channels — search visibility, email, returning customers — cost more to build and less to run. Every point of demand moved from paid to owned improves margin permanently rather than monthly.",
+      "Owned channels (search visibility, email, returning customers) cost more to build and less to run. Every point of demand moved from paid to owned improves margin permanently rather than monthly.",
     context:
-      "Customer acquisition cost has risen while attribution has become less certain, so brands are spending more and seeing less of where it goes. Repeat purchase and lifetime value increasingly decide whether a brand is viable, which shifts attention from acquisition to retention. Product discovery is also fragmenting — marketplaces, social, and now AI assistants that recommend products directly — so a brand whose demand depends on one paid channel is exposed to that channel's pricing decisions.",
+      "Customer acquisition cost has risen while attribution has become less certain, so brands are spending more and seeing less of where it goes. Repeat purchase and lifetime value increasingly decide whether a brand is viable, which shifts attention from acquisition to retention. Product discovery is also fragmenting (marketplaces, social, and now AI assistants that recommend products directly), so a brand whose demand depends on one paid channel is exposed to that channel's pricing decisions.",
     problems: [
       {
         title: "Acquisition cost has risen faster than order value",
@@ -333,7 +333,7 @@ export const marketIndustries: Industry[] = [
       {
         title: "First purchase is optimised and repeat purchase is not",
         description:
-          "Effort concentrates on the initial conversion while the post-purchase experience — which decides lifetime value — receives almost none.",
+          "Effort concentrates on the initial conversion while the post-purchase experience (which decides lifetime value) receives almost none.",
         addressedBy: ["marketing-automation", "conversion-rate-optimisation"],
       },
       {
@@ -360,7 +360,7 @@ export const marketIndustries: Industry[] = [
       {
         question: "Should we stop paid advertising?",
         answer:
-          "No — it produces demand quickly and it is measurable. The risk is depending on it entirely. Owned channels take longer to build and then cost far less per order, which is what makes the mix sustainable.",
+          "No: it produces demand quickly and it is measurable. The risk is depending on it entirely. Owned channels take longer to build and then cost far less per order, which is what makes the mix sustainable.",
       },
       {
         question: "Does SEO work for D2C?",
@@ -379,7 +379,7 @@ export const marketIndustries: Industry[] = [
     diagram: "process-transformation",
     title: "Small & Medium Enterprises",
     answer:
-      "The constraint in most SMEs is not budget but attention. Nobody owns digital, so work happens when someone finds time — which means it happens in bursts and then stops.",
+      "The constraint in most SMEs is not budget but attention. Nobody owns digital, so work happens when someone finds time, which means it happens in bursts and then stops.",
     opportunity:
       "A small number of things done consistently beats a large plan done once. That is achievable without a dedicated team, and it is what most SME digital advice fails to account for.",
     context:
@@ -421,7 +421,7 @@ export const marketIndustries: Industry[] = [
       {
         question: "Where should a small business start?",
         answer:
-          "With whichever is currently costing most — usually either an invisible business or a process consuming days that should take hours. Doing one properly beats starting three, because the one that finishes is the one that pays for the next.",
+          "With whichever is currently costing most, usually either an invisible business or a process consuming days that should take hours. Doing one properly beats starting three, because the one that finishes is the one that pays for the next.",
       },
       {
         question: "Do we need an agency retainer?",

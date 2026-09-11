@@ -249,8 +249,8 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 No matches for <strong>{debounced}</strong>.
               </p>
               <p className={styles.emptyLead}>
-                Try a broader word, or open the directory and scan the sections
-                — every published page is listed there.
+                Try a broader word, or open the directory and scan the sections:
+                every published page is listed there.
               </p>
 
               <div className={styles.emptySection}>

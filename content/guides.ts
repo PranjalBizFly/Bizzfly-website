@@ -22,15 +22,15 @@ export const guides: Resource[] = [
       "Interpretation comes first. The system rewrites the question into something it can search for, often several sub-queries at once. A question like 'who can help us get found on AI' becomes queries about AI search optimisation, agencies and services. This is why matching a single phrase matters far less than covering the concept the question is really about.",
       "Retrieval follows, and this is where most businesses are eliminated without knowing it. The system searches an index for passages that answer the sub-queries. If your content is not in the index, is not reachable, or exists only after JavaScript runs, you are not a candidate. Nothing later in the process can recover from that.",
       "Selection then narrows the candidates. Among passages that could answer, the system prefers ones that answer completely and unambiguously, from sources it can identify and has reason to trust. A passage that only makes sense in the context of the surrounding page is weaker here than one written to stand alone.",
-      "Composition assembles the answer and decides attribution. A model reads the selected passages and writes something new, naming some sources. Attribution favours material that is specific and clearly owned — which is why entity clarity matters: a system that cannot tell who published a claim has little reason to credit anyone for it.",
-      "The practical consequence is that AI visibility work is mostly unglamorous. Be reachable and renderable. Be identifiable as a specific organisation. Write answers that survive being lifted out of context. Nobody can guarantee inclusion, because retrieval is not controllable — but each of those removes a reason to be excluded.",
+      "Composition assembles the answer and decides attribution. A model reads the selected passages and writes something new, naming some sources. Attribution favours material that is specific and clearly owned, which is why entity clarity matters: a system that cannot tell who published a claim has little reason to credit anyone for it.",
+      "The practical consequence is that AI visibility work is mostly unglamorous. Be reachable and renderable. Be identifiable as a specific organisation. Write answers that survive being lifted out of context. Nobody can guarantee inclusion, because retrieval is not controllable, but each of those removes a reason to be excluded.",
       "It also changes measurement. There is no rank position to report. The available evidence is whether you appear for a fixed set of buyer questions when they are asked repeatedly over time, alongside branded search volume, direct arrivals and the quality of enquiries that mention having found you through an assistant.",
     ],
     supports: ["ai-search-optimisation", "generative-engine-optimisation"],
     seo: {
       title: "How AI Search Works",
       description:
-        "Interpretation, retrieval, selection and composition — the four stages of an AI answer, and where businesses are eliminated without knowing it.",
+        "Interpretation, retrieval, selection and composition: the four stages of an AI answer, and where businesses are eliminated without knowing it.",
       primaryTopic: "how AI search works",
       secondaryTopics: ["AI overviews", "GEO", "retrieval"],
       intent: "informational",
@@ -46,7 +46,7 @@ export const guides: Resource[] = [
       {
         question: "Why does an AI assistant not mention our business?",
         answer:
-          "Most often because you were never a retrieval candidate — content not indexed, not reachable, or rendered only in the browser. The next most common reason is that the answer exists on your site but not in a form that can be lifted out of context.",
+          "Most often because you were never a retrieval candidate: content not indexed, not reachable, or rendered only in the browser. The next most common reason is that the answer exists on your site but not in a form that can be lifted out of context.",
       },
       {
         question: "Can we pay to appear in AI answers?",
@@ -79,7 +79,7 @@ export const guides: Resource[] = [
       "The unit that matters is the passage, not the page. A system selecting material for an answer takes a section, not your whole article. Every section therefore has to be self-contained: readable with no knowledge of what came before it, with pronouns resolved and the subject named rather than implied.",
       "Answer first, then explain. Marketing writing conventionally builds toward a conclusion; extraction rewards the opposite. Put the direct answer in the first sentence or two after the heading, then use the rest of the section to qualify, evidence and expand. A reader who stops early still has the answer; a system that lifts the opening still has something complete.",
       "Match headings to real questions. 'Pricing model' is a label; 'How much does technical SEO cost?' is the question someone actually asks. Question-shaped headings with direct answers underneath are what allow a passage to be matched to a query in the first place.",
-      "Be specific, because specificity is what makes a source worth citing. Vague claims about being trusted or leading are not attributable — there is nothing in them to quote. A concrete statement about how something works, what it costs, or when it fails is the kind of material a model can use and credit.",
+      "Be specific, because specificity is what makes a source worth citing. Vague claims about being trusted or leading are not attributable: there is nothing in them to quote. A concrete statement about how something works, what it costs, or when it fails is the kind of material a model can use and credit.",
       "Do not fabricate to sound authoritative. Invented statistics are increasingly easy to check, and a claim contradicted by better sources damages the credibility of everything around it. Where a figure is needed and not available, say what is known and what is not.",
       "Finally, make the publisher unambiguous. Consistent organisation details, structured data referencing one canonical entity, and author or organisation attribution that agrees across the site. Attribution requires the system to know who it is crediting.",
     ],
@@ -134,9 +134,9 @@ export const guides: Resource[] = [
     readingTime: "7 min",
     body: [
       "Foundation comes first because everything else depends on it. Pages must be reachable, return healthy responses, render their content server-side and resolve to one canonical address. This stage produces no exciting reporting, and it is where most under-performing sites are actually stuck.",
-      "Then coverage. Identify the questions your buyers ask across their decision — not just the transactional ones — and check which have a page that genuinely answers them. Gaps are usually at the explanatory and comparative stages, because those do not feel like sales pages and so never get commissioned.",
+      "Then coverage. Identify the questions your buyers ask across their decision (not just the transactional ones) and check which have a page that genuinely answers them. Gaps are usually at the explanatory and comparative stages, because those do not feel like sales pages and so never get commissioned.",
       "Coverage means depth on subjects you genuinely practise. A cluster that explains a concept, compares the options, describes the failure modes and covers the decision is far stronger than a single page that sells. Those pages then need to link to each other, or they read as isolated documents rather than as coverage of a subject.",
-      "Credibility is the part that cannot be built entirely from inside. References from places your buyers already trust — industry publications, partners, communities, genuine coverage — signal that the site is worth ranking. This is slow, it resists shortcuts, and the shortcuts that exist carry penalty risk disproportionate to their benefit.",
+      "Credibility is the part that cannot be built entirely from inside. References from places your buyers already trust (industry publications, partners, communities, genuine coverage) signal that the site is worth ranking. This is slow, it resists shortcuts, and the shortcuts that exist carry penalty risk disproportionate to their benefit.",
       "Then compounding. Search visibility decays: competitors publish, systems change, content ages into inaccuracy. A quarterly pass that updates what has changed, consolidates pages competing with each other, and removes what no longer earns its place is worth more than the same effort spent on new pages.",
       "Expect the timeline to be honest rather than convenient. Technical improvements can register within weeks. Content and credibility work usually takes months to show commercially, and any supplier compressing that is describing a hope rather than a plan.",
     ],
@@ -144,14 +144,14 @@ export const guides: Resource[] = [
     seo: {
       title: "How to Build Search Visibility",
       description:
-        "Foundation, coverage, credibility, compounding — in that order. Why skipping the unglamorous first stage wastes everything after it.",
+        "Foundation, coverage, credibility, compounding: in that order. Why skipping the unglamorous first stage wastes everything after it.",
       primaryTopic: "building search visibility",
       secondaryTopics: ["SEO strategy", "content clusters"],
       intent: "informational",
     },
     audience: ["A3", "A1"],
     phase: "P1",
-    cta: { label: "Read about SEO Services", href: "/services/seo/", tier: "T1" },
+    cta: { label: "Read about SEO", href: "/services/seo/", tier: "T1" },
     faqs: [
       {
         question: "How long does it take to build search visibility?",
@@ -186,7 +186,7 @@ export const guides: Resource[] = [
       "Measure visibility on four layers: whether pages are indexed, whether they appear for the queries that matter, whether appearance produces visits, and whether visits produce enquiries. Reporting only the last one hides where a problem actually is.",
     readingTime: "6 min",
     body: [
-      "Start with eligibility. Index coverage tells you which pages can rank at all. A content programme producing pages that never get indexed looks like a content problem in traffic reporting and is actually a technical one — a distinction that costs many teams a quarter.",
+      "Start with eligibility. Index coverage tells you which pages can rank at all. A content programme producing pages that never get indexed looks like a content problem in traffic reporting and is actually a technical one: a distinction that costs many teams a quarter.",
       "Then appearance. Impressions and average position for the queries that describe your business tell you whether you are competing, independently of whether anyone clicked. This layer is where AI answers change things: presence in a generated answer produces no impression and no click, so it has to be sampled deliberately rather than read from a dashboard.",
       "Then arrival. Clicks and sessions, segmented by page type and query intent. Aggregate traffic is close to useless here: a rise driven by informational pages and a rise driven by commercial pages mean entirely different things, and averaging them conceals both.",
       "Then outcome. Enquiries, qualified enquiries and, where the data exists, revenue. This is the layer executives care about and the noisiest one, because it is affected by everything from seasonality to how quickly sales responds. It should be read as a trend, never as a monthly verdict.",
@@ -240,11 +240,11 @@ export const guides: Resource[] = [
     topic: "Search",
     title: "How Search Intent Works",
     answer:
-      "Search intent determines which kind of page can rank for a query. Search engines infer it from behaviour, then serve the page type that satisfied previous searchers — which is why the results page is better evidence of intent than the keyword.",
+      "Search intent determines which kind of page can rank for a query. Search engines infer it from behaviour, then serve the page type that satisfied previous searchers, which is why the results page is better evidence of intent than the keyword.",
     readingTime: "5 min",
     body: [
       "Intent is inferred, not declared. Search engines observe which results people choose and which satisfy them, and gradually settle on a page type for each query. That accumulated judgement is what a results page shows you, which makes it far better evidence than any assumption drawn from the words.",
-      "This explains a common frustration. A business publishes a service page targeting a keyword that sounds commercial, and it never ranks — because the results page is entirely explanatory content. The engine has already concluded that people asking that question want to understand something, not to buy.",
+      "This explains a common frustration. A business publishes a service page targeting a keyword that sounds commercial, and it never ranks, because the results page is entirely explanatory content. The engine has already concluded that people asking that question want to understand something, not to buy.",
       "Intent also shifts along a buying journey, and a single query rarely covers it. Someone may begin by asking what a thing is, then how to choose between options, then what it costs, then who provides it locally. Those are four different pages, and trying to serve them all from one produces a page that satisfies none.",
       "Mixed-intent queries exist and are worth reading carefully. When a results page shows a mixture of guides and product pages, the engine is hedging, and either page type can win. Those are usually the most winnable queries for a business with genuine expertise.",
       "Intent should also decide how a page is judged. An explanatory page measured on direct enquiries will look like a failure and get deleted, taking the assisted conversions and AI citations it was quietly producing with it.",
@@ -261,7 +261,7 @@ export const guides: Resource[] = [
     },
     audience: ["A4", "A3"],
     phase: "P1",
-    cta: { label: "Read about SEO Services", href: "/services/seo/", tier: "T1" },
+    cta: { label: "Read about SEO", href: "/services/seo/", tier: "T1" },
     faqs: [
       {
         question: "Why does our service page not rank for its main keyword?",
@@ -297,11 +297,11 @@ export const guides: Resource[] = [
     readingTime: "6 min",
     body: [
       "Begin with a complete inventory, not a sample. Every indexable URL, with its impressions, clicks, conversions, last update and internal links pointing to it. The pages nobody remembers publishing are exactly the ones an audit exists to find.",
-      "Judge each page on three questions. Does it earn anything — visibility, enquiries, citations, links? Does it serve an intent no other page serves? Is it still true? A page failing all three is a candidate for removal; a page failing only the third needs updating rather than deleting.",
+      "Judge each page on three questions. Does it earn anything: visibility, enquiries, citations, links? Does it serve an intent no other page serves? Is it still true? A page failing all three is a candidate for removal; a page failing only the third needs updating rather than deleting.",
       "Consolidation is usually the highest-value action and the least popular. Several thin pages competing for the same intent split their signals and none ranks well. Merging them into one substantial page, then redirecting the others to it, concentrates what was divided. Expect internal resistance from whoever commissioned the originals.",
       "Removal is legitimate and should be deliberate. Pages that are inaccurate, duplicated or serve no intent cost crawl effort and dilute the site's apparent focus. Redirect them where a genuine equivalent exists; return a clean 410 where nothing does. Redirecting everything to the homepage is the common mistake.",
       "Update what is close. Many pages underperform because they are stale rather than weak: an outdated example, a changed process, a missing answer people now expect. Refreshing a page that already has some visibility usually returns more than writing a new one from nothing.",
-      "Finish by fixing the internal links. An audit that consolidates and removes pages without repointing the links that referenced them leaves broken paths and orphaned survivors — which undoes much of the benefit.",
+      "Finish by fixing the internal links. An audit that consolidates and removes pages without repointing the links that referenced them leaves broken paths and orphaned survivors, which undoes much of the benefit.",
     ],
     supports: ["seo", "digital-strategy"],
     seo: {
@@ -352,7 +352,7 @@ export const guides: Resource[] = [
       "Inventory the work as it is actually done, which is rarely how it is documented. Sit with the people doing it and record each repeated task, its frequency, roughly how long it takes, which systems it touches and where it stalls. The gap between the documented process and the real one is usually where the opportunity is.",
       "Score each candidate on three axes. Volume, because frequency times time saved is the return. Stability, because a process still changing shape will invalidate the build. Access, because a task spanning systems with proper APIs is a fraction of the cost of one requiring screens to be driven.",
       "Sequence for learning, not just for value. The first project should be small enough to complete in weeks, valuable enough that people notice, and instructive enough to correct the assumptions in the rest of the plan. Starting with the largest opportunity means discovering wrong assumptions at maximum cost.",
-      "Simplify before automating, every time. Mapping a process almost always reveals steps that exist for reasons that no longer apply — an approval for a risk that has gone, a re-entry that exists because two systems were never connected. Removing a step returns more than automating it and costs less.",
+      "Simplify before automating, every time. Mapping a process almost always reveals steps that exist for reasons that no longer apply: an approval for a risk that has gone, a re-entry that exists because two systems were never connected. Removing a step returns more than automating it and costs less.",
       "Decide the exception policy up front. Every automated process meets input it cannot handle. Whether it stops, routes to a person with full context, or proceeds with a flagged default is a business decision, and making it during design is far cheaper than discovering the behaviour in production.",
       "Plan for ownership from the start. Automations break when systems change, credentials rotate and vendors update. A roadmap without a named owner and a maintenance allowance produces a portfolio of automations that quietly stop working.",
     ],
@@ -417,7 +417,7 @@ export const guides: Resource[] = [
     seo: {
       title: "How to Structure a Website for Search",
       description:
-        "Structure around buyer questions, one intent per page, shallow depth, explicit linking and durable URLs — and make it maintainable by editors.",
+        "Structure around buyer questions, one intent per page, shallow depth, explicit linking and durable URLs, and make it maintainable by editors.",
       primaryTopic: "website structure for SEO",
       secondaryTopics: ["site architecture", "information architecture"],
       intent: "informational",

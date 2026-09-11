@@ -19,7 +19,7 @@ export const moreComparisons: Resource[] = [
     body: [
       "An audit is diagnostic and finite. It examines access, indexation, relevance and competition, and produces a list of findings with evidence. Its output is knowledge, and its value is highest when nobody can currently explain why performance is flat.",
       "A strategy is a sequence of decisions: which constraint is binding, what work removes it, in what order, and what would show whether it worked. It is only as good as the diagnosis underneath it, which is why strategies written from a briefing call tend to restate what the client already believed.",
-      "The common failure is buying an audit and stopping. A list of thirty findings with no prioritisation is a document, not a plan — and the most common outcome is that the easy items get done and the binding constraint does not.",
+      "The common failure is buying an audit and stopping. A list of thirty findings with no prioritisation is a document, not a plan, and the most common outcome is that the easy items get done and the binding constraint does not.",
       "The sensible sequence is audit, then a short strategy that names the constraint and the first three pieces of work. If a supplier offers a strategy before diagnosis, ask what evidence it rests on.",
     ],
     supports: ["seo-audit", "digital-strategy"],
@@ -59,7 +59,7 @@ export const moreComparisons: Resource[] = [
     answer:
       "Local visibility is ranked partly on the searcher's proximity, which caps how far it reaches and makes profile accuracy decisive. National visibility has no proximity ceiling and competes on authority and depth instead.",
     body: [
-      "Proximity changes the whole shape of the work. In local results a competitor two streets away has an advantage you cannot buy, and visibility falls with distance from your location. That is a structural limit, not something to optimise away — which is why 'we want to rank locally everywhere' is not achievable.",
+      "Proximity changes the whole shape of the work. In local results a competitor two streets away has an advantage you cannot buy, and visibility falls with distance from your location. That is a structural limit, not something to optimise away, which is why 'we want to rank locally everywhere' is not achievable.",
       "The levers differ accordingly. Local performance is dominated by the business profile, consistent details across the web, genuine location content and earned reviews. National performance is dominated by content depth, technical health and credible external references.",
       "Most businesses need a weighted mix rather than a choice. A firm serving one city primarily needs local; one selling nationally needs depth; one doing both needs location pages that are genuinely different from each other, not a template with the place name swapped.",
       "The failure mode at the boundary is doorway pages: near-identical pages for every town within reach. They violate guidelines, rarely hold rankings, and signal low-value content to the systems assessing the rest of the site.",
@@ -101,9 +101,9 @@ export const moreComparisons: Resource[] = [
     answer:
       "In-house gives continuity and accumulated context at a fixed ongoing cost. Outsourcing gives capacity and breadth without a permanent commitment. The question is whether the software is core to what you sell.",
     body: [
-      "Build a team for what is core. If software is the product, or the process it encodes is the competitive advantage, the accumulated knowledge of a permanent team is worth its cost — and losing that knowledge between suppliers is expensive in ways that do not appear on an invoice.",
+      "Build a team for what is core. If software is the product, or the process it encodes is the competitive advantage, the accumulated knowledge of a permanent team is worth its cost, and losing that knowledge between suppliers is expensive in ways that do not appear on an invoice.",
       "Outsource for capacity and specialism. A defined project, a skill you need for three months, or peak load alongside a small internal team are all reasonable. So is starting: hiring a team before you know whether the product has demand is a large fixed cost against an unproven assumption.",
-      "The hybrid is common and works when ownership is clear. Internal architecture and priorities with external delivery capacity avoids both extremes — but only if someone internal can review the work. Fully outsourced software with no internal counterpart is how organisations end up unable to change their own systems.",
+      "The hybrid is common and works when ownership is clear. Internal architecture and priorities with external delivery capacity avoids both extremes, but only if someone internal can review the work. Fully outsourced software with no internal counterpart is how organisations end up unable to change their own systems.",
       "Whichever route, ownership of code and infrastructure should sit with you from the first commit. That is what makes changing the arrangement later a decision rather than a negotiation.",
     ],
     supports: ["custom-software", "web-applications"],
@@ -122,7 +122,7 @@ export const moreComparisons: Resource[] = [
       {
         question: "Is outsourcing cheaper?",
         answer:
-          "Per hour, often. Over years for core software, frequently not — because knowledge does not accumulate in your organisation and each new supplier rebuilds understanding you already paid for once.",
+          "Per hour, often. Over years for core software, frequently not, because knowledge does not accumulate in your organisation and each new supplier rebuilds understanding you already paid for once.",
       },
       {
         question: "What is the biggest risk of outsourcing?",
@@ -132,7 +132,7 @@ export const moreComparisons: Resource[] = [
     ],
     related: [
       { label: "How to Evaluate a Software Development Partner", href: "/resources/how-to-evaluate-a-software-development-partner/", type: "DECISION" },
-      { label: "Custom Software Development", href: "/services/custom-software/", type: "SERVICE" },
+      { label: "Custom Software", href: "/services/custom-software/", type: "SERVICE" },
     ],
   },
   {
@@ -143,7 +143,7 @@ export const moreComparisons: Resource[] = [
     answer:
       "No-code gets something working in days and is genuinely the right answer for many internal tools. Custom development costs more and removes the ceiling. The deciding factors are volume, complexity and how long it must last.",
     body: [
-      "No-code is under-used rather than over-used. An internal tool for a team of eight, an approval workflow, a form-driven process — these are frequently built as bespoke software when a no-code platform would deliver in a fraction of the time and be maintainable by the team that uses it.",
+      "No-code is under-used rather than over-used. An internal tool for a team of eight, an approval workflow, a form-driven process: these are frequently built as bespoke software when a no-code platform would deliver in a fraction of the time and be maintainable by the team that uses it.",
       "The ceilings are real and arrive suddenly. Performance at volume, logic complex enough to become unreadable in a visual editor, integrations the platform does not support, and pricing that scales with records or users. Hitting one usually means rebuilding rather than extending.",
       "Portability is the risk most often ignored. Business logic expressed in a proprietary editor cannot be exported, version-controlled or reviewed like code, and a platform's pricing or ownership change becomes a rebuild you did not plan.",
       "The pragmatic sequence is to prototype in no-code, learn what the process actually needs, and rebuild only the parts that hit a ceiling. Starting with custom development on an unvalidated process is how the expensive version of the wrong thing gets built.",
@@ -169,7 +169,7 @@ export const moreComparisons: Resource[] = [
       {
         question: "Can we start with no-code and migrate later?",
         answer:
-          "Often the best route — provided you expect to. Treat it as a prototype that teaches you the requirements, rather than as a permanent system that will be replaced under pressure.",
+          "Often the best route, provided you expect to. Treat it as a prototype that teaches you the requirements, rather than as a permanent system that will be replaced under pressure.",
       },
     ],
     related: [
@@ -183,11 +183,11 @@ export const moreComparisons: Resource[] = [
     topic: "AI",
     title: "Chatbot vs AI Agent",
     answer:
-      "A chatbot answers questions. An agent can take actions — looking things up, updating records, completing steps. The difference is permissions, and permissions are where the risk sits.",
+      "A chatbot answers questions. An agent can take actions: looking things up, updating records, completing steps. The difference is permissions, and permissions are where the risk sits.",
     body: [
       "A chatbot grounded in your documentation is a retrieval problem: find the right passage, answer from it, cite it, escalate when confidence is low. It is comparatively safe because the worst failure is an unhelpful answer.",
       "An agent decides what to do next and acts. That is far more useful and introduces a category of failure a chatbot cannot have: a confident, incorrect action against real data. Whether that matters depends entirely on what it is permitted to touch.",
-      "The practical rule is to scope by reversibility. Reading data, drafting a reply for approval, classifying a request — cheap to get wrong. Issuing refunds, changing records, sending external communication unsupervised — expensive, and appropriate only with narrow permissions and an audit trail.",
+      "The practical rule is to scope by reversibility. Reading data, drafting a reply for approval, classifying a request: cheap to get wrong. Issuing refunds, changing records, sending external communication unsupervised: expensive, and appropriate only with narrow permissions and an audit trail.",
       "Most businesses should start with the chatbot shape and add actions individually as each proves reliable. Starting with a broadly-permissioned agent is how the first serious incident happens before anyone has calibrated their trust.",
     ],
     supports: ["ai-chatbots", "ai-agents"],
@@ -211,7 +211,7 @@ export const moreComparisons: Resource[] = [
       {
         question: "What actions should never be automated?",
         answer:
-          "Irreversible or regulated ones without human approval — payments, contractual commitments, external communication that cannot be retracted. Reversibility is a better test than complexity.",
+          "Irreversible or regulated ones without human approval: payments, contractual commitments, external communication that cannot be retracted. Reversibility is a better test than complexity.",
       },
     ],
     related: [
@@ -227,7 +227,7 @@ export const moreComparisons: Resource[] = [
     answer:
       "Retrieval supplies facts at question time and updates when the documents do. Fine-tuning teaches format and behaviour and fixes it into the model. Use retrieval for what is true and fine-tuning for how output should look.",
     body: [
-      "Retrieval is the right default for business content. It cites its source, updates the moment the underlying document changes, and makes wrong answers diagnosable — you can see which passage was used. That traceability is usually worth more than any quality gain from tuning.",
+      "Retrieval is the right default for business content. It cites its source, updates the moment the underlying document changes, and makes wrong answers diagnosable: you can see which passage was used. That traceability is usually worth more than any quality gain from tuning.",
       "Fine-tuning is for form. Consistent output structure, a specific tone, or a classification task where examples teach the behaviour better than instructions can. It genuinely outperforms prompting for those, and it is the wrong tool for facts.",
       "Fine-tuned facts go stale invisibly. A price, a policy or a product detail baked into weights keeps being recited confidently after it changes, with no signal that it is outdated. Retrieval has no equivalent failure because it reads the current document.",
       "Cost and maintenance differ too. Retrieval needs a curated corpus and a good chunking strategy; fine-tuning needs quality training examples, evaluation, and repetition whenever the base model updates. For most business applications, retrieval first and tuning only if a specific quality gap remains.",
@@ -313,7 +313,7 @@ export const moreComparisons: Resource[] = [
     body: [
       "The install barrier decides most cases. Someone will open a link; asking them to download an app for an occasional interaction loses most of them. For anything used infrequently or discovered through search, web is the honest answer.",
       "Native earns its place through capability and frequency: offline operation, push notifications, camera or sensor access, background processing, and use often enough that an icon on the home screen is a convenience rather than clutter.",
-      "Discoverability is the trade people underestimate. Content inside an app is not on the web — it cannot be crawled, ranked, cited in an AI answer or linked to. Anything that should be found belongs on the site regardless of what else exists.",
+      "Discoverability is the trade people underestimate. Content inside an app is not on the web: it cannot be crawled, ranked, cited in an AI answer or linked to. Anything that should be found belongs on the site regardless of what else exists.",
       "Cross-platform frameworks sit between the two, giving one codebase and near-native capability with a performance ceiling most business applications never approach. The remaining case for fully native is sustained graphics or deep platform integration.",
     ],
     supports: ["web-applications", "custom-software"],
@@ -353,7 +353,7 @@ export const moreComparisons: Resource[] = [
     answer:
       "Organic social builds an audience you can reach repeatedly but reaches only a fraction of it. Paid social buys precise reach that stops when spending stops. For most B2B businesses, neither is a primary acquisition channel.",
     body: [
-      "Organic reach on the major platforms is a small share of followers, because the platforms sell distribution. Building an audience still has value — for credibility, recruitment and staying visible to people who already know you — but treating it as free distribution misunderstands the business model of the platform.",
+      "Organic reach on the major platforms is a small share of followers, because the platforms sell distribution. Building an audience still has value (for credibility, recruitment and staying visible to people who already know you) but treating it as free distribution misunderstands the business model of the platform.",
       "Paid social is precise and immediate, and it interrupts rather than intercepts. Unlike search, the person was not looking for you, so it works best for problems people do not know are solvable, and worse for high-consideration purchases someone is actively researching.",
       "For most B2B businesses both are supporting channels. Search intercepts existing demand and usually converts better; social builds familiarity that makes the later search more likely to end with your name. Judging social on last-click conversions will always conclude it does not work.",
       "The honest question is whether your buyers are on the platform in a buying frame of mind. Where they are, social can be primary. Where they are not, it is brand maintenance, and it should be budgeted as such rather than as acquisition.",
@@ -379,7 +379,7 @@ export const moreComparisons: Resource[] = [
       {
         question: "Should a B2B business invest in social?",
         answer:
-          "As a supporting channel for credibility and familiarity, usually yes. As a primary acquisition channel, only where buyers genuinely research on the platform — which is worth checking before committing budget.",
+          "As a supporting channel for credibility and familiarity, usually yes. As a primary acquisition channel, only where buyers genuinely research on the platform, which is worth checking before committing budget.",
       },
     ],
     related: [

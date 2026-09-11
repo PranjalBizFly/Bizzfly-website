@@ -16,7 +16,6 @@ import {
   ShowcaseGrid,
   StatBand,
   InsightGrid,
-  SurfacePresence,
   WhyBizzFly,
   GrowthEngine,
   FounderNote,
@@ -217,7 +216,7 @@ export default function HomePage() {
       image: homeImages.whatWeDo,
       eyebrow: "Advisory & Architecture",
       title: "Know which problem to fix first",
-      lead: "Most engagements start by buying the wrong thing. The first two weeks establish where growth is actually constrained — visibility, the website, or the operations behind it — and you keep those findings whether or not you continue with us.",
+      lead: "Most engagements start by buying the wrong thing. The first two weeks establish where growth is actually constrained (visibility, the website, or the operations behind it) and you keep those findings whether or not you continue with us.",
       tags: ["Digital strategy", "Architecture", "Measurement"],
       href: "/services/digital-strategy/",
       linkLabel: "Digital growth strategy",
@@ -244,7 +243,16 @@ export default function HomePage() {
       image: homeImages.automation,
       eyebrow: "Operations",
       title: "Handle the demand without hiring for it",
-      lead: "Quoting, lead routing and support handoffs are the steps that break first when enquiries rise. Automating them is what stops growth turning into a backlog.",
+      /*
+        Three sentences, not two. The Engineering Standards card beside this
+        one carries a two-line title and a longer lead, so at desktop widths
+        this column ended a full line short and the row read as lopsided.
+        The third sentence is the position the Media page already states —
+        that automating an undefined process makes it faster rather than
+        better — so it balances the row with copy this site already stands
+        behind rather than filler written to occupy space.
+      */
+      lead: "Quoting, lead routing and support handoffs are the steps that break first when enquiries rise. Automating them is what stops growth turning into a backlog. We fix an undefined process before automating it.",
       tags: ["Workflow automation", "AI agents", "Integration"],
       href: "/services/workflow-automation/",
       linkLabel: "Business automation",
@@ -252,7 +260,7 @@ export default function HomePage() {
     {
       image: homeImages.technology,
       eyebrow: "Engineering Standards",
-      title: "A site fast enough to rank, clear enough to convert",
+      title: "Fast enough to rank, clear to convert",
       lead: "Speed, accessibility and structure are the same engineering decisions that decide whether you rank at all. We build them in rather than optimising for them afterwards.",
       tags: ["Web development", "Custom software", "Core Web Vitals"],
       href: "/services/web-development/",
@@ -291,8 +299,8 @@ export default function HomePage() {
       <Section spacing="lg" id="what-we-do">
         <SectionHeader
           centred
-          eyebrow="02 / What we do"
-          title="Four jobs, in the order they actually matter"
+          eyebrow="What we do"
+          title="Four jobs, in the order they matter"
           lead="Visibility with nothing behind it wastes budget. A good website nobody finds wastes more. We work across all four because in practice they are one problem."
         />
         <CapabilityGroups images={narrative.jobs} />
@@ -307,7 +315,7 @@ export default function HomePage() {
       <Section background="surface" spacing="lg" id="work">
         <SectionHeader
           centred
-          eyebrow="03 / How we work"
+          eyebrow="How we work"
           title="Five disciplines, one engagement"
           lead="Most agencies sell one of these and subcontract the rest. The team that finds the problem is the team that fixes it, so the handovers that usually lose a project do not exist here."
         />
@@ -349,9 +357,9 @@ export default function HomePage() {
         */}
         <SectionHeader
           centred
-          eyebrow="05 / Published"
+          eyebrow="Published"
           title="What is actually on this site"
-          lead="Not awards, not client counts. These are the pages we have written and stand behind — the only numbers we can currently put a source against."
+          lead="Not awards, not client counts. These are the pages we have written and stand behind: the only numbers we can currently put a source against."
         />
         <StatBand stats={stats} />
       </Section>
@@ -369,7 +377,7 @@ export default function HomePage() {
       <Section background="tint" spacing="lg" id="visibility">
         <SectionHeader
           split
-          eyebrow="06 / Discoverability"
+          eyebrow="Discoverability"
           title="SEO was one surface. Now there are five."
           lead="These are not five names for the same work. Each layer describes a different retrieval mechanism, and a business can be strong on one and invisible on the next."
         />
@@ -378,23 +386,30 @@ export default function HomePage() {
 
       {/* 06 — The visitor's problems, in their words */}
       <Section spacing="lg" id="problems">
+        {/*
+          Centred rather than split. What follows is ProblemList — a
+          symmetrical run of statements, not an argument — so a left-weighted
+          header above it would start the eye off the axis the content sits on.
+        */}
         <SectionHeader
-          split
-          eyebrow="07 / Sound familiar?"
+          centred
+          eyebrow="Sound familiar?"
           title="Your customers do not discover businesses the way they used to"
-          lead="Most engagements start with one of these sentences. Each links to how we would approach it."
         />
         <ProblemList />
         {/*
-          The diagram used to sit in the hero, where it competed with the
-          headline for the opening. It belongs here: this section is the
-          claim that discovery has changed shape, and the diagram is that
-          claim drawn — one question, three surfaces, present on some and
-          absent from others.
+          The multi-surface discovery block (SurfacePresence) used to close
+          this section. It was removed from the homepage: at full length —
+          the three surface panels, the two substrate foundations and the
+          self-assessment — it read as a specification document dropped into
+          the page rather than as a section of it, and it restated the
+          discoverability argument the band above already makes with
+          VisibilitySpectrum.
+
+          The component is untouched and still renders on the entity pages
+          that ask for it through `diagram: "search-surfaces"`, where a
+          reader has arrived wanting exactly that level of detail.
         */}
-        <div className={styles.sectionDiagram}>
-          <SurfacePresence />
-        </div>
       </Section>
 
       {/*
@@ -414,9 +429,20 @@ export default function HomePage() {
 
       {/* 07 — By business situation. No pricing, no packages. */}
       <Section background="surface" spacing="lg" id="stages">
+        {/*
+          Centred, not split.
+
+          The split composition puts the lead in a column beside the heading,
+          which reads as an aside to it — and here the lead is the sharper of
+          the two lines ("the mistake is buying the work that suits the stage
+          you wish you were at"), so it was the sentence sitting off in the
+          margin. Centred, the heading and the sentence that qualifies it sit
+          on one axis, and the stage list beneath is a set of cards rather
+          than an argument, which is the case this composition exists for.
+        */}
         <SectionHeader
-          split
-          eyebrow="09 / Where you are"
+          centred
+          eyebrow="Where you are"
           title="The right work depends on the constraint you actually have"
           lead="Businesses move between these. The mistake is buying the work that suits the stage you wish you were at."
         />
@@ -427,7 +453,7 @@ export default function HomePage() {
       <Section spacing="lg" id="industries">
         <SectionHeader
           split
-          eyebrow="10 / Industries"
+          eyebrow="Industries"
           title="Context matters more than templates"
           lead="A manufacturer and an education group have almost nothing in common except that both are hard to find. We publish a sector page only where we can name that sector's real problems in its own vocabulary."
         />
@@ -447,7 +473,7 @@ export default function HomePage() {
       <Section background="tint" spacing="lg" id="technology">
         <SectionHeader
           split
-          eyebrow="11 / Technology"
+          eyebrow="Technology"
           title="We are not a marketing agency with a developer attached"
           lead="The same team that finds the crawl problem capping your visibility can fix the template causing it. Every technology page states what we use, why, and when we would tell you to use something else."
         />
@@ -487,17 +513,17 @@ export default function HomePage() {
       <Section spacing="lg" id="journeys">
         <SectionHeader
           split
-          eyebrow="12 / Start here"
+          eyebrow="Start here"
           title="What are you trying to do?"
         />
         <JourneyList />
       </Section>
 
       {/* 11 — Trust. No invented proof; the standard is stated instead. */}
-      <Section background="surface" spacing="lg" id="trust">
+      <Section background="inverse" spacing="lg" id="trust">
         <SectionHeader
           centred
-          eyebrow="13 / Proof"
+          eyebrow="Proof"
           title="What we will show you, and what we will not"
           lead="We have no client-approved case studies published yet. Rather than fill this space with logos and numbers we cannot evidence, here is the standard we hold ourselves to."
         />
@@ -547,8 +573,8 @@ export default function HomePage() {
       <Section background="tint" spacing="lg" id="faq">
         <SectionHeader
           centred
-          eyebrow="15 / Questions"
-          title="Asked before every first call"
+          eyebrow="Frequently Asked Questions"
+          title="Frequently Asked Questions"
           lead="Procedural rather than technical: how this starts, how long it takes, what we will not promise, and who owns what we build."
         />
         <div className={styles.faqWrap}>
@@ -563,7 +589,7 @@ export default function HomePage() {
       <Section spacing="lg" id="insights">
         <SectionHeader
           centred
-          eyebrow="16 / Insights"
+          eyebrow="Insights"
           title="What we have worked out, written down"
           lead="Nothing here is gated. If content is worth reading, putting a form in front of it just means fewer people read it."
         />
@@ -578,7 +604,7 @@ export default function HomePage() {
         title="Ready to build what comes next?"
         lead="Tell us what you are trying to solve, in your own words. If we are not the right people for it, we will say so and point you somewhere better."
         cta={{
-          label: "Let's Talk",
+          label: "Let's talk",
           href: "/contact/",
           tier: "T4",
           note: "30 minutes. We reply within one business day.",

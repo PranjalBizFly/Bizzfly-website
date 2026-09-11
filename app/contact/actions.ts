@@ -44,7 +44,7 @@ export async function submitContact(
 ): Promise<ContactState> {
   /* Honeypot — a bot filling a hidden field is silently accepted and dropped. */
   if (clean(formData.get("company_website"), 200).length > 0) {
-    return { status: "success", message: "Thank you — your message has been received." };
+    return { status: "success", message: "Thank you. Your message has been received." };
   }
 
   const name = clean(formData.get("name"), MAX_LENGTHS.name);
@@ -108,7 +108,7 @@ export async function submitContact(
 
     return {
       status: "success",
-      message: "Thank you — your message has been received.",
+      message: "Thank you. Your message has been received.",
     };
   } catch {
     return {

@@ -127,9 +127,22 @@
   margin: 0;
 }
 
+/*
+ * The auto-fit minimum has to be a real width, not 0.
+ *
+ * `repeat(auto-fit, minmax(0, 1fr))` is degenerate: with a zero minimum the
+ * browser can always fit another track, so it generated 33 of them, collapsed
+ * 30 and split the band three ways at every width above 560px. Three cards
+ * across a 600px screen is 173px each, and the card copy — "service pages,
+ * each stating scope and boundaries" — broke to one word a line.
+ *
+ * A 15rem floor lets the row drop to two cards and then one as the space
+ * runs out. It is chosen so the desktop composition does not move: the fact
+ * band is capped at 54rem, which still fits three 15rem tracks.
+ */
 @media (min-width: 560px) {
   .facts {
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
   }
 }
 
@@ -137,7 +150,8 @@
   background: var(--scrim-strong);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   padding: var(--space-5) var(--space-6);
   display: flex;
   flex-direction: column;
@@ -337,19 +351,30 @@
   animation: heroFade var(--dur-reveal) var(--ease-standard) both;
 }
 
+/*
+ * .title is absent: it animates its own words now (SplitText / Kinetic), and
+ * a block fade underneath a word stagger gives the headline two opacity
+ * curves at once. Its 60ms beat moved to the kinetic offset, so the hero
+ * still arrives in the same order.
+ */
 .eyebrow,
-.title,
 .lead,
 .actions,
 .factsWrap {
   animation: heroRise var(--dur-slow) var(--ease-decelerate) both;
 }
 
+/*
+ * A tighter word step than the editorial hero uses. This headline shares the
+ * screen with a photograph and a fact rail, so it states itself and stops;
+ * the editorial hero, which has only type, is allowed to take its time.
+ */
+.title {
+  --kinetic-step: 38ms;
+}
+
 .eyebrow {
   animation-delay: 0ms;
-}
-.title {
-  animation-delay: 60ms;
 }
 .lead {
   animation-delay: 120ms;
@@ -362,6 +387,77 @@
 }
 
 /*
+ * Each fact lands on its own beat, then drifts.
+ *
+ * Two animations on one element, in this order deliberately: heroRise brings
+ * the card in and holds its final frame, and heroFloat — declared second, so
+ * it wins the transform once it starts — takes over after the entrance has
+ * finished. The float's delay is the card's own arrival plus the entrance
+ * duration, so the two never overlap and the hand-off is invisible.
+ *
+ * Deliberately at the bottom of what is perceptible: five pixels over seven
+ * seconds. This is the one looping animation on the site, and a loop is a
+ * cost that never stops being paid, so it is confined to three cards in one
+ * hero and given an amplitude a reader registers as the panel being alive
+ * rather than as something moving. The cards are offset against each other,
+ * because three cards rising and falling in lockstep reads as the whole hero
+ * breathing.
+ */
+.fact {
+  animation:
+    heroRise var(--dur-slow) var(--ease-decelerate) both,
+    heroFloat 7s var(--ease-inout) infinite;
+  animation-delay:
+    calc(280ms + var(--fact-index, 0) * var(--stagger-step)),
+    calc(640ms + var(--fact-index, 0) * 900ms);
+}
+
+@keyframes heroFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -5px, 0);
+  }
+}
+
+/* ==========================================================================
+   SCROLL DRIFT
+   --------------------------------------------------------------------------
+   The photograph keeps moving fractionally after the page has started to
+   leave it. This is the one hero that can carry the effect, because here the
+   image is a full-bleed ground rather than a contained object — there is
+   overscan at every edge for it to drift into, so nothing uncovers.
+
+   Declared only where a `view()` timeline exists, only when motion is not
+   being refused, and only from the tablet breakpoint up. It replaces nothing:
+   without support the image simply sits still, having already run its
+   entrance scale.
+   ========================================================================== */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+    .media {
+      animation: heroDrift linear both;
+      animation-timeline: view();
+      /*
+       * `exit` only. Across the whole pass the image would already be
+       * off-centre as the page loads, which undoes the entrance scale that
+       * LCP depends on; starting at exit means the drift begins once the
+       * reader has started to scroll away and never touches first paint.
+       */
+      animation-range: exit 0% exit 100%;
+      will-change: transform;
+    }
+
+    @keyframes heroDrift {
+      from { transform: translate3d(0, 0, 0); }
+      to { transform: translate3d(0, calc(var(--parallax-shift) * -1), 0); }
+    }
+  }
+}
+
+/*
  * Reduced motion removes the sequence outright rather than shortening it.
  * The durations in tokens.css already collapse to 1ms, but an animation that
  * still runs is still a thing appearing, and the point of the preference is
@@ -370,11 +466,13 @@
 @media (prefers-reduced-motion: reduce) {
   .image,
   .scrim,
+  .media,
   .eyebrow,
   .title,
   .lead,
   .actions,
-  .factsWrap {
+  .factsWrap,
+  .fact {
     animation: none;
   }
 }

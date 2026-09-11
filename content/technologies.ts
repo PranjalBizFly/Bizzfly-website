@@ -42,7 +42,7 @@ const coreTechnologies: Technology[] = [
       },
     ],
     whenNotToUse: [
-      "A five-page brochure site with no content operation behind it — a managed CMS is cheaper to own",
+      "A five-page brochure site with no content operation behind it: a managed CMS is cheaper to own",
       "A team with no JavaScript capability and no plans to acquire one; the handover would fail",
       "Projects where an existing platform already meets the requirement and the only gain would be novelty",
     ],
@@ -72,7 +72,7 @@ const coreTechnologies: Technology[] = [
     layout: "ecosystem-led",
     diagram: "ai-workflow",
     whyItMatters:
-      "The AI layer is where most budget gets wasted. Choosing the right tool — and knowing when the answer is a rule engine — is the difference between a working system and an expensive pilot.",
+      "The AI layer is where most budget gets wasted. Choosing the right tool (and knowing when the answer is a rule engine) is the difference between a working system and an expensive pilot.",
     answer:
       "We build AI systems on hosted language models with retrieval over your own data, rather than fine-tuning or self-hosting, because for most business processes the cost and maintenance burden of the alternatives is not repaid.",
     choices: [
@@ -98,7 +98,7 @@ const coreTechnologies: Technology[] = [
       },
     ],
     whenNotToUse: [
-      "Deterministic, rule-based processes — a language model adds cost and unpredictability where a rule engine is correct every time",
+      "Deterministic, rule-based processes: a language model adds cost and unpredictability where a rule engine is correct every time",
       "Decisions with legal or financial consequence that require an auditable, deterministic trail",
       "Any workflow where a confident wrong answer is worse than no answer and no human reviews the output",
       "Data that cannot leave a regulated environment, unless a compliant deployment has been agreed first",
@@ -138,7 +138,7 @@ const coreTechnologies: Technology[] = [
     whyItMatters:
       "Automation tooling determines who can change a process later. Choose wrong and every adjustment becomes a development ticket.",
     answer:
-      "We use integration platforms for straightforward system-to-system work and write custom services where the logic is genuinely complex — the decision turns on how much branching a process has and who will maintain it.",
+      "We use integration platforms for straightforward system-to-system work and write custom services where the logic is genuinely complex: the decision turns on how much branching a process has and who will maintain it.",
     choices: [
       {
         name: "Integration platforms for simple flows",
@@ -157,7 +157,7 @@ const coreTechnologies: Technology[] = [
       },
     ],
     whenNotToUse: [
-      "Processes that change every month — automate the stable ones first",
+      "Processes that change every month: automate the stable ones first",
       "A process nobody owns; automating an undefined process just makes the confusion faster",
       "Volumes low enough that the build cost will never be repaid",
     ],
@@ -176,7 +176,7 @@ const coreTechnologies: Technology[] = [
   },
   {
     slug: "engineering-standards",
-    title: "Our Engineering Standards",
+    title: "Engineering Standards",
     category: "Practice",
     group: "practice",
     layout: "capability-led",
@@ -211,13 +211,13 @@ const coreTechnologies: Technology[] = [
       },
     ],
     whenNotToUse: [
-      "Throwaway prototypes built to be discarded — full rigour there is waste",
+      "Throwaway prototypes built to be discarded: full rigour there is waste",
       "Experiments where the goal is learning, not shipping",
     ],
     seo: {
       title: "Our Engineering Standards",
       description:
-        "How BizzFly builds software that your own team can maintain — typing, review, testing, budgets in CI, and planned handover.",
+        "How BizzFly builds software that your own team can maintain: typing, review, testing, budgets in CI, and planned handover.",
       primaryTopic: "engineering standards",
       secondaryTopics: ["code quality", "handover", "technical practice"],
       intent: "commercial",

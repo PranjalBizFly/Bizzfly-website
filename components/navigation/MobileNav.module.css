@@ -1,10 +1,17 @@
+/*
+ * The overlay is the bar plus the scrim; the card is `.panel` inside it.
+ * `overflow: hidden` here is what caps the card: `.panel` is a shrinkable
+ * flex item, so it takes the height its content needs and no more, and gives
+ * that up to the space actually left under the bar. No calc() against
+ * --header-height, which would have to be kept in step with the bar by hand.
+ */
 .overlay {
   position: fixed;
   inset: 0;
   z-index: var(--z-modal);
-  background: var(--background);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 /* Matches the header: the desktop bar only appears at 1280. */
@@ -15,11 +22,26 @@
 }
 
 /*
+ * The page stays visible behind the card, dimmed. This is the difference
+ * between a menu and a screen: an opaque --background across the whole
+ * viewport gave no signal that the page was still there underneath.
+ */
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--scrim-strong);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  animation: fade var(--dur-base) var(--ease-standard);
+}
+
+/*
  * The same strip as the header bar, drawn from the same tokens, so the
  * drawer opens as a continuation of the header rather than a slab in a
  * different colour. It follows the theme exactly as the header does.
  */
 .top {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,6 +66,15 @@
   padding-inline-end: var(--logo-clearspace);
 }
 
+/* Theme and close, in the bar — the two controls that act on the whole
+   drawer rather than on anything in the list. */
+.topActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-shrink: 0;
+}
+
 .iconButton {
   display: inline-flex;
   align-items: center;
@@ -62,33 +93,119 @@
   background: var(--surface);
 }
 
+/* --- The card -----------------------------------------------------------
+   Inset from all four edges and capped in width. 22rem is the width at which
+   a nav label plus its chevron still has air on either side at 15px; wider
+   than that and the rows are mostly whitespace with a word at each end. --- */
+.panel {
+  position: relative;
+  /* Shrink, never grow: a short menu is a short card. */
+  flex: 0 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  width: min(100% - (2 * var(--space-4)), 22rem);
+  margin-inline: auto;
+  margin-block: var(--space-3)
+    calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elev-3);
+  /* Clips the scroll area and the footer to the rounded corners. */
+  overflow: hidden;
+  animation: cardIn var(--dur-base) var(--ease-decelerate);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrim,
+  .panel {
+    animation: none;
+  }
+}
+
 .scroll {
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+  /* 12px inline, so the rows inside sit 20px off the card edge and the
+     dividers stop short of it — the card reads as a card, not as a list
+     that happens to have corners. */
+  padding: var(--space-4) var(--space-3) var(--space-3);
 }
 
-.utility {
-  padding: var(--space-4) var(--margin);
-  border-bottom: 1px solid var(--border);
-}
-
-.utilityButton {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  min-height: var(--touch-target-min);
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: var(--text-body);
+/* Says what the card is, in the label voice. Tracked like .t-metric-label. */
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: var(--text-meta);
   font-weight: var(--weight-medium);
-  color: var(--foreground);
-  text-align: left;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 var(--space-2) var(--space-3);
 }
 
+/* --- Quick actions ------------------------------------------------------ */
+.quickRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  padding: 0 var(--space-2) var(--space-3);
+}
+
+.quickButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--touch-target-min);
+  padding-inline: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+  font-size: var(--text-nav);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    border-color var(--dur-fast) var(--ease-standard),
+    background-color var(--dur-fast) var(--ease-standard);
+}
+
+.quickButton:hover,
+.quickButton:focus-visible {
+  background: var(--surface);
+  border-color: var(--border-strong);
+}
+
+/* Fixed box, like the chevron: quiet beside the label, and nothing reflows. */
+.quickIcon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+/* --- Sections ----------------------------------------------------------- */
 .list {
   list-style: none;
   margin: 0;
@@ -96,25 +213,31 @@
 }
 
 .row {
-  border-bottom: 1px solid var(--border);
+  border-top: 1px solid var(--border);
 }
 
-/* 56px rows, full-width tap targets, body-size text — never small type. */
+/*
+ * 44px rows — the --touch-target-min floor, down from 56px. Seven rows at
+ * 56px is 392px of list before a single section is opened, which is most of
+ * a phone screen spent on seven words. The type size is untouched: the
+ * saving comes out of the padding, never out of the label.
+ */
 .rowLink {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
   width: 100%;
-  min-height: 3.5rem;
-  padding: var(--space-3) var(--margin);
-  font-size: var(--text-body);
+  min-height: var(--touch-target-min);
+  padding: var(--space-2);
+  font-size: var(--text-nav);
   font-weight: var(--weight-medium);
   color: var(--foreground);
   text-decoration: none;
   text-align: left;
   background: none;
   border: none;
+  border-radius: var(--radius-sm);
   cursor: pointer;
 }
 
@@ -123,9 +246,6 @@
   background: var(--surface);
 }
 
-/* --- Accordion ----------------------------------------------------------
-   A plus that becomes a minus. Rotating a chevron reads as "go deeper";
-   this reads as "expands here", which is what it does. -------------- */
 /*
  * The disclosure mark is components/navigation/Chevron.tsx — the same SVG
  * the header bar uses, so a section that expands looks the same in both
@@ -136,8 +256,9 @@
  * settled by bundle order rather than by intent.
  */
 .rowLink .accordionIcon {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
 }
 
 /*
@@ -165,28 +286,35 @@
 .accordionInner {
   overflow: hidden;
   min-height: 0;
+  padding-bottom: var(--space-2);
 }
 
 /* One sentence on what the section is, matching the desktop panel. */
 .subLead {
-  font-size: var(--text-body-sm);
+  font-size: var(--text-caption);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  padding-bottom: var(--space-4);
+  padding: 0 var(--space-2) var(--space-2);
 }
 
-/* Category label inside an expanded section. */
+/*
+ * Category label inside an expanded section — 13px in the label voice, NOT
+ * the 18–20px --text-eyebrow it was set in. An eyebrow is a section kicker
+ * for a page; here it was setting a child label two steps larger than the
+ * 15px parent row it sat under, which inverted the hierarchy and was the
+ * single biggest source of vertical bulk in an open section.
+ */
 .subHeading {
   display: flex;
   align-items: baseline;
   gap: var(--space-2);
   font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
+  font-size: var(--text-meta);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--muted);
-  padding-block: var(--space-3) var(--space-2);
-  border-bottom: 1px solid var(--border);
-  margin-bottom: var(--space-1);
+  padding: var(--space-2) var(--space-2) var(--space-1);
 }
 
 .subHeadingLink {
@@ -199,7 +327,7 @@
 }
 
 .subGroup + .subGroup {
-  margin-top: var(--space-2);
+  border-top: 1px solid var(--border);
 }
 
 .subViewAll {
@@ -207,7 +335,8 @@
   align-items: center;
   gap: var(--space-2);
   min-height: var(--touch-target-min);
-  font-size: var(--text-body-sm);
+  padding-inline: var(--space-4);
+  font-size: var(--text-caption);
   font-weight: var(--weight-medium);
   color: var(--accent-text);
   text-decoration: none;
@@ -216,8 +345,7 @@
 .subList {
   list-style: none;
   margin: 0;
-  padding: 0 0 var(--space-3);
-  background: var(--surface);
+  padding: 0;
 }
 
 .subLink,
@@ -225,25 +353,27 @@
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 3rem;
+  min-height: var(--touch-target-min);
   /* Indented past the parent label so the nesting is legible at a glance. */
-  padding: var(--space-2) var(--margin) var(--space-2) calc(var(--margin) + var(--space-4));
-  font-size: var(--text-body-sm);
+  padding: var(--space-1) var(--space-2) var(--space-1) var(--space-4);
+  font-size: var(--text-nav-sub);
   color: var(--foreground);
   text-decoration: none;
+  border-radius: var(--radius-sm);
 }
 
 .subLink:hover,
 .subLink:focus-visible,
 .overviewLink:hover,
 .overviewLink:focus-visible {
-  background: var(--surface-muted);
+  background: var(--surface);
 }
 
 /* Every section opens with a link to its own hub — the parent is reachable. */
 .overviewLink {
   color: var(--muted);
   font-weight: var(--weight-medium);
+  margin-top: var(--space-1);
 }
 
 .chevron {
@@ -251,40 +381,50 @@
   flex-shrink: 0;
 }
 
-/* CTA pinned above the safe-area inset, always visible. */
+/* --- Footer -------------------------------------------------------------
+   One row inside the card: contact on the left, CTA on the right. It wraps
+   rather than compressing, so a long CTA label takes a second line instead
+   of squeezing the phone number. ---------------------------------------- */
 .footer {
   flex-shrink: 0;
-  padding: var(--space-5) var(--margin);
-  padding-bottom: calc(var(--space-5) + env(safe-area-inset-bottom, 0px));
-  border-top: 1px solid var(--border);
-  background: var(--background);
-}
-
-/* CTA takes the width it needs; the toggle sits beside it, not under it. */
-.footerActions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-3);
-}
-
-.footerActions > a {
-  flex: 1;
-}
-
-.footerToggle {
-  flex-shrink: 0;
-  border-color: var(--border);
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-3);
+  border-top: 1px solid var(--border);
+  background: var(--surface);
 }
 
 .contact {
-  margin-top: var(--space-4);
-  font-size: var(--text-body-sm);
-  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: 2px;
+  font-size: var(--text-caption);
+  line-height: 1.3;
 }
 
 .contact a {
+  color: var(--muted);
+  text-decoration: none;
+  /* The address is long and the card is 22rem; truncate rather than wrap it
+     into a second line that pushes the CTA down. */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contact a:hover,
+.contact a:focus-visible {
   color: var(--foreground);
   text-decoration: underline;
   text-decoration-color: var(--link-underline);
   text-underline-offset: 3px;
+}
+
+.footerCta {
+  flex-shrink: 0;
 }

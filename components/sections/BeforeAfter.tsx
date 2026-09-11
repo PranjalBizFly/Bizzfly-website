@@ -1,4 +1,4 @@
-import { Cascade } from "@/components/motion";
+import { Cascade, TextReveal } from "@/components/motion";
 import styles from "./BeforeAfter.module.css";
 
 export interface BeforeAfterSide {
@@ -62,10 +62,23 @@ export function BeforeAfter({
 }
 
 function Side({ side, tone }: { side: BeforeAfterSide; tone: "before" | "after" }) {
+  /*
+   * Which shape this side is, so the CSS can balance the two.
+   *
+   * The content model makes the two sides different lengths on purpose — the
+   * causes are an enumerated list and the resulting state is one passage —
+   * and with both hanging from the top of the row the shorter one left a
+   * third of its column empty underneath. The side that is a statement is
+   * centred against the list opposite instead; see BeforeAfter.module.css.
+   */
+  const shape = side.items?.length ? "list" : "text";
+
   return (
-    <div className={styles.side} data-tone={tone}>
+    <div className={styles.side} data-tone={tone} data-shape={shape}>
       {side.eyebrow ? <span className={styles.eyebrow}>{side.eyebrow}</span> : null}
-      <h2 className={styles.title}>{side.title}</h2>
+      <h2 className={styles.title}>
+        <TextReveal text={side.title} />
+      </h2>
       {side.lead ? <p className={styles.lead}>{side.lead}</p> : null}
 
       {side.items?.length ? (

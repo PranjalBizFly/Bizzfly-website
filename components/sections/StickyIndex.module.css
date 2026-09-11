@@ -1,0 +1,356 @@
+/* S-24 Sticky Index — see StickyIndex.tsx for why this shape. */
+
+.wrap {
+  display: grid;
+  /*
+   * `minmax(0, 1fr)` rather than the implicit `auto`.
+   *
+   * An auto-sized grid column takes the max-content width of its widest
+   * child, and the rail's chip strip reports its FULL unscrolled width as
+   * max-content even though it scrolls. At 390px that made the column
+   * 1019px, so the whole page gained a horizontal scrollbar and every line
+   * of body text was clipped off the right edge. A zero minimum lets the
+   * strip do the scrolling it was built to do.
+   */
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-10);
+}
+
+/* ==========================================================================
+   THE RAIL
+   Below 1024px it is a pinned strip of chips; above, a column beside the
+   content. Written mobile-first so the chip row is the default and the
+   desktop rail is the override.
+   ========================================================================== */
+
+.rail {
+  position: sticky;
+  /*
+   * Sits directly beneath the site header. The header condenses on scroll,
+   * so the offset uses the condensed height: pinning to the taller value
+   * would leave a gap the page shows through once the header shrinks.
+   */
+  top: var(--header-height-condensed);
+  z-index: var(--z-sticky);
+  min-width: 0;
+  margin-inline: calc(var(--space-4) * -1);
+  padding-inline: var(--space-4);
+  padding-block: var(--space-3);
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+}
+
+.railLabel {
+  display: none;
+}
+
+.railList {
+  display: flex;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  /* Each chip parks cleanly rather than halfway off the edge. */
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+.railList::-webkit-scrollbar {
+  display: none;
+}
+
+.railLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  /* 44px minimum target — WCAG 2.2 target size, and a thumb. */
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  color: var(--muted);
+  font-family: var(--font-label);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  white-space: nowrap;
+  scroll-snap-align: start;
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard),
+    background-color var(--dur-fast) var(--ease-standard);
+}
+
+.railLink:hover {
+  color: var(--foreground);
+  border-color: var(--border-strong);
+}
+
+.railLink[data-current="true"] {
+  color: var(--background);
+  background: var(--foreground);
+  border-color: var(--foreground);
+}
+
+.railIndex {
+  display: none;
+}
+
+.railCount {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.65;
+}
+
+@media (min-width: 1024px) {
+  .wrap {
+    /*
+     * The rail is sized to its content rather than to a share of the grid.
+     * A fractional rail grows with the viewport, and at 1440 a 4fr column
+     * was 400px carrying labels no wider than 220 — the extra came straight
+     * out of the content column, which is the half that actually needs it.
+     */
+    grid-template-columns: minmax(0, 17rem) minmax(0, 1fr);
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  .rail {
+    /* Clears the header and leaves the pinned rail some air above it. */
+    top: calc(var(--header-height-condensed) + var(--space-8));
+    margin-inline: 0;
+    padding: 0;
+    background: none;
+    border-bottom: 0;
+    z-index: var(--z-base);
+  }
+
+  .railLabel {
+    display: block;
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-label);
+    font-size: var(--text-meta);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-meta);
+    color: var(--muted);
+  }
+
+  .railList {
+    display: block;
+    overflow: visible;
+  }
+
+  .railLink {
+    /*
+     * The active marker is a left rule that thickens, not a filled pill:
+     * the rail sits in the page rather than on it, and a row of solid
+     * blocks down the left margin would out-shout the content beside it.
+     */
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: var(--space-3);
+    align-items: baseline;
+    min-height: 0;
+    padding: var(--space-3) var(--space-4);
+    border: 0;
+    border-left: 2px solid var(--border);
+    border-radius: var(--radius-0);
+    white-space: normal;
+  }
+
+  .railLink:hover {
+    background: var(--surface);
+    border-left-color: var(--border-strong);
+  }
+
+  .railLink[data-current="true"] {
+    color: var(--foreground);
+    background: none;
+    border-left-color: var(--accent-edge);
+  }
+
+  .railIndex {
+    display: block;
+    font-size: var(--text-meta);
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+  }
+
+  .railLink[data-current="true"] .railIndex {
+    color: var(--accent-text);
+  }
+
+  .railName {
+    font-size: var(--text-body);
+    line-height: var(--leading-snug);
+  }
+}
+
+@media (min-width: 1280px) {
+  .wrap {
+    grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+  }
+}
+
+/* ==========================================================================
+   THE CONTENT COLUMN
+   ========================================================================== */
+
+.column {
+  display: grid;
+  gap: var(--space-16);
+  min-width: 0;
+}
+
+.group {
+  /* Anchor jumps land under the header rather than behind it. */
+  scroll-margin-top: calc(var(--header-height) + var(--space-16));
+  min-width: 0;
+}
+
+.groupHead {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-2) var(--space-4);
+  padding-bottom: var(--space-5);
+  margin-bottom: var(--space-8);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.groupIndex {
+  font-family: var(--font-label);
+  font-size: var(--text-meta);
+  font-weight: var(--weight-medium);
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-text);
+}
+
+.groupLabel {
+  font-size: var(--text-h3);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-h3);
+  text-wrap: balance;
+}
+
+.groupRole {
+  grid-column: 2;
+  max-width: 52ch;
+  color: var(--muted);
+  line-height: var(--leading-relaxed);
+}
+
+.items {
+  display: grid;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-10) var(--space-8);
+  }
+
+  /*
+   * A group holding one entry spans the row rather than sitting in a half
+   * with nothing beside it. This is the case the old three-column grid
+   * handled worst — the single AI entry left roughly 400px of empty column
+   * next to it — and the fix belongs to the lone card, not to the group.
+   */
+  .item:only-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.item {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  min-width: 0;
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border);
+  transition: border-color var(--dur-base) var(--ease-standard);
+}
+
+.item:hover,
+.item:focus-within {
+  border-top-color: var(--accent-edge);
+}
+
+.itemTitle {
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  text-wrap: balance;
+}
+
+.itemLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*
+ * The card-wide target, so the whole row is reachable with a thumb rather
+ * than only the title's own text. The meta row below lifts itself back above
+ * this layer so its links stay independently clickable.
+ */
+.itemLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.itemLink:hover {
+  color: var(--accent-text);
+}
+
+.itemDescription {
+  color: var(--muted);
+  line-height: var(--leading-relaxed);
+}
+
+.itemMeta {
+  /*
+   * Positioned, but deliberately without a z-index.
+   *
+   * The title's stretched ::after covers the card so the whole row is a
+   * target; these links have to stay above it or they become unclickable.
+   * Both are positioned with `z-index: auto`, so they paint in tree order
+   * and this one — later in the DOM — already wins. A z-index here would be
+   * an off-scale layer value buying nothing.
+   */
+  position: relative;
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+}
+
+.itemMetaLabel {
+  font-family: var(--font-label);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  color: var(--muted);
+}
+
+.itemMetaLabel::after {
+  content: " ";
+}
+
+.itemMetaLink {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 0.2em;
+}
+
+.itemMetaLink:hover {
+  text-decoration-color: var(--accent-edge);
+  color: var(--accent-text);
+}

@@ -20,12 +20,12 @@ export const moreTechnologies: Technology[] = [
     whyItMatters:
       "Search and analytics tooling decides whether you can see what is happening. Without it, every visibility decision is a guess and every report is an argument.",
     answer:
-      "The search and analytics layer is how we measure visibility and behaviour — index coverage, crawl health, ranking and citation tracking, and conversion data that survives ad blockers and browser restrictions.",
+      "The search and analytics layer is how we measure visibility and behaviour: index coverage, crawl health, ranking and citation tracking, and conversion data that survives ad blockers and browser restrictions.",
     choices: [
       {
         name: "Google Search Console",
         rationale:
-          "The only source of truth for how Google actually sees a site — index coverage, queries and Core Web Vitals field data.",
+          "The only source of truth for how Google actually sees a site: index coverage, queries and Core Web Vitals field data.",
       },
       {
         name: "Site crawlers",
@@ -44,7 +44,7 @@ export const moreTechnologies: Technology[] = [
       },
     ],
     whenNotToUse: [
-      "Adding a second analytics platform because the first one is inconvenient — two sources of truth is worse than one imperfect one",
+      "Adding a second analytics platform because the first one is inconvenient: two sources of truth is worse than one imperfect one",
       "Heavy tracking on a site with too little traffic for the data to mean anything",
       "Session recording where the privacy cost outweighs what you would learn",
     ],
@@ -58,7 +58,7 @@ export const moreTechnologies: Technology[] = [
     seo: {
       title: "Search & Analytics",
       description:
-        "The measurement layer behind visibility work — search console data, crawlers, GA4 with server-side tagging, and AI citation tracking.",
+        "The measurement layer behind visibility work: Search Console data, crawlers, GA4 with server-side tagging, and AI citation tracking.",
       primaryTopic: "search and analytics technology",
       secondaryTopics: ["GA4", "Search Console", "measurement"],
       intent: "commercial",
@@ -84,7 +84,7 @@ export const moreTechnologies: Technology[] = [
     whyItMatters:
       "Most businesses do not have a tooling problem, they have a connection problem. Each system works; nothing talks. People become the integration layer.",
     answer:
-      "Integration work connects the systems a business already runs so that data moves between them automatically — with one agreed source of truth, defined error handling, and monitoring when something fails.",
+      "Integration work connects the systems a business already runs so that data moves between them automatically, with one agreed source of truth, defined error handling, and monitoring when something fails.",
     choices: [
       {
         name: "Direct API integration",
@@ -109,7 +109,7 @@ export const moreTechnologies: Technology[] = [
     ],
     whenNotToUse: [
       "Integrating a system you are about to replace",
-      "Connecting processes nobody owns — automating an undefined process makes the confusion faster, not smaller",
+      "Connecting processes nobody owns: automating an undefined process makes the confusion faster, not smaller",
       "Real-time sync where a scheduled update would do, at a fraction of the complexity",
     ],
     decisionCriteria: [
@@ -123,7 +123,7 @@ export const moreTechnologies: Technology[] = [
     seo: {
       title: "Integrations",
       description:
-        "Connect the systems you already run — APIs, integration platforms and event-driven updates, with one declared source of truth.",
+        "Connect the systems you already run: APIs, integration platforms and event-driven updates, with one declared source of truth.",
       primaryTopic: "systems integration technology",
       secondaryTopics: ["API", "webhooks", "data sync"],
       intent: "commercial",
@@ -147,9 +147,9 @@ export const moreTechnologies: Technology[] = [
     layout: "capability-led",
     diagram: "content-structure",
     whyItMatters:
-      "The platform decides who can publish. If every content change needs a developer, the site stops being updated — and a stale site is a visibility problem before it is a design one.",
+      "The platform decides who can publish. If every content change needs a developer, the site stops being updated, and a stale site is a visibility problem before it is a design one.",
     answer:
-      "A content platform is what lets a marketing team publish without a developer. The right choice depends on how much content there is, how often it changes, and who edits it — not on which platform is fashionable.",
+      "A content platform is what lets a marketing team publish without a developer. The right choice depends on how much content there is, how often it changes, and who edits it, not on which platform is fashionable.",
     choices: [
       {
         name: "Structured content modelling",
@@ -173,7 +173,7 @@ export const moreTechnologies: Technology[] = [
       },
     ],
     whenNotToUse: [
-      "A five-page site that changes twice a year — a CMS is overhead nobody will use",
+      "A five-page site that changes twice a year: a CMS is overhead nobody will use",
       "Teams with no capacity to publish; a platform does not create a content operation",
       "Migrating platform to solve a problem that is actually content strategy",
     ],
@@ -187,7 +187,7 @@ export const moreTechnologies: Technology[] = [
     seo: {
       title: "Content Platforms",
       description:
-        "How BizzFly chooses a content platform — structured content, headless CMS with server rendering, and who actually has to edit it.",
+        "How BizzFly chooses a content platform: structured content, headless CMS with server rendering, and who actually has to edit it.",
       primaryTopic: "content management platforms",
       secondaryTopics: ["CMS", "headless CMS", "structured content"],
       intent: "commercial",
@@ -213,7 +213,7 @@ export const moreTechnologies: Technology[] = [
     whyItMatters:
       "Hosting decides how fast your site responds and how it behaves when something breaks. It is invisible until it is the only thing anyone is talking about.",
     answer:
-      "The hosting and infrastructure layer covers where applications run, how they are deployed, and what happens when they fail — chosen for reliability and operational simplicity rather than for scale nobody needs yet.",
+      "The hosting and infrastructure layer covers where applications run, how they are deployed, and what happens when they fail, chosen for reliability and operational simplicity rather than for scale nobody needs yet.",
     choices: [
       {
         name: "Static generation with edge delivery",
@@ -233,7 +233,7 @@ export const moreTechnologies: Technology[] = [
       {
         name: "Hosting chosen for the workload, not for a partnership",
         rationale:
-          "We have no reseller arrangement steering this choice. Hosting is selected on the application's actual requirements — traffic pattern, data residency, and who operates it.",
+          "We have no reseller arrangement steering this choice. Hosting is selected on the application's actual requirements: traffic pattern, data residency, and who operates it.",
       },
     ],
     whenNotToUse: [
@@ -250,7 +250,7 @@ export const moreTechnologies: Technology[] = [
     seo: {
       title: "Cloud & Hosting",
       description:
-        "Where applications run and how they are deployed — static generation, edge delivery, managed platforms and preview environments.",
+        "Where applications run and how they are deployed: static generation, edge delivery, managed platforms and preview environments.",
       primaryTopic: "cloud hosting and infrastructure",
       secondaryTopics: ["hosting", "deployment", "edge"],
       intent: "commercial",

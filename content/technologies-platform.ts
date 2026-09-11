@@ -43,7 +43,7 @@ export const platformTechnologies: Technology[] = [
       },
     ],
     whenNotToUse: [
-      "Two source systems and a handful of recurring questions — well-defined reports are cheaper and easier to trust",
+      "Two source systems and a handful of recurring questions: well-defined reports are cheaper and easier to trust",
       "Where the underlying definitions are still disputed; a warehouse will encode the disagreement rather than settle it",
       "As a first step toward AI, when the actual requirement is access to a few specific documents",
     ],
@@ -56,7 +56,7 @@ export const platformTechnologies: Technology[] = [
     seo: {
       title: "Data Platforms",
       description:
-        "Warehouses, scheduled extraction and definitions in version control — and why a platform encodes a disagreement it cannot settle.",
+        "Warehouses, scheduled extraction and definitions in version control, and why a platform encodes a disagreement it cannot settle.",
       primaryTopic: "data platform architecture",
       secondaryTopics: ["data warehouse", "analytics engineering"],
       intent: "informational",
@@ -73,7 +73,7 @@ export const platformTechnologies: Technology[] = [
       {
         question: "Why do two reports show different revenue?",
         answer:
-          "Almost always because they define revenue differently — different date, different treatment of refunds, different inclusion rules. That is a definition problem, and no platform resolves it for you.",
+          "Almost always because they define revenue differently: different date, different treatment of refunds, different inclusion rules. That is a definition problem, and no platform resolves it for you.",
       },
     ],
     related: [
@@ -114,7 +114,7 @@ export const platformTechnologies: Technology[] = [
       },
     ],
     whenNotToUse: [
-      "A handful of customers and one salesperson — a shared document is genuinely adequate and honest about it",
+      "A handful of customers and one salesperson: a shared document is genuinely adequate and honest about it",
       "As a substitute for a defined sales process; the tool will encode whatever confusion already exists",
       "Where the real problem is lead quality, which a CRM records but does not improve",
     ],
@@ -127,7 +127,7 @@ export const platformTechnologies: Technology[] = [
     seo: {
       title: "CRM Platforms",
       description:
-        "Choosing a CRM on process fit, automatic capture and integration path — and why adoption decides the outcome more than features.",
+        "Choosing a CRM on process fit, automatic capture and integration path, and why adoption decides the outcome more than features.",
       primaryTopic: "crm platforms",
       secondaryTopics: ["CRM selection", "sales systems"],
       intent: "informational",
@@ -159,7 +159,7 @@ export const platformTechnologies: Technology[] = [
     group: "web",
     layout: "ecosystem-led",
     answer:
-      "There are three routes to a mobile experience — a responsive web application, a cross-platform native app, or fully native apps — and the right one is decided by what device capabilities you genuinely need.",
+      "There are three routes to a mobile experience (a responsive web application, a cross-platform native app, or fully native apps) and the right one is decided by what device capabilities you genuinely need.",
     whyItMatters:
       "Building a native app when a website would do is one of the more expensive mistakes available, and it recurs because an app feels more substantial than a site.",
     choices: [
@@ -185,7 +185,7 @@ export const platformTechnologies: Technology[] = [
       },
     ],
     whenNotToUse: [
-      "As a marketing exercise — an app nobody has a reason to install is a cost with an ongoing maintenance tail",
+      "As a marketing exercise: an app nobody has a reason to install is a cost with an ongoing maintenance tail",
       "For content that should be findable in search, which an app removes from the web entirely",
       "Before a responsive web version has demonstrated that the use case is real",
     ],
@@ -215,7 +215,7 @@ export const platformTechnologies: Technology[] = [
       {
         question: "Will an app help our search visibility?",
         answer:
-          "No — it generally reduces it. Content inside an app is not on the web, so it cannot be crawled, ranked or cited. Anything that should be findable belongs on the site.",
+          "No: it generally reduces it. Content inside an app is not on the web, so it cannot be crawled, ranked or cited. Anything that should be findable belongs on the site.",
       },
     ],
     related: [
@@ -257,7 +257,7 @@ export const platformTechnologies: Technology[] = [
     ],
     whenNotToUse: [
       "As a replacement for a specialist assessment where the risk profile genuinely warrants one",
-      "As a compliance claim — these are engineering practices, not a certification",
+      "As a compliance claim: these are engineering practices, not a certification",
       "As a reason to delay delivery indefinitely; security added continuously beats security deferred",
     ],
     decisionCriteria: [
@@ -269,7 +269,7 @@ export const platformTechnologies: Technology[] = [
     seo: {
       title: "Security & Access",
       description:
-        "Least privilege, secrets outside the repository, scheduled dependency updates and single sign-on — the practices that cover realistic risk.",
+        "Least privilege, secrets outside the repository, scheduled dependency updates and single sign-on: the practices that cover realistic risk.",
       primaryTopic: "application security practices",
       secondaryTopics: ["access control", "dependency management"],
       intent: "informational",
@@ -357,7 +357,7 @@ export const platformTechnologies: Technology[] = [
       {
         question: "Are automated tests worth it on a small project?",
         answer:
-          "For anything that will be changed again, yes — but proportionately. A handful of tests around the behaviour that would be costly to break returns more than a comprehensive suite nobody maintains.",
+          "For anything that will be changed again, yes, but proportionately. A handful of tests around the behaviour that would be costly to break returns more than a comprehensive suite nobody maintains.",
       },
     ],
     related: [
@@ -389,7 +389,7 @@ export const platformTechnologies: Technology[] = [
       {
         name: "Alerts on symptoms, not causes",
         rationale:
-          "Alert when users are affected — errors rising, requests slowing — rather than on every resource threshold. Cause-based alerting produces noise, and noisy alerting is eventually muted.",
+          "Alert when users are affected (errors rising, requests slowing) rather than on every resource threshold. Cause-based alerting produces noise, and noisy alerting is eventually muted.",
       },
       {
         name: "Errors reported with context",
@@ -411,7 +411,7 @@ export const platformTechnologies: Technology[] = [
     seo: {
       title: "Observability",
       description:
-        "Structured logs, few meaningful metrics, symptom-based alerts and errors captured with context — designed in rather than added after an incident.",
+        "Structured logs, few meaningful metrics, symptom-based alerts and errors captured with context, designed in rather than added after an incident.",
       primaryTopic: "application observability",
       secondaryTopics: ["monitoring", "logging", "alerting"],
       intent: "informational",
@@ -423,7 +423,7 @@ export const platformTechnologies: Technology[] = [
       {
         question: "How is observability different from monitoring?",
         answer:
-          "Monitoring tells you a known thing broke. Observability lets you investigate an unknown failure without shipping new code to gather the data — which is the situation most real incidents present.",
+          "Monitoring tells you a known thing broke. Observability lets you investigate an unknown failure without shipping new code to gather the data, which is the situation most real incidents present.",
       },
       {
         question: "What should we add first?",
@@ -447,7 +447,7 @@ export const platformTechnologies: Technology[] = [
     group: "automation",
     layout: "architecture-led",
     answer:
-      "Taking a payment is the easy part. The complexity is in what surrounds it — refunds, retries, partial states, reconciliation and tax — and that is where billing projects overrun.",
+      "Taking a payment is the easy part. The complexity is in what surrounds it (refunds, retries, partial states, reconciliation and tax), and that is where billing projects overrun.",
     whyItMatters:
       "Billing errors are visible to customers and to finance simultaneously, which makes them disproportionately expensive to recover from.",
     choices: [
@@ -464,7 +464,7 @@ export const platformTechnologies: Technology[] = [
       {
         name: "Idempotent operations",
         rationale:
-          "The same request repeated must not charge twice. Networks fail mid-request, users double-click, and webhooks are redelivered — all of which happen in normal operation, not only in edge cases.",
+          "The same request repeated must not charge twice. Networks fail mid-request, users double-click, and webhooks are redelivered, all of which happen in normal operation, not only in edge cases.",
       },
       {
         name: "Reconciliation designed in",
@@ -486,7 +486,7 @@ export const platformTechnologies: Technology[] = [
     seo: {
       title: "Payments & Billing",
       description:
-        "Hosted pages, provider as source of truth, idempotent operations and designed-in reconciliation — where billing complexity actually lives.",
+        "Hosted pages, provider as source of truth, idempotent operations and designed-in reconciliation: where billing complexity actually lives.",
       primaryTopic: "payments integration",
       secondaryTopics: ["billing", "subscriptions", "reconciliation"],
       intent: "informational",
@@ -584,7 +584,7 @@ export const platformTechnologies: Technology[] = [
         type: "COMPANY",
       },
       {
-        label: "Website Accessibility Checklist",
+        label: "Accessibility Checklist",
         href: "/resources/accessibility-checklist/",
         type: "CHECKLIST",
       },

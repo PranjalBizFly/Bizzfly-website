@@ -1,0 +1,73 @@
+/* ==========================================================================
+   PATH DRAW
+   --------------------------------------------------------------------------
+   An SVG that draws itself in reading order.
+
+   Every stroked element inside carries pathLength="1", so a dasharray of 1
+   is exactly one full length whatever the geometry actually measures. That
+   is what lets a single rule drive every shape in the diagram, and what
+   stops the animation breaking the next time a coordinate moves.
+   ========================================================================== */
+
+.draw {
+  display: block;
+}
+
+/*
+ * Undrawn. Applied only once the observer has registered, so a diagram that
+ * is already on screen — or one in a browser running no JS — is simply a
+ * finished diagram rather than an empty frame.
+ */
+.draw[data-reveal="pending"] :global([pathLength]) {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.draw[data-reveal="visible"] :global([pathLength]) {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset var(--draw-duration, var(--dur-story))
+    var(--ease-inout);
+  transition-delay: var(--draw-delay, 0ms);
+}
+
+/*
+ * Anything that is not a stroke — a node marker, a label, an arrowhead —
+ * fades in behind the line that leads to it. Marked by the author with
+ * data-draw-fill rather than inferred, because a filled shape mid-diagram
+ * may well be something the line is drawn *through* rather than towards.
+ */
+.draw[data-reveal="pending"] :global([data-draw-fill]) {
+  opacity: 0;
+}
+
+.draw[data-reveal="visible"] :global([data-draw-fill]) {
+  opacity: 1;
+  transition: opacity var(--dur-base) var(--ease-standard);
+  /* Lands as the stroke reaching it finishes, not before. */
+  transition-delay: calc(
+    var(--draw-delay, 0ms) + var(--draw-duration, var(--dur-story)) * 0.6
+  );
+}
+
+/* --------------------------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------------------------
+   The finished diagram, immediately. A line drawing itself is exactly the
+   kind of directed movement this setting is asking not to see, and the
+   diagram communicates the same thing standing still.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .draw[data-reveal="pending"] :global([pathLength]),
+  .draw[data-reveal="visible"] :global([pathLength]) {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+
+  .draw[data-reveal="pending"] :global([data-draw-fill]),
+  .draw[data-reveal="visible"] :global([data-draw-fill]) {
+    opacity: 1;
+    transition: none;
+  }
+}

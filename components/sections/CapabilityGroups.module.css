@@ -250,8 +250,9 @@
   min-width: 0;
 }
 
+/* The item-subtitle size — the line under a group title, as on every hub. */
 .summary {
-  font-size: var(--text-body);
+  font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
   color: var(--muted);
   max-width: var(--measure-body);

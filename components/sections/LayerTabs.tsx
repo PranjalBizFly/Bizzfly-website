@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { useId, useState } from "react";
 import type { CSSProperties } from "react";
+import { Typewriter } from "@/components/motion";
 import { Reveal } from "@/components/motion";
 import styles from "./LayerTabs.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 export interface LayerFact {
   label: string;
@@ -14,8 +16,17 @@ export interface LayerFact {
 export interface LayerTabItem {
   /** Rail heading. Short — a code, a stage number, a model name. */
   code: string;
-  /** Rail sub-label. One or two words. */
-  surface: string;
+  /**
+   * Rail sub-label. One or two words.
+   *
+   * Optional, because a set whose codes already say what they are does not
+   * need one: the discoverability layers are labelled SEO, AEO, GEO, AIO and
+   * SXO, and a second gloss under each ("Ranked results", "Direct answers")
+   * restated the rail in a quieter voice. Where the code IS opaque — a
+   * boilerplate length, an engagement shape — the sub-label is doing real
+   * work and is still passed.
+   */
+  surface?: string;
   /** Panel heading. */
   name: string;
   /** Small kicker above the heading. Usually the question the item answers. */
@@ -89,7 +100,9 @@ export function LayerTabs({ items, label }: LayerTabsProps) {
               }}
             >
               <span className={styles.tabCode}>{item.code}</span>
-              <span className={styles.tabSurface}>{item.surface}</span>
+              {item.surface ? (
+                <span className={styles.tabSurface}>{item.surface}</span>
+              ) : null}
             </button>
           );
         })}
@@ -105,9 +118,23 @@ export function LayerTabs({ items, label }: LayerTabsProps) {
           hidden={index !== active}
         >
           {item.question ? (
-            <p className={styles.panelQuestion}>{item.question}</p>
+            /*
+              The query types itself.
+
+              This line is the question a buyer enters on the surface the tab
+              describes, so typing it is a depiction of the thing the section
+              is about rather than decoration applied to a heading. Keyed on
+              the question so switching tabs retypes the new one — the change
+              of query IS what changed when the reader moved between layers.
+
+              The complete string is in the DOM for assistive technology at
+              all times; see Typewriter.
+            */
+            <p className={styles.panelQuestion}>
+              <Typewriter key={item.question} text={item.question} />
+            </p>
           ) : null}
-          <h3 className={styles.panelName}>{item.name}</h3>
+          <h3 className={styles.panelName}>{titleCase(item.name)}</h3>
           <p className={styles.panelDescription}>{item.description}</p>
 
           {item.facts?.length ? (

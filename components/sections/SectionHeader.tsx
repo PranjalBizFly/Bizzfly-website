@@ -1,5 +1,5 @@
 import { Heading, BodyText, Eyebrow } from "@/components/typography";
-import { Reveal } from "@/components/motion";
+import { Reveal, TextReveal } from "@/components/motion";
 import styles from "./Sections.module.css";
 
 interface SectionHeaderProps {
@@ -27,6 +27,26 @@ interface SectionHeaderProps {
    * separately would break the composition into two arrivals.
    */
   reveal?: boolean;
+  /**
+   * Assemble the heading letter by letter instead of fading it in as a block.
+   *
+   * ON by default, which reverses an earlier decision recorded here. The
+   * previous rule was one per page, on the grounds that a reveal repeated
+   * down a page stops reading as emphasis. That holds when the effect is
+   * loud; at 13ms a letter it is not. A heading lands in about half a second
+   * and the reader mostly registers that the page is alive rather than that
+   * something was animated — which is the intended house style, and is what
+   * the site is now asked to have throughout.
+   *
+   * Two things keep it from becoming noise. The stagger is per letter and
+   * very short, so the whole heading arrives as one gesture rather than as a
+   * queue of words; and it only ever applies to this component, which is the
+   * section-opening heading — never to body copy, list items or card titles.
+   *
+   * Pass `false` where a header sits inside a block with its own entrance and
+   * a second arrival would split the composition in two.
+   */
+  kinetic?: boolean;
 }
 
 /**
@@ -57,6 +77,7 @@ export function SectionHeader({
   centred = false,
   level = 2,
   reveal = true,
+  kinetic = true,
 }: SectionHeaderProps) {
   const heading = (
     <div className={styles.header}>
@@ -68,7 +89,7 @@ export function SectionHeader({
         size={level === 2 ? "h2" : "h3"}
         className={styles.headerTitle}
       >
-        {title}
+        {kinetic ? <TextReveal text={title} /> : title}
       </Heading>
     </div>
   );
@@ -79,9 +100,21 @@ export function SectionHeader({
     </BodyText>
   ) : null;
 
-  const className = split
-    ? styles.headerSplit
-    : `${styles.headerStack} ${centred ? styles.headerCentred : ""}`.trim();
+  /*
+   * `split` needs two things to split.
+   *
+   * The split composition is a 6/7 grid whose trailing track exists to hold
+   * the lead. Sixteen sections across the detail templates ask for `split`
+   * and pass no lead — "Frequently Asked Questions", "Services
+   * involved", "What we did" — so the grid was reserving better than half the
+   * band for nothing and the heading sat in a column half the width it could
+   * have had. Falling back to the stacked composition is not a different
+   * design: it is the same heading without an empty column beside it.
+   */
+  const className =
+    split && leadText
+      ? styles.headerSplit
+      : `${styles.headerStack} ${centred ? styles.headerCentred : ""}`.trim();
 
   /*
    * The reveal wrapper IS the layout element rather than a div around it —

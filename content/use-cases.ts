@@ -12,7 +12,7 @@ import { deliveryUseCases } from "./use-cases-delivery";
 const coreUseCases: UseCase[] = [
   {
     slug: "generate-more-leads",
-    title: "Generate more qualified leads",
+    title: "Generate more leads",
     answer:
       "Most lead problems are not traffic problems. They are usually a visibility gap on the queries buyers actually use, a site that does not convert the visitors it already gets, or follow-up slow enough that interest cools before anyone responds.",
     symptoms: [
@@ -32,7 +32,7 @@ const coreUseCases: UseCase[] = [
         index: 1,
         title: "Find where demand already exists",
         description:
-          "Query research against real buying language, not internal vocabulary — including how people phrase things to an AI assistant.",
+          "Query research against real buying language, not internal vocabulary, including how people phrase things to an AI assistant.",
         duration: "Weeks 1–2",
       },
       {
@@ -66,7 +66,7 @@ const coreUseCases: UseCase[] = [
     seo: {
       title: "Generate more qualified leads",
       description:
-        "Diagnose why enquiry volume is flat — visibility gaps, conversion leaks and slow follow-up — and fix them in the right order.",
+        "Diagnose why enquiry volume is flat (visibility gaps, conversion leaks and slow follow-up) and fix them in the right order.",
       primaryTopic: "lead generation",
       secondaryTopics: ["qualified leads", "enquiry volume", "conversion"],
       intent: "commercial",
@@ -87,7 +87,7 @@ const coreUseCases: UseCase[] = [
       },
     ],
     related: [
-      { label: "SEO Services", href: "/services/seo/", type: "SERVICE" },
+      { label: "SEO", href: "/services/seo/", type: "SERVICE" },
       { label: "Manufacturing", href: "/industries/manufacturing/", type: "INDUSTRY" },
     ],
   },
@@ -95,7 +95,7 @@ const coreUseCases: UseCase[] = [
     slug: "get-found-in-ai-search",
     title: "Get found in AI search",
     answer:
-      "When buyers ask ChatGPT, Perplexity or Google's AI Overviews for a recommendation, some brands get named and most do not. The difference is rarely budget — it is whether a machine can identify the business, verify what it does, and extract a usable answer from its content.",
+      "When buyers ask ChatGPT, Perplexity or Google's AI Overviews for a recommendation, some brands get named and most do not. The difference is rarely budget; it is whether a machine can identify the business, verify what it does, and extract a usable answer from its content.",
     symptoms: [
       "Rankings have held but organic clicks are falling",
       "You have no idea whether your brand appears in AI answers",
@@ -103,7 +103,7 @@ const coreUseCases: UseCase[] = [
       "An AI assistant describes your business incorrectly",
     ],
     rootCauses: [
-      "The brand entity is ambiguous — inconsistent name, address and details across sources",
+      "The brand entity is ambiguous: inconsistent name, address and details across sources",
       "Content buries the answer beneath marketing copy, so nothing is extractable",
       "No structured data connecting pages to a single organisation identity",
       "Content that reads as promotional rather than as a citable source",
@@ -147,7 +147,7 @@ const coreUseCases: UseCase[] = [
     seo: {
       title: "Get found in AI search",
       description:
-        "Appear in AI-generated answers across ChatGPT, Perplexity, Gemini and Google AI Overviews — measured against a fixed prompt set.",
+        "Appear in AI-generated answers across ChatGPT, Perplexity, Gemini and Google AI Overviews, measured against a fixed prompt set.",
       primaryTopic: "AI search visibility",
       secondaryTopics: ["AI citations", "AEO", "GEO"],
       intent: "commercial",
@@ -164,7 +164,7 @@ const coreUseCases: UseCase[] = [
       {
         question: "Is this just SEO with a new name?",
         answer:
-          "It shares foundations — crawlability, structure, authority — but the target is different. SEO competes for a position in a list. AI search competes to be the source a model quotes, which rewards extractable answers and a clear entity far more than keyword coverage.",
+          "It shares foundations (crawlability, structure, authority) but the target is different. SEO competes for a position in a list. AI search competes to be the source a model quotes, which rewards extractable answers and a clear entity far more than keyword coverage.",
       },
     ],
     related: [
@@ -179,7 +179,7 @@ const coreUseCases: UseCase[] = [
     slug: "reduce-manual-work",
     title: "Reduce manual work",
     answer:
-      "Repetitive work rarely appears as a line item, so it rarely gets fixed. It shows up instead as capable people spending their week rekeying data, chasing approvals and rebuilding the same report — and as a business that cannot grow without hiring.",
+      "Repetitive work rarely appears as a line item, so it rarely gets fixed. It shows up instead as capable people spending their week rekeying data, chasing approvals and rebuilding the same report, and as a business that cannot grow without hiring.",
     symptoms: [
       "The same data is typed into more than one system",
       "A process stops when one particular person is on leave",
@@ -204,7 +204,7 @@ const coreUseCases: UseCase[] = [
         index: 2,
         title: "Automate the highest-cost repetitive step first",
         description:
-          "One process, end to end, in production — not a platform rollout that takes a year to show anything.",
+          "One process, end to end, in production, not a platform rollout that takes a year to show anything.",
         duration: "Weeks 3–8",
       },
       {
@@ -231,7 +231,7 @@ const coreUseCases: UseCase[] = [
     seo: {
       title: "Reduce manual work",
       description:
-        "Automate the repetitive work consuming your team — data movement, routing, approvals and reporting — starting with the highest-cost process.",
+        "Automate the repetitive work consuming your team (data movement, routing, approvals and reporting) starting with the highest-cost process.",
       primaryTopic: "reducing manual work",
       secondaryTopics: ["workflow automation", "operational efficiency"],
       intent: "commercial",
@@ -283,7 +283,7 @@ const coreUseCases: UseCase[] = [
       {
         index: 2,
         title: "Fix the constraints",
-        description: "Crawl, index, speed and architecture — the ceiling on everything else.",
+        description: "Crawl, index, speed and architecture: the ceiling on everything else.",
         duration: "Weeks 3–6",
       },
       {
@@ -302,7 +302,7 @@ const coreUseCases: UseCase[] = [
     seo: {
       title: "Increase organic traffic",
       description:
-        "Diagnose why organic growth has stalled — technical constraints, content targeting or authority — and fix the actual cause.",
+        "Diagnose why organic growth has stalled (technical constraints, content targeting or authority) and fix the actual cause.",
       primaryTopic: "organic traffic growth",
       secondaryTopics: ["SEO", "search visibility"],
       intent: "commercial",
@@ -310,7 +310,7 @@ const coreUseCases: UseCase[] = [
     audience: ["A3"],
     phase: "P1",
     cta: { label: "Get a free SEO audit", href: "/contact/", tier: "T3" },
-    related: [{ label: "SEO Services", href: "/services/seo/", type: "SERVICE" }],
+    related: [{ label: "SEO", href: "/services/seo/", type: "SERVICE" }],
   },
 ];
 

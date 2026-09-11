@@ -16,6 +16,7 @@ import {
   ContentBlock,
   Diagram,
   ProseSections,
+  PracticeNarrative,
 } from "@/components/sections";
 import { CtaBlock, TextLink } from "@/components/buttons";
 import { BodyText, Eyebrow, Heading } from "@/components/typography";
@@ -26,6 +27,7 @@ import { metaForService, serviceGroups } from "@/content/service-meta";
 import { getServiceImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import { relationshipsForService } from "@/lib/relationships";
+import { expandFaqs } from "@/lib/faqs";
 import { buildMetadata, faqSchema, serviceSchema } from "@/lib/seo";
 
 /**
@@ -38,8 +40,33 @@ import { buildMetadata, faqSchema, serviceSchema } from "@/lib/seo";
  */
 type SectionGround = "bg" | "surface";
 
-/** Zero-padded position, so the eyebrows read 01, 02 rather than 1, 2. */
-const pad = (position: number) => String(position).padStart(2, "0");
+/**
+ * "a" or "an" for a service title.
+ *
+ * Needed because the closing band names the service the reader has just read
+ * about, and the titles include acronyms whose article follows how the letter
+ * is *said*, not how it is spelled: "an SEO audit" (ess), "a CRM
+ * implementation" (see), "a UI/UX design" (you). A plain vowel test gets all
+ * three wrong.
+ *
+ * So an all-caps first word is judged on its opening letter name — the letters
+ * whose names begin with a vowel sound are A, E, F, H, I, L, M, N, O, R, S and
+ * X — and anything else falls back to the ordinary spelling test.
+ */
+const VOWEL_SOUNDING_LETTERS = new Set(["A", "E", "F", "H", "I", "L", "M", "N", "O", "R", "S", "X"]);
+
+function article(title: string): string {
+  const word = title.split(/\s+/)[0] ?? "";
+  const letters = word.replace(/[^A-Za-z]/g, "");
+  if (!letters) return "a";
+
+  const isAcronym = letters === letters.toUpperCase();
+  const vowelSound = isAcronym
+    ? VOWEL_SOUNDING_LETTERS.has(letters[0]!)
+    : "AEIOU".includes(letters[0]!.toUpperCase());
+
+  return vowelSound ? "an" : "a";
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -78,6 +105,9 @@ export default async function ServicePage({ params }: PageProps) {
   const entity = practice ?? service;
 
   if (!entity || !isPublished(entity)) notFound();
+
+  /* Authored FAQs topped up from the page's own content — see lib/faqs.ts. */
+  const faqs = expandFaqs(entity, practice ? "practice" : "service");
 
   const path = `/services/${slug}/`;
   /*
@@ -159,14 +189,14 @@ export default async function ServicePage({ params }: PageProps) {
    * order is composed below rather than fixed here.
    *
    * That buys two things the old map could not have. The eyebrows number
-   * themselves — "01 / The problem", "02 / Scope" — so a service page has the
+   * themselves — "The problem", "Scope" — so a service page has the
    * same spine the homepage does however its sections were ordered. And the
    * ground alternates by position rather than by section name, so no two
    * bands in a row share a background whatever the layout dropped or kept.
    */
   const sections: Record<
     string,
-    ((position: number, ground: SectionGround) => React.ReactNode) | null
+    ((ground: SectionGround) => React.ReactNode) | null
   > = {
     /*
      * The explanation, before any of the lists.
@@ -177,24 +207,40 @@ export default async function ServicePage({ params }: PageProps) {
      * read as specifications. This is where the page explains itself, and it
      * comes first because a reader needs the argument before the inventory.
      */
+    /*
+     * On a practice page the explainer is the page's substance — up to 570
+     * words across four sections — so it is composed rather than set as
+     * prose. PracticeNarrative gives each section its own frame, its own
+     * ground and one of two compositions depending on whether its paragraphs
+     * are an argument or a numbered set. ProseSections is kept for any other
+     * entity that grows a `sections` array: only practices have one today,
+     * and only practices have section frames assigned.
+     */
     explainer: entity.sections?.length
-      ? (_position, ground) => (
-          <ProseSections
-            key="explainer"
-            sections={entity.sections!}
-            background={ground}
-          />
-        )
+      ? (ground) =>
+          practice ? (
+            <PracticeNarrative
+              key="explainer"
+              slug={practice.slug}
+              sections={entity.sections!}
+            />
+          ) : (
+            <ProseSections
+              key="explainer"
+              sections={entity.sections!}
+              background={ground}
+            />
+          )
       : null,
 
     problem: service?.problems?.length
-      ? (position, ground) => (
+      ? (ground) => (
           <Section key="problem" background={ground} spacing="lg">
             {pairsProblemWithOutcome ? (
               <BeforeAfter
                 label="What this is brought in to fix, and what it is designed to improve"
                 before={{
-                  eyebrow: `${pad(position)} / The problem`,
+                  eyebrow: "The problem",
                   title: "What this is usually brought in to fix",
                   lead: "Stated as we hear it, before any mention of what we would do about it.",
                   items: service.problems,
@@ -208,7 +254,7 @@ export default async function ServicePage({ params }: PageProps) {
               />
             ) : (
               <EditorialBlock
-                eyebrow={`${pad(position)} / The problem`}
+                eyebrow={"The problem"}
                 title="What this is usually brought in to fix"
                 lead="Stated as we hear it, before any mention of what we would do about it."
                 evidence={service.problems}
@@ -229,13 +275,39 @@ export default async function ServicePage({ params }: PageProps) {
      */
     visual: null,
 
+    /*
+     * Scope, led by how long the work takes wherever that is not already said.
+     *
+     * The lead here used to be one sentence — "Stated plainly, so there is no
+     * ambiguity about what you are buying" — rendered identically on all 45
+     * service pages. It is true, and it says nothing about the service it
+     * introduces, which is precisely what makes a set of generated pages feel
+     * generated.
+     *
+     * Meanwhile every service carries a `timeline`: a specific, factual,
+     * authored sentence about duration — "2–3 weeks for the audit, then fixes
+     * prioritised by impact", "6–10 weeks for a first production agent on a
+     * single process". It is rendered as the lead of the approach section,
+     * and only six of the 45 services have approach steps. On the other 39 it
+     * was written, kept accurate, and never shown to anyone.
+     *
+     * So where the approach section is not going to render it, scope takes
+     * it. Nothing is duplicated — the condition is exactly "the process band
+     * is absent" — and nothing is invented: this is existing copy moved to
+     * the one place on the page where a reader asking "what am I buying"
+     * is also asking "and for how long".
+     */
     included: service?.included?.length
-      ? (position, ground) => (
+      ? (ground) => (
           <Section key="included" background={ground} spacing="lg">
             <EditorialBlock
-              eyebrow={`${pad(position)} / Scope`}
+              eyebrow={"Scope"}
               title="What is included"
-              lead="Stated plainly, so there is no ambiguity about what you are buying."
+              lead={
+                process.length === 0 && service.timeline
+                  ? service.timeline
+                  : "Stated plainly, so there is no ambiguity about what you are buying."
+              }
               evidence={service.included}
             />
           </Section>
@@ -243,12 +315,11 @@ export default async function ServicePage({ params }: PageProps) {
       : null,
 
     process: process.length
-      ? (position, ground) => (
+      ? (ground) => (
           <Section key="process" background={ground} spacing="lg">
             <SectionHeader
               split
-              eyebrow={`${pad(position)} / Approach`}
-              title="How we work through it"
+              eyebrow={"Approach"}              title="How we work through it"
               lead={service?.timeline}
             />
             <ProcessBlock steps={process} label="How we work through it" />
@@ -266,10 +337,10 @@ export default async function ServicePage({ params }: PageProps) {
      * its own signature section.
      */
     diagram: hasDiagram
-      ? (position) => (
+      ? () => (
           <Section key="diagram" background="tint" spacing="lg" width="content">
             <SectionHeader
-              eyebrow={`${pad(position)} / How it works`}
+              eyebrow={"How it works"}
               title="The mechanism, not the marketing"
               level={2}
             />
@@ -282,10 +353,10 @@ export default async function ServicePage({ params }: PageProps) {
 
     /* Only when it was not already paired with the problem above. */
     outcomes: !pairsProblemWithOutcome && service?.outcomes?.length
-      ? (position, ground) => (
+      ? (ground) => (
           <Section key="outcomes" background={ground} spacing="lg">
             <EditorialBlock
-              eyebrow={`${pad(position)} / Outcomes`}
+              eyebrow={"Outcomes"}
               title="What this is designed to improve"
               lead="Qualitative, because we do not publish numbers we cannot evidence."
               evidence={service.outcomes}
@@ -295,10 +366,10 @@ export default async function ServicePage({ params }: PageProps) {
       : null,
 
     boundary: service?.outOfScope?.length
-      ? (position, ground) => (
+      ? (ground) => (
           <Section key="boundary" background={ground} spacing="md">
             <ContentBlock>
-              <Eyebrow>{`${pad(position)} / The boundary`}</Eyebrow>
+              <Eyebrow>The boundary</Eyebrow>
               <Heading level={2} size="h3">
                 What this does not include
               </Heading>
@@ -372,10 +443,28 @@ export default async function ServicePage({ params }: PageProps) {
     composed.push(remaining.shift()!);
   }
 
+  /*
+   * The ground for the nth band after the composed run.
+   *
+   * Each trailing band is optional, so the offset is the count of the ones
+   * actually rendered before it rather than its position in the source. A
+   * service with no questions hands the links the ground the questions would
+   * have taken, and the alternation stays unbroken either way.
+   */
+  const trailing = [
+    Boolean(faqs.length),
+    Boolean(entity.related?.length),
+    rel.all.length > 0,
+  ];
+  const groundAt = (slot: number): SectionGround => {
+    const shown = trailing.slice(0, slot).filter(Boolean).length;
+    return (composed.length + shown) % 2 === 0 ? "bg" : "surface";
+  };
+
   return (
     <>
       <JsonLd data={serviceSchema(entity.title, entity.seo.description, path)} />
-      <JsonLd data={faqSchema(entity.faqs ?? [])} />
+      <JsonLd data={faqSchema(faqs)} />
 
       {/*
         The service photograph opens the page rather than appearing halfway
@@ -425,7 +514,7 @@ export default async function ServicePage({ params }: PageProps) {
           <SectionHeader
             split
             eyebrow="Capabilities"
-            title={`What ${practice.title.toLowerCase()} covers`}
+            title={`What ${practice.title} covers`}
           />
           <NumberedList
             items={childServices.map((s, index) => ({
@@ -444,33 +533,60 @@ export default async function ServicePage({ params }: PageProps) {
         Nothing here knows which sections a given service happens to have,
         which is the point — a service with no process steps still gets a
         page whose bands alternate and whose eyebrows count from one.
+
+        Numbers come from `positions`, which accounts for the explainer
+        occupying one per authored section rather than one in total.
       */}
       {composed.map((key, index) =>
-        sections[key]?.(index + 1, index % 2 === 0 ? "bg" : "surface"),
+        sections[key]?.(index % 2 === 0 ? "bg" : "surface"),
       )}
+      {/*
+        The trailing bands carry on the same alternation instead of each
+        picking a ground for itself.
+
+        They used to be hardcoded — the questions band computed its own
+        parity, the curated links were always `surface`, and the relationship
+        map always took the default. Whenever the questions landed on surface
+        the links landed on surface directly beneath them, and two grey bands
+        ran together with only a heading between them. Measured on
+        /services/seo/: a 672px surface band followed by a 211px surface band.
+
+        `groundAt` continues the count from where the composed sections
+        stopped, so the parity is computed once and every band after it falls
+        where the rhythm says it should, whatever sections this particular
+        service happens to have.
+      */}
 
       {/*
         The questions carry on the same count rather than restarting at an
         unnumbered eyebrow, and take whichever ground the alternation is on
         when the composed sections run out.
       */}
-      {entity.faqs?.length ? (
-        <Section
-          spacing="lg"
-          background={composed.length % 2 === 0 ? "bg" : "surface"}
-        >
+      {faqs.length ? (
+        <Section spacing="lg" background={groundAt(0)}>
           <SectionHeader
             split
-            eyebrow={`${pad(composed.length + 1)} / Questions`}
-            title="Common Questions"
+            eyebrow="Frequently Asked Questions"
+            title="Frequently Asked Questions"
           />
-          <FAQBlock faqs={entity.faqs} />
+          <FAQBlock faqs={faqs} />
         </Section>
       ) : null}
 
-      {/* Curated links first, then the resolved relationship map. */}
+      {/*
+        Curated links first, then the resolved relationship map.
+
+        `spacing` is sized to what the band actually holds. A service with two
+        curated links was getting the same 129px of padding as one with eight,
+        which measured as a 216px band carrying 87px of content — 60% of it
+        air, immediately above a much larger band doing the same job. Short
+        sets take the tighter inset; longer ones keep the full one.
+      */}
       {entity.related?.length ? (
-        <Section background="surface" spacing="md">
+        <Section
+          background={groundAt(1)}
+          spacing={entity.related.length > 3 ? "md" : "sm"}
+        >
           <RelatedContent
             mode="split"
             heading="Where to go next"
@@ -480,7 +596,7 @@ export default async function ServicePage({ params }: PageProps) {
       ) : null}
 
       {rel.all.length > 0 ? (
-        <Section spacing="md">
+        <Section spacing="md" background={groundAt(2)}>
           <SectionHeader
             eyebrow="Connected"
             title="How this fits with everything else"
@@ -498,7 +614,16 @@ export default async function ServicePage({ params }: PageProps) {
         </Section>
       )}
 
-      <ConversionBand cta={entity.cta} />
+      {/*
+        Scoped to the service the reader has just read about, and explicit
+        that the first conversation may end in "not this". That is the
+        claim the rest of the page has been making.
+      */}
+      <ConversionBand
+        title={`Talk through ${article(entity.title)} ${entity.title} requirement`}
+        lead="Describe where the work currently is and what it has to achieve commercially. We will tell you what we would scope, what we would leave alone, and whether this is the right service to be buying first."
+        cta={entity.cta}
+      />
     </>
   );
 }

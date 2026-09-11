@@ -21,17 +21,16 @@ import { useCases, getUseCase } from "@/content/use-cases";
 import { getUseCaseImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import { relationshipsForUseCase } from "@/lib/relationships";
+import { expandFaqs } from "@/lib/faqs";
 import { buildMetadata, faqSchema } from "@/lib/seo";
 import { site } from "@/content/site";
 
 /** The two light grounds a band alternates between. */
 type SectionGround = "bg" | "surface";
 
-/** A section that takes its eyebrow number and ground from its position. */
-type PlacedSection = (position: number, ground: SectionGround) => React.ReactElement;
+/** A section that takes its ground from where it lands in the page. */
+type PlacedSection = (ground: SectionGround) => React.ReactElement;
 
-/** Zero-padded position, so the eyebrows read 01, 02 rather than 1, 2. */
-const pad = (position: number) => String(position).padStart(2, "0");
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -55,6 +54,9 @@ export default async function UseCasePage({ params }: PageProps) {
   const { slug } = await params;
   const useCase = getUseCase(slug);
   if (!useCase || !isPublished(useCase)) notFound();
+
+  /* Authored FAQs topped up from the page's own content — see lib/faqs.ts. */
+  const faqs = expandFaqs(useCase, "use-case");
 
   const layout = useCase.layout ?? "problem-solution";
   const rel = relationshipsForUseCase(slug);
@@ -98,12 +100,12 @@ export default async function UseCasePage({ params }: PageProps) {
    * them, it says the thing the page is actually claiming: these are the
    * reasons it happens, and this is the state on the other side of the work.
    */
-  const diagnosis: PlacedSection = (position, ground) => (
+  const diagnosis: PlacedSection = (ground) => (
     <Section key="diagnosis" background={ground} spacing="lg">
       <BeforeAfter
         label="Why this happens, and what good looks like"
         before={{
-          eyebrow: `${pad(position)} / Diagnosis`,
+          eyebrow: "Diagnosis",
           title: "Why this usually happens",
           lead: "The visible symptom is rarely the cause. These are the underlying reasons we find most often.",
           items: useCase.rootCauses,
@@ -120,7 +122,7 @@ export default async function UseCasePage({ params }: PageProps) {
   const useCaseVisual = getUseCaseImage(slug);
 
   const matters: PlacedSection | null = useCase.whyItMatters
-    ? (position, ground) => (
+    ? (ground) => (
         <Section key="matters" background={ground} spacing="lg" width="content">
           {/*
             The photograph opens the page as the hero's portrait column. Each
@@ -128,7 +130,7 @@ export default async function UseCasePage({ params }: PageProps) {
             makes its case in type.
           */}
           <ContentBlock>
-            <Eyebrow>{`${pad(position)} / Context`}</Eyebrow>
+            <Eyebrow>Context</Eyebrow>
             <Heading level={2} size="h3">
               Why it matters
             </Heading>
@@ -138,12 +140,11 @@ export default async function UseCasePage({ params }: PageProps) {
       )
     : null;
 
-  const approach: PlacedSection = (position, ground) => (
+  const approach: PlacedSection = (ground) => (
     <Section key="approach" background={ground} spacing="lg">
       <SectionHeader
         split
-        eyebrow={`${pad(position)} / How we solve it`}
-        title="The sequence that works"
+        eyebrow={"How we solve it"}        title="The sequence that works"
         lead={useCase.realisticTimeline}
       />
       <ProcessBlock steps={useCase.approach} label="The sequence that works" />
@@ -156,10 +157,10 @@ export default async function UseCasePage({ params }: PageProps) {
 
   const diagram: PlacedSection | null =
     useCase.diagram && useCase.diagram !== "none"
-      ? (position) => (
+      ? () => (
           <Section key="diagram" background="tint" spacing="lg" width="content">
             <SectionHeader
-              eyebrow={`${pad(position)} / How it works`}
+              eyebrow={"How it works"}
               title="The mechanism behind the change"
               level={2}
             />
@@ -172,11 +173,11 @@ export default async function UseCasePage({ params }: PageProps) {
 
   const capabilities: PlacedSection | null =
     rel.services.length > 0
-      ? (position, ground) => (
+      ? (ground) => (
           <Section key="capabilities" background={ground} spacing="lg">
             <SectionHeader
               split
-              eyebrow={`${pad(position)} / Capabilities`}
+              eyebrow={"Capabilities"}
               title="Services involved"
             />
             <RelatedContent mode="list" items={rel.services} />
@@ -195,15 +196,15 @@ export default async function UseCasePage({ params }: PageProps) {
   /* The tinted mechanism sits outside the alternation, so the light bands
      either side of it still differ from each other. */
   let lightIndex = 0;
-  const composed = order.map((section, index) => {
+  const composed = order.map((section) => {
     const ground: SectionGround = lightIndex % 2 === 0 ? "bg" : "surface";
     if (section !== diagram) lightIndex += 1;
-    return section(index + 1, ground);
+    return section(ground);
   });
 
   return (
     <>
-      <JsonLd data={faqSchema(useCase.faqs ?? [])} />
+      <JsonLd data={faqSchema(faqs)} />
       <JsonLd data={howToSchema} />
       <JsonLd
         data={{
@@ -251,14 +252,14 @@ export default async function UseCasePage({ params }: PageProps) {
 
       {composed}
 
-      {useCase.faqs?.length ? (
+      {faqs.length ? (
         <Section background="surface" spacing="lg">
           <SectionHeader
             split
-            eyebrow={`${pad(composed.length + 1)} / Questions`}
-            title="Common Questions"
+            eyebrow="Frequently Asked Questions"
+            title="Frequently Asked Questions"
           />
-          <FAQBlock faqs={useCase.faqs} />
+          <FAQBlock faqs={faqs} />
         </Section>
       ) : null}
 
@@ -281,7 +282,16 @@ export default async function UseCasePage({ params }: PageProps) {
         </Section>
       )}
 
-      <ConversionBand cta={useCase.cta} />
+      {/*
+        The page has just described a change from one state to another. The
+        band asks the only question left: whether the reader's situation is
+        actually the "before" it described.
+      */}
+      <ConversionBand
+        title="Is this the shape of your problem?"
+        lead={`If the before state above reads like your operation, the next step is establishing which part of it is actually costing you. Describe it and we will tell you where ${useCase.title.toLowerCase()} would and would not help.`}
+        cta={useCase.cta}
+      />
     </>
   );
 }

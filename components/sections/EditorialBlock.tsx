@@ -28,37 +28,73 @@ export function EditorialBlock({
   actions,
   level = 2,
 }: EditorialBlockProps) {
-  return (
-    <div className={styles.statement}>
-      <Reveal className={styles.statementText}>
-        <div className={styles.header}>
-          {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-          <Heading level={level} size="h2" className={styles.statementTitle}>
-            {title}
-          </Heading>
+  const hasEvidence = Boolean(evidence?.length);
+
+  const heading = (
+    <div className={styles.header}>
+      {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
+      <Heading level={level} size="h2" className={styles.statementTitle}>
+        {title}
+      </Heading>
+    </div>
+  );
+
+  const leadText = lead ? (
+    <BodyText size="lg" className={styles.headerLead}>
+      {lead}
+    </BodyText>
+  ) : null;
+
+  /*
+   * WITHOUT EVIDENCE THIS IS A DIFFERENT COMPOSITION, NOT A NARROWER ONE.
+   *
+   * The block below is a 7/4 grid, and that second track only ever held the
+   * evidence list. On the eleven pages that use this block for a statement
+   * alone — engagement models, vendor, media, press kit, how we work — the
+   * 4fr column was rendered empty, so a heading and three lines of lead sat
+   * in the left half of the band with 400px of nothing beside them. Reading
+   * as a section that had lost something is exactly how the evidence
+   * alignment note below describes the same bug in the other axis.
+   *
+   * So the statement-only case takes the split the section headers use:
+   * heading left, lead right, which is an established composition on this
+   * site and fills the measure with writing instead of with air. The
+   * evidence case is untouched.
+   */
+  if (!hasEvidence) {
+    return (
+      <Reveal className={styles.statementSplit}>
+        <div className={styles.statementSplitHead}>
+          {heading}
+          {actions ? (
+            <div className={styles.statementActions}>{actions}</div>
+          ) : null}
         </div>
-        {lead ? (
-          <BodyText size="lg" className={styles.headerLead}>
-            {lead}
-          </BodyText>
-        ) : null}
+        {leadText}
+      </Reveal>
+    );
+  }
+
+  return (
+    <div className={styles.statement} data-evidence="true">
+      <Reveal className={styles.statementText}>
+        {heading}
+        {leadText}
         {actions ? (
           <div className={styles.statementActions}>{actions}</div>
         ) : null}
       </Reveal>
 
-      {evidence?.length ? (
-        <Cascade as="ul" className={styles.evidenceList}>
-          {evidence.map((item, index) => (
-            <li key={item} className={styles.evidenceItem}>
-              <span className={styles.evidenceIndex}>
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span>{item}</span>
-            </li>
-          ))}
-        </Cascade>
-      ) : null}
+      <Cascade as="ul" className={styles.evidenceList}>
+        {evidence!.map((item, index) => (
+          <li key={item} className={styles.evidenceItem}>
+            <span className={styles.evidenceIndex}>
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </Cascade>
     </div>
   );
 }

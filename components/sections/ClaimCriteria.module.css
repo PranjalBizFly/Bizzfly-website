@@ -1,0 +1,175 @@
+/* ==========================================================================
+   ClaimCriteria — independent considerations, then the resolution
+
+   A staggered two-column grid rather than a path. The offset on the second
+   column is what distinguishes a set from a sequence at a glance: a reader
+   scanning a connected spine reads it in order, and a reader scanning an
+   offset grid does not — which is the correct reading here, because nothing
+   in the writing makes one criterion depend on another.
+   ========================================================================== */
+
+.wrapper {
+  display: grid;
+  gap: var(--space-16);
+}
+
+/* --- The criteria --------------------------------------------------------- */
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-12);
+}
+
+@media (min-width: 760px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-16);
+  }
+
+  /*
+   * The editorial offset. Applied to the second column only, so the grid
+   * reads as two settled columns rather than as a zigzag — and set in the
+   * space scale so it stays in rhythm with the row gap above it.
+   */
+  .criterion:nth-child(even) {
+    padding-block-start: var(--space-12);
+  }
+
+}
+
+/*
+ * One column, for a set placed inside one track of a split rather than across
+ * the band. Scoped to 1000px because that is where AnchoredStatement's split
+ * begins — below it the aside stacks, the set has the full band, and the two
+ * staggered columns above are still correct. The stagger goes with the second
+ * column: an offset means nothing with nothing to be offset from, and would
+ * only read as an unexplained gap.
+ */
+@media (min-width: 1000px) {
+  .grid.single {
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 0;
+  }
+
+  .grid.single .criterion:nth-child(even) {
+    padding-block-start: 0;
+  }
+}
+
+.criterion {
+  min-width: 0;
+}
+
+/*
+ * The number is set large and quiet, in the display face, above its claim —
+ * chrome that gives the set a countable order without the ranked emphasis a
+ * filled badge would add. ProcessBlock's circled node is for a path; this is
+ * not one.
+ */
+.index {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--accent-text);
+}
+
+.claim {
+  margin: var(--space-4) 0 0;
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  max-width: var(--measure-title);
+  text-wrap: balance;
+}
+
+.detail {
+  margin: var(--space-4) 0 0;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--muted);
+  max-width: var(--measure-body);
+  text-wrap: pretty;
+}
+
+/* --- The resolution ------------------------------------------------------ */
+
+/*
+ * Set across the full width in the reading measure, above a rule in the
+ * accent. The rule is the only signal that the section has changed register,
+ * which is deliberate: a worded heading here would be copy nobody authored.
+ */
+.closing {
+  padding-block-start: var(--space-10);
+  border-block-start: 2px solid var(--accent-edge);
+}
+
+.closingClaim {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h2);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  max-width: var(--measure-heading);
+  text-wrap: balance;
+}
+
+.closingDetail {
+  margin: var(--space-5) 0 0;
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body);
+  color: var(--muted);
+  max-width: var(--measure-lead);
+  text-wrap: pretty;
+}
+
+/* --- Points, where a claim enumerated ------------------------------------ */
+
+.points {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--measure-body);
+}
+
+.points[data-tone="closing"] {
+  margin-top: var(--space-5);
+}
+
+.point {
+  position: relative;
+  padding-inline-start: var(--space-5);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+  text-wrap: pretty;
+}
+
+.point::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.7em;
+  inline-size: var(--space-3);
+  /*
+   * 2px, not 1px. A one-pixel rule positioned at a fractional em offset
+   * lands between device pixels and the browser blends it with the ground,
+   * so a list of five came out with some dashes in the accent and some in a
+   * washed-out grey. Two pixels sits on the pixel grid at every zoom level.
+   */
+  block-size: 2px;
+  border-radius: var(--radius-full);
+  background: var(--accent-edge);
+}

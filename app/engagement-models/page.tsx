@@ -7,10 +7,12 @@ import {
   LayerTabs,
   RelatedContent,
   SectionHeader,
+  VisualStoryBlock,
   type LayerTabItem,
 } from "@/components/sections";
 import { CtaBlock } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
+import { getCompanyImage } from "@/content/images";
 import { site } from "@/content/site";
 import { buildMetadata } from "@/lib/seo";
 
@@ -65,7 +67,7 @@ const models: LayerTabItem[] = [
     name: "A defined project",
     question: "When the shape of the work is known",
     description:
-      "A project has a defined outcome and an end. It suits work whose shape is known — a site rebuilt, an integration delivered, a process automated. We prefer projects to be scoped narrowly enough to finish.",
+      "A project has a defined outcome and an end. It suits work whose shape is known: a site rebuilt, an integration delivered, a process automated. We prefer projects to be scoped narrowly enough to finish.",
     facts: [
       { label: "Suits", value: "Work whose shape is already known." },
       {
@@ -88,12 +90,27 @@ const models: LayerTabItem[] = [
       { label: "Suits", value: "Compounding work measured in quarters, not deliverables." },
       {
         label: "The risk",
-        value: "Drift — so each month names what it is trying to move.",
+        value: "Drift: so each month names what it is trying to move.",
       },
     ],
     href: "/how-we-work/",
     linkLabel: "How We Work",
   },
+];
+
+/*
+ * What the hero's aside carries.
+ *
+ * It used to name the three models, which the tabs one screen below name
+ * again and then explain — so the aside spent the reader's first screen on
+ * three words they were about to be given properly. These are what actually
+ * decides between the three, taken from the page's own sentences, and that
+ * is the question a reader arrives with rather than one the tabs answer.
+ */
+const choosingFacts = [
+  "The choice follows the problem, not the budget",
+  "Every shape states the outcome it is judged on",
+  "Start with the diagnostic when the constraint is unclear",
 ];
 
 const relatedLinks = [
@@ -108,6 +125,8 @@ const relatedLinks = [
 ];
 
 export default function EngagementModelsPage() {
+  const companyVisual = getCompanyImage("engagement-models");
+
   return (
     <>
       <JsonLd
@@ -132,8 +151,8 @@ export default function EngagementModelsPage() {
         title="Engagement Models"
         lead="We work in three shapes: a fixed-scope diagnostic, a defined project with a stated outcome, and an ongoing programme with a monthly scope. Which fits depends on how well the problem is understood, not on budget."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Engagement Models" }]}
-        asideHeading="The three shapes"
-        asideItems={models.map((model) => model.name)}
+        asideHeading="How to choose between them"
+        asideItems={choosingFacts}
         actions={<CtaBlock cta={cta} size="lg" />}
       />
 
@@ -144,7 +163,7 @@ export default function EngagementModelsPage() {
       */}
       <Section background="tint" spacing="lg" id="models">
         <SectionHeader
-          eyebrow="01 / The three shapes"
+          eyebrow="The three shapes"
           title="Which fits depends on how well the problem is understood"
           lead="Not on budget. Move between the three to compare what each suits and where each goes wrong."
         />
@@ -154,27 +173,62 @@ export default function EngagementModelsPage() {
       {/* 02 — the anti-pattern, stated plainly on its own ground. */}
       <Section background="inverse" spacing="lg" width="content">
         <EditorialBlock
-          eyebrow="02 / What we avoid"
+          eyebrow="What we avoid"
           title="The open-ended retainer with a deliverable list and no stated outcome"
           lead="It is comfortable for both parties, and it is the arrangement most likely to run for a year without anyone being able to say whether it worked."
         />
       </Section>
 
-      {/* 03 — the way in. */}
-      <Section spacing="lg" width="content">
-        <EditorialBlock
-          eyebrow="03 / Where to start"
-          title="When the constraint is unclear, start with the diagnostic"
-          lead="It is scoped and priced on its own, so continuing is a decision made with the findings in hand rather than a commitment made before them."
-          actions={<CtaBlock cta={cta} />}
-        />
-      </Section>
+      {/*
+        03 — the way in, against the frame.
 
-      <Section background="surface" spacing="md" width="content">
+        This was a second EditorialBlock in a content column immediately
+        after 02's, so the page closed on the same composition twice running
+        and the reader met no change of shape between the anti-pattern and
+        the recommendation. The page's own photograph was already in the
+        registry and had never been placed; set beside the text it separates
+        the two arguments and gives the page somewhere to land.
+      */}
+      {companyVisual ? (
+        <Section spacing="lg" width="content">
+          <VisualStoryBlock
+            image={companyVisual}
+            variant="B"
+            reverse
+            eyebrow="Where to start"
+            title="When the constraint is unclear, start with the diagnostic"
+            lead="It is scoped and priced on its own, so continuing is a decision made with the findings in hand rather than a commitment made before them."
+            caption={companyVisual.caption}
+          >
+            <CtaBlock cta={cta} />
+          </VisualStoryBlock>
+        </Section>
+      ) : (
+        <Section spacing="lg" width="content">
+          <EditorialBlock
+            eyebrow="Where to start"
+            title="When the constraint is unclear, start with the diagnostic"
+            lead="It is scoped and priced on its own, so continuing is a decision made with the findings in hand rather than a commitment made before them."
+            actions={<CtaBlock cta={cta} />}
+          />
+        </Section>
+      )}
+
+      <Section background="surface" spacing="sm" width="content">
         <RelatedContent mode="split" heading="Related" items={relatedLinks} />
       </Section>
 
-      <ConversionBand cta={cta} />
+      {/*
+        The band asks this page's question. A reader here has just compared
+        three shapes and is deciding between them, so the useful offer is
+        help choosing — not the site-wide "tell us what you are trying to
+        solve", which is the question they came in already having answered.
+      */}
+      <ConversionBand
+        title="Not sure which of the three you need?"
+        lead="Describe where the work currently is and we will tell you which shape fits — including when the honest answer is the smallest one, or none of them yet."
+        cta={cta}
+      />
     </>
   );
 }

@@ -16,12 +16,12 @@ export const frameworks: Resource[] = [
     title: "SEO Reporting Framework",
     readingTime: "6 min",
     answer:
-      "Report SEO in four separate layers — eligibility, appearance, arrival and outcome — against a stated hypothesis. Aggregated traffic conceals which layer is failing, which is why most reports cannot explain a decline.",
+      "Report SEO in four separate layers (eligibility, appearance, arrival and outcome) against a stated hypothesis. Aggregated traffic conceals which layer is failing, which is why most reports cannot explain a decline.",
     body: [
       "Layer one is eligibility: how many of your pages are indexed, and which fell out. A content programme producing unindexed pages looks like a content problem in a traffic chart and is a technical one. Reporting this first stops that misdiagnosis.",
-      "Layer two is appearance: impressions and average position for the queries that describe your business. This is where you are competing, independently of clicks — and it is the layer that shows AI-driven click loss, because impressions hold while clicks fall.",
+      "Layer two is appearance: impressions and average position for the queries that describe your business. This is where you are competing, independently of clicks, and it is the layer that shows AI-driven click loss, because impressions hold while clicks fall.",
       "Layer three is arrival: sessions segmented by page type and query intent. Aggregate sessions are nearly useless here; a rise driven by informational pages and a rise driven by commercial pages mean opposite things about the quarter.",
-      "Layer four is outcome: enquiries, qualified enquiries and, where available, revenue. Noisy and lagging, so it is read as a trend rather than a monthly verdict — and always alongside the layers above, because a fall here usually originates in one of them.",
+      "Layer four is outcome: enquiries, qualified enquiries and, where available, revenue. Noisy and lagging, so it is read as a trend rather than a monthly verdict, and always alongside the layers above, because a fall here usually originates in one of them.",
       "Around the four layers, every report should state what was believed to be limiting performance, what was done, and whether the measure moved. When it did not, that is the headline. A report that cannot say a hypothesis was wrong will keep funding it.",
       "Finally, label sampling as sampling. AI visibility is sampled by asking a fixed question set repeatedly; it is not a measurement, and presenting it as one is how AI reporting becomes theatre.",
     ],
@@ -61,13 +61,13 @@ export const frameworks: Resource[] = [
     title: "Enterprise SEO Framework",
     readingTime: "6 min",
     answer:
-      "At enterprise scale the constraint is rarely knowledge — it is getting change deployed across teams who do not report to you. The framework is governance: templates over pages, standards over requests, and evidence over opinion.",
+      "At enterprise scale the constraint is rarely knowledge; it is getting change deployed across teams who do not report to you. The framework is governance: templates over pages, standards over requests, and evidence over opinion.",
     body: [
       "Work at the template level. On a site of thousands of pages, fixing individual pages is a treadmill; changing the template that generates them fixes a class of problem permanently. Prioritising by template rather than by page is the single largest efficiency available.",
-      "Convert recommendations into standards. A request to a development team competes with every other request. A documented standard — server-rendered content, one H1, canonical rules, structured data — becomes part of the definition of done and stops being renegotiated each sprint.",
+      "Convert recommendations into standards. A request to a development team competes with every other request. A documented standard (server-rendered content, one H1, canonical rules, structured data) becomes part of the definition of done and stops being renegotiated each sprint.",
       "Instrument the standards so violations surface automatically. A check that fails a build is enforcement; a page in a wiki is a suggestion, and it decays as soon as the people who wrote it move on.",
       "Prioritise with commercial evidence rather than volume. In a large organisation, competing teams all have data; the one with revenue attached to their proposal wins the sprint. Framing SEO work as a revenue constraint rather than a ranking opportunity is a political necessity, not a presentational one.",
-      "Expect the bottleneck to be organisational. The most valuable role at scale is usually a person who can navigate approvals, not another audit — which is why enterprise programmes that consist only of external recommendations rarely move anything.",
+      "Expect the bottleneck to be organisational. The most valuable role at scale is usually a person who can navigate approvals, not another audit, which is why enterprise programmes that consist only of external recommendations rarely move anything.",
     ],
     supports: ["enterprise-seo", "seo"],
     seo: {
@@ -124,7 +124,7 @@ export const frameworks: Resource[] = [
     },
     audience: ["A3", "A4"],
     phase: "P1",
-    cta: { label: "Read about SEO Content Strategy", href: "/services/content-strategy/", tier: "T1" },
+    cta: { label: "Read about Content Strategy", href: "/services/content-strategy/", tier: "T1" },
     faqs: [
       {
         question: "Should we plan from keyword volume?",
@@ -154,7 +154,7 @@ export const frameworks: Resource[] = [
       "Begin with an inventory before design starts: every indexable URL with its traffic, conversions, inbound links and rankings. This is the reference against which everything later is checked, and building it after the new site exists is far harder.",
       "Map each URL to a destination. Kept, redirected in one hop to the closest genuine equivalent, or deliberately retired with a clean 410. Chains, loops and mass redirects to the homepage are the three patterns that cause the damage attributed to migrations generally.",
       "Preserve content depth on pages that earn visibility. New templates frequently trim content to fit a design, and a page that ranked on 900 words of substance does not rank on 200 words of the same subject. Where a template forces the trim, the template is wrong.",
-      "Check rendering parity explicitly. If the old site served content in HTML and the new one assembles it in the browser, visibility will fall for reasons no redirect map addresses — and it will fall hardest with AI crawlers.",
+      "Check rendering parity explicitly. If the old site served content in HTML and the new one assembles it in the browser, visibility will fall for reasons no redirect map addresses, and it will fall hardest with AI crawlers.",
       "Stage the launch so problems are visible. Where possible, migrate a section first and observe it for a fortnight. A phased migration turns a single high-risk event into a series of small ones with a rollback path.",
       "Then monitor deliberately: index coverage, redirect resolution, structured data validity and priority rankings, closely for two weeks and weekly for a quarter. Effects lag the change, so a problem introduced at launch often surfaces after everyone has moved on.",
     ],
@@ -162,7 +162,7 @@ export const frameworks: Resource[] = [
     seo: {
       title: "Technical SEO Migration Guide",
       description:
-        "Inventory, URL mapping, content and rendering parity, phased launch and deliberate monitoring — treated as delivery requirements.",
+        "Inventory, URL mapping, content and rendering parity, phased launch and deliberate monitoring, treated as delivery requirements.",
       primaryTopic: "seo migration guide",
       secondaryTopics: ["site migration", "replatform"],
       intent: "informational",
@@ -179,7 +179,7 @@ export const frameworks: Resource[] = [
       {
         question: "Is a phased migration always better?",
         answer:
-          "Where the site divides cleanly, yes — it converts one large risk into several small ones with a rollback path. Where a platform change forces everything at once, compensate with heavier pre-launch parity checking.",
+          "Where the site divides cleanly, yes: it converts one large risk into several small ones with a rollback path. Where a platform change forces everything at once, compensate with heavier pre-launch parity checking.",
       },
     ],
     related: [
@@ -196,11 +196,11 @@ export const frameworks: Resource[] = [
     answer:
       "There is no rank position in an AI answer, so visibility is sampled rather than measured: a fixed set of buyer questions, asked repeatedly across the assistants your market uses, recorded over time.",
     body: [
-      "Build the question set from real buyer language, not keywords. Twenty to forty questions someone would actually type or say, covering the decision — what a thing is, how to choose, who provides it, what it costs. Fix the list, because changing it breaks comparability.",
+      "Build the question set from real buyer language, not keywords. Twenty to forty questions someone would actually type or say, covering the decision: what a thing is, how to choose, who provides it, what it costs. Fix the list, because changing it breaks comparability.",
       "Ask them on a schedule across the assistants your market actually uses, and record three things each time: whether you were mentioned, whether you were cited with a link, and which sources were named instead. The third is the most useful and the most often skipped.",
       "Treat the numbers as directional. Responses vary between runs for the same question, and personalisation and model updates both move results. Anyone reporting AI visibility to a decimal place is describing noise with unearned precision.",
       "Corroborate with signals that survive zero-click: branded search volume, direct arrivals, and enquiries that mention having found you through an assistant. Adding one question to your enquiry form about how someone found you produces better evidence than most tooling.",
-      "Finally, read it alongside crawler access. If your server logs show AI crawlers receiving errors or thin HTML, sampling will confirm absence without explaining it — and the fix is technical rather than editorial.",
+      "Finally, read it alongside crawler access. If your server logs show AI crawlers receiving errors or thin HTML, sampling will confirm absence without explaining it, and the fix is technical rather than editorial.",
     ],
     supports: ["ai-search-optimisation", "generative-engine-optimisation"],
     seo: {
@@ -240,7 +240,7 @@ export const frameworks: Resource[] = [
     answer:
       "A credible automation case counts recovered hours honestly, includes build and maintenance cost, and states what happens to the time saved. Cases that fail review usually claim savings nobody can point to afterwards.",
     body: [
-      "Measure the current process before estimating. Frequency, time per occurrence, and who does it — observed rather than recalled, because estimates of one's own repetitive work are consistently wrong in both directions. A week of observation makes the whole case defensible.",
+      "Measure the current process before estimating. Frequency, time per occurrence, and who does it, observed rather than recalled, because estimates of one's own repetitive work are consistently wrong in both directions. A week of observation makes the whole case defensible.",
       "Count only the time that changes. If automation removes four minutes from a task done twice a day, that is the saving; the rest of the process is unaffected. Cases claiming the whole task disappears are the ones finance rejects.",
       "Include the full cost: build, plus ongoing maintenance, plus the exception handling that will still be manual. An automation covering 80% of cases leaves 20% needing a person, and the case has to account for that rather than assuming full coverage.",
       "State what happens to the recovered time. 'Saves 200 hours a year' is not a saving unless someone can say whether that becomes reduced headcount, absorbed growth, or work moved to something else. Finance will ask, and 'efficiency' is not an answer.",
@@ -262,7 +262,7 @@ export const frameworks: Resource[] = [
       {
         question: "Why do automation business cases get rejected?",
         answer:
-          "Usually because the savings cannot be pointed at afterwards. Naming what happens to the recovered time — absorbed growth, reduced overtime, reallocated work — is what makes the case reviewable.",
+          "Usually because the savings cannot be pointed at afterwards. Naming what happens to the recovered time (absorbed growth, reduced overtime, reallocated work) is what makes the case reviewable.",
       },
       {
         question: "Should the case include maintenance?",
@@ -284,10 +284,10 @@ export const frameworks: Resource[] = [
     answer:
       "Governance for a small organisation is four decisions written down: what data may be sent to which providers, which decisions require a human, who owns each system, and how output is checked.",
     body: [
-      "Start with data. List which categories — customer records, financial data, employee information, anything under contract — may or may not be sent to an external model, and to which providers. Most informal AI use in small organisations is uncontrolled precisely because nobody has written this down.",
+      "Start with data. List which categories (customer records, financial data, employee information, anything under contract) may or may not be sent to an external model, and to which providers. Most informal AI use in small organisations is uncontrolled precisely because nobody has written this down.",
       "Then decisions. Name the classes of decision that always require a person: anything irreversible, anything with contractual or regulatory weight, anything affecting an individual's treatment. Everything else can be delegated with review.",
       "Then ownership. Each AI-assisted system gets a named owner responsible for its behaviour, its prompts, its source content and its errors. Systems without an owner drift as models update and source documents go stale, and nobody notices until output is visibly wrong.",
-      "Then verification. How output is checked, by whom, and how often — sampling is fine, absence is not. Where the system cites sources, checking a sample of citations is the cheapest meaningful quality control available.",
+      "Then verification. How output is checked, by whom, and how often: sampling is fine, absence is not. Where the system cites sources, checking a sample of citations is the cheapest meaningful quality control available.",
       "Keep it to a page or two. Governance documents nobody reads provide no protection, and for an organisation of this size the value is in having made the four decisions rather than in the formality of recording them.",
     ],
     supports: ["ai-consulting", "ai-readiness-assessment"],
@@ -306,7 +306,7 @@ export const frameworks: Resource[] = [
       {
         question: "Do small businesses need an AI policy?",
         answer:
-          "A short one, yes — mostly because staff are already using these tools. The risk is not a formal programme going wrong; it is client data pasted into a consumer chatbot by someone trying to be helpful.",
+          "A short one, yes, mostly because staff are already using these tools. The risk is not a formal programme going wrong; it is client data pasted into a consumer chatbot by someone trying to be helpful.",
       },
       {
         question: "What is the minimum viable AI policy?",
@@ -315,7 +315,7 @@ export const frameworks: Resource[] = [
       },
     ],
     related: [
-      { label: "AI Project Readiness Checklist", href: "/resources/ai-project-checklist/", type: "CHECKLIST" },
+      { label: "AI Project Checklist", href: "/resources/ai-project-checklist/", type: "CHECKLIST" },
       { label: "Data and privacy approach", href: "/company/data-and-privacy-approach/", type: "COMPANY" },
     ],
   },
@@ -404,7 +404,7 @@ export const frameworks: Resource[] = [
     ],
     related: [
       { label: "Minimum Viable Product", href: "/resources/what-is-a-minimum-viable-product/", type: "GLOSSARY" },
-      { label: "Custom Software Development", href: "/services/custom-software/", type: "SERVICE" },
+      { label: "Custom Software", href: "/services/custom-software/", type: "SERVICE" },
     ],
   },
   {
@@ -417,7 +417,7 @@ export const frameworks: Resource[] = [
       "Data quality is settled in this order: agree definitions, assign ownership, validate at entry, then monitor. Tooling applied before the first two encodes the disagreement rather than resolving it.",
     body: [
       "Definitions first, because most data quality disputes are definition disputes wearing a technical costume. What counts as an active customer, when an order is complete, which date is used for reporting. Until those are agreed, two systems will disagree and both will be correct by their own rules.",
-      "Then ownership. Each field or record type gets someone accountable for its accuracy — a business owner, not a database administrator. Data without an owner degrades because nobody is responsible for the decisions that keep it consistent.",
+      "Then ownership. Each field or record type gets someone accountable for its accuracy: a business owner, not a database administrator. Data without an owner degrades because nobody is responsible for the decisions that keep it consistent.",
       "Then validation at the point of entry, which is where quality is cheapest to enforce. A required format, a constrained list, a duplicate check at creation. Cleaning bad data later costs many times more than preventing it, and it recurs.",
       "Then monitoring: completeness, duplication rates, and values outside expected ranges, checked on a schedule with someone notified. Data degrades continuously as sources change, and undetected degradation is what turns a dashboard into something nobody trusts.",
       "Resist starting with a cleansing project. A one-off clean of data that keeps being created badly buys a few months of accuracy and teaches the organisation that quality is a project rather than a practice.",
@@ -458,13 +458,13 @@ export const frameworks: Resource[] = [
     title: "Conversion Research Guide",
     readingTime: "6 min",
     answer:
-      "Research before testing. Analytics shows where people leave, recordings show what happened, and asking customers shows why — and the three together usually make testing unnecessary for the first round of fixes.",
+      "Research before testing. Analytics shows where people leave, recordings show what happened, and asking customers shows why, and the three together usually make testing unnecessary for the first round of fixes.",
     body: [
       "Start with analytics to locate the problem: which step loses people, on which device, from which source. This narrows the investigation from a whole site to a specific moment, which is the only part testing tools are good at telling you.",
-      "Then watch what actually happens. Session recordings and form analytics show the behaviour behind the number — a field being retried, a button being tapped repeatedly, a page abandoned mid-scroll. Most sites contain at least one outright fault found this way within an hour.",
-      "Then ask people. A single question on the confirmation page — what nearly stopped you from enquiring — produces more usable insight per hour than any other method available, and it surfaces objections the team had never considered.",
+      "Then watch what actually happens. Session recordings and form analytics show the behaviour behind the number: a field being retried, a button being tapped repeatedly, a page abandoned mid-scroll. Most sites contain at least one outright fault found this way within an hour.",
+      "Then ask people. A single question on the confirmation page (what nearly stopped you from enquiring) produces more usable insight per hour than any other method available, and it surfaces objections the team had never considered.",
       "Then fix the obvious before testing anything. If research reveals a broken mobile form or an unanswerable question, fix it. A/B testing a known fault is a way of spending traffic to confirm something you already established.",
-      "Test only where the answer is genuinely uncertain and traffic supports significance. Below a few hundred conversions a month, tests rarely conclude, and teams read noise as insight — which is worse than not testing, because it produces confident wrong decisions.",
+      "Test only where the answer is genuinely uncertain and traffic supports significance. Below a few hundred conversions a month, tests rarely conclude, and teams read noise as insight, which is worse than not testing, because it produces confident wrong decisions.",
     ],
     supports: ["conversion-rate-optimisation", "ui-ux-design"],
     seo: {
@@ -477,7 +477,7 @@ export const frameworks: Resource[] = [
     },
     audience: ["A3", "A4"],
     phase: "P1",
-    cta: { label: "Read about Conversion Optimisation", href: "/services/conversion-rate-optimisation/", tier: "T1" },
+    cta: { label: "Read about Conversion Rate Optimisation", href: "/services/conversion-rate-optimisation/", tier: "T1" },
     faqs: [
       {
         question: "Do we need A/B testing to improve conversion?",
@@ -506,7 +506,7 @@ export const frameworks: Resource[] = [
     body: [
       "Weeks one and two are observation. Follow the real process rather than the documented one, record frequency and time, and note every exception. Expect the map to differ from what management believes, because that difference is usually where the cost sits.",
       "Weeks three and four are simplification, and this is the stage most often skipped. Test each step against a current reason to exist; remove what fails. Frequently this returns more than the automation will, and it always reduces what has to be built.",
-      "Weeks five to ten are building one process, end to end, in production. Not a platform rollout, not three processes in parallel — one, chosen for volume and stability, with the exception path and failure behaviour designed in rather than added later.",
+      "Weeks five to ten are building one process, end to end, in production. Not a platform rollout, not three processes in parallel: one, chosen for volume and stability, with the exception path and failure behaviour designed in rather than added later.",
       "Weeks eleven and twelve are handover: documentation, a named owner, alerting that reaches someone, and a short review of what the automation actually changed against the baseline recorded in week one. Without that baseline the result is a matter of opinion.",
       "What should not happen in the first ninety days: a platform selection exercise, an automation centre of excellence, or a roadmap of twenty processes. Those follow evidence from a first project; done before it, they commit an organisation to assumptions nobody has tested.",
     ],

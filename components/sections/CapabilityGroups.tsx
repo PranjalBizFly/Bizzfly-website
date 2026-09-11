@@ -7,6 +7,7 @@ import { Glyph } from "@/components/brand/Glyph";
 import { capabilityGroups } from "@/content/homepage";
 import type { ImageMetadata } from "@/content/images/types";
 import styles from "./CapabilityGroups.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 interface CapabilityGroupsProps {
   /** One frame per group, keyed by CapabilityGroup.key. */
@@ -58,8 +59,8 @@ export function CapabilityGroups({ images }: CapabilityGroupsProps) {
                 <span className={styles.index}>
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className={styles.label}>{group.label}</span>
-                <span className={styles.question}>{group.question}</span>
+                <span className={styles.label}>{titleCase(group.label)}</span>
+                <span className={styles.question}>{titleCase(group.question)}</span>
                 <span className={styles.marker} aria-hidden="true">
                   &rarr;
                 </span>

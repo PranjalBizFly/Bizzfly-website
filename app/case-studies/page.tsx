@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
-import { EditorialHero } from "@/components/hero";
+import { CinematicHero } from "@/components/hero";
 import {
+  AnchoredStatement,
   SectionHeader,
   ProcessBlock,
   ConversionBand,
   RelatedContent,
   Directory,
-  VisualStoryBlock,
 } from "@/components/sections";
 import { Button, TextLink } from "@/components/buttons";
 import { BodyText, Heading } from "@/components/typography";
@@ -16,16 +16,20 @@ import { JsonLd } from "@/components/JsonLd";
 import { publishedCaseStudies } from "@/content/case-studies";
 import { sectorDirectory } from "@/content/taxonomy";
 import { primaryCta } from "@/content/navigation";
-import { getCaseStudiesImage } from "@/content/images";
+import {
+  getCaseStudiesAuditImage,
+  getCaseStudiesImage,
+} from "@/content/images/imageAssignments";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import styles from "./case-studies.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 export const metadata: Metadata = buildMetadata(
   {
     title: "Case Studies",
     description:
-      "How BizzFly publishes client work — verified metrics with sources, named challenges, and written client approval before anything goes live.",
+      "How BizzFly publishes client work: verified metrics with sources, named challenges, and written client approval before anything goes live.",
     primaryTopic: "client case studies",
     secondaryTopics: ["client work", "results", "proof"],
     intent: "commercial",
@@ -83,7 +87,9 @@ export default function CaseStudiesPage() {
         }}
       />
 
-      <EditorialHero
+      <CinematicHero
+        image={getCaseStudiesAuditImage()}
+        composition="bleed-right"
         eyebrow="Work"
         title="Client work, published honestly"
         lead="We publish a case study only when the client has approved it in writing and every number in it has a source and a measurement window. That is a slower way to build a portfolio, and the only one worth trusting."
@@ -93,6 +99,21 @@ export default function CaseStudiesPage() {
             {primaryCta.label}
           </Button>
         }
+        factsHeading="Publishing Standard"
+        facts={[
+          {
+            value: "100%",
+            label: "client-verified empirical metrics with explicit measurement windows",
+          },
+          {
+            value: "0",
+            label: "unattributed claims, vanity metrics, or synthetic case studies",
+          },
+          {
+            value: "Written",
+            label: "client sign-off mandatory before any engagement details go live",
+          },
+        ]}
       />
 
       {hasPublished && featured ? (
@@ -106,7 +127,7 @@ export default function CaseStudiesPage() {
               </div>
               <h2 className={styles.featuredTitle}>
                 <Link href={`/case-studies/${featured.slug}/`}>
-                  {featured.title}
+                  {titleCase(featured.title)}
                 </Link>
               </h2>
               <p className={styles.featuredAnswer}>{featured.answer}</p>
@@ -145,7 +166,7 @@ export default function CaseStudiesPage() {
             <BodyText className={styles.pendingBody}>
               We are collecting written client approval and verified metrics
               before publishing. Rather than fill this page with placeholder
-              work, here is exactly what we will publish when it is ready — and
+              work, here is exactly what we will publish when it is ready, and
               what we would expect any agency to show you.
             </BodyText>
             <div className={styles.pendingActions}>
@@ -158,11 +179,19 @@ export default function CaseStudiesPage() {
         </Section>
       )}
 
-      <Section spacing="md" width="content">
-        <VisualStoryBlock
+      {/*
+        The verified standard photograph shows an authentic Indian technical audit workstation
+        documenting empirical performance metrics and signed client outcomes, replacing
+        withdrawn forensic stock imagery.
+      */}
+      <Section spacing="lg">
+        <AnchoredStatement
+          eyebrow="The standard"
+          title="What publication requires"
           image={getCaseStudiesImage()}
-          variant="C"
-          caption="Every case study BizzFly publishes requires written client approval, verified before-and-after commercial metrics, and honest documentation of project constraints."
+          paragraphs={[
+            "Every case study BizzFly publishes requires written client approval, verified before-and-after commercial metrics, and honest documentation of project constraints.",
+          ]}
         />
       </Section>
 

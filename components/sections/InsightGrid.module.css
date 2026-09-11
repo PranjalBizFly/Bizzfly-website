@@ -8,7 +8,7 @@
  */
 .grid {
   display: grid;
-  gap: var(--gap-stack-md) var(--space-8);
+  gap: var(--gap-stack-md) var(--space-8);
 }
 
 @media (min-width: 720px) {
@@ -37,12 +37,28 @@
   background: var(--surface);
   box-shadow: var(--elev-1);
   aspect-ratio: var(--ratio-card);
-  transition: box-shadow var(--dur-base) var(--ease-standard);
+  transition:
+    box-shadow var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
 }
 
+/*
+ * The frame lifts with its shadow.
+ *
+ * Three pixels, and on the frame rather than on the card: the card owns the
+ * grid cell, so moving it would carry the title and meta beneath it and the
+ * whole row would appear to breathe. Lifting the picture alone is what reads
+ * as the card coming forward.
+ *
+ * The button rule — that a control never changes size or position under the
+ * pointer — does not apply here. That exists because a moving hit target is
+ * hard to hit, and this frame is not the target: the whole card is, and the
+ * card itself does not move.
+ */
 .card:hover .frame,
 .card:focus-within .frame {
   box-shadow: var(--elev-2);
+  transform: translateY(-3px);
 }
 
 .image {
@@ -142,7 +158,9 @@
   .card:hover .image,
   .card:focus-within .image,
   .card:hover .arrow,
-  .card:focus-within .arrow {
+  .card:focus-within .arrow,
+  .card:hover .frame,
+  .card:focus-within .frame {
     transform: none;
   }
 }

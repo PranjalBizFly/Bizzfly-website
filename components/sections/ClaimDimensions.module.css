@@ -1,0 +1,189 @@
+/* ==========================================================================
+   ClaimDimensions — a comparison along its own dimensions
+
+   A definition list, laid out as labelled rows separated by hairlines. The
+   rule between rows does the work a table's borders would, without a table's
+   claim that every cell is a comparable value: these rows are paragraphs of
+   an argument, not measurements.
+
+   The rail is a fixed track rather than a fraction so the labels align down
+   the page whatever they say; the reading column takes the rest.
+   ========================================================================== */
+
+.wrapper {
+  display: grid;
+  gap: var(--space-12);
+}
+
+/* --- The pair ------------------------------------------------------------ */
+
+/*
+ * Set at display size on one line, because the opposition is the subject of
+ * the page. The two sides are typographically identical — a comparison that
+ * styles one side more prominently has answered itself before the reader
+ * starts.
+ */
+.pair {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-4) var(--space-6);
+  padding-block-end: var(--space-8);
+  border-block-end: 1px solid var(--border-strong);
+}
+
+.subject {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h2);
+  line-height: var(--leading-tight);
+  color: var(--foreground);
+  text-wrap: balance;
+}
+
+/*
+ * The second subject is tinted rather than sized differently, so the pair
+ * still reads as two halves of one line while being distinguishable at a
+ * glance. Both values are text-safe on every ground this section is used on.
+ */
+.subject[data-side="b"] {
+  color: var(--accent-text);
+}
+
+.versus {
+  margin: 0;
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+
+/* --- The rows ------------------------------------------------------------ */
+
+.rows {
+  margin: 0;
+  display: grid;
+  gap: 0;
+}
+
+.row {
+  display: grid;
+  gap: var(--space-4);
+  padding-block: var(--space-8);
+  border-block-start: 1px solid var(--border);
+}
+
+.row:first-child {
+  border-block-start: 0;
+  padding-block-start: 0;
+}
+
+.row:last-child {
+  padding-block-end: 0;
+}
+
+@media (min-width: 900px) {
+  .row {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    column-gap: var(--space-10);
+    align-items: start;
+  }
+}
+
+/* --- The rail ------------------------------------------------------------ */
+
+.rail {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+@media (min-width: 900px) {
+  .rail {
+    /*
+     * Holds the label beside its row while the row is read. The rail is
+     * short, so this costs nothing on a long dimension and keeps the label
+     * visible on the two that run past a screen on a phone-width laptop.
+     */
+    position: sticky;
+    top: calc(var(--header-height-condensed) + var(--space-6));
+  }
+}
+
+.index {
+  font-family: var(--font-label);
+  font-size: var(--text-body-sm);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--weight-semibold);
+  color: var(--accent-text);
+  flex: none;
+}
+
+/* --- The content --------------------------------------------------------- */
+
+.content {
+  margin: 0;
+  min-width: 0;
+}
+
+.claim {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  max-width: var(--measure-title);
+  text-wrap: balance;
+}
+
+.detail {
+  margin: var(--space-4) 0 0;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--muted);
+  max-width: var(--measure-body);
+  text-wrap: pretty;
+}
+
+/* --- Points, where the claim enumerated ---------------------------------- */
+
+.points {
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--measure-body);
+}
+
+.point {
+  position: relative;
+  padding-inline-start: var(--space-5);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+  text-wrap: pretty;
+}
+
+.point::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.7em;
+  inline-size: var(--space-3);
+  /*
+   * 2px, not 1px. A one-pixel rule positioned at a fractional em offset
+   * lands between device pixels and the browser blends it with the ground,
+   * so a list of five came out with some dashes in the accent and some in a
+   * washed-out grey. Two pixels sits on the pixel grid at every zoom level.
+   */
+  block-size: 2px;
+  border-radius: var(--radius-full);
+  background: var(--accent-edge);
+}

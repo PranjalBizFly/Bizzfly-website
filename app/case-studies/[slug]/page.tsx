@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Section } from "@/components/layout/Section";
 import { EditorialHero } from "@/components/hero";
 import {
+  AnchoredStatement,
   SectionHeader,
   ProcessBlock,
   QuoteBlock,
@@ -84,25 +85,33 @@ export default async function CaseStudyPage({ params }: PageProps) {
   const publishableResults = study.results.filter((r) => r.approvedForPublication);
 
   const sections = {
+    /*
+      Five of this template's eight sections used to render through the same
+      four tags — Section > ContentBlock > Heading > BodyText — so Context,
+      the problem, Strategy, what went wrong and the lessons arrived as one
+      undifferentiated column with a heading every screen. The content of
+      each is unchanged; what differs now is the composition carrying it, so
+      that a reader can tell from shape alone which part of the story they
+      are in. No imagery is involved: no case study on this site has
+      approved photography, and none is invented to fill a frame.
+    */
     context: hasContent(study.context) ? (
-      <Section key="context" spacing="lg" width="content">
-        <ContentBlock>
-          <Heading level={2} size="h3">
-            Context
-          </Heading>
-          <BodyText size="lg">{study.context}</BodyText>
-        </ContentBlock>
+      <Section key="context" spacing="lg">
+        <AnchoredStatement
+          eyebrow="Context"
+          title="Where this started"
+          paragraphs={[study.context as string]}
+        />
       </Section>
     ) : null,
 
     challenge: hasContent(study.challenge) ? (
       <Section key="challenge" background="surface" spacing="lg" width="content">
-        <ContentBlock>
-          <Heading level={2} size="h3">
-            The business problem
-          </Heading>
-          <BodyText size="lg">{study.challenge}</BodyText>
-        </ContentBlock>
+        <EditorialBlock
+          eyebrow="The business problem"
+          title="What was actually costing them"
+          lead={study.challenge as string}
+        />
       </Section>
     ) : null,
 
@@ -136,14 +145,18 @@ export default async function CaseStudyPage({ params }: PageProps) {
     ) : null,
 
     /* Mandatory in the model — a case study without it reads as fiction. */
+    /*
+      Mandatory in the model, and the section a reader checks to decide
+      whether the rest is credible — so it gets a composition of its own
+      rather than being the fourth identical prose block on the page.
+    */
     challenges: hasContent(study.challenges) ? (
-      <Section key="challenges" spacing="lg" width="content">
-        <ContentBlock>
-          <Heading level={2} size="h3">
-            What went wrong
-          </Heading>
-          <BodyText size="lg">{study.challenges}</BodyText>
-        </ContentBlock>
+      <Section key="challenges" spacing="lg">
+        <AnchoredStatement
+          eyebrow="What went wrong"
+          title="The parts that did not go to plan"
+          paragraphs={[study.challenges as string]}
+        />
       </Section>
     ) : null,
 
@@ -182,13 +195,12 @@ export default async function CaseStudyPage({ params }: PageProps) {
     ) : null,
 
     lessons: hasContent(study.lessons) ? (
-      <Section key="lessons" spacing="lg" width="content">
-        <ContentBlock>
-          <Heading level={2} size="h3">
-            What we learned
-          </Heading>
-          <BodyText size="lg">{study.lessons}</BodyText>
-        </ContentBlock>
+      <Section key="lessons" background="surface" spacing="lg" width="content">
+        <EditorialBlock
+          eyebrow="What we learned"
+          title="What we would do differently"
+          lead={study.lessons as string}
+        />
       </Section>
     ) : null,
   };
@@ -252,12 +264,20 @@ export default async function CaseStudyPage({ params }: PageProps) {
       ) : null}
 
       {study.related?.length ? (
-        <Section spacing="md">
+        <Section spacing="sm">
           <RelatedContent mode="split" heading="Read next" items={study.related} />
         </Section>
       ) : null}
 
-      <ConversionBand cta={study.cta} />
+      {/*
+        The reader has just been shown one engagement end to end, including
+        what went wrong in it. The band asks whether their problem rhymes.
+      */}
+      <ConversionBand
+        title="Recognise the problem in this one?"
+        lead={`This engagement started with a specific constraint in ${study.industry.toLowerCase()}. If yours looks similar, describe it and we will tell you how closely it actually matches — and where the differences would change the approach.`}
+        cta={study.cta}
+      />
     </>
   );
 }

@@ -15,7 +15,7 @@ export const revenueUseCases: UseCase[] = [
     diagram: "process-transformation",
     title: "Reduce customer churn",
     answer:
-      "Most churn is visible before it happens — usage falls, contact stops, a renewal date approaches with no conversation. The work is capturing those signals somewhere a person will see them in time to act.",
+      "Most churn is visible before it happens: usage falls, contact stops, a renewal date approaches with no conversation. The work is capturing those signals somewhere a person will see them in time to act.",
     whyItMatters:
       "Retaining an existing customer is materially cheaper than replacing one, and churn compounds: the accounts lost this quarter also take their referrals and their expansion revenue with them.",
     symptoms: [
@@ -35,7 +35,7 @@ export const revenueUseCases: UseCase[] = [
         index: 1,
         title: "Define the signals",
         description:
-          "Look at accounts that already left and find what preceded it. The pattern is usually specific to your business — a drop in a particular activity, a change of contact, a support theme — and it is far more useful than a generic health score.",
+          "Look at accounts that already left and find what preceded it. The pattern is usually specific to your business (a drop in a particular activity, a change of contact, a support theme) and it is far more useful than a generic health score.",
       },
       {
         index: 2,
@@ -96,7 +96,7 @@ export const revenueUseCases: UseCase[] = [
     diagram: "process-transformation",
     title: "Shorten the sales cycle",
     answer:
-      "Deals rarely slow down evenly. They stall at specific points — waiting for a quote, waiting for an approval, waiting for information the buyer needs to justify the decision internally. Find the stall, then remove it.",
+      "Deals rarely slow down evenly. They stall at specific points: waiting for a quote, waiting for an approval, waiting for information the buyer needs to justify the decision internally. Find the stall, then remove it.",
     whyItMatters:
       "A shorter cycle raises capacity without adding headcount, and it reduces the number of deals lost to nothing more than elapsed time and changed priorities.",
     symptoms: [
@@ -134,7 +134,7 @@ export const revenueUseCases: UseCase[] = [
         index: 4,
         title: "Trigger the follow-up",
         description:
-          "Behaviour-based prompts so the next action happens without being remembered — which is where the most consistent time is recovered.",
+          "Behaviour-based prompts so the next action happens without being remembered, which is where the most consistent time is recovered.",
       },
     ],
     targetState:
@@ -163,7 +163,7 @@ export const revenueUseCases: UseCase[] = [
       {
         question: "Where do most deals stall?",
         answer:
-          "Your own time-in-stage data will say, and it is worth measuring before assuming. The two transitions that most often turn out to be waiting rather than working are quotation and the buyer's internal approval — the first addressable by automating pricing logic, the second by giving the buyer material that makes their internal case for them.",
+          "Your own time-in-stage data will say, and it is worth measuring before assuming. The two transitions that most often turn out to be waiting rather than working are quotation and the buyer's internal approval: the first addressable by automating pricing logic, the second by giving the buyer material that makes their internal case for them.",
       },
     ],
     related: [
@@ -197,7 +197,7 @@ export const revenueUseCases: UseCase[] = [
         index: 1,
         title: "Agree the criteria",
         description:
-          "What actually predicts a good customer here — from won and lost deals, not from a template. This conversation between sales and marketing is the substance of the work; the automation is the easy part.",
+          "What actually predicts a good customer here, from won and lost deals, not from a template. This conversation between sales and marketing is the substance of the work; the automation is the easy part.",
       },
       {
         index: 2,
@@ -244,7 +244,7 @@ export const revenueUseCases: UseCase[] = [
       {
         question: "What happens to unqualified enquiries?",
         answer:
-          "They should get a helpful response — relevant resources, an honest statement of fit, or a referral. Silence damages your reputation with people who may fit later or know someone who does.",
+          "They should get a helpful response: relevant resources, an honest statement of fit, or a referral. Silence damages your reputation with people who may fit later or know someone who does.",
       },
     ],
     related: [
@@ -320,7 +320,7 @@ export const revenueUseCases: UseCase[] = [
       {
         question: "What if our pricing is too complex to automate?",
         answer:
-          "Complexity is usually the reason to do it rather than not to. What blocks automation is undocumented complexity — rules that exist only as judgement. Once written down, most of it is codifiable and the genuine exceptions are a small minority.",
+          "Complexity is usually the reason to do it rather than not to. What blocks automation is undocumented complexity: rules that exist only as judgement. Once written down, most of it is codifiable and the genuine exceptions are a small minority.",
       },
       {
         question: "Do we lose flexibility?",
@@ -350,7 +350,7 @@ export const revenueUseCases: UseCase[] = [
     ],
     rootCauses: [
       "Enquiries are not traceable to their source once they enter the CRM",
-      "Offline conversion — the call, the meeting, the contract — never returns to the analytics",
+      "Offline conversion (the call, the meeting, the contract) never returns to the analytics",
       "Different definitions of a lead in marketing and sales systems",
       "Buying journeys span months and several devices, which no single tool sees end to end",
     ],
@@ -377,7 +377,7 @@ export const revenueUseCases: UseCase[] = [
         index: 4,
         title: "State the limits",
         description:
-          "Document what cannot be attributed — brand effects, offline influence, dark social. A report that acknowledges its blind spots is trusted; one that claims completeness is eventually caught out.",
+          "Document what cannot be attributed: brand effects, offline influence, dark social. A report that acknowledges its blind spots is trusted; one that claims completeness is eventually caught out.",
       },
     ],
     targetState:
@@ -401,7 +401,7 @@ export const revenueUseCases: UseCase[] = [
       {
         question: "Can every enquiry be attributed?",
         answer:
-          "No. Considered purchases involve touchpoints no tool observes — a conversation, a recommendation, something read months earlier. Good measurement narrows the unknown and labels what remains rather than assigning it arbitrarily.",
+          "No. Considered purchases involve touchpoints no tool observes: a conversation, a recommendation, something read months earlier. Good measurement narrows the unknown and labels what remains rather than assigning it arbitrarily.",
       },
       {
         question: "Is last-click attribution useless?",
@@ -418,7 +418,7 @@ export const revenueUseCases: UseCase[] = [
     slug: "recover-lost-traffic",
     layout: "problem-solution",
     diagram: "search-surfaces",
-    title: "Recover lost search traffic",
+    title: "Recover lost traffic",
     answer:
       "Diagnosis first. A decline caused by a migration, an algorithm update, lost content or the shift to zero-click search needs a different response in each case, and acting before diagnosing usually wastes the quarter.",
     whyItMatters:
@@ -452,13 +452,13 @@ export const revenueUseCases: UseCase[] = [
         index: 3,
         title: "Separate impressions from clicks",
         description:
-          "If impressions held and clicks fell, the pages are still eligible and something changed in presentation — which points at zero-click rather than at a ranking loss.",
+          "If impressions held and clicks fell, the pages are still eligible and something changed in presentation, which points at zero-click rather than at a ranking loss.",
       },
       {
         index: 4,
         title: "Remediate against the finding",
         description:
-          "Restore content, fix redirects, correct rendering, or accept the click loss and shift the measure — as the evidence dictates rather than as a default checklist.",
+          "Restore content, fix redirects, correct rendering, or accept the click loss and shift the measure, as the evidence dictates rather than as a default checklist.",
       },
     ],
     targetState:
@@ -503,7 +503,7 @@ export const revenueUseCases: UseCase[] = [
     answer:
       "Test for demand before committing to a presence. Search behaviour, competitor visibility and enquiry response in the target market give a cheap read on whether the opportunity is real before anything is built.",
     whyItMatters:
-      "Market entry commits budget and attention for a year or more. Evidence gathered in a few weeks changes the decision, and occasionally cancels it — which is the cheapest possible outcome.",
+      "Market entry commits budget and attention for a year or more. Evidence gathered in a few weeks changes the decision, and occasionally cancels it, which is the cheapest possible outcome.",
     symptoms: [
       "A new market has been chosen on intuition and needs validating",
       "An existing market has plateaued and growth has to come from elsewhere",

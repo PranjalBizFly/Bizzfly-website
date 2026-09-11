@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/layout/Section";
-import { EditorialHero } from "@/components/hero";
+import { CinematicHero } from "@/components/hero";
 import {
   SectionHeader,
   ConversionBand,
   Directory,
-  VisualStoryBlock,
 } from "@/components/sections";
 import { Button } from "@/components/buttons";
 import { Heading, BodyText } from "@/components/typography";
@@ -82,7 +81,9 @@ export default function CompanyIndexPage() {
         }}
       />
 
-      <EditorialHero
+      <CinematicHero
+        image={getCompanyHubImage()}
+        composition="bleed-right"
         eyebrow="Company"
         title="A small team in Pune, working across two disciplines that are usually kept apart"
         lead="Search visibility and business systems are treated as separate trades by separate suppliers, which is why neither tends to get solved properly. We work across both."
@@ -92,24 +93,31 @@ export default function CompanyIndexPage() {
             {primaryCta.label}
           </Button>
         }
+        factsHeading="Company Principles"
+        facts={[
+          {
+            value: String(
+              companyGroups.reduce((count, group) => count + group.items.length, 0),
+            ),
+            label: "company pages, including the ones stating what we will not claim",
+          },
+          {
+            value: String(transparencyPages.length),
+            label: "of them are commitments we can be held to rather than description",
+          },
+          {
+            value: "2",
+            label: "disciplines under one team — search visibility and business systems",
+          },
+        ]}
       />
-
-      {/* Pune team & workspace editorial visual */}
-      <Section spacing="md" width="content">
-        <VisualStoryBlock
-          image={getCompanyHubImage()}
-          variant="C"
-          priority
-          caption="The BizzFly team in Pune, India — combining digital growth strategy with systems engineering."
-        />
-      </Section>
 
       {/* Values — verified from the live site, genuinely specific */}
       <Section spacing="lg">
         <SectionHeader
           split
-          eyebrow="01 / What we optimise for"
-          title="Three things we hold every engagement against"
+          eyebrow="What we optimise for"
+          title="Three things we hold engagements to"
           lead="Not slogans. Each one has cost us work we would otherwise have taken."
         />
         <div className={styles.values}>
@@ -132,14 +140,18 @@ export default function CompanyIndexPage() {
       <Section background="tint" spacing="lg">
         <SectionHeader
           split
-          eyebrow="02 / More"
+          eyebrow="More"
           title="About the company"
           lead="Everything we publish about how we work, priced, scoped and bounded."
         />
         <Directory groups={companyGroups} />
       </Section>
 
-      <ConversionBand />
+      {/* A hub page: the reader is orienting, not deciding. */}
+      <ConversionBand
+        title="Still working out whether we fit?"
+        lead="These pages are the long answer. The short one takes thirty minutes: tell us what you are trying to move and we will tell you whether it is a problem we are good at, or one we would hand to someone else."
+      />
     </>
   );
 }

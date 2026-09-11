@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { growthStages } from "@/content/homepage-narrative";
-import { useReveal } from "@/components/motion";
+import { useReveal, TextReveal } from "@/components/motion";
 import type { ImageMetadata } from "@/content/images/types";
 import { MediaGround } from "./MediaGround";
 import styles from "./GrowthEngine.module.css";
@@ -39,9 +39,9 @@ export function GrowthEngine({ image }: { image: ImageMetadata }) {
   return (
     <MediaGround image={image} id="growth-engine" weight="deep">
       <header className={styles.header}>
-        <p className={styles.eyebrow}>08 / The BizzFly growth engine</p>
+        <p className={styles.eyebrow}>The BizzFly growth engine</p>
         <h2 className={styles.title}>
-          Four stages, and the order they have to be fixed in
+          <TextReveal text="Four stages, fixed in order" />
         </h2>
         <p className={styles.lead}>
           Each depends on the one before it. Work on a later stage sits idle

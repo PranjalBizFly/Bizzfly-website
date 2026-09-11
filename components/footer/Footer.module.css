@@ -270,6 +270,7 @@
   text-wrap: pretty;
 }
 
+/* Same treatment as .link above — target grown without moving the row. */
 .contactLink {
   color: var(--muted);
   text-decoration: none;
@@ -277,7 +278,15 @@
   min-height: 24px;
   display: inline-flex;
   align-items: center;
+  position: relative;
   transition: color var(--dur-fast) var(--ease-standard);
+}
+
+.contactLink::after {
+  content: "";
+  position: absolute;
+  inset-block: -8px;
+  inset-inline: 0;
 }
 
 .contactLink:hover {
@@ -308,6 +317,28 @@
 .columns {
   display: grid;
   gap: var(--space-6);
+}
+
+/*
+ * Columns may shrink to their track, not to their longest word.
+ *
+ * The tracks below are all `minmax(0, 1fr)`, which sizes the TRACK correctly
+ * — but a grid item still defaults to `min-width: auto`, so it refuses to go
+ * narrower than its own min-content and simply hangs out of the track it was
+ * given. The commitments block in .tail carries the longest unbroken words in
+ * the footer, so between roughly 356px and 369px it needed ~175px in a 146px
+ * track and pushed 6px past the viewport — a horizontal scrollbar on every
+ * page on the site, reported by the responsive audit on all 39 it samples.
+ *
+ * Breaking long words as well, because `min-width: 0` alone would clip them
+ * rather than wrap them once the track is genuinely narrower than one word.
+ */
+.columns > * {
+  min-width: 0;
+}
+
+.columns :is(.link, .commitItem, .groupHeading, .commitHeading) {
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 360px) {
@@ -349,8 +380,23 @@
 /* The sixth track carries the Company list, the commitments and the actions. */
 .tail {
   display: grid;
+  /*
+   * An explicit zero-minimum track, not the implicit `auto` one.
+   *
+   * `.tail` is a grid in its own right, and an implicit column is auto-sized
+   * — it takes the max-content width of the widest of the Company list, the
+   * commitments and the two actions. Its children therefore never had a
+   * reason to wrap, so the block sat at ~175px inside a 146px track and hung
+   * 6px past the viewport between roughly 356px and 369px. Capping the track
+   * at the space available is what lets the wrapping rules above do anything.
+   */
+  grid-template-columns: minmax(0, 1fr);
   align-content: start;
   gap: var(--space-8);
+}
+
+.tail > * {
+  min-width: 0;
 }
 
 .group {
@@ -453,6 +499,15 @@
 }
 
 /* Explicitly regular, so the link can never drift up towards its heading. */
+/*
+ * The box stays 24px; the TARGET is grown to 40 by a pseudo-element.
+ *
+ * 24px meets WCAG 2.5.8 AA, but these rows sit 41px apart, so there is
+ * 17px of dead space between every pair of links that a thumb can land in
+ * and miss. Padding the box would push the rows apart and make the footer
+ * taller on every page. An absolutely positioned overlay costs no layout at
+ * all, and stops 1px short of its neighbour so two targets never overlap.
+ */
 .link {
   font-size: var(--text-body-sm);
   font-weight: var(--weight-regular);
@@ -462,7 +517,15 @@
   /* WCAG 2.5.8 target size */
   min-height: 24px;
   display: inline-block;
+  position: relative;
   transition: color var(--dur-fast) var(--ease-standard);
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  inset-block: -8px;
+  inset-inline: 0;
 }
 
 .link:hover {
@@ -488,7 +551,21 @@
   padding-bottom: var(--space-3);
   border-bottom: 1px solid var(--border);
   margin-bottom: var(--space-4);
-  white-space: nowrap;
+  /*
+   * No `nowrap` here.
+   *
+   * "WHAT WE COMMIT TO" sets to about 170px at this size, weight and
+   * tracking, and the column it sits in is 146px from 360px upwards — so
+   * `white-space: nowrap` put roughly 29px of heading outside its own box
+   * and 6px outside the viewport. That was the horizontal scrollbar the
+   * responsive audit reported on all 39 pages it samples, on every page of
+   * the site, because this footer is on every page.
+   *
+   * The pairing the rule was protecting is already handled in the markup:
+   * Footer.tsx writes "commit&nbsp;to", so the last two words stay together
+   * and the line breaks after "WHAT WE" instead. One line where there is
+   * room, two where there is not, and never wider than the column.
+   */
 }
 
 .commitList {
@@ -554,6 +631,11 @@
 .actionPrimary {
   background: var(--cta-primary);
   color: var(--cta-primary-text);
+  /*
+   * The filled action carries the bright streak rather than the mix of its
+   * own label colour that .rim-sweep defaults to — see styles/base.css.
+   */
+  --streak: var(--sheen-edge);
 }
 
 .actionPrimary:hover {

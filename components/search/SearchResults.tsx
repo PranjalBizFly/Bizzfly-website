@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import type { CSSProperties } from "react";
 import {
   search,
   groupResults,
@@ -15,6 +16,7 @@ import {
 } from "@/lib/search";
 import { Chevron } from "@/components/navigation/Chevron";
 import styles from "./SearchResults.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 /**
  * Full-page search, and the site's page directory.
@@ -190,7 +192,7 @@ export function SearchResults() {
       {groups.map(([groupName, items]) => (
         <section key={groupName} className={styles.group}>
           <h2 className={styles.groupHeading}>
-            {groupName}
+            {titleCase(groupName)}
             <Link
               href={SECTION_HUB[groupName] ?? "/"}
               className={styles.groupHubLink}
@@ -200,8 +202,27 @@ export function SearchResults() {
             </Link>
           </h2>
           <ul className={styles.list}>
-            {items.map((item) => (
-              <li key={item.id} className={styles.item}>
+            {items.map((item, index) => (
+              /*
+               * The index drives a mount animation, not an observed reveal.
+               *
+               * These rows re-render on every keystroke, and an
+               * IntersectionObserver reveal is the wrong tool for that twice
+               * over: useReveal deliberately skips anything already on
+               * screen, so it would never fire here — and if it did, it would
+               * hide results the reader is part-way through reading.
+               *
+               * A CSS mount animation keyed by item id gives the right
+               * behaviour for free: a newly matched row animates in, a row
+               * that was already in the results when the query changed stays
+               * exactly where it is. Capped at twelve so a long result set
+               * does not keep arriving after the reader has started reading.
+               */
+              <li
+                key={item.id}
+                className={styles.item}
+                style={{ "--result-index": Math.min(index, 12) } as CSSProperties}
+              >
                 <Link href={item.href} className={styles.link}>
                   <span className={styles.title}>{item.title}</span>
                   <span className={styles.description}>{item.description}</span>
@@ -223,7 +244,7 @@ export function SearchResults() {
         <div className={styles.directoryHead}>
           <p className={styles.directoryEyebrow}>Every page</p>
           <h2 className={styles.directoryTitle}>
-            {hasQuery ? "The directory, filtered" : "Explore all pages"}
+            {hasQuery ? "The Directory, Filtered" : "Explore All Pages"}
           </h2>
           <p className={styles.directoryLead}>
             {hasQuery
@@ -303,7 +324,7 @@ export function SearchResults() {
               >
                 <div className={styles.blockHead}>
                   <h3 className={styles.blockTitle}>
-                    <Link href={section.hub}>{section.category}</Link>
+                    <Link href={section.hub}>{titleCase(section.category)}</Link>
                   </h3>
                   <button
                     type="button"

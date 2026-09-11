@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/layout/Section";
-import { SplitHero } from "@/components/hero";
+import { CinematicHero } from "@/components/hero";
 import {
-  ContentBlock,
+  ChoiceList,
   ConversionBand,
   EditorialBlock,
   LayerTabs,
@@ -14,6 +14,7 @@ import {
 import { CtaBlock } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/content/site";
+import { getPressKitImage } from "@/content/images/imageAssignments";
 import { buildMetadata } from "@/lib/seo";
 import styles from "./press-kit.module.css";
 
@@ -105,6 +106,21 @@ const disciplines = [
   },
 ];
 
+/*
+ * What the hero's aside carries.
+ *
+ * It used to name the four disciplines, which section 03 lists again in
+ * full. An editor opening a press kit is not there for the practice list —
+ * they are there to get the name, the description and the assets right, and
+ * these are the three things the page exists to settle. Each points at a
+ * section below rather than duplicating one.
+ */
+const kitFacts = [
+  "One word, uppercase B, uppercase F",
+  "Three approved boilerplate lengths",
+  "Logo assets with usage rules",
+];
+
 const relatedLinks = [
   { label: "Media", href: "/media/", type: "COMPANY" as const },
   { label: "About Us", href: "/about-us/", type: "COMPANY" as const },
@@ -127,13 +143,15 @@ export default function PressKitPage() {
         }}
       />
 
-      <SplitHero
+      <CinematicHero
+        image={getPressKitImage()}
+        composition="bleed-right"
         eyebrow="Company"
         title="BizzFly Press Kit & Brand Assets"
         lead="Official brand assets, company descriptions, leadership profiles, and usage standards for editors, conference organisers, and industry publications."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Press Kit" }]}
-        asideHeading="The four disciplines"
-        asideItems={disciplines.map((item) => item.title)}
+        factsHeading="What this kit settles"
+        facts={kitFacts.map((fact) => ({ value: "✓", label: fact }))}
         actions={<CtaBlock cta={cta} size="lg" />}
       />
 
@@ -145,7 +163,7 @@ export default function PressKitPage() {
       */}
       <Section spacing="lg" width="content" id="brand-name">
         <SectionHeader
-          eyebrow="01 / Brand name"
+          eyebrow="Brand name"
           title="One word, uppercase B, uppercase F"
           lead="The company name is written as BizzFly."
         />
@@ -169,7 +187,7 @@ export default function PressKitPage() {
       {/* 02 — pick the length you need, then copy it. */}
       <Section background="tint" spacing="lg" id="boilerplates">
         <SectionHeader
-          eyebrow="02 / Company boilerplates"
+          eyebrow="Company boilerplates"
           title="Three approved descriptions"
           lead="Choose the length the piece needs. Each is approved for publication as written."
         />
@@ -179,33 +197,66 @@ export default function PressKitPage() {
       {/* 03 — the disciplines, as the route into the site. */}
       <Section spacing="lg" id="disciplines">
         <SectionHeader
-          eyebrow="03 / Core disciplines"
+          eyebrow="Core disciplines"
           title="What BizzFly does, in four groups"
           lead="Each links to the practice that owns the work."
         />
         <NumberedList items={disciplines} />
       </Section>
 
-      {/* 04 — the people and the desk, closing the page. */}
-      <Section background="surface" spacing="lg" width="content" id="contact">
+      {/*
+        04 — the people and the desk, closing the page.
+
+        A journalist arrives at a press kit to find three things quickly: who
+        to name, where they are, and where to write. Those were a heading, a
+        lead and a trailing sentence of prose in a content-width column — the
+        contact address, the single most-wanted item on the page, set as the
+        last clause of the last paragraph. Set as a desk sheet the three are
+        countable at a glance. No wording is added that the section did not
+        already carry.
+      */}
+      <Section background="surface" spacing="lg" id="contact">
         <EditorialBlock
-          eyebrow="04 / Leadership and media desk"
-          title={`${site.founder} — Founder`}
+          eyebrow="Leadership and media desk"
+          title={`${site.founder}, Founder`}
           lead="Operates from Pune, Maharashtra, leading client strategy across search visibility and technical delivery."
         />
-        <ContentBlock>
-          <p>
-            For asset enquiries, interviews, or high-resolution graphics, contact{" "}
-            <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>.
-          </p>
-        </ContentBlock>
+        <ChoiceList
+          label="Media desk"
+          choices={[
+            {
+              name: site.founder,
+              rationale:
+                "Founder. Leads client strategy across search visibility and technical delivery.",
+            },
+            {
+              name: `${site.contact.address.city}, ${site.contact.address.region}`,
+              rationale: "Where the team operates from.",
+            },
+            {
+              name: site.contact.email,
+              href: `mailto:${site.contact.email}`,
+              rationale:
+                "Asset enquiries, interviews, and high-resolution graphics.",
+            },
+          ]}
+        />
       </Section>
 
-      <Section spacing="md" width="content">
+      <Section spacing="sm" width="content">
         <RelatedContent mode="split" heading="Related" items={relatedLinks} />
       </Section>
 
-      <ConversionBand cta={cta} />
+      {/*
+        The reader is an editor on deadline, not a buyer. What they need is a
+        fact checked or an asset that is not here, and saying so is more
+        useful than asking them what they are trying to solve.
+      */}
+      <ConversionBand
+        title="Need a fact checked, or an asset that is not here?"
+        lead="Ask the media desk directly. We will confirm anything on this page in writing, and if you need the logo in a format we have not published we will send it rather than point you at a zip."
+        cta={cta}
+      />
     </>
   );
 }

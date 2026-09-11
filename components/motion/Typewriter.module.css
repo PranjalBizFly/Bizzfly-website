@@ -1,0 +1,56 @@
+/* ==========================================================================
+   TYPEWRITER
+   --------------------------------------------------------------------------
+   One caret, one rule. The animated string itself needs no styling — it
+   inherits whatever type the call site is already setting, which is what
+   keeps this usable inside an existing paragraph rather than beside one.
+   ========================================================================== */
+
+.caret {
+  display: inline-block;
+  width: 1px;
+  /* Matches the cap height of the surrounding type at any size. */
+  height: 1em;
+  vertical-align: text-bottom;
+  margin-inline-start: 0.12em;
+  background: var(--accent-edge);
+}
+
+/*
+ * Blinks only while the string is at rest.
+ *
+ * A caret that blinks WHILE characters are arriving reads as two competing
+ * motions in the same few pixels. During typing it holds solid, which is
+ * also what a real text cursor does.
+ */
+.caret[data-state="rest"] {
+  animation: caretBlink 1.1s steps(1, end) infinite;
+}
+
+@keyframes caretBlink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*
+ * Reduced motion removes the caret entirely rather than freezing it.
+ *
+ * The component already paints the complete string and skips the timer under
+ * this setting, so a caret left at the end would be a cursor sitting after a
+ * sentence nobody is typing — meaningless, and still a blinking element if
+ * the animation were merely paused.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .caret {
+    display: none;
+  }
+}

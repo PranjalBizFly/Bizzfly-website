@@ -68,7 +68,7 @@ export const technologyGlossary: Resource[] = [
       "Retrieval-augmented generation is a pattern where a system searches your own documents for relevant passages and gives them to a language model as context, so the answer is grounded in your material rather than the model's memory.",
     body: [
       "The sequence is simple. A question arrives; the system retrieves the passages most relevant to it from a body of content you control; those passages are supplied to the model along with the question; the model composes an answer from what it was given.",
-      "It is usually the right first architecture for business use. It keeps answers tied to source material you can point at, it updates the moment the underlying documents change, and it makes citation possible — the system can show which passage an answer came from.",
+      "It is usually the right first architecture for business use. It keeps answers tied to source material you can point at, it updates the moment the underlying documents change, and it makes citation possible: the system can show which passage an answer came from.",
       "The quality ceiling is retrieval, not the model. If the right passage is not found, no model will produce a correct answer from what it did receive. Most disappointing RAG systems are retrieval problems wearing an AI costume: badly chunked documents, missing content, or a corpus nobody curated.",
       "The design decision that matters most is the confidence boundary. A system that answers everything will answer wrongly at the edges. A system that escalates to a person when retrieval is weak, carrying the full context with it, is the one businesses can actually stand behind.",
     ],
@@ -118,7 +118,7 @@ export const technologyGlossary: Resource[] = [
       "Vector search finds content by meaning rather than by matching words. Text is converted into numeric representations, and results are the passages whose representations sit closest to the query's.",
     body: [
       "Keyword search matches characters: a query for 'invoice not paid' misses a document that says 'outstanding remittance'. Vector search compares meaning, so conceptually similar passages are found even when they share no vocabulary.",
-      "The conversion step is an embedding — a model that turns a passage into a list of numbers positioned so that similar meanings land near each other. Search then becomes a proximity problem in that space.",
+      "The conversion step is an embedding: a model that turns a passage into a list of numbers positioned so that similar meanings land near each other. Search then becomes a proximity problem in that space.",
       "It is not strictly better than keyword search, and the best systems use both. Vector search is weak exactly where precision matters: product codes, names, part numbers and any query where the literal string is the point. Hybrid retrieval covers both cases.",
       "The practical failure mode is chunking. Documents are split before embedding, and if a split lands mid-argument, the retrieved passage answers half a question. How content is divided usually affects answer quality more than which embedding model was chosen.",
     ],
@@ -165,9 +165,9 @@ export const technologyGlossary: Resource[] = [
     topic: "AI",
     title: "AI Agent",
     answer:
-      "An AI agent is a system that uses a language model to decide which actions to take toward a goal — calling tools, querying systems, and continuing over several steps — rather than producing a single block of text.",
+      "An AI agent is a system that uses a language model to decide which actions to take toward a goal (calling tools, querying systems, and continuing over several steps) rather than producing a single block of text.",
     body: [
-      "The difference from a chatbot is the ability to act. A chatbot answers. An agent can look up an order, check a policy, draft a reply and, where permitted, complete a step in a process — deciding at each point what to do next.",
+      "The difference from a chatbot is the ability to act. A chatbot answers. An agent can look up an order, check a policy, draft a reply and, where permitted, complete a step in a process, deciding at each point what to do next.",
       "That capability is exactly what makes boundaries the whole design problem. An agent given broad permissions and vague instructions is a system that will eventually take a confident, incorrect action against real data. The useful question is never how autonomous it can be, but which actions it may take unsupervised and what happens at the edge of that set.",
       "Well-built agents are narrow. A defined task, a small set of tools, explicit permissions, a clear confidence boundary, and an escalation path that hands a person the full context rather than a bare failure.",
       "Reliability comes from constraint, not capability. Most agent projects that disappoint were scoped by what the technology could theoretically do rather than by which decision a business was willing to delegate.",
@@ -192,7 +192,7 @@ export const technologyGlossary: Resource[] = [
       {
         question: "How is an AI agent different from a chatbot?",
         answer:
-          "A chatbot produces replies. An agent can take actions — querying systems, calling tools, completing steps — and decides which to take next. That makes permissions and escalation the central design questions.",
+          "A chatbot produces replies. An agent can take actions (querying systems, calling tools, completing steps) and decides which to take next. That makes permissions and escalation the central design questions.",
       },
       {
         question: "Are AI agents safe to put in front of customers?",
@@ -215,12 +215,12 @@ export const technologyGlossary: Resource[] = [
     topic: "AI",
     title: "Hallucination (AI)",
     answer:
-      "A hallucination is output that is fluent and confident but false — an invented citation, a policy that does not exist, a figure with no source. It is a normal consequence of how generative models work, not a malfunction.",
+      "A hallucination is output that is fluent and confident but false: an invented citation, a policy that does not exist, a figure with no source. It is a normal consequence of how generative models work, not a malfunction.",
     body: [
       "Because a model generates plausible continuations rather than retrieving verified facts, a false statement can be produced by exactly the same process as a true one. There is no internal flag separating them, which is why the tone of a wrong answer is indistinguishable from a right one.",
       "The risk concentrates where the model is least constrained: questions outside its training, questions about your specific business, and anything requiring a precise figure, date or reference. These are also, unhelpfully, the questions businesses most want answered.",
       "Mitigation is architectural. Ground answers in retrieved source material, keep the corpus curated, show the source alongside the answer so a reader can check it, and define a confidence boundary below which the system escalates rather than guesses.",
-      "It cannot be eliminated, and any supplier claiming otherwise is describing a system they have not stress-tested. The realistic goal is to make errors rare, visible and recoverable — and to keep humans accountable for decisions that matter.",
+      "It cannot be eliminated, and any supplier claiming otherwise is describing a system they have not stress-tested. The realistic goal is to make errors rare, visible and recoverable, and to keep humans accountable for decisions that matter.",
     ],
     supports: ["ai-consulting", "ai-chatbots"],
     seo: {
@@ -265,7 +265,7 @@ export const technologyGlossary: Resource[] = [
     topic: "Automation",
     title: "Robotic Process Automation (RPA)",
     answer:
-      "Robotic process automation uses software to perform the interface actions a person would perform — opening applications, copying values, clicking through screens — to complete a repetitive task without changing the underlying systems.",
+      "Robotic process automation uses software to perform the interface actions a person would perform (opening applications, copying values, clicking through screens) to complete a repetitive task without changing the underlying systems.",
     body: [
       "RPA works at the surface. Rather than integrating two systems through their data layers, it drives the screens a person drives. That is its whole appeal: it can automate a process across software that offers no integration options, without touching either system.",
       "It is also its whole weakness. Anything driven through an interface breaks when the interface changes. A relabelled field or a new confirmation dialog stops the automation, often silently, and maintenance becomes a permanent cost rather than a one-off build.",
@@ -297,7 +297,7 @@ export const technologyGlossary: Resource[] = [
       {
         question: "When is RPA the right choice?",
         answer:
-          "When the system genuinely offers no integration path — old vendor software you cannot modify — and the process is stable. Treat it as a bridge with an owner and a maintenance budget, not a permanent architecture.",
+          "When the system genuinely offers no integration path (old vendor software you cannot modify) and the process is stable. Treat it as a bridge with an owner and a maintenance budget, not a permanent architecture.",
       },
     ],
     related: [
@@ -319,7 +319,7 @@ export const technologyGlossary: Resource[] = [
     topic: "Software",
     title: "API",
     answer:
-      "An API is a defined way for one piece of software to request something from another — retrieving data, creating a record, triggering an action — through a documented contract rather than through a human interface.",
+      "An API is a defined way for one piece of software to request something from another (retrieving data, creating a record, triggering an action) through a documented contract rather than through a human interface.",
     body: [
       "The contract is the important part. An API states what can be asked, in what format, what comes back, and what happens when something fails. Because that contract is explicit, two systems built by different teams at different times can work together reliably.",
       "It is what makes integration durable. An interface changes when a vendor redesigns a screen; a published API is versioned, with deprecation notice, precisely because other systems depend on it. This is the difference between an integration that survives and one that breaks at the next update.",
@@ -346,7 +346,7 @@ export const technologyGlossary: Resource[] = [
       {
         question: "Why does it matter whether a system has an API?",
         answer:
-          "Because it decides how expensive that system is to connect to anything else. Without one, integration means driving screens or exporting files — both fragile. With one, the connection is a documented contract that survives updates.",
+          "Because it decides how expensive that system is to connect to anything else. Without one, integration means driving screens or exporting files, both fragile. With one, the connection is a documented contract that survives updates.",
       },
       {
         question: "What is the difference between an API and a webhook?",
@@ -373,7 +373,7 @@ export const technologyGlossary: Resource[] = [
     topic: "Software",
     title: "Webhook",
     answer:
-      "A webhook is an automated message one system sends to another when something happens — an order placed, a form submitted, a payment received — so the receiving system can react immediately instead of checking repeatedly.",
+      "A webhook is an automated message one system sends to another when something happens (an order placed, a form submitted, a payment received), so the receiving system can react immediately instead of checking repeatedly.",
     body: [
       "The distinction from an API call is direction. With an API, your system asks; with a webhook, the other system tells you. That inversion is what makes near-real-time automation possible without constant polling.",
       "Polling is the alternative and it is wasteful. Checking every minute for an event that happens twice a day means thousands of pointless requests, and still a delay of up to a minute. A webhook arrives when the event does.",
@@ -405,7 +405,7 @@ export const technologyGlossary: Resource[] = [
       {
         question: "Are webhooks secure?",
         answer:
-          "Only if verified. A webhook endpoint is a public URL, so the receiver must confirm the message genuinely came from the expected sender — usually through a signature — before acting on it.",
+          "Only if verified. A webhook endpoint is a public URL, so the receiver must confirm the message genuinely came from the expected sender (usually through a signature) before acting on it.",
       },
     ],
     related: [
@@ -423,7 +423,7 @@ export const technologyGlossary: Resource[] = [
     topic: "Software",
     title: "Technical Debt",
     answer:
-      "Technical debt is the accumulated cost of implementation choices that were quicker at the time but make future change harder. Like financial debt, it is not inherently bad — it becomes a problem when nobody is tracking the interest.",
+      "Technical debt is the accumulated cost of implementation choices that were quicker at the time but make future change harder. Like financial debt, it is not inherently bad; it becomes a problem when nobody is tracking the interest.",
     body: [
       "Some debt is deliberate and rational: shipping a simpler version to learn whether anyone wants the feature, with a plan to revisit. Some is accidental, accumulated through turnover, deadline pressure and decisions made without the context to know better.",
       "The interest shows up as slowness. Estimates inflate for no visible reason, small changes require touching many files, releases become risky, and the team spends more of each week on maintenance than on anything new. Those symptoms are usually visible to a business long before anyone names the cause.",
@@ -442,7 +442,7 @@ export const technologyGlossary: Resource[] = [
     audience: ["A7", "A2"],
     phase: "P1",
     cta: {
-      label: "Read about Custom Software Development",
+      label: "Read about Custom Software",
       href: "/services/custom-software/",
       tier: "T1",
     },
@@ -460,12 +460,12 @@ export const technologyGlossary: Resource[] = [
     ],
     related: [
       {
-        label: "Custom Software Development",
+        label: "Custom Software",
         href: "/services/custom-software/",
         type: "SERVICE",
       },
       {
-        label: "Our Engineering Standards",
+        label: "Engineering Standards",
         href: "/technologies/engineering-standards/",
         type: "TECHNOLOGY",
       },
@@ -535,7 +535,7 @@ export const technologyGlossary: Resource[] = [
     body: [
       "The distinction decides what a machine sees. A server-rendered page arrives as readable HTML: content is present in the initial response. A client-rendered page arrives as a near-empty shell plus instructions, and the content exists only once JavaScript has run.",
       "For crawlers this is the difference between being read and being skipped. Search engines can execute JavaScript, but do so on a delay and inconsistently. Many AI crawlers execute little or none, which means client-only content can be effectively invisible to exactly the systems that increasingly decide whether a business is found.",
-      "It also affects the first impression. A server-rendered page shows content as soon as it arrives; a client-rendered one shows a blank area or a spinner until the bundle downloads, parses and executes — worst on the slower devices most visitors actually use.",
+      "It also affects the first impression. A server-rendered page shows content as soon as it arrives; a client-rendered one shows a blank area or a spinner until the bundle downloads, parses and executes, worst on the slower devices most visitors actually use.",
       "This is not an argument against JavaScript. It is an argument about where the first render happens. Modern frameworks render on the server and enhance in the browser, which gives both machine readability and interactivity.",
     ],
     supports: ["website-performance", "technical-seo", "corporate-websites"],
@@ -586,7 +586,7 @@ export const technologyGlossary: Resource[] = [
       "The problem it addresses is that buying journeys are plural. Someone reads an article, searches the brand a week later, clicks an ad, then arrives directly and enquires. Crediting the enquiry entirely to the final click describes the last step, not the reason.",
       "Every model is a simplification with a bias. Last-click over-credits capture channels such as brand search. First-click over-credits discovery. Linear treats a passing visit as equal to a decisive one. Data-driven models are better but need volume, and remain estimates rather than measurements.",
       "Measurement has also become harder rather than easier. Privacy controls, cross-device journeys and searches that end without a click all remove signal. Attribution now describes a decreasing share of what actually happened, and treating it as complete is a mistake.",
-      "The workable posture is to use attribution directionally, corroborate it with evidence it cannot see — branded search volume, direct arrivals, what buyers say when asked — and reserve precision for decisions that genuinely need it.",
+      "The workable posture is to use attribution directionally, corroborate it with evidence it cannot see (branded search volume, direct arrivals, what buyers say when asked), and reserve precision for decisions that genuinely need it.",
     ],
     supports: ["analytics-implementation", "performance-marketing"],
     seo: {

@@ -8,7 +8,7 @@
  */
 .grid {
   display: grid;
-  gap: var(--gap-stack-md) var(--space-8);
+  gap: var(--gap-stack-md) var(--space-8);
 }
 
 @media (min-width: 720px) {
@@ -66,12 +66,16 @@
   background: var(--surface);
   box-shadow: var(--elev-1);
   aspect-ratio: var(--ratio-wide);
-  transition: box-shadow var(--dur-base) var(--ease-standard);
+  transition:
+    box-shadow var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
 }
 
+/* Lifts with its shadow — see the note on the same rule in InsightGrid. */
 .card:hover .frame,
 .card:focus-within .frame {
   box-shadow: var(--elev-2);
+  transform: translateY(-3px);
 }
 
 .image {
@@ -218,7 +222,39 @@
   .card:hover .image,
   .card:focus-within .image,
   .card:hover .arrow,
-  .card:focus-within .arrow {
+  .card:focus-within .arrow,
+  .card:hover .frame,
+  .card:focus-within .frame {
     transform: none;
   }
+}
+
+
+/* --------------------------------------------------------------------------
+   THE TAG + ACTION CLUSTER SITS ON THE BASELINE
+   --------------------------------------------------------------------------
+   `.action` already carried `margin-top: auto`, so the "Business automation →"
+   line was pinned to the bottom of every card and those did line up. The tag
+   row did not: it followed the paragraph, so whichever card had the shorter
+   lead left a well of dead space between its tags and its link — the gap that
+   made a row of two cards read as unbalanced.
+
+   Moving the auto margin up to the tag row makes the tags and the link one
+   cluster resting on the card's baseline. Any slack from a shorter paragraph
+   now falls in a single even gap ABOVE the tags rather than splitting the
+   cluster apart, and both cards' tag rows land on the same line whatever the
+   copy does at a given width.
+
+   The adjacent-sibling rule cancels the second auto margin. Two auto margins
+   in one flex column share the free space between them, which would put half
+   the gap above the tags and half above the link — reintroducing the split
+   this is removing. Cards with no tag row are untouched and keep their own
+   auto margin on `.action`.
+   -------------------------------------------------------------------------- */
+.tags {
+  margin-top: auto;
+}
+
+.tags + .action {
+  margin-top: 0;
 }

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
 import { Heading, BodyText, Eyebrow } from "@/components/typography";
+import { SplitText } from "@/components/motion/SplitText";
+import { TextReveal } from "@/components/motion";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { VisualStoryBlock } from "@/components/sections";
@@ -90,7 +92,14 @@ export default function ContactPage() {
           <div className={styles.intro}>
             <Eyebrow>Contact</Eyebrow>
             <Heading level={1} size="h1" className={styles.title}>
-              Tell us what you are trying to build, improve or grow
+              {/* Load-driven, not observed: this heading is above the fold,
+                  and useReveal deliberately skips anything already painted. */}
+              <SplitText
+                text="Tell Us What You Are Trying To Build, Improve Or Grow"
+                by="char"
+                mode="load"
+                offset={80}
+              />
             </Heading>
             <BodyText size="lg" className={styles.lead}>
               Describe the situation in your own words. If we are not the right
@@ -174,7 +183,8 @@ export default function ContactPage() {
       {/* Not ready to write a message? Route by intent instead. */}
       <Section background="surface" spacing="lg">
         <Heading level={2} size="h3" className={styles.pathsHeading}>
-          Not ready to write a message?
+          {/* Observed rather than load-driven: this one is below the fold. */}
+          <TextReveal text="Not ready to write a message?" />
         </Heading>
         <BodyText muted className={styles.pathsLead}>
           Start with the sentence closest to your situation and read how we would

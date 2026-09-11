@@ -175,9 +175,10 @@
 }
 
 .lead {
-  font-size: var(--text-body);
+  /* The section-lead size, as under every other section title. */
+  font-size: var(--text-body-lg);
   color: var(--muted);
-  line-height: var(--leading-body);
+  line-height: var(--leading-relaxed);
 }
 
 /* --- Variant E: Human spotlight with detail badge ------------------------ */
@@ -193,7 +194,8 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: var(--space-3) var(--space-4);
-  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur-sm)) saturate(var(--glass-saturate));
   max-width: calc(100% - var(--space-8));
 }
 

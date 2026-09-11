@@ -227,7 +227,7 @@ Accessibility Statement · Sitemap · Social links
 
 > BizzFly
 > 2nd Floor, Shri Nivas Towers, Above Baramati Bank, Pune 411043
-> +91 91 9815 9815 · sales@bizzfly.com
+> +919 198 159 815 · sales@bizzfly.com
 
 The footer is the site's structural safety net: it guarantees every top-level
 section is one click from every page, which is what keeps a 328-page site inside

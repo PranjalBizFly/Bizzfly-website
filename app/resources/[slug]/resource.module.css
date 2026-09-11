@@ -2,19 +2,67 @@
   margin-bottom: var(--space-8);
 }
 
-/* Editorial reading column with a sticky table of contents beside it */
-.withToc {
+/* ==========================================================================
+   The opening split
+   --------------------------------------------------------------------------
+   Used by the two compositions that do not hold the page's photograph
+   themselves (dimensions, criteria): the answer and the frame sit side by
+   side, so the picture illustrates the sentence it is next to.
+
+   The other two — sequence, facets — take the frame into the body, and this
+   section renders as the reading column it has always been.
+   ========================================================================== */
+
+.lede {
   display: grid;
   gap: var(--space-10);
+  align-items: center;
 }
 
-@media (min-width: 1024px) {
-  .withToc {
-    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+@media (min-width: 1000px) {
+  .lede {
+    /* 7/6, so the frame reads as the answer's equal rather than its margin. */
+    grid-template-columns: minmax(0, 7fr) minmax(0, 6fr);
     gap: var(--space-16);
-    align-items: start;
   }
 }
+
+.ledeFigure {
+  margin: 0;
+  min-width: 0;
+}
+
+.ledeFrame {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+}
+
+.ledeFrame img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  /*
+   * A fixed ratio rather than the intrinsic one: the registry holds 3:2 and
+   * 16:9 frames side by side, and the opening screen should not change
+   * height depending on which the assignment happened to pick.
+   */
+  aspect-ratio: var(--ratio-editorial);
+  object-fit: cover;
+}
+
+.ledeCaption {
+  margin: var(--space-3) 0 0;
+  font-family: var(--font-label);
+  font-size: var(--text-caption);
+  line-height: var(--leading-snug);
+  color: var(--ink-400);
+  max-width: var(--measure-card);
+  text-wrap: pretty;
+}
+
+/* --- The written frame ---------------------------------------------------- */
 
 .main {
   min-width: 0;
@@ -32,103 +80,6 @@
   /* The extractable answer, visually separated from the body */
   border-left: 2px solid var(--accent-edge);
   padding-left: var(--space-5);
-}
-
-.body {
-  margin-top: var(--space-10);
-  max-width: var(--container-text);
-}
-
-.body > p + p {
-  margin-top: var(--space-6);
-}
-
-.body p {
-  font-size: var(--text-body);
-  line-height: var(--leading-body);
-  scroll-margin-top: calc(var(--header-height) + var(--space-8));
-}
-
-.inline {
-  margin-top: var(--space-10);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--border);
-}
-
-/* --- Table of contents -------------------------------------------------- */
-.toc {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .toc {
-    display: block;
-    position: sticky;
-    top: calc(var(--header-height) + var(--space-8));
-    border-top: 2px solid var(--ink-900);
-    padding-top: var(--space-5);
-  }
-}
-
-.tocHeading {
-  font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
-  color: var(--muted);
-}
-
-.tocList {
-  list-style: none;
-  margin: var(--space-4) 0 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  counter-reset: toc;
-}
-
-.tocList li {
-  counter-increment: toc;
-  display: flex;
-  gap: var(--space-3);
-}
-
-.tocList li::before {
-  content: counter(toc, decimal-leading-zero);
-  font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  color: var(--ink-400);
-  flex-shrink: 0;
-  padding-top: 0.2em;
-}
-
-.tocList a {
-  font-size: var(--text-body-sm);
-  line-height: var(--leading-relaxed);
-  color: var(--muted);
-  text-decoration: none;
-  transition: color var(--dur-fast) var(--ease-standard);
-  /* WCAG 2.5.8 target size */
-  display: inline-flex;
-  align-items: center;
-  min-height: 24px;
-}
-
-.tocList a:hover {
-  color: var(--foreground);
-  text-decoration: underline;
-  text-decoration-color: var(--link-underline);
-  text-underline-offset: 3px;
-}
-
-.tocCta {
-  margin-top: var(--space-8);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--border);
-}
-
-.visual {
-  margin-top: var(--space-8);
 }
 
 /* ==========================================================================
@@ -158,7 +109,8 @@
 .crumbs,
 .kicker,
 .title,
-.answer {
+.answer,
+.ledeFigure {
   animation: articleRise var(--dur-slow) var(--ease-decelerate) both;
 }
 
@@ -179,11 +131,32 @@
   animation-delay: 120ms;
 }
 
+/* Last, so the writing is settled before the frame joins it. */
+.ledeFigure {
+  animation-delay: 180ms;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .crumbs,
   .kicker,
   .title,
-  .answer {
+  .answer,
+  .ledeFigure {
     animation: none;
   }
+}
+
+/* ==========================================================================
+   Contextual links, closing the body
+   --------------------------------------------------------------------------
+   These used to sit in a Section of their own, which put one line of small
+   links in a band with 200px of empty ground above and below it. They belong
+   to the argument they follow, so they close it: a hairline, the links, and
+   no new band.
+   ========================================================================== */
+
+.inline {
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
 }

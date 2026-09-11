@@ -146,7 +146,7 @@ export const deliveryUseCases: UseCase[] = [
     seo: {
       title: "Improve Data Quality",
       description:
-        "Definitions, ownership, validation at entry and monitoring — in that order. Why cleansing first buys only a few months.",
+        "Definitions, ownership, validation at entry and monitoring: in that order. Why cleansing first buys only a few months.",
       primaryTopic: "improve data quality",
       secondaryTopics: ["data governance", "master data"],
       intent: "commercial",
@@ -197,7 +197,7 @@ export const deliveryUseCases: UseCase[] = [
         index: 1,
         title: "Inventory honestly",
         description:
-          "Every tool, its cost, its owner and what it is genuinely used for. Expect surprises — unused licences and forgotten subscriptions are close to universal.",
+          "Every tool, its cost, its owner and what it is genuinely used for. Expect surprises: unused licences and forgotten subscriptions are close to universal.",
       },
       {
         index: 2,
@@ -339,7 +339,7 @@ export const deliveryUseCases: UseCase[] = [
     diagram: "process-transformation",
     title: "Scale without hiring",
     answer:
-      "Capacity can be found in process before it is bought in people — but only up to a point, and being honest about that point is what separates this from an automation pitch.",
+      "Capacity can be found in process before it is bought in people, but only up to a point, and being honest about that point is what separates this from an automation pitch.",
     whyItMatters:
       "Hiring to absorb growth locks in cost that is hard to reverse. Recovering capacity from process is reversible, faster to deploy, and it makes the eventual hire a better one.",
     symptoms: [
@@ -521,7 +521,7 @@ export const deliveryUseCases: UseCase[] = [
         index: 1,
         title: "Test whether it should move",
         description:
-          "Concurrency, error cost and key-person dependency. If none apply, keep the spreadsheet — replacing a working one with software is a common and expensive mistake.",
+          "Concurrency, error cost and key-person dependency. If none apply, keep the spreadsheet: replacing a working one with software is a common and expensive mistake.",
       },
       {
         index: 2,
@@ -543,7 +543,7 @@ export const deliveryUseCases: UseCase[] = [
       },
     ],
     targetState:
-      "The process runs in a system with an audit trail, concurrent access and validation — and the logic that used to live in one person's file is documented and owned.",
+      "The process runs in a system with an audit trail, concurrent access and validation, and the logic that used to live in one person's file is documented and owned.",
     realisticTimeline:
       "Ten to twenty weeks for a business-critical process, including parallel running.",
     services: ["custom-software", "web-applications", "workflow-automation"],
@@ -563,7 +563,7 @@ export const deliveryUseCases: UseCase[] = [
       {
         question: "When is a spreadsheet still the right tool?",
         answer:
-          "When one person uses it, mistakes are cheap and visible, and the logic is simple enough to read. Spreadsheets are fast, flexible and free — replacing one that works is a cost with no return.",
+          "When one person uses it, mistakes are cheap and visible, and the logic is simple enough to read. Spreadsheets are fast, flexible and free: replacing one that works is a cost with no return.",
       },
       {
         question: "What is the biggest risk in replacing one?",

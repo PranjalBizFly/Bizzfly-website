@@ -8,8 +8,8 @@ import type { PrimaryNavItem } from "@/types/content";
 import { Container } from "@/components/layout/Container";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
-import { Button } from "@/components/buttons";
 import { Chevron } from "./Chevron";
+import { SearchIcon } from "./NavIcons";
 import { MegaMenu } from "./MegaMenu";
 import { MobileNav } from "./MobileNav";
 import dynamic from "next/dynamic";
@@ -23,6 +23,7 @@ const SearchDialog = dynamic(
   () => import("@/components/search/SearchDialog").then((m) => m.SearchDialog),
   { ssr: false },
 );
+import { ConsultationCta } from "@/components/consultation";
 import styles from "./Header.module.css";
 
 const HOVER_INTENT_MS = 120;
@@ -62,6 +63,17 @@ export function Header({ nav, cta }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchOpened, setSearchOpened] = useState(false);
+  /*
+   * Which modifier the shortcut chip prints.
+   *
+   * The handler below takes metaKey OR ctrlKey, so the shortcut has always
+   * worked on both platforms — the chip just said "⌘K" to everyone, telling
+   * the Windows and Linux majority to press a key their keyboard does not
+   * have. Starts false so the server and the first client render agree, and
+   * resolves on mount; the swap is one glyph, inside a chip that is already
+   * sized for the wider "Ctrl" spelling.
+   */
+  const [isMac, setIsMac] = useState(false);
   const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const navRef = useRef<HTMLElement>(null);
   const triggerRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -152,6 +164,12 @@ export function Header({ nav, cta }: HeaderProps) {
     return () => document.removeEventListener("pointerdown", onPointerDown);
   }, [open, closePanel]);
 
+  /* Resolve the platform once, for the shortcut chip only. */
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    setIsMac(/Mac|iPhone|iPad|iPod/.test(ua));
+  }, []);
+
   /* Escape closes the panel; Cmd/Ctrl+K and "/" open search. */
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -234,7 +252,7 @@ export function Header({ nav, cta }: HeaderProps) {
       >
         <Container>
           <div className={styles.inner}>
-            <Link href="/" className={styles.brand} aria-label="BizzFly — home">
+            <Link href="/" className={styles.brand} aria-label="BizzFly, home">
               {/*
                 clearspace is handled by the header's own geometry rather than
                 by padding on the mark: the 80px bar leaves 25px above and
@@ -308,9 +326,9 @@ export function Header({ nav, cta }: HeaderProps) {
                 onPointerEnter={prefetchSearch}
                 onFocus={prefetchSearch}
               >
-                <span aria-hidden="true">&#9906;</span>
-                Search
-                <kbd className={styles.kbd}>&#8984;K</kbd>
+                <SearchIcon className={styles.searchIcon} />
+                <span className={styles.searchLabel}>Search</span>
+                <kbd className={styles.kbd}>{isMac ? "⌘" : "Ctrl"} K</kbd>
               </button>
 
               <button
@@ -321,7 +339,7 @@ export function Header({ nav, cta }: HeaderProps) {
                 onFocus={prefetchSearch}
                 aria-label="Open search"
               >
-                <span aria-hidden="true">&#9906;</span>
+                <SearchIcon className={styles.searchIcon} />
               </button>
 
               {/*
@@ -332,9 +350,21 @@ export function Header({ nav, cta }: HeaderProps) {
               */}
               <ThemeToggle className={styles.themeToggle} />
 
-              <Button href={cta.href} size="sm" className={styles.headerCta}>
+              {/*
+                The header CTA opens the booking dialog rather than
+                navigating, like every other conversion CTA on the site. It
+                is still a link to the contact page underneath — see
+                ConsultationCta — so nothing about it breaks without
+                JavaScript, and it can still be opened in a new tab.
+              */}
+              <ConsultationCta
+                href={cta.href}
+                size="sm"
+                className={styles.headerCta}
+                source="Header"
+              >
                 {cta.label}
-              </Button>
+              </ConsultationCta>
 
               <button
                 type="button"

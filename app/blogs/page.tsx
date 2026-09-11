@@ -11,6 +11,7 @@ import { resources } from "@/content/resources";
 import { site } from "@/content/site";
 import { buildMetadata } from "@/lib/seo";
 import styles from "./blogs.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 export const metadata: Metadata = buildMetadata(
   {
@@ -75,14 +76,34 @@ export default function BlogsPage() {
       <EditorialHero
         eyebrow="Resources"
         title="Blogs & Engineering Insights"
-        lead="Practical analysis and methodology for growing businesses. Search visibility, Answer Engine Optimisation, custom software, and operational automation — written by engineers and practitioners."
+        lead="Practical analysis and methodology for growing businesses. Search visibility, Answer Engine Optimisation, custom software, and operational automation, written by engineers and practitioners."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Blogs" }]}
+        /*
+          Counted from the published set, so the ledger and the index below
+          can never disagree. The formats figure is derived from what is
+          actually written rather than from the label map, which lists the
+          formats the library *could* use.
+        */
+        ledger={[
+          {
+            figure: String(published.length),
+            label: "articles and guides published, none of them behind a form",
+          },
+          {
+            figure: String(new Set(published.map((article) => article.type)).size),
+            label: "formats — articles, guides, comparisons, decisions, checklists",
+          },
+          {
+            figure: "0",
+            label: "written by anyone who does not also do the work",
+          },
+        ]}
       />
 
       {/* 01 — the lead piece, given the room to state its own argument. */}
       {lead ? (
         <Section spacing="lg" id="lead">
-          <SectionHeader eyebrow="01 / Latest" title="Start here" split />
+          <SectionHeader eyebrow="Latest" title="Start here" split />
           <article className={styles.lead}>
             <p className={styles.leadMeta}>
               <span className={styles.format}>
@@ -103,7 +124,7 @@ export default function BlogsPage() {
             </p>
             <Heading level={3} size="h2" className={styles.leadTitle}>
               <Link href={`/resources/${lead.slug}/`} className={styles.leadLink}>
-                {lead.title}
+                {titleCase(lead.title)}
               </Link>
             </Heading>
             <BodyText size="lg" muted className={styles.leadAnswer}>
@@ -116,7 +137,7 @@ export default function BlogsPage() {
       {/* 02 — the index. Rows, not cards: format and subject are scannable. */}
       <Section background="surface" spacing="lg" id="index">
         <SectionHeader
-          eyebrow="02 / The library"
+          eyebrow="The library"
           title="Everything else, by format"
           lead="Guides explain a subject, comparisons weigh two options, decisions answer a question, and checklists are the working list."
         />
@@ -148,7 +169,12 @@ export default function BlogsPage() {
         </p>
       </Section>
 
-      <ConversionBand cta={cta} />
+      {/* A reader here is reading, not buying. Offer the next read first. */}
+      <ConversionBand
+        title="Prefer a conversation to more reading?"
+        lead="Everything here is what we have worked out in the open. If you would rather skip to the part that applies to you, describe the situation and we will point you at the three pieces that matter — or just answer it directly."
+        cta={cta}
+      />
     </>
   );
 }

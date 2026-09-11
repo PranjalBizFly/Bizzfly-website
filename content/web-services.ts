@@ -16,7 +16,7 @@ export const webServices: Service[] = [
     seo: {
       title: "Website Performance & Core Web Vitals",
       description:
-        "Diagnose and fix a slow website — render-blocking assets, oversized media, and the theme code causing most Core Web Vitals failures.",
+        "Diagnose and fix a slow website: render-blocking assets, oversized media, and the theme code causing most Core Web Vitals failures.",
       primaryTopic: "website performance",
       secondaryTopics: ["Core Web Vitals", "page speed", "LCP"],
       intent: "commercial",
@@ -58,11 +58,11 @@ export const webServices: Service[] = [
     practice: "web-development",
     title: "Website Redesign",
     answer:
-      "A redesign replaces an outdated site without losing what the old one had earned. The risk is not the design — it is the migration, where rankings and traffic are most often lost through avoidable technical mistakes.",
+      "A redesign replaces an outdated site without losing what the old one had earned. The risk is not the design; it is the migration, where rankings and traffic are most often lost through avoidable technical mistakes.",
     seo: {
       title: "Website Redesign & Replatform",
       description:
-        "Replace an outdated website without losing rankings or traffic — redirect mapping, content migration and staged cutover.",
+        "Replace an outdated website without losing rankings or traffic: redirect mapping, content migration and staged cutover.",
       primaryTopic: "website redesign",
       secondaryTopics: ["replatform", "site migration"],
       intent: "commercial",

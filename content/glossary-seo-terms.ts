@@ -17,21 +17,21 @@ export const seoTermsGlossary: Resource[] = [
       "E-E-A-T stands for experience, expertise, authoritativeness and trust. It is not a score a search engine calculates; it is the framework human quality raters use, which describes the kind of quality the ranking systems are built to approximate.",
     body: [
       "The distinction matters because tools sell E-E-A-T scores and there is nothing to score. Search engines publish rater guidelines describing what good looks like, then build systems intended to identify it automatically. E-E-A-T describes the target, not the mechanism.",
-      "Experience was added last and is the most concrete. It asks whether the content shows evidence of having actually done the thing — specific detail, real constraints, failure modes — rather than having summarised other sources. That is also, not coincidentally, what makes content worth citing in an AI answer.",
+      "Experience was added last and is the most concrete. It asks whether the content shows evidence of having actually done the thing (specific detail, real constraints, failure modes) rather than having summarised other sources. That is also, not coincidentally, what makes content worth citing in an AI answer.",
       "In practice it favours things a business can control: naming who wrote something and why they are credible, being specific enough that claims are checkable, keeping content current, and being consistent about who the organisation is. It penalises anonymous, generic content that could have been written by anyone about anything.",
     ],
     supports: ["seo", "digital-strategy"],
     seo: {
       title: "What Is E-E-A-T?",
       description:
-        "Experience, expertise, authoritativeness and trust — a rater framework, not a score. What it actually rewards and why tools cannot measure it.",
+        "Experience, expertise, authoritativeness and trust: a rater framework, not a score. What it actually rewards and why tools cannot measure it.",
       primaryTopic: "E-E-A-T",
       secondaryTopics: ["content quality", "search quality guidelines"],
       intent: "informational",
     },
     audience: ["A4", "A3"],
     phase: "P1",
-    cta: { label: "Read about SEO Services", href: "/services/seo/", tier: "T1" },
+    cta: { label: "Read about SEO", href: "/services/seo/", tier: "T1" },
     faqs: [
       {
         question: "Is E-E-A-T a ranking factor?",
@@ -80,7 +80,7 @@ export const seoTermsGlossary: Resource[] = [
     },
     audience: ["A4"],
     phase: "P1",
-    cta: { label: "Read about SEO Services", href: "/services/seo/", tier: "T1" },
+    cta: { label: "Read about SEO", href: "/services/seo/", tier: "T1" },
     faqs: [
       {
         question: "How do we detect cannibalisation?",
@@ -90,7 +90,7 @@ export const seoTermsGlossary: Resource[] = [
       {
         question: "Should we always merge competing pages?",
         answer:
-          "Only where they serve the same intent. If they genuinely serve different stages — an explanation and a service page — the fix is to make the difference clearer, not to combine them.",
+          "Only where they serve the same intent. If they genuinely serve different stages (an explanation and a service page) the fix is to make the difference clearer, not to combine them.",
       },
     ],
     related: [
@@ -129,7 +129,7 @@ export const seoTermsGlossary: Resource[] = [
     },
     audience: ["A4", "A3"],
     phase: "P1",
-    cta: { label: "Read about SEO Services", href: "/services/seo/", tier: "T1" },
+    cta: { label: "Read about SEO", href: "/services/seo/", tier: "T1" },
     faqs: [
       {
         question: "How big should a content cluster be?",
@@ -216,7 +216,7 @@ export const seoTermsGlossary: Resource[] = [
     answer:
       "robots.txt is a file at the root of a site that tells crawlers which paths they may request. It controls crawling, not indexing, and it is a convention that well-behaved crawlers follow voluntarily.",
     body: [
-      "The most consequential misunderstanding is that it hides pages. Blocking a path stops compliant crawlers fetching it, but a blocked URL can still appear in results if other pages link to it — the engine knows the URL exists and simply cannot see its content. To keep a page out of an index, allow it to be crawled and use a noindex directive.",
+      "The most consequential misunderstanding is that it hides pages. Blocking a path stops compliant crawlers fetching it, but a blocked URL can still appear in results if other pages link to it: the engine knows the URL exists and simply cannot see its content. To keep a page out of an index, allow it to be crawled and use a noindex directive.",
       "It has become more consequential because AI crawlers are identified separately. Deciding which of them may fetch your content is now a strategic choice: blocking them protects content from being used, and generally removes you from being cited in the answers those systems produce.",
       "Because it is a single file with site-wide effect, it is also one of the highest-risk files on a site. A stray disallow left after a migration can remove an entire section from crawling silently, and the damage is usually noticed weeks later in traffic rather than immediately.",
     ],
@@ -320,9 +320,9 @@ export const seoTermsGlossary: Resource[] = [
     topic: "Local SEO",
     title: "What Is Local SEO?",
     answer:
-      "Local SEO is the work of appearing in results for searches with a geographic component — map listings, local packs and location-qualified queries — where proximity, prominence and relevance decide visibility.",
+      "Local SEO is the work of appearing in results for searches with a geographic component (map listings, local packs and location-qualified queries) where proximity, prominence and relevance decide visibility.",
     body: [
-      "Local results are ranked differently from ordinary ones. Proximity to the searcher matters, which means no business ranks everywhere and a competitor two streets away has an advantage you cannot buy. Prominence — how well known and well reviewed the business is — and relevance to the query complete the picture.",
+      "Local results are ranked differently from ordinary ones. Proximity to the searcher matters, which means no business ranks everywhere and a competitor two streets away has an advantage you cannot buy. Prominence (how well known and well reviewed the business is) and relevance to the query complete the picture.",
       "The business profile usually carries more weight than the website for map results. Category selection, service completeness, hours, photographs and reviews all feed it, and an incomplete profile is the most common and most fixable local problem.",
       "Consistency across the web is the other half. The same business name, address and phone number everywhere they appear, because a system trying to resolve one business from contradictory listings has less confidence in all of them.",
     ],
@@ -338,7 +338,7 @@ export const seoTermsGlossary: Resource[] = [
     audience: ["A1", "A4"],
     phase: "P1",
     cta: {
-      label: "Read about Google Business Profile Optimisation",
+      label: "Read about Google Business Profile",
       href: "/services/google-business-profile/",
       tier: "T1",
     },
@@ -376,7 +376,7 @@ export const seoTermsGlossary: Resource[] = [
       "Programmatic SEO is generating large numbers of pages from structured data using a shared template. It works where each page carries genuinely distinct, useful data, and fails where the only difference is a substituted word.",
     body: [
       "The legitimate version is a database with something real on every row: actual availability, actual specifications, actual prices, actual comparisons. A page per row is useful because each row contains information a reader wants and cannot get elsewhere in that form.",
-      "The illegitimate version is the same paragraph with a place name or keyword swapped. These are doorway pages: they violate search engine guidelines, they are increasingly filtered rather than penalised, and at scale they signal to a search engine that the site produces low-value content — which affects the pages you actually care about.",
+      "The illegitimate version is the same paragraph with a place name or keyword swapped. These are doorway pages: they violate search engine guidelines, they are increasingly filtered rather than penalised, and at scale they signal to a search engine that the site produces low-value content, which affects the pages you actually care about.",
       "The honest test is whether a page would be worth publishing on its own. If the only reason it exists is that a template could generate it, it will not sustain visibility and it puts the rest of the site at risk. Volume is not the strategy; having something distinct to say at volume is.",
     ],
     supports: ["seo", "technical-seo"],
@@ -390,12 +390,12 @@ export const seoTermsGlossary: Resource[] = [
     },
     audience: ["A4", "A7"],
     phase: "P1",
-    cta: { label: "Read about SEO Services", href: "/services/seo/", tier: "T1" },
+    cta: { label: "Read about SEO", href: "/services/seo/", tier: "T1" },
     faqs: [
       {
         question: "Is programmatic SEO against the guidelines?",
         answer:
-          "Generating pages from data is not. Generating near-identical pages that differ only by a substituted keyword or location is — those are doorway pages, and they put the rest of the site's reputation at risk.",
+          "Generating pages from data is not. Generating near-identical pages that differ only by a substituted keyword or location is: those are doorway pages, and they put the rest of the site's reputation at risk.",
       },
       {
         question: "How do we know if our generated pages are thin?",
@@ -422,11 +422,11 @@ export const seoTermsGlossary: Resource[] = [
     topic: "Technical SEO",
     title: "Log File Analysis",
     answer:
-      "Log file analysis examines a server's own request records to see exactly what crawlers fetched, when, and what response they received — evidence of crawler behaviour rather than an inference from a third-party tool.",
+      "Log file analysis examines a server's own request records to see exactly what crawlers fetched, when, and what response they received: evidence of crawler behaviour rather than an inference from a third-party tool.",
     body: [
       "Logs are the only complete record of what actually happened. Search console reports are sampled and delayed; a crawl tool simulates a crawler rather than observing one. The server log shows every request, including from crawlers that no dashboard reports on.",
       "It answers questions nothing else can. Which pages are crawled often and which are never fetched. How much crawl effort is spent on parameter URLs rather than content. Whether a crawler is receiving errors or redirects that the browser experience conceals. And, increasingly usefully, which AI crawlers are visiting and what they are taking.",
-      "It is most valuable on large sites and after migrations, where the gap between what you published and what was fetched is widest. For a small site it is usually unnecessary — the same problems are visible more cheaply in index coverage reporting.",
+      "It is most valuable on large sites and after migrations, where the gap between what you published and what was fetched is widest. For a small site it is usually unnecessary: the same problems are visible more cheaply in index coverage reporting.",
     ],
     supports: ["technical-seo"],
     seo: {

@@ -18,7 +18,7 @@ export const transparencyPages: CompanyPage[] = [
     answer:
       "We price by the shape of the work rather than by the hour: a fixed price for a diagnostic, a fixed price for a defined project, and a monthly figure for ongoing programmes. What drives the number is scope and uncertainty, not headcount.",
     body: [
-      "A diagnostic is fixed because its scope is fixed. We agree what will be examined and what the output is, and the price does not change if it takes longer than expected. That risk sits with us, which is the point — it is the engagement where you know least about us.",
+      "A diagnostic is fixed because its scope is fixed. We agree what will be examined and what the output is, and the price does not change if it takes longer than expected. That risk sits with us, which is the point: it is the engagement where you know least about us.",
       "Projects are priced against a defined outcome. The largest variable is not effort but uncertainty: how many systems are involved, how much is undocumented, and how many people must agree. We would rather narrow the scope until it can be priced honestly than quote a range wide enough to be meaningless.",
       "Ongoing programmes are a monthly figure with a scope agreed each month against a stated priority. We do not price these by deliverable count, because counting deliverables rewards producing them rather than moving the thing that matters.",
       "Two things we will not do. We will not quote before understanding the problem, because a number produced from a briefing call is a guess wearing a decimal point. And we will not price on a share of results we cannot control, which sounds aligned and in practice creates pressure to claim credit for outcomes that had other causes.",
@@ -51,7 +51,7 @@ export const transparencyPages: CompanyPage[] = [
     title: "How we report",
     eyebrow: "Working together",
     answer:
-      "We report against the constraint we said was binding, in four separate layers — eligibility, appearance, arrival and outcome — and we say when something did not work. A report that only contains good news is not a report.",
+      "We report against the constraint we said was binding, in four separate layers (eligibility, appearance, arrival and outcome) and we say when something did not work. A report that only contains good news is not a report.",
     body: [
       "Aggregate traffic is the least useful number in most reports, because it conceals which stage is failing. Separating indexation, impressions, sessions and enquiries means a fall has a location: pages dropping out of the index is a different problem from pages that rank and are not clicked.",
       "Every report states what we believed was limiting performance, what we did about it, and whether the measure moved. When it did not, that is the headline rather than a footnote, because the alternative is discovering six months later that a hypothesis was wrong.",
@@ -61,7 +61,7 @@ export const transparencyPages: CompanyPage[] = [
     seo: {
       title: "How we report",
       description:
-        "Four measurement layers, reported separately, against a stated hypothesis — including when it was wrong. Why sampling is labelled as sampling.",
+        "Four measurement layers, reported separately, against a stated hypothesis, including when it was wrong. Why sampling is labelled as sampling.",
       primaryTopic: "agency reporting",
       secondaryTopics: ["reporting", "measurement", "KPIs"],
       intent: "commercial",
@@ -131,7 +131,7 @@ export const transparencyPages: CompanyPage[] = [
     answer:
       "Everything published here follows three rules: no invented proof, no claim we cannot support, and no statistic without a source. Where a figure would help and we do not have a verified one, the page says what is known instead of inventing something.",
     body: [
-      "The reason is practical rather than moral. Fabricated statistics are increasingly easy to check, and a single claim contradicted by a better source damages the credibility of everything around it — including the parts that were true. In a market where buyers verify before contacting, that is an expensive trade.",
+      "The reason is practical rather than moral. Fabricated statistics are increasingly easy to check, and a single claim contradicted by a better source damages the credibility of everything around it, including the parts that were true. In a market where buyers verify before contacting, that is an expensive trade.",
       "So this site carries no client logos we were not given permission to use, no testimonials nobody wrote, no awards, no certifications and no years-of-experience figure. Case studies appear only when the client has approved the numbers in writing and the source of each is stated.",
       "Where a number is genuinely useful and unavailable, we describe the mechanism instead. 'Most AI crawlers execute little or no JavaScript' is a statement about how the systems work and can be verified. 'AI search drives 43% more qualified traffic' is a statement about outcomes we have not measured, so it does not appear.",
       "The same rule governs what we write for clients. A page that overstates is a page that has to be defended later, usually by someone who did not write it.",
@@ -166,7 +166,7 @@ export const transparencyPages: CompanyPage[] = [
       "We build to WCAG 2.2 AA as a delivery requirement rather than a later audit, and we state what is tested and what is not. Accessibility claimed without testing is a claim, not a commitment.",
     body: [
       "The requirements are set before design, because retrofitting them is where accessibility budgets go. Colour contrast verified rather than eyeballed, target sizes that meet the standard, a heading structure that survives editing, visible focus states, and forms with real labels and error messages.",
-      "What we test automatically: contrast ratios against the tokens, target sizes, heading order, alternative text presence, and keyboard reachability of every interactive element. What automated testing cannot judge — whether alternative text is useful, whether an error message is comprehensible, whether a flow makes sense with a screen reader — is checked manually.",
+      "What we test automatically: contrast ratios against the tokens, target sizes, heading order, alternative text presence, and keyboard reachability of every interactive element. What automated testing cannot judge (whether alternative text is useful, whether an error message is comprehensible, whether a flow makes sense with a screen reader) is checked manually.",
       "What we do not claim is a conformance certificate. Automated checks catch a minority of real accessibility problems, and a site can pass every one of them while remaining difficult to use. Where a project needs formal conformance, that requires a specialist audit including testing with people who use assistive technology.",
       "Reduced motion is honoured throughout, because vestibular triggers are not a preference. Any animation on a site we build collapses to an opacity change when the operating system asks for it.",
     ],
@@ -193,7 +193,7 @@ export const transparencyPages: CompanyPage[] = [
         type: "TECHNOLOGY",
       },
       {
-        label: "Website Accessibility Checklist",
+        label: "Accessibility Checklist",
         href: "/resources/accessibility-checklist/",
         type: "CHECKLIST",
       },
@@ -215,7 +215,7 @@ export const transparencyPages: CompanyPage[] = [
     seo: {
       title: "Data and privacy approach",
       description:
-        "Hold the least data that will do the job. How minimisation is applied to forms, analytics and integrations — and why AI work needs it stated.",
+        "Hold the least data that will do the job. How minimisation is applied to forms, analytics and integrations, and why AI work needs it stated.",
       primaryTopic: "data privacy approach",
       secondaryTopics: ["data minimisation", "privacy by design"],
       intent: "informational",
@@ -246,8 +246,8 @@ export const transparencyPages: CompanyPage[] = [
       "The engagements that work have three things on your side: someone who can decide, access to the systems involved, and a willingness to hear that the problem is not the one you expected. None of them is about budget.",
     body: [
       "A decision-maker matters more than a large team. The most common reason an engagement produces documents rather than results is that recommendations reach someone who agrees with them and cannot authorise them. One person who can prioritise and approve is worth more than a committee.",
-      "Access is the second. Analytics, search console, the content management system, the repository, and whichever systems the work touches. Waiting three weeks for a login is three weeks of a fixed-length engagement spent waiting, and it happens often enough that we now ask about it before starting.",
-      "The third is harder to ask for. Diagnosis sometimes concludes that the constraint is not where you thought — that the site converts badly rather than being under-visited, or that the process needs simplifying before automation. Engagements where that finding is unwelcome tend to end with the original plan being delivered anyway.",
+      "Access is the second. Analytics, Search Console, the content management system, the repository, and whichever systems the work touches. Waiting three weeks for a login is three weeks of a fixed-length engagement spent waiting, and it happens often enough that we now ask about it before starting.",
+      "The third is harder to ask for. Diagnosis sometimes concludes that the constraint is not where you thought: that the site converts badly rather than being under-visited, or that the process needs simplifying before automation. Engagements where that finding is unwelcome tend to end with the original plan being delivered anyway.",
       "What you should expect from us: a written diagnosis you keep, plain language rather than jargon, an early answer when something is not working, and a direct answer when the honest one is that you do not need us.",
     ],
     seo: {
@@ -317,7 +317,7 @@ export const transparencyPages: CompanyPage[] = [
       {
         question: "What if we already have an in-house team?",
         answer:
-          "That is usually the better arrangement. Internal ownership of strategy and delivery with external depth for specific work outperforms either extreme — and it is the setup where recommendations actually get implemented.",
+          "That is usually the better arrangement. Internal ownership of strategy and delivery with external depth for specific work outperforms either extreme, and it is the setup where recommendations actually get implemented.",
       },
       {
         question: "Can you take over a project someone else started?",

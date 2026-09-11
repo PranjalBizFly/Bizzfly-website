@@ -65,14 +65,14 @@ export interface NarrativeImages {
 
 export function getNarrativeImages(): NarrativeImages {
   return {
-    why: requireImage("company-how-we-work"),
-    engine: requireImage("company-discovery-process"),
+    why: requireImage("home-why-bizzfly"),
+    engine: requireImage("home-growth-engine"),
     founder: requireImage("home-founder"),
     jobs: {
-      "be-found": requireImage("practice-search-ai-visibility"),
-      build: requireImage("practice-web-development"),
-      automate: requireImage("practice-ai-automation"),
-      grow: requireImage("practice-digital-marketing"),
+      "be-found": requireImage("home-job-be-found"),
+      build: requireImage("home-job-build"),
+      automate: requireImage("home-job-automate"),
+      grow: requireImage("home-job-grow"),
     },
   };
 }
@@ -282,7 +282,22 @@ export const companyImageAssignments: Record<string, string> = {
   "ai-search-methodology": "company-ai-search-methodology",
   "website-development-process": "company-website-development-process",
   "software-development-process": "company-software-development-process",
-  "automation-approach": "company-automation-approach",
+  /*
+   * WITHDRAWN — "company-automation-approach".
+   *
+   * The asset is a stock preview with the vendor watermark tiled across the
+   * whole frame, and what it shows is generic 3D clipart: four coloured boxes
+   * labelled Write / Create / Ideas / Code around a chip marked "Ai". Its alt
+   * text describes "BizzFly automation engineers reviewing end-to-end
+   * integration workflows", and there are no people in the image at all — so
+   * the description a screen reader reads out is simply false.
+   *
+   * Removed from the assignment rather than from the registry: the file is
+   * still on disk for reference, but nothing renders it. The section composes
+   * without a frame — see AnchoredStatement, which degrades to an editorial
+   * split rather than leaving a placeholder box. Replacement tracked in
+   * docs/imagery-todo.md.
+   */
   "engagement-models": "company-engagement-models",
   "how-we-price": "company-how-we-price",
   "how-we-report": "company-how-we-report",
@@ -325,8 +340,31 @@ export const resourceImageAssignments: Record<string, string> = {
   "when-to-outsource-development": "resource-outsource-development",
   "technical-seo-checklist": "resource-checklist-technical-seo",
   "how-to-audit-your-own-website": "resource-guide-seo-audit",
-  "seo-vs-aeo": "resource-comparison-framework",
-  "custom-software-vs-off-the-shelf": "resource-decision-tree",
+  /*
+   * WITHDRAWN — docs/imagery-audit.md.
+   *
+   * resource-comparison-framework.webp is a stock "EVALUATION" graphic with
+   * five-star ratings, and it is also suspected-watermarked. The ratings are
+   * invented: they rate nothing, and they sat on a site whose stated policy
+   * is that no statistic appears without a measurement window and a source.
+   * A decorative graphic of fake scores contradicts the page it decorates.
+   *
+   * ASSET SLOT: /resources/seo-vs-aeo/ takes a drawn comparison figure or a
+   * licensed photograph. Restore below when one exists.
+   *   "seo-vs-aeo": "resource-comparison-framework",
+   */
+  /*
+   * WITHDRAWN — docs/imagery-audit.md.
+   *
+   * resource-decision-tree.webp is a stock "ANALYSIS" infographic carrying
+   * invented bar charts and percentages, and is suspected-watermarked. Same
+   * objection as seo-vs-aeo above: fabricated figures rendered as decoration
+   * on a site that refuses to publish unsourced ones.
+   *
+   * ASSET SLOT: /resources/custom-software-vs-off-the-shelf/ takes a drawn
+   * decision figure — the Diagram component already renders crawlable SVG.
+   *   "custom-software-vs-off-the-shelf": "resource-decision-tree",
+   */
   "what-is-generative-engine-optimisation": "resource-glossary-knowledge",
   "what-is-answer-engine-optimisation": "resource-what-is-answer-engine-optimisation",
   "what-the-first-90-days-of-seo-look-like": "resource-what-the-first-90-days-of-seo-look-like",
@@ -360,7 +398,13 @@ export const resourceImageAssignments: Record<string, string> = {
   "how-to-plan-a-website-redesign": "resource-how-to-plan-a-website-redesign",
   "how-to-plan-a-digital-transformation-project": "resource-how-to-plan-a-digital-transformation-project",
   "ai-search-readiness-checklist": "resource-ai-search-readiness-checklist",
-  "website-launch-checklist": "resource-website-launch-checklist",
+  /*
+   * WITHDRAWN — "resource-website-launch-checklist". Stock preview with the
+   * vendor watermark tiled across the frame; 3D clipboard-and-gears clipart in
+   * a pink and purple palette that exists nowhere in the brand. Alt text
+   * describes "developers conducting pre-flight launch verification" — again,
+   * no people in the image. See docs/imagery-todo.md.
+   */
   "local-seo-checklist": "resource-local-seo-checklist",
   "website-conversion-checklist": "resource-website-conversion-checklist",
   "digital-growth-audit-checklist": "resource-digital-growth-audit-checklist",
@@ -441,7 +485,14 @@ export const resourceImageAssignments: Record<string, string> = {
   "no-code-vs-custom-development": "resource-no-code-vs-custom-development",
   "chatbot-vs-ai-agent": "resource-chatbot-vs-ai-agent",
   "rag-vs-fine-tuning": "resource-rag-vs-fine-tuning",
-  "data-warehouse-vs-spreadsheets": "resource-data-warehouse-vs-spreadsheets",
+  /*
+   * WITHDRAWN — "resource-data-warehouse-vs-spreadsheets". Stock preview with
+   * the vendor watermark tiled across the frame, and the smallest file in the
+   * library at 12KB: a single 3D cloud icon on flat blue, illustrating an
+   * article that compares warehouses with spreadsheets. Alt text claims "data
+   * analysts contrasting SQL queries with fragile desktop spreadsheets".
+   * See docs/imagery-todo.md.
+   */
   "native-vs-web-apps": "resource-native-vs-web-apps",
   "organic-vs-paid-social": "resource-organic-vs-paid-social",
   "agency-vs-freelancer": "resource-agency-vs-freelancer",
@@ -469,3 +520,73 @@ export function getResourceImage(slug: string): ImageMetadata | undefined {
   const imageId = resourceImageAssignments[slug];
   return imageId ? getImage(imageId) : undefined;
 }
+
+/* ==========================================================================
+   Practice-page section frames
+   --------------------------------------------------------------------------
+   Keyed "practiceSlug:sectionIndex" because the unit being illustrated is a
+   section, not a page. A practice already spends its one page-level image on
+   the hero, so these are additional assignments rather than a second use of
+   an existing frame — verify:images still sees one image per key and no file
+   used twice.
+   ========================================================================== */
+
+export const practiceSectionImageAssignments: Record<string, string> = {
+  "search-ai-visibility:1": "practice-search-ai-visibility-s1",
+  "search-ai-visibility:2": "practice-search-ai-visibility-s2",
+  "search-ai-visibility:3": "practice-search-ai-visibility-s3",
+  "search-ai-visibility:4": "practice-search-ai-visibility-s4",
+  "digital-marketing:1": "practice-digital-marketing-s1",
+  "digital-marketing:2": "practice-digital-marketing-s2",
+  "digital-marketing:3": "practice-digital-marketing-s3",
+  "web-development:1": "practice-web-development-s1",
+  "web-development:2": "practice-web-development-s2",
+  "web-development:3": "practice-web-development-s3",
+  "software-development:1": "practice-software-development-s1",
+  "software-development:2": "practice-software-development-s2",
+  "software-development:3": "practice-software-development-s3",
+  "ai-automation:1": "practice-ai-automation-s1",
+  "ai-automation:2": "practice-ai-automation-s2",
+  "ai-automation:3": "practice-ai-automation-s3",
+  "data-analytics:1": "practice-data-analytics-s1",
+  "data-analytics:2": "practice-data-analytics-s2",
+  "data-analytics:3": "practice-data-analytics-s3",
+};
+
+/** `index` is 1-based, matching the order of the sections on the page. */
+export function getPracticeSectionImage(
+  practiceSlug: string,
+  index: number,
+): ImageMetadata | undefined {
+  const imageId = practiceSectionImageAssignments[`${practiceSlug}:${index}`];
+  return imageId ? getImage(imageId) : undefined;
+}
+
+export function getServicesHubImage(): ImageMetadata {
+  return requireImage("services-hub");
+}
+
+export function getIndustriesHubImage(): ImageMetadata {
+  return requireImage("industries-hub");
+}
+
+export function getTechnologiesHubImage(): ImageMetadata {
+  return requireImage("technologies-hub");
+}
+
+export function getUseCasesHubImage(): ImageMetadata {
+  return requireImage("use-cases-hub");
+}
+
+export function getResourcesHubImage(): ImageMetadata {
+  return requireImage("resources-hub");
+}
+
+export function getPressKitImage(): ImageMetadata {
+  return requireImage("press-kit-hero");
+}
+
+export function getVendorImage(): ImageMetadata {
+  return requireImage("vendor-hero");
+}
+

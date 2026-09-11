@@ -252,7 +252,7 @@ table {
 .t-eyebrow {
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-medium);
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-eyebrow);
   color: var(--accent-text);
@@ -469,3 +469,152 @@ table {
 .mt-6 { margin-top: var(--space-6); }
 .mt-8 { margin-top: var(--space-8); }
 .mt-10 { margin-top: var(--space-10); }
+
+/* ==========================================================================
+   The rim sweep
+   --------------------------------------------------------------------------
+   A single line of light that crosses a CTA once every three seconds,
+   travelling left to right along its top edge.
+
+   One line, not two. An earlier version ran a second streak along the bottom
+   edge a beat behind, which was meant to read as light raking over a curved
+   surface and instead read as two separate animations on one control.
+
+   Opt-in by class, for the CTAs that are not Buttons — the footer's primary
+   and secondary actions, which are styled <Link>s. Every real Button gets
+   the same treatment from the .base rule in
+   components/buttons/Button.module.css, which is the only stylesheet that
+   can see its hashed class; the declarations there mirror this block and
+   reference the same keyframes below.
+
+   Why the edges and not the face
+   ------------------------------
+   A sheen across the face has to pass over the label, and compositing white
+   over --cta-primary lowers the contrast the white label depends on: 3.27:1
+   at 0.22 alpha, 4.04:1 at 0.10, 4.42:1 at 0.05 — all below the 4.5:1 floor,
+   while an alpha weak enough to pass cannot be seen. Contrast is not traded
+   here. The label occupies the middle of the button at every size, so a 4px line inset from the top edge stays clear of the glyphs and can
+   therefore be bright.
+
+   Why no gradient
+   ---------------
+   The falloff is a blur on one flat token colour. Gradients are out of the
+   system and verify:brand fails the build on one.
+   ========================================================================== */
+
+.rim-sweep {
+  /*
+   * The streak colour, taken from the label — see the note on --streak in
+   * components/buttons/Button.module.css. A filled CTA's label is white so
+   * the streak is white; an outlined one's is --foreground, so it resolves
+   * dark on a light ground and light on a dark one. A filled consumer can
+   * override this with var(--sheen-edge) to take the brighter flat token.
+   */
+  --streak: color-mix(in srgb, currentColor 45%, transparent);
+
+  /* The containing block for the line, and the clip that keeps it inside. */
+  position: relative;
+  /*
+   * Clips to the element's own radius, so the light never escapes the button
+   * and cannot touch anything around it. The focus ring is an outline, drawn
+   * outside the border box and unaffected by the element's own overflow, so
+   * keyboard focus is untouched.
+   */
+  overflow: hidden;
+}
+
+.rim-sweep::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  /*
+   * A line that crosses the whole button.
+   *
+   * Full height, so it reads as one light passing over the control rather
+   * than a highlight on its edge. Sized as a share of the button width, not
+   * a fixed pixel count, so the line is proportionally the same on a 110px
+   * header CTA and a 400px hero CTA and the pass takes the same time on
+   * both. Inset past top and bottom so the skew leaves no gap at the
+   * corners; overflow on .base clips it back to the radius.
+   */
+  inline-size: 12%;
+  inset-block: -12%;
+  background: var(--streak);
+  /* Rounds the ends so the streak reads as light rather than as a bar. */
+  /*
+   * The falloff a gradient would otherwise provide. Static, so only opacity
+   * and transform animate and the effect stays composited.
+   *
+   * 4px rather than 5: the header CTA is the 36px `sm` size, and at 5px the
+   * blur's tail reached the descenders. At 4px the streak is still soft and
+   * the glyphs keep the full 4.83:1 the pairing is verified at.
+   */
+  filter: blur(4px);
+  opacity: 0;
+  transform: skewX(-16deg) translateX(-130%);
+  pointer-events: none;
+  /* Idle until pointed at — see the matching note in Button.module.css. */
+  animation: none;
+}
+
+/*
+ * One pass on hover, and the same on keyboard focus. The two CTAs that use
+ * this class are the footer's styled links rather than Buttons, so they need
+ * the trigger declared here as well; the timing itself is shared.
+ */
+.rim-sweep:hover::before,
+.rim-sweep:focus-visible::before {
+  animation: rimSweep var(--dur-sweep) var(--ease-standard) forwards;
+}
+
+/*
+ * One crossing, on demand.
+ *
+ * This was a three-second loop with the light crossing in the first 780ms and
+ * the remainder empty — an ambient highlight that ran on every control on
+ * every page whether or not anyone was looking at it. It is now driven by
+ * hover and focus, so the whole keyframe is the pass itself.
+ *
+ * Up quickly, down slowly: at full strength for most of the crossing and
+ * fading as it leaves, so the exit does not read as the light being switched
+ * off at the edge of the control.
+ */
+@keyframes rimSweep {
+  0% {
+    opacity: 0;
+    transform: skewX(-16deg) translateX(-130%);
+  }
+  15% {
+    opacity: 1;
+  }
+  78% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: skewX(-16deg) translateX(960%);
+  }
+}
+
+/*
+ * Explicit, because the duration is a literal three seconds rather than a
+ * --dur-* token, so the token-level collapse in styles/tokens.css does not
+ * reach it. The button keeps every other state it has.
+ */
+/*
+ * A disabled control does not catch the light. Same reasoning as the
+ * .primary rule in components/buttons/Button.module.css: an element that
+ * keeps animating while disabled reads as still live.
+ */
+.rim-sweep:disabled::before,
+.rim-sweep[aria-disabled="true"]::before {
+  animation: none;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rim-sweep::before {
+    animation: none;
+    opacity: 0;
+  }
+}

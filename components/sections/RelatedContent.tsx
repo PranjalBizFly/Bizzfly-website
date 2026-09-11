@@ -4,6 +4,7 @@ import type { RelatedLink } from "@/types/content";
 import type { ResolvedRelationships } from "@/lib/relationships";
 import styles from "./Sections.module.css";
 import related from "./RelatedContent.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 /**
  * Presentation modes.
@@ -18,6 +19,24 @@ export type RelatedMode =
   | "map" // grouped by dimension, the relationship view
   | "split"; // heading left, links right
 
+/*
+ * A NOTE ON THE BAND THIS SITS IN.
+ *
+ * In "split" mode this renders a short heading and two to four links — about
+ * 90 to 145px of content. Every call site used to place it in a `spacing="md"`
+ * Section, which adds 129px of vertical padding, so the band measured 211 to
+ * 342px with between 38% and 61% of its height being air. Across fourteen
+ * pages it was the lowest content density on the site: 14.8 at its worst,
+ * against 50 to 90 for an ordinary editorial band.
+ *
+ * The call sites now pass `spacing="sm"`. The whitespace that remains is the
+ * separation this band genuinely needs from the conversion band beneath it;
+ * what went was the part that was only there because `md` is the default
+ * reach for a section.
+ *
+ * It is recorded here rather than at each call site because the cause is the
+ * component's size, not any one page's layout.
+ */
 interface RelatedContentProps {
   items: RelatedLink[];
   mode?: RelatedMode;
@@ -95,7 +114,9 @@ export function RelatedContent({
   if (mode === "split") {
     return (
       <div className={related.split}>
-        {heading ? <h2 className={related.splitHeading}>{heading}</h2> : null}
+        {heading ? (
+          <h2 className={related.splitHeading}>{titleCase(heading)}</h2>
+        ) : null}
         <Cascade as="ul" className={related.splitList}>
           {items.map((item) => (
             <li key={item.href}>
@@ -169,7 +190,7 @@ export function RelationshipMap({
     <Cascade className={related.map} data-groups={groups.length}>
       {groups.map((group) => (
         <section key={group.key} className={related.mapGroup}>
-          <h3 className={related.mapHeading}>{group.label}</h3>
+          <h3 className={related.mapHeading}>{titleCase(group.label)}</h3>
           <ul className={related.mapList}>
             {group.items.map((item) => (
               <li key={item.href}>

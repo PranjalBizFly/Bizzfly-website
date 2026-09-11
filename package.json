@@ -17,6 +17,7 @@
     "verify:links": "node scripts/verify-links.mjs",
     "verify:pages": "node --experimental-strip-types --no-warnings --import ./scripts/alias-hooks.mjs scripts/verify-pages.ts",
     "verify:content": "node --experimental-strip-types --no-warnings --import ./scripts/alias-hooks.mjs scripts/verify-content.ts",
+    "verify:naming": "node --experimental-strip-types --no-warnings --import ./scripts/alias-hooks.mjs scripts/verify-naming.mjs",
     "verify:seo": "node scripts/verify-seo.mjs",
     "verify:responsive": "node scripts/verify-responsive.mjs",
     "qa": "node scripts/qa.mjs",

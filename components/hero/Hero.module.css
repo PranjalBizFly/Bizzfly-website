@@ -31,6 +31,77 @@
   color: var(--muted);
 }
 
+/*
+ * The optional ledger beside the statement. See EditorialHero.tsx for why
+ * the space is worth filling and what is allowed to fill it.
+ *
+ * Below 1024px it stacks under the lead and reads as a summary row; the
+ * heading keeps the full column, because narrowing type-led display copy to
+ * make room for a sidebar is the wrong trade on a phone.
+ */
+.editorialGrid {
+  display: grid;
+  gap: var(--space-10);
+}
+
+@media (min-width: 1024px) {
+  .editorialGrid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: var(--space-16);
+    /*
+     * Both columns hang from the top of the row.
+     *
+     * This was `end`, so that the ledger would finish level with the CTA row
+     * beneath the lead. The cost was paid by the other column: bottom-aligning
+     * BOTH tracks pushes the shorter one down, and on a hero whose ledger runs
+     * taller than its statement that dropped the H1 by about 115px — opening a
+     * gap between the eyebrow and the heading it belongs to, since the eyebrow
+     * sits above this grid rather than inside it. An eyebrow separated from its
+     * own headline by a void is a worse failure than a ledger that ends a
+     * little above the button.
+     */
+    align-items: start;
+  }
+}
+
+.ledger {
+  display: grid;
+  gap: var(--space-5);
+  margin: 0;
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-strong);
+}
+
+@media (min-width: 560px) and (max-width: 1023px) {
+  .ledger {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: var(--space-8);
+  }
+}
+
+.ledgerRow {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.ledgerFigure {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-h2);
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-text);
+}
+
+.ledgerLabel {
+  margin: 0;
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
 /* --- H-C Full-width declaration ----------------------------------------- */
 /*
  * One measure at every width. This used to step 16ch -> 18ch at 768px, which
@@ -144,13 +215,20 @@
   }
 }
 
+/*
+ * The headlines are absent from this list on purpose.
+ *
+ * .editorial and .splitTitle animate their own words (see SplitText and
+ * Kinetic.module.css), and running a block fade underneath a word stagger
+ * gives the headline two opacity curves at once — the words arrive, and the
+ * whole line keeps fading behind them. The kinetic offset carries the 80ms
+ * beat those two used to take from here, so the order is unchanged.
+ */
 .breadcrumbs,
 .eyebrow,
-.editorial,
 .editorialLead,
 .declaration,
 .declarationLead,
-.splitTitle,
 .splitLead,
 .actions,
 .splitAside {
@@ -165,10 +243,20 @@
   animation-delay: 40ms;
 }
 
-.editorial,
-.declaration,
-.splitTitle {
+.declaration {
   animation-delay: 80ms;
+}
+
+/*
+ * Two type-led heroes, two different beats.
+ *
+ * The editorial hero is a statement with nothing beside it, so its words are
+ * given room — a slower step reads as deliberate there. The split hero has a
+ * specification block arriving alongside, so its headline moves at the
+ * default and gets out of the way.
+ */
+.editorial {
+  --kinetic-step: 62ms;
 }
 
 .editorialLead,
@@ -182,12 +270,42 @@
 }
 
 /*
+ * The ledger arrives last, as its own column.
+ *
+ * It sits opposite the statement rather than after it, so it waits for the
+ * statement to finish rather than interleaving with it — the same reasoning
+ * as the split hero's aside below, and the same beat. Without this it was the
+ * one element in an animated hero that simply appeared, which is more
+ * conspicuous than no animation at all.
+ *
+ * The rows carry the animation and the list itself does not, for the reason
+ * given above the headline exclusions: a block fade running underneath a
+ * per-child fade gives the same pixels two opacity curves at once, and the
+ * figures visibly double-develop. The rule that survives on the list is its
+ * hairline, which is structure rather than motion.
+ */
+.ledgerRow {
+  animation: heroTextRise var(--dur-slow) var(--ease-decelerate) both;
+  animation-delay: calc(260ms + var(--ledger-index, 0) * var(--stagger-step));
+}
+
+/*
  * The aside is a column of its own rather than the next line of the
  * statement, so it arrives after the whole statement has, not interleaved
  * with it.
  */
 .splitAside {
   animation-delay: 260ms;
+}
+
+/*
+ * The lines inside it then arrive in order, relative to the panel they sit
+ * in. Delays are relative to the panel's own 260ms rather than added to it
+ * in markup, so changing when the panel arrives moves its contents with it.
+ */
+.asideItem {
+  animation: heroTextRise var(--dur-slow) var(--ease-decelerate) both;
+  animation-delay: calc(300ms + var(--aside-index, 0) * var(--stagger-step));
 }
 
 /*
@@ -205,7 +323,8 @@
   .splitTitle,
   .splitLead,
   .actions,
-  .splitAside {
+  .splitAside,
+  .asideItem {
     animation: none;
   }
 }

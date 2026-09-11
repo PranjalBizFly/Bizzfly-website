@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { CSSProperties } from "react";
-import { useReveal } from "@/components/motion";
+import { TextReveal, useReveal } from "@/components/motion";
 import styles from "./ProblemMap.module.css";
 
 export interface ProblemMapProblem {
@@ -87,7 +87,7 @@ export function ProblemMap({
           {problemsEyebrow ? (
             <span className={styles.eyebrow}>{problemsEyebrow}</span>
           ) : null}
-          <h2 className={styles.title}>{problemsTitle}</h2>
+          <h2 className={styles.title}><TextReveal text={problemsTitle} /></h2>
           {problemsLead ? <p className={styles.lead}>{problemsLead}</p> : null}
         </header>
 
@@ -144,7 +144,7 @@ export function ProblemMap({
           {solutionsEyebrow ? (
             <span className={styles.eyebrow}>{solutionsEyebrow}</span>
           ) : null}
-          <h2 className={styles.title}>{solutionsTitle}</h2>
+          <h2 className={styles.title}><TextReveal text={solutionsTitle} /></h2>
           {solutionsLead ? <p className={styles.lead}>{solutionsLead}</p> : null}
         </header>
 

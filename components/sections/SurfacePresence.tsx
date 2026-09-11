@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import type { CSSProperties } from "react";
 import { Reveal, useReveal } from "@/components/motion";
 import styles from "./SurfacePresence.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 interface Surface {
   id: string;
@@ -38,7 +39,7 @@ const SURFACES: Surface[] = [
     node: "SEO",
     retrieval: "Crawled index",
     outcome: "Rankings",
-    standing: "Where most budgets already sit — and where returns are thinning",
+    standing: "Where most budgets already sit, and where returns are thinning",
     title: "Ranked Organic Search Results",
     channels: "Google Search · Bing Web · Traditional Search Crawlers",
     buyerJourney:
@@ -46,7 +47,7 @@ const SURFACES: Surface[] = [
     retrievalMechanism:
       "Keyword frequency, PageRank link graphs, technical crawlability, and domain authority determine position. Traditional web crawlers index static HTML and calculate relevancy scores against query terms.",
     enterpriseReality:
-      "Where 85%+ of organic marketing budgets are currently spent. Most established businesses have invested in backlink acquisition and keyword optimization to secure page-one rankings.",
+      "Where 85%+ of organic marketing budgets are currently spent. Most established businesses have invested in backlink acquisition and keyword optimisation to secure page-one rankings.",
     criticalVulnerability:
       "Over 60% of searches now conclude without a single outbound click. Traditional organic links are pushed beneath sponsored ads, map packs, and generative AI answer boxes, silently depressing click-through volume.",
     bizzflySolution:
@@ -65,18 +66,18 @@ const SURFACES: Surface[] = [
     retrieval: "RAG synthesis",
     outcome: "Citations",
     standing: "Cited selectively, and only when the source reads as verifiable fact",
-    title: "Synthesized Generative AI Answers",
+    title: "Synthesised Generative AI Answers",
     channels: "Google AI Overviews · Perplexity AI · Copilot Answer Snippets",
     buyerJourney:
       "A decision-maker inputs a complex, multifaceted question: “How do mid-market logistics platforms handle multi-tenant database decoupling?” The engine synthesizes a direct, comprehensive answer with cited footnotes.",
     retrievalMechanism:
-      "Retrieval-Augmented Generation (RAG). AI systems extract relevant entity passages from indexed sources, evaluate semantic consistency across citations, and compile a synthesized answer referencing authoritative sources.",
+      "Retrieval-Augmented Generation (RAG). AI systems extract relevant entity passages from indexed sources, evaluate semantic consistency across citations, and compile a synthesised answer referencing authoritative sources.",
     enterpriseReality:
       "Visibility is highly volatile. Websites with high traditional rankings are frequently bypassed if their content relies on generic marketing adjectives rather than structured, verifiable technical facts.",
     criticalVulnerability:
       "If your site relies on promotional marketing copy, client-side JavaScript rendering, or lacks structured Schema.org entity relationships, AI engines bypass your domain and cite competitors as primary sources.",
     bizzflySolution:
-      "We engineer Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) through structured JSON-LD entity graphs, verifiable architectural definitions, and direct question-answering data hierarchies.",
+      "We engineer Answer Engine Optimisation (AEO) and Generative Engine Optimisation (GEO) through structured JSON-LD entity graphs, verifiable architectural definitions, and direct question-answering data hierarchies.",
     disciplines: [
       "Schema.org JSON-LD graph linking corporate entities",
       "Direct, unambiguous technical answer formatting",
@@ -133,20 +134,20 @@ interface Foundation {
 const FOUNDATIONS: Foundation[] = [
   {
     code: "Foundation 01 / AIO",
-    title: "Artificial Intelligence Optimization",
+    title: "Artificial Intelligence Optimisation",
     question: "Can a machine parser read, comprehend, and verify you at all?",
     explanation:
-      "AI crawlers, autonomous agents, and LLM scrapers do not read web pages like human visitors. They parse server-rendered HTML5, verified Schema.org JSON-LD entity structures, and contextual relationship microdata. When an organization’s digital architecture is opaque or reliant on client-rendered scripts, AI engines fail to understand their capabilities and exclude them from foundational knowledge graphs.",
+      "AI crawlers, autonomous agents, and LLM scrapers do not read web pages like human visitors. They parse server-rendered HTML5, verified Schema.org JSON-LD entity structures, and contextual relationship microdata. When an organisation’s digital architecture is opaque or reliant on client-rendered scripts, AI engines fail to understand their capabilities and exclude them from foundational knowledge graphs.",
     pillars: [
       "Server-rendered semantic HTML5 with zero client-side dependencies",
       "Comprehensive Schema.org JSON-LD corporate knowledge graph",
-      "Disambiguated entity architecture and capability modeling",
+      "Disambiguated entity architecture and capability modelling",
       "Direct machine-digestible documentation and taxonomy",
     ],
   },
   {
     code: "Foundation 02 / SXO",
-    title: "Search Experience Optimization",
+    title: "Search Experience Optimisation",
     question: "When high-intent decision makers land, do you convert what you won?",
     explanation:
       "Winning search rankings and AI citations is meaningless if the destination experience fails. When an executive clicks through from an AI overview, search result, or recommendation, they expect instantaneous load speeds, accessible typography, authoritative proof points, and clear diagnostic inquiry pathways. SXO converts earned discovery into qualified enterprise pipeline.",
@@ -167,23 +168,23 @@ interface SelfCheck {
 
 const SELF_CHECK: SelfCheck[] = [
   {
-    surface: "Surface 01 — Ranked organic search",
+    surface: "Surface 01: Ranked organic search",
     statement:
       "Our website consistently ranks on page one of Google for primary commercial, industry, and capability keywords.",
     ifNot:
       "If not, the fundamentals come first: crawlable architecture, Core Web Vitals, and content that answers a commercial question rather than describing a service.",
   },
   {
-    surface: "Surface 02 — Synthesized AI answers",
+    surface: "Surface 02: Synthesised AI answers",
     statement:
       "Our solutions and leadership are actively cited, with linked footnotes, in Google AI Overviews, Perplexity answers, and Copilot summaries.",
     ifNot:
       "If not, the gap is almost always structural rather than editorial. Promotional copy and client-rendered pages are not retrievable as facts, so the engine cites a competitor who published the same claim in a parseable form.",
   },
   {
-    surface: "Surface 03 — Autonomous AI assistants",
+    surface: "Surface 03: Autonomous AI assistants",
     statement:
-      "Our organization is recommended when enterprise decision-makers prompt ChatGPT, Claude, or internal AI agents for a verified vendor shortlist.",
+      "Our organisation is recommended when enterprise decision-makers prompt ChatGPT, Claude, or internal AI agents for a verified vendor shortlist.",
     ifNot:
       "If not, you are being filtered out before an RFP exists. Standing here is earned through third-party corroboration and depth of published technical thinking, not through keyword position.",
   },
@@ -251,18 +252,18 @@ export function SurfacePresence() {
         <div className={styles.aside}>
           <Reveal as="header" className={styles.header}>
             <span className={styles.eyebrow}>
-              06 / Multi-Surface Discovery Architecture
+              Multi-Surface Discovery Architecture
             </span>
             <h3 className={styles.title}>
-              One buyer question: &ldquo;Who can do this for us?&rdquo;
+              One Buyer Question: &ldquo;Who Can Do This For Us?&rdquo;
             </h3>
             <p className={styles.lead}>
               Modern enterprise buyers do not discover technology partners
               through a single search bar anymore. When a decision-maker seeks
               solutions to a critical business problem, discovery splits across
-              three distinct retrieval tiers—from traditional search indexes to
+              three distinct retrieval tiers, from traditional search indexes to
               generative AI answers and autonomous conversational assistants.
-              Most organizations optimize heavily for the first and remain
+              Most organisations optimise heavily for the first and remain
               completely invisible on the others.
             </p>
           </Reveal>
@@ -364,7 +365,7 @@ export function SurfacePresence() {
             >
               <div className={styles.panelHead}>
                 <span className={styles.surfaceCode}>{surface.code}</span>
-                <h4 className={styles.surfaceTitle}>{surface.title}</h4>
+                <h4 className={styles.surfaceTitle}>{titleCase(surface.title)}</h4>
                 <p className={styles.surfaceMeta}>{surface.channels}</p>
                 <p className={styles.surfaceStanding}>{surface.standing}</p>
               </div>
@@ -407,7 +408,7 @@ export function SurfacePresence() {
       <section className={styles.block}>
         <span className={styles.eyebrow}>Underneath all three</span>
         <h4 className={styles.blockTitle}>
-          The two non-negotiable substrates
+          The Two Non-Negotiable Substrates
         </h4>
         <p className={styles.lead}>
           Surfaces are where buyers look. These two engineering foundations
@@ -442,7 +443,7 @@ export function SurfacePresence() {
       <section className={styles.block}>
         <span className={styles.eyebrow}>A short self-assessment</span>
         <h4 className={styles.blockTitle}>
-          Where does your organization actually stand?
+          Where Does Your Organisation Actually Stand?
         </h4>
         <p className={styles.lead}>
           Three statements. The ones you cannot say honestly are the surfaces
@@ -468,7 +469,7 @@ export function SurfacePresence() {
       <section className={styles.block}>
         <span className={styles.eyebrow}>The BizzFly position</span>
         <h4 className={styles.blockTitle}>
-          Three surfaces, engineered as one system
+          Three Surfaces, Engineered As One System
         </h4>
         <p className={styles.paragraph}>
           Most digital agencies spend 100% of their organic retainer competing

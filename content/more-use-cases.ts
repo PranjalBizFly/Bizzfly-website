@@ -141,7 +141,7 @@ export const moreUseCases: UseCase[] = [
       {
         question: "Will customers be annoyed by a bot?",
         answer:
-          "They are annoyed by a bot that traps them in a loop and will not let them reach a person. Handled properly — accurate answers, an obvious route to a human, no pretence that it is a person — most customers prefer an instant answer to a queue.",
+          "They are annoyed by a bot that traps them in a loop and will not let them reach a person. Handled properly (accurate answers, an obvious route to a human, no pretence that it is a person) most customers prefer an instant answer to a queue.",
       },
     ],
     related: [
@@ -197,7 +197,7 @@ export const moreUseCases: UseCase[] = [
     seo: {
       title: "Improve website conversion",
       description:
-        "Turn more of your existing traffic into enquiries — the cheapest growth available, and it compounds across every channel.",
+        "Turn more of your existing traffic into enquiries: the cheapest growth available, and it compounds across every channel.",
       primaryTopic: "website conversion improvement",
       secondaryTopics: ["conversion rate", "CRO"],
       intent: "commercial",
@@ -206,7 +206,7 @@ export const moreUseCases: UseCase[] = [
     phase: "P1",
     cta: { label: "Request a CRO assessment", href: "/contact/", tier: "T3" },
     related: [
-      { label: "Conversion Optimisation", href: "/services/conversion-rate-optimisation/", type: "SERVICE" },
+      { label: "Conversion Rate Optimisation", href: "/services/conversion-rate-optimisation/", type: "SERVICE" },
       { label: "UI/UX Design", href: "/services/ui-ux-design/", type: "SERVICE" },
     ],
   },
@@ -259,7 +259,7 @@ export const moreUseCases: UseCase[] = [
     seo: {
       title: "Rank in local search",
       description:
-        "Be found by nearby customers — consistent business information, a complete profile, and genuine local relevance.",
+        "Be found by nearby customers: consistent business information, a complete profile, and genuine local relevance.",
       primaryTopic: "local search ranking",
       secondaryTopics: ["local SEO", "Google Maps", "map pack"],
       intent: "commercial",
@@ -269,7 +269,7 @@ export const moreUseCases: UseCase[] = [
     cta: { label: "Get a local visibility audit", href: "/contact/", tier: "T3" },
     related: [
       { label: "Google Business Profile", href: "/services/google-business-profile/", type: "SERVICE" },
-      { label: "SEO Services", href: "/services/seo/", type: "SERVICE" },
+      { label: "SEO", href: "/services/seo/", type: "SERVICE" },
     ],
   },
   {
@@ -328,7 +328,7 @@ export const moreUseCases: UseCase[] = [
     seo: {
       title: "Improve operational efficiency",
       description:
-        "Grow capacity without proportional headcount — automate the costly repetitive work and connect the systems underneath.",
+        "Grow capacity without proportional headcount: automate the costly repetitive work and connect the systems underneath.",
       primaryTopic: "operational efficiency",
       secondaryTopics: ["process automation", "systems integration"],
       intent: "commercial",

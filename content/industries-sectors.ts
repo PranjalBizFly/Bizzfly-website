@@ -20,7 +20,7 @@ export const sectorIndustries: Industry[] = [
     opportunity:
       "The category vocabulary is exhausted, which means specificity wins. Explaining what you actually do, for whom, and what you do not do, is more differentiating than any adjective.",
     context:
-      "Buying is committee-driven and technically informed. A technical evaluator reads documentation before marketing pages, a commercial sponsor needs a business case, and procurement asks about security and support. The three read different pages and all three have to be satisfied. Meanwhile the category page every competitor writes says the same three things, so the buyer's real question — what is different here — is answered nowhere.",
+      "Buying is committee-driven and technically informed. A technical evaluator reads documentation before marketing pages, a commercial sponsor needs a business case, and procurement asks about security and support. The three read different pages and all three have to be satisfied. Meanwhile the category page every competitor writes says the same three things, so the buyer's real question (what is different here) is answered nowhere.",
     problems: [
       {
         title: "Every competitor's site says the same thing",
@@ -81,7 +81,7 @@ export const sectorIndustries: Industry[] = [
     opportunity:
       "Response speed is a genuine differentiator in this sector and it is almost entirely within your control. The enquiry that gets a reply within the hour usually wins the appointment.",
     context:
-      "Search here is overwhelmingly local and often urgent — a service due, a fault, a specific model in stock. The map pack matters more than the organic list, and stock or availability data changes daily. Enquiries arrive across web forms, phone, marketplace platforms and social messaging, and the business that answers first typically books the appointment. Multi-site groups face the additional problem that one location's visibility often suppresses the others.",
+      "Search here is overwhelmingly local and often urgent: a service due, a fault, a specific model in stock. The map pack matters more than the organic list, and stock or availability data changes daily. Enquiries arrive across web forms, phone, marketplace platforms and social messaging, and the business that answers first typically books the appointment. Multi-site groups face the additional problem that one location's visibility often suppresses the others.",
     problems: [
       {
         title: "One location dominates and the rest are invisible",
@@ -119,7 +119,7 @@ export const sectorIndustries: Industry[] = [
       {
         question: "Why does only one of our branches show up?",
         answer:
-          "Usually because the site treats locations as content rather than as entities — one strong page absorbs the relevance for all of them. Distinct location pages, correctly claimed profiles and consistent citations separate them again.",
+          "Usually because the site treats locations as content rather than as entities: one strong page absorbs the relevance for all of them. Distinct location pages, correctly claimed profiles and consistent citations separate them again.",
       },
       {
         question: "How quickly should we respond to an online enquiry?",
@@ -137,11 +137,11 @@ export const sectorIndustries: Industry[] = [
     layout: "challenge-led",
     title: "Construction",
     answer:
-      "The digital problem in construction is rarely enquiry volume. It is qualification — separating the projects worth quoting from the ones that consume estimating time and never convert.",
+      "The digital problem in construction is rarely enquiry volume. It is qualification: separating the projects worth quoting from the ones that consume estimating time and never convert.",
     opportunity:
       "Estimating capacity is the scarce resource. Anything that filters enquiries before they reach an estimator returns time directly to the part of the business that wins work.",
     context:
-      "Enquiries range from domestic jobs to tendered contracts, and the effort to quote them varies enormously. Estimating is skilled, slow and usually the bottleneck. Buyers assess credibility on completed work and on whether the business looks like it will still exist at practical completion — accreditations, insurance, real project evidence. Much of the sector's web presence consists of a gallery and a contact form, which qualifies nobody and answers none of the questions a serious buyer has.",
+      "Enquiries range from domestic jobs to tendered contracts, and the effort to quote them varies enormously. Estimating is skilled, slow and usually the bottleneck. Buyers assess credibility on completed work and on whether the business looks like it will still exist at practical completion: accreditations, insurance, real project evidence. Much of the sector's web presence consists of a gallery and a contact form, which qualifies nobody and answers none of the questions a serious buyer has.",
     problems: [
       {
         title: "Estimating time is consumed by enquiries that never convert",
@@ -179,7 +179,7 @@ export const sectorIndustries: Industry[] = [
       {
         question: "How do we stop quoting work we do not want?",
         answer:
-          "State the scope plainly on the site — project types, size range, areas covered — and ask two or three qualifying questions at enquiry. Being explicit about what you do not take filters more effectively than any scoring system.",
+          "State the scope plainly on the site (project types, size range, areas covered) and ask two or three qualifying questions at enquiry. Being explicit about what you do not take filters more effectively than any scoring system.",
       },
       {
         question: "Is search worth it when most work comes from referral?",
@@ -198,7 +198,7 @@ export const sectorIndustries: Industry[] = [
     diagram: "content-structure",
     title: "Legal Services",
     answer:
-      "Legal marketing operates under professional conduct rules that constrain what can be claimed. Within those constraints, demonstrated expertise is the strongest available signal — and it is the one most firms under-use.",
+      "Legal marketing operates under professional conduct rules that constrain what can be claimed. Within those constraints, demonstrated expertise is the strongest available signal, and it is the one most firms under-use.",
     opportunity:
       "The sector's regulatory caution has left a gap: clear, accurate explanation of common legal questions. Firms that publish it earn both visibility and the trust that precedes an enquiry.",
     context:
@@ -247,25 +247,25 @@ export const sectorIndustries: Industry[] = [
       {
         question: "Does legal content still get traffic given AI answers?",
         answer:
-          "Purely definitional questions increasingly get answered without a click. Situation-specific content — where someone needs to know what applies to their circumstances — still produces enquiries, and it is also what AI systems cite when they cite anyone.",
+          "Purely definitional questions increasingly get answered without a click. Situation-specific content (where someone needs to know what applies to their circumstances) still produces enquiries, and it is also what AI systems cite when they cite anyone.",
       },
     ],
     related: [
       { label: "Professional Services", href: "/industries/professional-services/", type: "INDUSTRY" },
-      { label: "SEO Content Strategy", href: "/services/content-strategy/", type: "SERVICE" },
+      { label: "Content Strategy", href: "/services/content-strategy/", type: "SERVICE" },
     ],
   },
   {
     slug: "accounting",
     layout: "opportunity-led",
     diagram: "process-transformation",
-    title: "Accounting & Advisory",
+    title: "Accounting",
     answer:
       "Two pressures at once: compliance work is commoditising, and client onboarding carries administrative load that scales linearly with growth. Digital work addresses both, and the second is usually more urgent.",
     opportunity:
       "Advisory services differentiate where compliance cannot, and automating onboarding frees exactly the capacity needed to deliver them.",
     context:
-      "Compliance work is increasingly automated and priced accordingly, while advisory work carries margin and depends on the relationship. Meanwhile, taking on a client involves identity verification, engagement letters, data collection and system setup — largely manual, entirely repetitive, and heaviest in the periods when the practice is busiest. Buyers, especially owner-managed businesses, choose on trust and on whether the firm appears to understand their sector.",
+      "Compliance work is increasingly automated and priced accordingly, while advisory work carries margin and depends on the relationship. Meanwhile, taking on a client involves identity verification, engagement letters, data collection and system setup: largely manual, entirely repetitive, and heaviest in the periods when the practice is busiest. Buyers, especially owner-managed businesses, choose on trust and on whether the firm appears to understand their sector.",
     complianceNotes:
       "Client onboarding is subject to anti-money-laundering identity verification requirements. Automation here supports the process and its record-keeping; it does not remove the practice's obligation to satisfy itself as to identity and risk.",
     problems: [
@@ -305,7 +305,7 @@ export const sectorIndustries: Industry[] = [
       {
         question: "Can client onboarding be automated given AML requirements?",
         answer:
-          "The collection, verification prompts, chasing and record-keeping can be. The risk assessment and the decision remain the practice's, which is where the obligation sits — automation makes the evidence trail better, not thinner.",
+          "The collection, verification prompts, chasing and record-keeping can be. The risk assessment and the decision remain the practice's, which is where the obligation sits; automation makes the evidence trail better, not thinner.",
       },
       {
         question: "How do accounting firms differentiate?",
@@ -322,13 +322,13 @@ export const sectorIndustries: Industry[] = [
     slug: "recruitment",
     layout: "journey-led",
     diagram: "content-structure",
-    title: "Recruitment & Staffing",
+    title: "Recruitment",
     answer:
-      "Recruitment sites serve two audiences with opposite needs — clients hiring and candidates looking — and most sites are built for one while the other navigates around it.",
+      "Recruitment sites serve two audiences with opposite needs (clients hiring and candidates looking) and most sites are built for one while the other navigates around it.",
     opportunity:
       "Separating the two journeys properly is unusually high-return here, because both audiences are actively searching and both currently arrive at a site designed for someone else.",
     context:
-      "Clients assess whether a consultancy understands their sector and can deliver quickly; candidates assess whether the roles are real, current and worth their time. The two need different content, different navigation and different conversion actions. Job listings create a second problem: they generate large numbers of URLs with short lifespans, and how expired roles are handled affects both site quality and candidate trust. Speed matters throughout — the first credible CV and the first response to an application both carry disproportionate weight.",
+      "Clients assess whether a consultancy understands their sector and can deliver quickly; candidates assess whether the roles are real, current and worth their time. The two need different content, different navigation and different conversion actions. Job listings create a second problem: they generate large numbers of URLs with short lifespans, and how expired roles are handled affects both site quality and candidate trust. Speed matters throughout: the first credible CV and the first response to an application both carry disproportionate weight.",
     problems: [
       {
         title: "One site trying to serve two audiences",
@@ -371,7 +371,7 @@ export const sectorIndustries: Industry[] = [
       {
         question: "Should clients and candidates have separate sections?",
         answer:
-          "In most cases yes — separate entry points, navigation and calls to action. They want different things, and a single blended journey serves whichever audience the homepage was written for.",
+          "In most cases yes: separate entry points, navigation and calls to action. They want different things, and a single blended journey serves whichever audience the homepage was written for.",
       },
     ],
     related: [
@@ -383,13 +383,13 @@ export const sectorIndustries: Industry[] = [
     slug: "energy",
     layout: "challenge-led",
     diagram: "system-architecture",
-    title: "Energy & Utilities",
+    title: "Energy",
     answer:
       "Two demands pull in opposite directions: technical credibility for informed buyers and specifiers, and process automation for high-volume administrative work with regulatory record-keeping attached.",
     opportunity:
       "Technical buyers in this sector research thoroughly and find little that respects their expertise. Content written at their level is both differentiating and cheap to produce, because the knowledge already exists internally.",
     context:
-      "Buyers include specifiers, facilities managers and procurement teams who evaluate on technical specification, compliance and total cost over a long horizon. Sales cycles are long and involve several stakeholders. Behind the front end sits substantial administrative process — surveys, quotations, installations, certifications and reporting — much of it evidenced for regulatory purposes. Both halves of the business are usually under-served digitally, and the administrative half is normally the more expensive problem.",
+      "Buyers include specifiers, facilities managers and procurement teams who evaluate on technical specification, compliance and total cost over a long horizon. Sales cycles are long and involve several stakeholders. Behind the front end sits substantial administrative process (surveys, quotations, installations, certifications and reporting), much of it evidenced for regulatory purposes. Both halves of the business are usually under-served digitally, and the administrative half is normally the more expensive problem.",
     problems: [
       {
         title: "Content is written for a general audience nobody in the market is",
@@ -432,12 +432,12 @@ export const sectorIndustries: Industry[] = [
       {
         question: "Where does automation return most in this sector?",
         answer:
-          "Usually in the documentation and certification trail around installation work — high volume, highly repetitive, and already required to be evidenced, which means the structure is largely defined already.",
+          "Usually in the documentation and certification trail around installation work: high volume, highly repetitive, and already required to be evidenced, which means the structure is largely defined already.",
       },
     ],
     related: [
       { label: "Manufacturing", href: "/industries/manufacturing/", type: "INDUSTRY" },
-      { label: "Custom Software Development", href: "/services/custom-software/", type: "SERVICE" },
+      { label: "Custom Software", href: "/services/custom-software/", type: "SERVICE" },
     ],
   },
 ];

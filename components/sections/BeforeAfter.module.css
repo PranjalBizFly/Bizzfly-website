@@ -16,6 +16,18 @@
   .band {
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     gap: var(--space-10);
+    /*
+     * `stretch`, so both sides own the full height of the row.
+     *
+     * With `start` the shorter side hung from the top edge: the causes side
+     * is a four- or five-item enumerated list and the resulting state is a
+     * single passage, so on a use-case page the right-hand column ran about
+     * 330px short and the band read as a section missing its second half.
+     * Stretching is what lets the statement centre itself below, and it also
+     * runs the after side's leading hairline the full height of the band
+     * rather than only as far as its own text.
+     */
+    align-items: stretch;
   }
 }
 
@@ -23,6 +35,19 @@
 
 .side {
   min-width: 0;
+}
+
+/*
+ * A side that is one statement rather than a list sits against the middle of
+ * the list opposite it. A list stays where it is: its rows are the structure,
+ * and centring them would float the whole rail off the section's top edge.
+ */
+@media (min-width: 900px) {
+  .side[data-shape="text"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 /*
@@ -60,7 +85,8 @@
 
 .lead {
   font-family: var(--font-body);
-  font-size: var(--text-body);
+  /* The section-lead size, as under every other section title. */
+  font-size: var(--text-body-lg);
   line-height: var(--leading-relaxed);
   color: var(--muted);
   margin: var(--space-3) 0 0;

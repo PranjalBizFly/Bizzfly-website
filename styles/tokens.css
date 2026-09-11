@@ -282,6 +282,50 @@
   --panel-over-media:      rgb(13 20 32 / 0.55);
   --pill-over-media:       rgb(245 247 250 / 0.08);
 
+  /* ---------------------------------------------------------------------
+     The travelling edge light on the landing page's primary CTAs.
+
+     A highlight, not a wash. It is the third translucent value in the
+     system and the only white one, which is why it is here rather than
+     expressed as an alpha on a component.
+
+     It rides the top edge of the button and never crosses the label,
+     because compositing white over --cta-primary lowers the contrast the
+     white label depends on: at 0.22 the pairing measures 3.27:1, at 0.10
+     4.04:1 and at 0.05 4.42:1 — all of them under the 4.5:1 floor, and
+     anything weak enough to pass is invisible. So the light is bright and
+     stays off the glyphs, rather than dim and over them.
+     --------------------------------------------------------------------- */
+  --sheen-edge:            rgb(255 255 255 / 0.28);
+
+  /* ---------------------------------------------------------------------
+     GLASS — the blur, not the colour.
+
+     Seven components had already grown a backdrop-filter independently, at
+     four different blur radii (3, 6, 8 and 10px) with no shared value behind
+     them. That is the drift this file exists to prevent, so the effect is
+     expressed here once and referenced from each.
+
+     WHAT IS DELIBERATELY NOT HERE IS TRANSPARENCY.
+
+     A glass panel's contrast is a function of whatever happens to be behind
+     it, which cannot be asserted in verify-contrast.mjs — the suite can only
+     check a pair of colours. So the opacity stays high enough that the
+     composite is effectively the opaque token it was mixed from:
+     --glass-tint is 88%, which shifts a foreground pairing by well under a
+     tenth of a ratio point against any ground on the site. Glass here is a
+     blur and a slight lift, not a see-through panel. Anything that genuinely
+     needs to show a photograph through it uses --panel-over-media above,
+     which was measured against the actual frames.
+
+     Every use is behind @supports: without backdrop-filter the element must
+     fall back to its solid background rather than to a washed-out one.
+     --------------------------------------------------------------------- */
+  --glass-blur:            10px;
+  --glass-blur-sm:         6px;   /* a small capsule needs less to read */
+  --glass-saturate:        140%;  /* puts colour back that the blur drains */
+  --glass-tint:            88%;   /* share of the underlying solid token */
+
   /* --- Focus ---------------------------------------------------------- */
   --focus-ring:            var(--ink-900);
   --focus-ring-inverse:    var(--green-500);
@@ -646,6 +690,44 @@
   --stagger-step:    70ms;
   --stagger-max:     6;    /* items after the 6th share the 6th delay */
 
+  /* One crossing of the light over a control. Long enough to read as a pass
+     rather than a flicker, short enough that it is over before a reader who
+     is only moving through has noticed it started. */
+  --dur-sweep: 700ms;
+
+  /* Editorial storytelling — the only tier allowed to be slow, and only for
+     a sequence the reader is being walked through rather than shown. */
+  --dur-story: 720ms;
+
+  /* Kinetic type. Words are shorter than lines because there are more of
+     them: a six-word headline at 90ms would take longer to arrive than the
+     reader takes to read it. */
+  --kinetic-word-step: 45ms;
+  --kinetic-line-step: 90ms;
+  --kinetic-rise: 0.9em;   /* one line-box, so words clear their own mask */
+
+  /* Letters.
+     There are five or six times as many of them as there are words, so the
+     step stays short — at 20ms a forty-character heading is fully settled in
+     about 1.1s, which is quick enough not to be waited on.
+
+     Both values were raised from a first pass at 13ms / 0.55em, which was
+     measurably running but not legible as movement: the letters arrived so
+     close together, and travelled so little, that the eye read a row of
+     appearances rather than a rise. Motion has to be seen to be worth its
+     cost, and below roughly 15ms of separation it is not. */
+  --kinetic-char-step: 20ms;
+  --kinetic-char-rise: 0.75em;
+
+  /* Scroll-linked motion. Restrained on purpose — past about 40px the page
+     stops feeling layered and starts feeling loose. */
+  --parallax-shift: 32px;
+  --parallax-shift-sm: 16px;
+  --scroll-scale-from: 1.06;
+
+  /* Image entrance. The wipe is a clip-path inset, so it composites. */
+  --image-reveal-scale: 1.08;
+
   /* ---------------------------------------------------------------------
      Z-INDEX — no value outside this scale
      --------------------------------------------------------------------- */
@@ -858,8 +940,30 @@
     --dur-base: 1ms;
     --dur-slow: 1ms;
     --dur-reveal: 1ms;
+    --dur-story: 1ms;
+    --dur-sweep: 1ms;
     --reveal-distance: 0px;
     --stagger-step: 0ms;
+
+    /*
+     * Kinetic type collapses to nothing rather than to a fast version: a
+     * headline arriving word by word is movement across the reader's field
+     * of view, which is the thing vestibular disorders react to, and doing
+     * it quickly makes it worse rather than better.
+     */
+    --kinetic-word-step: 0ms;
+    --kinetic-line-step: 0ms;
+    --kinetic-rise: 0em;
+    --kinetic-char-step: 0ms;
+    --kinetic-char-rise: 0em;
+
+    /* Scroll-linked motion is removed outright. There is no restrained
+       amount of parallax that is safe here — it is movement the reader did
+       not ask for, tied to the one input they cannot stop making. */
+    --parallax-shift: 0px;
+    --parallax-shift-sm: 0px;
+    --scroll-scale-from: 1;
+    --image-reveal-scale: 1;
   }
 }
 

@@ -179,24 +179,41 @@
   padding: var(--space-6);
 }
 
+/*
+ * The label is smaller than the thing it labels.
+ *
+ * These two were the wrong way round: the label was set at --text-eyebrow,
+ * the 18-20px "authoritative section kicker", and the answer under it at
+ * --text-body-sm at 14. So "Suits" and "Ends with" were the loudest text in
+ * the box and the sentences a reader actually came for were the quietest.
+ * A caption should sit under its content in the hierarchy, not over it.
+ */
 .factLabel {
   font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
+  font-size: var(--text-meta);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
   color: var(--muted);
 }
 
 .factValue {
-  margin: var(--space-3) 0 0;
-  font-size: var(--text-body-sm);
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-body);
   line-height: var(--leading-relaxed);
   color: var(--foreground);
 }
 
-/* A second row in the same box, for sets that compare on two attributes. */
+/*
+ * A second row in the same box, for sets that compare on two attributes.
+ * The rule separates the pairs, which a margin alone did not do once the
+ * label stopped being large enough to read as a new heading.
+ */
 .factValue + .factLabel {
   display: block;
   margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border);
 }
 
 .panelLink {

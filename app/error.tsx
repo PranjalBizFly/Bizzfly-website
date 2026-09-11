@@ -33,7 +33,7 @@ export default function Error({
         This page did not load
       </Heading>
       <BodyText size="lg" muted className={styles.lead}>
-        The problem is on our side, not yours. Try again — and if it keeps
+        The problem is on our side, not yours. Try again, and if it keeps
         happening, tell us and we will fix it.
       </BodyText>
 

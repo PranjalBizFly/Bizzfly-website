@@ -3,6 +3,7 @@ import { trustCommitments } from "@/content/homepage";
 import { Glyph } from "@/components/brand/Glyph";
 import { StaggerItem } from "@/components/motion";
 import styles from "./TrustStandard.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 /**
  * Section 13 — trust.
@@ -44,7 +45,7 @@ export function TrustStandard() {
 
             <Glyph className={styles.glyph} size="0.85rem" />
 
-            <h3 className={styles.title}>{commitment.title}</h3>
+            <h3 className={styles.title}>{titleCase(commitment.title)}</h3>
             <p className={styles.body}>{commitment.body}</p>
           </StaggerItem>
         ))}

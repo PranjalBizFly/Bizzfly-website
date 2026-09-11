@@ -1,0 +1,36 @@
+/* ==========================================================================
+   MAGNETIC
+   --------------------------------------------------------------------------
+   A wrapper that translates by two custom properties the script writes.
+   Nothing else: no scale, no shadow, no size change — the element keeps the
+   hit target the reader aimed at.
+   ========================================================================== */
+
+.magnet {
+  display: inline-block;
+  transform: translate3d(var(--magnet-x, 0), var(--magnet-y, 0), 0);
+  /*
+   * Long enough to smooth the frame-to-frame jitter of a pointer, short
+   * enough that the element still reads as following rather than trailing.
+   * The release back to zero uses the same curve, which is what makes
+   * leaving the element feel like letting go of it.
+   */
+  transition: transform var(--dur-base) var(--ease-standard);
+}
+
+/* Belt and braces: the script never attaches on a touch device, and this
+   makes sure a stale inline property from a hybrid device cannot move
+   anything either. */
+@media (hover: none), (pointer: coarse) {
+  .magnet {
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magnet {
+    transform: none;
+    transition: none;
+  }
+}

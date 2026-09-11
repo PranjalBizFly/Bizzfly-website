@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
 import { SectionNav } from "@/components/navigation";
-import { EditorialHero } from "@/components/hero";
+import { CinematicHero } from "@/components/hero";
 import {
   SectionHeader,
   ConversionBand,
@@ -14,15 +14,17 @@ import { useCases } from "@/content/use-cases";
 import { outcomeDirectory } from "@/content/taxonomy";
 import { services } from "@/content/services";
 import { primaryCta } from "@/content/navigation";
+import { getUseCasesHubImage } from "@/content/images/imageAssignments";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import styles from "./use-cases.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 export const metadata: Metadata = buildMetadata(
   {
     title: "Use cases",
     description:
-      "Start from what you are trying to achieve — more visibility, a better website, automated operations, AI in the business — rather than from a service list.",
+      "Start from what you are trying to achieve (more visibility, a better website, automated operations, AI in the business) rather than from a service list.",
     primaryTopic: "business outcomes",
     secondaryTopics: ["use cases", "business problems"],
     intent: "navigational",
@@ -109,7 +111,9 @@ export default function UseCasesIndexPage() {
         }}
       />
 
-      <EditorialHero
+      <CinematicHero
+        image={getUseCasesHubImage()}
+        composition="bleed-right"
         eyebrow="Use cases"
         title="What are you trying to achieve?"
         lead="Nobody wakes up wanting to buy search engine optimisation. They want enquiries, or their week back. Pick the sentence closest to your situation."
@@ -119,13 +123,28 @@ export default function UseCasesIndexPage() {
             {primaryCta.label}
           </Button>
         }
+        factsHeading="Outcome Routing"
+        facts={[
+          {
+            value: String(routes.length),
+            label: "ways in, each phrased as the sentence a buyer actually arrives with",
+          },
+          {
+            value: String(useCases.length),
+            label: "use cases, every one starting from the symptoms rather than the sale",
+          },
+          {
+            value: String(outcomeDirectory().length),
+            label: "outcome groups to browse instead, if none of the sentences fit",
+          },
+        ]}
       />
 
       {/* Guided navigation, not a card grid */}
       <Section spacing="lg">
         <SectionHeader
           split
-          eyebrow="01 / Start here"
+          eyebrow="Start here"
           title="Seven ways in"
           lead="Each route names the capabilities behind it, so you can see what the work actually involves before speaking to anyone."
         />
@@ -143,7 +162,7 @@ export default function UseCasesIndexPage() {
                 </span>
 
                 <div className={styles.routeBody}>
-                  <h2 className={styles.routeIntent}>{route.intent}</h2>
+                  <h2 className={styles.routeIntent}>{titleCase(route.intent)}</h2>
                   <p className={styles.routeDetail}>{route.detail}</p>
                 </div>
 
@@ -166,7 +185,7 @@ export default function UseCasesIndexPage() {
       <Section background="tint" spacing="lg">
         <SectionHeader
           split
-          eyebrow="02 / All use cases"
+          eyebrow="All use cases"
           title="Or browse everything"
           lead="Every use case starts with the symptoms rather than with what we would sell you."
         />

@@ -1,0 +1,112 @@
+/* ==========================================================================
+   IMAGE REVEAL
+   --------------------------------------------------------------------------
+   A frame that opens over a photograph. The frame clips, the photograph
+   inside it counter-scales, and both are composited — no layout, no repaint
+   of the image itself, and no change to the box the image occupies, so a
+   reveal firing three paragraphs below the reader cannot move the line they
+   are reading.
+   ========================================================================== */
+
+/*
+ * The cosmetic half sits in :where(), which has zero specificity.
+ *
+ * This component is frequently used AS an existing frame rather than around
+ * one — VisualStoryBlock passes its own .imageFrame class, which already
+ * owns the radius, the border and the aspect ratio. At equal specificity the
+ * winner would come down to stylesheet order, which is not something a
+ * component should depend on. Inside :where() the consumer's class always
+ * wins, and the defaults still apply when there is no consumer class.
+ */
+:where(.frame) {
+  display: block;
+  position: relative;
+  /*
+   * `clip` rather than `hidden`: it cannot become a scroll container, so a
+   * frame that ends up a pixel narrower than its image never grows a
+   * scrollbar or steals a focus scroll.
+   */
+  overflow: clip;
+  border-radius: inherit;
+}
+
+/* Only emitted when the caller asks for a radius, for the same reason. */
+.frame[data-radius="md"] { border-radius: var(--radius-md); }
+.frame[data-radius="lg"] { border-radius: var(--radius-lg); }
+.frame[data-radius="xl"] { border-radius: var(--radius-xl); }
+.frame[data-radius="none"] { border-radius: var(--radius-0); }
+
+/*
+ * Both inner boxes pass the frame height straight through, so an image using
+ * `height: 100%` against the frame ratio still resolves. Against an
+ * auto-height frame these compute to auto and nothing changes.
+ */
+.clip,
+.inner {
+  display: block;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   PENDING — the closed frame
+   --------------------------------------------------------------------------
+   Applied only once the observer has registered, so an image with no JS, or
+   one already on screen when the page loads, is simply a visible image.
+   -------------------------------------------------------------------------- */
+.frame[data-reveal="pending"] .clip {
+  clip-path: var(--image-clip-from, inset(0 0 0 0));
+}
+
+.frame[data-reveal="pending"] .inner {
+  transform: scale(var(--image-reveal-scale));
+}
+
+.frame[data-variant="wipe-up"] { --image-clip-from: inset(100% 0 0 0); }
+.frame[data-variant="wipe-down"] { --image-clip-from: inset(0 0 100% 0); }
+.frame[data-variant="wipe-left"] { --image-clip-from: inset(0 0 0 100%); }
+.frame[data-variant="wipe-right"] { --image-clip-from: inset(0 100% 0 0); }
+/* Opens from a centre band outward — the quieter of the two clipped options. */
+.frame[data-variant="mask"] { --image-clip-from: inset(42% 0 42% 0); }
+/* No clip at all: the image simply settles out of a slight overscale. */
+.frame[data-variant="scale"] { --image-clip-from: inset(0 0 0 0); }
+
+/* --------------------------------------------------------------------------
+   VISIBLE — the open frame
+   -------------------------------------------------------------------------- */
+.frame[data-reveal="visible"] .clip {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path var(--dur-story) var(--ease-decelerate);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.frame[data-reveal="visible"] .inner {
+  transform: scale(1);
+  /*
+   * Slower than the clip on purpose. The frame finishes first and the image
+   * keeps easing for a beat behind it, which is what stops the two halves
+   * reading as one stiff move.
+   */
+  transition: transform calc(var(--dur-story) * 1.25) var(--ease-decelerate);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* --------------------------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------------------------
+   No clip and no scale. An image uncovering itself is large-area movement,
+   which is the category this setting exists to remove — and unlike a fade
+   there is no restrained version of it worth keeping.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .frame[data-reveal="pending"] .clip,
+  .frame[data-reveal="visible"] .clip {
+    clip-path: none;
+    transition: none;
+  }
+
+  .frame[data-reveal="pending"] .inner,
+  .frame[data-reveal="visible"] .inner {
+    transform: none;
+    transition: none;
+  }
+}

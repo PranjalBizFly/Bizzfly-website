@@ -292,11 +292,18 @@ export function Footer() {
               </div>
 
               <div className={styles.actions}>
-                <Link href="/careers/" className={styles.actionSecondary}>
+                <Link
+                  href="/careers/"
+                  className={`${styles.actionSecondary} rim-sweep`}
+                >
                   We&#39;re hiring
                   <span aria-hidden="true">&rarr;</span>
                 </Link>
-                <Link href={primaryCta.href} className={styles.actionPrimary}>
+                {/* rim-sweep: the travelling highlight. See styles/base.css. */}
+                <Link
+                  href={primaryCta.href}
+                  className={`${styles.actionPrimary} rim-sweep`}
+                >
                   {primaryCta.label}
                   <span aria-hidden="true">&rarr;</span>
                 </Link>

@@ -31,7 +31,14 @@ export type ImageUsage =
   | "showcase"
   | "consultation";
 
-export type ImageAspectRatio = "16:9" | "4:3" | "3:2" | "1:1";
+/**
+ * Standard aspect ratios.
+ *
+ * "3:4" is the portrait one, added for the practice-page section frames:
+ * those fill the height of the argument they sit beside, so a landscape
+ * source was being cropped to a third of its width.
+ */
+export type ImageAspectRatio = "16:9" | "4:3" | "3:2" | "1:1" | "3:4";
 
 export interface ImageMetadata {
   /** Unique ID across the entire system. Never reused. */

@@ -76,7 +76,7 @@ export default function AboutUsPage() {
       */}
       <Section background="inverse" spacing="lg" width="content">
         <EditorialBlock
-          eyebrow="01 / The problem"
+          eyebrow="The problem"
           title="The same underlying problem in a different costume"
           lead="Most companies we work with are hard to find, and the systems behind them were not built for the volume they now need to handle. Those two things are usually treated as separate disciplines by separate suppliers, which is why neither gets solved properly."
         />
@@ -89,7 +89,7 @@ export default function AboutUsPage() {
             image={companyVisual}
             variant="C"
             priority
-            eyebrow="02 / What we do about it"
+            eyebrow="What we do about it"
             title="We work across both"
             lead="The same team that finds the crawl problem capping your visibility can fix the template causing it. The same engagement that improves your search presence can build the automation that answers the enquiries it produces."
             caption={companyVisual.caption}
@@ -104,17 +104,17 @@ export default function AboutUsPage() {
       */}
       <Section background="tint" spacing="lg" width="content">
         <EditorialBlock
-          eyebrow="03 / Why now"
+          eyebrow="Why now"
           title="Engineering problems wearing a marketing hat"
-          lead="Discovery is moving from a list of links to a generated answer, and the qualities that earn a citation from an AI system — a clear entity, structured content, machine-readable data, server-rendered pages — are engineering problems, not campaign work."
+          lead="Discovery is moving from a list of links to a generated answer, and the qualities that earn a citation from an AI system (a clear entity, structured content, machine-readable data, server-rendered pages) are engineering problems, not campaign work."
         />
       </Section>
 
       <Section background="surface" spacing="lg">
         <SectionHeader
           split
-          eyebrow="04 / What we optimise for"
-          title="Three things we hold every engagement against"
+          eyebrow="What we optimise for"
+          title="Three things we hold engagements to"
         />
         <div className={styles.values}>
           {site.values.map((value, index) => (
@@ -136,23 +136,28 @@ export default function AboutUsPage() {
       {/* 05 — the plain facts, as evidence rather than a closing paragraph. */}
       <Section spacing="lg" width="content">
         <EditorialBlock
-          eyebrow="05 / The company"
+          eyebrow="The company"
           title={`Founded by ${site.founder}, operating from Pune`}
           lead="We work with mid-market businesses across manufacturing, real estate, education and professional services."
           evidence={[
-            `Founder — ${site.founder}`,
-            "Base — Pune, Maharashtra, India",
-            "Clients — mid-market businesses",
-            "Sectors — manufacturing, real estate, education, professional services",
+            `Founder: ${site.founder}`,
+            "Base: Pune, Maharashtra, India",
+            "Clients: mid-market businesses",
+            "Sectors: manufacturing, real estate, education, professional services",
           ]}
         />
       </Section>
 
-      <Section background="surface" spacing="md">
+      <Section background="surface" spacing="sm">
         <RelatedContent mode="split" heading="Related" items={relatedLinks} />
       </Section>
 
-      <ConversionBand cta={cta} />
+      {/* The page has argued a position; the band offers a way to test it. */}
+      <ConversionBand
+        title="See whether we are the right people for it"
+        lead="We have told you how we work and what we refuse to do. The fastest way to find out whether that fits your problem is to describe the problem — and we will say so if the answer is no."
+        cta={cta}
+      />
     </>
   );
 }

@@ -14,11 +14,25 @@ export const site = {
   /** From /about-us/ — "Making Businesses Discoverable in a Digital-First World" */
   tagline: "Making businesses discoverable in a digital-first world",
   description:
-    "BizzFly helps businesses get found across search and AI platforms — then builds the websites, software and automation that turn discovery into revenue.",
+    "BizzFly helps businesses get found across search and AI platforms, then builds the websites, software and automation that turn discovery into revenue.",
 
   /** VERIFIED — /contact-us/ */
   contact: {
     email: "sales@BizzFly.com",
+    /*
+     * Grouped as country code, then the Indian mobile number.
+     *
+     * `+919 198 159 815` splits "+91" across the boundary — the trailing 9 of
+     * the country code gets read as the first digit of the subscriber number,
+     * and the remainder falls into arbitrary threes that match no Indian
+     * convention. `+91 91 9815 9815` keeps the dialling code whole and groups
+     * the ten digits the way they are actually read aloud here.
+     *
+     * The digits are identical to `phoneHref` below — 919198159815 either way
+     * — so this is presentation only. This string is also what the
+     * Organization schema publishes as `telephone` (app/layout.tsx), which is
+     * the other reason the country code must not be broken.
+     */
     phone: "+91 91 9815 9815",
     phoneHref: "tel:+919198159815",
     address: {
@@ -40,7 +54,7 @@ export const site = {
     {
       title: "Be Discoverable",
       description:
-        "Visibility is the first constraint on growth. If buyers cannot find you — in search or in an AI answer — nothing downstream matters.",
+        "Visibility is the first constraint on growth. If buyers cannot find you (in search or in an AI answer) nothing downstream matters.",
     },
     {
       title: "Be Scalable",

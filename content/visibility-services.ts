@@ -18,7 +18,7 @@ export const visibilityServices: Service[] = [
     parent: "ai-search-optimisation",
     title: "Answer Engine Optimisation (AEO)",
     answer:
-      "Answer Engine Optimisation structures content so search and AI systems can lift it directly as the answer to a question — in featured snippets, direct answers and AI Overviews. It is about extraction, not ranking.",
+      "Answer Engine Optimisation structures content so search and AI systems can lift it directly as the answer to a question: in featured snippets, direct answers and AI Overviews. It is about extraction, not ranking.",
     seo: {
       title: "Answer Engine Optimisation (AEO)",
       description:
@@ -43,7 +43,7 @@ export const visibilityServices: Service[] = [
     ],
     timeline: "4–8 weeks to restructure a core content set; movement typically follows within a month of deployment.",
     outOfScope: [
-      "Guaranteed snippet ownership — position is not controllable",
+      "Guaranteed snippet ownership: position is not controllable",
       "Thin question pages produced purely to chase answer boxes",
     ],
     cta: {
@@ -74,7 +74,7 @@ export const visibilityServices: Service[] = [
     parent: "ai-search-optimisation",
     title: "Generative Engine Optimisation (GEO)",
     answer:
-      "Generative Engine Optimisation makes a brand more likely to be cited as a source inside AI-generated answers — in ChatGPT, Perplexity, Gemini and Google AI Overviews. It is won through entity clarity, citable content and crawler access.",
+      "Generative Engine Optimisation makes a brand more likely to be cited as a source inside AI-generated answers: in ChatGPT, Perplexity, Gemini and Google AI Overviews. It is won through entity clarity, citable content and crawler access.",
     seo: {
       title: "Generative Engine Optimisation (GEO)",
       description:
@@ -100,7 +100,7 @@ export const visibilityServices: Service[] = [
     timeline:
       "Structural work over 6–8 weeks. Citation change is typically visible from month three.",
     outOfScope: [
-      "Guaranteed citations — retrieval is not controllable by anyone",
+      "Guaranteed citations: retrieval is not controllable by anyone",
       "Manipulating model outputs through deceptive content",
     ],
     cta: {
@@ -126,11 +126,11 @@ export const visibilityServices: Service[] = [
     parent: "ai-search-optimisation",
     title: "AI Optimisation (AIO)",
     answer:
-      "AI Optimisation structures a business's digital assets so AI-powered discovery systems can read, classify and reuse them — covering machine-readable data, crawler access, and the server-rendered content most AI crawlers require.",
+      "AI Optimisation structures a business's digital assets so AI-powered discovery systems can read, classify and reuse them, covering machine-readable data, crawler access, and the server-rendered content most AI crawlers require.",
     seo: {
       title: "AI Optimisation (AIO)",
       description:
-        "Structure digital assets for AI-powered discovery — machine-readable data, crawler access and rendering that AI systems can actually read.",
+        "Structure digital assets for AI-powered discovery: machine-readable data, crawler access and rendering that AI systems can actually read.",
       primaryTopic: "AI optimisation",
       secondaryTopics: ["AIO", "AI crawlability", "structured data"],
       intent: "commercial",
@@ -143,7 +143,7 @@ export const visibilityServices: Service[] = [
       "Teams that have blocked AI crawlers by accident",
     ],
     included: [
-      "Rendering audit — what a non-JavaScript crawler actually sees",
+      "Rendering audit: what a non-JavaScript crawler actually sees",
       "Structured data across every page type, anchored to one organisation entity",
       "Crawler access policy and monitoring",
       "Machine-readable content and data feeds where relevant",
@@ -155,7 +155,7 @@ export const visibilityServices: Service[] = [
       {
         question: "Why does server rendering matter for AI visibility?",
         answer:
-          "Most AI crawlers execute little or no JavaScript. If your content only exists after a client-side render, those systems see an empty page — which means you cannot be cited regardless of how good the content is.",
+          "Most AI crawlers execute little or no JavaScript. If your content only exists after a client-side render, those systems see an empty page, which means you cannot be cited regardless of how good the content is.",
       },
     ],
     related: [
@@ -168,7 +168,7 @@ export const visibilityServices: Service[] = [
     practice: "search-ai-visibility",
     title: "Search Experience Optimisation (SXO)",
     answer:
-      "Search Experience Optimisation closes the gap between being found and being chosen — improving what happens after the click so that search visibility turns into enquiries rather than bounces.",
+      "Search Experience Optimisation closes the gap between being found and being chosen, improving what happens after the click so that search visibility turns into enquiries rather than bounces.",
     seo: {
       title: "Search Experience Optimisation (SXO)",
       description:
@@ -194,20 +194,20 @@ export const visibilityServices: Service[] = [
     cta: { label: "Request a CRO assessment", href: "/contact/", tier: "T3" },
     related: [
       { label: "Improve website conversion", href: "/use-cases/improve-website-conversion/", type: "USE CASE" },
-      { label: "SEO Services", href: "/services/seo/", type: "SERVICE" },
+      { label: "SEO", href: "/services/seo/", type: "SERVICE" },
     ],
   },
   {
     slug: "google-business-profile",
     practice: "search-ai-visibility",
     parent: "seo",
-    title: "Google Business Profile Optimisation",
+    title: "Google Business Profile",
     answer:
-      "Google Business Profile optimisation improves how a business appears in local search and maps — the listing, the categories, the questions, the reviews and the local signals that decide whether you show up when someone nearby searches.",
+      "Google Business Profile optimisation improves how a business appears in local search and maps: the listing, the categories, the questions, the reviews and the local signals that decide whether you show up when someone nearby searches.",
     seo: {
       title: "Google Business Profile Optimisation",
       description:
-        "Improve local search and maps visibility — profile completeness, categories, local signals and review management.",
+        "Improve local search and maps visibility: profile completeness, categories, local signals and review management.",
       primaryTopic: "Google Business Profile optimisation",
       secondaryTopics: ["local SEO", "Google Maps", "local search"],
       intent: "commercial",
@@ -239,7 +239,7 @@ export const visibilityServices: Service[] = [
       },
     ],
     related: [
-      { label: "SEO Services", href: "/services/seo/", type: "SERVICE" },
+      { label: "SEO", href: "/services/seo/", type: "SERVICE" },
       { label: "Rank in local search", href: "/use-cases/rank-in-local-search/", type: "USE CASE" },
     ],
   },

@@ -25,12 +25,19 @@
  * sections, so it stays a response to the surface rather than a new house
  * style.
  */
+/*
+ * A label, not a control.
+ *
+ * This was a capsule — border, full radius and a light background lift — so
+ * a section marker that does nothing read as a button sitting over the
+ * photograph. The capsule existed to guarantee legibility over media, but
+ * MediaGround already lays a deep scrim under this whole block: the title
+ * and the lead directly beneath sit on that scrim with no capsule of their
+ * own and are legible, and this label uses the same --text-inverse on the
+ * same ground. So the capsule was buying nothing the scrim was not already
+ * providing, and was costing the section a false affordance.
+ */
 .eyebrow {
-  display: inline-block;
-  padding: var(--space-2) var(--space-5);
-  border: 1px solid var(--border-inverse);
-  border-radius: var(--radius-full);
-  background: var(--pill-over-media);
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   font-weight: var(--weight-medium);
@@ -85,7 +92,8 @@
 
 @supports (backdrop-filter: blur(4px)) {
   .panel {
-    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(var(--glass-blur-sm)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur-sm)) saturate(var(--glass-saturate));
   }
 }
 

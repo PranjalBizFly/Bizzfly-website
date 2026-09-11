@@ -16,9 +16,15 @@ export function VisibilitySpectrum() {
   return (
     <LayerTabs
       label="Search and AI visibility layers"
+      /*
+        No `surface` sub-label on the rail.
+        The codes here are the names — SEO, AEO, GEO, AIO, SXO — and each tab
+        was carrying a second gloss under its code ("Ranked results", "Direct
+        answers") that the panel beside it then explains properly. The rail is
+        a set of five switches, not a place to start the argument.
+      */
       items={visibilityLayers.map((layer) => ({
         code: layer.code,
-        surface: layer.surface,
         name: layer.name,
         question: layer.question,
         description: layer.description,

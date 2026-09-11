@@ -24,6 +24,7 @@
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-full);
   background: var(--background);
+  /* Glass, where the browser supports it — see the @supports block below. */
   color: var(--foreground);
   box-shadow: var(--elev-2);
   cursor: pointer;
@@ -45,14 +46,58 @@
   pointer-events: auto;
 }
 
-.button:hover {
+/*
+ * Rises very slightly towards the pointer, and presses back on click.
+ *
+ * The visible state already sits at translateY(0), so hover simply continues
+ * the transform the reveal was using and the two never fight. Two pixels is
+ * enough to register as a response on a control this small.
+ */
+.button:hover,
+.button:focus-visible {
   background: var(--surface);
   border-color: var(--accent-edge);
+}
+
+.button[data-visible="true"]:hover,
+.button[data-visible="true"]:focus-visible {
+  transform: translateY(-2px) scale(1);
+}
+
+.button[data-visible="true"]:active {
+  transform: translateY(0) scale(0.94);
+  transition-duration: var(--dur-instant);
 }
 
 .button:focus-visible {
   outline: var(--focus-ring-width) solid var(--focus-ring);
   outline-offset: var(--focus-ring-offset);
+}
+
+/*
+ * Glass on the floating control.
+ *
+ * This is the one element on the site that is permanently over unpredictable
+ * content — it floats above whatever the reader has scrolled to — so a blur
+ * is doing real work here rather than decoration: it separates the control
+ * from the page without needing a heavier border or a drop shadow.
+ *
+ * Only inside @supports, and only as a tint of the solid background it
+ * otherwise uses, so a browser without backdrop-filter keeps the opaque
+ * button rather than a washed-out one. At 88% the arrow's contrast against
+ * the button is unchanged for any practical purpose.
+ */
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .button {
+    background: color-mix(in srgb, var(--background) var(--glass-tint), transparent);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  }
+
+  .button:hover,
+  .button:focus-visible {
+    background: color-mix(in srgb, var(--surface) var(--glass-tint), transparent);
+  }
 }
 
 .icon {
@@ -76,7 +121,10 @@
     transition: opacity var(--dur-fast) var(--ease-standard);
   }
 
-  .button[data-visible="true"] {
+  .button[data-visible="true"],
+  .button[data-visible="true"]:hover,
+  .button[data-visible="true"]:focus-visible,
+  .button[data-visible="true"]:active {
     transform: none;
   }
 }

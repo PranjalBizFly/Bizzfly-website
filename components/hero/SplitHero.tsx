@@ -1,6 +1,8 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { Container } from "@/components/layout/Container";
 import { Heading, BodyText, Eyebrow } from "@/components/typography";
+import { SplitText } from "@/components/motion/SplitText";
+import { titleCase } from "@/lib/titleCase";
 import { Breadcrumbs, type Crumb } from "@/components/navigation/Breadcrumbs";
 import styles from "./Hero.module.css";
 
@@ -45,7 +47,7 @@ export function SplitHero({
           <div>
             {eyebrow ? <Eyebrow className={styles.eyebrow}>{eyebrow}</Eyebrow> : null}
             <Heading level={1} size="h1" className={styles.splitTitle}>
-              {title}
+              <SplitText text={titleCase(title)} by="char" mode="load" offset={80} />
             </Heading>
             {lead ? (
               <BodyText size="lg" className={styles.splitLead}>
@@ -62,7 +64,13 @@ export function SplitHero({
               ) : null}
               <ul className={styles.asideList}>
                 {asideItems.map((item, index) => (
-                  <li key={item} className={styles.asideItem}>
+                  <li
+                    key={item}
+                    className={styles.asideItem}
+                    /* Each line arrives on its own beat rather than the
+                       whole specification block appearing at once. */
+                    style={{ "--aside-index": index } as CSSProperties}
+                  >
                     <span className={styles.asideIndex}>
                       {String(index + 1).padStart(2, "0")}
                     </span>

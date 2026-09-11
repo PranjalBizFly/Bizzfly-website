@@ -48,7 +48,7 @@ const coreIndustries: Industry[] = [
     seo: {
       title: "Digital Growth for Manufacturing",
       description:
-        "Digital growth and automation for manufacturers — specification search visibility, faster RFQ response, and websites that match the capability behind them.",
+        "Digital growth and automation for manufacturers: specification search visibility, faster RFQ response, and websites that match the capability behind them.",
       primaryTopic: "manufacturing digital and automation",
       secondaryTopics: ["manufacturing SEO", "RFQ automation"],
       intent: "commercial",
@@ -64,7 +64,7 @@ const coreIndustries: Industry[] = [
       },
     ],
     related: [
-      { label: "SEO Services", href: "/services/seo/", type: "SERVICE" },
+      { label: "SEO", href: "/services/seo/", type: "SERVICE" },
       {
         label: "Workflow Automation",
         href: "/services/workflow-automation/",
@@ -110,7 +110,7 @@ const coreIndustries: Industry[] = [
     seo: {
       title: "Digital Growth for Real Estate",
       description:
-        "Direct enquiry generation for real estate — locality search visibility, faster response, and less dependence on listing portals.",
+        "Direct enquiry generation for real estate: locality search visibility, faster response, and less dependence on listing portals.",
       primaryTopic: "real estate digital growth",
       secondaryTopics: ["real estate SEO", "property lead generation"],
       intent: "commercial",
@@ -119,7 +119,7 @@ const coreIndustries: Industry[] = [
     phase: "P1",
     cta: { label: "Talk to a strategist", href: "/contact/", tier: "T4" },
     related: [
-      { label: "SEO Services", href: "/services/seo/", type: "SERVICE" },
+      { label: "SEO", href: "/services/seo/", type: "SERVICE" },
       {
         label: "Generate more leads",
         href: "/use-cases/generate-more-leads/",
@@ -129,9 +129,9 @@ const coreIndustries: Industry[] = [
   },
   {
     slug: "education",
-    title: "Education & EdTech",
+    title: "Education",
     answer:
-      "Education institutions compete for attention in a narrow admissions window, against a search landscape dominated by aggregators and ranking sites — while their own admissions team drowns in repetitive enquiries.",
+      "Education institutions compete for attention in a narrow admissions window, against a search landscape dominated by aggregators and ranking sites, while their own admissions team drowns in repetitive enquiries.",
     context:
       "Admissions is seasonal and unforgiving: demand concentrates into a few weeks, and the enquiries that arrive are largely the same twenty questions. Institutions that win the window are the ones visible on course and eligibility searches, and able to answer instantly at volume.",
     problems: [
@@ -165,7 +165,7 @@ const coreIndustries: Industry[] = [
     seo: {
       title: "Digital Growth for Education & EdTech",
       description:
-        "Admissions visibility and enquiry automation for education providers — course search rankings, AI answer accuracy, and follow-up that holds through peak weeks.",
+        "Admissions visibility and enquiry automation for education providers: course search rankings, AI answer accuracy, and follow-up that holds through peak weeks.",
       primaryTopic: "education sector digital",
       secondaryTopics: ["education SEO", "admissions automation"],
       intent: "commercial",
@@ -185,7 +185,7 @@ const coreIndustries: Industry[] = [
     slug: "professional-services",
     title: "Professional Services",
     answer:
-      "Consultancies and professional firms sell expertise that is hard to evaluate from outside — so buyers use proxies: who ranks, who is cited, who looks established. Most firms publish nothing that supports any of those.",
+      "Consultancies and professional firms sell expertise that is hard to evaluate from outside, so buyers use proxies: who ranks, who is cited, who looks established. Most firms publish nothing that supports any of those.",
     context:
       "Referral has always carried professional services, and it still does. But referred buyers now verify online before they call, and increasingly ask an AI assistant for a shortlist first. A firm with no published thinking loses at the verification step, however strong the referral.",
     problems: [
@@ -219,7 +219,7 @@ const coreIndustries: Industry[] = [
     seo: {
       title: "Digital Growth for Professional Services",
       description:
-        "Visibility and efficiency for consultancies and professional firms — published expertise, AI-assistant presence, and less administrative load.",
+        "Visibility and efficiency for consultancies and professional firms: published expertise, AI-assistant presence, and less administrative load.",
       primaryTopic: "professional services growth",
       secondaryTopics: ["consulting firm marketing", "local visibility"],
       intent: "commercial",

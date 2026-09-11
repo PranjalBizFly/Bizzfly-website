@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/layout/Section";
 import { ExploreNext } from "@/components/navigation";
@@ -8,13 +9,17 @@ import {
   RelatedContent,
   RelationshipMap,
   ConversionBand,
-  VisualStoryBlock,
+  ClaimSequence,
+  ClaimDimensions,
+  ClaimFacets,
+  ClaimCriteria,
 } from "@/components/sections";
 import { Heading, BodyText, Eyebrow } from "@/components/typography";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { CtaBlock, TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { ReadingProgress } from "@/components/motion";
+import { SplitText } from "@/components/motion/SplitText";
 import { resources, getResource } from "@/content/resources";
 import { getResourceImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
@@ -24,10 +29,12 @@ import {
   useCaseLink,
   technologyLink,
 } from "@/lib/relationships";
-import type { RelatedLink } from "@/types/content";
+import type { RelatedLink, ResourceType } from "@/types/content";
+import { expandFaqs } from "@/lib/faqs";
 import { buildMetadata, faqSchema } from "@/lib/seo";
 import { site } from "@/content/site";
 import styles from "./resource.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -50,30 +57,62 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
-/** Derives a stable anchor id from the first few words of a paragraph. */
-function anchorFor(text: string, index: number): string {
-  const words = text
-    .replace(/[^\w\s]/g, "")
-    .split(/\s+/)
-    .slice(0, 5)
-    .join("-")
-    .toLowerCase();
-  return `s${index + 1}-${words}`.slice(0, 60);
+/* ==========================================================================
+   How a resource's body is composed
+   --------------------------------------------------------------------------
+   These pages used to render their body as `body.map(p => <p>)` — a run of
+   four to six plain paragraphs under the answer, identical on all 145 of
+   them. A contents list in the margin was the only concession to the fact
+   that a reader cannot see the structure of a 280-word column until they
+   have read it.
+
+   The structure was always there. Every paragraph in the content model opens
+   with its own claim and elaborates it, and the shape of a run follows the
+   kind of thing the page is: a guide is a sequence, a comparison is a set of
+   dimensions, a glossary entry is a definition and its qualifications, a
+   "when should you" page is criteria and a resolution. So the composition is
+   chosen by what the content is rather than rotated for variety, and the
+   writing itself is untouched — see lib/prose.ts for the split, which is
+   verbatim on both sides of the cut.
+
+   The margin contents list is gone with the wall of text that needed it. A
+   numbered path with a heading per step is its own outline, and the column it
+   occupied now holds the page's photograph, which previously sat in a band of
+   its own with nothing to illustrate.
+   ========================================================================== */
+
+type Composition = "sequence" | "dimensions" | "facets" | "criteria";
+
+function compositionFor(type: ResourceType): Composition {
+  switch (type) {
+    /* Written in order, and they say so: "Start with access", "Then check". */
+    case "guide":
+    case "checklist":
+      return "sequence";
+    /* One paragraph per dimension, each opening by naming it. */
+    case "comparison":
+      return "dimensions";
+    /* A definition, then independent qualifications of it. */
+    case "glossary":
+      return "facets";
+    /* Criteria, then the paragraph that resolves them. */
+    default:
+      return "criteria";
+  }
 }
 
 /**
- * Contents label for a paragraph.
+ * The two things a comparison page weighs, taken from its own title.
  *
- * Takes the opening clause, then trims to a word boundary rather than a
- * character count — a hard slice cut labels mid-word ("rather than pre"),
- * which reads as broken rather than abbreviated.
+ * All twenty comparison pages are titled "A vs B", so this is a read of
+ * existing content rather than a new field to maintain. A title that does not
+ * carry the pair returns undefined and the composition simply omits the
+ * header — nothing is invented to fill it.
  */
-function tocLabel(paragraph: string): string {
-  const clause = (paragraph.split(/[.,—:;]/)[0] ?? "").trim();
-  if (clause.length <= 52) return clause;
-  const trimmed = clause.slice(0, 52);
-  const lastSpace = trimmed.lastIndexOf(" ");
-  return `${(lastSpace > 24 ? trimmed.slice(0, lastSpace) : trimmed).trimEnd()}…`;
+function subjectsFrom(title: string): readonly [string, string] | undefined {
+  const match = /^(.+?)\s+vs\.?\s+(.+)$/i.exec(title);
+  if (!match?.[1] || !match[2]) return undefined;
+  return [match[1].trim(), match[2].trim()];
 }
 
 export default async function ResourcePage({ params }: PageProps) {
@@ -81,8 +120,24 @@ export default async function ResourcePage({ params }: PageProps) {
   const resource = getResource(slug);
   if (!resource || !isPublished(resource)) notFound();
 
+  /* Authored FAQs topped up from the page's own content — see lib/faqs.ts. */
+  const faqs = expandFaqs(resource, "resource");
+
   const resourceVisual = getResourceImage(slug);
   const isGlossary = resource.type === "glossary";
+  const paragraphs = resource.body ?? [];
+  const composition = compositionFor(resource.type);
+
+  /*
+   * Which compositions hold the frame themselves. The other two pair it with
+   * the answer in the opening split instead, so the photograph is always
+   * beside writing it illustrates rather than in a band of its own.
+   */
+  const figureIsInBody = composition === "sequence" || composition === "facets";
+  const ledeVisual = !figureIsInBody ? resourceVisual : undefined;
+
+  /* Long reads only. A four-paragraph definition does not need a progress bar. */
+  const showProgress = paragraphs.length >= 5;
 
   const clean = (links: (RelatedLink | null)[]) =>
     links.filter((l): l is RelatedLink => l !== null);
@@ -100,13 +155,6 @@ export default async function ResourcePage({ params }: PageProps) {
     ...relationships.useCases,
     ...relationships.technologies,
   ];
-
-  /*
-    Articles get in-page navigation; a glossary definition is short enough
-    that a table of contents would be noise.
-  */
-  const showToc = !isGlossary && (resource.body?.length ?? 0) >= 4;
-  const paragraphs = resource.body ?? [];
 
   /*
     DefinedTerm for glossary entries — these exist to be extracted and cited,
@@ -139,11 +187,12 @@ export default async function ResourcePage({ params }: PageProps) {
 
   return (
     <>
-      {showToc ? <ReadingProgress /> : null}
+      {showProgress ? <ReadingProgress /> : null}
       <JsonLd data={schema} />
-      <JsonLd data={faqSchema(resource.faqs ?? [])} />
+      <JsonLd data={faqSchema(faqs)} />
 
-      <Section spacing="md" width={showToc ? "default" : "text"} as="article">
+      {/* --- The frame: what this is, and the extractable answer ---------- */}
+      <Section spacing="md" width={ledeVisual ? "default" : "content"} as="article">
         <div className={styles.crumbs}>
           <Breadcrumbs
             items={[
@@ -154,7 +203,7 @@ export default async function ResourcePage({ params }: PageProps) {
           />
         </div>
 
-        <div className={showToc ? styles.withToc : undefined}>
+        <div className={ledeVisual ? styles.lede : undefined}>
           <div className={styles.main}>
             <Eyebrow className={styles.kicker}>
               {isGlossary ? "Glossary" : resource.topic}
@@ -162,78 +211,114 @@ export default async function ResourcePage({ params }: PageProps) {
             </Eyebrow>
 
             <Heading level={1} size="h1" className={styles.title}>
-              {resource.title}
+              {/* Load-driven, not observed: this is above the fold, and
+                  useReveal skips anything already painted. */}
+              <SplitText text={titleCase(resource.title)} by="char" mode="load" offset={80} />
             </Heading>
 
             {/* Answer first — nothing between the heading and the definition. */}
             <BodyText size="lg" className={styles.answer}>
               {resource.answer}
             </BodyText>
-
-            {resourceVisual ? (
-              <div className={styles.visual}>
-                <VisualStoryBlock
-                  image={resourceVisual}
-                  variant="C"
-                  caption={resourceVisual.caption}
-                />
-              </div>
-            ) : null}
-
-            {paragraphs.length > 0 ? (
-              <div className={styles.body}>
-                {paragraphs.map((paragraph, index) => (
-                  <p
-                    key={paragraph.slice(0, 48)}
-                    id={showToc ? anchorFor(paragraph, index) : undefined}
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            ) : null}
-
-            {/* Contextual links inside the reading column, not only at the end */}
-            {relationships.services.length > 0 ? (
-              <div className={styles.inline}>
-                <RelatedContent
-                  mode="inline"
-                  heading="Covered in"
-                  items={relationships.services}
-                />
-              </div>
-            ) : null}
           </div>
 
-          {showToc ? (
-            <aside className={styles.toc} aria-label="On this page">
-              <p className={styles.tocHeading}>On this page</p>
-              <ol className={styles.tocList}>
-                {paragraphs.map((paragraph, index) => (
-                  <li key={paragraph.slice(0, 32)}>
-                    <a href={`#${anchorFor(paragraph, index)}`}>
-                      {tocLabel(paragraph)}
-                    </a>
-                  </li>
-                ))}
-              </ol>
-              <div className={styles.tocCta}>
-                <CtaBlock cta={resource.cta} />
+          {/*
+            The frame, beside the answer it illustrates. Eager rather than
+            lazy: on these two compositions it is above the fold on a laptop
+            and is usually the largest element in the opening screen.
+          */}
+          {ledeVisual ? (
+            <figure className={styles.ledeFigure}>
+              <div className={styles.ledeFrame}>
+                <Image
+                  src={ledeVisual.src}
+                  alt={ledeVisual.alt}
+                  width={ledeVisual.width}
+                  height={ledeVisual.height}
+                  priority
+                  sizes="(min-width: 1000px) 45vw, 100vw"
+                />
               </div>
-            </aside>
+              {ledeVisual.caption ? (
+                <figcaption className={styles.ledeCaption}>
+                  {ledeVisual.caption}
+                </figcaption>
+              ) : null}
+            </figure>
           ) : null}
         </div>
       </Section>
 
-      {resource.faqs?.length ? (
-        <Section background="surface" spacing="lg" width="content">
-          <SectionHeader split eyebrow="Questions" title="Related Questions" />
-          <FAQBlock faqs={resource.faqs} />
+      {/* --- The body, composed as the kind of argument it is -------------- */}
+      {paragraphs.length > 0 ? (
+        <Section
+          background="surface"
+          spacing="lg"
+          width={composition === "sequence" ? "default" : "content"}
+        >
+          {composition === "sequence" ? (
+            <ClaimSequence
+              paragraphs={paragraphs}
+              image={resourceVisual}
+              eyebrow={resource.type === "checklist" ? "In order" : "How it works"}
+              label={resource.title}
+              claimLevel={2}
+            />
+          ) : null}
+
+          {composition === "dimensions" ? (
+            <ClaimDimensions
+              paragraphs={paragraphs}
+              subjects={subjectsFrom(resource.title)}
+              label={resource.title}
+            />
+          ) : null}
+
+          {composition === "facets" ? (
+            <ClaimFacets
+              paragraphs={paragraphs}
+              image={resourceVisual}
+              label={resource.title}
+              claimLevel={2}
+            />
+          ) : null}
+
+          {composition === "criteria" ? (
+            <ClaimCriteria
+              paragraphs={paragraphs}
+              resolves
+              label={resource.title}
+              claimLevel={2}
+            />
+          ) : null}
+
+          {/*
+            The contextual links close the argument rather than opening a band
+            of their own. As a separate section this was one line of small
+            links in 200px of empty ground — see the note on `.inline` in
+            resource.module.css.
+          */}
+          {relationships.services.length > 0 ? (
+            <div className={styles.inline}>
+              <RelatedContent
+                mode="inline"
+                heading="Covered in"
+                items={relationships.services}
+              />
+            </div>
+          ) : null}
+        </Section>
+      ) : null}
+
+      {faqs.length ? (
+        <Section spacing="lg" width="content">
+          <SectionHeader split eyebrow="Frequently Asked Questions" title="Frequently Asked Questions" />
+          <FAQBlock faqs={faqs} />
         </Section>
       ) : null}
 
       {allRelated.length > 0 ? (
-        <Section spacing="md" width="content">
+        <Section background="surface" spacing="md" width="content">
           <SectionHeader
             eyebrow="Connected"
             title="Where this applies"
@@ -247,7 +332,7 @@ export default async function ResourcePage({ params }: PageProps) {
       ) : null}
 
       {resource.related?.length ? (
-        <Section background="surface" spacing="md" width="content">
+        <Section spacing="sm" width="content">
           <RelatedContent mode="split" heading="Read next" items={resource.related} />
         </Section>
       ) : null}
@@ -262,7 +347,15 @@ export default async function ResourcePage({ params }: PageProps) {
           <CtaBlock cta={resource.cta} />
         </Section>
       ) : (
-        <ConversionBand />
+        /*
+          A reader who has finished a resource has done the reading. The
+          offer that matches is applying it to their own situation, not the
+          site-wide opener.
+        */
+        <ConversionBand
+          title="Apply this to your own situation"
+          lead={`You have read what we think. If you want to know what it means for your case specifically, describe it and we will tell you which parts of ${resource.title.toLowerCase()} actually apply — and which do not.`}
+        />
       )}
     </>
   );

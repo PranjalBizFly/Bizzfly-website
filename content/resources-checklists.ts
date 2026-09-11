@@ -20,7 +20,7 @@ export const moreChecklists: Resource[] = [
       "Access and rendering first, because everything after it is conditional. Robots directives, status codes, redirect chains, sitemap accuracy, and whether the main content is present in server-rendered HTML rather than assembled by JavaScript. A failure here invalidates every later finding.",
       "Then eligibility. Index coverage by section, canonical consistency, duplicate and parameter URLs, and whether pages you care about are actually indexed. A content programme producing unindexed pages looks like a content problem and is a technical one.",
       "Then relevance. For each priority query: does a page exist, does it match the intent the results page reveals, is the answer near the top, and do several pages compete for it. Cannibalisation is found here and nowhere else.",
-      "Then the negatives. Manual actions, thin or duplicated templates, unnatural link patterns, and content that contradicts itself across pages. Finish with prioritisation — an audit that lists thirty findings without saying which three matter is a document, not a plan.",
+      "Then the negatives. Manual actions, thin or duplicated templates, unnatural link patterns, and content that contradicts itself across pages. Finish with prioritisation: an audit that lists thirty findings without saying which three matter is a document, not a plan.",
     ],
     supports: ["seo-audit", "technical-seo"],
     seo: {
@@ -60,7 +60,7 @@ export const moreChecklists: Resource[] = [
       "Sort every page into keep, improve, consolidate or remove, judged on whether it earns anything, serves an intent no other page serves, and is still accurate.",
     body: [
       "Start with a complete inventory, not a sample: every indexable URL with impressions, clicks, conversions, last update and inbound internal links. The pages nobody remembers publishing are exactly what the exercise exists to surface.",
-      "Apply three questions to each. Does it earn anything — visibility, enquiries, citations, links? Does it serve an intent no other page serves? Is it still true? Failing all three makes it a removal candidate; failing only the third makes it an update.",
+      "Apply three questions to each. Does it earn anything: visibility, enquiries, citations, links? Does it serve an intent no other page serves? Is it still true? Failing all three makes it a removal candidate; failing only the third makes it an update.",
       "Group the survivors by intent to find competition. Several pages ranking for the same query is cannibalisation, and consolidating them into the strongest with redirects from the others concentrates what was split.",
       "Finish by repointing internal links. An audit that consolidates and removes without fixing the links that referenced those pages leaves broken paths and orphaned survivors, which undoes most of the gain.",
     ],
@@ -75,7 +75,7 @@ export const moreChecklists: Resource[] = [
     },
     audience: ["A4", "A3"],
     phase: "P1",
-    cta: { label: "Read about SEO Content Strategy", href: "/services/content-strategy/", tier: "T1" },
+    cta: { label: "Read about Content Strategy", href: "/services/content-strategy/", tier: "T1" },
     faqs: [
       {
         question: "Should we delete pages that get no traffic?",
@@ -101,9 +101,9 @@ export const moreChecklists: Resource[] = [
     answer:
       "A migration is survivable when every URL has a decided destination before design starts, content depth is preserved, and the first fortnight after launch is monitored deliberately.",
     body: [
-      "Before anything is designed: a full inventory of existing URLs with their traffic, conversions and inbound links, and a decision for each — kept, redirected in one hop to the closest genuine equivalent, or deliberately retired. Chains, loops and mass redirects to the homepage are the specific patterns that cause damage.",
+      "Before anything is designed: a full inventory of existing URLs with their traffic, conversions and inbound links, and a decision for each: kept, redirected in one hop to the closest genuine equivalent, or deliberately retired. Chains, loops and mass redirects to the homepage are the specific patterns that cause damage.",
       "Preserve what earns. Pages with visibility keep their content depth rather than being trimmed to fit a new template, and internal links to them survive the restructure. Most migration losses are self-inflicted here.",
-      "Prepare the technical parity checks: server-rendered content on key templates, canonical and structured data behaviour, heading structure, and analytics and search console configured for the new property before launch rather than after.",
+      "Prepare the technical parity checks: server-rendered content on key templates, canonical and structured data behaviour, heading structure, and analytics and Search Console configured for the new property before launch rather than after.",
       "After launch, monitor for two weeks closely and a quarter loosely. Index coverage, crawl errors, redirect resolution, structured data validity and rankings on priority queries. The first fortnight is when a fixable problem is still cheap to fix.",
     ],
     supports: ["seo-migration", "technical-seo"],
@@ -122,7 +122,7 @@ export const moreChecklists: Resource[] = [
       {
         question: "How much traffic loss is normal after a migration?",
         answer:
-          "A short dip while search engines reprocess is normal. A sustained drop is not — it almost always traces to unmapped URLs, lost content depth or a rendering change, all of which are preventable.",
+          "A short dip while search engines reprocess is normal. A sustained drop is not: it almost always traces to unmapped URLs, lost content depth or a rendering change, all of which are preventable.",
       },
       {
         question: "How long should redirects stay in place?",
@@ -152,7 +152,7 @@ export const moreChecklists: Resource[] = [
     seo: {
       title: "E-commerce SEO Checklist",
       description:
-        "Faceted navigation, category depth, variant duplication and out-of-stock handling — the four failures that cap retail search performance.",
+        "Faceted navigation, category depth, variant duplication and out-of-stock handling: the four failures that cap retail search performance.",
       primaryTopic: "ecommerce seo checklist",
       secondaryTopics: ["retail SEO", "faceted navigation"],
       intent: "informational",
@@ -173,7 +173,7 @@ export const moreChecklists: Resource[] = [
       },
     ],
     related: [
-      { label: "E-commerce & Retail", href: "/industries/ecommerce/", type: "INDUSTRY" },
+      { label: "E-commerce", href: "/industries/ecommerce/", type: "INDUSTRY" },
       { label: "Crawl Budget", href: "/resources/what-is-crawl-budget/", type: "GLOSSARY" },
     ],
   },
@@ -227,16 +227,16 @@ export const moreChecklists: Resource[] = [
     answer:
       "Before connecting two systems, confirm four things: which one owns the record, what each exposes, how failures will surface, and who holds the credentials.",
     body: [
-      "Ownership first. For every record that will move — customer, order, invoice — decide which system is authoritative. Most integration disputes are this question left unanswered, and no amount of engineering resolves it afterwards.",
+      "Ownership first. For every record that will move (customer, order, invoice) decide which system is authoritative. Most integration disputes are this question left unanswered, and no amount of engineering resolves it afterwards.",
       "Then capability. Does each system offer a documented API, are there webhooks for the events you care about, what are the rate limits, and how does authentication work. A system without these can still be integrated, but through fragile routes that need a named owner and a maintenance budget.",
       "Then failure behaviour. What happens when the receiving system is briefly unavailable, when a message arrives twice, or when a record is rejected. Deciding this during design costs an hour; discovering it in production costs a reconciliation exercise.",
-      "Then credentials and change. Who holds the keys, how they rotate, and who is notified when a vendor announces a breaking change. Integrations rarely break spontaneously — they break when something on either side changes and nobody was watching.",
+      "Then credentials and change. Who holds the keys, how they rotate, and who is notified when a vendor announces a breaking change. Integrations rarely break spontaneously: they break when something on either side changes and nobody was watching.",
     ],
     supports: ["systems-integration", "workflow-automation"],
     seo: {
       title: "Integration Readiness Checklist",
       description:
-        "Record ownership, system capability, failure behaviour and credential management — the four things to settle before connecting anything.",
+        "Record ownership, system capability, failure behaviour and credential management: the four things to settle before connecting anything.",
       primaryTopic: "integration readiness",
       secondaryTopics: ["systems integration", "API integration"],
       intent: "informational",
@@ -265,12 +265,12 @@ export const moreChecklists: Resource[] = [
     slug: "ai-project-checklist",
     type: "checklist",
     topic: "AI",
-    title: "AI Project Readiness Checklist",
+    title: "AI Project Checklist",
     answer:
       "Before starting an AI project, confirm four things: a specific repeated task, accessible data, a defined confidence boundary, and a named owner after launch.",
     body: [
-      "The task must be specific and repeated. 'Classify inbound enquiries by service area' is a project; 'use AI in marketing' is a budget line with no completion criterion. Frequency matters too — a task performed twice a month rarely repays the build.",
-      "The data has to be reachable. Whatever the task needs — documents, records, history — must be accessible and reasonably consistent. This is where most stalled initiatives actually stopped, and checking it takes days rather than the months a data programme would.",
+      "The task must be specific and repeated. 'Classify inbound enquiries by service area' is a project; 'use AI in marketing' is a budget line with no completion criterion. Frequency matters too: a task performed twice a month rarely repays the build.",
+      "The data has to be reachable. Whatever the task needs (documents, records, history) must be accessible and reasonably consistent. This is where most stalled initiatives actually stopped, and checking it takes days rather than the months a data programme would.",
       "The confidence boundary must be decided during design. Where does the system stop and hand to a person, what context travels with the handover, and what does the person see. A system that answers everything answers wrongly at the edges, and that is a design choice rather than an accident.",
       "Ownership after launch is the check most often skipped. Models change, prompts drift, source documents go stale and providers alter terms. An AI system without a named owner degrades quietly, and the first sign is usually a customer complaint.",
     ],
@@ -307,7 +307,7 @@ export const moreChecklists: Resource[] = [
     slug: "accessibility-checklist",
     type: "checklist",
     topic: "Accessibility",
-    title: "Website Accessibility Checklist",
+    title: "Accessibility Checklist",
     answer:
       "Check four things in order: can the page be operated by keyboard alone, is every control and image labelled, does the text meet contrast and sizing requirements, and does the structure make sense without sight.",
     body: [
@@ -337,7 +337,7 @@ export const moreChecklists: Resource[] = [
       {
         question: "Can automated tools confirm accessibility?",
         answer:
-          "They catch a minority — contrast, missing labels, heading order, target size. Whether alternative text is meaningful or a flow is usable with a screen reader requires a person.",
+          "They catch a minority: contrast, missing labels, heading order, target size. Whether alternative text is meaningful or a flow is usable with a screen reader requires a person.",
       },
     ],
     related: [
@@ -353,7 +353,7 @@ export const moreChecklists: Resource[] = [
     answer:
       "Decide which questions the data must answer before configuring anything, then track only the events that inform them, verify they fire correctly, and document what each one means.",
     body: [
-      "Start from decisions, not events. List the questions the business actually asks — which channels produce qualified enquiries, where the form is abandoned, which pages assist conversions — and work back to the minimum tracking that answers them. Implementations built the other way collect everything and answer nothing.",
+      "Start from decisions, not events. List the questions the business actually asks (which channels produce qualified enquiries, where the form is abandoned, which pages assist conversions) and work back to the minimum tracking that answers them. Implementations built the other way collect everything and answer nothing.",
       "Define events and their properties before implementation, with names that will still make sense in a year. Inconsistent naming across a site is the most common reason analytics data cannot be aggregated later.",
       "Verify each event fires once, on the real interaction, with the expected properties, on both desktop and mobile. Conversion events are the ones most often broken and least often checked, because nobody submits the live form after launch.",
       "Then handle the boundaries: exclude internal traffic, keep personal data out of URLs and event properties, respect consent, and document the definition of each metric alongside its implementation so two reports cannot quietly diverge.",
@@ -398,7 +398,7 @@ export const moreChecklists: Resource[] = [
       "The single highest-value pass is fetching key templates as a crawler would and reading what comes back. Content present in the HTML, a single H1, headings in order, structured data validating, and metadata unique per template. Everything here is cheap before launch and expensive after.",
       "Check the directives that silently remove a site. A staging noindex left in place, a robots rule blocking a directory, or a canonical pointing at the development domain will each take pages out of eligibility while the site looks perfect to a visitor.",
       "Confirm URL continuity where a site is being replaced: every existing address either kept or redirected in one hop, no chains or loops, and the sitemap listing only canonical, indexable, live URLs.",
-      "Then measurement: analytics on every template, conversion events firing on the real form, and search console verified for the live property before launch rather than a week after, so the first days of data exist.",
+      "Then measurement: analytics on every template, conversion events firing on the real form, and Search Console verified for the live property before launch rather than a week after, so the first days of data exist.",
     ],
     supports: ["technical-seo", "corporate-websites"],
     seo: {

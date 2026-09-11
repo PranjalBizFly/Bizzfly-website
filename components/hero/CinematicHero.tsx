@@ -1,7 +1,9 @@
 import Image from "next/image";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { Container } from "@/components/layout/Container";
 import { Heading, BodyText, Eyebrow } from "@/components/typography";
+import { SplitText } from "@/components/motion/SplitText";
+import { titleCase } from "@/lib/titleCase";
 import { Breadcrumbs, type Crumb } from "@/components/navigation/Breadcrumbs";
 import type { ImageMetadata } from "@/content/images/types";
 import styles from "./CinematicHero.module.css";
@@ -39,6 +41,15 @@ interface CinematicHeroProps {
   facts?: HeroFact[];
   /** Names the fact row — the spec block heading the old hero carried. */
   factsHeading?: string;
+  /**
+   * Type the eyebrow rather than fading it in.
+   *
+   * Opt-in per page, not a default, because most eyebrows on this hero are a
+   * single section word — "Services", "Company" — and typing one word reads
+   * as a stutter. It is for a keyword line: several short terms separated by
+   * middots, where watching them land is the point.
+   */
+  typeEyebrow?: boolean;
   composition?: HeroComposition;
   /** True only for the first hero on a route: this is the LCP image. */
   priority?: boolean;
@@ -77,6 +88,7 @@ export function CinematicHero({
   breadcrumbs,
   facts,
   factsHeading,
+  typeEyebrow = false,
   composition = "bleed-right",
   priority = true,
 }: CinematicHeroProps) {
@@ -116,10 +128,25 @@ export function CinematicHero({
         {trail}
 
         <div className={styles.content}>
-          {eyebrow ? <Eyebrow className={styles.eyebrow}>{eyebrow}</Eyebrow> : null}
+          {eyebrow ? (
+            <Eyebrow className={styles.eyebrow}>
+              {typeEyebrow ? (
+                <SplitText text={eyebrow} by="char" mode="load" effect="type" />
+              ) : (
+                eyebrow
+              )}
+            </Eyebrow>
+          ) : null}
 
+          {/*
+            The headline assembles word by word. Safe to do here, and only
+            here, because on this hero the photograph is the LCP element —
+            the text is never the largest thing on the screen, so staggering
+            it cannot move the metric. The offset matches the delay the block
+            rise used to carry, so the order the hero arrives in is unchanged.
+          */}
           <Heading level={1} size="h1" className={styles.title}>
-            {title}
+            <SplitText text={titleCase(title)} by="char" mode="load" offset={60} />
           </Heading>
 
           {lead ? (
@@ -137,8 +164,12 @@ export function CinematicHero({
               <p className={styles.factsHeading}>{factsHeading}</p>
             ) : null}
             <dl className={styles.facts}>
-            {facts.map((fact) => (
-              <div key={fact.label} className={styles.fact}>
+            {facts.map((fact, index) => (
+              <div
+                key={fact.label}
+                className={styles.fact}
+                style={{ "--fact-index": index } as CSSProperties}
+              >
                 <dt className={styles.factLabel}>{fact.label}</dt>
                 <dd className={styles.factValue}>{fact.value}</dd>
               </div>

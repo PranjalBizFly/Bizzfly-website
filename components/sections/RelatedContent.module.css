@@ -178,8 +178,17 @@
 }
 
 @media (min-width: 768px) {
+  /*
+   * Columns that fit the set, rather than a fixed two.
+   *
+   * These lists carry three, four or five links depending on the page, and a
+   * hard two-column grid put three of them on two rows with the second half
+   * empty — a band of mostly nothing under a heading that reads "Related".
+   * Auto-filling at a sensible minimum packs three or four onto one row
+   * where the track allows and still drops to two when it does not.
+   */
   .splitList {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
     gap: var(--space-6) var(--space-10);
   }
 }

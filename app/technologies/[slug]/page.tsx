@@ -22,17 +22,16 @@ import { technologies, getTechnology } from "@/content/technologies";
 import { getTechnologyImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import { relationshipsForTechnology } from "@/lib/relationships";
+import { expandFaqs } from "@/lib/faqs";
 import { buildMetadata, faqSchema } from "@/lib/seo";
 import { site } from "@/content/site";
 
 /** The two light grounds a band alternates between. */
 type SectionGround = "bg" | "surface";
 
-/** A section that takes its eyebrow number and ground from its position. */
-type PlacedSection = (position: number, ground: SectionGround) => React.ReactElement;
+/** A section that takes its ground from where it lands in the page. */
+type PlacedSection = (ground: SectionGround) => React.ReactElement;
 
-/** Zero-padded position, so the eyebrows read 01, 02 rather than 1, 2. */
-const pad = (position: number) => String(position).padStart(2, "0");
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -64,6 +63,9 @@ export default async function TechnologyPage({ params }: PageProps) {
   const layout = technology.layout ?? "capability-led";
   const rel = relationshipsForTechnology(slug);
 
+  /* Authored FAQs topped up from the page's own content — see lib/faqs.ts. */
+  const faqs = expandFaqs(technology, "technology");
+
   const techVisual = getTechnologyImage(slug);
 
   /*
@@ -77,11 +79,11 @@ export default async function TechnologyPage({ params }: PageProps) {
    * read as another band of prose.
    */
   const why: PlacedSection | null = technology.whyItMatters
-    ? (position, ground) => (
+    ? (ground) => (
         <Section key="why" background={ground} spacing="lg" width="content">
           {/* The photograph is the hero ground; one image per technology. */}
           <ContentBlock>
-            <Eyebrow>{`${pad(position)} / Context`}</Eyebrow>
+            <Eyebrow>Context</Eyebrow>
             <Heading level={2} size="h3">
               Why this matters
             </Heading>
@@ -91,12 +93,11 @@ export default async function TechnologyPage({ params }: PageProps) {
       )
     : null;
 
-  const choices: PlacedSection = (position, ground) => (
+  const choices: PlacedSection = (ground) => (
     <Section key="choices" background={ground} spacing="lg">
       <SectionHeader
         split
-        eyebrow={`${pad(position)} / Choices`}
-        title="What we use, and why"
+        eyebrow={"Choices"}        title="What we use, and why"
         lead="Every choice below has a reason attached. A stack without reasons is a logo wall."
       />
       {/*
@@ -120,14 +121,14 @@ export default async function TechnologyPage({ params }: PageProps) {
    *
    * Mandatory on every technology page — this is what persona P4 reads first.
    */
-  const boundaries: PlacedSection = (position) => (
+  const boundaries: PlacedSection = () => (
     <Section key="boundaries" background="inverse" spacing="lg">
       {technology.decisionCriteria?.length ? (
         <BeforeAfter
           relation="versus"
           label="How we would decide, and when we would not use this"
           before={{
-            eyebrow: `${pad(position)} / The decision`,
+            eyebrow: "The decision",
             title: "How we would decide for you",
             lead: "The questions we work through before recommending anything in this area.",
             items: technology.decisionCriteria,
@@ -141,7 +142,7 @@ export default async function TechnologyPage({ params }: PageProps) {
         />
       ) : (
         <EditorialBlock
-          eyebrow={`${pad(position)} / Boundaries`}
+          eyebrow={"Boundaries"}
           title="When we would not use this"
           lead="Recommending something everywhere is the same as having no opinion. These are the cases where we would tell you to do something else."
           evidence={technology.whenNotToUse}
@@ -155,10 +156,10 @@ export default async function TechnologyPage({ params }: PageProps) {
 
   const architecture: PlacedSection | null =
     technology.diagram && technology.diagram !== "none"
-      ? (position) => (
+      ? () => (
           <Section key="architecture" background="tint" spacing="lg" width="content">
             <SectionHeader
-              eyebrow={`${pad(position)} / Architecture`}
+              eyebrow={"Architecture"}
               title="How it fits together"
               level={2}
             />
@@ -171,11 +172,11 @@ export default async function TechnologyPage({ params }: PageProps) {
 
   const applied: PlacedSection | null =
     rel.services.length > 0
-      ? (position, ground) => (
+      ? (ground) => (
           <Section key="applied" background={ground} spacing="lg">
             <SectionHeader
               split
-              eyebrow={`${pad(position)} / Where we apply it`}
+              eyebrow={"Where we apply it"}
               title="Services that use this"
             />
             <RelatedContent mode="list" items={rel.services} />
@@ -193,17 +194,17 @@ export default async function TechnologyPage({ params }: PageProps) {
 
   /* The two placed bands sit outside the alternation. */
   let lightIndex = 0;
-  const composed = order.map((section, index) => {
+  const composed = order.map((section) => {
     const ground: SectionGround = lightIndex % 2 === 0 ? "bg" : "surface";
     if (section !== boundaries && section !== architecture) lightIndex += 1;
-    return section(index + 1, ground);
+    return section(ground);
   });
 
   const Hero = layout === "ecosystem-led" ? EditorialHero : SplitHero;
 
   return (
     <>
-      <JsonLd data={faqSchema(technology.faqs ?? [])} />
+      <JsonLd data={faqSchema(faqs)} />
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -249,14 +250,14 @@ export default async function TechnologyPage({ params }: PageProps) {
 
       {composed}
 
-      {technology.faqs?.length ? (
+      {faqs.length ? (
         <Section spacing="lg">
           <SectionHeader
             split
-            eyebrow={`${pad(composed.length + 1)} / Questions`}
-            title="Technical Questions"
+            eyebrow="Frequently Asked Questions"
+            title="Frequently Asked Questions"
           />
-          <FAQBlock faqs={technology.faqs} />
+          <FAQBlock faqs={faqs} />
         </Section>
       ) : null}
 
@@ -278,7 +279,16 @@ export default async function TechnologyPage({ params }: PageProps) {
         <ExploreNext href={`/technologies/${slug}/`} />
       </Section>
 
-      <ConversionBand cta={technology.cta} />
+      {/*
+        Engineer to engineer. A reader on a technology page is assessing a
+        choice, not buying a service, so the band offers the conversation
+        that matches — including the case for not using this at all.
+      */}
+      <ConversionBand
+        title={`Talk through whether ${technology.title} is the right call`}
+        lead="Bring the existing system and the constraints around it. We will tell you where this fits, where it would be the wrong tool, and what we would leave exactly as it is."
+        cta={technology.cta}
+      />
     </>
   );
 }

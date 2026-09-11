@@ -141,6 +141,32 @@ const resourceColumns = (): NavigationColumn[] =>
   }).filter((column) => column !== null);
 
 /**
+ * Six company records have their canonical home outside /company/, and the
+ * menu must take BOTH halves of the destination from there — the href AND the
+ * name the destination calls itself.
+ *
+ * Taking only the href is what put "Discovery process" in the Methodology
+ * group while "The company" group beside it, the breadcrumb, the page title
+ * and the footer all said "Discovery Process": one URL, offered twice in one
+ * panel, under two spellings. The /company/ records are shadow entries that
+ * exist to feed navigation and related links — /company/discovery-process/
+ * 301s to /discovery-process/ — so the page that actually renders owns the
+ * name, and the sentence-case title here is the methodology set's convention
+ * rather than this page's name.
+ *
+ * Labels are the destinations' own h1/breadcrumb text, verified against the
+ * rendered pages; keep them in step if a destination is ever retitled.
+ */
+const CANONICAL_HOME: Record<string, { href: string; label: string }> = {
+  about: { href: "/about-us/", label: "About Us" },
+  approach: { href: "/our-approach/", label: "Our Approach" },
+  "how-we-work": { href: "/how-we-work/", label: "How We Work" },
+  "discovery-process": { href: "/discovery-process/", label: "Discovery Process" },
+  "engagement-models": { href: "/engagement-models/", label: "Engagement Models" },
+  careers: { href: "/careers/", label: "Careers" },
+};
+
+/**
  * Methodology and commitment pages, from the same two sets the company hub
  * groups them by. Before this they were reachable from the menu only through
  * a hand-maintained list that had already fallen behind the content.
@@ -164,17 +190,10 @@ const companyColumns = (): NavigationColumn[] =>
         heading: group.heading,
         headingHref: group.anchor,
         items: group.pages.slice(0, MENU_GROUP_LIMIT).map((page) => {
-          const canonicalMap: Record<string, string> = {
-            about: "/about-us/",
-            approach: "/our-approach/",
-            "how-we-work": "/how-we-work/",
-            "discovery-process": "/discovery-process/",
-            "engagement-models": "/engagement-models/",
-            careers: "/careers/",
-          };
+          const canonical = CANONICAL_HOME[page.slug];
           return {
-            label: page.title,
-            href: canonicalMap[page.slug] ?? `/company/${page.slug}/`,
+            label: canonical?.label ?? page.title,
+            href: canonical?.href ?? `/company/${page.slug}/`,
           };
         }),
         viewAll:
@@ -514,7 +533,7 @@ export const footerNav = [
 
 export const legalNav: NavigationItem[] = [
   { label: "Privacy Policy", href: "/company/privacy-policy/" },
-  { label: "Terms & Conditions", href: "/company/terms/" },
+  { label: "Terms", href: "/company/terms/" },
   { label: "Search", href: "/search/" },
 ];
 
@@ -537,9 +556,9 @@ export const legalNav: NavigationItem[] = [
    ========================================================================== */
 export const valuePropositions: string[] = [
   "Get found. Build well. Automate the rest.",
-  "Search results, AI answers and maps — one programme",
+  "Search results, AI answers and maps: one programme",
   "Diagnosis before proposal",
   "The team that finds the problem is the team that fixes it",
   "Reported against enquiries, not impressions",
-  "Digital growth, AI and automation — Pune, India",
+  "Digital growth, AI and automation, Pune, India",
 ];

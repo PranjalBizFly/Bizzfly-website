@@ -1,0 +1,218 @@
+/* ==========================================================================
+   KINETIC TYPOGRAPHY
+   --------------------------------------------------------------------------
+   A headline that assembles itself, word by word, from behind its own
+   baseline. Used for first-level statements only — a page title, the one
+   sentence a section is built around — because the effect works by drawing
+   the eye to the act of arriving, and a page where several things do that
+   has no hierarchy left.
+
+   The split markup is inert on its own. It renders as ordinary text until
+   something sets --kinetic-state on an ancestor, which is what lets the same
+   component be driven by a load animation in a hero and by an observer in a
+   section without knowing which it is in.
+   ========================================================================== */
+
+.split {
+  /*
+   * Word pieces are inline-block so each can carry its own clip box. That
+   * makes them unbreakable internally, which is correct for a heading and
+   * wrong for a paragraph — hence this is only ever applied to short text.
+   */
+  display: inline;
+}
+
+/*
+ * The unbreakable word box used in character mode.
+ *
+ * Its only jobs are to stop a line breaking between two letters and to keep
+ * the letters on one baseline. It is not animated and carries no clip of its
+ * own — the letters inside do both.
+ */
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.piece {
+  display: inline-block;
+  /*
+   * The clip box the word rises into. Descenders sit below the baseline, so
+   * the box is extended downward and the extension is pulled back out of the
+   * layout — without this, `overflow: clip` shears the tail off every g and y.
+   */
+  overflow: clip;
+  padding-bottom: 0.16em;
+  margin-bottom: -0.16em;
+  /* Keeps the extended box from shifting the line it sits on. */
+  vertical-align: top;
+}
+
+.pieceInner {
+  display: inline-block;
+  will-change: transform;
+}
+
+/*
+ * Hidden only once a driver has said it can be revealed again. Text is
+ * visible by default for the same reason the rest of the motion system works
+ * that way: a failed script, an unsupported browser or a crawler that runs
+ * no JS sees the finished headline, not an empty box.
+ */
+[data-kinetic="pending"] .pieceInner {
+  opacity: 0;
+  transform: translate3d(0, var(--kinetic-rise), 0);
+}
+
+[data-kinetic="visible"] .pieceInner {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity var(--dur-base) var(--ease-decelerate),
+    transform var(--dur-slow) var(--ease-decelerate);
+  transition-delay: calc(
+    var(--kinetic-offset, 0ms) + var(--piece-index, 0) * var(--kinetic-step, var(--kinetic-word-step))
+  );
+}
+
+.split[data-split="char"] {
+  --kinetic-step: var(--kinetic-char-step);
+  --kinetic-rise: var(--kinetic-char-rise);
+}
+
+/*
+ * Letters travel in the open; words rise out of a mask.
+ *
+ * This is the difference between the two modes, and getting it wrong is what
+ * makes a letter reveal read as a typewriter. With `overflow: clip` on each
+ * piece the letter is uncovered from the bottom of its own box rather than
+ * seen moving — the eye registers "a letter appeared", one after another,
+ * which is exactly the typing effect this is supposed not to be.
+ *
+ * Releasing the clip lets each letter actually be watched sliding up into
+ * place while it fades in, so the motion is the thing you notice rather than
+ * the sequence of appearances.
+ *
+ * The clip is what the padding and negative margin existed to serve — they
+ * gave descenders room inside it — so both go with it. Nothing can shear a
+ * descender once there is no box to shear it against.
+ */
+.split[data-split="char"] .piece {
+  overflow: visible;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   TYPE — the same split, arriving in place rather than rising
+   --------------------------------------------------------------------------
+   Reserved for a short keyword line or a label. A typed sentence is slower to
+   read than a written one, and this is the one effect on the site where the
+   reader is genuinely waiting for text rather than watching it settle — so it
+   is kept to lines that are over in well under a second.
+
+   Mechanically it is the rise with the rise removed: same markup, same
+   stagger, no travel and no fade, so each character simply appears where it
+   belongs. That is what makes it read as typing rather than as a reveal.
+   -------------------------------------------------------------------------- */
+.split[data-effect="type"] {
+  --kinetic-rise: 0em;
+  /* Slower than the letter-rise: a typed line has to be legible as typing,
+     and at 20ms it reads as a smear rather than as characters. */
+  --kinetic-step: 38ms;
+  position: relative;
+}
+
+/*
+ * Characters appear rather than fade. A transition over zero distance with a
+ * duration still cross-fades each glyph, which looks like a smudge at this
+ * size; stepping the opacity is what makes a character land.
+ */
+.split[data-effect="type"] .pieceInner {
+  transition-duration: 1ms;
+  animation-duration: 1ms;
+}
+
+/*
+ * NO CARET, deliberately.
+ *
+ * A blinking caret was built here and removed after looking at it. The
+ * reason is structural rather than aesthetic.
+ *
+ * Every character in this line is laid out from the start and only its
+ * opacity changes — that is what stops the heading reflowing as it types,
+ * and reflowing text is both a layout shift and the thing that makes a
+ * typewriter effect feel cheap. But it also means the line already occupies
+ * its full width, so a caret appended after the text sits at the END of the
+ * finished line rather than beside the character being typed: measured on
+ * the homepage eyebrow, 440px adrift of the last visible letter.
+ *
+ * The alternatives are both worse. Letting the box grow with the typed text
+ * reintroduces the reflow. Tracking the caret to the current character needs
+ * JavaScript measuring text on every step, for an ornament.
+ *
+ * The sequential appearance is the effect. A caret parked somewhere else on
+ * the line only advertises that it is not really a terminal.
+ */
+
+/* --------------------------------------------------------------------------
+   LOAD-DRIVEN VARIANT
+   --------------------------------------------------------------------------
+   Above-the-fold headings have nothing to wait for — they are on screen at
+   first paint — so they run a keyframe rather than an observer. That keeps
+   the hero a server component: no hook, no client boundary, no JS at all on
+   the largest text on the page.
+   -------------------------------------------------------------------------- */
+@keyframes kineticRise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--kinetic-rise), 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+[data-kinetic="load"] .pieceInner {
+  animation: kineticRise var(--dur-slow) var(--ease-decelerate) both;
+  animation-delay: calc(
+    var(--kinetic-offset, 0ms) + var(--piece-index, 0) * var(--kinetic-step, var(--kinetic-word-step))
+  );
+}
+
+/* --------------------------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------------------------
+   The tokens already collapse the rise and the step to zero, so nothing
+   moves and nothing waits. The clip box is released as well, because a zero
+   height animation inside a clip box is still a clip box, and a stray
+   sub-pixel rounding there can shave a descender for no reason at all.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .piece {
+    overflow: visible;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  [data-kinetic="pending"] .pieceInner {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-kinetic="visible"] .pieceInner,
+  [data-kinetic="load"] .pieceInner {
+    transition: none;
+    animation: none;
+    transition-delay: 0ms;
+    animation-delay: 0ms;
+    opacity: 1;
+    transform: none;
+  }
+
+  .pieceInner {
+    will-change: auto;
+  }
+
+}

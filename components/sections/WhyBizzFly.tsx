@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { TextReveal } from "@/components/motion";
 import { useId, useState } from "react";
 import { whyPillars } from "@/content/homepage-narrative";
 import type { ImageMetadata } from "@/content/images/types";
@@ -43,8 +44,10 @@ export function WhyBizzFly({ image }: WhyBizzFlyProps) {
   return (
     <MediaGround image={image} id="why" weight="deep">
       <header className={styles.header}>
-        <p className={styles.eyebrow}>04 / Why BizzFly</p>
-        <h2 className={styles.title}>What actually makes this different</h2>
+        <p className={styles.eyebrow}>Why BizzFly</p>
+        <h2 className={styles.title}>
+          <TextReveal text="What actually makes this different" />
+        </h2>
         <p className={styles.lead}>
           Four claims, each with the mechanism behind it. Two of them are
           things most suppliers structurally cannot offer.

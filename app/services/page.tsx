@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
 import { SectionNav } from "@/components/navigation";
-import { EditorialHero } from "@/components/hero";
+import { CinematicHero } from "@/components/hero";
 import {
   SectionHeader,
   CardTrack,
@@ -13,10 +13,11 @@ import { Button, ButtonGroup, TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { services } from "@/content/services";
 import { practices } from "@/content/practices";
-import { getServiceImage } from "@/content/images";
+import { getServiceImage, getServicesHubImage } from "@/content/images";
 import { serviceGroups } from "@/content/service-meta";
 import { primaryCta } from "@/content/navigation";
 import { buildMetadata } from "@/lib/seo";
+import { titleCase } from "@/lib/titleCase";
 
 /*
  * Each discipline carries the photograph already assigned to its practice
@@ -44,7 +45,7 @@ export const metadata: Metadata = buildMetadata(
   {
     title: "Services",
     description:
-      "Digital visibility, digital experience, systems and software, automation, AI and growth — six capability groups and where each one applies.",
+      "Digital visibility, digital experience, systems and software, automation, AI and growth: six capability groups and where each one applies.",
     primaryTopic: "BizzFly services",
     secondaryTopics: ["digital services", "capabilities", "SEO", "automation"],
     intent: "navigational",
@@ -81,11 +82,28 @@ export default function ServicesIndexPage() {
         }}
       />
 
-      <EditorialHero
+      <CinematicHero
+        image={getServicesHubImage()}
+        composition="bleed-right"
         eyebrow="Services"
         title="What can we help you build, improve or grow?"
         lead="Six capability groups. Most engagements span at least two of them, because visibility with nothing behind it and a good site nobody finds are the same problem seen from different sides."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Services" }]}
+        factsHeading="Practice Overview"
+        facts={[
+          {
+            value: String(services.length),
+            label: "service pages, each stating scope and boundaries",
+          },
+          {
+            value: String(serviceGroups.length),
+            label: "capability groups spanning integrated practices",
+          },
+          {
+            value: String(practices.length),
+            label: "core practices staffed by the same team end to end",
+          },
+        ]}
         actions={
           <ButtonGroup>
             <Button href={primaryCta.href} withArrow>
@@ -106,7 +124,7 @@ export default function ServicesIndexPage() {
           split
           eyebrow="Directory"
           title="Where to start"
-          lead="Each group states the situation it is for. If two apply, that is normal — say so when you get in touch and we will tell you which constraint to fix first."
+          lead="Each group states the situation it is for. If two apply, that is normal. Say so when you get in touch and we will tell you which constraint to fix first."
         />
 
         <SectionNav
@@ -126,7 +144,7 @@ export default function ServicesIndexPage() {
             <section key={group.id} className={styles.group} id={group.id}>
               <div className={styles.groupHead}>
                 <span className={styles.groupIndex}>{group.index}</span>
-                <h3 className={styles.groupLabel}>{group.label}</h3>
+                <h3 className={styles.groupLabel}>{titleCase(group.label)}</h3>
               </div>
 
               <div className={styles.groupBody}>
@@ -186,7 +204,7 @@ export default function ServicesIndexPage() {
               <span className={styles.chainIndex}>
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className={styles.chainStep}>{item.step}</h3>
+              <h3 className={styles.chainStep}>{titleCase(item.step)}</h3>
               <p className={styles.chainDetail}>{item.detail}</p>
             </li>
           ))}
@@ -223,7 +241,11 @@ export default function ServicesIndexPage() {
         />
       </Section>
 
-      <ConversionBand />
+      {/* The index: the reader is choosing between practices, not buying one. */}
+      <ConversionBand
+        title="Not sure which of these you actually need?"
+        lead="That is the normal position, and picking wrong is expensive. Describe the commercial problem rather than the service you think you want, and we will tell you which practice we would start with — or that the answer is none of them yet."
+      />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import type { ProcessStep } from "@/types/content";
 import { Cascade } from "@/components/motion";
 import styles from "./ProcessBlock.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 interface ProcessBlockProps {
   steps: ProcessStep[];
@@ -58,7 +59,7 @@ export function ProcessBlock({ steps, label = "Process" }: ProcessBlockProps) {
           </div>
 
           <div className={styles.body}>
-            <h3 className={styles.title}>{step.title}</h3>
+            <h3 className={styles.title}>{titleCase(step.title)}</h3>
             <p className={styles.description}>{step.description}</p>
             {step.duration ? (
               <span className={styles.duration}>{step.duration}</span>

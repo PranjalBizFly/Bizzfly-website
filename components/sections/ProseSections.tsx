@@ -1,6 +1,6 @@
 import type { ContentSection } from "@/types/content";
 import { Section } from "@/components/layout/Section";
-import { Reveal } from "@/components/motion";
+import { Reveal, TextReveal } from "@/components/motion";
 import styles from "./ProseSections.module.css";
 
 interface ProseSectionsProps {
@@ -33,7 +33,9 @@ export function ProseSections({ sections, background = "bg" }: ProseSectionsProp
       <div className={styles.stack}>
         {sections.map((section, index) => (
           <Reveal key={section.heading} as="section" delay={index === 0 ? 0 : 60}>
-            <h2 className={styles.heading}>{section.heading}</h2>
+            <h2 className={styles.heading}>
+              <TextReveal text={section.heading} />
+            </h2>
 
             {section.body.map((paragraph) => (
               <p key={paragraph.slice(0, 48)} className={styles.paragraph}>

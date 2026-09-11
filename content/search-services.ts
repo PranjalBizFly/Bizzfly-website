@@ -23,7 +23,7 @@ export const searchServices: Service[] = [
     diagram: "search-surfaces",
     title: "SEO Audit",
     answer:
-      "A fixed-scope diagnostic that establishes why a site underperforms in search, ranked by commercial impact. It ends with a prioritised plan you own — whether or not we implement it.",
+      "A fixed-scope diagnostic that establishes why a site underperforms in search, ranked by commercial impact. It ends with a prioritised plan you own, whether or not we implement it.",
     seo: {
       title: "SEO Audit",
       description:
@@ -89,7 +89,7 @@ export const searchServices: Service[] = [
     ],
     timeline: "Three weeks for most sites; longer where log analysis or a large catalogue is involved.",
     outOfScope: [
-      "Implementation — this is a diagnostic, priced and scoped as one",
+      "Implementation: this is a diagnostic, priced and scoped as one",
       "Rank predictions, which no honest audit can provide",
       "A tool export reformatted as a report",
     ],
@@ -134,7 +134,7 @@ export const searchServices: Service[] = [
     seo: {
       title: "On-Page SEO",
       description:
-        "Titles, headings, internal linking, content depth and structure — page-level relevance, distinct from site-level technical health.",
+        "Titles, headings, internal linking, content depth and structure: page-level relevance, distinct from site-level technical health.",
       primaryTopic: "on-page seo",
       secondaryTopics: ["page optimisation", "internal linking"],
       intent: "commercial",
@@ -188,7 +188,7 @@ export const searchServices: Service[] = [
     ],
     related: [
       { label: "Content Cluster", href: "/resources/what-is-a-content-cluster/", type: "GLOSSARY" },
-      { label: "SEO Content Strategy", href: "/services/content-strategy/", type: "SERVICE" },
+      { label: "Content Strategy", href: "/services/content-strategy/", type: "SERVICE" },
     ],
   },
   {
@@ -200,7 +200,7 @@ export const searchServices: Service[] = [
     diagram: "search-surfaces",
     title: "Local SEO",
     answer:
-      "Visibility in map results and location-qualified searches, for businesses with premises or defined service areas. Proximity, prominence and relevance decide it — and only two of the three can be worked on.",
+      "Visibility in map results and location-qualified searches, for businesses with premises or defined service areas. Proximity, prominence and relevance decide it, and only two of the three can be worked on.",
     seo: {
       title: "Local SEO",
       description:
@@ -251,7 +251,7 @@ export const searchServices: Service[] = [
         index: 3,
         title: "Differentiate",
         description:
-          "Location pages built around what is actually true of each site — team, service mix, area covered. Templated pages with a swapped town name are the standard failure here.",
+          "Location pages built around what is actually true of each site: team, service mix, area covered. Templated pages with a swapped town name are the standard failure here.",
       },
       {
         index: 4,
@@ -264,7 +264,7 @@ export const searchServices: Service[] = [
     outOfScope: [
       "Fake reviews or review gating, both of which risk profile suspension",
       "Listings for locations that do not physically exist",
-      "A page per town where you have no presence — that is spam and it is treated as such",
+      "A page per town where you have no presence: that is spam and it is treated as such",
     ],
     cta: {
       label: "Discuss local visibility",
@@ -275,7 +275,7 @@ export const searchServices: Service[] = [
       {
         question: "Why do we rank in one town and not the next?",
         answer:
-          "Proximity is a strong factor in local results and you cannot change where you are. What you can change is prominence and relevance — reviews, consistency, and pages that genuinely address the area rather than naming it.",
+          "Proximity is a strong factor in local results and you cannot change where you are. What you can change is prominence and relevance: reviews, consistency, and pages that genuinely address the area rather than naming it.",
       },
       {
         question: "How many reviews do we need?",
@@ -334,7 +334,7 @@ export const searchServices: Service[] = [
     timeline: "An initial quarter to establish standards and instrumentation; then ongoing governance.",
     outOfScope: [
       "Producing recommendations without access to the teams who would implement them",
-      "Content production at volume — that is a content strategy engagement",
+      "Content production at volume: that is a content strategy engagement",
     ],
     cta: {
       label: "Discuss an enterprise programme",
@@ -345,7 +345,7 @@ export const searchServices: Service[] = [
       {
         question: "At what size does SEO become an enterprise problem?",
         answer:
-          "Less about page count than organisational shape. Once more than one team can publish to the domain and none of them owns search, the bottleneck moves from knowledge to coordination — and that is the enterprise problem regardless of size.",
+          "Less about page count than organisational shape. Once more than one team can publish to the domain and none of them owns search, the bottleneck moves from knowledge to coordination, and that is the enterprise problem regardless of size.",
       },
       {
         question: "Why prioritise templates over pages?",
@@ -415,7 +415,7 @@ export const searchServices: Service[] = [
       {
         question: "Should filtered pages be indexed?",
         answer:
-          "A small number, where the combination matches real demand — a colour or size people actually search for. The rest should be crawlable for navigation but not indexable, because uncontrolled facets can generate more URLs than you have products.",
+          "A small number, where the combination matches real demand: a colour or size people actually search for. The rest should be crawlable for navigation but not indexable, because uncontrolled facets can generate more URLs than you have products.",
       },
       {
         question: "What happens to a product page when the product is discontinued?",
@@ -437,7 +437,7 @@ export const searchServices: Service[] = [
     diagram: "process-transformation",
     title: "SEO Migration",
     answer:
-      "Protecting search visibility through a replatform, redesign, domain change or restructure. The work happens before launch — after it, options narrow to recovery.",
+      "Protecting search visibility through a replatform, redesign, domain change or restructure. The work happens before launch; after it, options narrow to recovery.",
     seo: {
       title: "SEO Migration",
       description:
@@ -483,7 +483,7 @@ export const searchServices: Service[] = [
         index: 2,
         title: "Map",
         description:
-          "Each URL to a destination — kept, redirected once, or retired with a clean 410. Chains, loops and blanket homepage redirects cause most migration damage.",
+          "Each URL to a destination: kept, redirected once, or retired with a clean 410. Chains, loops and blanket homepage redirects cause most migration damage.",
         duration: "During build",
       },
       {
@@ -497,13 +497,13 @@ export const searchServices: Service[] = [
         index: 4,
         title: "Monitor",
         description:
-          "Index coverage, redirect resolution and priority rankings — daily for two weeks, weekly for a quarter, because effects lag the change.",
+          "Index coverage, redirect resolution and priority rankings: daily for two weeks, weekly for a quarter, because effects lag the change.",
         duration: "Post-launch",
       },
     ],
     timeline: "Runs alongside the build; typically engaged from design freeze through the first quarter after launch.",
     outOfScope: [
-      "Guaranteeing zero fluctuation — a short reprocessing dip is normal",
+      "Guaranteeing zero fluctuation: a short reprocessing dip is normal",
       "Rescuing a migration launched without a redirect map, which is recovery rather than migration",
     ],
     cta: {
@@ -536,9 +536,9 @@ export const searchServices: Service[] = [
     group: "digital-visibility",
     layout: "editorial",
     diagram: "content-structure",
-    title: "SEO Content Strategy",
+    title: "Content Strategy",
     answer:
-      "Deciding which pages should exist, in what order, based on the questions buyers ask across the whole decision — not on a keyword export sorted by volume.",
+      "Deciding which pages should exist, in what order, based on the questions buyers ask across the whole decision, not on a keyword export sorted by volume.",
     seo: {
       title: "SEO Content Strategy",
       description:
@@ -591,7 +591,7 @@ export const searchServices: Service[] = [
       {
         question: "Does AI-generated content work for SEO?",
         answer:
-          "As a drafting aid with real expertise behind the edit, sometimes. Published unedited, it produces pages that read like every other page on the subject — which is precisely what neither ranking systems nor readers reward.",
+          "As a drafting aid with real expertise behind the edit, sometimes. Published unedited, it produces pages that read like every other page on the subject, which is precisely what neither ranking systems nor readers reward.",
       },
     ],
     related: [
@@ -605,7 +605,7 @@ export const searchServices: Service[] = [
     group: "digital-visibility",
     layout: "editorial",
     diagram: "none",
-    title: "Digital PR & Link Earning",
+    title: "Digital PR",
     answer:
       "Earning references from publications and sites your market already reads, by giving them something worth covering. It is slower than buying links, and it does not carry the penalty risk that buying them does.",
     seo: {
@@ -635,7 +635,7 @@ export const searchServices: Service[] = [
     ],
     included: [
       "Identifying what your organisation genuinely knows that is worth publishing",
-      "Original material — data, research, analysis — built to be cited",
+      "Original material (data, research, analysis) built to be cited",
       "Targeted outreach to publications your buyers actually read",
       "Digital newsroom structure so coverage is discoverable and attributable",
       "Link profile review, including risk from historic activity",
@@ -666,7 +666,7 @@ export const searchServices: Service[] = [
     ],
     related: [
       { label: "Backlink", href: "/resources/what-is-a-backlink/", type: "GLOSSARY" },
-      { label: "Media & Publishing", href: "/industries/media/", type: "INDUSTRY" },
+      { label: "Media", href: "/industries/media/", type: "INDUSTRY" },
     ],
   },
   {
@@ -676,13 +676,13 @@ export const searchServices: Service[] = [
     group: "digital-visibility",
     layout: "technology-led",
     diagram: "content-structure",
-    title: "Structured Data Implementation",
+    title: "Structured Data",
     answer:
       "Marking up what a page is about so machines do not have to infer it. Done properly, entities are defined once and referenced everywhere, rather than repeated inconsistently on every template.",
     seo: {
       title: "Structured Data Implementation",
       description:
-        "Schema.org markup as a connected entity graph — defined once, referenced across templates, validated continuously.",
+        "Schema.org markup as a connected entity graph: defined once, referenced across templates, validated continuously.",
       primaryTopic: "structured data implementation",
       secondaryTopics: ["schema markup", "JSON-LD"],
       intent: "commercial",
@@ -707,7 +707,7 @@ export const searchServices: Service[] = [
     included: [
       "Entity model: organisation, services, locations, people and how they relate",
       "JSON-LD implementation with @id references rather than duplicated blocks",
-      "Page-type markup — article, FAQ, product, breadcrumb — applied where it is warranted",
+      "Page-type markup (article, FAQ, product, breadcrumb) applied where it is warranted",
       "Consistency between markup, visible content and external profiles",
       "Automated validation in the build, so invalid markup fails before it ships",
       "Rich result monitoring after deployment",
@@ -715,7 +715,7 @@ export const searchServices: Service[] = [
     timeline: "Three to six weeks for most sites, depending on template count.",
     outOfScope: [
       "Marking up content that is not visible on the page, which is a guidelines violation",
-      "Markup as a substitute for content — it describes a page, it does not improve it",
+      "Markup as a substitute for content: it describes a page, it does not improve it",
     ],
     cta: {
       label: "Discuss structured data",
@@ -726,7 +726,7 @@ export const searchServices: Service[] = [
       {
         question: "Does structured data improve rankings?",
         answer:
-          "Not directly. It affects how a page is understood and presented — rich results, entity recognition, eligibility for certain features. The visibility gain is real; the mechanism is not a ranking boost.",
+          "Not directly. It affects how a page is understood and presented: rich results, entity recognition, eligibility for certain features. The visibility gain is real; the mechanism is not a ranking boost.",
       },
       {
         question: "Why does markup need an entity model?",
@@ -748,7 +748,7 @@ export const searchServices: Service[] = [
     diagram: "content-structure",
     title: "Site Architecture",
     answer:
-      "How pages are organised, grouped and linked — which decides what is discoverable, what accumulates authority and whether anyone can find the page that would have answered them.",
+      "How pages are organised, grouped and linked, which decides what is discoverable, what accumulates authority and whether anyone can find the page that would have answered them.",
     seo: {
       title: "Site Architecture",
       description:
@@ -778,14 +778,14 @@ export const searchServices: Service[] = [
       "Current structure mapped against traffic, depth and internal link distribution",
       "Hierarchy design based on buyer tasks and query patterns",
       "URL structure and naming conventions, with migration implications stated",
-      "Internal linking model — hubs, clusters and the rules connecting them",
+      "Internal linking model: hubs, clusters and the rules connecting them",
       "Navigation and breadcrumb design that matches the hierarchy rather than fighting it",
       "Governance rules for where new content belongs",
     ],
     timeline: "Four to eight weeks; implementation depends on whether URLs change.",
     outOfScope: [
       "Visual design of navigation, which follows the structure rather than defining it",
-      "Restructuring URLs without a migration plan — see SEO Migration",
+      "Restructuring URLs without a migration plan: see SEO Migration",
     ],
     cta: {
       label: "Discuss site structure",
@@ -805,7 +805,7 @@ export const searchServices: Service[] = [
       },
     ],
     related: [
-      { label: "Site Architecture and Enterprise SEO", href: "/services/enterprise-seo/", type: "SERVICE" },
+      { label: "Enterprise SEO", href: "/services/enterprise-seo/", type: "SERVICE" },
       { label: "Website Redesign", href: "/services/website-redesign/", type: "SERVICE" },
     ],
   },

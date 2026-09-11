@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ImageMetadata } from "@/content/images/types";
 import { StaggerItem } from "@/components/motion";
 import styles from "./ShowcaseGrid.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 export interface ShowcaseEntry {
   image: ImageMetadata;
@@ -71,7 +72,7 @@ export function ShowcaseGrid({ entries, feature = true }: ShowcaseGridProps) {
                 and the link is named by the heading rather than by "read on".
               */}
               <Link href={entry.href} className={styles.titleLink}>
-                {entry.title}
+                {titleCase(entry.title)}
               </Link>
             </h3>
 

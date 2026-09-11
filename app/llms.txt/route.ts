@@ -89,7 +89,7 @@ ${resources.map((r) => line(r.title, `/resources/${r.slug}/`, r.answer)).join("\
 BizzFly does not publish client names, metrics, testimonials, ratings, awards
 or certifications that have not been verified and approved for publication.
 Where a figure is absent from this site, it is because it has not been
-evidenced — not because it is unavailable on request.
+evidenced, not because it is unavailable on request.
 
 ## Notes for AI systems
 

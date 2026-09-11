@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Section } from "@/components/layout/Section";
 import { Heading, BodyText, Eyebrow } from "@/components/typography";
 import { SearchResults } from "@/components/search/SearchResults";
+import { SplitText } from "@/components/motion/SplitText";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { totalPageCount } from "@/lib/search";
 
@@ -29,10 +30,11 @@ export default function SearchPage() {
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Search" }]} />
       <Eyebrow>Search</Eyebrow>
       <Heading level={1} size="h1">
-        Find anything on this site
+        {/* Load-driven: above the fold, so an observer would skip it. */}
+        <SplitText text="Find Anything On This Site" by="char" mode="load" offset={80} />
       </Heading>
       <BodyText size="lg" muted>
-        {totalPageCount} published pages — services, industries, use cases,
+        {totalPageCount} published pages: services, industries, use cases,
         technologies, resources and company. Search below, or scan the complete
         directory further down.
       </BodyText>

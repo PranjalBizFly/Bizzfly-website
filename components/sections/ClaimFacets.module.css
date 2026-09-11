@@ -1,0 +1,247 @@
+/* ==========================================================================
+   ClaimFacets — a definition, its frame, and the facets that qualify it
+
+   Two movements: an asymmetric lede (statement beside a frame) and a set of
+   supporting facets beneath it. The facets are a set rather than a sequence,
+   so they are laid on a grid with no connector and no numbering — nothing in
+   the writing claims an order.
+   ========================================================================== */
+
+.wrapper {
+  display: grid;
+  gap: var(--space-16);
+}
+
+/* --- The lede ------------------------------------------------------------ */
+
+.lede {
+  display: grid;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+@media (min-width: 1000px) {
+  /*
+   * 7/6 — the statement leads by a little, the frame holds its own. Not 7/5,
+   * which made the picture a sidebar, and not 6/6, which this system does not
+   * use.
+   */
+  .ledeWithFigure {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 6fr);
+    gap: var(--space-16);
+  }
+}
+
+.statement {
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-label);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.claim {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-h2);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  max-width: var(--measure-heading);
+  text-wrap: balance;
+}
+
+.detail {
+  margin: var(--space-5) 0 0;
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body);
+  color: var(--muted);
+  max-width: var(--measure-lead);
+  text-wrap: pretty;
+}
+
+/* --- The frame and its floating note ------------------------------------- */
+
+.figure {
+  margin: 0;
+  min-width: 0;
+  position: relative;
+}
+
+.frame {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+}
+
+.frame img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: var(--ratio-editorial);
+  object-fit: cover;
+}
+
+/*
+ * Below 1000px this is an ordinary caption under the frame. An overlay at
+ * phone width would cover the photograph rather than annotate it, and the
+ * note carries real information — it says what the frame is showing.
+ */
+.note {
+  margin: var(--space-3) 0 0;
+  font-family: var(--font-label);
+  font-size: var(--text-caption);
+  line-height: var(--leading-snug);
+  color: var(--ink-400);
+  text-wrap: pretty;
+}
+
+@media (min-width: 1000px) {
+  /*
+   * Lifted onto the frame's lower-leading corner, overlapping it. The panel
+   * token carries the translucent ground used wherever this site sets text
+   * over media, so the treatment matches MediaGround rather than inventing a
+   * second one.
+   */
+  .note {
+    position: absolute;
+    /*
+     * Inside the frame edge. A negative inset put the plate outside its
+     * container, which risks a horizontal scroll at the widths where the page
+     * gutter is smallest.
+     */
+    inset-inline-start: var(--space-5);
+    inset-block-end: var(--space-5);
+    margin: 0;
+    max-inline-size: calc(100% - var(--space-10));
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-md);
+    background: var(--panel-over-media);
+    border: 1px solid var(--border-inverse);
+    color: var(--text-inverse);
+    box-shadow: var(--elev-2);
+    -webkit-backdrop-filter: blur(var(--glass-blur-sm)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur-sm)) saturate(var(--glass-saturate));
+  }
+}
+
+/* --- The supporting facets ------------------------------------------------ */
+
+.facets {
+  margin: 0;
+  display: grid;
+  gap: var(--space-10) var(--space-12);
+}
+
+@media (min-width: 760px) {
+  .facets {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /*
+   * Three facets on a two-column grid leave a hole. The third spans both
+   * tracks and keeps the reading measure, which reads as a closing statement
+   * rather than as a gap where a fourth facet should have been.
+   */
+  .facets[data-count="3"] > .facet:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1100px) {
+  .facets[data-count="3"] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .facets[data-count="3"] > .facet:last-child {
+    grid-column: auto;
+  }
+}
+
+/*
+ * A rule along the leading edge rather than a card. These are paragraphs of
+ * an argument; boxing them would turn a definition into a product grid, which
+ * is the shape this page is being moved away from.
+ */
+.facet {
+  min-width: 0;
+  padding-inline-start: var(--space-6);
+  border-inline-start: 2px solid var(--border);
+}
+
+.facet:first-child {
+  border-inline-start-color: var(--accent-edge);
+}
+
+.facetClaim {
+  font-family: var(--font-display);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--foreground);
+  text-wrap: balance;
+}
+
+.facetBody {
+  margin: 0;
+}
+
+.facetDetail {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+/* --- Points, where a claim enumerated ------------------------------------ */
+
+.points {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--measure-body);
+}
+
+.point {
+  position: relative;
+  padding-inline-start: var(--space-5);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+  text-wrap: pretty;
+}
+
+.point::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.7em;
+  inline-size: var(--space-3);
+  /*
+   * 2px, not 1px. A one-pixel rule positioned at a fractional em offset
+   * lands between device pixels and the browser blends it with the ground,
+   * so a list of five came out with some dashes in the accent and some in a
+   * washed-out grey. Two pixels sits on the pixel grid at every zoom level.
+   */
+  block-size: 2px;
+  border-radius: var(--radius-full);
+  background: var(--accent-edge);
+}
+
+/* --- Actions -------------------------------------------------------------- */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}

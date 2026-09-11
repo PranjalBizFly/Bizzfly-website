@@ -32,9 +32,12 @@ export function HomeHero() {
         image={images.hero}
         composition="bleed-right"
         priority
+        /* A keyword line, so it types. The only typed text on the site —
+           see typeEyebrow in CinematicHero for why it is opt-in. */
+        typeEyebrow
         eyebrow="Digital growth · AI · Automation · Technology"
         title="Get found. Build well. Automate the rest."
-        lead="Your buyers now search in two places: Google, and the AI systems answering on Google's behalf. BizzFly makes businesses visible in both — then builds the websites, software and automation that turn that visibility into revenue."
+        lead="Your buyers now search in two places: Google, and the AI systems answering on Google's behalf. BizzFly makes businesses visible in both, then builds the websites, software and automation that turn that visibility into revenue."
         actions={
           <ButtonGroup>
             <Button href={primaryCta.href} size="lg" withArrow>
@@ -62,9 +65,17 @@ export function HomeHero() {
           {visibilityLayers.map((layer) => (
             <MarqueeItem key={layer.code}>
               <Link href={layer.href} className={styles.tickerLink}>
+                {/*
+                  Code and full name only. Each cell used to close with the
+                  layer's short gloss — "Ranked results", "Direct answers",
+                  "After the click" — which made a strip of five links read as
+                  five sentences travelling past, and the full name already
+                  says the same thing in words the reader can act on. The
+                  separator that used to hang off that span now hangs off the
+                  name; see HomeHero.module.css.
+                */}
                 <span className={styles.tickerCode}>{layer.code}</span>
                 <span className={styles.tickerName}>{layer.name}</span>
-                <span className={styles.tickerSurface}>{layer.surface}</span>
               </Link>
             </MarqueeItem>
           ))}

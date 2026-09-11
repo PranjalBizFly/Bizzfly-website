@@ -45,3 +45,24 @@ export { ProblemMap } from "./ProblemMap";
 export type { ProblemMapProblem, ProblemMapSolution } from "./ProblemMap";
 export { ChoiceList } from "./ChoiceList";
 export type { Choice } from "./ChoiceList";
+/*
+ * The four readings of a paragraph run. Which one a page uses is decided by
+ * what its content is, not by rotation — see app/resources/[slug]/page.tsx
+ * and lib/prose.ts.
+ */
+export { ClaimSequence } from "./ClaimSequence";
+export { ClaimDimensions } from "./ClaimDimensions";
+export { ClaimFacets } from "./ClaimFacets";
+export { ClaimCriteria } from "./ClaimCriteria";
+/*
+ * The Trivana-style composition: a statement, its frame with a floating
+ * label, and the enumerated detail beside it rather than after it.
+ */
+export { AnchoredStatement } from "./AnchoredStatement";
+export { PracticeNarrative } from "./PracticeNarrative";
+/*
+ * The grouped-taxonomy reading. A sticky rail carries the structure and the
+ * reader's position in it; the column carries one group at a time.
+ */
+export { StickyIndex } from "./StickyIndex";
+export type { StickyIndexGroup, StickyIndexItem } from "./StickyIndex";

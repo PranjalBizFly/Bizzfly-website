@@ -1,0 +1,99 @@
+/* ==========================================================================
+   SCROLL-LINKED MOTION
+   --------------------------------------------------------------------------
+   Parallax and crop drift, run entirely by the browser on a `view()`
+   timeline. No scroll handler exists anywhere in this file's blast radius —
+   the animation is declarative, the browser scrubs it against the element's
+   pass through the viewport, and it runs on the compositor.
+
+   Everything is behind three gates, all of which must pass:
+
+     @supports   — no timeline support, no animation, no fallback needed
+     reduced     — declared only when motion is not being refused
+     min-width   — below the tablet breakpoint it is off entirely
+
+   The last one is a judgement about small screens rather than about
+   capability. A phone viewport is short enough that an element's pass takes
+   a flick of the thumb, so parallax there is a jitter rather than depth, and
+   the page is better without it.
+   ========================================================================== */
+
+:where(.layer),
+:where(.scale) {
+  /* The element is an ordinary block until a timeline is attached to it. */
+  display: block;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+    /* ----------------------------------------------------------------------
+       PARALLAX
+       ---------------------------------------------------------------------- */
+    .layer {
+      animation: parallaxDrift linear both;
+      animation-timeline: view();
+      /*
+       * `cover` is the element's entire pass — from the moment its leading
+       * edge enters to the moment its trailing edge leaves. Using `entry`
+       * instead would finish the move while the element is still arriving
+       * and leave it static for the rest of the screen, which reads as the
+       * effect breaking rather than ending.
+       */
+      animation-range: cover;
+      will-change: transform;
+    }
+
+    .layer[data-depth="sm"] { --parallax-distance: var(--parallax-shift-sm); }
+    .layer[data-depth="md"] { --parallax-distance: var(--parallax-shift); }
+
+    /* A layer set against its neighbour, so the two separate as they pass. */
+    .layer[data-invert="true"] {
+      animation-name: parallaxDriftInverted;
+    }
+
+    @keyframes parallaxDrift {
+      from { transform: translate3d(0, var(--parallax-distance), 0); }
+      to { transform: translate3d(0, calc(var(--parallax-distance) * -1), 0); }
+    }
+
+    @keyframes parallaxDriftInverted {
+      from { transform: translate3d(0, calc(var(--parallax-distance) * -1), 0); }
+      to { transform: translate3d(0, var(--parallax-distance), 0); }
+    }
+
+    /* ----------------------------------------------------------------------
+       CROP DRIFT
+       ---------------------------------------------------------------------- */
+    .scale {
+      animation: scrollSettle linear both;
+      animation-timeline: view();
+      will-change: transform;
+    }
+
+    /*
+     * Settles to rest while the element is still arriving and then holds.
+     * `entry 0% / entry 90%` rather than the full entry range so the last
+     * tenth is static — the image reaching its final crop slightly before it
+     * is fully on screen is what makes it feel like it settled rather than
+     * like it stopped when the scroll did.
+     */
+    .scale[data-mode="in"] {
+      animation-range: entry 0% entry 90%;
+    }
+
+    .scale[data-mode="through"] {
+      animation-name: scrollDriftThrough;
+      animation-range: cover;
+    }
+
+    @keyframes scrollSettle {
+      from { transform: scale(var(--scroll-scale-from)); }
+      to { transform: scale(1); }
+    }
+
+    @keyframes scrollDriftThrough {
+      from { transform: scale(1); }
+      to { transform: scale(var(--scroll-scale-from)); }
+    }
+  }
+}

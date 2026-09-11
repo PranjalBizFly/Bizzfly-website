@@ -4,6 +4,18 @@ import styles from "./ChoiceList.module.css";
 export interface Choice {
   name: string;
   rationale: string;
+  /**
+   * Where the name goes, when it is itself the thing to act on.
+   *
+   * Optional, because most entries in this list are glossary terms with
+   * nothing to click. It exists for the desk sheets on the media and press
+   * pages, whose most-wanted entry is an address: set as plain text the
+   * reader has to select and copy it, which is a worse affordance than the
+   * sentence of prose the sheet replaced. `mailto:` and `tel:` are expected
+   * here alongside ordinary paths, so this renders a plain anchor rather
+   * than a routed Link.
+   */
+  href?: string;
 }
 
 interface ChoiceListProps {
@@ -30,7 +42,15 @@ export function ChoiceList({ choices, label }: ChoiceListProps) {
     <Cascade as="dl" className={styles.list} aria-label={label}>
       {choices.map((choice) => (
         <div key={choice.name} className={styles.choice}>
-          <dt className={styles.name}>{choice.name}</dt>
+          <dt className={styles.name}>
+            {choice.href ? (
+              <a className={styles.nameLink} href={choice.href}>
+                {choice.name}
+              </a>
+            ) : (
+              choice.name
+            )}
+          </dt>
           <dd className={styles.rationale}>{choice.rationale}</dd>
         </div>
       ))}

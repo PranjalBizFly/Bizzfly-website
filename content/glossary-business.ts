@@ -14,11 +14,11 @@ export const businessGlossary: Resource[] = [
     topic: "Conversion",
     title: "Conversion Rate",
     answer:
-      "Conversion rate is the proportion of visitors who complete a defined action — an enquiry, a signup, a purchase — expressed as a percentage. It is only meaningful when the action and the population being measured are both stated.",
+      "Conversion rate is the proportion of visitors who complete a defined action (an enquiry, a signup, a purchase) expressed as a percentage. It is only meaningful when the action and the population being measured are both stated.",
     body: [
       "The number is meaningless without its denominator. A 2% rate across all traffic and a 2% rate among visitors who reached a pricing page describe completely different businesses. Comparing your rate to an industry benchmark is almost always comparing two differently-defined numbers.",
       "It can improve for bad reasons. Cutting spend on broad discovery traffic raises conversion rate while reducing total enquiries; so does adding friction that deters the undecided. Rate should be read alongside volume and enquiry quality, or it will reward the wrong changes.",
-      "Segmenting is where the useful information is. Conversion by device, by source and by landing page usually reveals one specific failure — a form that breaks on mobile, a campaign sending unqualified traffic — that an aggregate figure conceals entirely.",
+      "Segmenting is where the useful information is. Conversion by device, by source and by landing page usually reveals one specific failure (a form that breaks on mobile, a campaign sending unqualified traffic) that an aggregate figure conceals entirely.",
     ],
     supports: ["conversion-rate-optimisation", "analytics-implementation"],
     seo: {
@@ -32,7 +32,7 @@ export const businessGlossary: Resource[] = [
     audience: ["A3", "A1"],
     phase: "P1",
     cta: {
-      label: "Read about Conversion Optimisation",
+      label: "Read about Conversion Rate Optimisation",
       href: "/services/conversion-rate-optimisation/",
       tier: "T1",
     },
@@ -45,7 +45,7 @@ export const businessGlossary: Resource[] = [
       {
         question: "Why did our conversion rate rise while enquiries fell?",
         answer:
-          "Usually because broad top-of-funnel traffic was reduced. The remaining visitors are more qualified, so the percentage rises while the absolute number falls — which is why rate should never be read alone.",
+          "Usually because broad top-of-funnel traffic was reduced. The remaining visitors are more qualified, so the percentage rises while the absolute number falls, which is why rate should never be read alone.",
       },
     ],
     related: [
@@ -69,9 +69,9 @@ export const businessGlossary: Resource[] = [
     answer:
       "Customer lifetime value is the total profit expected from a customer across the whole relationship, rather than from the first transaction. It sets the ceiling on what acquiring a customer can rationally cost.",
     body: [
-      "It changes which channels look viable. A channel that appears expensive against first-order value can be clearly profitable against lifetime value, and businesses that only measure the first transaction systematically underinvest in acquisition — and are outbid by competitors who do the fuller arithmetic.",
+      "It changes which channels look viable. A channel that appears expensive against first-order value can be clearly profitable against lifetime value, and businesses that only measure the first transaction systematically underinvest in acquisition, and are outbid by competitors who do the fuller arithmetic.",
       "It should be built on margin, not revenue, and on observed retention rather than hoped-for retention. The most common error is using an optimistic assumed lifespan, which produces a large number that justifies overspending until cash flow disagrees.",
-      "It is also a segmentation tool. Average lifetime value across all customers usually hides a wide distribution, and knowing which segments are worth several times the average is more actionable than the average itself — it tells you who to acquire more of.",
+      "It is also a segmentation tool. Average lifetime value across all customers usually hides a wide distribution, and knowing which segments are worth several times the average is more actionable than the average itself: it tells you who to acquire more of.",
     ],
     supports: ["business-intelligence", "analytics-implementation"],
     seo: {
@@ -93,7 +93,7 @@ export const businessGlossary: Resource[] = [
       {
         question: "How do we calculate lifetime value?",
         answer:
-          "Start with average margin per order, multiplied by observed purchase frequency and observed retention period. Use what the data shows rather than an assumed lifespan — optimistic assumptions are how this number justifies overspending.",
+          "Start with average margin per order, multiplied by observed purchase frequency and observed retention period. Use what the data shows rather than an assumed lifespan; optimistic assumptions are how this number justifies overspending.",
       },
       {
         question: "Why does lifetime value matter for marketing?",
@@ -124,7 +124,7 @@ export const businessGlossary: Resource[] = [
     body: [
       "It is the broader field that generative AI sits inside. Classifying an email, forecasting demand, scoring a lead and detecting an anomaly are all machine learning, and most of them use far simpler and cheaper methods than a language model.",
       "The dependency is data. A model learns from examples, so it needs enough of them, labelled correctly, representing the situations it will meet. Where a business lacks that history, machine learning is not yet the answer regardless of how well suited the problem sounds.",
-      "It also inherits whatever is in the examples. A model trained on past decisions reproduces the patterns in those decisions, including the ones nobody intended to encode — which is why the question of what the training data represents matters more than the choice of algorithm.",
+      "It also inherits whatever is in the examples. A model trained on past decisions reproduces the patterns in those decisions, including the ones nobody intended to encode, which is why the question of what the training data represents matters more than the choice of algorithm.",
     ],
     supports: ["ai-consulting", "business-intelligence"],
     seo: {
@@ -169,11 +169,11 @@ export const businessGlossary: Resource[] = [
     topic: "AI",
     title: "Prompt Engineering",
     answer:
-      "Prompt engineering is the practice of writing instructions and context for a language model so it produces reliable, useful output — specifying the task, the format, the constraints and what to do when unsure.",
+      "Prompt engineering is the practice of writing instructions and context for a language model so it produces reliable, useful output: specifying the task, the format, the constraints and what to do when unsure.",
     body: [
-      "It is closer to specification writing than to a trick. The gains come from stating the task precisely, giving relevant context, showing an example of the expected output, and defining what the model should do when it lacks information — not from a magic phrase.",
+      "It is closer to specification writing than to a trick. The gains come from stating the task precisely, giving relevant context, showing an example of the expected output, and defining what the model should do when it lacks information, not from a magic phrase.",
       "In production it becomes an engineering artefact rather than a message someone types. Prompts get versioned, tested against a set of known inputs, and changed deliberately, because a small edit can alter behaviour across every case the system handles.",
-      "Its limits are worth stating. A prompt cannot supply information the model does not have; that requires retrieval. It cannot make output deterministic. And it cannot make a model reliable on a task it is fundamentally unsuited to — which is a design problem, not a wording problem.",
+      "Its limits are worth stating. A prompt cannot supply information the model does not have; that requires retrieval. It cannot make output deterministic. And it cannot make a model reliable on a task it is fundamentally unsuited to, which is a design problem, not a wording problem.",
     ],
     supports: ["ai-consulting", "ai-agents"],
     seo: {
@@ -225,7 +225,7 @@ export const businessGlossary: Resource[] = [
       "Fine-tuning further trains an existing model on your own examples so it adopts a particular style, format or task behaviour. It teaches the model how to respond, not what is currently true.",
     body: [
       "The distinction from retrieval is the one that matters commercially. Retrieval supplies facts at question time and updates the moment the underlying documents change. Fine-tuning bakes patterns into the model's weights, where they are fixed until it is trained again.",
-      "That makes it a poor way to teach facts and a good way to teach form. Consistent output structure, a particular tone, or a specialised classification task are reasonable uses. Product details, prices and policies are not — they change, and a fine-tuned model will keep confidently reciting the old version.",
+      "That makes it a poor way to teach facts and a good way to teach form. Consistent output structure, a particular tone, or a specialised classification task are reasonable uses. Product details, prices and policies are not: they change, and a fine-tuned model will keep confidently reciting the old version.",
       "It also has costs that outlast the project: preparing quality training examples, evaluating the result, and repeating the exercise whenever the base model is updated or the requirement shifts. For most business applications, retrieval over current documents is the better first architecture.",
     ],
     supports: ["ai-consulting", "ai-agents"],
@@ -253,7 +253,7 @@ export const businessGlossary: Resource[] = [
       {
         question: "When is fine-tuning worth it?",
         answer:
-          "When you need consistent format or tone at volume, or a specialised classification task where examples teach the behaviour better than instructions do — and where the maintenance cost is understood.",
+          "When you need consistent format or tone at volume, or a specialised classification task where examples teach the behaviour better than instructions do, and where the maintenance cost is understood.",
       },
     ],
     related: [
@@ -275,7 +275,7 @@ export const businessGlossary: Resource[] = [
     topic: "Software",
     title: "Middleware",
     answer:
-      "Middleware is software that sits between systems and handles the work of connecting them — translating formats, routing messages, retrying failures — so each system does not need to know about the others.",
+      "Middleware is software that sits between systems and handles the work of connecting them (translating formats, routing messages, retrying failures), so each system does not need to know about the others.",
     body: [
       "Without it, integrations are built point to point, and the number of connections grows far faster than the number of systems. Five systems connected directly to each other is ten connections, each with its own error handling and each needing changes when any system changes.",
       "A middle layer changes that shape. Each system connects once, to the layer, which handles translation and routing centrally. Adding a sixth system becomes one connection rather than five, and the retry, logging and error-handling logic exists in one place rather than being reimplemented each time.",
@@ -328,10 +328,10 @@ export const businessGlossary: Resource[] = [
     topic: "Web",
     title: "Structured Content",
     answer:
-      "Structured content is content stored as discrete, labelled fields rather than as a single block of formatted text — so a title, an answer, a date and a relationship each exist as data that can be used independently.",
+      "Structured content is content stored as discrete, labelled fields rather than as a single block of formatted text, so a title, an answer, a date and a relationship each exist as data that can be used independently.",
     body: [
       "The difference shows up when content has to be reused. A page stored as one rich-text blob can only be displayed as that page. The same content stored as fields can populate a listing, a search result, a structured data block and an API response without anyone rewriting it.",
-      "It is also what makes consistency possible at scale. When every service page has the same fields, every one of them gets the same heading structure, the same schema and the same related-content logic automatically — rather than depending on whoever wrote it remembering.",
+      "It is also what makes consistency possible at scale. When every service page has the same fields, every one of them gets the same heading structure, the same schema and the same related-content logic automatically, rather than depending on whoever wrote it remembering.",
       "The cost is up front. Deciding the content model requires knowing what the content is for, and a model that is too rigid becomes an obstacle when a page genuinely needs to be different. The useful balance is structuring what repeats and leaving room for what does not.",
     ],
     supports: ["corporate-websites"],
@@ -384,7 +384,7 @@ export const businessGlossary: Resource[] = [
       "A data warehouse is a central store that brings together data from several operational systems in a consistent structure, so it can be analysed together rather than queried separately in each source.",
     body: [
       "Operational systems are built to run a process, not to answer questions about it. Querying them directly for analysis is slow, competes with live operations, and produces figures that disagree because each system defines its terms differently. A warehouse exists to resolve both problems.",
-      "The hard part is not storage; it is agreement. Deciding what a customer is, when an order counts as complete, and which system is authoritative for each field is where most of the effort goes — and those are business decisions dressed as technical ones.",
+      "The hard part is not storage; it is agreement. Deciding what a customer is, when an order counts as complete, and which system is authoritative for each field is where most of the effort goes, and those are business decisions dressed as technical ones.",
       "It is not always the right first step. A business with two systems and a handful of recurring questions is often better served by a small number of well-defined reports. Warehouses justify themselves when the number of sources and the number of questions both grow.",
     ],
     supports: ["business-intelligence", "analytics-implementation"],
@@ -412,7 +412,7 @@ export const businessGlossary: Resource[] = [
       {
         question: "Why do our systems report different numbers?",
         answer:
-          "Because each defines its terms differently — what counts as an order, when a customer is active, which date is used. Resolving those definitions is the real work, and it is a business decision rather than a technical one.",
+          "Because each defines its terms differently: what counts as an order, when a customer is active, which date is used. Resolving those definitions is the real work, and it is a business decision rather than a technical one.",
       },
     ],
     related: [
@@ -436,9 +436,9 @@ export const businessGlossary: Resource[] = [
     answer:
       "A digital growth engine is the connected system that turns demand into revenue repeatedly: visibility that brings the right people, a site that convinces them, a route that captures them, and operations that can absorb them.",
     body: [
-      "The term is useful because it insists on the connection. Most businesses have the components in isolation — someone doing SEO, a website, a CRM, an operations team — with no one accountable for whether they work as one system. The weakest link sets the output regardless of how good the others are.",
+      "The term is useful because it insists on the connection. Most businesses have the components in isolation (someone doing SEO, a website, a CRM, an operations team), with no one accountable for whether they work as one system. The weakest link sets the output regardless of how good the others are.",
       "That framing changes where effort goes. If enquiries arrive and are answered in three days, more visibility makes the customer experience worse rather than better. If the site converts poorly, more traffic amplifies the leak. The useful question is always which link is currently binding.",
-      "It also implies measurement across the whole chain rather than per channel. Visibility, engagement, enquiry, qualification and fulfilment each need a number, because a fall at the end is frequently caused by something at the beginning — and channel-level reporting cannot see that.",
+      "It also implies measurement across the whole chain rather than per channel. Visibility, engagement, enquiry, qualification and fulfilment each need a number, because a fall at the end is frequently caused by something at the beginning, and channel-level reporting cannot see that.",
     ],
     supports: ["digital-strategy", "conversion-rate-optimisation"],
     seo: {

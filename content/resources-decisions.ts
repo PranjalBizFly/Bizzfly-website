@@ -13,7 +13,7 @@ export const moreDecisions: Resource[] = [
     slug: "when-to-hire-an-seo-specialist",
     type: "decision",
     topic: "SEO",
-    title: "When to Hire an In-House SEO Specialist",
+    title: "When to Hire an SEO Specialist",
     answer:
       "Hire in-house when there is enough continuous work to occupy someone and enough internal complexity that context is the bottleneck. Below that, a specialist will spend most of their time waiting for other teams.",
     body: [
@@ -43,7 +43,7 @@ export const moreDecisions: Resource[] = [
       {
         question: "Can one person replace an agency?",
         answer:
-          "For a small site, often. For work spanning technical engineering, content, PR and analytics, they will cover one well and the rest thinly — which is a case for both, not either.",
+          "For a small site, often. For work spanning technical engineering, content, PR and analytics, they will cover one well and the rest thinly, which is a case for both, not either.",
       },
     ],
     related: [
@@ -57,12 +57,12 @@ export const moreDecisions: Resource[] = [
     topic: "Web",
     title: "When to Replatform a Website",
     answer:
-      "Replatform when the platform actively prevents work you need to do — server rendering, structured content, performance, integration. Replatforming because the site feels dated is how organisations do it again in three years.",
+      "Replatform when the platform actively prevents work you need to do: server rendering, structured content, performance, integration. Replatforming because the site feels dated is how organisations do it again in three years.",
     body: [
       "The diagnostic question is what you have wanted to do and could not. Write the list. If it is dominated by rendering, content structure, speed or integration, the platform is the constraint. If it is about layout, messaging or navigation, it is not, and a redesign on the existing platform is faster and far less risky.",
       "Cost of change is the other signal. When every routine update requires a developer, or a simple content change takes two weeks, the platform is imposing a tax that compounds. That is measurable and makes a better business case than appearance.",
       "Against it: a replatform freezes normal improvement for months, carries real risk to existing search visibility, and reintroduces work the current site already got right. Those costs are usually absent from the proposal that recommends it.",
-      "Do not replatform and redesign simultaneously if you can avoid it. Doing both means that if traffic drops afterwards, you cannot tell which change caused it — and diagnosis becomes guesswork.",
+      "Do not replatform and redesign simultaneously if you can avoid it. Doing both means that if traffic drops afterwards, you cannot tell which change caused it, and diagnosis becomes guesswork.",
     ],
     supports: ["website-redesign", "corporate-websites"],
     seo: {
@@ -85,7 +85,7 @@ export const moreDecisions: Resource[] = [
       {
         question: "Will replatforming lose our rankings?",
         answer:
-          "It can, and most losses are avoidable. They come from unmapped URLs, lost content depth and changed rendering — planning failures rather than inevitable consequences.",
+          "It can, and most losses are avoidable. They come from unmapped URLs, lost content depth and changed rendering: planning failures rather than inevitable consequences.",
       },
     ],
     related: [
@@ -104,7 +104,7 @@ export const moreDecisions: Resource[] = [
       "The capability test is concrete: offline operation, push notifications, camera or sensor access, background processing, or performance a browser cannot deliver. If none applies, a responsive web application does the same job without an install step.",
       "The frequency test is equally hard. Installing is a real barrier, and an icon on a home screen has to earn its place. Weekly use justifies it; occasional use does not, and 'our customers would download it' is an assumption worth testing with a web version first.",
       "The cost people underestimate is not the build but the tail: two platforms to maintain, store review on every release, operating system updates that break things annually, and support for versions people have not updated.",
-      "The wrong reason is presence. An app because competitors have one, or because it signals seriousness, produces a permanent maintenance obligation and a listing with no downloads — which signals the opposite.",
+      "The wrong reason is presence. An app because competitors have one, or because it signals seriousness, produces a permanent maintenance obligation and a listing with no downloads, which signals the opposite.",
     ],
     supports: ["web-applications", "custom-software"],
     seo: {
@@ -122,7 +122,7 @@ export const moreDecisions: Resource[] = [
       {
         question: "Could a progressive web app work instead?",
         answer:
-          "Often. It covers offline use and home-screen installation without store distribution, which handles a good share of cases where an app seemed necessary — though platform support for some capabilities still varies.",
+          "Often. It covers offline use and home-screen installation without store distribution, which handles a good share of cases where an app seemed necessary, though platform support for some capabilities still varies.",
       },
       {
         question: "What is the ongoing cost of an app?",
@@ -186,9 +186,9 @@ export const moreDecisions: Resource[] = [
       "Outsource for capacity, a specialism you need temporarily, or a defined project with a clear end. Keep in-house whatever is genuinely core, because that is where accumulated knowledge compounds.",
     body: [
       "Capacity is the cleanest case. A team that knows what to build and cannot build it fast enough loses nothing by adding hands, provided the internal team keeps architectural ownership.",
-      "Specialism is the second. Work needing a skill for two months — an integration, a performance problem, an accessibility remediation — does not justify a permanent hire, and the alternative is a permanent employee learning on your project.",
+      "Specialism is the second. Work needing a skill for two months (an integration, a performance problem, an accessibility remediation) does not justify a permanent hire, and the alternative is a permanent employee learning on your project.",
       "The case against is anything core. If the software is the product, or encodes the process that differentiates you, the knowledge built while making it is an asset you want retained. Outsourcing that means paying twice: once to build, again for each supplier to relearn.",
-      "Whatever the route, keep an internal counterpart who can evaluate the work. Fully outsourced software with nobody internally able to review it is how organisations lose the ability to change their own systems — and that is discovered at the worst moment.",
+      "Whatever the route, keep an internal counterpart who can evaluate the work. Fully outsourced software with nobody internally able to review it is how organisations lose the ability to change their own systems, and that is discovered at the worst moment.",
     ],
     supports: ["custom-software", "web-applications"],
     seo: {
@@ -271,7 +271,7 @@ export const moreDecisions: Resource[] = [
     body: [
       "Identify the binding constraint first. If nobody finds you, spending on conversion optimisation is premature. If the site converts poorly, more traffic amplifies a leak. If enquiries are answered in three days, more of them makes the customer experience worse. Only one of these limits growth at a time.",
       "Then fund it to the level that could actually move it. Channels have thresholds below which they produce nothing: a content programme of one page a month, or a paid budget too small to gather significant data, spends money without buying information.",
-      "Separate the run cost from the change cost. Hosting, licences, maintenance and support are the price of continuing to exist and should not compete with growth work in the same line — otherwise maintenance gets deferred until it becomes an incident.",
+      "Separate the run cost from the change cost. Hosting, licences, maintenance and support are the price of continuing to exist and should not compete with growth work in the same line; otherwise maintenance gets deferred until it becomes an incident.",
       "Set a review point rather than an annual commitment. Digital constraints move: the thing limiting growth this quarter is often fixed by next, and a budget locked to last year's diagnosis funds work that has stopped being the priority.",
     ],
     supports: ["digital-strategy"],
@@ -313,8 +313,8 @@ export const moreDecisions: Resource[] = [
     body: [
       "Lead with the commercial situation rather than the tactics. 'Enquiries have fallen 30% since March and we do not know why' tells a competent supplier far more than 'we need twelve blog posts a month', and it lets them tell you if the second would not fix the first.",
       "State the constraints honestly: what cannot be changed, who has to approve work, how quickly your development team can deploy, and any commitments already made. Suppliers who discover these later either miss deadlines or quietly stop recommending things that require them.",
-      "Offer read access to analytics and search console during the proposal stage. Suppliers who look at data before proposing will produce a better plan, and the ones who decline to look are telling you something.",
-      "Finally, name the decision. If you are choosing between rebuilding the site and improving it, say so — the brief's job is to get you an answer to that question, not a list of activities.",
+      "Offer read access to analytics and Search Console during the proposal stage. Suppliers who look at data before proposing will produce a better plan, and the ones who decline to look are telling you something.",
+      "Finally, name the decision. If you are choosing between rebuilding the site and improving it, say so: the brief's job is to get you an answer to that question, not a list of activities.",
     ],
     supports: ["seo", "digital-strategy"],
     seo: {
@@ -353,8 +353,8 @@ export const moreDecisions: Resource[] = [
     answer:
       "You can get most of the way with a browser and a search engine: check what is indexed, view the page source, test on a phone, and complete your own enquiry form. No paid tools required.",
     body: [
-      "Start with what is indexed. Search your domain with a site: query and see roughly what is listed, whether the important pages appear, and whether anything unexpected does — staging pages, duplicates, filter URLs. Surprises here are worth investigating before anything else.",
-      "Then view the page source rather than the rendered page. Right-click, view source, and search for a sentence from the middle of your content. If it is not there, the content is assembled by JavaScript — which is the single most common reason a modern site underperforms with AI crawlers.",
+      "Start with what is indexed. Search your domain with a site: query and see roughly what is listed, whether the important pages appear, and whether anything unexpected does: staging pages, duplicates, filter URLs. Surprises here are worth investigating before anything else.",
+      "Then view the page source rather than the rendered page. Right-click, view source, and search for a sentence from the middle of your content. If it is not there, the content is assembled by JavaScript, which is the single most common reason a modern site underperforms with AI crawlers.",
       "Then use it on a mid-range phone on mobile data, not on your desktop. Time how long the main content takes to appear, check whether anything jumps as it loads, and see whether buttons are comfortably tappable.",
       "Then complete your own enquiry form and see what happens. Does the confirmation say anything useful, does an email arrive, how quickly does someone respond. A surprising number of forms are broken, and nobody notices because nobody submits them.",
     ],
@@ -379,7 +379,7 @@ export const moreDecisions: Resource[] = [
       {
         question: "Do we need paid tools?",
         answer:
-          "Not for the checks above. Paid tools help with scale, competitor comparison and monitoring over time — but they will not tell you anything the four checks above miss on a small site.",
+          "Not for the checks above. Paid tools help with scale, competitor comparison and monitoring over time, but they will not tell you anything the four checks above miss on a small site.",
       },
     ],
     related: [
@@ -398,7 +398,7 @@ export const moreDecisions: Resource[] = [
       "Effort-versus-impact scoring is the common method and it has a flaw: it treats all impact as additive. If nobody can find you, a conversion improvement scored as high impact returns nothing, because it multiplies a number that is currently too small.",
       "The alternative is to ask what would happen if each item were completed and nothing else changed. Work that would not move the outcome on its own is not ready yet, whatever its score. That single question re-orders most backlogs.",
       "Then apply reversibility. Among items that would move the outcome, prefer the ones that are cheap to undo and quick to learn from. A three-month project that teaches you nothing until it ships is a large bet on an untested assumption.",
-      "Then revisit on a cadence. Constraints move — fixing visibility makes conversion the constraint, and fixing conversion makes capacity the constraint. A roadmap fixed for a year funds work that stopped being the priority in month three.",
+      "Then revisit on a cadence. Constraints move: fixing visibility makes conversion the constraint, and fixing conversion makes capacity the constraint. A roadmap fixed for a year funds work that stopped being the priority in month three.",
     ],
     supports: ["digital-strategy"],
     seo: {

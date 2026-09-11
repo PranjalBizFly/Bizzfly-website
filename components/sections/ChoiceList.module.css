@@ -49,3 +49,27 @@
   margin: 0;
   text-wrap: pretty;
 }
+
+/*
+ * The name as an affordance, where the entry is something to act on.
+ *
+ * Underlined rather than coloured alone: these sit at display size on a
+ * plain ground with no surrounding link text to compare against, so colour
+ * by itself would not read as "clickable" — and would be the only signal,
+ * which fails SC 1.4.1.
+ */
+.nameLink {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    text-decoration-color var(--dur-fast) var(--ease-standard);
+}
+
+.nameLink:hover {
+  color: var(--accent-text);
+  text-decoration-color: var(--accent-edge);
+}

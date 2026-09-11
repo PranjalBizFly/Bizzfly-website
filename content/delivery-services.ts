@@ -13,13 +13,13 @@ export const deliveryServices: Service[] = [
   {
     slug: "custom-software",
     practice: "software-development",
-    title: "Custom Software Development",
+    title: "Custom Software",
     answer:
-      "Custom software is what you build when the process you run is genuinely specific and no off-the-shelf product fits it without expensive compromise — internal systems, portals, and applications shaped around how the business actually works.",
+      "Custom software is what you build when the process you run is genuinely specific and no off-the-shelf product fits it without expensive compromise: internal systems, portals, and applications shaped around how the business actually works.",
     seo: {
       title: "Custom Software Development",
       description:
-        "Software built around your actual process — internal systems, portals and applications, engineered to be maintainable by your own team.",
+        "Software built around your actual process: internal systems, portals and applications, engineered to be maintainable by your own team.",
       primaryTopic: "custom software development",
       secondaryTopics: ["bespoke software", "internal systems"],
       intent: "commercial",
@@ -64,13 +64,13 @@ export const deliveryServices: Service[] = [
   {
     slug: "web-applications",
     practice: "software-development",
-    title: "Web Application Development",
+    title: "Web Applications",
     answer:
-      "A web application is software your team or your customers use through a browser — a portal, a dashboard, a booking system, an internal tool. Built properly, it replaces a stack of spreadsheets and manual handoffs.",
+      "A web application is software your team or your customers use through a browser: a portal, a dashboard, a booking system, an internal tool. Built properly, it replaces a stack of spreadsheets and manual handoffs.",
     seo: {
       title: "Web Application Development",
       description:
-        "Browser-based business applications — portals, dashboards, booking systems and internal tools built for real workloads.",
+        "Browser-based business applications: portals, dashboards, booking systems and internal tools built for real workloads.",
       primaryTopic: "web application development",
       secondaryTopics: ["business applications", "portals", "dashboards"],
       intent: "commercial",
@@ -92,7 +92,7 @@ export const deliveryServices: Service[] = [
     timeline: "10–16 weeks for a first release.",
     cta: { label: "Technical discovery call", href: "/contact/", tier: "T4" },
     related: [
-      { label: "Custom Software Development", href: "/services/custom-software/", type: "SERVICE" },
+      { label: "Custom Software", href: "/services/custom-software/", type: "SERVICE" },
       { label: "UI/UX Design", href: "/services/ui-ux-design/", type: "SERVICE" },
     ],
   },
@@ -101,11 +101,11 @@ export const deliveryServices: Service[] = [
     practice: "web-development",
     title: "UI/UX Design",
     answer:
-      "Interface design decides whether people can actually use what you have built. The work is research, structure and interaction — not decoration applied at the end of a project.",
+      "Interface design decides whether people can actually use what you have built. The work is research, structure and interaction, not decoration applied at the end of a project.",
     seo: {
       title: "UI/UX Design",
       description:
-        "Interface and experience design grounded in how people actually use a product — research, structure, prototyping and interaction.",
+        "Interface and experience design grounded in how people actually use a product: research, structure, prototyping and interaction.",
       primaryTopic: "UI and UX design",
       secondaryTopics: ["interface design", "user experience", "product design"],
       intent: "commercial",
@@ -140,7 +140,7 @@ export const deliveryServices: Service[] = [
     seo: {
       title: "Systems Integration",
       description:
-        "Connect the systems you already run — CRM, accounting, operations — so data moves automatically instead of being rekeyed.",
+        "Connect the systems you already run (CRM, accounting, operations), so data moves automatically instead of being rekeyed.",
       primaryTopic: "systems integration",
       secondaryTopics: ["API integration", "data flow"],
       intent: "commercial",
@@ -162,7 +162,7 @@ export const deliveryServices: Service[] = [
     cta: { label: "Technical discovery call", href: "/contact/", tier: "T4" },
     related: [
       { label: "Workflow Automation", href: "/services/workflow-automation/", type: "SERVICE" },
-      { label: "Custom Software Development", href: "/services/custom-software/", type: "SERVICE" },
+      { label: "Custom Software", href: "/services/custom-software/", type: "SERVICE" },
     ],
   },
 
@@ -172,7 +172,7 @@ export const deliveryServices: Service[] = [
     practice: "ai-automation",
     title: "AI Chatbots",
     answer:
-      "An AI chatbot answers the questions your team answers most often, grounded in your own content so it does not invent answers — with a clear handover to a person the moment it is out of its depth.",
+      "An AI chatbot answers the questions your team answers most often, grounded in your own content so it does not invent answers, with a clear handover to a person the moment it is out of its depth.",
     seo: {
       title: "AI Chatbots",
       description:
@@ -191,7 +191,7 @@ export const deliveryServices: Service[] = [
     included: [
       "Question analysis from real enquiry history",
       "Retrieval over your own documented answers, so responses are grounded",
-      "Explicit boundaries — what it will not attempt to answer",
+      "Explicit boundaries: what it will not attempt to answer",
       "Human escalation path with full conversation context",
       "Monitoring, review and ongoing correction",
     ],
@@ -218,7 +218,7 @@ export const deliveryServices: Service[] = [
     practice: "ai-automation",
     title: "Sales Automation",
     answer:
-      "Sales automation removes the delay between an enquiry arriving and someone responding to it — routing, acknowledgement, follow-up sequences and CRM updates that happen without anyone remembering to do them.",
+      "Sales automation removes the delay between an enquiry arriving and someone responding to it: routing, acknowledgement, follow-up sequences and CRM updates that happen without anyone remembering to do them.",
     seo: {
       title: "Sales Automation",
       description:
@@ -253,7 +253,7 @@ export const deliveryServices: Service[] = [
     practice: "ai-automation",
     title: "AI Consulting",
     answer:
-      "AI consulting is the work of deciding where AI genuinely helps your business and where it would be an expensive answer to a problem a rule already solves — then sequencing the work so the first project is small enough to succeed.",
+      "AI consulting is the work of deciding where AI genuinely helps your business and where it would be an expensive answer to a problem a rule already solves, then sequencing the work so the first project is small enough to succeed.",
     seo: {
       title: "AI Consulting",
       description:
@@ -297,11 +297,11 @@ export const deliveryServices: Service[] = [
     practice: "digital-marketing",
     title: "Digital Strategy",
     answer:
-      "Digital strategy is deciding what to do and, more usefully, what not to do — which channels matter for your buyers, what sequence the work should follow, and how you will know whether it worked.",
+      "Digital strategy is deciding what to do and, more usefully, what not to do: which channels matter for your buyers, what sequence the work should follow, and how you will know whether it worked.",
     seo: {
       title: "Digital Strategy",
       description:
-        "Decide which channels matter, in what order, and how success will be measured — before committing budget.",
+        "Decide which channels matter, in what order, and how success will be measured, before committing budget.",
       primaryTopic: "digital strategy",
       secondaryTopics: ["growth planning", "channel strategy"],
       intent: "commercial",
@@ -331,7 +331,7 @@ export const deliveryServices: Service[] = [
     practice: "digital-marketing",
     title: "Performance Marketing",
     answer:
-      "Performance marketing is buying demand where the numbers justify it — paid search and paid social managed against cost per qualified enquiry rather than clicks or impressions.",
+      "Performance marketing is buying demand where the numbers justify it: paid search and paid social managed against cost per qualified enquiry rather than clicks or impressions.",
     seo: {
       title: "Performance Marketing",
       description:
@@ -358,20 +358,20 @@ export const deliveryServices: Service[] = [
     outOfScope: ["Spending budget on channels where your buyers demonstrably are not"],
     cta: { label: "Request a performance audit", href: "/contact/", tier: "T3" },
     related: [
-      { label: "Conversion Optimisation", href: "/services/conversion-rate-optimisation/", type: "SERVICE" },
+      { label: "Conversion Rate Optimisation", href: "/services/conversion-rate-optimisation/", type: "SERVICE" },
       { label: "Generate more leads", href: "/use-cases/generate-more-leads/", type: "USE CASE" },
     ],
   },
   {
     slug: "conversion-rate-optimisation",
     practice: "digital-marketing",
-    title: "Conversion Optimisation",
+    title: "Conversion Rate Optimisation",
     answer:
       "Conversion optimisation gets more from the traffic you already have. It is usually the cheapest available growth, because a small improvement compounds across every channel feeding the site.",
     seo: {
-      title: "Conversion Optimisation",
+      title: "Conversion Rate Optimisation",
       description:
-        "Get more enquiries from existing traffic — the cheapest growth available, and it compounds across every channel.",
+        "Get more enquiries from existing traffic: the cheapest growth available, and it compounds across every channel.",
       primaryTopic: "conversion rate optimisation",
       secondaryTopics: ["CRO", "conversion", "landing pages"],
       intent: "commercial",
@@ -412,7 +412,7 @@ export const deliveryServices: Service[] = [
     seo: {
       title: "Business Intelligence",
       description:
-        "Bring scattered business data into one reliable view — dashboards and reporting leadership can actually act on.",
+        "Bring scattered business data into one reliable view: dashboards and reporting leadership can actually act on.",
       primaryTopic: "business intelligence",
       secondaryTopics: ["dashboards", "reporting", "data"],
       intent: "commercial",
@@ -442,11 +442,11 @@ export const deliveryServices: Service[] = [
     practice: "data-analytics",
     title: "Analytics Implementation",
     answer:
-      "Analytics implementation is the unglamorous work of making your measurement trustworthy — correct tracking, sensible event design, and conversion data that survives ad blockers and browser restrictions.",
+      "Analytics implementation is the unglamorous work of making your measurement trustworthy: correct tracking, sensible event design, and conversion data that survives ad blockers and browser restrictions.",
     seo: {
       title: "Analytics Implementation",
       description:
-        "Tracking you can trust — correct implementation, sensible events, and conversion data that survives ad blocking.",
+        "Tracking you can trust: correct implementation, sensible events, and conversion data that survives ad blocking.",
       primaryTopic: "analytics implementation",
       secondaryTopics: ["GA4", "conversion tracking", "measurement"],
       intent: "commercial",
@@ -468,7 +468,7 @@ export const deliveryServices: Service[] = [
     cta: { label: "Request an assessment", href: "/contact/", tier: "T3" },
     related: [
       { label: "Business Intelligence", href: "/services/business-intelligence/", type: "SERVICE" },
-      { label: "Conversion Optimisation", href: "/services/conversion-rate-optimisation/", type: "SERVICE" },
+      { label: "Conversion Rate Optimisation", href: "/services/conversion-rate-optimisation/", type: "SERVICE" },
     ],
   },
 ];

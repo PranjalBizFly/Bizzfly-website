@@ -22,7 +22,7 @@ export const companyPages: CompanyPage[] = [
     body: [
       `Most companies we work with have the same underlying problem in a different costume: they are hard to find, and the systems behind them were not built for the volume they now need to handle. Those two things are usually treated as separate disciplines by separate suppliers, which is why neither gets solved properly.`,
       `We work across both. The same team that finds the crawl problem capping your visibility can fix the template causing it. The same engagement that improves your search presence can build the automation that answers the enquiries it produces.`,
-      `That combination matters more now than it did five years ago. Discovery is moving from a list of links to a generated answer, and the qualities that earn a citation from an AI system — a clear entity, structured content, machine-readable data, server-rendered pages — are engineering problems wearing a marketing hat.`,
+      `That combination matters more now than it did five years ago. Discovery is moving from a list of links to a generated answer, and the qualities that earn a citation from an AI system (a clear entity, structured content, machine-readable data, server-rendered pages) are engineering problems wearing a marketing hat.`,
       `BizzFly was founded by ${site.founder}, and operates from Pune. We work with mid-market businesses across manufacturing, real estate, education and professional services.`,
     ],
     seo: {
@@ -47,12 +47,12 @@ export const companyPages: CompanyPage[] = [
     section: "about",
     title: "How We Work",
     answer:
-      "Every engagement starts with diagnosis, not a proposal. We spend the first two weeks establishing what is actually wrong, because fixing the wrong constraint is the expensive mistake — and you keep those findings whether or not you continue with us.",
+      "Every engagement starts with diagnosis, not a proposal. We spend the first two weeks establishing what is actually wrong, because fixing the wrong constraint is the expensive mistake, and you keep those findings whether or not you continue with us.",
     body: [
       `Most agency relationships fail in the same predictable way. A proposal is written before anyone understands the problem, the work is delivered against that proposal, and six months later the commercial result has not moved because the original diagnosis was wrong.`,
-      `We work in the other order. Diagnosis first, scoped proposal second. That means our first deliverable is usually a document telling you what is broken — including the parts we are not the right people to fix.`,
+      `We work in the other order. Diagnosis first, scoped proposal second. That means our first deliverable is usually a document telling you what is broken, including the parts we are not the right people to fix.`,
       `We also state boundaries in writing. Every proposal says what is out of scope as explicitly as what is in it. Naming the boundary early removes the most common source of disappointment in an engagement, and it is the fastest way to tell whether a supplier actually understands the work.`,
-      `On delivery, we report against agreed commercial measures — enquiries, response times, hours removed — rather than against activity. A monthly report full of impressions and rankings that avoids the commercial question is a way of not being accountable.`,
+      `On delivery, we report against agreed commercial measures (enquiries, response times, hours removed) rather than against activity. A monthly report full of impressions and rankings that avoids the commercial question is a way of not being accountable.`,
     ],
     seo: {
       title: "How We Work",
@@ -67,7 +67,7 @@ export const companyPages: CompanyPage[] = [
     cta: { label: "Book a consultation", href: "/contact/", tier: "T4" },
     related: [
       { label: "About Us", href: "/about-us/", type: "COMPANY" },
-      { label: "Our Engineering Standards", href: "/technologies/engineering-standards/", type: "TECHNOLOGY" },
+      { label: "Engineering Standards", href: "/technologies/engineering-standards/", type: "TECHNOLOGY" },
       { label: "Contact", href: "/contact/", type: "CONTACT" },
     ],
   },
@@ -111,14 +111,14 @@ export const legalPages: CompanyPage[] = [
   {
     slug: "terms",
     section: "legal",
-    title: "Terms & Conditions",
+    title: "Terms",
     answer:
       "This page will set out the terms governing use of this website and the basis on which BizzFly provides services.",
     reviewNote:
       "[VERIFY_WITH_BIZZFLY] Terms require review and confirmation of the contracting entity before publication. Drafting commercial terms without that confirmation would put wrong information in front of buyers.",
     body: [
       "Full website terms are being prepared and will be published here once they have completed legal review.",
-      "Engagement terms — scope, payment, intellectual property and notice — are set out in the proposal for each engagement. Intellectual property in work we deliver is yours.",
+      "Engagement terms (scope, payment, intellectual property and notice) are set out in the proposal for each engagement. Intellectual property in work we deliver is yours.",
     ],
     seo: {
       title: "Terms & Conditions",

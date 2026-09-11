@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ImageMetadata } from "@/content/images/types";
 import { StaggerItem } from "@/components/motion";
 import styles from "./InsightGrid.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 export interface InsightEntry {
   image: ImageMetadata;
@@ -55,7 +56,7 @@ export function InsightGrid({ entries }: InsightGridProps) {
           <h3 className={styles.title}>
             {/* Stretched over the card, so the image is part of the target. */}
             <Link href={entry.href} className={styles.titleLink}>
-              {entry.title}
+              {titleCase(entry.title)}
             </Link>
           </h3>
 

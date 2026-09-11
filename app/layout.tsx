@@ -4,6 +4,7 @@ import { Header } from "@/components/navigation/Header";
 import { ValueTicker } from "@/components/navigation/ValueTicker";
 import { Footer } from "@/components/footer/Footer";
 import { BackToTop } from "@/components/navigation/BackToTop";
+import { ConsultationProvider } from "@/components/consultation";
 import { site, locale } from "@/content/site";
 import { brand } from "@/lib/brand";
 import { themeInitScript } from "@/lib/theme";
@@ -181,6 +182,13 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
+        {/*
+          The consultation dialog is mounted once, here, around the whole
+          site: every CTA opens the same modal, and the form it holds
+          survives both closing it and navigating between pages. See
+          components/consultation/ConsultationProvider.
+        */}
+        <ConsultationProvider>
         <div className="site">
           {/*
             Above the header in the document, and the header is sticky — so the
@@ -194,6 +202,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+        </ConsultationProvider>
         <BackToTop />
         <script
           type="application/ld+json"

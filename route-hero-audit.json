@@ -1,0 +1,2977 @@
+[
+  {
+    "route": "/",
+    "type": "home",
+    "heroComponent": "HomeHero",
+    "heroImage": "home-hero-growth-team",
+    "title": "BizzFly — Digital Growth, AI, Automation & Technology",
+    "sectionsWithImages": [
+      "whatWeDo",
+      "visibility",
+      "aiSearch",
+      "automation",
+      "technology",
+      "why",
+      "engine",
+      "founder",
+      "jobs"
+    ]
+  },
+  {
+    "route": "/services/",
+    "type": "hub",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "title": "Services",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/",
+    "type": "hub",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "title": "Industries",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/",
+    "type": "hub",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "title": "Technologies",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/",
+    "type": "hub",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "title": "Use Cases",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/resources/",
+    "type": "hub",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "title": "Resources",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/company/",
+    "type": "hub",
+    "heroComponent": "EditorialHero",
+    "heroImage": "company-hub",
+    "title": "Company",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/case-studies/",
+    "type": "hub",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "title": "Case Studies",
+    "sectionsWithImages": [
+      "case-studies-verified-standard (in body)"
+    ]
+  },
+  {
+    "route": "/contact/",
+    "type": "standalone",
+    "heroComponent": "SplitHero / Consultation",
+    "heroImage": "contact-consultation",
+    "title": "Contact",
+    "sectionsWithImages": [
+      "contact image"
+    ]
+  },
+  {
+    "route": "/about-us/",
+    "type": "standalone",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "title": "About Us",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/careers/",
+    "type": "standalone",
+    "heroComponent": "SplitHero",
+    "heroImage": null,
+    "title": "Careers",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/discovery-process/",
+    "type": "standalone",
+    "heroComponent": "SplitHero",
+    "heroImage": null,
+    "title": "Discovery Process",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/engagement-models/",
+    "type": "standalone",
+    "heroComponent": "SplitHero",
+    "heroImage": null,
+    "title": "Engagement Models",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/how-we-work/",
+    "type": "standalone",
+    "heroComponent": "SplitHero",
+    "heroImage": null,
+    "title": "How We Work",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/media/",
+    "type": "standalone",
+    "heroComponent": "SplitHero",
+    "heroImage": null,
+    "title": "Media",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/our-approach/",
+    "type": "standalone",
+    "heroComponent": "CinematicHero",
+    "heroImage": "assigned image",
+    "title": "Our Approach",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/press-kit/",
+    "type": "standalone",
+    "heroComponent": "SplitHero",
+    "heroImage": null,
+    "title": "Press Kit",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/vendor/",
+    "type": "standalone",
+    "heroComponent": "SplitHero",
+    "heroImage": null,
+    "title": "Vendor",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/blogs/",
+    "type": "standalone",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "title": "Blogs",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/search-ai-visibility/",
+    "type": "practice",
+    "heroComponent": "CinematicHero",
+    "heroImage": "practice-search-ai-visibility",
+    "title": "Search & AI Visibility",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/digital-marketing/",
+    "type": "practice",
+    "heroComponent": "CinematicHero",
+    "heroImage": "practice-digital-marketing",
+    "title": "Digital Marketing",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/web-development/",
+    "type": "practice",
+    "heroComponent": "CinematicHero",
+    "heroImage": "practice-web-development",
+    "title": "Web Development",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/software-development/",
+    "type": "practice",
+    "heroComponent": "CinematicHero",
+    "heroImage": "practice-software-development",
+    "title": "Software Development",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/ai-automation/",
+    "type": "practice",
+    "heroComponent": "CinematicHero",
+    "heroImage": "practice-ai-automation",
+    "title": "AI & Automation",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/data-analytics/",
+    "type": "practice",
+    "heroComponent": "CinematicHero",
+    "heroImage": "practice-data-analytics",
+    "title": "Data Analytics",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/seo/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-seo",
+    "title": "SEO",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/ai-search-optimisation/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-ai-search-optimisation",
+    "title": "AI Search Optimisation",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/technical-seo/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-technical-seo",
+    "title": "Technical SEO",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/ai-agents/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-ai-agents",
+    "title": "AI Agents",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/workflow-automation/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-workflow-automation",
+    "title": "Workflow Automation",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/corporate-websites/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-corporate-websites",
+    "title": "Corporate Websites",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/answer-engine-optimisation/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-answer-engine-optimisation",
+    "title": "Answer Engine Optimisation (AEO)",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/generative-engine-optimisation/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-generative-engine-optimisation",
+    "title": "Generative Engine Optimisation (GEO)",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/ai-optimisation/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-ai-optimisation",
+    "title": "AI Optimisation (AIO)",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/search-experience-optimisation/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-search-experience-optimisation",
+    "title": "Search Experience Optimisation (SXO)",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/google-business-profile/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-google-business-profile",
+    "title": "Google Business Profile",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/custom-software/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-custom-software",
+    "title": "Custom Software",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/web-applications/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-web-applications",
+    "title": "Web Applications",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/ui-ux-design/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-ui-ux-design",
+    "title": "UI/UX Design",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/systems-integration/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-systems-integration",
+    "title": "Systems Integration",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/ai-chatbots/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-ai-chatbots",
+    "title": "AI Chatbots",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/sales-automation/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-sales-automation",
+    "title": "Sales Automation",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/ai-consulting/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-ai-consulting",
+    "title": "AI Consulting",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/digital-strategy/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-digital-strategy",
+    "title": "Digital Strategy",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/performance-marketing/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-performance-marketing",
+    "title": "Performance Marketing",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/conversion-rate-optimisation/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-conversion-rate-optimisation",
+    "title": "Conversion Rate Optimisation",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/business-intelligence/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-business-intelligence",
+    "title": "Business Intelligence",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/analytics-implementation/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-analytics-implementation",
+    "title": "Analytics Implementation",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/website-performance/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-website-performance",
+    "title": "Website Performance",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/website-redesign/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-website-redesign",
+    "title": "Website Redesign",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/seo-audit/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-seo-audit",
+    "title": "SEO Audit",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/on-page-seo/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-on-page-seo",
+    "title": "On-Page SEO",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/local-seo/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-local-seo",
+    "title": "Local SEO",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/enterprise-seo/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-enterprise-seo",
+    "title": "Enterprise SEO",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/ecommerce-seo/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-ecommerce-seo",
+    "title": "E-commerce SEO",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/seo-migration/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-seo-migration",
+    "title": "SEO Migration",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/content-strategy/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-content-strategy",
+    "title": "Content Strategy",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/digital-pr/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-digital-pr",
+    "title": "Digital PR",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/structured-data/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-structured-data",
+    "title": "Structured Data",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/site-architecture/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-site-architecture",
+    "title": "Site Architecture",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/ai-readiness-assessment/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-ai-readiness-assessment",
+    "title": "AI Readiness Assessment",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/ai-document-processing/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-ai-document-processing",
+    "title": "AI Document Processing",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/api-development/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-api-development",
+    "title": "API Development",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/crm-implementation/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-crm-implementation",
+    "title": "CRM Implementation",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/marketing-automation/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-marketing-automation",
+    "title": "Marketing Automation",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/customer-portals/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-customer-portals",
+    "title": "Customer Portals",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/reporting-dashboards/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-reporting-dashboards",
+    "title": "Reporting Dashboards",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/cloud-migration/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-cloud-migration",
+    "title": "Cloud Migration",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/website-maintenance/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-website-maintenance",
+    "title": "Website Maintenance",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/services/accessibility-audit/",
+    "type": "service",
+    "heroComponent": "CinematicHero",
+    "heroImage": "service-accessibility-audit",
+    "title": "Accessibility Audit",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/manufacturing/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-manufacturing",
+    "title": "Manufacturing",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/real-estate/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-real-estate",
+    "title": "Real Estate",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/education/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-education",
+    "title": "Education",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/professional-services/",
+    "type": "industry",
+    "heroComponent": "SplitHero/EditorialHero",
+    "heroImage": null,
+    "title": "Professional Services",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/saas/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-saas",
+    "title": "SaaS",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/healthcare/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-healthcare",
+    "title": "Healthcare",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/financial-services/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-financial-services",
+    "title": "Financial Services",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/ecommerce/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-ecommerce",
+    "title": "E-commerce",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/logistics/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-logistics",
+    "title": "Logistics",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/it-services/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-it-services",
+    "title": "IT Services",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/hospitality/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-hospitality",
+    "title": "Hospitality",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/startups/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-startups",
+    "title": "Startups",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/technology/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-technology",
+    "title": "Technology",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/automotive/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-automotive",
+    "title": "Automotive",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/construction/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-construction",
+    "title": "Construction",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/legal-services/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-legal-services",
+    "title": "Legal Services",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/accounting/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-accounting",
+    "title": "Accounting",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/recruitment/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-recruitment",
+    "title": "Recruitment",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/energy/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-energy",
+    "title": "Energy",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/travel/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-travel",
+    "title": "Travel",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/nonprofit/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-nonprofit",
+    "title": "Non-Profit",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/media/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-media",
+    "title": "Media",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/agriculture/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-agriculture",
+    "title": "Agriculture",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/b2b-services/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-b2b-services",
+    "title": "B2B Services",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/d2c-brands/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-d2c-brands",
+    "title": "D2C Brands",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/industries/smes/",
+    "type": "industry",
+    "heroComponent": "CinematicHero",
+    "heroImage": "industry-smes",
+    "title": "Small & Medium Enterprises",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/generate-more-leads/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-generate-more-leads",
+    "title": "Generate more leads",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/get-found-in-ai-search/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-get-found-in-ai-search",
+    "title": "Get found in AI search",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/reduce-manual-work/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-reduce-manual-work",
+    "title": "Reduce manual work",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/increase-organic-traffic/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-increase-organic-traffic",
+    "title": "Increase organic traffic",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/automate-sales-follow-up/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-automate-sales-follow-up",
+    "title": "Automate sales follow-up",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/automate-customer-support/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-automate-customer-support",
+    "title": "Automate customer support",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/improve-website-conversion/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-improve-website-conversion",
+    "title": "Improve website conversion",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/rank-in-local-search/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-rank-in-local-search",
+    "title": "Rank in local search",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/improve-operational-efficiency/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-improve-operational-efficiency",
+    "title": "Improve operational efficiency",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/connect-business-systems/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-connect-business-systems",
+    "title": "Connect business systems",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/modernise-legacy-processes/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-modernise-legacy-processes",
+    "title": "Modernise legacy processes",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/introduce-ai-into-operations/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-introduce-ai-into-operations",
+    "title": "Introduce AI into operations",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/build-a-custom-business-platform/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-build-a-custom-business-platform",
+    "title": "Build a custom business platform",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/improve-digital-presence/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-improve-digital-presence",
+    "title": "Improve digital presence",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/build-scalable-digital-infrastructure/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-build-scalable-digital-infrastructure",
+    "title": "Build scalable digital infrastructure",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/improve-customer-experience/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-improve-customer-experience",
+    "title": "Improve customer experience",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/reduce-customer-churn/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-reduce-customer-churn",
+    "title": "Reduce customer churn",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/shorten-sales-cycle/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-shorten-sales-cycle",
+    "title": "Shorten the sales cycle",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/qualify-leads-automatically/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-qualify-leads-automatically",
+    "title": "Qualify leads automatically",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/speed-up-quoting/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-speed-up-quoting",
+    "title": "Speed up quoting",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/prove-marketing-roi/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-prove-marketing-roi",
+    "title": "Prove marketing ROI",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/recover-lost-traffic/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-recover-lost-traffic",
+    "title": "Recover lost traffic",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/enter-a-new-market/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-enter-a-new-market",
+    "title": "Enter a new market",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/reduce-support-tickets/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-reduce-support-tickets",
+    "title": "Reduce support tickets",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/improve-data-quality/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-improve-data-quality",
+    "title": "Improve data quality",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/consolidate-business-tools/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-consolidate-business-tools",
+    "title": "Consolidate business tools",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/onboard-customers-faster/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-onboard-customers-faster",
+    "title": "Onboard customers faster",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/scale-without-hiring/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-scale-without-hiring",
+    "title": "Scale without hiring",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/launch-a-digital-product/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-launch-a-digital-product",
+    "title": "Launch a digital product",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/use-cases/replace-spreadsheet-processes/",
+    "type": "use-case",
+    "heroComponent": "CinematicHero",
+    "heroImage": "use-case-replace-spreadsheet-processes",
+    "title": "Replace spreadsheet processes",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/web-stack/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-web-stack",
+    "title": "Web Stack",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/ai-stack/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-ai-stack",
+    "title": "AI Stack",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/automation-platforms/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-automation-platforms",
+    "title": "Automation Platforms",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/engineering-standards/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-engineering-standards",
+    "title": "Engineering Standards",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/search-and-analytics/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-search-and-analytics",
+    "title": "Search & Analytics",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/integrations/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-integrations",
+    "title": "Integrations",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/content-platforms/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-content-platforms",
+    "title": "Content Platforms",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/cloud-and-hosting/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-cloud-and-hosting",
+    "title": "Cloud & Hosting",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/data-platforms/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-data-platforms",
+    "title": "Data Platforms",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/crm-platforms/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-crm-platforms",
+    "title": "CRM Platforms",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/mobile-platforms/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-mobile-platforms",
+    "title": "Mobile Platforms",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/security-and-access/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-security-and-access",
+    "title": "Security & Access",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/testing-and-quality/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-testing-and-quality",
+    "title": "Testing & Quality",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/observability/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-observability",
+    "title": "Observability",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/payments-and-billing/",
+    "type": "technology",
+    "heroComponent": "CinematicHero",
+    "heroImage": "tech-payments-and-billing",
+    "title": "Payments & Billing",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/technologies/accessibility-standards/",
+    "type": "technology",
+    "heroComponent": "SplitHero/EditorialHero",
+    "heroImage": null,
+    "title": "Accessibility Standards",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/company/about/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-about",
+    "title": "About BizzFly",
+    "sectionsWithImages": [
+      "company-about"
+    ]
+  },
+  {
+    "route": "/company/how-we-work/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-how-we-work",
+    "title": "How We Work",
+    "sectionsWithImages": [
+      "company-how-we-work"
+    ]
+  },
+  {
+    "route": "/company/approach/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-approach",
+    "title": "Our approach",
+    "sectionsWithImages": [
+      "company-approach"
+    ]
+  },
+  {
+    "route": "/company/careers/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-careers",
+    "title": "Careers",
+    "sectionsWithImages": [
+      "company-careers"
+    ]
+  },
+  {
+    "route": "/company/discovery-process/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-discovery-process",
+    "title": "Discovery process",
+    "sectionsWithImages": [
+      "company-discovery-process"
+    ]
+  },
+  {
+    "route": "/company/digital-growth-methodology/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-digital-growth-methodology",
+    "title": "Digital growth methodology",
+    "sectionsWithImages": [
+      "company-digital-growth-methodology"
+    ]
+  },
+  {
+    "route": "/company/seo-methodology/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-seo-methodology",
+    "title": "SEO methodology",
+    "sectionsWithImages": [
+      "company-seo-methodology"
+    ]
+  },
+  {
+    "route": "/company/ai-search-methodology/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-ai-search-methodology",
+    "title": "AI search methodology",
+    "sectionsWithImages": [
+      "company-ai-search-methodology"
+    ]
+  },
+  {
+    "route": "/company/website-development-process/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-website-development-process",
+    "title": "Website development process",
+    "sectionsWithImages": [
+      "company-website-development-process"
+    ]
+  },
+  {
+    "route": "/company/software-development-process/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-software-development-process",
+    "title": "Software development process",
+    "sectionsWithImages": [
+      "company-software-development-process"
+    ]
+  },
+  {
+    "route": "/company/automation-approach/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": null,
+    "title": "Automation approach",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/company/engagement-models/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-engagement-models",
+    "title": "Engagement models",
+    "sectionsWithImages": [
+      "company-engagement-models"
+    ]
+  },
+  {
+    "route": "/company/how-we-price/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-how-we-price",
+    "title": "How we price",
+    "sectionsWithImages": [
+      "company-how-we-price"
+    ]
+  },
+  {
+    "route": "/company/how-we-report/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-how-we-report",
+    "title": "How we report",
+    "sectionsWithImages": [
+      "company-how-we-report"
+    ]
+  },
+  {
+    "route": "/company/what-we-do-not-do/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-what-we-do-not-do",
+    "title": "What we do not do",
+    "sectionsWithImages": [
+      "company-what-we-do-not-do"
+    ]
+  },
+  {
+    "route": "/company/content-standards/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-content-standards",
+    "title": "Content standards",
+    "sectionsWithImages": [
+      "company-content-standards"
+    ]
+  },
+  {
+    "route": "/company/accessibility-commitment/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": null,
+    "title": "Accessibility commitment",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/company/data-and-privacy-approach/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-data-and-privacy-approach",
+    "title": "Data and privacy approach",
+    "sectionsWithImages": [
+      "company-data-and-privacy-approach"
+    ]
+  },
+  {
+    "route": "/company/working-with-us/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-working-with-us",
+    "title": "Working with us",
+    "sectionsWithImages": [
+      "company-working-with-us"
+    ]
+  },
+  {
+    "route": "/company/faq/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-faq",
+    "title": "Frequently Asked Questions",
+    "sectionsWithImages": [
+      "company-faq"
+    ]
+  },
+  {
+    "route": "/company/privacy-policy/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-privacy-policy",
+    "title": "Privacy Policy",
+    "sectionsWithImages": [
+      "company-privacy-policy"
+    ]
+  },
+  {
+    "route": "/company/terms/",
+    "type": "company",
+    "heroComponent": "EditorialHero",
+    "heroImage": null,
+    "bodyImage": "company-terms",
+    "title": "Terms",
+    "sectionsWithImages": [
+      "company-terms"
+    ]
+  },
+  {
+    "route": "/resources/what-is-generative-engine-optimisation/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-glossary-knowledge",
+    "title": "What Is Generative Engine Optimisation?",
+    "sectionsWithImages": [
+      "resource-glossary-knowledge"
+    ]
+  },
+  {
+    "route": "/resources/what-is-answer-engine-optimisation/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-answer-engine-optimisation",
+    "title": "What Is Answer Engine Optimisation?",
+    "sectionsWithImages": [
+      "resource-what-is-answer-engine-optimisation"
+    ]
+  },
+  {
+    "route": "/resources/why-ai-overviews-cut-your-clicks/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-ai-overviews-clicks",
+    "bodyImage": null,
+    "title": "Why AI Overviews Are Cutting Your Clicks",
+    "sectionsWithImages": [
+      "resource-ai-overviews-clicks"
+    ]
+  },
+  {
+    "route": "/resources/what-the-first-90-days-of-seo-look-like/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-what-the-first-90-days-of-seo-look-like",
+    "bodyImage": null,
+    "title": "What the First 90 Days of SEO Look Like",
+    "sectionsWithImages": [
+      "resource-what-the-first-90-days-of-seo-look-like"
+    ]
+  },
+  {
+    "route": "/resources/what-is-ai-optimisation/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-ai-optimisation",
+    "title": "What Is AI Optimisation?",
+    "sectionsWithImages": [
+      "resource-what-is-ai-optimisation"
+    ]
+  },
+  {
+    "route": "/resources/what-is-search-experience-optimisation/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-search-experience-optimisation",
+    "title": "What Is Search Experience Optimisation?",
+    "sectionsWithImages": [
+      "resource-what-is-search-experience-optimisation"
+    ]
+  },
+  {
+    "route": "/resources/how-to-choose-a-first-automation-project/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-how-to-choose-a-first-automation-project",
+    "bodyImage": null,
+    "title": "How to Choose a First Automation Project",
+    "sectionsWithImages": [
+      "resource-how-to-choose-a-first-automation-project"
+    ]
+  },
+  {
+    "route": "/resources/why-your-website-redesign-lost-traffic/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-redesign-traffic-loss",
+    "bodyImage": null,
+    "title": "Why Your Website Redesign Lost Traffic",
+    "sectionsWithImages": [
+      "resource-redesign-traffic-loss"
+    ]
+  },
+  {
+    "route": "/resources/how-ai-search-works/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-how-ai-search-works",
+    "title": "How AI Search Works",
+    "sectionsWithImages": [
+      "resource-how-ai-search-works"
+    ]
+  },
+  {
+    "route": "/resources/how-to-prepare-content-for-ai-search/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-how-to-prepare-content-for-ai-search",
+    "title": "How to Prepare Content for AI Search",
+    "sectionsWithImages": [
+      "resource-how-to-prepare-content-for-ai-search"
+    ]
+  },
+  {
+    "route": "/resources/how-to-build-search-visibility/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-how-to-build-search-visibility",
+    "title": "How to Build Search Visibility",
+    "sectionsWithImages": [
+      "resource-how-to-build-search-visibility"
+    ]
+  },
+  {
+    "route": "/resources/how-to-measure-search-visibility/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-how-to-measure-search-visibility",
+    "title": "How to Measure Search Visibility",
+    "sectionsWithImages": [
+      "resource-how-to-measure-search-visibility"
+    ]
+  },
+  {
+    "route": "/resources/how-search-intent-works/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-how-search-intent-works",
+    "title": "How Search Intent Works",
+    "sectionsWithImages": [
+      "resource-how-search-intent-works"
+    ]
+  },
+  {
+    "route": "/resources/how-to-run-a-content-audit/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-how-to-run-a-content-audit",
+    "title": "How to Run a Content Audit",
+    "sectionsWithImages": [
+      "resource-how-to-run-a-content-audit"
+    ]
+  },
+  {
+    "route": "/resources/how-to-build-an-automation-roadmap/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-how-to-build-an-automation-roadmap",
+    "title": "How to Build an Automation Roadmap",
+    "sectionsWithImages": [
+      "resource-how-to-build-an-automation-roadmap"
+    ]
+  },
+  {
+    "route": "/resources/how-to-structure-a-website-for-search/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-how-to-structure-a-website-for-search",
+    "title": "How to Structure a Website for Search",
+    "sectionsWithImages": [
+      "resource-how-to-structure-a-website-for-search"
+    ]
+  },
+  {
+    "route": "/resources/seo-vs-paid-search/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-seo-vs-paid-search",
+    "bodyImage": null,
+    "title": "SEO vs Paid Search",
+    "sectionsWithImages": [
+      "resource-seo-vs-paid-search"
+    ]
+  },
+  {
+    "route": "/resources/seo-vs-aeo/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": null,
+    "bodyImage": null,
+    "title": "SEO vs AEO",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/resources/aeo-vs-geo/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-aeo-vs-geo",
+    "bodyImage": null,
+    "title": "AEO vs GEO",
+    "sectionsWithImages": [
+      "resource-aeo-vs-geo"
+    ]
+  },
+  {
+    "route": "/resources/traditional-search-vs-ai-search/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-traditional-search-vs-ai-search",
+    "bodyImage": null,
+    "title": "Traditional Search vs AI Search",
+    "sectionsWithImages": [
+      "resource-traditional-search-vs-ai-search"
+    ]
+  },
+  {
+    "route": "/resources/website-redesign-vs-rebuild/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-website-redesign-vs-rebuild",
+    "bodyImage": null,
+    "title": "Website Redesign vs Rebuild",
+    "sectionsWithImages": [
+      "resource-website-redesign-vs-rebuild"
+    ]
+  },
+  {
+    "route": "/resources/custom-software-vs-off-the-shelf/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": null,
+    "bodyImage": null,
+    "title": "Custom Software vs Off-the-Shelf",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/resources/automation-vs-manual-operations/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-automation-vs-manual-operations",
+    "bodyImage": null,
+    "title": "Automation vs Manual Operations",
+    "sectionsWithImages": [
+      "resource-automation-vs-manual-operations"
+    ]
+  },
+  {
+    "route": "/resources/ai-automation-vs-rule-based-automation/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-ai-automation-vs-rule-based-automation",
+    "bodyImage": null,
+    "title": "AI Automation vs Rule-Based Automation",
+    "sectionsWithImages": [
+      "resource-ai-automation-vs-rule-based-automation"
+    ]
+  },
+  {
+    "route": "/resources/in-house-seo-vs-agency-seo/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-in-house-seo-vs-agency-seo",
+    "bodyImage": null,
+    "title": "In-House SEO vs Agency SEO",
+    "sectionsWithImages": [
+      "resource-in-house-seo-vs-agency-seo"
+    ]
+  },
+  {
+    "route": "/resources/headless-vs-traditional-cms/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-headless-vs-traditional-cms",
+    "bodyImage": null,
+    "title": "Headless vs Traditional CMS",
+    "sectionsWithImages": [
+      "resource-headless-vs-traditional-cms"
+    ]
+  },
+  {
+    "route": "/resources/when-do-you-need-an-seo-agency/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-when-do-you-need-an-seo-agency",
+    "bodyImage": null,
+    "title": "When Do You Need an SEO Agency?",
+    "sectionsWithImages": [
+      "resource-when-do-you-need-an-seo-agency"
+    ]
+  },
+  {
+    "route": "/resources/when-should-you-redesign-your-website/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-when-should-you-redesign-your-website",
+    "bodyImage": null,
+    "title": "When Should You Redesign Your Website?",
+    "sectionsWithImages": [
+      "resource-when-should-you-redesign-your-website"
+    ]
+  },
+  {
+    "route": "/resources/when-should-you-build-custom-software/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-when-should-you-build-custom-software",
+    "bodyImage": null,
+    "title": "When Should You Build Custom Software?",
+    "sectionsWithImages": [
+      "resource-when-should-you-build-custom-software"
+    ]
+  },
+  {
+    "route": "/resources/when-should-you-automate-a-process/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-when-should-you-automate-a-process",
+    "bodyImage": null,
+    "title": "When Should You Automate a Process?",
+    "sectionsWithImages": [
+      "resource-when-should-you-automate-a-process"
+    ]
+  },
+  {
+    "route": "/resources/when-should-a-business-invest-in-ai/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-when-should-a-business-invest-in-ai",
+    "bodyImage": null,
+    "title": "When Should a Business Invest in AI?",
+    "sectionsWithImages": [
+      "resource-when-should-a-business-invest-in-ai"
+    ]
+  },
+  {
+    "route": "/resources/how-to-choose-a-digital-growth-partner/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-how-to-choose-a-digital-growth-partner",
+    "bodyImage": null,
+    "title": "How to Choose a Digital Growth Partner",
+    "sectionsWithImages": [
+      "resource-how-to-choose-a-digital-growth-partner"
+    ]
+  },
+  {
+    "route": "/resources/how-to-evaluate-seo-services/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-how-to-evaluate-seo-services",
+    "bodyImage": null,
+    "title": "How to Evaluate SEO Services",
+    "sectionsWithImages": [
+      "resource-how-to-evaluate-seo-services"
+    ]
+  },
+  {
+    "route": "/resources/how-to-evaluate-a-software-development-partner/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-how-to-evaluate-a-software-development-partner",
+    "bodyImage": null,
+    "title": "How to Evaluate a Software Development Partner",
+    "sectionsWithImages": [
+      "resource-how-to-evaluate-a-software-development-partner"
+    ]
+  },
+  {
+    "route": "/resources/how-to-plan-a-website-redesign/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-how-to-plan-a-website-redesign",
+    "bodyImage": null,
+    "title": "How to Plan a Website Redesign",
+    "sectionsWithImages": [
+      "resource-how-to-plan-a-website-redesign"
+    ]
+  },
+  {
+    "route": "/resources/how-to-plan-a-digital-transformation-project/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-how-to-plan-a-digital-transformation-project",
+    "bodyImage": null,
+    "title": "How to Plan a Digital Transformation Project",
+    "sectionsWithImages": [
+      "resource-how-to-plan-a-digital-transformation-project"
+    ]
+  },
+  {
+    "route": "/resources/technical-seo-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-checklist-technical-seo",
+    "title": "Technical SEO Checklist",
+    "sectionsWithImages": [
+      "resource-checklist-technical-seo"
+    ]
+  },
+  {
+    "route": "/resources/ai-search-readiness-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-ai-search-readiness-checklist",
+    "title": "AI Search Readiness Checklist",
+    "sectionsWithImages": [
+      "resource-ai-search-readiness-checklist"
+    ]
+  },
+  {
+    "route": "/resources/website-launch-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": null,
+    "title": "Website Launch Checklist",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/resources/local-seo-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-local-seo-checklist",
+    "title": "Local SEO Checklist",
+    "sectionsWithImages": [
+      "resource-local-seo-checklist"
+    ]
+  },
+  {
+    "route": "/resources/website-conversion-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-website-conversion-checklist",
+    "title": "Website Conversion Checklist",
+    "sectionsWithImages": [
+      "resource-website-conversion-checklist"
+    ]
+  },
+  {
+    "route": "/resources/digital-growth-audit-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-digital-growth-audit-checklist",
+    "title": "Digital Growth Audit Checklist",
+    "sectionsWithImages": [
+      "resource-digital-growth-audit-checklist"
+    ]
+  },
+  {
+    "route": "/resources/automation-readiness-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-automation-readiness-checklist",
+    "title": "Automation Readiness Checklist",
+    "sectionsWithImages": [
+      "resource-automation-readiness-checklist"
+    ]
+  },
+  {
+    "route": "/resources/what-is-search-intent/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-search-intent",
+    "title": "Search Intent",
+    "sectionsWithImages": [
+      "resource-what-is-search-intent"
+    ]
+  },
+  {
+    "route": "/resources/what-is-entity-optimisation/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-entity-optimisation",
+    "title": "Entity Optimisation",
+    "sectionsWithImages": [
+      "resource-what-is-entity-optimisation"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-knowledge-graph/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-knowledge-graph",
+    "title": "Knowledge Graph",
+    "sectionsWithImages": [
+      "resource-what-is-a-knowledge-graph"
+    ]
+  },
+  {
+    "route": "/resources/what-is-schema-markup/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-schema-markup",
+    "title": "Schema Markup",
+    "sectionsWithImages": [
+      "resource-what-is-schema-markup"
+    ]
+  },
+  {
+    "route": "/resources/what-is-zero-click-search/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-zero-click-search",
+    "title": "Zero-Click Search",
+    "sectionsWithImages": [
+      "resource-what-is-zero-click-search"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-featured-snippet/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-featured-snippet",
+    "title": "Featured Snippet",
+    "sectionsWithImages": [
+      "resource-what-is-a-featured-snippet"
+    ]
+  },
+  {
+    "route": "/resources/what-is-crawl-budget/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-crawl-budget",
+    "title": "Crawl Budget",
+    "sectionsWithImages": [
+      "resource-what-is-crawl-budget"
+    ]
+  },
+  {
+    "route": "/resources/what-is-index-coverage/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-index-coverage",
+    "title": "Index Coverage",
+    "sectionsWithImages": [
+      "resource-what-is-index-coverage"
+    ]
+  },
+  {
+    "route": "/resources/what-is-canonicalisation/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-canonicalisation",
+    "title": "Canonicalisation",
+    "sectionsWithImages": [
+      "resource-what-is-canonicalisation"
+    ]
+  },
+  {
+    "route": "/resources/what-is-core-web-vitals/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-core-web-vitals",
+    "title": "Core Web Vitals",
+    "sectionsWithImages": [
+      "resource-what-is-core-web-vitals"
+    ]
+  },
+  {
+    "route": "/resources/what-is-internal-linking/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-internal-linking",
+    "title": "Internal Linking",
+    "sectionsWithImages": [
+      "resource-what-is-internal-linking"
+    ]
+  },
+  {
+    "route": "/resources/what-is-topical-authority/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-topical-authority",
+    "title": "Topical Authority",
+    "sectionsWithImages": [
+      "resource-what-is-topical-authority"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-large-language-model/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-large-language-model",
+    "title": "Large Language Model (LLM)",
+    "sectionsWithImages": [
+      "resource-what-is-a-large-language-model"
+    ]
+  },
+  {
+    "route": "/resources/what-is-retrieval-augmented-generation/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-retrieval-augmented-generation",
+    "title": "Retrieval-Augmented Generation (RAG)",
+    "sectionsWithImages": [
+      "resource-what-is-retrieval-augmented-generation"
+    ]
+  },
+  {
+    "route": "/resources/what-is-vector-search/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-vector-search",
+    "title": "Vector Search",
+    "sectionsWithImages": [
+      "resource-what-is-vector-search"
+    ]
+  },
+  {
+    "route": "/resources/what-is-an-ai-agent/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-an-ai-agent",
+    "title": "AI Agent",
+    "sectionsWithImages": [
+      "resource-what-is-an-ai-agent"
+    ]
+  },
+  {
+    "route": "/resources/what-is-hallucination-in-ai/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-hallucination-in-ai",
+    "title": "Hallucination (AI)",
+    "sectionsWithImages": [
+      "resource-what-is-hallucination-in-ai"
+    ]
+  },
+  {
+    "route": "/resources/what-is-robotic-process-automation/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-robotic-process-automation",
+    "title": "Robotic Process Automation (RPA)",
+    "sectionsWithImages": [
+      "resource-what-is-robotic-process-automation"
+    ]
+  },
+  {
+    "route": "/resources/what-is-an-api/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-an-api",
+    "title": "API",
+    "sectionsWithImages": [
+      "resource-what-is-an-api"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-webhook/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-webhook",
+    "title": "Webhook",
+    "sectionsWithImages": [
+      "resource-what-is-a-webhook"
+    ]
+  },
+  {
+    "route": "/resources/what-is-technical-debt/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-technical-debt",
+    "title": "Technical Debt",
+    "sectionsWithImages": [
+      "resource-what-is-technical-debt"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-headless-cms/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-headless-cms",
+    "title": "Headless CMS",
+    "sectionsWithImages": [
+      "resource-what-is-a-headless-cms"
+    ]
+  },
+  {
+    "route": "/resources/what-is-server-side-rendering/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-server-side-rendering",
+    "title": "Server-Side Rendering",
+    "sectionsWithImages": [
+      "resource-what-is-server-side-rendering"
+    ]
+  },
+  {
+    "route": "/resources/what-is-marketing-attribution/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-marketing-attribution",
+    "title": "Marketing Attribution",
+    "sectionsWithImages": [
+      "resource-what-is-marketing-attribution"
+    ]
+  },
+  {
+    "route": "/resources/what-is-eeat/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-eeat",
+    "title": "E-E-A-T",
+    "sectionsWithImages": [
+      "resource-what-is-eeat"
+    ]
+  },
+  {
+    "route": "/resources/what-is-keyword-cannibalisation/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-keyword-cannibalisation",
+    "title": "Keyword Cannibalisation",
+    "sectionsWithImages": [
+      "resource-what-is-keyword-cannibalisation"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-content-cluster/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-content-cluster",
+    "title": "Content Cluster",
+    "sectionsWithImages": [
+      "resource-what-is-a-content-cluster"
+    ]
+  },
+  {
+    "route": "/resources/what-is-an-xml-sitemap/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-an-xml-sitemap",
+    "title": "XML Sitemap",
+    "sectionsWithImages": [
+      "resource-what-is-an-xml-sitemap"
+    ]
+  },
+  {
+    "route": "/resources/what-is-robots-txt/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-robots-txt",
+    "title": "robots.txt",
+    "sectionsWithImages": [
+      "resource-what-is-robots-txt"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-redirect/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-redirect",
+    "title": "Redirect",
+    "sectionsWithImages": [
+      "resource-what-is-a-redirect"
+    ]
+  },
+  {
+    "route": "/resources/what-is-local-seo/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-local-seo",
+    "title": "What Is Local SEO?",
+    "sectionsWithImages": [
+      "resource-what-is-local-seo"
+    ]
+  },
+  {
+    "route": "/resources/what-is-programmatic-seo/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-programmatic-seo",
+    "title": "Programmatic SEO",
+    "sectionsWithImages": [
+      "resource-what-is-programmatic-seo"
+    ]
+  },
+  {
+    "route": "/resources/what-is-log-file-analysis/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-log-file-analysis",
+    "title": "Log File Analysis",
+    "sectionsWithImages": [
+      "resource-what-is-log-file-analysis"
+    ]
+  },
+  {
+    "route": "/resources/what-is-conversion-rate/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-conversion-rate",
+    "title": "Conversion Rate",
+    "sectionsWithImages": [
+      "resource-what-is-conversion-rate"
+    ]
+  },
+  {
+    "route": "/resources/what-is-customer-lifetime-value/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-customer-lifetime-value",
+    "title": "Customer Lifetime Value",
+    "sectionsWithImages": [
+      "resource-what-is-customer-lifetime-value"
+    ]
+  },
+  {
+    "route": "/resources/what-is-machine-learning/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-machine-learning",
+    "title": "Machine Learning",
+    "sectionsWithImages": [
+      "resource-what-is-machine-learning"
+    ]
+  },
+  {
+    "route": "/resources/what-is-prompt-engineering/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-prompt-engineering",
+    "title": "Prompt Engineering",
+    "sectionsWithImages": [
+      "resource-what-is-prompt-engineering"
+    ]
+  },
+  {
+    "route": "/resources/what-is-fine-tuning/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-fine-tuning",
+    "title": "Fine-Tuning",
+    "sectionsWithImages": [
+      "resource-what-is-fine-tuning"
+    ]
+  },
+  {
+    "route": "/resources/what-is-middleware/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-middleware",
+    "title": "Middleware",
+    "sectionsWithImages": [
+      "resource-what-is-middleware"
+    ]
+  },
+  {
+    "route": "/resources/what-is-structured-content/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-structured-content",
+    "title": "Structured Content",
+    "sectionsWithImages": [
+      "resource-what-is-structured-content"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-data-warehouse/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-data-warehouse",
+    "title": "Data Warehouse",
+    "sectionsWithImages": [
+      "resource-what-is-a-data-warehouse"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-digital-growth-engine/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-digital-growth-engine",
+    "title": "Digital Growth Engine",
+    "sectionsWithImages": [
+      "resource-what-is-a-digital-growth-engine"
+    ]
+  },
+  {
+    "route": "/resources/what-is-organic-traffic/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-organic-traffic",
+    "title": "Organic Traffic",
+    "sectionsWithImages": [
+      "resource-what-is-organic-traffic"
+    ]
+  },
+  {
+    "route": "/resources/what-is-bounce-rate/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-bounce-rate",
+    "title": "Bounce Rate",
+    "sectionsWithImages": [
+      "resource-what-is-bounce-rate"
+    ]
+  },
+  {
+    "route": "/resources/what-is-domain-authority/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-domain-authority",
+    "title": "Domain Authority",
+    "sectionsWithImages": [
+      "resource-what-is-domain-authority"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-backlink/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-backlink",
+    "title": "Backlink",
+    "sectionsWithImages": [
+      "resource-what-is-a-backlink"
+    ]
+  },
+  {
+    "route": "/resources/what-is-anchor-text/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-anchor-text",
+    "title": "Anchor Text",
+    "sectionsWithImages": [
+      "resource-what-is-anchor-text"
+    ]
+  },
+  {
+    "route": "/resources/what-is-page-speed/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-page-speed",
+    "title": "Page Speed",
+    "sectionsWithImages": [
+      "resource-what-is-page-speed"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-conversion-funnel/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-conversion-funnel",
+    "title": "Conversion Funnel",
+    "sectionsWithImages": [
+      "resource-what-is-a-conversion-funnel"
+    ]
+  },
+  {
+    "route": "/resources/what-is-lead-scoring/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-lead-scoring",
+    "title": "Lead Scoring",
+    "sectionsWithImages": [
+      "resource-what-is-lead-scoring"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-customer-data-platform/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-customer-data-platform",
+    "title": "Customer Data Platform",
+    "sectionsWithImages": [
+      "resource-what-is-a-customer-data-platform"
+    ]
+  },
+  {
+    "route": "/resources/what-is-etl/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-etl",
+    "title": "ETL",
+    "sectionsWithImages": [
+      "resource-what-is-etl"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-data-pipeline/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-data-pipeline",
+    "title": "Data Pipeline",
+    "sectionsWithImages": [
+      "resource-what-is-a-data-pipeline"
+    ]
+  },
+  {
+    "route": "/resources/what-is-single-sign-on/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-single-sign-on",
+    "title": "Single Sign-On",
+    "sectionsWithImages": [
+      "resource-what-is-single-sign-on"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-design-system/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-design-system",
+    "title": "Design System",
+    "sectionsWithImages": [
+      "resource-what-is-a-design-system"
+    ]
+  },
+  {
+    "route": "/resources/what-is-progressive-enhancement/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-progressive-enhancement",
+    "title": "Progressive Enhancement",
+    "sectionsWithImages": [
+      "resource-what-is-progressive-enhancement"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-service-level-agreement/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-service-level-agreement",
+    "title": "Service Level Agreement",
+    "sectionsWithImages": [
+      "resource-what-is-a-service-level-agreement"
+    ]
+  },
+  {
+    "route": "/resources/what-is-total-cost-of-ownership/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-total-cost-of-ownership",
+    "title": "Total Cost of Ownership",
+    "sectionsWithImages": [
+      "resource-what-is-total-cost-of-ownership"
+    ]
+  },
+  {
+    "route": "/resources/what-is-a-minimum-viable-product/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-a-minimum-viable-product",
+    "title": "Minimum Viable Product",
+    "sectionsWithImages": [
+      "resource-what-is-a-minimum-viable-product"
+    ]
+  },
+  {
+    "route": "/resources/what-is-workflow-orchestration/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-what-is-workflow-orchestration",
+    "title": "Workflow Orchestration",
+    "sectionsWithImages": [
+      "resource-what-is-workflow-orchestration"
+    ]
+  },
+  {
+    "route": "/resources/seo-audit-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-seo-audit-checklist",
+    "title": "SEO Audit Checklist",
+    "sectionsWithImages": [
+      "resource-seo-audit-checklist"
+    ]
+  },
+  {
+    "route": "/resources/content-audit-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-content-audit-checklist",
+    "title": "Content Audit Checklist",
+    "sectionsWithImages": [
+      "resource-content-audit-checklist"
+    ]
+  },
+  {
+    "route": "/resources/site-migration-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-site-migration-checklist",
+    "title": "Site Migration Checklist",
+    "sectionsWithImages": [
+      "resource-site-migration-checklist"
+    ]
+  },
+  {
+    "route": "/resources/ecommerce-seo-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-ecommerce-seo-checklist",
+    "title": "E-commerce SEO Checklist",
+    "sectionsWithImages": [
+      "resource-ecommerce-seo-checklist"
+    ]
+  },
+  {
+    "route": "/resources/crm-implementation-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-crm-implementation-checklist",
+    "title": "CRM Implementation Checklist",
+    "sectionsWithImages": [
+      "resource-crm-implementation-checklist"
+    ]
+  },
+  {
+    "route": "/resources/integration-readiness-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-integration-readiness-checklist",
+    "title": "Integration Readiness Checklist",
+    "sectionsWithImages": [
+      "resource-integration-readiness-checklist"
+    ]
+  },
+  {
+    "route": "/resources/ai-project-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-ai-project-checklist",
+    "title": "AI Project Checklist",
+    "sectionsWithImages": [
+      "resource-ai-project-checklist"
+    ]
+  },
+  {
+    "route": "/resources/accessibility-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-accessibility-checklist",
+    "title": "Accessibility Checklist",
+    "sectionsWithImages": [
+      "resource-accessibility-checklist"
+    ]
+  },
+  {
+    "route": "/resources/analytics-implementation-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-analytics-implementation-checklist",
+    "title": "Analytics Implementation Checklist",
+    "sectionsWithImages": [
+      "resource-analytics-implementation-checklist"
+    ]
+  },
+  {
+    "route": "/resources/pre-launch-seo-checklist/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-pre-launch-seo-checklist",
+    "title": "Pre-Launch SEO Checklist",
+    "sectionsWithImages": [
+      "resource-pre-launch-seo-checklist"
+    ]
+  },
+  {
+    "route": "/resources/seo-audit-vs-seo-strategy/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-seo-audit-vs-seo-strategy",
+    "bodyImage": null,
+    "title": "SEO Audit vs SEO Strategy",
+    "sectionsWithImages": [
+      "resource-seo-audit-vs-seo-strategy"
+    ]
+  },
+  {
+    "route": "/resources/local-seo-vs-national-seo/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-local-seo-vs-national-seo",
+    "bodyImage": null,
+    "title": "Local SEO vs National SEO",
+    "sectionsWithImages": [
+      "resource-local-seo-vs-national-seo"
+    ]
+  },
+  {
+    "route": "/resources/in-house-vs-outsourced-development/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-in-house-vs-outsourced-development",
+    "bodyImage": null,
+    "title": "In-House vs Outsourced Development",
+    "sectionsWithImages": [
+      "resource-in-house-vs-outsourced-development"
+    ]
+  },
+  {
+    "route": "/resources/no-code-vs-custom-development/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-no-code-vs-custom-development",
+    "bodyImage": null,
+    "title": "No-Code vs Custom Development",
+    "sectionsWithImages": [
+      "resource-no-code-vs-custom-development"
+    ]
+  },
+  {
+    "route": "/resources/chatbot-vs-ai-agent/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-chatbot-vs-ai-agent",
+    "bodyImage": null,
+    "title": "Chatbot vs AI Agent",
+    "sectionsWithImages": [
+      "resource-chatbot-vs-ai-agent"
+    ]
+  },
+  {
+    "route": "/resources/rag-vs-fine-tuning/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-rag-vs-fine-tuning",
+    "bodyImage": null,
+    "title": "RAG vs Fine-Tuning",
+    "sectionsWithImages": [
+      "resource-rag-vs-fine-tuning"
+    ]
+  },
+  {
+    "route": "/resources/data-warehouse-vs-spreadsheets/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": null,
+    "bodyImage": null,
+    "title": "Data Warehouse vs Spreadsheets",
+    "sectionsWithImages": []
+  },
+  {
+    "route": "/resources/native-vs-web-apps/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-native-vs-web-apps",
+    "bodyImage": null,
+    "title": "Native Apps vs Web Apps",
+    "sectionsWithImages": [
+      "resource-native-vs-web-apps"
+    ]
+  },
+  {
+    "route": "/resources/organic-vs-paid-social/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-organic-vs-paid-social",
+    "bodyImage": null,
+    "title": "Organic vs Paid Social",
+    "sectionsWithImages": [
+      "resource-organic-vs-paid-social"
+    ]
+  },
+  {
+    "route": "/resources/agency-vs-freelancer/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-agency-vs-freelancer",
+    "bodyImage": null,
+    "title": "Agency vs Freelancer",
+    "sectionsWithImages": [
+      "resource-agency-vs-freelancer"
+    ]
+  },
+  {
+    "route": "/resources/when-to-hire-an-seo-specialist/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-when-to-hire-an-seo-specialist",
+    "bodyImage": null,
+    "title": "When to Hire an SEO Specialist",
+    "sectionsWithImages": [
+      "resource-when-to-hire-an-seo-specialist"
+    ]
+  },
+  {
+    "route": "/resources/when-to-replatform-a-website/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-when-to-replatform",
+    "bodyImage": null,
+    "title": "When to Replatform a Website",
+    "sectionsWithImages": [
+      "resource-when-to-replatform"
+    ]
+  },
+  {
+    "route": "/resources/when-to-build-a-mobile-app/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-when-to-build-a-mobile-app",
+    "bodyImage": null,
+    "title": "When to Build a Mobile App",
+    "sectionsWithImages": [
+      "resource-when-to-build-a-mobile-app"
+    ]
+  },
+  {
+    "route": "/resources/when-to-invest-in-analytics/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-invest-in-analytics",
+    "bodyImage": null,
+    "title": "When to Invest in Analytics",
+    "sectionsWithImages": [
+      "resource-invest-in-analytics"
+    ]
+  },
+  {
+    "route": "/resources/when-to-outsource-development/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-outsource-development",
+    "bodyImage": null,
+    "title": "When to Outsource Development",
+    "sectionsWithImages": [
+      "resource-outsource-development"
+    ]
+  },
+  {
+    "route": "/resources/how-to-choose-a-cms/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-how-to-choose-a-cms",
+    "bodyImage": null,
+    "title": "How to Choose a CMS",
+    "sectionsWithImages": [
+      "resource-how-to-choose-a-cms"
+    ]
+  },
+  {
+    "route": "/resources/how-to-set-a-digital-budget/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-how-to-set-a-digital-budget",
+    "bodyImage": null,
+    "title": "How to Set a Digital Budget",
+    "sectionsWithImages": [
+      "resource-how-to-set-a-digital-budget"
+    ]
+  },
+  {
+    "route": "/resources/how-to-brief-an-seo-agency/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-how-to-brief-an-seo-agency",
+    "bodyImage": null,
+    "title": "How to Brief an SEO Agency",
+    "sectionsWithImages": [
+      "resource-how-to-brief-an-seo-agency"
+    ]
+  },
+  {
+    "route": "/resources/how-to-audit-your-own-website/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-guide-seo-audit",
+    "bodyImage": null,
+    "title": "How to Audit Your Own Website",
+    "sectionsWithImages": [
+      "resource-guide-seo-audit"
+    ]
+  },
+  {
+    "route": "/resources/how-to-prioritise-digital-work/",
+    "type": "resource",
+    "heroComponent": "Article Header (with lede figure)",
+    "heroImage": "resource-how-to-prioritise-digital-work",
+    "bodyImage": null,
+    "title": "How to Prioritise Digital Work",
+    "sectionsWithImages": [
+      "resource-how-to-prioritise-digital-work"
+    ]
+  },
+  {
+    "route": "/resources/seo-reporting-framework/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-seo-reporting-framework",
+    "title": "SEO Reporting Framework",
+    "sectionsWithImages": [
+      "resource-seo-reporting-framework"
+    ]
+  },
+  {
+    "route": "/resources/enterprise-seo-framework/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-enterprise-seo-framework",
+    "title": "Enterprise SEO Framework",
+    "sectionsWithImages": [
+      "resource-enterprise-seo-framework"
+    ]
+  },
+  {
+    "route": "/resources/content-planning-framework/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-content-planning-framework",
+    "title": "Content Planning Framework",
+    "sectionsWithImages": [
+      "resource-content-planning-framework"
+    ]
+  },
+  {
+    "route": "/resources/technical-seo-migration-guide/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-technical-seo-migration-guide",
+    "title": "Technical SEO Migration Guide",
+    "sectionsWithImages": [
+      "resource-technical-seo-migration-guide"
+    ]
+  },
+  {
+    "route": "/resources/ai-visibility-measurement-guide/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-ai-visibility-measurement-guide",
+    "title": "AI Visibility Measurement Guide",
+    "sectionsWithImages": [
+      "resource-ai-visibility-measurement-guide"
+    ]
+  },
+  {
+    "route": "/resources/automation-business-case-guide/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-automation-business-case-guide",
+    "title": "Building the Business Case for Automation",
+    "sectionsWithImages": [
+      "resource-automation-business-case-guide"
+    ]
+  },
+  {
+    "route": "/resources/ai-governance-guide/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-ai-governance-guide",
+    "title": "AI Governance for Small Teams",
+    "sectionsWithImages": [
+      "resource-ai-governance-guide"
+    ]
+  },
+  {
+    "route": "/resources/website-brief-guide/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-website-brief-guide",
+    "title": "How to Write a Website Brief",
+    "sectionsWithImages": [
+      "resource-website-brief-guide"
+    ]
+  },
+  {
+    "route": "/resources/software-requirements-guide/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-software-requirements-guide",
+    "title": "How to Write Software Requirements",
+    "sectionsWithImages": [
+      "resource-software-requirements-guide"
+    ]
+  },
+  {
+    "route": "/resources/data-quality-framework/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-data-quality-framework",
+    "title": "Data Quality Framework",
+    "sectionsWithImages": [
+      "resource-data-quality-framework"
+    ]
+  },
+  {
+    "route": "/resources/conversion-research-guide/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-conversion-research-guide",
+    "title": "Conversion Research Guide",
+    "sectionsWithImages": [
+      "resource-conversion-research-guide"
+    ]
+  },
+  {
+    "route": "/resources/first-90-days-automation/",
+    "type": "resource",
+    "heroComponent": "Article Header (no img)",
+    "heroImage": null,
+    "bodyImage": "resource-first-90-days-automation",
+    "title": "The First 90 Days of Automation",
+    "sectionsWithImages": [
+      "resource-first-90-days-automation"
+    ]
+  }
+]

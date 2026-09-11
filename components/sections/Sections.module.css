@@ -19,7 +19,7 @@
 .headerEyebrow {
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-medium);
   letter-spacing: var(--tracking-eyebrow);
   color: var(--accent-text);
   line-height: var(--leading-snug);
@@ -65,7 +65,7 @@
 
 @media (min-width: 1024px) {
   .headerSplit {
-    grid-template-columns: 5fr 7fr;
+    grid-template-columns: 6fr 7fr;
     gap: var(--space-16);
     align-items: start;
   }
@@ -84,19 +84,62 @@
   border-bottom: 1px solid var(--border);
 }
 
+/*
+ * Placement is named at every width, because auto-placement gets this row
+ * wrong on a phone.
+ *
+ * The row has four children in source order — index, title, description,
+ * arrow — and the narrow grid is two columns: `auto` for the number badge,
+ * `1fr` for everything else. Auto-placement therefore filled row one with
+ * index + title and row two with DESCRIPTION + arrow, which put a paragraph
+ * of body copy inside the 2rem track sized for a number badge. On a 390px
+ * phone that rendered as a column of two-word lines beside a floating arrow.
+ *
+ * Naming the areas fixes it without touching the desktop composition: the
+ * description gets the full width under the title on a phone, a hanging
+ * indent from the tablet step, and its own column on desktop exactly as before.
+ */
 .numberedLink {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-4) var(--space-6);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "index       title       arrow"
+    "description description description";
+  align-items: start;
+  gap: var(--space-3) var(--space-4);
   padding-block: var(--space-8);
   text-decoration: none;
   color: var(--foreground);
   position: relative;
 }
 
+.numberedLink > .numberedIndex {
+  grid-area: index;
+}
+.numberedLink > .numberedTitle {
+  grid-area: title;
+}
+.numberedLink > .numberedDescription {
+  grid-area: description;
+}
+.numberedLink > .numberedArrow {
+  grid-area: arrow;
+}
+
+/* Room for the hanging indent, so the description tucks under the title. */
+@media (min-width: 768px) {
+  .numberedLink {
+    grid-template-areas:
+      "index title       arrow"
+      ".     description .";
+    gap: var(--space-4) var(--space-6);
+  }
+}
+
 @media (min-width: 1024px) {
   .numberedLink {
     grid-template-columns: auto minmax(0, 22rem) minmax(0, 1fr) auto;
+    grid-template-areas: "index title description arrow";
     align-items: baseline;
     gap: var(--space-10);
   }
@@ -118,11 +161,28 @@
   color: var(--accent-text);
 }
 
+/*
+ * The row title is the anchor, so it has to turn its own underline off.
+ *
+ * `.numberedLink` above is a div and its `text-decoration: none` only
+ * propagates to descendants that do not set their own — and the UA sheet
+ * gives every `<a>` an underline, which base.css does not reset (it sets
+ * colour only). So a 22-30px display heading was rendering underlined on
+ * five pages, which reads as unstyled markup rather than as a link. The row
+ * already signals itself: the hairline extends and the arrow travels.
+ *
+ * The line-height matters at this size too — without it these inherited the
+ * body's 1.7, and a two-line title like "Web & Software Development" opened
+ * a gap between its own lines wider than the gap to the next row.
+ */
 .numberedTitle {
   font-family: var(--font-display);
   font-size: var(--text-h3);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-h3);
+  line-height: var(--leading-heading);
+  text-decoration: none;
+  text-wrap: balance;
 }
 
 .numberedDescription {
@@ -168,6 +228,13 @@
 }
 
 /* Inline link rail — 24 service links in the space six cards would take */
+/*
+ * The rail names a column but never a row, so it lands in an IMPLICIT row
+ * created only when a rail exists. Naming it in .numberedLink's
+ * grid-template-areas instead would declare the row unconditionally, and the
+ * row-gap to it is charged whether or not anything is in it — 40px of dead
+ * space under every one of the 51 service rows that carry no rail.
+ */
 .rail {
   display: flex;
   flex-wrap: wrap;
@@ -205,6 +272,32 @@
 }
 
 /* --- S-09 Statement + evidence ------------------------------------------ */
+/*
+ * The statement-only composition. See EditorialBlock.tsx for why this is a
+ * separate shape rather than the grid below with one track left empty.
+ *
+ * 6/7 matches .headerSplit above, so a statement band and a section header
+ * on the same page put their headings on the same column edge.
+ */
+.statementSplit {
+  display: grid;
+  gap: var(--gap-heading-lead);
+}
+
+@media (min-width: 1024px) {
+  .statementSplit {
+    grid-template-columns: 6fr 7fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+}
+
+.statementSplitHead {
+  display: grid;
+  gap: var(--space-8);
+  justify-items: start;
+}
+
 .statement {
   display: grid;
   gap: var(--space-6);
@@ -214,6 +307,25 @@
   .statement {
     grid-template-columns: 7fr 4fr;
     gap: var(--space-16);
+  }
+
+  /*
+   * The statement centres against its evidence; it does not hang from the top
+   * of the row.
+   *
+   * A grid item stretches by default, so the left column was as tall as the
+   * list beside it with its three lines of text pinned to the top edge. On a
+   * five- or six-item list that left 300px of empty column under the lead —
+   * read as a section that had lost something, not as breathing room. The
+   * evidence list is the taller item in every instance of this block, so it
+   * sets the row height and does not move; only the statement shifts.
+   *
+   * align-self on the item rather than align-items on the grid: the list must
+   * keep stretching, because its top and bottom rules are the frame the
+   * numbers sit in and a centred list would draw them at an arbitrary height.
+   */
+  .statementText {
+    align-self: center;
   }
 }
 
@@ -284,8 +396,17 @@
 }
 
 @media (min-width: 768px) {
+  /*
+   * Columns that fit the set rather than a fixed three.
+   *
+   * This block carries three items on some pages and four, five or six on
+   * others — the sector technology sections are four — and a hard three-track
+   * grid put the fourth alone on a second row with two empty cells beside it.
+   * Auto-filling at a readable minimum lands four across where the container
+   * allows and falls back to three, then two, as it narrows.
+   */
   .related {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
     gap: var(--space-10);
   }
 }
@@ -335,10 +456,21 @@
 }
 
 /* --- S-17 Conversion band ------------------------------------------------ */
+/*
+ * The action sits against the middle of the statement, not its baseline.
+ *
+ * This was `align-items: end`, which pinned the button and its note to the
+ * bottom edge of the text column. On a two-line heading with a three-line
+ * lead that put roughly 120px of empty ground above the button and none
+ * below it, so the right-hand half of the band read as bottom-heavy while
+ * the left read as top-heavy — two columns that never met. Centring is what
+ * "balance" means here: the button lands opposite the lead rather than
+ * beneath it, and the two halves share one optical centre line.
+ */
 .conversion {
   display: grid;
   gap: var(--space-8);
-  align-items: end;
+  align-items: center;
 }
 
 @media (min-width: 1024px) {

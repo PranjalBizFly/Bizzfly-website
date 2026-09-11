@@ -6,21 +6,24 @@ import { EditorialHero } from "@/components/hero";
 import {
   SectionHeader,
   ProcessBlock,
-  ContentBlock,
   ConversionBand,
   RelatedContent,
   FAQBlock,
   EmptyState,
-  VisualStoryBlock,
+  AnchoredStatement,
+  ClaimCriteria,
 } from "@/components/sections";
+import { ReadingProgress } from "@/components/motion";
 import { Heading, BodyText } from "@/components/typography";
 import { CtaBlock, Button, TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { allCompanyPages, getCompanyPage } from "@/content/company";
 import { getCompanyImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
+import { readParagraphs, readsAsSequence } from "@/lib/prose";
 import { serviceLink } from "@/lib/relationships";
 import type { RelatedLink } from "@/types/content";
+import { expandFaqs } from "@/lib/faqs";
 import { buildMetadata, faqSchema } from "@/lib/seo";
 import { site } from "@/content/site";
 import styles from "./company-page.module.css";
@@ -81,7 +84,7 @@ const engagement = [
     index: 4,
     title: "Delivery",
     description:
-      "Regular checkpoints against agreed commercial measures — enquiries, response times, hours removed. Not activity reports.",
+      "Regular checkpoints against agreed commercial measures: enquiries, response times, hours removed. Not activity reports.",
     duration: "Weeks 3–12",
   },
   {
@@ -98,6 +101,9 @@ export default async function CompanyPage({ params }: PageProps) {
   const page = getCompanyPage(slug);
   if (!page || !isPublished(page) || RELOCATED_COMPANY_SLUGS.has(slug)) notFound();
 
+  /* Authored FAQs topped up from the page's own content — see lib/faqs.ts. */
+  const faqs = expandFaqs(page, "company");
+
   const isLegal = page.section === "legal";
   const isCareers = page.section === "careers";
 
@@ -107,8 +113,30 @@ export default async function CompanyPage({ params }: PageProps) {
 
   const companyVisual = getCompanyImage(slug);
 
+  /*
+   * Whether the body numbers itself. Two of these pages do — the criteria
+   * composition suits those and the statement composition suits the rest.
+   */
+  const bodyReadsAsSequence = readsAsSequence(readParagraphs(page.body ?? []));
+
+  /*
+   * A reading indicator, on the same terms the resource template uses: only
+   * where the page is long enough for a reader to lose their place in it.
+   *
+   * Several of these are the longest single columns of prose on the site —
+   * the policies, the transparency pages — and they were the only long-form
+   * template without one. Below the threshold the bar is not rendered at all
+   * rather than sitting at a permanent 100%, which is what a progress
+   * indicator on a two-screen page amounts to.
+   *
+   * The bar itself is a CSS scroll-driven animation: no listener, no JS, and
+   * it is hidden outright under reduced motion. See ReadingProgress.
+   */
+  const showProgress = readParagraphs(page.body ?? []).length >= 5;
+
   return (
     <>
+      {showProgress ? <ReadingProgress /> : null}
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -119,7 +147,7 @@ export default async function CompanyPage({ params }: PageProps) {
           mainEntity: { "@id": `${site.url}/#organization` },
         }}
       />
-      <JsonLd data={faqSchema(page.faqs ?? [])} />
+      <JsonLd data={faqSchema(faqs)} />
 
       <EditorialHero
         eyebrow={page.eyebrow ?? "Company"}
@@ -134,45 +162,37 @@ export default async function CompanyPage({ params }: PageProps) {
       />
 
       {/*
-        The frame and the opening of the argument are one section.
-        They used to be two: a banner photograph in a band of its own,
-        then a column of prose in a band of its own under it. Neither
-        supported the other — the picture had nothing to be about, and the
-        writing had nothing beside it — and the page opened with two blocks
-        of empty ground between the hero and its first sentence. Split, the
-        photograph illustrates the paragraph it is set against, which is what
-        the same pairing does on the homepage.
-      */}
-      {companyVisual ? (
-        <Section spacing="lg">
-          <VisualStoryBlock
-            image={companyVisual}
-            variant="B"
-            reverse
-            priority={slug === "about"}
-            lead={
-              page.body?.length ? (
-                <BodyText size="lg">{page.body[0]}</BodyText>
-              ) : undefined
-            }
-            caption={companyVisual.caption}
-          />
-        </Section>
-      ) : null}
+        The frame and the argument are one composition.
 
-      {/*
-        Whatever the split did not take. With a frame present that is the
-        argument from its second paragraph on; with no frame it is the whole
-        of it, and the section is the reading column it always was.
+        This was two sections, then three. First a banner photograph in a band
+        of its own and a column of prose in a band under it — neither
+        supporting the other. Then the frame took the opening paragraph as a
+        lead and the remaining three or four ran on as plain paragraphs in a
+        reading column below, which left the photograph illustrating one
+        sentence and the rest of the page back to "heading, paragraph,
+        paragraph, paragraph".
+
+        AnchoredStatement takes the whole argument: the frame on one side at
+        the same weight as the writing, the opening claim carrying the
+        emphasis it was written with, and the rest of the paragraphs beneath
+        it. Where the paragraphs are numbered by their own author — "The
+        first…", "The second…" — the criteria composition is used instead,
+        the same rule the practice pages follow.
       */}
-      {(companyVisual ? page.body?.slice(1) : page.body)?.length ? (
-        <Section background="surface" spacing="lg" width="content">
-          <ContentBlock>
-            {(companyVisual ? page.body!.slice(1) : page.body!).map((paragraph) => (
-              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-            ))}
-          </ContentBlock>
-        </Section>
+      {page.body?.length ? (
+        bodyReadsAsSequence ? (
+          <Section spacing="lg">
+            <ClaimCriteria paragraphs={page.body} label={page.title} claimLevel={2} />
+          </Section>
+        ) : (
+          <Section spacing="lg">
+            <AnchoredStatement
+              paragraphs={page.body}
+              image={companyVisual}
+              note={companyVisual?.topic}
+            />
+          </Section>
+        )
       ) : null}
 
       {/* Approach: process-led composition */}
@@ -206,7 +226,7 @@ export default async function CompanyPage({ params }: PageProps) {
         <Section spacing="lg">
           <EmptyState
             title="No current openings"
-            body="We are not hiring for a specific role at the moment. We would still rather hear from someone good than miss them because the timing did not line up — tell us what you want to work on and we will keep it on file."
+            body="We are not hiring for a specific role at the moment. We would still rather hear from someone good than miss them because the timing did not line up. Tell us what you want to work on and we will keep it on file."
             actions={
               <div className={styles.actions}>
                 <Button href="/contact/" withArrow>
@@ -225,7 +245,7 @@ export default async function CompanyPage({ params }: PageProps) {
           <SectionHeader
             split
             eyebrow="What we optimise for"
-            title="Three things we hold every engagement against"
+            title="Three things we hold engagements to"
           />
           <div className={styles.values}>
             {site.values.map((value, index) => (
@@ -245,15 +265,15 @@ export default async function CompanyPage({ params }: PageProps) {
         </Section>
       ) : null}
 
-      {page.faqs?.length ? (
+      {faqs.length ? (
         <Section spacing="lg">
-          <SectionHeader split eyebrow="Questions" title="Common Questions" />
-          <FAQBlock faqs={page.faqs} />
+          <SectionHeader split eyebrow="Frequently Asked Questions" title="Frequently Asked Questions" />
+          <FAQBlock faqs={faqs} />
         </Section>
       ) : null}
 
       {page.related?.length ? (
-        <Section background="surface" spacing="md">
+        <Section background="surface" spacing="sm">
           <RelatedContent mode="split" heading="Related" items={page.related} />
         </Section>
       ) : null}
@@ -269,7 +289,18 @@ export default async function CompanyPage({ params }: PageProps) {
         </Section>
       ) : null}
 
-      {!isLegal ? <ConversionBand cta={page.cta} /> : null}
+      {/*
+        Company pages explain how we operate. The useful next step is not
+        "what are you trying to solve" but a chance to test whether the way
+        of working described above actually holds up in conversation.
+      */}
+      {!isLegal ? (
+        <ConversionBand
+          title="Test whether this holds up in practice"
+          lead="Everything above is how we say we work. Thirty minutes on a real problem is the fastest way to find out whether it is also how we behave — and it costs you nothing to check."
+          cta={page.cta}
+        />
+      ) : null}
     </>
   );
 }

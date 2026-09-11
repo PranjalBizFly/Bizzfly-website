@@ -53,7 +53,7 @@ export default function GlobalError({
               margin: "1.5rem 0 0",
             }}
           >
-            Something went badly wrong
+            Something Went Badly Wrong
           </h1>
           <p style={{ color: brand.inkMuted, lineHeight: 1.6, marginTop: "1rem" }}>
             The site failed to load. Please try again, or email

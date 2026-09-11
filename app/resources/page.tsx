@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
 import { SectionNav } from "@/components/navigation";
-import { EditorialHero } from "@/components/hero";
+import { CinematicHero } from "@/components/hero";
 import {
   SectionHeader,
   RelatedContent,
@@ -14,9 +14,11 @@ import { TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { resources } from "@/content/resources";
 import { services } from "@/content/services";
+import { getResourcesHubImage } from "@/content/images/imageAssignments";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import styles from "./resources.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 export const metadata: Metadata = buildMetadata(
   {
@@ -126,11 +128,28 @@ export default function ResourcesIndexPage() {
         }}
       />
 
-      <EditorialHero
+      <CinematicHero
+        image={getResourcesHubImage()}
+        composition="bleed-right"
         eyebrow="Resources"
         title="What we have worked out, written down"
-        lead="Nothing here is gated. If content is worth reading, putting a form in front of it just means fewer people read it — and we do not publish reader counts or download figures, because we would be making them up."
+        lead="Nothing here is gated. If content is worth reading, putting a form in front of it just means fewer people read it, and we do not publish reader counts or download figures, because we would be making them up."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Resources" }]}
+        factsHeading="Open Knowledge"
+        facts={[
+          {
+            value: String(published.length),
+            label: "pieces published, none of them behind a form",
+          },
+          {
+            value: String(byType.length),
+            label: "kinds of reading — guides, comparisons, decisions, checklists",
+          },
+          {
+            value: "0",
+            label: "email addresses required to read any of it",
+          },
+        ]}
       />
 
       {featured ? (
@@ -144,7 +163,9 @@ export default function ResourcesIndexPage() {
               ) : null}
             </div>
             <h2 className={styles.featuredTitle}>
-              <Link href={`/resources/${featured.slug}/`}>{featured.title}</Link>
+              <Link href={`/resources/${featured.slug}/`}>
+                {titleCase(featured.title)}
+              </Link>
             </h2>
             <p className={styles.featuredAnswer}>{featured.answer}</p>
             <TextLink href={`/resources/${featured.slug}/`}>Read it</TextLink>
@@ -156,7 +177,7 @@ export default function ResourcesIndexPage() {
         <Section background="tint" spacing="lg">
           <SectionHeader
             split
-            eyebrow="01 / Start here"
+            eyebrow="Start here"
             title="One of each, to show what these are"
             lead="Written for people making a decision, not for a keyword. The complete set is below."
           />
@@ -176,7 +197,7 @@ export default function ResourcesIndexPage() {
       <Section spacing="lg">
         <SectionHeader
           split
-          eyebrow="02 / Everything"
+          eyebrow="Everything"
           title={`All ${published.length} resources`}
           lead="Grouped by what each one is for. A guide gives you a method, a comparison weighs two options, a decision guide helps you work out whether to act at all, and the glossary just defines the term."
         />
@@ -200,7 +221,7 @@ export default function ResourcesIndexPage() {
       {byCapability.length > 0 ? (
         <Section background="surface" spacing="md">
           <SectionHeader
-            eyebrow="03 / Browse"
+            eyebrow="Browse"
             title="By capability"
             level={2}
             lead="Each service page carries the reading that supports it."

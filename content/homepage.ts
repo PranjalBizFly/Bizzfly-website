@@ -42,7 +42,7 @@ export const capabilityGroups: CapabilityGroup[] = [
     href: "/services/web-development/",
     items: [
       { label: "Website design & development", href: "/services/corporate-websites/" },
-      { label: "Custom Software Development", href: "/services/custom-software/" },
+      { label: "Custom Software", href: "/services/custom-software/" },
       { label: "Web applications", href: "/services/web-applications/" },
       { label: "UI/UX Design", href: "/services/ui-ux-design/" },
     ],
@@ -56,7 +56,7 @@ export const capabilityGroups: CapabilityGroup[] = [
     href: "/services/ai-automation/",
     items: [
       { label: "Business automation", href: "/services/workflow-automation/" },
-      { label: "AI-powered solutions", href: "/services/ai-agents/" },
+      { label: "AI Agents", href: "/services/ai-agents/" },
       { label: "AI Chatbots", href: "/services/ai-chatbots/" },
       { label: "Sales Automation", href: "/services/sales-automation/" },
     ],
@@ -71,7 +71,7 @@ export const capabilityGroups: CapabilityGroup[] = [
     items: [
       { label: "Digital growth strategy", href: "/services/digital-strategy/" },
       { label: "Performance Marketing", href: "/services/performance-marketing/" },
-      { label: "Conversion Optimisation", href: "/services/conversion-rate-optimisation/" },
+      { label: "Conversion Rate Optimisation", href: "/services/conversion-rate-optimisation/" },
       { label: "Business Intelligence", href: "/services/business-intelligence/" },
     ],
   },
@@ -162,7 +162,7 @@ export const visitorProblems: VisitorProblem[] = [
   {
     problem: "We rank, but the clicks are falling",
     detail:
-      "An AI-generated summary is answering the query above your result. The traffic did not go to a competitor — it stopped existing.",
+      "An AI-generated summary is answering the query above your result. The traffic did not go to a competitor; it stopped existing.",
     href: "/use-cases/get-found-in-ai-search/",
     linkLabel: "Get found in AI search",
   },
@@ -234,7 +234,7 @@ export const businessStages: BusinessStage[] = [
     work: [
       { label: "SEO", href: "/services/seo/" },
       { label: "AI Search Optimisation", href: "/services/ai-search-optimisation/" },
-      { label: "Conversion Optimisation", href: "/services/conversion-rate-optimisation/" },
+      { label: "Conversion Rate Optimisation", href: "/services/conversion-rate-optimisation/" },
     ],
   },
   {

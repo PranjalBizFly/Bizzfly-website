@@ -1,0 +1,382 @@
+/* ==========================================================================
+   PINNED STORY
+   --------------------------------------------------------------------------
+   A held visual on one side, chapters scrolling past on the other.
+
+   Sticky rather than scroll-jacked: the reader keeps their own scroll speed,
+   space bar still pages, find-in-page still works, and there is no frame
+   budget being spent on holding an element in place.
+   ========================================================================== */
+
+.story {
+  display: grid;
+  gap: var(--space-8);
+  container-type: inline-size;
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE — a short held panel above the text
+   --------------------------------------------------------------------------
+   Still sticky, but a quarter of the screen rather than most of it. A tall
+   pinned panel on a phone leaves a sliver of text scrolling in the gap
+   underneath, which is the version of this pattern that makes people bounce.
+   -------------------------------------------------------------------------- */
+.sticky {
+  position: sticky;
+  top: calc(var(--header-height-condensed) + var(--space-3));
+  z-index: var(--z-base);
+  /* Above the chapters, so the text scrolls beneath the panel edge. */
+  background: var(--background);
+  padding-block-end: var(--space-3);
+}
+
+.visualStack {
+  position: relative;
+  /* Reserves the box before any image arrives — nothing here can shift. */
+  aspect-ratio: 4 / 3;
+  max-height: 30vh;
+  border-radius: var(--radius-lg);
+  overflow: clip;
+  background: var(--surface);
+}
+
+.visual {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  /* Held frames are inert, so a stray tap or a tab stop cannot reach them. */
+  visibility: hidden;
+  transition:
+    opacity var(--dur-slow) var(--ease-standard),
+    visibility 0s linear var(--dur-slow);
+}
+
+.visual[data-held="true"] {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity var(--dur-slow) var(--ease-standard),
+    visibility 0s;
+}
+
+/* The image inside fills the frame whatever its intrinsic ratio. */
+.visual :global(img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   THE RAIL — stage markers, and the only progress indicator here
+   --------------------------------------------------------------------------
+   Hidden on mobile: five stage labels above the text is a second navigation
+   for a section the reader is already inside.
+   -------------------------------------------------------------------------- */
+.rail {
+  display: none;
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+}
+
+/*
+ * With no visuals there is nothing for the held column to hold on a phone —
+ * the rail is desktop-only — so the column is removed from the layout rather
+ * than left as an empty sticky box above the chapters.
+ *
+ * An aside changes that: a caller anchoring on type rather than a photograph
+ * has something worth holding at every width, so the column stays.
+ */
+.story[data-visuals="false"][data-aside="false"] .sticky {
+  display: none;
+}
+
+/*
+ * The held aside.
+ *
+ * On a phone the column does not pin. The base .sticky rule above is what
+ * actually decides that, so the override has to sit on the column and not on
+ * the aside inside it — setting position:static on the child left the parent
+ * sticking and pinned a 382px portrait to the top of a 375px screen, which
+ * is measurably worse than not holding anything at all. Below the two-column
+ * breakpoint the portrait and the name simply read once and scroll away.
+ */
+.story[data-visuals="false"][data-aside="true"] .sticky {
+  position: static;
+  background: none;
+}
+
+.aside {
+  margin-block-end: var(--space-6);
+}
+
+.railStep {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-2) 0;
+  background: none;
+  border: 0;
+  border-inline-start: 2px solid var(--border);
+  padding-inline-start: var(--space-4);
+  text-align: start;
+  cursor: pointer;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-base) var(--ease-standard);
+}
+
+.railStep:hover {
+  color: var(--foreground);
+}
+
+.railStep:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.railStep[data-active="true"] {
+  color: var(--foreground);
+  border-inline-start-color: var(--accent-edge);
+}
+
+.railMarker {
+  font-variant-numeric: tabular-nums;
+  font-size: var(--text-eyebrow);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.railStep[data-active="true"] .railMarker {
+  color: var(--accent-edge);
+}
+
+.railLabel {
+  /* The rail is a summary, so a long chapter title is trimmed rather than
+     allowed to wrap the whole column out of shape. */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   CHAPTERS
+   -------------------------------------------------------------------------- */
+.chapters {
+  display: grid;
+  gap: var(--space-10);
+}
+
+/*
+ * Emphasis is carried by colour, never by opacity.
+ *
+ * This started as `opacity: 0.55` on inactive chapters, which was measured in
+ * the browser at 3.48:1 against the inverse ground and fails WCAG AA. Opacity
+ * is the wrong tool for de-emphasis on this site precisely because it is
+ * invisible to the contrast suite: every pairing in tokens.css is verified,
+ * and then a 0.55 multiplier silently takes the verified value somewhere it
+ * was never checked.
+ *
+ * So the inactive state is the muted token — a verified pairing in both
+ * themes — and the active state is the foreground one. Both are legible, the
+ * difference between them is clearly visible, and a reader who scrolls past
+ * faster than the observer fires is still reading properly rendered text.
+ */
+.chapter .chapterTitle {
+  transition: color var(--dur-slow) var(--ease-standard);
+}
+
+.chapter:not([data-active="true"]) .chapterTitle {
+  color: var(--muted);
+}
+
+.marker {
+  display: block;
+  font-size: var(--text-eyebrow);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-block-end: var(--space-2);
+  transition: color var(--dur-base) var(--ease-standard);
+}
+
+.chapter[data-active="true"] .marker {
+  color: var(--accent-edge);
+}
+
+.chapterTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  line-height: var(--leading-tight);
+  margin: 0 0 var(--space-3);
+  color: var(--foreground);
+}
+
+.chapterBody {
+  margin: 0 0 var(--space-3);
+  color: var(--muted);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  max-width: var(--measure-body);
+}
+
+.chapterBody:last-child {
+  margin-block-end: 0;
+}
+
+/*
+ * The chapter's own destination.
+ *
+ * Underlined from rest rather than on hover: this is the one interactive
+ * thing inside a passage of prose, and a link that only announces itself
+ * under the pointer is invisible to everyone reading on a touch screen. The
+ * arrow is decorative and marked so — the label already says where it goes.
+ */
+/*
+ * The chapter's continuation link.
+ *
+ * `min-height` and the centred cross-axis are the target size, not decoration:
+ * as a baseline-aligned inline-flex at body-small this measured 24px tall,
+ * which fails WCAG 2.2 SC 2.5.8 and was reported on every viewport of
+ * /how-we-work/ by the responsive audit. The height is added below the text
+ * rather than around it — `align-items: center` with a 44px box keeps the
+ * underline where it was and simply makes the row a thumb can hit.
+ */
+.chapterLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-target-min);
+  gap: var(--space-2);
+  margin-block-start: var(--space-2);
+  font-family: var(--font-label);
+  font-size: var(--text-body-sm);
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-color: var(--border);
+  transition:
+    text-decoration-color var(--dur-fast) var(--ease-standard),
+    gap var(--dur-fast) var(--ease-standard);
+}
+
+.chapterLink:hover {
+  text-decoration-color: var(--accent-edge);
+  gap: var(--space-3);
+}
+
+.chapterLink:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chapterLink,
+  .chapterLink:hover {
+    transition: none;
+    gap: var(--space-2);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   DESKTOP — the two-column hold
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .story {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  .story[data-side="right"] .sticky {
+    order: 2;
+  }
+
+  .sticky {
+    top: calc(var(--header-height-condensed) + var(--space-6));
+    background: none;
+    padding-block-end: 0;
+  }
+
+  .visualStack {
+    aspect-ratio: 4 / 5;
+    max-height: min(62vh, 34rem);
+  }
+
+  .rail {
+    display: block;
+  }
+
+  /* Back in the layout from the breakpoint where the rail exists. */
+  .story[data-visuals="false"] .sticky {
+    display: block;
+  }
+
+  /*
+   * From the two-column breakpoint the column holds again: there is a second
+   * track for the chapters to move through, so pinning costs no reading room.
+   */
+  .story[data-visuals="false"][data-aside="true"] .sticky {
+    position: sticky;
+  }
+
+  .story[data-aside="true"] .aside {
+    margin-block-end: var(--space-8);
+  }
+
+  /*
+   * A rail with no picture above it sits at the top of its own column, so it
+   * needs the margin the visual stack was providing.
+   */
+  .story[data-visuals="false"] .rail {
+    margin-block-start: 0;
+  }
+
+  /* Narrower: a column of stage labels does not need half the page. */
+  .story[data-visuals="false"] {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+
+  .chapters {
+    gap: var(--space-16);
+  }
+
+  /*
+   * The first and last chapters get room above and below so that every
+   * chapter, including the outer two, can reach the middle of the screen
+   * while its visual is held. Without this the story's first beat is already
+   * past the band before the section has finished arriving.
+   */
+  .chapters::before,
+  .chapters::after {
+    content: "";
+    display: block;
+    height: 12vh;
+  }
+
+}
+
+/* --------------------------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------------------------
+   The sticky hold stays — it is layout, not animation, and it is what makes
+   the section make sense. What goes is the dimming of inactive chapters and
+   the cross-fade between visuals: both are movement in the reader's
+   peripheral vision driven by scrolling, and both are only emphasis.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .visual,
+  .visual[data-held="true"] {
+    transition: none;
+  }
+
+  .chapter .chapterTitle {
+    transition: none;
+  }
+}

@@ -1,6 +1,6 @@
 # BizzFly brand compliance report
 
-Generated 2026-09-08 by `npm run verify:brand`.
+Generated 2026-09-11 by `npm run verify:brand`.
 Source of truth: **Bizzfly Brand Guidelines.pdf**.
 
 ## Summary
@@ -17,13 +17,13 @@ Source of truth: **Bizzfly Brand Guidelines.pdf**.
 | Buttons | ✅ Compliant |
 | Navigation | ✅ Compliant |
 | Icons | ✅ Compliant |
-| Components | ✅ Compliant |
+| Components | ❌ VIOLATIONS |
 | Responsive | ✅ Compliant |
 | Accessibility | ✅ Compliant |
 | Imagery | ✅ Compliant |
 
 **14 violation(s) found and fixed** in this audit pass.
-**0 outstanding**, **6 item(s)** requiring manual review.
+**3 outstanding**, **6 item(s)** requiring manual review.
 
 ## Colour
 
@@ -50,7 +50,11 @@ properties). Every other file must reach a colour through a token.
 
 ## Outstanding violations
 
-_None._
+| File | Line | Violation | Current | Required | Status |
+|---|---|---|---|---|---|
+| `components/consultation/Consultation.module.css` | 131 | z-index is off the layer scale | `1` | a var(--z-*) token | VIOLATION |
+| `components/consultation/Consultation.module.css` | 571 | z-index is off the layer scale | `1` | a var(--z-*) token | VIOLATION |
+| `components/motion/ImageReveal.module.css` | 28 | border-radius is off the radius scale | `0` | a var(--radius-*) token | VIOLATION |
 
 
 ## Fixed in this audit pass

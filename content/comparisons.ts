@@ -19,7 +19,7 @@ export const comparisons: Resource[] = [
     answer:
       "Paid search buys immediate, controllable visibility that stops when spending stops. SEO builds visibility that compounds but takes months to arrive. Most businesses need both, weighted by how urgently they need demand and how long they can wait.",
     body: [
-      "The economics differ in shape, not just size. Paid search has a marginal cost per click that persists forever: the thousandth visit costs roughly what the first did. SEO has a high fixed cost and a marginal cost close to zero, which is why its return improves with time and volume — and why it is a poor answer to an urgent revenue gap.",
+      "The economics differ in shape, not just size. Paid search has a marginal cost per click that persists forever: the thousandth visit costs roughly what the first did. SEO has a high fixed cost and a marginal cost close to zero, which is why its return improves with time and volume, and why it is a poor answer to an urgent revenue gap.",
       "Control differs too. Paid search can be switched on this afternoon, targeted precisely and turned off when a quarter goes badly. Organic position cannot be bought, bid on or scheduled, and it does not respond to pressure. That makes paid the right instrument for testing demand, seasonal peaks and launches.",
       "The strongest argument for doing both is that each answers the other's weakness. Paid data reveals which queries actually convert, which is the best possible input to an organic content plan. Organic presence reduces the share of demand you have to rent, which lowers blended acquisition cost over time.",
       "The decision is usually about runway rather than preference. A business needing enquiries this month should buy them and build organic alongside. A business with twelve months of runway that keeps renting the same demand is paying for the same visitors repeatedly.",
@@ -44,7 +44,7 @@ export const comparisons: Resource[] = [
       {
         question: "Is SEO cheaper than paid search?",
         answer:
-          "Over a long enough period and enough volume, usually — because its marginal cost approaches zero while paid search keeps charging per click. In the first six months it is normally more expensive per enquiry, because the investment precedes the return.",
+          "Over a long enough period and enough volume, usually, because its marginal cost approaches zero while paid search keeps charging per click. In the first six months it is normally more expensive per enquiry, because the investment precedes the return.",
       },
       {
         question: "Can we stop paid search once SEO works?",
@@ -53,7 +53,7 @@ export const comparisons: Resource[] = [
       },
     ],
     related: [
-      { label: "SEO Services", href: "/services/seo/", type: "SERVICE" },
+      { label: "SEO", href: "/services/seo/", type: "SERVICE" },
       {
         label: "Performance Marketing",
         href: "/services/performance-marketing/",
@@ -69,7 +69,7 @@ export const comparisons: Resource[] = [
     answer:
       "SEO competes for a position in a ranked list of links. AEO competes to be the passage a system extracts and shows as the answer. They share technical foundations but reward different content shapes and are measured differently.",
     body: [
-      "The unit of competition is what separates them. SEO optimises a page against a query and wins a position. AEO optimises a passage so it can be lifted out of the page and still make sense — which means the answer has to appear before the argument, in complete sentences that survive losing their context.",
+      "The unit of competition is what separates them. SEO optimises a page against a query and wins a position. AEO optimises a passage so it can be lifted out of the page and still make sense, which means the answer has to appear before the argument, in complete sentences that survive losing their context.",
       "The foundations overlap almost entirely. Both need crawlable, server-rendered content, a clear structure, and a site that is technically healthy. A page that cannot be reached or parsed fails at both. This is why AEO is rarely a separate programme; it is a discipline applied to content that also has to rank.",
       "Measurement is where teams get confused. AEO success can reduce clicks: winning the extracted answer means the reader may never arrive. Judged on sessions, a successful AEO page looks like a failure. It has to be judged on presence in answers, branded search lift and assisted conversions.",
       "The practical relationship is sequence rather than choice. Ranking gets you into the candidate set a system considers; extractable structure decides whether your passage is the one used. Doing the second without the first is optimising for a competition you have not entered.",
@@ -121,9 +121,9 @@ export const comparisons: Resource[] = [
     topic: "AI Search",
     title: "AEO vs GEO",
     answer:
-      "AEO targets extraction — a system lifting your text more or less directly as the answer. GEO targets synthesis — a model reading several sources, composing an answer and attributing some of them. The foundations overlap; the content shape and measurement differ.",
+      "AEO targets extraction: a system lifting your text more or less directly as the answer. GEO targets synthesis: a model reading several sources, composing an answer and attributing some of them. The foundations overlap; the content shape and measurement differ.",
     body: [
-      "Extraction rewards self-contained precision. For AEO, one passage has to carry the whole answer, because that passage may be shown alone. Length is constrained, ambiguity is fatal, and the format the question invites — paragraph, list, table — largely determines whether the passage can be used.",
+      "Extraction rewards self-contained precision. For AEO, one passage has to carry the whole answer, because that passage may be shown alone. Length is constrained, ambiguity is fatal, and the format the question invites (paragraph, list, table) largely determines whether the passage can be used.",
       "Synthesis rewards something different: being a source worth reading among several. For GEO, a model is assembling an answer from multiple documents, so what matters is whether your material is identifiable as coming from a credible, clearly defined organisation, and whether its claims are specific enough to be worth attributing.",
       "This is why entity work matters far more to GEO than to AEO. Extraction can happen from a page whose author is unclear. Attribution requires the system to know who it is citing, which is a question about your organisation's identity across the whole web, not about one page.",
       "In practice most businesses should treat them as one programme with two tests. Can a machine lift a complete answer from this page? And can it tell, unambiguously, whose answer it is? A page that passes both is doing the available work.",
@@ -178,7 +178,7 @@ export const comparisons: Resource[] = [
       "Traditional search returns a ranked list of links and lets the person choose. AI search composes an answer and may cite a few sources. The first distributes attention across many results; the second concentrates it on a handful.",
     body: [
       "The behavioural change is concentration. A results page offers ten organic positions, and being fourth still earns visits. A generated answer names perhaps three sources. Position four in a list is a modest outcome; fourth-most-relevant to an assembled answer is usually invisible.",
-      "The evaluation changes too. Ranking rewards relevance to a query. Synthesis rewards being a source a model can identify, trust and quote — which brings organisational clarity, consistency and specificity into scope in a way that keyword-led work never did.",
+      "The evaluation changes too. Ranking rewards relevance to a query. Synthesis rewards being a source a model can identify, trust and quote, which brings organisational clarity, consistency and specificity into scope in a way that keyword-led work never did.",
       "What has not changed is the foundation. Both surfaces need to reach your content, parse it and understand what it says. Sites that fail on crawlability, rendering or structure fail on both, which is why the first work is usually the same regardless of which surface you care about.",
       "The realistic position for most businesses is that both matter and neither is replacing the other soon. Transactional and navigational queries still resolve as lists. Explanatory and comparative queries increasingly resolve as answers. The mix depends on what your buyers actually search.",
     ],
@@ -207,7 +207,7 @@ export const comparisons: Resource[] = [
       {
         question: "Does our existing SEO work still count?",
         answer:
-          "Most of the technical foundation does — crawlability, rendering, structure and site health serve both. What transfers least well is keyword-density-led content, which was never a strong approach and is a weak one for synthesis.",
+          "Most of the technical foundation does: crawlability, rendering, structure and site health serve both. What transfers least well is keyword-density-led content, which was never a strong approach and is a weak one for synthesis.",
       },
     ],
     related: [
@@ -231,10 +231,10 @@ export const comparisons: Resource[] = [
     answer:
       "A redesign changes how a site looks and reads on its existing platform. A rebuild replaces the underlying technology as well. The right choice depends on whether the constraint you are hitting is presentational or structural.",
     body: [
-      "Diagnose before choosing. If the complaint is that the site looks dated, communicates poorly or converts badly, that is presentation and information architecture — a redesign addresses it, at materially lower cost and risk. If the complaint is that pages cannot be made fast, content cannot be structured properly, or every change requires a developer, that is the platform, and no amount of visual work will fix it.",
-      "Rebuilds carry risks redesigns do not. URLs change, templates change, and rendering behaviour changes — which is why traffic loss after a rebuild is common and almost always self-inflicted rather than mysterious. Those risks are manageable with redirect mapping and parity checks, but they have to be planned for, not discovered.",
+      "Diagnose before choosing. If the complaint is that the site looks dated, communicates poorly or converts badly, that is presentation and information architecture; a redesign addresses it, at materially lower cost and risk. If the complaint is that pages cannot be made fast, content cannot be structured properly, or every change requires a developer, that is the platform, and no amount of visual work will fix it.",
+      "Rebuilds carry risks redesigns do not. URLs change, templates change, and rendering behaviour changes, which is why traffic loss after a rebuild is common and almost always self-inflicted rather than mysterious. Those risks are manageable with redirect mapping and parity checks, but they have to be planned for, not discovered.",
       "Cost is not the only difference. A redesign is usually weeks; a rebuild is usually months, during which normal improvement stops. That freeze is a real cost that rarely appears in the comparison.",
-      "The case for rebuilding is strongest when the platform actively prevents work you need — server rendering, structured content, performance headroom, integration. Rebuilding because a site feels old is how organisations end up doing it again in three years.",
+      "The case for rebuilding is strongest when the platform actively prevents work you need: server rendering, structured content, performance headroom, integration. Rebuilding because a site feels old is how organisations end up doing it again in three years.",
     ],
     supports: ["website-redesign", "corporate-websites"],
     seo: {
@@ -261,7 +261,7 @@ export const comparisons: Resource[] = [
       {
         question: "Will a rebuild hurt our search traffic?",
         answer:
-          "It can, and most losses are avoidable. They come from unmapped URL changes, dropped content, altered rendering or removed internal links — all of which are planning failures rather than inevitable consequences.",
+          "It can, and most losses are avoidable. They come from unmapped URL changes, dropped content, altered rendering or removed internal links, all of which are planning failures rather than inevitable consequences.",
       },
     ],
     related: [
@@ -285,9 +285,9 @@ export const comparisons: Resource[] = [
     answer:
       "Off-the-shelf software is cheaper, faster and maintained by someone else, but requires you to work its way. Custom software fits your process exactly and becomes your responsibility to run. The deciding question is whether the process is a genuine differentiator.",
     body: [
-      "Default to buying. A mature product has absorbed years of edge cases, security work and support burden that you would otherwise fund yourself. Most business processes — accounting, payroll, CRM, helpdesk — are not differentiators, and building them is spending scarce engineering on a solved problem.",
+      "Default to buying. A mature product has absorbed years of edge cases, security work and support burden that you would otherwise fund yourself. Most business processes (accounting, payroll, CRM, helpdesk) are not differentiators, and building them is spending scarce engineering on a solved problem.",
       "Build when the process is the advantage. If the way you quote, schedule, price or fulfil is genuinely what makes the business competitive, forcing it into a product's assumptions can erode the thing customers value. That is the strongest and most honest argument for custom software.",
-      "The second legitimate case is accumulated cost. Several subscriptions bridged by spreadsheets and manual re-entry can quietly exceed the cost of one fitted system — and that comparison should be made on total cost including the labour, not licence fees alone.",
+      "The second legitimate case is accumulated cost. Several subscriptions bridged by spreadsheets and manual re-entry can quietly exceed the cost of one fitted system, and that comparison should be made on total cost including the labour, not licence fees alone.",
       "The cost people underestimate is ownership. Custom software needs hosting, monitoring, dependency updates, security patching and someone who understands it after the original team moves on. Budgeting the build and not the decade is the most common way these projects disappoint.",
     ],
     supports: ["custom-software", "systems-integration"],
@@ -302,7 +302,7 @@ export const comparisons: Resource[] = [
     audience: ["A2", "A7", "A8"],
     phase: "P1",
     cta: {
-      label: "Read about Custom Software Development",
+      label: "Read about Custom Software",
       href: "/services/custom-software/",
       tier: "T1",
     },
@@ -320,7 +320,7 @@ export const comparisons: Resource[] = [
     ],
     related: [
       {
-        label: "Custom Software Development",
+        label: "Custom Software",
         href: "/services/custom-software/",
         type: "SERVICE",
       },
@@ -337,12 +337,12 @@ export const comparisons: Resource[] = [
     topic: "Automation",
     title: "Automation vs Manual Operations",
     answer:
-      "Automation is worth it when a process is repetitive, rule-based, high-volume and stable. Manual handling remains correct where judgement, exceptions or relationships dominate — and where the process is still changing shape.",
+      "Automation is worth it when a process is repetitive, rule-based, high-volume and stable. Manual handling remains correct where judgement, exceptions or relationships dominate, and where the process is still changing shape.",
     body: [
       "Volume and stability decide most cases. A task done fifty times a week the same way is a strong candidate. A task done twice a month with different context each time is not, however tedious it feels, because the automation will cost more to build and maintain than the time it returns.",
-      "Automating an unstable process is the classic expensive mistake. If a process is still being redesigned, automation freezes the current version and makes further change harder. The right sequence is to simplify first, confirm the shape has settled, then automate — which frequently reveals that steps could be removed rather than accelerated.",
+      "Automating an unstable process is the classic expensive mistake. If a process is still being redesigned, automation freezes the current version and makes further change harder. The right sequence is to simplify first, confirm the shape has settled, then automate, which frequently reveals that steps could be removed rather than accelerated.",
       "The realistic target is rarely total. Most processes have a stable core and a long tail of exceptions. Automating the core and routing exceptions to a person with the full context usually captures the majority of the benefit at a fraction of the complexity of trying to handle everything.",
-      "Judgement work should stay manual on purpose. Pricing a difficult deal, handling a complaint, deciding an unusual case — automating these tends to produce confident wrong answers and remove the accountability that made the decision defensible.",
+      "Judgement work should stay manual on purpose. Pricing a difficult deal, handling a complaint, deciding an unusual case: automating these tends to produce confident wrong answers and remove the accountability that made the decision defensible.",
     ],
     supports: ["workflow-automation", "sales-automation"],
     seo: {
@@ -364,7 +364,7 @@ export const comparisons: Resource[] = [
       {
         question: "What should we automate first?",
         answer:
-          "The most repetitive, highest-volume, most stable task with the clearest rules — not the one people complain about most. Frequency and stability predict return far better than irritation does.",
+          "The most repetitive, highest-volume, most stable task with the clearest rules, not the one people complain about most. Frequency and stability predict return far better than irritation does.",
       },
       {
         question: "Should we aim to automate a process completely?",
@@ -394,9 +394,9 @@ export const comparisons: Resource[] = [
       "Rule-based automation follows explicit instructions and behaves identically every time. AI-based automation interprets ambiguous input and produces a judgement. Rules are correct wherever the logic can be written down; AI earns its place where it cannot.",
     body: [
       "Rules are underrated. They are cheap, fast, auditable and predictable: given the same input they produce the same output, and when they are wrong you can point at the line responsible. For any process whose logic can be stated, rules are the better engineering choice and the easier one to defend.",
-      "AI earns its place on unstructured input. Classifying a free-text enquiry, extracting fields from a document that arrives in twenty formats, summarising a conversation — these resist explicit rules because the input varies without limit. That is the real dividing line: not complexity, but whether the logic can be written down.",
+      "AI earns its place on unstructured input. Classifying a free-text enquiry, extracting fields from a document that arrives in twenty formats, summarising a conversation: these resist explicit rules because the input varies without limit. That is the real dividing line: not complexity, but whether the logic can be written down.",
       "The trade is determinism. An AI component will occasionally be confidently wrong, and the same input can produce different output. That is acceptable when a person reviews the result or the cost of an error is low, and unacceptable when the step is irreversible or regulated.",
-      "Most durable systems are hybrids. AI interprets the ambiguous part — reading the document, classifying the request — and rules handle everything downstream, so the deterministic part of the process stays deterministic and auditable.",
+      "Most durable systems are hybrids. AI interprets the ambiguous part (reading the document, classifying the request), and rules handle everything downstream, so the deterministic part of the process stays deterministic and auditable.",
     ],
     supports: ["workflow-automation", "ai-agents", "ai-consulting"],
     seo: {
@@ -418,7 +418,7 @@ export const comparisons: Resource[] = [
       {
         question: "When should we use AI instead of rules?",
         answer:
-          "When the input is unstructured enough that the logic cannot be written down — free text, varied documents, conversation. If you can state the rule, use a rule: it is cheaper, faster and auditable.",
+          "When the input is unstructured enough that the logic cannot be written down: free text, varied documents, conversation. If you can state the rule, use a rule: it is cheaper, faster and auditable.",
       },
       {
         question: "Is AI automation less reliable?",
@@ -445,8 +445,8 @@ export const comparisons: Resource[] = [
     body: [
       "In-house strength is context. Someone inside the business knows the products, the customers, the internal politics and who can actually get a change deployed. That knowledge is where a great deal of SEO value comes from, and it is genuinely hard to buy.",
       "In-house weakness is breadth and volume. SEO now spans technical engineering, content, digital PR, analytics and AI visibility. One person cannot be strong across all of it, and a single hire tends to be excellent at the part they came from and thin elsewhere.",
-      "Agency strength is exactly that breadth, plus pattern recognition from having seen the same failure across many sites. Agency weakness is that context has to be rebuilt for each client, and that the recommendations still need someone internal with the authority to get them shipped — which is where most agency relationships actually fail.",
-      "The hybrid is common because it works: internal ownership of strategy, priorities and delivery, with external specialists for technical depth, peak capacity and independent audit. What rarely works is either extreme — an agency with no internal counterpart, or one internal generalist expected to cover everything.",
+      "Agency strength is exactly that breadth, plus pattern recognition from having seen the same failure across many sites. Agency weakness is that context has to be rebuilt for each client, and that the recommendations still need someone internal with the authority to get them shipped, which is where most agency relationships actually fail.",
+      "The hybrid is common because it works: internal ownership of strategy, priorities and delivery, with external specialists for technical depth, peak capacity and independent audit. What rarely works is either extreme: an agency with no internal counterpart, or one internal generalist expected to cover everything.",
     ],
     supports: ["seo", "digital-strategy"],
     seo: {
@@ -473,7 +473,7 @@ export const comparisons: Resource[] = [
       {
         question: "Why do agency relationships fail?",
         answer:
-          "Most often because recommendations are never implemented. Without someone internal who owns priorities and can get changes deployed, an agency produces documents rather than results — which is a structural problem, not an effort one.",
+          "Most often because recommendations are never implemented. Without someone internal who owns priorities and can get changes deployed, an agency produces documents rather than results, which is a structural problem, not an effort one.",
       },
     ],
     related: [
@@ -494,7 +494,7 @@ export const comparisons: Resource[] = [
       "A traditional CMS manages content and renders pages together. A headless CMS manages content and leaves rendering to a separate front end. Headless buys flexibility and multi-channel reuse at the cost of more moving parts.",
     body: [
       "Traditional platforms are integrated, which is their advantage. Editing, preview, templating and publishing arrive as one product a marketing team can operate without a developer. For a single website maintained by a small team, that integration is worth a great deal and is routinely undervalued in these comparisons.",
-      "Headless separates content from presentation, which pays off when content has more than one destination — a site, an app, a partner feed — or when the front end has requirements the platform cannot meet, such as fine-grained control over rendering and performance.",
+      "Headless separates content from presentation, which pays off when content has more than one destination (a site, an app, a partner feed), or when the front end has requirements the platform cannot meet, such as fine-grained control over rendering and performance.",
       "The understated cost is operational. Two systems to run, preview and editing experiences that have to be built rather than inherited, and a developer dependency for changes an editor could previously make alone. Teams that skip that assessment often end up with a faster site nobody can update.",
       "Search outcomes depend on the front end, not the CMS choice. Headless makes excellent server-rendered output achievable, and equally makes it easy to ship a browser-only front end that AI crawlers cannot read. The platform does not decide this; the implementation does.",
     ],
@@ -518,7 +518,7 @@ export const comparisons: Resource[] = [
       {
         question: "Is headless better for performance?",
         answer:
-          "It makes excellent performance achievable by removing platform constraints on rendering. It does not deliver it automatically — a poorly built headless front end can easily be slower than a well-tuned traditional site.",
+          "It makes excellent performance achievable by removing platform constraints on rendering. It does not deliver it automatically: a poorly built headless front end can easily be slower than a well-tuned traditional site.",
       },
       {
         question: "Will our marketing team still be able to edit pages?",

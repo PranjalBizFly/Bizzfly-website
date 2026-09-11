@@ -56,7 +56,8 @@
 
 .lead {
   font-family: var(--font-body);
-  font-size: var(--text-body);
+  /* The section-lead size, as under every other section title. */
+  font-size: var(--text-body-lg);
   line-height: var(--leading-relaxed);
   color: var(--muted);
   margin: 0;

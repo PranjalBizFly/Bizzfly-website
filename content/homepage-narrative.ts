@@ -68,7 +68,7 @@ export const whyPillars: WhyPillar[] = [
     name: "Future-Ready Systems",
     claim: "Built for how buyers will search next year, not last year.",
     detail:
-      "The qualities that earn a citation from an AI system — a clear entity, structured content, machine-readable data, server-rendered pages — are engineering decisions, and they are expensive to retrofit later.",
+      "The qualities that earn a citation from an AI system (a clear entity, structured content, machine-readable data, server-rendered pages) are engineering decisions, and they are expensive to retrofit later.",
     mechanism:
       "Structured data, semantic markup and server rendering are part of the build rather than a later optimisation pass. Every technology page states when we would tell you to use something else.",
     href: "/technologies/",
@@ -81,7 +81,7 @@ export const whyPillars: WhyPillar[] = [
     detail:
       "A monthly report full of rankings and impressions that avoids the commercial question is a way of not being accountable for whether anything actually changed.",
     mechanism:
-      "Measures are agreed before work starts — enquiries, response times, hours removed — and the report separates indexation, impressions, sessions and enquiries, so a fall has a location rather than a vibe.",
+      "Measures are agreed before work starts (enquiries, response times, hours removed) and the report separates indexation, impressions, sessions and enquiries, so a fall has a location rather than a vibe.",
     href: "/company/how-we-report/",
     linkLabel: "How we report",
   },
@@ -119,7 +119,7 @@ export const growthStages: GrowthStage[] = [
     name: "Discover",
     outcome: "Buyers find you when they are looking.",
     constraint:
-      "If you are absent from the surface a buyer uses, nothing further down this list ever gets its chance. It is the only stage whose failure is invisible — you never see the enquiry you did not receive.",
+      "If you are absent from the surface a buyer uses, nothing further down this list ever gets its chance. It is the only stage whose failure is invisible: you never see the enquiry you did not receive.",
     disciplines: ["SEO", "AEO", "GEO", "AIO"],
     items: [
       { label: "Search engine optimisation", href: "/services/seo/" },
@@ -168,7 +168,7 @@ export const growthStages: GrowthStage[] = [
     disciplines: ["Leads", "Sales", "Conversion"],
     items: [
       {
-        label: "Conversion Optimisation",
+        label: "Conversion Rate Optimisation",
         href: "/services/conversion-rate-optimisation/",
       },
       { label: "Performance Marketing", href: "/services/performance-marketing/" },
@@ -183,11 +183,11 @@ export const growthStages: GrowthStage[] = [
     name: "Scale",
     outcome: "The business holds when the demand arrives.",
     constraint:
-      "Growth that breaks your operations is not growth. The enquiry answered in three days is the enquiry a competitor already won — and that ceiling appears exactly when the earlier stages start working.",
+      "Growth that breaks your operations is not growth. The enquiry answered in three days is the enquiry a competitor already won, and that ceiling appears exactly when the earlier stages start working.",
     disciplines: ["Automation", "Software", "AI", "Data"],
     items: [
       { label: "Business automation", href: "/services/workflow-automation/" },
-      { label: "Custom Software Development", href: "/services/custom-software/" },
+      { label: "Custom Software", href: "/services/custom-software/" },
       { label: "AI Agents", href: "/services/ai-agents/" },
       { label: "Business Intelligence", href: "/services/business-intelligence/" },
     ],
@@ -226,7 +226,7 @@ export const founderNote = {
   premise:
     "BizzFly was built on one belief: that visibility, technology and growth are a single continuous problem, and that buying them as three separate services is why most businesses solve none of them properly.",
   body: [
-    "That is an awkward thing to organise a company around, because it is harder to sell. It is far easier to sell a retainer for one discipline and subcontract the rest — and that handover, between the people who diagnose a problem and the people who fix it, is where most engagements quietly fail.",
+    "That is an awkward thing to organise a company around, because it is harder to sell. It is far easier to sell a retainer for one discipline and subcontract the rest. That handover, between the people who diagnose a problem and the people who fix it, is where most engagements quietly fail.",
     "We work the other way round. The same team that finds the crawl problem capping your visibility can fix the template causing it. And if we are not the right people for what you need, we will say so and point you somewhere better.",
   ],
   cta: { label: "About Us", href: "/about-us/" },

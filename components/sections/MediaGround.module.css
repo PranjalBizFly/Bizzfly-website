@@ -20,6 +20,29 @@
 }
 
 /*
+ * Overscan for the drift.
+ *
+ * The ground normally fits the section exactly, which is right while it is
+ * static and wrong the moment it moves: a layer translating ±--parallax-shift
+ * inside a box its own size uncovers a strip of flat ink at the top or the
+ * bottom of the band. Extending it by the travel distance at both ends means
+ * the photograph always reaches past the edges it is cropped to.
+ *
+ * Gated identically to Parallax itself — same @supports, same motion query,
+ * same breakpoint — so the box is only oversized when something is actually
+ * moving it. Letting these three conditions drift apart would leave the image
+ * permanently cropped 32px tighter than intended, for nothing.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+    .media {
+      top: calc(var(--parallax-shift) * -1);
+      bottom: calc(var(--parallax-shift) * -1);
+    }
+  }
+}
+
+/*
  * object-fit with an explicit ratio-free box: the frame is whatever the
  * section turns out to be, and the photograph covers it. Height is set here
  * rather than by an aspect-ratio because the section's height comes from its

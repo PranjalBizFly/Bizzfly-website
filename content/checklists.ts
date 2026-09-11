@@ -26,7 +26,7 @@ export const checklists: Resource[] = [
     seo: {
       title: "Technical SEO Checklist",
       description:
-        "Check access, rendering, canonicalisation and structure — in that order. The rendering check most teams skip and why it explains AI crawler problems.",
+        "Check access, rendering, canonicalisation and structure: in that order. The rendering check most teams skip and why it explains AI crawler problems.",
       primaryTopic: "technical SEO checklist",
       secondaryTopics: ["SEO audit", "crawlability", "indexing"],
       intent: "informational",
@@ -92,7 +92,7 @@ export const checklists: Resource[] = [
       {
         question: "Should we allow AI crawlers?",
         answer:
-          "If you want to be cited in AI answers, yes — blocking them generally removes you from consideration entirely. It is a genuine trade between control and presence, and it should be a deliberate decision rather than a default.",
+          "If you want to be cited in AI answers, yes: blocking them generally removes you from consideration entirely. It is a genuine trade between control and presence, and it should be a deliberate decision rather than a default.",
       },
       {
         question: "How do we know if we are being cited?",
@@ -121,9 +121,9 @@ export const checklists: Resource[] = [
     answer:
       "A launch check confirms that nothing which worked before has been lost: URLs resolve or redirect, content depth is preserved, tracking still fires, and the site is crawlable, accessible and fast on real devices.",
     body: [
-      "Before launch, verify continuity. Every existing URL should have a decided destination — kept, redirected once to the closest equivalent, or deliberately retired. Check for chains and loops, and confirm that pages which earned search visibility have kept their content rather than being trimmed to fit a new template.",
+      "Before launch, verify continuity. Every existing URL should have a decided destination: kept, redirected once to the closest equivalent, or deliberately retired. Check for chains and loops, and confirm that pages which earned search visibility have kept their content rather than being trimmed to fit a new template.",
       "Verify the machine view. Fetch key templates as a crawler and confirm the main content is in the HTML, there is exactly one H1, structured data validates, canonicals are self-referencing, and no staging noindex or robots block survived. This is the single highest-value pre-launch pass.",
-      "Verify measurement, because it is invisible when broken. Analytics loading on every template, conversion events firing on the real form rather than a test one, search console verified for the live property, and the previous data still available for comparison.",
+      "Verify measurement, because it is invisible when broken. Analytics loading on every template, conversion events firing on the real form rather than a test one, Search Console verified for the live property, and the previous data still available for comparison.",
       "Then check the human view on real devices: forms submitting and producing a genuine confirmation, keyboard navigation reaching every control with a visible focus state, contrast holding on the templates that changed, and performance measured on a mid-range phone rather than a desktop.",
     ],
     supports: ["corporate-websites", "website-redesign"],
@@ -192,7 +192,7 @@ export const checklists: Resource[] = [
     audience: ["A1", "A4"],
     phase: "P1",
     cta: {
-      label: "Read about Google Business Profile Optimisation",
+      label: "Read about Google Business Profile",
       href: "/services/google-business-profile/",
       tier: "T1",
     },
@@ -205,12 +205,12 @@ export const checklists: Resource[] = [
       {
         question: "How much do reviews matter?",
         answer:
-          "They influence both local ranking and the decision a reader makes after finding you. They have to be earned from real customers — fabricated or incentivised reviews are a policy violation with lasting reputational cost.",
+          "They influence both local ranking and the decision a reader makes after finding you. They have to be earned from real customers: fabricated or incentivised reviews are a policy violation with lasting reputational cost.",
       },
     ],
     related: [
       {
-        label: "Google Business Profile Optimisation",
+        label: "Google Business Profile",
         href: "/services/google-business-profile/",
         type: "SERVICE",
       },
@@ -227,11 +227,11 @@ export const checklists: Resource[] = [
     topic: "Conversion",
     title: "Website Conversion Checklist",
     answer:
-      "Most conversion problems are clarity problems. Check that a visitor can tell what you do, who it is for and what happens next within seconds — then that the form asks only for what you genuinely need.",
+      "Most conversion problems are clarity problems. Check that a visitor can tell what you do, who it is for and what happens next within seconds, then that the form asks only for what you genuinely need.",
     body: [
       "Start above the fold, and be strict. Within a few seconds a visitor should be able to say what the business does, whether it is for someone like them, and what the next step is. Pages that open with a claim rather than an offer fail this repeatedly, and no amount of button testing compensates.",
       "Check the action itself. One primary action per page, phrased as what the visitor gets rather than what the business wants, visible without scrolling on a phone, and repeated at the point where a reader has finished being convinced rather than only at the top.",
-      "Then the form. Every field should be one you genuinely act on. Fields collected because they might be useful cost completions measurably. Ask what happens to the enquiry, tell the visitor, and make the confirmation state a real one — a fake success message is worse than an honest failure.",
+      "Then the form. Every field should be one you genuinely act on. Fields collected because they might be useful cost completions measurably. Ask what happens to the enquiry, tell the visitor, and make the confirmation state a real one: a fake success message is worse than an honest failure.",
       "Then friction and trust. Test on a mid-range phone: tap targets big enough, no layout shift moving a button under a thumb, no interstitial covering the content. Where proof is offered it must be real and attributable; invented logos and unsourced statistics reduce trust in everything around them.",
     ],
     supports: ["conversion-rate-optimisation", "ui-ux-design"],
@@ -246,7 +246,7 @@ export const checklists: Resource[] = [
     audience: ["A3", "A4"],
     phase: "P1",
     cta: {
-      label: "Read about Conversion Optimisation",
+      label: "Read about Conversion Rate Optimisation",
       href: "/services/conversion-rate-optimisation/",
       tier: "T1",
     },
@@ -286,7 +286,7 @@ export const checklists: Resource[] = [
       "Visibility first. Which queries and questions your buyers actually use, whether you appear for them in conventional search and in AI answers, and whether the pages that should own those topics exist, are indexed and are reachable.",
       "Then credibility. What a visitor concludes in the first ten seconds, whether the offer is specific enough to be believable, and whether any proof shown is real and attributable. Unsourced statistics and invented logos actively reduce trust.",
       "Then conversion. Whether the primary action is obvious and appropriate for the stage the visitor is at, whether the form is proportionate, and whether enquiries are actually received, routed and answered quickly enough to matter.",
-      "Then capacity, which is the layer most audits skip. Growth that breaks fulfilment is not growth. Check what happens to response time, delivery quality and support load if enquiries doubled — because if the answer is unacceptable, the constraint is operational rather than marketing.",
+      "Then capacity, which is the layer most audits skip. Growth that breaks fulfilment is not growth. Check what happens to response time, delivery quality and support load if enquiries doubled, because if the answer is unacceptable, the constraint is operational rather than marketing.",
     ],
     supports: ["digital-strategy", "conversion-rate-optimisation"],
     seo: {
@@ -330,7 +330,7 @@ export const checklists: Resource[] = [
       "A process is ready to automate when it is stable, documented, high enough in volume to repay the work, and its systems can be reached programmatically. If any of those is missing, fix it before building anything.",
     body: [
       "Check stability first. If the process changed in the last quarter or is being redesigned now, automation will freeze a version you are about to replace and make further change harder. Wait until the shape has settled.",
-      "Check that it is understood. Someone should be able to describe every step, every decision point and every exception. Where two people describe the process differently, that disagreement is the real first problem — automation will simply encode one version and break for the other.",
+      "Check that it is understood. Someone should be able to describe every step, every decision point and every exception. Where two people describe the process differently, that disagreement is the real first problem: automation will simply encode one version and break for the other.",
       "Check the volume and the arithmetic. Frequency times time saved, against build cost plus ongoing maintenance. Be honest about maintenance: an integration is not finished when it ships, and a process automated at the interface layer needs watching indefinitely.",
       "Check access. Do the systems involved offer APIs or webhooks, or would this mean driving screens? Screen-driven automation is legitimate as a deliberate bridge and expensive as a permanent architecture. Confirm too who owns credentials and what happens when they rotate.",
     ],
@@ -359,7 +359,7 @@ export const checklists: Resource[] = [
       {
         question: "Do we need APIs to automate something?",
         answer:
-          "Not strictly — screens can be driven — but without them the automation is fragile and needs permanent maintenance. Treat that route as a deliberate bridge with an owner, not as the destination.",
+          "Not strictly (screens can be driven), but without them the automation is fragile and needs permanent maintenance. Treat that route as a deliberate bridge with an owner, not as the destination.",
       },
     ],
     related: [

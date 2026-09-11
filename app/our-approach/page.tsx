@@ -3,12 +3,12 @@ import { Section } from "@/components/layout/Section";
 import { CinematicHero, EditorialHero } from "@/components/hero";
 import {
   SectionHeader,
-  ProcessBlock,
   ContentBlock,
   ConversionBand,
   RelatedContent,
   FAQBlock,
 } from "@/components/sections";
+import { PinnedStory } from "@/components/motion";
 import { CtaBlock } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { getCompanyImage } from "@/content/images";
@@ -56,7 +56,7 @@ const engagement = [
     index: 4,
     title: "Delivery",
     description:
-      "Regular checkpoints against agreed commercial measures — enquiries, response times, hours removed. Not activity reports.",
+      "Regular checkpoints against agreed commercial measures: enquiries, response times, hours removed. Not activity reports.",
     duration: "Weeks 3–12",
   },
   {
@@ -72,7 +72,7 @@ const faqs = [
   {
     question: "What happens in the first two weeks?",
     answer:
-      "We audit the current position — technical health, visibility, conversion, and where the process actually loses time. The output is a document telling you what is broken, including the parts we are not the right people to fix. You keep it either way.",
+      "We audit the current position: technical health, visibility, conversion, and where the process actually loses time. The output is a document telling you what is broken, including the parts we are not the right people to fix. You keep it either way.",
   },
   {
     question: "Do you work on retainer or by project?",
@@ -101,7 +101,7 @@ const relatedLinks = [
   { label: "About Us", href: "/about-us/", type: "COMPANY" as const },
   { label: "How We Work", href: "/how-we-work/", type: "COMPANY" as const },
   {
-    label: "Our Engineering Standards",
+    label: "Engineering Standards",
     href: "/technologies/engineering-standards/",
     type: "TECHNOLOGY" as const,
   },
@@ -141,7 +141,7 @@ export default function OurApproachPage() {
           composition="inset"
           eyebrow="Company"
           title="Our Approach"
-          lead="Every engagement starts with diagnosis rather than a proposal. We spend the first two weeks establishing which constraint is actually binding, because fixing the wrong one is the expensive mistake — and you keep those findings whether or not you continue with us."
+          lead="Every engagement starts with diagnosis rather than a proposal. We spend the first two weeks establishing which constraint is actually binding, because fixing the wrong one is the expensive mistake, and you keep those findings whether or not you continue with us."
           breadcrumbs={[{ label: "Home", href: "/" }, { label: "Our Approach" }]}
           factsHeading="What that means in practice"
           facts={[
@@ -155,7 +155,7 @@ export default function OurApproachPage() {
         <EditorialHero
           eyebrow="Company"
           title="Our Approach"
-          lead="Every engagement starts with diagnosis rather than a proposal. We spend the first two weeks establishing which constraint is actually binding, because fixing the wrong one is the expensive mistake — and you keep those findings whether or not you continue with us."
+          lead="Every engagement starts with diagnosis rather than a proposal. We spend the first two weeks establishing which constraint is actually binding, because fixing the wrong one is the expensive mistake, and you keep those findings whether or not you continue with us."
           breadcrumbs={[{ label: "Home", href: "/" }, { label: "Our Approach" }]}
           actions={<CtaBlock cta={cta} size="lg" />}
         />
@@ -170,35 +170,59 @@ export default function OurApproachPage() {
       <Section background="tint" spacing="lg">
         <SectionHeader
           split
-          eyebrow="01 / Why this order"
+          eyebrow="Why this order"
           title="Most agency relationships fail the same way"
           lead="A proposal is written before anyone understands the problem, work is delivered against that proposal, and six months later the commercial result has not moved because the original diagnosis was wrong. The work was done competently; it was simply the wrong work."
         />
         <ContentBlock>
           <p>
             We run it in the other order. Diagnosis first, scoped proposal second. That means our
-            first deliverable is usually a document telling you what is broken — including the
+            first deliverable is usually a document telling you what is broken, including the
             parts we are not the right people to fix.
           </p>
         </ContentBlock>
       </Section>
 
-      {/* 02 — the engagement itself, drawn as the path it is. */}
+      {/*
+        02 — the engagement itself, told as a story rather than drawn as a path.
+
+        This is the one sequence on the site that is a narrative rather than a
+        set of steps: five stages over twelve weeks, where each one only makes
+        sense as the consequence of the one before it, and where the argument
+        the page is making — that the first two stages are the ones suppliers
+        skip — depends on the reader travelling through them in order.
+
+        So it is a PinnedStory here and a ProcessBlock everywhere else. The
+        held column carries the stage rail, which keeps the reader's position
+        in the sequence visible while the stages scroll past it, and doubles
+        as a way to jump between them by click or keyboard.
+
+        The markers are the authored `duration` values — Week 0, Weeks 1–2 —
+        so the rail is the page's own content, not a decorative index.
+      */}
       <Section spacing="lg">
         <SectionHeader
           split
-          eyebrow="02 / Process"
+          eyebrow="Process"
           title="How an engagement runs"
           lead="Five stages. The first two are the ones most suppliers skip, and the reason most engagements miss."
         />
-        <ProcessBlock steps={engagement} label="How an engagement runs" />
+        <PinnedStory
+          label="How an engagement runs"
+          chapters={engagement.map((stage) => ({
+            id: `stage-${stage.index}`,
+            marker: stage.duration,
+            title: stage.title,
+            body: [stage.description],
+          }))}
+        />
       </Section>
 
       {relatedServices.length > 0 ? (
         <Section background="surface" spacing="lg">
           <SectionHeader
             split
-            eyebrow="03 / Applied"
+            eyebrow="Applied"
             title="The same method across every practice"
             lead="The order does not change with the discipline. What changes is what the diagnosis is looking at."
           />
@@ -207,15 +231,20 @@ export default function OurApproachPage() {
       ) : null}
 
       <Section spacing="lg">
-        <SectionHeader split eyebrow="04 / Questions" title="Common Questions" />
+        <SectionHeader split eyebrow="Frequently Asked Questions" title="Frequently Asked Questions" />
         <FAQBlock faqs={faqs} />
       </Section>
 
-      <Section background="surface" spacing="md">
+      <Section background="surface" spacing="sm">
         <RelatedContent mode="split" heading="Related" items={relatedLinks} />
       </Section>
 
-      <ConversionBand cta={cta} />
+      {/* The method is stated; the band offers to point it at something real. */}
+      <ConversionBand
+        title="Point the method at a real problem"
+        lead="The order above does not change with the discipline — what changes is what the diagnosis is looking at. Tell us what is not working and we will tell you which layer we would examine first."
+        cta={cta}
+      />
     </>
   );
 }

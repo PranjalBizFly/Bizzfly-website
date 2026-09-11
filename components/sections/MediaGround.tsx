@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { Container } from "@/components/layout/Container";
+import { Parallax } from "@/components/motion";
 import type { ImageMetadata } from "@/content/images/types";
 import styles from "./MediaGround.module.css";
 
@@ -48,7 +49,24 @@ export function MediaGround({
       id={id}
       className={`${styles.ground} ${weight === "deep" ? styles.deep : ""} is-inverse ${className}`.trim()}
     >
-      <div className={styles.media} aria-hidden="true">
+      {/*
+        The one place on the site where parallax belongs, and for the reasons
+        the effect needs rather than because a large image happened to be
+        available.
+
+        The photograph is a ground, not an object: absolutely positioned
+        across the whole section and cropped with object-fit, so there is
+        overscan at every edge for it to drift into and nothing uncovers at
+        the top or bottom. It is decorative — empty alt, aria-hidden, and the
+        section's own words carry everything it conveys — so a reader who
+        never sees the movement loses nothing at all.
+
+        Parallax is a `view()` timeline: no scroll handler, no client
+        boundary, compositor only, and it declares itself out of existence
+        below 768px and under reduced motion. The extra height the drift
+        needs is added in MediaGround.module.css behind the same three gates.
+      */}
+      <Parallax depth="md" className={styles.media} aria-hidden="true">
         <Image
           src={image.src}
           alt=""
@@ -59,7 +77,7 @@ export function MediaGround({
           className={styles.image}
         />
         <span className={styles.scrim} />
-      </div>
+      </Parallax>
 
       <Container className={styles.container}>{children}</Container>
     </section>

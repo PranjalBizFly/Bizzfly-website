@@ -1,4 +1,5 @@
 import type { DiagramKind } from "@/types/content";
+import { PathDraw } from "@/components/motion";
 import { SurfacePresence } from "./SurfacePresence";
 import styles from "./Diagram.module.css";
 
@@ -102,8 +103,8 @@ function SystemArchitecture() {
       <Node x={0} y={22} label="CRM" />
       <Node x={192} y={22} label="Spreadsheet" />
       <Node x={384} y={22} label="Accounts" />
-      <path d="M96 42 L192 42" className={styles.lineDashed} />
-      <path d="M288 42 L384 42" className={styles.lineDashed} />
+      <path d="M96 42 L192 42" data-draw-fill className={styles.lineDashed} />
+      <path d="M288 42 L384 42" data-draw-fill className={styles.lineDashed} />
       <text x="128" y="36" className={styles.lineLabel}>
         manual
       </text>
@@ -117,8 +118,8 @@ function SystemArchitecture() {
       <Node x={0} y={122} label="CRM" />
       <Node x={192} y={122} label="Integration" accent />
       <Node x={384} y={122} label="Accounts" />
-      <path d="M96 142 L192 142" className={styles.line} />
-      <path d="M288 142 L384 142" className={styles.line} />
+      <path d="M96 142 L192 142" pathLength={1} className={styles.line} />
+      <path d="M288 142 L384 142" pathLength={1} className={styles.line} />
       <text x="192" y="186" className={styles.caption}>
         One declared source of truth per record.
       </text>
@@ -143,7 +144,7 @@ function ProcessTransformation() {
       </desc>
 
       <text x="0" y="12" className={styles.groupLabel}>
-        BEFORE — 5 steps, 4 manual
+        BEFORE: 5 steps, 4 manual
       </text>
       {[0, 1, 2, 3, 4].map((index) => (
         <g key={index}>
@@ -158,25 +159,25 @@ function ProcessTransformation() {
           {index < 4 ? (
             <path
               d={`M${index * 96 + 80} 35 L${(index + 1) * 96} 35`}
-              className={styles.lineDashed}
+              data-draw-fill className={styles.lineDashed}
             />
           ) : null}
         </g>
       ))}
 
       <text x="0" y="102" className={styles.groupLabel}>
-        AFTER — 1 decision, 1 exception path
+        AFTER: 1 decision, 1 exception path
       </text>
       <rect x="0" y="112" width="176" height="26" rx="2" className={styles.node} />
       <text x="88" y="129" className={styles.nodeText} textAnchor="middle">
         Automated
       </text>
-      <path d="M176 125 L272 125" className={styles.line} />
+      <path d="M176 125 L272 125" pathLength={1} className={styles.line} />
       <rect x="272" y="112" width="112" height="26" rx="2" className={styles.nodeAccent} />
       <text x="328" y="129" className={styles.nodeTextAccent} textAnchor="middle">
         Human decision
       </text>
-      <path d="M328 138 L328 160 L400 160" className={styles.lineDashed} />
+      <path d="M328 138 L328 160 L400 160" data-draw-fill className={styles.lineDashed} />
       <text x="406" y="163" className={styles.lineLabel}>
         exception
       </text>
@@ -201,18 +202,18 @@ function AiWorkflow() {
       </desc>
 
       <Node x={0} y={20} label="Request" />
-      <path d="M96 40 L160 40" className={styles.line} />
+      <path d="M96 40 L160 40" pathLength={1} className={styles.line} />
       <Node x={160} y={20} label="Retrieve" accent />
-      <path d="M256 40 L320 40" className={styles.line} />
+      <path d="M256 40 L320 40" pathLength={1} className={styles.line} />
       <Node x={320} y={20} label="Answer" />
 
-      <path d="M208 60 L208 96" className={styles.line} />
+      <path d="M208 60 L208 96" pathLength={1} className={styles.line} />
       <rect x="128" y="96" width="160" height="28" rx="2" className={styles.node} />
       <text x="208" y="114" className={styles.nodeText} textAnchor="middle">
         Your own content
       </text>
 
-      <path d="M368 60 L368 140 L288 140" className={styles.lineDashed} />
+      <path d="M368 60 L368 140 L288 140" data-draw-fill className={styles.lineDashed} />
       <rect x="128" y="126" width="160" height="28" rx="2" className={styles.node} />
       <text x="208" y="144" className={styles.nodeText} textAnchor="middle">
         Escalate to a person
@@ -239,7 +240,7 @@ function ContentStructure() {
       </title>
       <desc id="content-desc">
         A page with the answer stated first, one heading level per section, and
-        structured data anchoring it to a single organisation entity — versus a
+        structured data anchoring it to a single organisation entity, versus a
         page whose answer sits below a hero and cannot be extracted.
       </desc>
 
@@ -314,9 +315,23 @@ export function Diagram({ kind }: DiagramProps) {
 
   if (!content) return null;
 
+  /*
+   * The drawing builds itself in the order the diagram is read.
+   *
+   * Which strokes are traced is a decision about meaning, not a decision
+   * about effect. In every diagram here a solid connector is the integrated
+   * path — the one the work produces — and a dashed connector is the manual
+   * hop it replaces. So the solid lines carry pathLength={1} and are drawn,
+   * and the dashed ones are marked data-draw-fill and only fade in.
+   *
+   * That is also the only arrangement that does not break them: PathDraw
+   * animates stroke-dashoffset against a normalised stroke-dasharray of 1,
+   * which would overwrite the `3 3` pattern that makes a dashed line dashed
+   * and quietly turn every "before" path into an "after" one.
+   */
   return (
     <figure className={styles.figure}>
-      {content}
+      <PathDraw>{content}</PathDraw>
       {/*
         Below md the SVG is hidden because its labels scale below legibility.
         The same information is presented as text, so nothing is lost on a

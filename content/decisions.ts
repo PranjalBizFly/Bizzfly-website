@@ -16,7 +16,7 @@ export const decisions: Resource[] = [
     topic: "SEO",
     title: "When Do You Need an SEO Agency?",
     answer:
-      "You need outside help when the constraint is capability or capacity rather than effort — when you know what should be done and cannot do it, or cannot tell why performance is flat. If nobody internally owns the work, an agency will not fix that.",
+      "You need outside help when the constraint is capability or capacity rather than effort: when you know what should be done and cannot do it, or cannot tell why performance is flat. If nobody internally owns the work, an agency will not fix that.",
     body: [
       "The strongest signal is a diagnosis you cannot reach. Traffic is flat or falling, the obvious explanations have been ruled out, and nobody internally can say why with confidence. Diagnosis is where outside pattern recognition genuinely pays, because the failure is usually one someone has seen before on another site.",
       "The second signal is a known fix nobody can implement. Plenty of businesses know their site renders in the browser, or that their templates lack structure, and have no one with the time or specialism to change it. That is a capacity problem, and it is a reasonable thing to buy.",
@@ -66,10 +66,10 @@ export const decisions: Resource[] = [
     topic: "Web",
     title: "When Should You Redesign Your Website?",
     answer:
-      "Redesign when the site is measurably failing a job it needs to do — converting, being found, being updated — not when it looks dated. Appearance is the most common trigger and the weakest reason on its own.",
+      "Redesign when the site is measurably failing a job it needs to do (converting, being found, being updated) not when it looks dated. Appearance is the most common trigger and the weakest reason on its own.",
     body: [
       "Start from a named failure. Enquiries have fallen while traffic held. Visitors reach a page and leave without acting. Content cannot be published without a developer. The site cannot be made fast. Each of these points at a specific fix, and some of them do not require a redesign at all.",
-      "'It looks old' deserves care. Sometimes it is a real credibility problem, especially in sectors where buyers judge competence by presentation. Often it is internal fatigue: the team has seen the site every day for four years and visitors have not. Evidence — session recordings, sales feedback, conversion data — distinguishes the two.",
+      "'It looks old' deserves care. Sometimes it is a real credibility problem, especially in sectors where buyers judge competence by presentation. Often it is internal fatigue: the team has seen the site every day for four years and visitors have not. Evidence (session recordings, sales feedback, conversion data) distinguishes the two.",
       "Timing matters more than most teams expect. A redesign freezes ordinary improvement for its duration, and a rebuild carries real risk to existing search visibility. Doing one during a peak season, or while another major change is in flight, converts a manageable project into a stressful one.",
       "The strongest case is a structural constraint plus a commercial cost you can name. The weakest is a new stakeholder who dislikes the current design. If you cannot state what will be true afterwards that is not true now, the project has no finish line.",
     ],
@@ -119,7 +119,7 @@ export const decisions: Resource[] = [
       "Build when the process is a genuine competitive advantage that products force you to compromise, or when the total cost of the current patchwork exceeds the cost of owning something fitted. Otherwise buy.",
     body: [
       "The first test is differentiation. If the way you quote, schedule, price or fulfil is part of why customers choose you, bending it to fit a product's assumptions erodes the advantage. That is the clearest legitimate case for building, and it is narrower than most businesses assume.",
-      "The second is accumulated cost. Several subscriptions bridged by spreadsheets, exports and manual re-entry can quietly cost more than a fitted system — but only when the comparison includes the labour, the errors and the delay, not the licence fees alone. Do that arithmetic honestly before deciding.",
+      "The second is accumulated cost. Several subscriptions bridged by spreadsheets, exports and manual re-entry can quietly cost more than a fitted system, but only when the comparison includes the labour, the errors and the delay, not the licence fees alone. Do that arithmetic honestly before deciding.",
       "The strongest counter-signal is a mature product that already fits. If a category has established players and your requirements are ordinary, building is spending scarce engineering to reach a starting line others crossed years ago.",
       "Whatever you decide, budget the decade rather than the build. Custom software needs hosting, monitoring, dependency updates, security patching and someone who understands it after the original team has moved on. Projects that fail usually funded the first version and nothing after it.",
     ],
@@ -139,7 +139,7 @@ export const decisions: Resource[] = [
       {
         question: "How do we know if our process is really a differentiator?",
         answer:
-          "Ask whether customers would notice if it changed. If the process could be replaced with an industry-standard one and nobody outside the company would care, it is not a differentiator — it is just familiar.",
+          "Ask whether customers would notice if it changed. If the process could be replaced with an industry-standard one and nobody outside the company would care, it is not a differentiator; it is just familiar.",
       },
       {
         question: "What is the biggest hidden cost?",
@@ -154,7 +154,7 @@ export const decisions: Resource[] = [
         type: "COMPARISON",
       },
       {
-        label: "Custom Software Development",
+        label: "Custom Software",
         href: "/services/custom-software/",
         type: "SERVICE",
       },
@@ -168,16 +168,16 @@ export const decisions: Resource[] = [
     answer:
       "Automate when a process is repetitive, rule-based, high-volume and stable, and when the steps have already been simplified. Automating a process that is still changing shape locks in the version you were about to improve.",
     body: [
-      "Frequency and stability predict return better than irritation does. The task people complain about most is often infrequent and full of judgement — a poor candidate. The task nobody mentions because it is merely tedious, done forty times a week identically, is usually the better one.",
+      "Frequency and stability predict return better than irritation does. The task people complain about most is often infrequent and full of judgement: a poor candidate. The task nobody mentions because it is merely tedious, done forty times a week identically, is usually the better one.",
       "Simplify before automating. The most valuable output of mapping a process is normally the discovery that several steps exist for reasons that no longer apply. Removing a step returns more than accelerating it, and it is cheaper.",
       "Automate the core, not the exceptions. Most processes have a stable majority and a long tail of special cases. Handling the majority automatically and routing exceptions to a person with full context captures most of the benefit; chasing total coverage is where cost and fragility escalate.",
-      "Do not automate what should stay accountable. Pricing a difficult deal, resolving a complaint, deciding an unusual case — these belong with people. Automating them tends to produce confident wrong answers and removes the judgement that made the outcome defensible.",
+      "Do not automate what should stay accountable. Pricing a difficult deal, resolving a complaint, deciding an unusual case: these belong with people. Automating them tends to produce confident wrong answers and removes the judgement that made the outcome defensible.",
     ],
     supports: ["workflow-automation", "sales-automation"],
     seo: {
       title: "When Should You Automate a Process?",
       description:
-        "Automate repetitive, stable, high-volume work — after simplifying it. Why the most irritating task is rarely the right first one.",
+        "Automate repetitive, stable, high-volume work, after simplifying it. Why the most irritating task is rarely the right first one.",
       primaryTopic: "when to automate a process",
       secondaryTopics: ["business automation", "process improvement"],
       intent: "commercial",
@@ -218,10 +218,10 @@ export const decisions: Resource[] = [
     answer:
       "Invest when you have a specific, repeated task involving unstructured information, and the data that task needs already exists and is accessible. Investing because AI is expected of you produces pilots that never reach production.",
     body: [
-      "Start from a task, not a technology. 'We should use AI' has no success criterion. 'We spend twelve hours a week reading enquiry emails and routing them' does — it names the work, the volume and the thing that would change. Projects framed the second way survive contact with reality far more often.",
+      "Start from a task, not a technology. 'We should use AI' has no success criterion. 'We spend twelve hours a week reading enquiry emails and routing them' does: it names the work, the volume and the thing that would change. Projects framed the second way survive contact with reality far more often.",
       "Check the data before anything else. AI applied to your business needs access to your business's information: documents, records, history. If that material is scattered, contradictory or locked in systems nobody can query, the first project is data access, not AI. Most stalled initiatives stalled here.",
-      "Prefer tasks where being occasionally wrong is survivable. Drafting a reply a person approves, classifying an enquiry, summarising a call — errors are visible and cheap. Irreversible or regulated decisions are the wrong place to begin, whatever the demo suggested.",
-      "It is legitimate to conclude not yet. If the process is unstable, the data is not ready, or nobody owns the outcome, waiting is a decision rather than a failure — and considerably cheaper than a pilot that quietly ends.",
+      "Prefer tasks where being occasionally wrong is survivable. Drafting a reply a person approves, classifying an enquiry, summarising a call: errors are visible and cheap. Irreversible or regulated decisions are the wrong place to begin, whatever the demo suggested.",
+      "It is legitimate to conclude not yet. If the process is unstable, the data is not ready, or nobody owns the outcome, waiting is a decision rather than a failure, and considerably cheaper than a pilot that quietly ends.",
     ],
     supports: ["ai-consulting", "ai-agents"],
     seo: {
@@ -244,7 +244,7 @@ export const decisions: Resource[] = [
       {
         question: "What is a realistic first AI project?",
         answer:
-          "A narrow, repeated task with unstructured input and a human check — classifying enquiries, drafting replies for approval, summarising documents. Visible, cheap errors and a clear before-and-after.",
+          "A narrow, repeated task with unstructured input and a human check: classifying enquiries, drafting replies for approval, summarising documents. Visible, cheap errors and a clear before-and-after.",
       },
     ],
     related: [
@@ -264,7 +264,7 @@ export const decisions: Resource[] = [
     answer:
       "Judge a partner on how they diagnose, what they refuse to promise, and whether their proposal names a constraint specific to your business. Credentials and client lists say much less than the quality of their first questions.",
     body: [
-      "Watch the diagnosis. A partner who proposes a package before understanding the constraint is selling capacity, not judgement. The useful signal is whether their early questions are about your business — how enquiries arrive, what a good customer is worth, what has already been tried — or about your budget.",
+      "Watch the diagnosis. A partner who proposes a package before understanding the constraint is selling capacity, not judgement. The useful signal is whether their early questions are about your business (how enquiries arrive, what a good customer is worth, what has already been tried) or about your budget.",
       "Pay attention to refusals. Anyone guaranteeing rankings, citations or a conversion rate is describing something they cannot control. A partner who says a channel is wrong for you, or that a piece of work should wait, is demonstrating the judgement you are actually buying.",
       "Ask what happens when it does not work. Everyone has a plan for success. The more revealing questions are how quickly under-performance surfaces, what is reported when a month goes badly, and what they would stop doing. Vague answers here predict vague reporting later.",
       "Finally, check for an internal owner on your side. The most common cause of a failed engagement is not a bad supplier; it is recommendations nobody had the authority or time to implement.",
@@ -273,7 +273,7 @@ export const decisions: Resource[] = [
     seo: {
       title: "How to Choose a Digital Growth Partner",
       description:
-        "Judge partners on diagnosis, refusals and specificity — not credentials. The questions that reveal judgement, and the failure that is usually internal.",
+        "Judge partners on diagnosis, refusals and specificity, not credentials. The questions that reveal judgement, and the failure that is usually internal.",
       primaryTopic: "choosing a digital growth partner",
       secondaryTopics: ["agency selection", "vendor evaluation"],
       intent: "commercial",
@@ -290,7 +290,7 @@ export const decisions: Resource[] = [
       {
         question: "Do case studies matter?",
         answer:
-          "Less than the reasoning behind them. A case study without named constraints, methods and a verifiable source is a story. Ask what they would have done differently — that reveals more than the result.",
+          "Less than the reasoning behind them. A case study without named constraints, methods and a verifiable source is a story. Ask what they would have done differently; that reveals more than the result.",
       },
     ],
     related: [
@@ -345,7 +345,7 @@ export const decisions: Resource[] = [
         href: "/resources/what-the-first-90-days-of-seo-look-like/",
         type: "ARTICLE",
       },
-      { label: "SEO Services", href: "/services/seo/", type: "SERVICE" },
+      { label: "SEO", href: "/services/seo/", type: "SERVICE" },
     ],
   },
   {
@@ -391,7 +391,7 @@ export const decisions: Resource[] = [
     ],
     related: [
       {
-        label: "Our Engineering Standards",
+        label: "Engineering Standards",
         href: "/technologies/engineering-standards/",
         type: "TECHNOLOGY",
       },
@@ -411,7 +411,7 @@ export const decisions: Resource[] = [
       "Plan backwards from the outcome you need, protect what already works, and treat URL and content parity as a delivery requirement rather than a launch-week task. Most redesign traffic losses are planning failures, not surprises.",
     body: [
       "Begin with an inventory of what currently works. Which pages produce enquiries, which earn search visibility, which are cited or linked. Redesigns lose traffic mainly by discarding or diluting pages nobody realised were performing, and that is preventable with a week of analysis.",
-      "Map every URL before design begins, not after. Each existing address needs a destination — kept, redirected to the closest equivalent, or deliberately retired. Redirect chains, loops and mass redirects to the homepage are the specific patterns that cause damage.",
+      "Map every URL before design begins, not after. Each existing address needs a destination: kept, redirected to the closest equivalent, or deliberately retired. Redirect chains, loops and mass redirects to the homepage are the specific patterns that cause damage.",
       "Set the non-visual requirements early, because they constrain the design. Server-rendered output, structured content, performance budgets, accessible components and a heading structure that survives editing are all far cheaper to specify than to retrofit.",
       "Plan the launch as a monitored event. Compare rendered content against the old site on key templates, verify indexing and structured data in the first days, and keep the old analytics available for comparison. The first fortnight is when a fixable problem is still cheap.",
     ],
@@ -467,7 +467,7 @@ export const decisions: Resource[] = [
       "Name the constraint in operational terms. 'Quotes take four days because pricing lives in three systems' is a problem you can solve and measure. 'Digital transformation' is a budget line with no finish condition, which is why so many of these programmes end without anyone being able to say whether they worked.",
       "Sequence by dependency and evidence. The first project should be small enough to finish, valuable enough to notice, and instructive enough to change the plan. Large simultaneous change is how organisations discover their assumptions were wrong after committing to all of them.",
       "Expect the process work to exceed the technology work. Most of the delay in these programmes comes from unclear ownership, disagreement about which system is authoritative for a given record, and steps preserved for reasons nobody can now explain. Software makes those explicit rather than solving them.",
-      "Build the measurement before the build. If nobody can state today's cycle time, error rate or cost per transaction, nobody will be able to demonstrate improvement afterwards — and the programme will be judged on impressions instead of evidence.",
+      "Build the measurement before the build. If nobody can state today's cycle time, error rate or cost per transaction, nobody will be able to demonstrate improvement afterwards, and the programme will be judged on impressions instead of evidence.",
     ],
     supports: ["digital-strategy", "systems-integration"],
     seo: {
@@ -490,7 +490,7 @@ export const decisions: Resource[] = [
       {
         question: "How long should the first phase be?",
         answer:
-          "Short enough to finish and be judged — typically weeks, not quarters. The purpose of the first phase is as much to test the assumptions in the plan as to deliver the change itself.",
+          "Short enough to finish and be judged: typically weeks, not quarters. The purpose of the first phase is as much to test the assumptions in the plan as to deliver the change itself.",
       },
     ],
     related: [

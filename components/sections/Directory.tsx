@@ -5,6 +5,7 @@ import { useId, useMemo, useState } from "react";
 import { Cascade } from "@/components/motion";
 import { anchorId } from "@/lib/slug";
 import styles from "./Directory.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 export interface DirectoryGroup {
   heading: string;
@@ -157,10 +158,10 @@ export function Directory({
                 ) : null}
                 {group.headingHref ? (
                   <Link href={group.headingHref} className={styles.headingLink}>
-                    {group.heading}
+                    {titleCase(group.heading)}
                   </Link>
                 ) : (
-                  group.heading
+                  titleCase(group.heading)
                 )}
               </h3>
 

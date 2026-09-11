@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Faq } from "@/types/content";
+import { Cascade } from "@/components/motion";
 import styles from "./FAQBlock.module.css";
 
 interface FAQBlockProps {
@@ -42,8 +43,22 @@ export function FAQBlock({
   /* Which question is open, when only one may be. -1 is none. */
   const [only, setOnly] = useState(openFirst ? 0 : -1);
 
+  /*
+   * The questions arrive in order rather than as a finished block.
+   *
+   * This set appears on eight page types and was the last section on the site
+   * with no arrival at all: a reader scrolling into it met a wall of six
+   * closed rows landing at once, immediately after sections that had been
+   * introducing themselves one piece at a time.
+   *
+   * Cascade rather than a Reveal per item — it observes the container once
+   * and delays the children in CSS, so this stays one observer instead of six
+   * and the markup the accordion depends on is untouched. Nothing here
+   * interferes with the open/close animation either: the cascade transitions
+   * the <details> element, the accordion transitions the panel inside it.
+   */
   return (
-    <div className={styles.list}>
+    <Cascade className={styles.list}>
       {faqs.map((faq, index) => (
         <FaqItem
           key={faq.question}
@@ -55,7 +70,7 @@ export function FAQBlock({
           onClose={() => setOnly((current) => (current === index ? -1 : current))}
         />
       ))}
-    </div>
+    </Cascade>
   );
 }
 

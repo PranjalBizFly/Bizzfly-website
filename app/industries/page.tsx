@@ -2,23 +2,25 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/layout/Section";
 import { SectionNav } from "@/components/navigation";
-import { EditorialHero } from "@/components/hero";
+import { CinematicHero } from "@/components/hero";
 import { SectionHeader, ConversionBand, Directory } from "@/components/sections";
 import { Button, TextLink } from "@/components/buttons";
 import { JsonLd } from "@/components/JsonLd";
 import { industries } from "@/content/industries";
 import { sectorDirectory, LEAD_SECTORS } from "@/content/taxonomy";
+import { getIndustriesHubImage } from "@/content/images";
 import { services } from "@/content/services";
 import { primaryCta } from "@/content/navigation";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import styles from "./industries.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 export const metadata: Metadata = buildMetadata(
   {
     title: "Industries",
     description:
-      "Sector-specific digital growth and automation — manufacturing, real estate, education and professional services, with problems named in each sector's own words.",
+      "Sector-specific digital growth and automation: manufacturing, real estate, education and professional services, with problems named in each sector's own words.",
     primaryTopic: "industries served",
     secondaryTopics: ["sectors", "manufacturing", "real estate", "education"],
     intent: "navigational",
@@ -47,11 +49,28 @@ export default function IndustriesIndexPage() {
         }}
       />
 
-      <EditorialHero
+      <CinematicHero
+        image={getIndustriesHubImage()}
+        composition="banner"
         eyebrow="Industries"
         title="The work looks different in every sector"
         lead="A manufacturer and an education group have almost nothing in common except that both are hard to find. We publish a sector page only where we can name that sector's real problems in its own vocabulary, in the sector's own words."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Industries" }]}
+        factsHeading="Sector Breakdown"
+        facts={[
+          {
+            value: String(industries.length),
+            label: "sectors published, written in that sector's vocabulary",
+          },
+          {
+            value: String(sectorDirectory().length),
+            label: "sector groupings, structured by buying and discovery",
+          },
+          {
+            value: "100%",
+            label: "grounded in verified vertical requirements and workflows",
+          },
+        ]}
         actions={
           <Button href={primaryCta.href} withArrow>
             {primaryCta.label}
@@ -66,9 +85,9 @@ export default function IndustriesIndexPage() {
       <Section spacing="lg">
         <SectionHeader
           split
-          eyebrow="01 / Sectors"
+          eyebrow="Sectors"
           title="Where we work, and what we see there"
-          lead="Six shown in full — the sector context, the problems we hear most, and the work that addresses them. Every sector we publish is listed below."
+          lead="Six shown in full: the sector context, the problems we hear most, and the work that addresses them. Every sector we publish is listed below."
         />
 
         <div className={styles.sectors}>
@@ -88,7 +107,7 @@ export default function IndustriesIndexPage() {
                   </span>
                   <h2 className={styles.sectorTitle}>
                     <Link href={`/industries/${industry.slug}/`}>
-                      {industry.title}
+                      {titleCase(industry.title)}
                     </Link>
                   </h2>
                   <p className={styles.sectorAnswer}>{industry.answer}</p>
@@ -137,7 +156,7 @@ export default function IndustriesIndexPage() {
       <Section background="tint" spacing="lg">
         <SectionHeader
           split
-          eyebrow="02 / Every sector"
+          eyebrow="Every sector"
           title={`All ${industries.length} industries`}
           lead="Grouped by business model rather than by category, because the digital problem a manufacturer has looks far more like a logistics operator's than like another company that happens to share its industry code."
         />
@@ -156,13 +175,13 @@ export default function IndustriesIndexPage() {
 
       <Section background="surface" spacing="md" width="content">
         <SectionHeader
-          eyebrow="03 / Not listed?"
+          eyebrow="Not listed?"
           title="Sector fluency is earned, not claimed"
           level={2}
         />
         <p className={styles.note}>
           We would rather publish four sectors we understand than twenty we do
-          not. If yours is not here, tell us what the work involves — we will be
+          not. If yours is not here, tell us what the work involves; we will be
           straight with you about whether we are the right people for it.
         </p>
         <div className="mt-8">
@@ -170,7 +189,11 @@ export default function IndustriesIndexPage() {
         </div>
       </Section>
 
-      <ConversionBand />
+      {/* The index: the useful offer is help finding the right sector page. */}
+      <ConversionBand
+        title="Sector not listed, or spanning two of them?"
+        lead="Most operations do. Describe how buying and discovery actually work in yours and we will tell you which of these pages is closest — and where the differences would change what we would do."
+      />
     </>
   );
 }

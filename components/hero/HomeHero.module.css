@@ -46,14 +46,18 @@
   color: var(--accent-text);
 }
 
-.tickerSurface {
-  font-size: var(--text-body-sm);
-  color: var(--muted);
-}
-
-/* The dot between cells, so the band reads as a list and not a sentence. */
-.tickerSurface::after {
+/*
+ * The dot between cells, so the band reads as a list and not a sentence.
+ *
+ * It used to hang off the layer's short gloss, which was the last element in
+ * each cell. That gloss is gone — the cell is now the code and the full name
+ * — so the separator moves to the name, which is the last element now. The
+ * `.tickerSurface` rule went with it; nothing renders that class any more.
+ */
+.tickerName::after {
   content: "·";
   margin-left: var(--space-6);
   color: var(--border-strong);
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
 }

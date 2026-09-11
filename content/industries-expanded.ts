@@ -16,7 +16,7 @@ export const expandedIndustries: Industry[] = [
     title: "SaaS",
     layout: "opportunity-led",
     answer:
-      "SaaS businesses compete in categories where buyers research heavily before contacting anyone. Most of the decision happens across search, comparison content and AI answers — before a demo is ever requested.",
+      "SaaS businesses compete in categories where buyers research heavily before contacting anyone. Most of the decision happens across search, comparison content and AI answers, before a demo is ever requested.",
     opportunity:
       "Because the buying journey is almost entirely self-directed, the content that explains, compares and qualifies is doing the selling. That is work a SaaS company can control.",
     context:
@@ -37,7 +37,7 @@ export const expandedIndustries: Industry[] = [
       {
         title: "AI assistants describe the product inaccurately",
         description:
-          "Where documentation is thin or inconsistent, assistants answer from whatever they can find — often an outdated review or a competitor's comparison page.",
+          "Where documentation is thin or inconsistent, assistants answer from whatever they can find, often an outdated review or a competitor's comparison page.",
         addressedBy: ["ai-search-optimisation", "generative-engine-optimisation"],
       },
       {
@@ -84,11 +84,11 @@ export const expandedIndustries: Industry[] = [
       {
         question: "How do we compete with review sites on comparison queries?",
         answer:
-          "Not by outranking them everywhere. By owning the honest version of the comparison on your own site — including where you are not the right choice, which is what makes it credible enough to be cited.",
+          "Not by outranking them everywhere. By owning the honest version of the comparison on your own site, including where you are not the right choice, which is what makes it credible enough to be cited.",
       },
     ],
     related: [
-      { label: "SEO Services", href: "/services/seo/", type: "SERVICE" },
+      { label: "SEO", href: "/services/seo/", type: "SERVICE" },
       {
         label: "Improve website conversion",
         href: "/use-cases/improve-website-conversion/",
@@ -164,7 +164,7 @@ export const expandedIndustries: Industry[] = [
       {
         question: "Can AI be used safely in a healthcare setting?",
         answer:
-          "For administrative work — routing enquiries, drafting non-clinical correspondence, answering logistical questions from approved content — with human review and no clinical decision-making. Clinical applications carry regulatory obligations that must be assessed by the provider's own advisers.",
+          "For administrative work (routing enquiries, drafting non-clinical correspondence, answering logistical questions from approved content), with human review and no clinical decision-making. Clinical applications carry regulatory obligations that must be assessed by the provider's own advisers.",
       },
       {
         question: "Why does accessibility matter more in healthcare?",
@@ -174,7 +174,7 @@ export const expandedIndustries: Industry[] = [
     ],
     related: [
       {
-        label: "Google Business Profile Optimisation",
+        label: "Google Business Profile",
         href: "/services/google-business-profile/",
         type: "SERVICE",
       },
@@ -258,7 +258,7 @@ export const expandedIndustries: Industry[] = [
       {
         question: "Can onboarding be automated in a regulated firm?",
         answer:
-          "The administrative parts frequently can — document collection, status tracking, reminders, routing — with decisions and verification staying with authorised people and a full audit trail retained.",
+          "The administrative parts frequently can (document collection, status tracking, reminders, routing), with decisions and verification staying with authorised people and a full audit trail retained.",
       },
     ],
     related: [
@@ -276,12 +276,12 @@ export const expandedIndustries: Industry[] = [
   },
   {
     slug: "ecommerce",
-    title: "E-commerce & Retail",
+    title: "E-commerce",
     layout: "journey-led",
     answer:
       "E-commerce visibility is decided by product and category pages that most sites treat as templates. Where those pages are thin, duplicated or slow, the catalogue competes against itself and against marketplaces.",
     context:
-      "Retail search spans discovery, comparison and repeat purchase, each with different requirements. Large catalogues generate technical problems that smaller sites never encounter — faceted navigation creating near-infinite URLs, out-of-stock handling, and variants that duplicate each other. Marketplaces compete for the same queries with far greater authority, so specificity is the available advantage.",
+      "Retail search spans discovery, comparison and repeat purchase, each with different requirements. Large catalogues generate technical problems that smaller sites never encounter: faceted navigation creating near-infinite URLs, out-of-stock handling, and variants that duplicate each other. Marketplaces compete for the same queries with far greater authority, so specificity is the available advantage.",
     problems: [
       {
         title: "Faceted navigation generates crawl waste",
@@ -323,7 +323,7 @@ export const expandedIndustries: Industry[] = [
     seo: {
       title: "Digital Growth for E-commerce & Retail",
       description:
-        "Faceted navigation, thin category pages, mobile speed and operations that do not scale — the four constraints that cap retail growth.",
+        "Faceted navigation, thin category pages, mobile speed and operations that do not scale: the four constraints that cap retail growth.",
       primaryTopic: "ecommerce digital growth",
       secondaryTopics: ["ecommerce SEO", "retail conversion", "site speed"],
       intent: "commercial",
@@ -345,7 +345,7 @@ export const expandedIndustries: Industry[] = [
       {
         question: "How do we compete with marketplaces?",
         answer:
-          "Rarely on head terms, where their authority is decisive. The available advantage is specificity — depth on the products and questions a general marketplace covers shallowly.",
+          "Rarely on head terms, where their authority is decisive. The available advantage is specificity: depth on the products and questions a general marketplace covers shallowly.",
       },
     ],
     related: [
@@ -359,7 +359,7 @@ export const expandedIndustries: Industry[] = [
   },
   {
     slug: "logistics",
-    title: "Logistics & Supply Chain",
+    title: "Logistics",
     layout: "challenge-led",
     diagram: "system-architecture",
     answer:
@@ -407,7 +407,7 @@ export const expandedIndustries: Industry[] = [
     seo: {
       title: "Digital Growth for Logistics & Supply Chain",
       description:
-        "Status requests, rekeyed data, late reporting and fragile partner integrations — where coordination gaps cost logistics operators most.",
+        "Status requests, rekeyed data, late reporting and fragile partner integrations: where coordination gaps cost logistics operators most.",
       primaryTopic: "logistics digital transformation",
       secondaryTopics: ["supply chain systems", "logistics automation"],
       intent: "commercial",
@@ -424,7 +424,7 @@ export const expandedIndustries: Industry[] = [
       {
         question: "Can we integrate with partners who have no API?",
         answer:
-          "Usually, through scheduled file exchange or an intermediary layer — but those routes fail quietly, so alerting and reconciliation matter more than the integration itself.",
+          "Usually, through scheduled file exchange or an intermediary layer, but those routes fail quietly, so alerting and reconciliation matter more than the integration itself.",
       },
       {
         question: "Where is the quickest operational return?",
@@ -511,7 +511,7 @@ export const expandedIndustries: Industry[] = [
       {
         question: "Does publishing technical content win work?",
         answer:
-          "Indirectly and reliably. It rarely produces an enquiry on its own, but it is what makes a firm findable during research and credible during evaluation — and increasingly what makes it citable in AI answers.",
+          "Indirectly and reliably. It rarely produces an enquiry on its own, but it is what makes a firm findable during research and credible during evaluation, and increasingly what makes it citable in AI answers.",
       },
       {
         question: "How do we qualify enquiries better?",

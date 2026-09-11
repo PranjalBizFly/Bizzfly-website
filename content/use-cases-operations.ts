@@ -15,7 +15,7 @@ export const operationsUseCases: UseCase[] = [
     layout: "workflow-led",
     diagram: "system-architecture",
     answer:
-      "When systems do not talk to each other, people become the integration. The cost appears as rekeying, as reports that disagree, and as decisions made on numbers nobody fully trusts — not as a line in any budget.",
+      "When systems do not talk to each other, people become the integration. The cost appears as rekeying, as reports that disagree, and as decisions made on numbers nobody fully trusts, not as a line in any budget.",
     whyItMatters:
       "Disconnected systems cap how much work a business can handle without hiring, and quietly erode confidence in its own reporting.",
     symptoms: [
@@ -35,7 +35,7 @@ export const operationsUseCases: UseCase[] = [
         index: 1,
         title: "Establish the source of truth",
         description:
-          "For each record that matters — customer, order, invoice — decide which system owns it. Most integration disputes are really this question, unanswered.",
+          "For each record that matters (customer, order, invoice) decide which system owns it. Most integration disputes are really this question, unanswered.",
         duration: "Weeks 1–2",
       },
       {
@@ -86,7 +86,7 @@ export const operationsUseCases: UseCase[] = [
       {
         question: "What if our systems have no API?",
         answer:
-          "There are still options — scheduled file exchange, database-level integration, or driving the interface — but each is more fragile and needs a named owner and maintenance budget. Treat it as a bridge while a better route is found.",
+          "There are still options (scheduled file exchange, database-level integration, or driving the interface) but each is more fragile and needs a named owner and maintenance budget. Treat it as a bridge while a better route is found.",
       },
       {
         question: "Should we replace our systems instead of integrating them?",
@@ -109,7 +109,7 @@ export const operationsUseCases: UseCase[] = [
     layout: "problem-solution",
     diagram: "process-transformation",
     answer:
-      "Legacy processes are rarely kept because anyone prefers them. They survive because nobody can safely say which steps still matter — so the whole thing is preserved, including the parts that stopped being necessary years ago.",
+      "Legacy processes are rarely kept because anyone prefers them. They survive because nobody can safely say which steps still matter, so the whole thing is preserved, including the parts that stopped being necessary years ago.",
     whyItMatters:
       "Processes that cannot be changed become the ceiling on everything built on top of them, including any new system a business buys.",
     symptoms: [
@@ -180,7 +180,7 @@ export const operationsUseCases: UseCase[] = [
       {
         question: "How do we know which steps can be removed?",
         answer:
-          "Ask what risk each step manages or what value it adds today, not why it was introduced. Steps whose original reason has gone are candidates — verified with whoever owns the downstream outcome before removal.",
+          "Ask what risk each step manages or what value it adds today, not why it was introduced. Steps whose original reason has gone are candidates, verified with whoever owns the downstream outcome before removal.",
       },
       {
         question: "Is this a technology project?",
@@ -253,7 +253,7 @@ export const operationsUseCases: UseCase[] = [
       },
     ],
     targetState:
-      "One task runs in production with grounded answers, a visible source, and a defined escalation path — and the organisation knows from evidence whether the second project is worth starting.",
+      "One task runs in production with grounded answers, a visible source, and a defined escalation path, and the organisation knows from evidence whether the second project is worth starting.",
     realisticTimeline:
       "Six to twelve weeks to a first production use case, with data access usually the longest pole rather than the model work.",
     services: ["ai-consulting", "ai-agents", "workflow-automation"],
@@ -380,7 +380,7 @@ export const operationsUseCases: UseCase[] = [
     ],
     related: [
       {
-        label: "Custom Software Development",
+        label: "Custom Software",
         href: "/services/custom-software/",
         type: "SERVICE",
       },
@@ -397,7 +397,7 @@ export const operationsUseCases: UseCase[] = [
     layout: "problem-solution",
     diagram: "content-structure",
     answer:
-      "Digital presence is what a buyer finds when they check you out — the website, the search results, the profiles, the answers an assistant gives about you. It is usually assembled by accident and rarely reviewed as a whole.",
+      "Digital presence is what a buyer finds when they check you out: the website, the search results, the profiles, the answers an assistant gives about you. It is usually assembled by accident and rarely reviewed as a whole.",
     whyItMatters:
       "Most buyers verify a business before contacting it. What they find during that check decides whether the enquiry happens at all.",
     symptoms: [
@@ -494,7 +494,7 @@ export const operationsUseCases: UseCase[] = [
     layout: "workflow-led",
     diagram: "system-architecture",
     answer:
-      "Infrastructure becomes a constraint before anyone calls it one. It shows up as releases that are risky, changes that take longer each quarter, and incidents nobody can diagnose quickly — long before it shows up as downtime.",
+      "Infrastructure becomes a constraint before anyone calls it one. It shows up as releases that are risky, changes that take longer each quarter, and incidents nobody can diagnose quickly, long before it shows up as downtime.",
     whyItMatters:
       "Every commercial plan assumes the systems underneath can absorb it. When they cannot, the plan fails for reasons that look unrelated.",
     symptoms: [
@@ -564,7 +564,7 @@ export const operationsUseCases: UseCase[] = [
       {
         question: "Do we need to move to the cloud?",
         answer:
-          "Not necessarily. Cloud helps with elasticity and managed services, but it does not fix manual deployment, missing tests or absent monitoring — and those are usually the actual constraint.",
+          "Not necessarily. Cloud helps with elasticity and managed services, but it does not fix manual deployment, missing tests or absent monitoring, and those are usually the actual constraint.",
       },
       {
         question: "What returns the most first?",
@@ -617,7 +617,7 @@ export const operationsUseCases: UseCase[] = [
         index: 2,
         title: "Find the repeated failure moments",
         description:
-          "From complaints, support tickets and recordings — not from a workshop. The same few moments usually account for most dissatisfaction.",
+          "From complaints, support tickets and recordings, not from a workshop. The same few moments usually account for most dissatisfaction.",
         duration: "Weeks 2–4",
       },
       {

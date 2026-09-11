@@ -47,10 +47,10 @@ export const platformServices: Service[] = [
     ],
     included: [
       "Task inventory: volume, variability, tolerance for error and cost of a mistake",
-      "Data assessment — whether the material a system would need actually exists and is accurate",
+      "Data assessment: whether the material a system would need actually exists and is accurate",
       "Feasibility judgement per task, including tasks that should stay manual",
       "Failure-mode analysis: what happens when the system is confidently wrong",
-      "Governance starting points — permitted data, decisions requiring a person, ownership",
+      "Governance starting points: permitted data, decisions requiring a person, ownership",
       "A first project recommendation, sized to produce evidence within a quarter",
     ],
     approach: [
@@ -78,7 +78,7 @@ export const platformServices: Service[] = [
     ],
     timeline: "Three to four weeks.",
     outOfScope: [
-      "A build — this exists to decide whether one is warranted",
+      "A build: this exists to decide whether one is warranted",
       "Model or vendor selection, which follows a defined problem rather than preceding it",
     ],
     cta: {
@@ -90,7 +90,7 @@ export const platformServices: Service[] = [
       {
         question: "What if the assessment says we are not ready?",
         answer:
-          "Then it has done its job and saved a build. It will also say what would make you ready — usually documentation, data definitions or a process simplification — which is generally cheaper than the project it replaced.",
+          "Then it has done its job and saved a build. It will also say what would make you ready (usually documentation, data definitions or a process simplification) which is generally cheaper than the project it replaced.",
       },
       {
         question: "Do we need a data warehouse first?",
@@ -99,7 +99,7 @@ export const platformServices: Service[] = [
       },
     ],
     related: [
-      { label: "AI Project Readiness Checklist", href: "/resources/ai-project-checklist/", type: "CHECKLIST" },
+      { label: "AI Project Checklist", href: "/resources/ai-project-checklist/", type: "CHECKLIST" },
       { label: "AI Governance for Small Teams", href: "/resources/ai-governance-guide/", type: "GUIDE" },
     ],
   },
@@ -180,7 +180,7 @@ export const platformServices: Service[] = [
     diagram: "system-architecture",
     title: "API Development",
     answer:
-      "Building interfaces other systems depend on — with a versioned contract, documented behaviour under failure, and authentication designed before the first endpoint rather than after.",
+      "Building interfaces other systems depend on, with a versioned contract, documented behaviour under failure, and authentication designed before the first endpoint rather than after.",
     seo: {
       title: "API Development",
       description:
@@ -228,7 +228,7 @@ export const platformServices: Service[] = [
       {
         question: "REST or GraphQL?",
         answer:
-          "REST for most business integrations — it is simpler to consume, cache and debug, and the consumers usually want a handful of stable endpoints. GraphQL earns its complexity where clients genuinely need to shape varied queries themselves.",
+          "REST for most business integrations: it is simpler to consume, cache and debug, and the consumers usually want a handful of stable endpoints. GraphQL earns its complexity where clients genuinely need to shape varied queries themselves.",
       },
       {
         question: "How do we change an API without breaking consumers?",
@@ -280,7 +280,7 @@ export const platformServices: Service[] = [
       "Data model design: what a lead, contact, account and opportunity mean here",
       "Migration with deduplication and a decision on what not to bring across",
       "Integration with the systems that create and consume customer data",
-      "Adoption work — training, entry design, and removing the parallel spreadsheet",
+      "Adoption work: training, entry design, and removing the parallel spreadsheet",
       "Reporting built on the fields that are reliably populated",
     ],
     approach: [
@@ -311,7 +311,7 @@ export const platformServices: Service[] = [
     ],
     timeline: "Eight to sixteen weeks depending on data volume and integration count.",
     outOfScope: [
-      "Licence resale — we have no commercial relationship with platform vendors",
+      "Licence resale: we have no commercial relationship with platform vendors",
       "Configuration delivered without the adoption work, which is how most of these fail",
     ],
     cta: {
@@ -381,7 +381,7 @@ export const platformServices: Service[] = [
     timeline: "Six to twelve weeks for a first set of sequences.",
     outOfScope: [
       "Bulk sending to purchased lists, which damages deliverability and breaches consent rules",
-      "Automating a sales process nobody has agreed on — the disagreement gets encoded",
+      "Automating a sales process nobody has agreed on: the disagreement gets encoded",
     ],
     cta: {
       label: "Discuss marketing automation",
@@ -413,7 +413,7 @@ export const platformServices: Service[] = [
     diagram: "system-architecture",
     title: "Customer Portals",
     answer:
-      "A secure area where customers do for themselves what they currently email you about — checking status, retrieving documents, submitting requests. Its success is measured in removed inbound, not logins.",
+      "A secure area where customers do for themselves what they currently email you about: checking status, retrieving documents, submitting requests. Its success is measured in removed inbound, not logins.",
     seo: {
       title: "Customer Portals",
       description:
@@ -440,7 +440,7 @@ export const platformServices: Service[] = [
       "Businesses whose customers ask for visibility they cannot currently give",
     ],
     included: [
-      "Scoping from the actual inbound — which questions, at what volume",
+      "Scoping from the actual inbound: which questions, at what volume",
       "Authentication and access control, including multi-user accounts where needed",
       "Integration with the systems holding the underlying data",
       "Document access with permissions and an audit trail",
@@ -450,7 +450,7 @@ export const platformServices: Service[] = [
     timeline: "Ten to twenty weeks depending on integration depth.",
     outOfScope: [
       "Portals built without integration, which become another place data is entered twice",
-      "Replacing support entirely — self-service deflects routine contact, it does not remove the need for people",
+      "Replacing support entirely: self-service deflects routine contact, it does not remove the need for people",
     ],
     cta: {
       label: "Discuss a portal project",
@@ -466,7 +466,7 @@ export const platformServices: Service[] = [
       {
         question: "What is the most common reason portals fail?",
         answer:
-          "Stale data. If the portal shows something different from what a staff member would say on the phone, customers stop trusting it and return to email — so integration matters more than interface.",
+          "Stale data. If the portal shows something different from what a staff member would say on the phone, customers stop trusting it and return to email, so integration matters more than interface.",
       },
     ],
     related: [
@@ -518,7 +518,7 @@ export const platformServices: Service[] = [
     ],
     timeline: "Six to twelve weeks for a first dashboard set.",
     outOfScope: [
-      "Dashboards on data known to be unreliable — that is a data quality engagement first",
+      "Dashboards on data known to be unreliable: that is a data quality engagement first",
       "Vanity dashboards built to display everything available",
     ],
     cta: {
@@ -530,7 +530,7 @@ export const platformServices: Service[] = [
       {
         question: "Why do our departments report different numbers?",
         answer:
-          "Almost always because they are applying different, individually reasonable definitions — different date fields, different exclusions, different treatment of cancellations. It is a definition problem, and no tool resolves it.",
+          "Almost always because they are applying different, individually reasonable definitions: different date fields, different exclusions, different treatment of cancellations. It is a definition problem, and no tool resolves it.",
       },
       {
         question: "How many dashboards should we have?",
@@ -599,7 +599,7 @@ export const platformServices: Service[] = [
       {
         question: "Will cloud reduce our costs?",
         answer:
-          "Not automatically. It converts capital cost to operating cost and can be more expensive for steady, predictable workloads. The reliable gains are elasticity, deployment speed and recovery — cost savings depend on right-sizing after the move.",
+          "Not automatically. It converts capital cost to operating cost and can be more expensive for steady, predictable workloads. The reliable gains are elasticity, deployment speed and recovery; cost savings depend on right-sizing after the move.",
       },
       {
         question: "Should we move everything?",
@@ -618,7 +618,7 @@ export const platformServices: Service[] = [
     group: "digital-experience",
     layout: "capability-led",
     diagram: "none",
-    title: "Website Maintenance & Support",
+    title: "Website Maintenance",
     answer:
       "Ongoing ownership of a live site: security updates, dependency upgrades, monitoring, backups and small changes. Priced by what is actually included rather than by an hours allowance nobody tracks.",
     seo: {
@@ -724,7 +724,7 @@ export const platformServices: Service[] = [
     ],
     timeline: "Three to five weeks depending on the number of distinct templates and flows.",
     outOfScope: [
-      "Certification — no supplier can certify accessibility, and any who offer to are misrepresenting it",
+      "Certification: no supplier can certify accessibility, and any who offer to are misrepresenting it",
       "Overlay widgets, which do not resolve underlying barriers and are widely opposed by disabled users",
     ],
     cta: {

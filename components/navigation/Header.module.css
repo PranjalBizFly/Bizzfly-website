@@ -33,9 +33,9 @@
   .header[data-condensed="true"] {
     /* Mixed with transparency only when the blur behind it will actually
        render, so the bar never turns washed out without the effect. */
-    background: color-mix(in srgb, var(--header-background) 88%, transparent);
-    -webkit-backdrop-filter: blur(10px) saturate(140%);
-    backdrop-filter: blur(10px) saturate(140%);
+    background: color-mix(in srgb, var(--header-background) var(--glass-tint), transparent);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   }
 }
 
@@ -254,37 +254,130 @@
   display: none;
 }
 
-@media (min-width: 1600px) {
+/*
+ * The trigger appears at 1440, down from 1600 — but NOT at 1280, which is
+ * where it was first aimed.
+ *
+ * The bar has no width to give at 1280. The note above on .nav records the
+ * same budget from the other side: seven items, the controls and the CTA
+ * already come to within ~10px of the 1184px the container leaves, which is
+ * why the 1024–1279 band was dropped rather than compacted. Measured, the
+ * compact trigger is 102px against the icon button's 44, and the page scrolls
+ * sideways by 54px at 1280 and 11px at 1366. It clears at 1440, so that is
+ * where it starts — which still covers the common laptop widths the old
+ * 1600 threshold was missing.
+ *
+ * Filled rather than outlined at rest. An outlined control in a bar that also
+ * carries an outlined theme toggle and a filled CTA read as a third kind of
+ * button; a quiet filled field reads as somewhere to type, which is what it
+ * opens. The border is the hover state, so approaching it lifts the control
+ * instead of only tinting its text.
+ */
+@media (min-width: 1440px) {
   .searchTrigger {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--space-2);
     min-height: var(--touch-target-min);
-    padding-inline: var(--space-4);
-    border: 1px solid var(--border);
+    padding-inline: var(--space-3);
+    border: 1px solid transparent;
     border-radius: var(--radius-md);
+    background: var(--surface);
     color: var(--muted);
+    font: inherit;
     font-size: var(--text-body-sm);
-    background: var(--background);
+    cursor: pointer;
     transition:
       border-color var(--dur-fast) var(--ease-standard),
       color var(--dur-fast) var(--ease-standard);
   }
 
-  .searchTrigger:hover {
+  .searchTrigger:hover,
+  .searchTrigger:focus-visible {
     border-color: var(--border-strong);
     color: var(--foreground);
   }
+
+  /* The word carries the meaning, so it takes the weight the chip gave up. */
+  .searchLabel {
+    font-weight: var(--weight-medium);
+  }
 }
 
-/* Prints the shortcut — teaches it, and signals a real command palette */
+/*
+ * Between 1440 and 1600 the control keeps its shape but drops the word: the
+ * full 167px trigger does not clear until 1600, the compact 102px one clears
+ * at 1440, and the difference is exactly the label.
+ *
+ * What is kept is the half that is not already obvious. The magnifier says
+ * "search" on its own; the shortcut is the part a visitor cannot guess, and
+ * printing it is the whole reason this control is not just an icon button.
+ */
+@media (min-width: 1440px) and (max-width: 1599px) {
+  .searchTrigger {
+    padding-inline: var(--space-2);
+  }
+
+  .searchLabel {
+    /* Not display:none — the button needs its accessible name. */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .kbd {
+    margin-inline-start: var(--space-2);
+  }
+}
+
+/*
+ * The magnifier in both search controls — components/navigation/NavIcons.tsx.
+ * A fixed box rather than a font size, so swapping the old "&#9906;" character
+ * for a real icon changed the mark and nothing around it: the labelled trigger
+ * and the icon-only button keep the widths they had.
+ */
+.searchIcon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1440px) {
+  /* Beside a 14px label, the 18px box is oversized. */
+  .searchTrigger .searchIcon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/*
+ * Prints the shortcut — teaches it, and signals a real command palette.
+ *
+ * 13px, NOT the 18–20px --text-eyebrow it was set in. An eyebrow is a section
+ * kicker for a page; on this control it made the hint larger than the 14px
+ * word it was hinting at, so the chip was the first thing read in a button
+ * whose subject is "Search". It is a footnote to the label and is sized like
+ * one.
+ *
+ * Drawn on --background so it stays a raised key against the filled field,
+ * and left to size itself: the modifier resolves on mount, and a fixed width
+ * would either clip "Ctrl" or leave a gap beside "⌘".
+ */
 .kbd {
   font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-caption);
+  line-height: 1;
   color: var(--muted);
+  background: var(--background);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 0.1em 0.4em;
+  padding: 0.3em 0.45em;
+  margin-inline-start: var(--space-3);
+  white-space: nowrap;
 }
 
 /*
@@ -336,8 +429,9 @@
   }
 }
 
-/* Icon-only search stands in until the labelled trigger has room at 1600. */
-@media (min-width: 1600px) {
+/* Icon-only search stands in until the trigger takes over at 1440. The two
+   must hand over at the same width or the bar carries both. */
+@media (min-width: 1440px) {
   .searchToggleMobile {
     display: none;
   }

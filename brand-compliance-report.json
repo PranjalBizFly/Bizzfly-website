@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-08",
+  "generated": "2026-09-11",
   "source": "Bizzfly Brand Guidelines.pdf",
   "palette": {
     "primary blue": "#2C70D1",
@@ -30,12 +30,40 @@
     "Buttons": "COMPLIANT",
     "Navigation": "COMPLIANT",
     "Icons": "COMPLIANT",
-    "Components": "COMPLIANT",
+    "Components": "VIOLATIONS",
     "Responsive": "COMPLIANT",
     "Accessibility": "COMPLIANT",
     "Imagery": "COMPLIANT"
   },
-  "violations": [],
+  "violations": [
+    {
+      "category": "Components",
+      "file": "components/consultation/Consultation.module.css",
+      "line": 131,
+      "violation": "z-index is off the layer scale",
+      "current": "1",
+      "required": "a var(--z-*) token",
+      "status": "VIOLATION"
+    },
+    {
+      "category": "Components",
+      "file": "components/consultation/Consultation.module.css",
+      "line": 571,
+      "violation": "z-index is off the layer scale",
+      "current": "1",
+      "required": "a var(--z-*) token",
+      "status": "VIOLATION"
+    },
+    {
+      "category": "Components",
+      "file": "components/motion/ImageReveal.module.css",
+      "line": 28,
+      "violation": "border-radius is off the radius scale",
+      "current": "0",
+      "required": "a var(--radius-*) token",
+      "status": "VIOLATION"
+    }
+  ],
   "remediated": [
     {
       "category": "Typography",
@@ -203,7 +231,7 @@
     }
   ],
   "totals": {
-    "violationsOutstanding": 0,
+    "violationsOutstanding": 3,
     "violationsFixed": 14,
     "manualReview": 6
   }

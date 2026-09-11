@@ -15,7 +15,7 @@ export const extraCompanyPages: CompanyPage[] = [
     title: "Our approach",
     eyebrow: "Company",
     answer:
-      "Every engagement starts with diagnosis rather than a proposal. We spend the first two weeks establishing which constraint is actually binding, because fixing the wrong one is the expensive mistake — and you keep those findings whether or not you continue with us.",
+      "Every engagement starts with diagnosis rather than a proposal. We spend the first two weeks establishing which constraint is actually binding, because fixing the wrong one is the expensive mistake, and you keep those findings whether or not you continue with us.",
     body: [
       "Most agency relationships fail the same way. A proposal is written before anyone understands the problem, work is delivered against that proposal, and six months later the commercial result has not moved because the original diagnosis was wrong. The work was done competently; it was simply the wrong work.",
       "We run it in the other order.",
@@ -40,7 +40,7 @@ export const extraCompanyPages: CompanyPage[] = [
     related: [
       { label: "About Us", href: "/about-us/", type: "COMPANY" },
       {
-        label: "Our Engineering Standards",
+        label: "Engineering Standards",
         href: "/technologies/engineering-standards/",
         type: "TECHNOLOGY",
       },
@@ -50,7 +50,7 @@ export const extraCompanyPages: CompanyPage[] = [
       {
         question: "What happens in the first two weeks?",
         answer:
-          "We audit the current position — technical health, visibility, conversion, and where the process actually loses time. The output is a document telling you what is broken, including the parts we are not the right people to fix. You keep it either way.",
+          "We audit the current position: technical health, visibility, conversion, and where the process actually loses time. The output is a document telling you what is broken, including the parts we are not the right people to fix. You keep it either way.",
       },
       {
         question: "Do you work on retainer or by project?",
@@ -70,7 +70,7 @@ export const extraCompanyPages: CompanyPage[] = [
     title: "Careers",
     eyebrow: "Company",
     answer:
-      "We hire people who want work that needs judgement rather than volume. The team spans search and AI visibility, web and software engineering, and automation delivery — and the work moves between them.",
+      "We hire people who want work that needs judgement rather than volume. The team spans search and AI visibility, web and software engineering, and automation delivery, and the work moves between them.",
     body: [
       "We are a small team in Pune. The work is varied by necessity: the same person may audit a crawl problem one week and scope an automation the next. That suits people who like breadth and dislike being handed a narrow lane.",
       "There are no published openings at the moment. We would still rather hear from someone good than miss them because the timing did not line up.",
@@ -78,7 +78,7 @@ export const extraCompanyPages: CompanyPage[] = [
     seo: {
       title: "Careers",
       description:
-        "Work at BizzFly — search and AI visibility, engineering and automation delivery, from our Pune office.",
+        "Work at BizzFly: search and AI visibility, engineering and automation delivery, from our Pune office.",
       primaryTopic: "careers at BizzFly",
       secondaryTopics: ["jobs", "hiring", "work with us"],
       intent: "navigational",

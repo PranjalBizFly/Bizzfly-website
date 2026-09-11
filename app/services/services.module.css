@@ -38,10 +38,19 @@
   letter-spacing: var(--tracking-h3);
 }
 
+/*
+ * The group summary is supporting text, so it takes the supporting colour.
+ *
+ * It was set in --foreground while the identical summary on every other
+ * index — the capability groups, the sector answers, the technology roles —
+ * is muted. At the same size and weight, the darker ink is the thing that
+ * reads as emphasis, which put a bold-looking paragraph under every heading
+ * on this page and nowhere else on the site.
+ */
 .groupSummary {
-  font-size: var(--text-body);
+  font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
-  color: var(--foreground);
+  color: var(--muted);
   max-width: var(--measure-body);
 }
 

@@ -98,17 +98,41 @@
   pointer-events: none;
 }
 
-/* --- Arrow advances on hover; the box does not move. -------------------- */
+/* --- Arrow advances on hover; the box does not move. --------------------
+   :focus-visible gets the same movement as :hover. A keyboard user is doing
+   the same thing a pointer user is doing — considering this control — and an
+   affordance that only exists under a cursor is an affordance half the
+   interactions on the site never see. */
 .arrow {
   display: inline-block;
   transition: transform var(--dur-fast) var(--ease-standard);
 }
-.base:hover .arrow {
+.base:hover .arrow,
+.base:focus-visible .arrow {
   transform: translateX(3px);
 }
 
+/* --- Press feedback ------------------------------------------------------
+   Deliberately still colour only.
+
+   A 0.985 scale on :active was tried here and removed. The design system
+   states that the button box does not move (docs/design-system/03-components,
+   and the note above), and while that rule is written about hover, the reason
+   behind it is about the box rather than about the trigger: these buttons sit
+   in dense CTA groups and in a sticky header, and a control that changes size
+   under the finger is a control that can slide out from under a tap on a
+   touch device that fires :active on touchstart.
+
+   The press is already acknowledged, in the way this system acknowledges
+   everything: .primary:active, .secondary:active and .tertiary:active each
+   step the fill one stop darker, which is both visible and — unlike a scale —
+   a step that raises contrast rather than leaving it unchanged. */
+
 @media (prefers-reduced-motion: reduce) {
-  .base:hover .arrow {
+  .base:hover .arrow,
+  .base:focus-visible .arrow,
+  .textLink:hover .arrow,
+  .textLink:focus-visible .arrow {
     transform: none;
   }
 }
@@ -140,7 +164,8 @@
 .textLink .arrow {
   text-decoration: none;
 }
-.textLink:hover .arrow {
+.textLink:hover .arrow,
+.textLink:focus-visible .arrow {
   transform: translateX(4px);
 }
 
@@ -156,4 +181,208 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-4);
+}
+
+/* ==========================================================================
+   The rim sweep
+   --------------------------------------------------------------------------
+   A single line of light that crosses a button once every three seconds,
+   travelling left to right along its top edge.
+
+   One line, not two. An earlier version ran a second streak along the bottom
+   edge a beat behind, which was meant to read as light raking over a curved
+   surface and instead read as two separate animations on one control.
+
+   On every button on the site, in all three variants. Set on .base, which is
+   also what ConsultationCta composes from, so one rule covers the plain CTA,
+   the outlined one and the one that opens the booking dialog, on every page,
+   with no prop threaded through any call site.
+
+   Why the top edge and not the face
+   ---------------------------------
+   A line crossing the button face has to pass over the label, and on the
+   filled variant compositing white over --cta-primary lowers the contrast
+   the white label depends on: 3.27:1 at 0.22 alpha, 4.04:1 at 0.10, 4.42:1
+   at 0.05 — all below the 4.5:1 floor, while an alpha weak enough to pass
+   cannot be seen. Contrast is not traded here.
+
+   So the line rides the top edge, where there are no glyphs, and can be
+   bright. The clearance is measured rather than assumed. At the 36px `sm`
+   size — the header CTA, the tightest case on the site — the label's box
+   starts 11px down, and the line plus the visible reach of its blur ends at
+   7.75px: 1px inset, 3px tall, and blur(2.5px) reaching about 3.75px. A 4px
+   line inset 2px overran that box by 1.8px, which is why it is 3px at 1px.
+   Every larger size clears it by more.
+
+   Why no gradient
+   ---------------
+   The falloff is a blur on one flat token colour. Gradients are out of the
+   system and verify:brand fails the build on one.
+
+   Relationship to .rim-sweep
+   --------------------------
+   styles/base.css carries the same treatment as an opt-in class, for the two
+   CTAs on the site that are not Buttons: the footer's primary and secondary
+   actions, which are styled <Link>s. These declarations mirror it, and both reference
+   the one @keyframes rimSweep defined there, so the timing exists once. The
+   block is repeated rather than shared because .primary is a hashed
+   CSS-module class — only this stylesheet can select it.
+
+   Every variant, and how
+   ----------------------
+   A white streak on an outlined button over a light ground is invisible —
+   white on white. So the colour comes from --streak (see .base below) rather
+   than being fixed: filled buttons take the flat white token, and outlined
+   ones take a mix of their own label colour, which resolves to a soft dark
+   sheen on a light ground and a light one on dark. Same motion, same timing,
+   visible on all three variants in both themes.
+
+   Not applied to .textLink: a text CTA has no box to catch light on, and it
+   does not compose from .base.
+   ========================================================================== */
+
+.base {
+  /*
+   * The streak colour, taken from the label.
+   *
+   * currentColor is what makes one rule work on every variant and in both
+   * themes: a filled button's label is white, so the streak is white; an
+   * outlined button's label is --foreground, so the streak is dark on a
+   * light ground and light on a dark one. Nothing has to know which ground
+   * it is sitting on. Filled variants override it below with the brighter
+   * flat token, because they can carry it.
+   */
+  --streak: color-mix(in srgb, currentColor 45%, transparent);
+
+  /* The containing block for the streaks, and the clip that keeps them in. */
+  position: relative;
+  /*
+   * Clips to the border radius, so the light never escapes the button and
+   * cannot touch anything around it. The focus ring is an outline, drawn
+   * outside the border box and unaffected by the element's own overflow, so
+   * keyboard focus is untouched.
+   */
+  overflow: hidden;
+}
+
+/* A white label means a filled button, which takes the bright streak. */
+.primary {
+  --streak: var(--sheen-edge);
+}
+
+.base::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  /*
+   * A line that crosses the whole button.
+   *
+   * Full height, so it reads as one light passing over the control rather
+   * than a highlight on its edge. Sized as a share of the button width, not
+   * a fixed pixel count, so the line is proportionally the same on a 110px
+   * header CTA and a 400px hero CTA and the pass takes the same time on
+   * both. Inset past top and bottom so the skew leaves no gap at the
+   * corners; overflow on .base clips it back to the radius.
+   */
+  inline-size: 12%;
+  inset-block: -12%;
+  background: var(--streak);
+  /* Rounds the ends so the streak reads as light rather than as a bar. */
+  /*
+   * The falloff a gradient would otherwise provide. Static, so only opacity
+   * and transform animate and the effect stays composited.
+   */
+  filter: blur(4px);
+  opacity: 0;
+  transform: skewX(-16deg) translateX(-130%);
+  pointer-events: none;
+  /*
+   * Idle. The light is now a response rather than a heartbeat.
+   *
+   * This ran `rimSweep 3s linear infinite` on every button on every page —
+   * one pass and a two-second wait, forever, on a control nobody was
+   * pointing at. As an ambient effect it is the definition of a repetitive
+   * animation: it never stops, it never means anything, and on a page with
+   * six CTAs there is almost always one of them flashing somewhere in
+   * peripheral vision.
+   *
+   * Triggered instead, it says something — this is the control under your
+   * cursor — and it costs nothing at rest, because no animation is running
+   * until one is asked for.
+   */
+  animation: none;
+}
+
+/*
+ * One pass on hover, and the same on keyboard focus.
+ *
+ * :focus-visible gets it for the reason the arrow does: a keyboard user is
+ * doing exactly what a pointer user is doing, and an affordance that only
+ * exists under a cursor is invisible to half the ways this site is operated.
+ *
+ * `forwards` holds the final frame — the streak parked off the right edge at
+ * opacity 0 — so nothing snaps back when the pointer leaves mid-pass.
+ */
+.base:hover::before,
+.base:focus-visible::before {
+  animation: rimSweep var(--dur-sweep) var(--ease-standard) forwards;
+}
+
+/*
+ * Explicit, because the duration here is a literal three seconds rather than
+ * a --dur-* token, so the token-level collapse in styles/tokens.css does not
+ * reach it. The button keeps every other state it has.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .base::before {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/*
+ * A disabled button does not catch the light.
+ *
+ * Both form submits on the site are primary buttons that disable themselves
+ * while submitting (ContactForm, and the consultation dialog), and a disabled
+ * control that keeps animating reads as still live — the one impression the
+ * grey fill and `cursor: not-allowed` exist to remove. The fill also becomes
+ * --surface-muted, which a white streak has nothing to lift.
+ */
+.base:disabled::before,
+.base[aria-disabled="true"]::before {
+  animation: none;
+  opacity: 0;
+}
+
+/*
+ * One pass, then a wait — see the note above on why this is declared here as
+ * well as in styles/base.css.
+ *
+ * The light crosses in the first 780ms of the three seconds and the rest of
+ * the cycle is empty, which is what makes this an occasional highlight
+ * rather than a pulse. The travel carries its own easing so the pass
+ * accelerates in and settles out; the cycle itself is linear, because easing
+ * three seconds of mostly-nothing would only stretch the gap unevenly.
+ */
+@keyframes rimSweep {
+  0% {
+    opacity: 0;
+    transform: skewX(-16deg) translateX(-130%);
+  }
+  /*
+   * Up quickly, down slowly. The light is at full strength for most of the
+   * crossing and fades as it leaves, which is what stops the exit reading as
+   * the streak being switched off at the edge of the button.
+   */
+  15% {
+    opacity: 1;
+  }
+  78% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: skewX(-16deg) translateX(960%);
+  }
 }

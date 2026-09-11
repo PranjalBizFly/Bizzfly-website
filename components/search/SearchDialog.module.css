@@ -5,8 +5,17 @@
   background: var(--scrim-strong);
   display: flex;
   justify-content: center;
+  /*
+   * flex-start, not the default stretch. Stretched, the panel was always the
+   * full height the max-height allowed, so the pre-query state — six rows and
+   * a line of hint text — sat above 200px of empty panel with the footer
+   * pushed to the bottom of the screen. Aligned to the top it takes the
+   * height of whatever is in it and only grows to the cap once a query has
+   * filled it.
+   */
+  align-items: flex-start;
   padding: var(--space-4);
-  padding-top: 8vh;
+  padding-top: 10vh;
 }
 
 /* Full-screen sheet below md; centred dialog above. */
@@ -18,24 +27,25 @@
 }
 
 /*
- * Sized for sections, not for a command palette.
+ * Sized for sections, not for a command palette — but sized, not maximal.
  *
  * At --container-narrow and 70vh the panel showed about four rows, which is
  * fine for one ranked list and useless for nine sections: the grouping was
- * real in the DOM and invisible on screen. Wide enough for two columns of
- * sections from 1024, and tall enough that at least three of them are above
- * the fold.
+ * real in the DOM and invisible on screen. At --container-content it went
+ * the other way — a 1040px box holding six single-word rows, most of it
+ * empty. 46rem still fits two columns of sections from 1024 and three of
+ * them above the fold, without the panel becoming the page.
  */
 .dialog {
   width: 100%;
-  max-width: var(--container-content);
+  max-width: 46rem;
   background: var(--background);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--elev-3);
   display: flex;
   flex-direction: column;
-  max-height: 84vh;
+  max-height: 74vh;
   overflow: hidden;
 }
 
@@ -52,8 +62,8 @@
 .inputRow {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
-  padding: var(--space-5) var(--space-6);
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
   border-bottom: 1px solid var(--border);
   flex-shrink: 0;
 }
@@ -72,14 +82,14 @@
   font-weight: var(--weight-semibold);
   letter-spacing: -0.01em;
   /* 16px minimum prevents iOS zoom-on-focus; this is well clear of it. */
-  font-size: var(--text-h4);
+  font-size: var(--text-body-lg);
   color: var(--foreground);
-  min-height: var(--touch-target-min);
+  min-height: 2.5rem;
 }
 
 @media (min-width: 768px) {
   .input {
-    font-size: var(--text-h3);
+    font-size: var(--text-h4);
   }
 }
 
@@ -94,7 +104,7 @@
 
 .escape {
   font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
+  font-size: var(--text-caption);
   color: var(--ink-400);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
@@ -106,7 +116,7 @@
   flex: 1;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding-block: var(--space-3);
+  padding-block: var(--space-2);
 }
 
 .sections {
@@ -135,11 +145,11 @@
   justify-content: space-between;
   gap: var(--space-3);
   font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
   text-transform: uppercase;
   color: var(--muted);
-  margin: var(--space-4) var(--space-5) var(--space-2);
+  margin: var(--space-3) var(--space-5) var(--space-2);
   padding-bottom: var(--space-2);
   border-bottom: 1px solid var(--border);
 }
@@ -169,7 +179,7 @@
 
 .result {
   display: block;
-  padding: var(--space-3) var(--space-5);
+  padding: var(--space-2) var(--space-5);
   text-decoration: none;
   color: var(--foreground);
   border-left: 2px solid transparent;
@@ -215,7 +225,7 @@
   justify-content: space-between;
   gap: var(--space-4);
   width: 100%;
-  padding: var(--space-4) var(--space-6);
+  padding: var(--space-3) var(--space-5);
   border-top: 1px solid var(--border);
   background: var(--surface);
   text-align: left;
@@ -229,7 +239,7 @@
 }
 
 .exploreAllLabel {
-  font-size: var(--text-body);
+  font-size: var(--text-body-sm);
   font-weight: var(--weight-medium);
   color: var(--foreground);
   min-width: 0;
@@ -264,7 +274,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
-  padding: var(--space-3) var(--space-5);
+  padding: var(--space-2) var(--space-5);
   border-top: 1px solid var(--border);
   font-family: var(--font-label);
   font-size: var(--text-caption);
@@ -274,7 +284,7 @@
 
 /* Empty state is designed, never a bare "no results". */
 .empty {
-  padding: var(--space-6) var(--space-5);
+  padding: var(--space-5);
 }
 
 .emptyTitle {
@@ -289,7 +299,7 @@
   line-height: var(--leading-relaxed);
   color: var(--muted);
   max-width: var(--measure-body);
-  margin: var(--space-2) 0 var(--space-6);
+  margin: var(--space-2) 0 var(--space-5);
 }
 
 .emptySection + .emptySection {
@@ -298,8 +308,8 @@
 
 .emptyHeading {
   font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: var(--space-3);
@@ -337,16 +347,16 @@
    ========================================================================== */
 
 .start {
-  padding: var(--space-5) 0 var(--space-6);
+  padding: var(--space-4) 0 var(--space-5);
 }
 
 .startHeading {
   font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
   text-transform: uppercase;
   color: var(--muted);
-  padding-inline: var(--space-6);
+  padding-inline: var(--space-5);
   margin-bottom: var(--space-2);
 }
 
@@ -361,9 +371,9 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
-  padding: var(--space-3) var(--space-6);
-  min-height: var(--touch-target-min);
-  font-size: var(--text-body-lg);
+  padding: var(--space-2) var(--space-5);
+  min-height: 2.5rem;
+  font-size: var(--text-body);
   font-weight: var(--weight-medium);
   color: var(--foreground);
   text-decoration: none;
@@ -393,8 +403,8 @@
 
 /* Says what the box does before anything has been typed into it. */
 .startHint {
-  padding: var(--space-5) var(--space-6) 0;
-  font-size: var(--text-body-sm);
+  padding: var(--space-4) var(--space-5) 0;
+  font-size: var(--text-caption);
   line-height: var(--leading-relaxed);
   color: var(--muted);
   max-width: var(--measure-body);

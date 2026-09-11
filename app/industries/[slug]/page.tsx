@@ -12,6 +12,7 @@ import {
   CardTrack,
   ConversionBand,
   type CardTrackEntry,
+  AnchoredStatement,
   ContentBlock,
   EditorialBlock,
   Diagram,
@@ -21,19 +22,19 @@ import { BodyText, Heading } from "@/components/typography";
 import { JsonLd } from "@/components/JsonLd";
 import { industries, getIndustry } from "@/content/industries";
 import { services } from "@/content/services";
+import { technologies } from "@/content/technologies";
 import { getIndustryImage } from "@/content/images";
 import { isPublished } from "@/lib/registry";
 import { relationshipsForIndustry } from "@/lib/relationships";
+import { expandFaqs } from "@/lib/faqs";
 import { buildMetadata, faqSchema, serviceSchema } from "@/lib/seo";
 
 /** The two light grounds a band alternates between. See `composed` below. */
 type SectionGround = "bg" | "surface";
 
-/** A section that decides its eyebrow number and its ground from its position. */
-type PlacedSection = (position: number, ground: SectionGround) => React.ReactElement;
+/** A section that takes its ground from where it lands in the page. */
+type PlacedSection = (ground: SectionGround) => React.ReactElement;
 
-/** Zero-padded position, so the eyebrows read 01, 02 rather than 1, 2. */
-const pad = (position: number) => String(position).padStart(2, "0");
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -129,10 +130,10 @@ export default async function IndustryPage({ params }: PageProps) {
     ).values(),
   ].slice(0, 8);
 
-  const problems: PlacedSection = (position, ground) => (
+  const problems: PlacedSection = (ground) => (
     <Section key="problems" background={ground} spacing="lg">
       <ProblemMap
-        problemsEyebrow={`${pad(position)} / The problems`}
+        problemsEyebrow={"The problems"}
         problemsTitle="Where growth actually stalls in this sector"
         problemsLead="Named in the sector's own vocabulary, because a generic list would tell you nothing about whether we understand your business."
         solutionsEyebrow="The work that answers them"
@@ -154,10 +155,10 @@ export default async function IndustryPage({ params }: PageProps) {
   );
 
   const opportunity: PlacedSection | null = industry.opportunity
-    ? (position, ground) => (
+    ? (ground) => (
         <Section key="opportunity" background={ground} spacing="lg">
           <EditorialBlock
-            eyebrow={`${pad(position)} / The opportunity`}
+            eyebrow={"The opportunity"}
             title="What is actually available here"
             lead={industry.opportunity}
             evidence={industry.problems.map((p) => p.title)}
@@ -166,6 +167,9 @@ export default async function IndustryPage({ params }: PageProps) {
       )
     : null;
 
+  /* Authored FAQs topped up from the page's own content — see lib/faqs.ts. */
+  const faqs = expandFaqs(industry, "industry");
+
   const industryVisual = getIndustryImage(slug);
 
   /*
@@ -173,11 +177,28 @@ export default async function IndustryPage({ params }: PageProps) {
    * one image and none is ever shown twice, so this section carries the
    * argument in type instead of cropping the same picture a second time.
    */
-  const context: PlacedSection = (_position, ground) => (
-    <Section key="context" background={ground} spacing="md" width="content">
-      <ContentBlock>
-        <BodyText size="lg">{industry.context}</BodyText>
-      </ContentBlock>
+  const context: PlacedSection = (ground) => (
+    <Section key="context" background={ground} spacing="lg">
+      {/*
+        The sector's context, read as a claim and its elaboration.
+
+        This was a single paragraph set as one undifferentiated block of body
+        type — the same shape on all 26 sector pages, with no entry point and
+        nothing to tell a reader where the argument turned. AnchoredStatement
+        takes the author's OWN first sentence as the statement and sets the
+        remainder beside it as the detail; splitClaim rewrites nothing, so
+        every word is the one that was authored, in the order it was authored.
+
+        No title is passed deliberately. The component's own note explains
+        why: with none, the opening claim takes the statement position, which
+        is the author's sentence rather than a heading invented for it. And
+        no image — each sector owns exactly one photograph and it is already
+        the hero, so this section carries the argument in type, as before.
+      */}
+      <AnchoredStatement
+        eyebrow={"Context"}
+        paragraphs={[industry.context]}
+      />
     </Section>
   );
 
@@ -189,12 +210,11 @@ export default async function IndustryPage({ params }: PageProps) {
 
   const journey: PlacedSection | null =
     rel.useCases.length > 0
-      ? (position) => (
+      ? () => (
           <Section key="journey" background="inverse" spacing="lg">
             <SectionHeader
               split
-              eyebrow={`${pad(position)} / Recommended journey`}
-              title="Where most engagements in this sector start"
+              eyebrow={"Recommended journey"}              title="Where most engagements in this sector start"
               lead="Usually with the constraint that is capping everything else, rather than with the most visible symptom."
             />
             <RelatedContent mode="list" items={rel.useCases} />
@@ -204,16 +224,39 @@ export default async function IndustryPage({ params }: PageProps) {
 
   const technology: PlacedSection | null =
     rel.technologies.length > 0
-      ? (position, ground) => (
-          <Section key="technology" background={ground} spacing="md">
+      ? (ground) => (
+          <Section key="technology" background={ground} spacing="lg">
             <SectionHeader
               split
-              eyebrow={`${pad(position)} / Technology`}
+              eyebrow={"Technology"}
               title="What tends to be involved"
+              lead="Named with the reason it is on the list. Each links to the page stating where we would use it and where we would not."
             />
-            <RelatedContent mode="compact" items={rel.technologies} />
+            {/*
+              Set as cards carrying the reason, not as a row of chips.
+              `technologyLink` fills `description` with the technology's
+              CATEGORY — "Search & Analytics", "Web Stack" — so the compact
+              chip row this used to render named four products and explained
+              none of them, then left the rest of the band empty. The record's
+              own `whyItMatters` is the sentence a sector reader is actually
+              looking for, so it is what the card carries. The journey section
+              above uses the numbered list mode, which is why this one does
+              not: two identical rails on one page read as one section split
+              in half.
+            */}
+            <RelatedContent
+              items={rel.technologies.map((link) => {
+                const slug = link.href.replace(/^\/technologies\/|\/$/g, "");
+                const record = technologies.find((entry) => entry.slug === slug);
+                return {
+                  ...link,
+                  description:
+                    record?.whyItMatters ?? record?.answer ?? link.description,
+                };
+              })}
+            />
             {industry.diagram && industry.diagram !== "none" ? (
-              <div className="mt-10">
+              <div className="mt-16">
                 <Diagram kind={industry.diagram} />
               </div>
             ) : null}
@@ -235,10 +278,10 @@ export default async function IndustryPage({ params }: PageProps) {
    * on grey against black.
    */
   let lightIndex = 0;
-  const composed = order.map((section, index) => {
+  const composed = order.map((section) => {
     const ground: SectionGround = lightIndex % 2 === 0 ? "bg" : "surface";
     if (section !== journey) lightIndex += 1;
-    return section(index + 1, ground);
+    return section(ground);
   });
 
   const Hero = layout === "opportunity-led" ? EditorialHero : SplitHero;
@@ -246,7 +289,7 @@ export default async function IndustryPage({ params }: PageProps) {
   return (
     <>
       <JsonLd data={serviceSchema(industry.title, industry.seo.description, path)} />
-      <JsonLd data={faqSchema(industry.faqs ?? [])} />
+      <JsonLd data={faqSchema(faqs)} />
 
       {/* The sector's problems appear in the hero, before any capability. */}
       {industryVisual ? (
@@ -286,14 +329,14 @@ export default async function IndustryPage({ params }: PageProps) {
         </Section>
       ) : null}
 
-      {industry.faqs?.length ? (
+      {faqs.length ? (
         <Section spacing="lg">
           <SectionHeader
             split
-            eyebrow={`${pad(composed.length + 1)} / Questions`}
-            title="Sector Questions"
+            eyebrow="Frequently Asked Questions"
+            title="Frequently Asked Questions"
           />
-          <FAQBlock faqs={industry.faqs} />
+          <FAQBlock faqs={faqs} />
         </Section>
       ) : null}
 
@@ -340,7 +383,16 @@ export default async function IndustryPage({ params }: PageProps) {
         <ExploreNext href={path} />
       </Section>
 
-      <ConversionBand cta={industry.cta} />
+      {/*
+        Named rather than generic. A reader on a sector page is deciding
+        whether we understand THEIR sector, so the band asks the question
+        that decides it — and says plainly that the answer may be no.
+      */}
+      <ConversionBand
+        title={`Tell us what is not working in ${industry.title}`}
+        lead="Bring the constraint as you see it. We will tell you whether it is the one we would attack first, what we would need to look at to be sure, and whether this is work we should be doing at all."
+        cta={industry.cta}
+      />
     </>
   );
 }

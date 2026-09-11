@@ -34,7 +34,7 @@ export const serviceGroups: ServiceGroup[] = [
     index: "01",
     label: "Digital Visibility",
     summary:
-      "Being found across every surface where buyers now search — ranked results, direct answers, AI-generated responses and maps.",
+      "Being found across every surface where buyers now search: ranked results, direct answers, AI-generated responses and maps.",
     chooseWhen:
       "Start here if buyers cannot find you, or if rankings have held while clicks have fallen.",
   },
@@ -70,7 +70,7 @@ export const serviceGroups: ServiceGroup[] = [
     index: "05",
     label: "AI",
     summary:
-      "AI applied to specific processes with defined boundaries — including an honest answer about where it is the wrong tool.",
+      "AI applied to specific processes with defined boundaries, including an honest answer about where it is the wrong tool.",
     chooseWhen:
       "Start here if you are under pressure to have an AI answer and want to know which project is worth doing first.",
   },
@@ -79,7 +79,7 @@ export const serviceGroups: ServiceGroup[] = [
     index: "06",
     label: "Growth",
     summary:
-      "Strategy, acquisition and measurement — deciding what to do, in what order, and how you will know whether it worked.",
+      "Strategy, acquisition and measurement: deciding what to do, in what order, and how you will know whether it worked.",
     chooseWhen:
       "Start here if you are doing a bit of everything and cannot say which part is producing revenue.",
   },

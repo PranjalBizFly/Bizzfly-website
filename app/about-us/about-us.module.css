@@ -26,6 +26,9 @@
   margin-bottom: var(--space-3);
 }
 
+/* The item-subtitle size, matching the line under a card title elsewhere. */
 .valueBody {
   margin-top: var(--space-3);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-relaxed);
 }
