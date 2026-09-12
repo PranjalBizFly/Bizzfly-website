@@ -1,5 +1,6 @@
 @import "../styles/tokens.css";
 @import "../styles/base.css";
+@import "../styles/seams.css";
 
 /*
  * Font family tokens are rebound here to the next/font CSS variables declared

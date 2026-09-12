@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { titleCase } from "@/lib/titleCase";
 import styles from "./Breadcrumbs.module.css";
 
 export interface Crumb {
@@ -37,10 +38,10 @@ export function Breadcrumbs({ items, inverse = false }: BreadcrumbsProps) {
               <li key={item.label} className={styles.item}>
                 {item.href && !isLast ? (
                   <Link href={item.href} className={styles.link}>
-                    {item.label}
+                    {titleCase(item.label)}
                   </Link>
                 ) : (
-                  <span aria-current="page">{item.label}</span>
+                  <span aria-current="page">{titleCase(item.label)}</span>
                 )}
                 {!isLast ? (
                   <span className={styles.separator} aria-hidden="true">

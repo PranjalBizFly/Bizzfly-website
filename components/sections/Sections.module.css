@@ -17,10 +17,11 @@
 }
 
 .headerEyebrow {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-eyebrow);
   color: var(--accent-text);
   line-height: var(--leading-snug);
 }
@@ -63,11 +64,43 @@
   margin-bottom: var(--gap-header);
 }
 
+/*
+ * 7/6, and the wider track is the one carrying the 44px type.
+ *
+ * It used to be 6/7, which gave the HEADING the narrower column and the lead
+ * the wider one — the big type squeezed, the small type given room it could
+ * not use because --measure-lead caps it at 56ch well before the track ends.
+ * A 27-character heading like "Organised by what it enables" wrapped to two
+ * lines in 517px with 86px of dead measure sitting beside it. Swapping the
+ * tracks drops the average heading from 1.80 lines to 1.56 across the 25
+ * split headers on the site, and costs the lead nothing: at 517px it sets
+ * about 53ch, just inside the cap it was already obeying.
+ *
+ * THE LEAD CENTRES, THE HEADING DOES NOT. The two columns hold type at very
+ * different sizes, so equal line counts do not mean equal height: the
+ * commonest section here is a two-line heading (144px) beside a two-line lead
+ * (61px), and top-aligning them left the lead floating at the top of an 83px
+ * void. Centring only the lead closes that, and closes it without the one
+ * thing a plain align-items:center on this grid would cost — in the two
+ * sections where the lead is TALLER than the heading, centring everything
+ * sinks the eyebrow off the top edge of the section, which is the one line
+ * the page rhythm actually aligns to. align-self on the lead alone can only
+ * ever move the lead down, never the eyebrow, so those two sections keep the
+ * layout they have today and the other 23 come into balance.
+ *
+ * Median top-to-bottom mismatch across the site: 83px -> 27px.
+ */
 @media (min-width: 1024px) {
   .headerSplit {
-    grid-template-columns: 6fr 7fr;
+    grid-template-columns: 7fr 6fr;
     gap: var(--space-16);
     align-items: start;
+  }
+
+  /* Scoped to the split: in .headerStack the container is a flex COLUMN, so
+     align-self there would centre the lead horizontally, not vertically. */
+  .headerSplit .headerLead {
+    align-self: center;
   }
 }
 
@@ -276,7 +309,7 @@
  * The statement-only composition. See EditorialBlock.tsx for why this is a
  * separate shape rather than the grid below with one track left empty.
  *
- * 6/7 matches .headerSplit above, so a statement band and a section header
+ * 7/6 matches .headerSplit above, so a statement band and a section header
  * on the same page put their headings on the same column edge.
  */
 .statementSplit {
@@ -286,9 +319,13 @@
 
 @media (min-width: 1024px) {
   .statementSplit {
-    grid-template-columns: 6fr 7fr;
+    grid-template-columns: 7fr 6fr;
     gap: var(--space-16);
     align-items: start;
+  }
+
+  .statementSplit .headerLead {
+    align-self: center;
   }
 }
 

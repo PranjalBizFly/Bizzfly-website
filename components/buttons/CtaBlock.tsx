@@ -3,6 +3,7 @@ import { ConsultationCta, isConsultationCta } from "@/components/consultation";
 import { Button } from "./Button";
 import { TextLink } from "./TextLink";
 import styles from "./Button.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 interface CtaBlockProps {
   cta: Cta;
@@ -23,7 +24,7 @@ export function CtaBlock({ cta, size = "md" }: CtaBlockProps) {
   const isHigh = cta.tier === "T4" || cta.tier === "T5";
 
   if (isLow) {
-    return <TextLink href={cta.href}>{cta.label}</TextLink>;
+    return <TextLink href={cta.href}>{titleCase(cta.label)}</TextLink>;
   }
 
   const variant = isHigh ? "primary" : "secondary";
@@ -38,7 +39,7 @@ export function CtaBlock({ cta, size = "md" }: CtaBlockProps) {
           withArrow
           source={cta.label}
         >
-          {cta.label}
+          {titleCase(cta.label)}
         </ConsultationCta>
         {cta.note ? <span className={styles.note}>{cta.note}</span> : null}
       </div>
@@ -53,7 +54,7 @@ export function CtaBlock({ cta, size = "md" }: CtaBlockProps) {
         size={size}
         withArrow
       >
-        {cta.label}
+        {titleCase(cta.label)}
       </Button>
       {cta.note ? <span className={styles.note}>{cta.note}</span> : null}
     </div>

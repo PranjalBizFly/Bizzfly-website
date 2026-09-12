@@ -34,17 +34,20 @@
     "**/*.ts",
     "**/*.tsx",
     ".next-audit/types/**/*.ts",
+    ".next-caps/types/**/*.ts",
+    ".next-capsqa/types/**/*.ts",
     ".next-claude-build/types/**/*.ts",
     ".next-claude-prod/types/**/*.ts",
     ".next-claude/types/**/*.ts",
     ".next-claude2/types/**/*.ts",
     ".next-claude3/types/**/*.ts",
+    ".next-claudeqa/types/**/*.ts",
     ".next-preview/types/**/*.ts",
     ".next-qa/types/**/*.ts",
     ".next-verify/types/**/*.ts",
     ".next/types/**/*.ts",
     "next-env.d.ts",
-    ".next-claudeqa/types/**/*.ts"
+    ".next-claude-dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",

@@ -331,14 +331,14 @@ export function SurfacePresence() {
                     <span className={styles.dot} aria-hidden="true" />
                     <span className={styles.nodeBody}>
                       <span className={styles.nodeCode}>{surface.code}</span>
-                      <span className={styles.nodeName}>{surface.node}</span>
+                      <span className={styles.nodeName}>{titleCase(surface.node)}</span>
                       <span className={styles.nodePath}>
-                        {surface.retrieval}
+                        {titleCase(surface.retrieval)}
                         <span className={styles.nodeArrow} aria-hidden="true">
                           &rarr;
                         </span>
                         <span className={styles.nodeOutcome}>
-                          {surface.outcome}
+                          {titleCase(surface.outcome)}
                         </span>
                       </span>
                     </span>

@@ -58,9 +58,12 @@
 }
 
 .columnLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
+
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
+
   color: var(--muted);
   padding-bottom: var(--space-3);
   border-bottom: 1px solid var(--border);

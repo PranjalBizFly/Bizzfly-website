@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { useConsultation } from "./ConsultationProvider";
+import { titleCaseLabel } from "@/lib/titleCase";
 import buttons from "@/components/buttons/Button.module.css";
 
 interface ConsultationCtaProps {
@@ -67,7 +68,7 @@ export function ConsultationCta({
         consultation.open(source, event.currentTarget);
       }}
     >
-      {children}
+      {titleCaseLabel(children)}
       {withArrow ? (
         <span className={buttons.arrow} aria-hidden="true">
           &rarr;

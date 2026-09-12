@@ -111,6 +111,8 @@
 .factsWrap {
   position: relative;
   margin-top: var(--space-12);
+  width: 100%;
+  max-width: 54rem;
 }
 
 .factsHeading {
@@ -128,21 +130,14 @@
 }
 
 /*
- * The auto-fit minimum has to be a real width, not 0.
- *
- * `repeat(auto-fit, minmax(0, 1fr))` is degenerate: with a zero minimum the
- * browser can always fit another track, so it generated 33 of them, collapsed
- * 30 and split the band three ways at every width above 560px. Three cards
- * across a 600px screen is 173px each, and the card copy — "service pages,
- * each stating scope and boundaries" — broke to one word a line.
- *
- * A 15rem floor lets the row drop to two cards and then one as the space
- * runs out. It is chosen so the desktop composition does not move: the fact
- * band is capped at 54rem, which still fits three 15rem tracks.
+ * From tablet breakpoint (768px) and desktop up, fact cards always sit in a
+ * single horizontal line across the hero rather than wrapping into orphan rows.
+ * Below 768px on mobile phones, cards stack in a single column for readability.
  */
-@media (min-width: 560px) {
+@media (min-width: 768px) {
   .facts {
-    grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
   }
 }
 
@@ -159,10 +154,11 @@
 }
 
 .factLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   font-family: var(--font-label);
   font-size: var(--text-h3);
   font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-h3);
   line-height: var(--leading-heading);
   color: var(--accent-text);
 }
@@ -218,10 +214,14 @@
     object-position: right center;
   }
 
-  .bleedLeft .content,
-  .bleedLeft .factsWrap {
+  .bleedLeft .content {
     width: 100%;
     max-width: 44rem;
+  }
+
+  .bleedLeft .factsWrap {
+    width: 100%;
+    max-width: 54rem;
   }
 }
 
@@ -242,7 +242,7 @@
   }
 
   .banner .factsWrap {
-    max-width: 52rem;
+    max-width: 54rem;
   }
 }
 
@@ -258,39 +258,23 @@
   }
 
   .portrait .factsWrap {
-    max-width: 50rem;
+    max-width: 54rem;
   }
 }
 
-/* inset — technologies. A shorter frame; the facts sit beside the type. */
+/* inset — technologies. A shorter frame; facts sit in a single horizontal line below content. */
 @media (min-width: 1024px) {
   .inset {
     min-height: 38rem;
   }
 
-  .inset .container {
-    display: grid;
-    grid-template-columns: 7fr 5fr;
-    column-gap: var(--space-16);
-    align-items: center;
-  }
-
-  .inset .breadcrumbs {
-    grid-column: 1 / -1;
-  }
-
   .inset .content {
-    grid-column: 1;
-    max-width: none;
+    max-width: 48rem;
   }
 
   .inset .factsWrap {
-    grid-column: 2;
-    margin-top: 0;
-  }
-
-  .inset .facts {
-    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 54rem;
   }
 }
 

@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ImageMetadata } from "@/content/images/types";
 import { Reveal } from "@/components/motion";
-import styles from "./CardTrack.module.css";
 import { titleCase } from "@/lib/titleCase";
+import styles from "./CardTrack.module.css";
 
 export interface CardTrackEntry {
   /** Zero-padded position, e.g. "01". */
@@ -252,11 +252,11 @@ export function CardTrack({
 
           <div className={styles.body}>
             <span className={styles.index}>{entry.index}</span>
-            <h3 className={styles.title}>{titleCase(entry.title)}</h3>
+            <h3 className={styles.title}>{entry.title}</h3>
             <p className={styles.description}>{entry.description}</p>
 
             <span className={styles.action}>
-              {action}
+              {titleCase(action)}
               <span className={styles.arrow} aria-hidden="true">
                 &rarr;
               </span>

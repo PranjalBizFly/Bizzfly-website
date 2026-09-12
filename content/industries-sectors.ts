@@ -18,7 +18,8 @@ export const sectorIndustries: Industry[] = [
     answer:
       "Technology companies face a specific marketing problem: the capability is genuinely differentiated and almost impossible to describe differently from competitors, because everyone uses the same vocabulary.",
     opportunity:
-      "The category vocabulary is exhausted, which means specificity wins. Explaining what you actually do, for whom, and what you do not do, is more differentiating than any adjective.",
+      "The category vocabulary is exhausted, which means specificity wins. Explaining what you actually do, for whom, and what you do not do, is more differentiating than any adjective.",
+    contextHeading: "Buying is committee-driven and technically informed",
     context:
       "Buying is committee-driven and technically informed. A technical evaluator reads documentation before marketing pages, a commercial sponsor needs a business case, and procurement asks about security and support. The three read different pages and all three have to be satisfied. Meanwhile the category page every competitor writes says the same three things, so the buyer's real question (what is different here) is answered nowhere.",
     problems: [
@@ -79,7 +80,8 @@ export const sectorIndustries: Industry[] = [
     answer:
       "Dealers, garages and specialists compete on two things digitally: whether they appear when someone searches locally, and how fast they respond to the enquiry that follows.",
     opportunity:
-      "Response speed is a genuine differentiator in this sector and it is almost entirely within your control. The enquiry that gets a reply within the hour usually wins the appointment.",
+      "Response speed is a genuine differentiator in this sector and it is almost entirely within your control. The enquiry that gets a reply within the hour usually wins the appointment.",
+    contextHeading: "Search here is local, and often urgent",
     context:
       "Search here is overwhelmingly local and often urgent: a service due, a fault, a specific model in stock. The map pack matters more than the organic list, and stock or availability data changes daily. Enquiries arrive across web forms, phone, marketplace platforms and social messaging, and the business that answers first typically books the appointment. Multi-site groups face the additional problem that one location's visibility often suppresses the others.",
     problems: [
@@ -139,7 +141,8 @@ export const sectorIndustries: Industry[] = [
     answer:
       "The digital problem in construction is rarely enquiry volume. It is qualification: separating the projects worth quoting from the ones that consume estimating time and never convert.",
     opportunity:
-      "Estimating capacity is the scarce resource. Anything that filters enquiries before they reach an estimator returns time directly to the part of the business that wins work.",
+      "Estimating capacity is the scarce resource. Anything that filters enquiries before they reach an estimator returns time directly to the part of the business that wins work.",
+    contextHeading: "Qualification, not enquiry volume, is the constraint",
     context:
       "Enquiries range from domestic jobs to tendered contracts, and the effort to quote them varies enormously. Estimating is skilled, slow and usually the bottleneck. Buyers assess credibility on completed work and on whether the business looks like it will still exist at practical completion: accreditations, insurance, real project evidence. Much of the sector's web presence consists of a gallery and a contact form, which qualifies nobody and answers none of the questions a serious buyer has.",
     problems: [
@@ -200,7 +203,8 @@ export const sectorIndustries: Industry[] = [
     answer:
       "Legal marketing operates under professional conduct rules that constrain what can be claimed. Within those constraints, demonstrated expertise is the strongest available signal, and it is the one most firms under-use.",
     opportunity:
-      "The sector's regulatory caution has left a gap: clear, accurate explanation of common legal questions. Firms that publish it earn both visibility and the trust that precedes an enquiry.",
+      "The sector's regulatory caution has left a gap: clear, accurate explanation of common legal questions. Firms that publish it earn both visibility and the trust that precedes an enquiry.",
+    contextHeading: "Clients research extensively before making contact",
     context:
       "Prospective clients research extensively before contacting a firm, often at a stressful moment, and they arrive with questions they are embarrassed to ask. Professional conduct rules restrict comparative and outcome-based claims, which removes most of the levers other sectors use. What remains is genuine expertise, expressed clearly. Legal content is also heavily represented in AI answers, which makes accuracy and citability commercially relevant as well as ethically necessary.",
     complianceNotes:
@@ -263,7 +267,8 @@ export const sectorIndustries: Industry[] = [
     answer:
       "Two pressures at once: compliance work is commoditising, and client onboarding carries administrative load that scales linearly with growth. Digital work addresses both, and the second is usually more urgent.",
     opportunity:
-      "Advisory services differentiate where compliance cannot, and automating onboarding frees exactly the capacity needed to deliver them.",
+      "Advisory services differentiate where compliance cannot, and automating onboarding frees exactly the capacity needed to deliver them.",
+    contextHeading: "Compliance commoditises while advisory carries the margin",
     context:
       "Compliance work is increasingly automated and priced accordingly, while advisory work carries margin and depends on the relationship. Meanwhile, taking on a client involves identity verification, engagement letters, data collection and system setup: largely manual, entirely repetitive, and heaviest in the periods when the practice is busiest. Buyers, especially owner-managed businesses, choose on trust and on whether the firm appears to understand their sector.",
     complianceNotes:
@@ -326,7 +331,8 @@ export const sectorIndustries: Industry[] = [
     answer:
       "Recruitment sites serve two audiences with opposite needs (clients hiring and candidates looking) and most sites are built for one while the other navigates around it.",
     opportunity:
-      "Separating the two journeys properly is unusually high-return here, because both audiences are actively searching and both currently arrive at a site designed for someone else.",
+      "Separating the two journeys properly is unusually high-return here, because both audiences are actively searching and both currently arrive at a site designed for someone else.",
+    contextHeading: "Two audiences with opposite needs",
     context:
       "Clients assess whether a consultancy understands their sector and can deliver quickly; candidates assess whether the roles are real, current and worth their time. The two need different content, different navigation and different conversion actions. Job listings create a second problem: they generate large numbers of URLs with short lifespans, and how expired roles are handled affects both site quality and candidate trust. Speed matters throughout: the first credible CV and the first response to an application both carry disproportionate weight.",
     problems: [
@@ -387,7 +393,8 @@ export const sectorIndustries: Industry[] = [
     answer:
       "Two demands pull in opposite directions: technical credibility for informed buyers and specifiers, and process automation for high-volume administrative work with regulatory record-keeping attached.",
     opportunity:
-      "Technical buyers in this sector research thoroughly and find little that respects their expertise. Content written at their level is both differentiating and cheap to produce, because the knowledge already exists internally.",
+      "Technical buyers in this sector research thoroughly and find little that respects their expertise. Content written at their level is both differentiating and cheap to produce, because the knowledge already exists internally.",
+    contextHeading: "Long cycles, several stakeholders, heavy administration",
     context:
       "Buyers include specifiers, facilities managers and procurement teams who evaluate on technical specification, compliance and total cost over a long horizon. Sales cycles are long and involve several stakeholders. Behind the front end sits substantial administrative process (surveys, quotations, installations, certifications and reporting), much of it evidenced for regulatory purposes. Both halves of the business are usually under-served digitally, and the administrative half is normally the more expensive problem.",
     problems: [

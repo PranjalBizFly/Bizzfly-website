@@ -14,6 +14,7 @@ import { methodologyPages } from "@/content/company-methodology";
 import { transparencyPages } from "@/content/company-transparency";
 import { site } from "@/content/site";
 import { primaryCta } from "@/content/navigation";
+import { titleCase } from "@/lib/titleCase";
 import { getCompanyHubImage } from "@/content/images";
 import { buildMetadata } from "@/lib/seo";
 import styles from "./company.module.css";
@@ -90,7 +91,7 @@ export default function CompanyIndexPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Company" }]}
         actions={
           <Button href={primaryCta.href} withArrow>
-            {primaryCta.label}
+            {titleCase(primaryCta.label)}
           </Button>
         }
         factsHeading="Company Principles"

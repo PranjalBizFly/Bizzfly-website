@@ -2,7 +2,6 @@ import type { CSSProperties, ReactNode } from "react";
 import { Container } from "@/components/layout/Container";
 import { Heading, BodyText, Eyebrow } from "@/components/typography";
 import { SplitText } from "@/components/motion/SplitText";
-import { titleCase } from "@/lib/titleCase";
 import { CountUp } from "@/components/motion";
 import { Breadcrumbs, type Crumb } from "@/components/navigation/Breadcrumbs";
 import styles from "./Hero.module.css";
@@ -50,6 +49,13 @@ export function EditorialHero({
 }: EditorialHeroProps) {
   return (
     <section
+      /*
+       * Only the light variant declares a ground. The inverse one paints a
+       * literal --ink-900 rather than the lift an inverse Section takes in
+       * the dark theme, so it is not the same colour as anything the seam
+       * rules would collapse it against. See styles/seams.css.
+       */
+      data-ground={inverse ? undefined : "bg"}
       className={`${styles.hero} ${inverse ? `${styles.heroInverse} is-inverse` : ""}`.trim()}
     >
       <Container>
@@ -70,7 +76,7 @@ export function EditorialHero({
               arrive behind it.
             */}
             <Heading level={1} size="h1" className={styles.editorial}>
-              <SplitText text={titleCase(title)} by="char" mode="load" offset={80} />
+              <SplitText text={title} by="char" mode="load" offset={80} />
             </Heading>
             {lead ? (
               <BodyText size="lg" className={styles.editorialLead}>

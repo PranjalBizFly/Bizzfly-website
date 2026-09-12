@@ -54,6 +54,13 @@ export function Section({
   return (
     <Tag
       id={id}
+      /*
+       * The ground this band paints, as an attribute rather than only as a
+       * class, so styles/seams.css can ask what the NEXT band paints. The
+       * classes cannot answer that: three of them are module-scoped and the
+       * default ground has no class at all, it is the absence of one.
+       */
+      data-ground={background}
       className={`${styles.section} ${spacingClass[spacing]} ${backgroundClass[background]} ${className}`.trim()}
     >
       <Container width={width}>{children}</Container>

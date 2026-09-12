@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { visitorJourneys } from "@/content/homepage";
+import { titleCase } from "@/lib/titleCase";
 import styles from "./JourneyList.module.css";
 
 /**
@@ -13,11 +14,11 @@ export function JourneyList() {
       {visitorJourneys.map((journey) => (
         <li key={journey.intent} className={styles.item}>
           <Link href={journey.href} className={styles.link}>
-            <span className={styles.intent}>{journey.intent}</span>
+            <span className={styles.intent}>{titleCase(journey.intent)}</span>
             <span className={styles.arrow} aria-hidden="true">
               &rarr;
             </span>
-            <span className={styles.destination}>{journey.destination}</span>
+            <span className={styles.destination}>{titleCase(journey.destination)}</span>
           </Link>
         </li>
       ))}

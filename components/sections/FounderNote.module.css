@@ -1,21 +1,53 @@
 /*
  * The human layer — contained image beside the argument.
  *
- * 5/7: the photograph takes the smaller track and the words the larger one.
- * The reverse of what an image-led section usually does, and deliberate — the
- * picture here is corroboration rather than the subject, so it should not
- * outweigh the sentence it corroborates.
+ * An executive spread inside an atmospheric container card:
+ * The studio portrait of the founder anchors the left column,
+ * with the signature plate overlapping and the company's premise
+ * presented as a distinguished executive pull-quote beside it.
  */
 .wrapper {
+  position: relative;
   display: grid;
   gap: var(--gap-stack-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: clamp(var(--space-6), 4vw, var(--space-12));
+  box-shadow: var(--elev-1);
+  overflow: hidden;
+}
+
+/* Subtle luminous ambient glows derived from brand tokens */
+.wrapper::before {
+  content: "";
+  position: absolute;
+  top: -90px;
+  right: -90px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgb(44 112 209 / 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgb(169 207 70 / 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 @media (min-width: 1024px) {
   .wrapper {
-    grid-template-columns: 5fr 7fr;
-    gap: var(--space-16);
-    align-items: start;
+    grid-template-columns: 42fr 58fr;
+    gap: var(--space-10);
+    align-items: center;
   }
 }
 
@@ -23,25 +55,27 @@
 .figure {
   position: relative;
   min-width: 0;
+  z-index: 1;
 }
 
 .frame {
+  position: relative;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background: var(--surface);
-  box-shadow: var(--elev-1);
+  background: var(--surface-muted);
+  box-shadow: var(--elev-2);
   aspect-ratio: 4 / 5;
+  transition:
+    border-color var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard);
 }
 
-/*
- * 4:5 — the only portrait crop on the homepage.
- *
- * Every other frame here is landscape (16:9 showcase, 4:3 insight, 21:9
- * feature). A taller frame beside a column of text is what makes this read as
- * an editorial spread rather than as another card, and it is the proportion
- * a picture of people is usually cut to.
- */
+.figure:hover .frame {
+  border-color: var(--accent-edge);
+  box-shadow: var(--elev-3);
+}
+
 .image {
   display: block;
   width: 100%;
@@ -53,47 +87,44 @@
 }
 
 .figure:hover .image {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 /*
  * The attribution, overlapping the lower edge of the frame.
- *
- * Solid rather than translucent: it carries a name, and a name half-legible
- * through a photograph is worse than no overlap at all. The overlap is what
- * ties the block to the picture — without it this is a caption.
- */
-/*
- * With a frame above it, the block overlaps the image edge. With no frame
- * there is nothing to overlap, so it becomes a plain signature under a rule —
- * a negative margin pulling it into empty space would just look like a bug.
+ * Solid glass plate with left accent bar.
  */
 .signature {
   position: relative;
   border-top: 2px solid var(--accent-edge);
   padding-top: var(--space-5);
+  z-index: 2;
 }
 
 [data-has-image="true"] .signature {
   margin-top: calc(var(--space-10) * -1);
-  margin-inline: var(--space-5);
-  padding: var(--space-5) var(--space-6);
-  background: var(--background);
+  margin-inline: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  background: color-mix(in srgb, var(--background) 94%, transparent);
+  backdrop-filter: blur(var(--glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm));
   border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-edge);
   border-radius: var(--radius-md);
   box-shadow: var(--elev-2);
 }
 
 @media (min-width: 640px) {
   [data-has-image="true"] .signature {
-    margin-inline-end: var(--space-16);
+    margin-inline-start: var(--space-4);
+    margin-inline-end: var(--space-8);
   }
 }
 
 .name {
   font-family: var(--font-display);
   font-size: var(--text-h4);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-bold);
   letter-spacing: -0.01em;
   color: var(--foreground);
 }
@@ -104,31 +135,27 @@
   font-size: var(--text-meta);
   letter-spacing: var(--tracking-meta);
   color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
 .separator {
-  margin-inline: var(--space-2);
   color: var(--ink-400);
 }
 
 /* --- The argument -------------------------------------------------------- */
 .body {
   min-width: 0;
-}
-
-.eyebrow {
-  font-family: var(--font-label);
-  font-size: var(--text-eyebrow);
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-eyebrow);
-  color: var(--muted);
+  max-width: 680px;
+  position: relative;
+  z-index: 1;
 }
 
 .title {
-  margin-top: var(--gap-eyebrow);
   font-family: var(--font-display);
-  font-size: var(--text-h2);
-  font-weight: var(--weight-semibold);
+  font-size: clamp(1.9375rem, 1.6073rem + 1.4085vw, 2.75rem);
+  font-weight: var(--weight-bold);
   line-height: var(--leading-heading);
   letter-spacing: var(--tracking-h2);
   color: var(--foreground);
@@ -137,30 +164,81 @@
 }
 
 /*
- * The premise is set larger than the paragraphs under it, so the section has
- * a single sentence a reader can leave with. It is the closest thing this
- * page has to a statement of belief, and burying it in body copy would waste
- * the only place the company speaks in the first person plural.
+ * The title holds one line in the split composition.
+ *
+ * "A company, not a platform" sets 13.98x its own font size wide in the
+ * display face, and the text track is 476px at 1024 rising to a fixed 607px
+ * from 1280 up — so the scale above overruns the track by a hair at every
+ * width and the heading wraps after "NOT". Capping the size against the
+ * track's own width holds it on one line the whole way down without a
+ * breakpoint per width: 7cqw is 100/13.98, with a little spare for the
+ * fallback stack. The track is the query unit, so changing the 42/58 split
+ * at the top of this file resizes the heading rather than breaking the line.
+ *
+ * This has to sit AFTER the rule above rather than in the grid's media block
+ * at the top: both selectors are a single class, so source order decides, and
+ * up there the unconditional font-size won.
  */
-.premise {
+@media (min-width: 1024px) {
+  .body {
+    container-type: inline-size;
+  }
+
+  .title {
+    font-size: min(clamp(1.9375rem, 1.6073rem + 1.4085vw, 2.75rem), 7cqw);
+  }
+}
+
+/* Executive pull-quote premise card */
+.premiseCard {
+  position: relative;
   margin-top: var(--space-6);
+  padding: var(--space-5) var(--space-6);
+  background: var(--surface-muted);
+  border-left: 3px solid var(--accent-edge);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  overflow: hidden;
+}
+
+.premiseCard::before {
+  content: "“";
+  position: absolute;
+  top: -0.18em;
+  right: var(--space-3);
   font-family: var(--font-display);
-  font-size: var(--text-h3);
-  font-weight: var(--weight-semibold);
+  font-size: 4.5rem;
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  color: color-mix(in srgb, var(--accent-edge) 16%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+
+.premise {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem);
+  font-weight: var(--weight-medium);
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-h3);
   color: var(--foreground);
-  max-width: var(--measure-title);
-  text-wrap: balance;
+  max-width: var(--measure-lead);
+  text-wrap: pretty;
 }
 
 .paragraph {
-  margin-top: var(--space-5);
-  font-size: var(--text-body-lg);
+  margin-top: var(--space-4);
+  font-size: var(--text-body);
   line-height: var(--leading-relaxed);
   color: var(--muted);
-  max-width: var(--measure-lead);
+  max-width: var(--measure-body);
   text-wrap: pretty;
+}
+
+.premiseCard + .paragraph {
+  margin-top: var(--space-6);
 }
 
 .actions {
@@ -170,56 +248,42 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-3) var(--space-6);
+  gap: var(--space-4);
 }
 
-.primary {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  min-height: var(--touch-target-min);
-  font-family: var(--font-label);
-  font-size: var(--text-button);
-  font-weight: var(--weight-medium);
-  color: var(--foreground);
-  text-decoration: underline;
-  text-decoration-color: var(--link-underline);
-  text-underline-offset: 4px;
-}
+/* --- Arrival -------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .figure .frame {
+    --reveal-distance: 16px;
+    --dur-reveal: 820ms;
+  }
 
-.primary span {
-  color: var(--accent-edge);
-  transition: transform var(--dur-base) var(--ease-standard);
-}
+  .figure .frame[data-reveal="pending"] {
+    transform: translate3d(0, var(--reveal-distance), 0) scale(0.985);
+  }
 
-.primary:hover span {
-  transform: translate3d(var(--space-2), 0, 0);
-}
+  .figure .frame[data-reveal="visible"] {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
 
-.secondary {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--touch-target-min);
-  font-size: var(--text-body-sm);
-  color: var(--muted);
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 4px;
-  transition:
-    color var(--dur-fast) var(--ease-standard),
-    text-decoration-color var(--dur-fast) var(--ease-standard);
-}
+  .figure .signature {
+    --reveal-distance: 12px;
+    --dur-reveal: 700ms;
+  }
 
-.secondary:hover {
-  color: var(--foreground);
-  text-decoration-color: var(--link-underline);
+  .body {
+    --reveal-distance: 14px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .image,
-  .figure:hover .image,
-  .primary:hover span {
+  .figure:hover .image {
     transform: none;
+    transition: none;
+  }
+  .frame,
+  .figure:hover .frame {
     transition: none;
   }
 }

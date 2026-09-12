@@ -183,7 +183,7 @@ export function ConsultationModal({ isOpen, onClose, source }: ConsultationModal
         <div className={styles.head}>
           <div className={styles.headText}>
             <h2 className={styles.title} id={titleId}>
-              Book A Consultation
+              Book a consultation
             </h2>
             <p className={styles.lead} id={descriptionId}>
               Thirty minutes on the problem you are trying to solve — not a

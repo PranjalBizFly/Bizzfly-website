@@ -180,7 +180,7 @@ export default function RootLayout({
         */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <a href="#main" className="skip-link">
-          Skip to content
+          Skip To Content
         </a>
         {/*
           The consultation dialog is mounted once, here, around the whole

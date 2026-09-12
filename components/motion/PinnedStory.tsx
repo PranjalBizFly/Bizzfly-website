@@ -2,9 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
-import Link from "next/link";
-import styles from "./PinnedStory.module.css";
 import { titleCase } from "@/lib/titleCase";
+import styles from "./PinnedStory.module.css";
+import { Button } from "@/components/buttons";
 
 export interface StoryChapter {
   /** Stable id — used for the scroll target and the aria wiring. */
@@ -189,7 +189,7 @@ export function PinnedStory({
                   <span className={styles.railMarker} aria-hidden="true">
                     {chapter.marker ?? String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className={styles.railLabel}>{chapter.title}</span>
+                  <span className={styles.railLabel}>{titleCase(chapter.title)}</span>
                 </button>
               </li>
             ))}
@@ -213,7 +213,7 @@ export function PinnedStory({
             {chapter.marker ? (
               <span className={styles.marker}>{chapter.marker}</span>
             ) : null}
-            <h3 className={styles.chapterTitle}>{titleCase(chapter.title)}</h3>
+            <h3 className={styles.chapterTitle}>{chapter.title}</h3>
             {chapter.body.map((paragraph) => (
               <p key={paragraph} className={styles.chapterBody}>
                 {paragraph}
@@ -226,10 +226,14 @@ export function PinnedStory({
               keyboard in the ordinary way.
             */}
             {chapter.link ? (
-              <Link href={chapter.link.href} className={styles.chapterLink}>
+              <Button
+                href={chapter.link.href}
+                variant="secondary"
+                size="sm"
+                withArrow
+              >
                 {chapter.link.label}
-                <span aria-hidden="true">&rarr;</span>
-              </Link>
+              </Button>
             ) : null}
           </article>
         ))}

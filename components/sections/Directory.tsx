@@ -173,7 +173,7 @@ export function Directory({
                     hidden={!matches(item, group.heading)}
                   >
                     <Link href={item.href} className={styles.link}>
-                      {item.label}
+                      {titleCase(item.label)}
                     </Link>
                     {item.note ? <span className={styles.note}>{item.note}</span> : null}
                   </li>

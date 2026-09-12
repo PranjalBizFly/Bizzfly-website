@@ -50,7 +50,7 @@ export const whyPillars: WhyPillar[] = [
     mechanism:
       "The first two weeks are diagnosis: crawl and index coverage, entity clarity, structured data, and which surfaces currently return you for the queries that matter. You keep those findings either way.",
     href: "/services/search-ai-visibility/",
-    linkLabel: "Search & AI visibility",
+    linkLabel: "Search & AI Visibility",
   },
   {
     index: "02",
@@ -72,7 +72,7 @@ export const whyPillars: WhyPillar[] = [
     mechanism:
       "Structured data, semantic markup and server rendering are part of the build rather than a later optimisation pass. Every technology page states when we would tell you to use something else.",
     href: "/technologies/",
-    linkLabel: "Technology standards",
+    linkLabel: "Technology Standards",
   },
   {
     index: "04",
@@ -83,7 +83,7 @@ export const whyPillars: WhyPillar[] = [
     mechanism:
       "Measures are agreed before work starts (enquiries, response times, hours removed) and the report separates indexation, impressions, sessions and enquiries, so a fall has a location rather than a vibe.",
     href: "/company/how-we-report/",
-    linkLabel: "How we report",
+    linkLabel: "How We Report",
   },
 ];
 
@@ -122,19 +122,19 @@ export const growthStages: GrowthStage[] = [
       "If you are absent from the surface a buyer uses, nothing further down this list ever gets its chance. It is the only stage whose failure is invisible: you never see the enquiry you did not receive.",
     disciplines: ["SEO", "AEO", "GEO", "AIO"],
     items: [
-      { label: "Search engine optimisation", href: "/services/seo/" },
+      { label: "Search Engine Optimisation", href: "/services/seo/" },
       {
-        label: "Answer engine optimisation",
+        label: "Answer Engine Optimisation",
         href: "/services/answer-engine-optimisation/",
       },
       {
-        label: "Generative engine optimisation",
+        label: "Generative Engine Optimisation",
         href: "/services/generative-engine-optimisation/",
       },
-      { label: "AI optimisation", href: "/services/ai-optimisation/" },
+      { label: "AI Optimisation", href: "/services/ai-optimisation/" },
     ],
     href: "/services/search-ai-visibility/",
-    linkLabel: "Search & AI visibility",
+    linkLabel: "Search & AI Visibility",
   },
   {
     index: "02",
@@ -146,17 +146,17 @@ export const growthStages: GrowthStage[] = [
     disciplines: ["Website", "UX", "SXO"],
     items: [
       {
-        label: "Website design & development",
+        label: "Website Design & Development",
         href: "/services/corporate-websites/",
       },
       { label: "UI/UX Design", href: "/services/ui-ux-design/" },
       {
-        label: "Search experience optimisation",
+        label: "Search Experience Optimisation",
         href: "/services/search-experience-optimisation/",
       },
     ],
     href: "/services/web-development/",
-    linkLabel: "Websites & digital experience",
+    linkLabel: "Websites & Digital Experience",
   },
   {
     index: "03",
@@ -175,7 +175,7 @@ export const growthStages: GrowthStage[] = [
       { label: "Sales Automation", href: "/services/sales-automation/" },
     ],
     href: "/services/digital-marketing/",
-    linkLabel: "Digital marketing & growth",
+    linkLabel: "Digital Marketing & Growth",
   },
   {
     index: "04",
@@ -186,13 +186,13 @@ export const growthStages: GrowthStage[] = [
       "Growth that breaks your operations is not growth. The enquiry answered in three days is the enquiry a competitor already won, and that ceiling appears exactly when the earlier stages start working.",
     disciplines: ["Automation", "Software", "AI", "Data"],
     items: [
-      { label: "Business automation", href: "/services/workflow-automation/" },
+      { label: "Business Automation", href: "/services/workflow-automation/" },
       { label: "Custom Software", href: "/services/custom-software/" },
       { label: "AI Agents", href: "/services/ai-agents/" },
       { label: "Business Intelligence", href: "/services/business-intelligence/" },
     ],
     href: "/services/ai-automation/",
-    linkLabel: "AI & automation",
+    linkLabel: "AI & Automation",
   },
 ];
 

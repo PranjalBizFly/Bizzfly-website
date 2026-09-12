@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import { founderNote } from "@/content/homepage-narrative";
 import type { ImageMetadata } from "@/content/images/types";
-import { Reveal } from "@/components/motion";
+import { Reveal, Cascade } from "@/components/motion";
 import styles from "./FounderNote.module.css";
+import { Button } from "@/components/buttons";
 
 interface FounderNoteProps {
   /**
@@ -23,40 +23,49 @@ interface FounderNoteProps {
  * device into a template, and this one is a person speaking rather than a
  * claim being made, which wants the quieter treatment.
  *
- * NO PHOTOGRAPH IS CURRENTLY PASSED, deliberately.
- *
- * The obvious candidate was `company-about`, whose registry alt reads "BizzFly
- * team members collaborating in bright, modern office space in Pune, India".
- * The file is a close-up of a laptop screen showing a confusion matrix. There
- * are no people in it and nothing about it is BizzFly. Running it under a
- * heading that says "A company, not a platform" would make a visual claim
- * about who works here that the picture does not support — which is the exact
- * failure mode the rest of this site is built to avoid.
- *
- * That alt/image mismatch is not isolated, and much of the library also
- * carries Unsplash+ preview watermarks. Until that is resolved this section
- * stays typographic, which it was designed to survive: the composition reads
- * as finished without a frame rather than as a card with a hole in it.
- *
  * A supplied image keeps its registry alt, unlike the full-bleed grounds:
  * here it would be content rather than a field behind content.
  */
 export function FounderNote({ image }: FounderNoteProps) {
   return (
     <div className={styles.wrapper} data-has-image={Boolean(image)}>
-      <Reveal direction="right" className={styles.figure}>
+      <div className={styles.figure}>
+        {/*
+          `sizes` states the widths this frame is actually rendered at rather
+          than an approximation of them. The band caps at 1280 and the image
+          track is 43% of what is left after a 24px gutter, so past that
+          breakpoint the frame is a fixed 500px however wide the screen gets;
+          between 1024 and 1280 it tracks the viewport; stacked it fills the
+          band, which is the viewport less its gutters.
+
+          These three numbers are downstream of the grid in
+          FounderNote.module.css. If the track ratio, the gutter or the
+          stacked width changes, change them here too — a stale hint is
+          invisible in review and shows up as a soft photograph. The stacked
+          clause said 480px while the figure was briefly capped at that, which
+          put a 640-wide file in a 958-wide frame.
+        */}
         {image ? (
-          <div className={styles.frame}>
+          <Reveal className={styles.frame}>
             <Image
               src={image.src}
               alt={image.alt}
               width={image.width}
               height={image.height}
               loading="lazy"
-              sizes="(min-width: 1024px) 46vw, 100vw"
+              sizes="(min-width: 1280px) 500px, (min-width: 1024px) 40vw, 100vw"
+              /*
+               * Above the default 75, which visibly softens a face.
+               * Measured as variance of the Laplacian on what the optimiser
+               * actually serves: the source portrait scores 247, q75 drops it
+               * to 174, q95 holds 198, and q100 reaches 207 for another 2KB.
+               * A portrait carries the trust on this section and the curve is
+               * flat past 95, so this is where the detail stops being cheap.
+               */
+              quality={95}
               className={styles.image}
             />
-          </div>
+          </Reveal>
         ) : null}
 
         {/*
@@ -64,7 +73,7 @@ export function FounderNote({ image }: FounderNoteProps) {
           is simply the signature block, which is why it lives here rather than
           inside the figure.
         */}
-        <div className={styles.signature}>
+        <Reveal delay={140} className={styles.signature}>
           <p className={styles.name}>{founderNote.name}</p>
           <p className={styles.role}>
             {founderNote.role}
@@ -73,20 +82,18 @@ export function FounderNote({ image }: FounderNoteProps) {
             </span>
             {founderNote.location}
           </p>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
 
-      <Reveal delay={120} className={styles.body}>
-        <p className={styles.eyebrow}>14 / Who you would be working with</p>
-
+      <Cascade step={80} className={styles.body}>
         <h2 className={styles.title}>A company, not a platform</h2>
 
         {/*
-          Not a <blockquote>: this paraphrases published positioning rather
-          than quoting something recorded as said, and quote markup would
-          assert a provenance that does not exist.
+          Executive Premise Card with pull-quote styling
         */}
-        <p className={styles.premise}>{founderNote.premise}</p>
+        <div className={styles.premiseCard}>
+          <p className={styles.premise}>{founderNote.premise}</p>
+        </div>
 
         {founderNote.body.map((paragraph) => (
           <p key={paragraph} className={styles.paragraph}>
@@ -95,15 +102,22 @@ export function FounderNote({ image }: FounderNoteProps) {
         ))}
 
         <div className={styles.actions}>
-          <Link href={founderNote.cta.href} className={styles.primary}>
+          <Button
+            href={founderNote.cta.href}
+            variant="primary"
+            withArrow
+          >
             {founderNote.cta.label}
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
-          <Link href={founderNote.secondary.href} className={styles.secondary}>
+          </Button>
+          <Button
+            href={founderNote.secondary.href}
+            variant="secondary"
+            withArrow
+          >
             {founderNote.secondary.label}
-          </Link>
+          </Button>
         </div>
-      </Reveal>
+      </Cascade>
     </div>
   );
 }

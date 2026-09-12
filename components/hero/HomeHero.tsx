@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button, ButtonGroup } from "@/components/buttons";
 import { Marquee, MarqueeItem } from "@/components/motion/Marquee";
 import { primaryCta } from "@/content/navigation";
+import { titleCase } from "@/lib/titleCase";
 import { visibilityLayers } from "@/content/homepage";
 import { getHomepageImages } from "@/content/images";
 import { CinematicHero } from "./CinematicHero";
@@ -41,15 +42,15 @@ export function HomeHero() {
         actions={
           <ButtonGroup>
             <Button href={primaryCta.href} size="lg" withArrow>
-              {primaryCta.label}
+              {titleCase(primaryCta.label)}
             </Button>
             <Button href="/services/" size="lg" variant="secondary">
-              Explore services
+              Explore Services
             </Button>
           </ButtonGroup>
         }
         facts={[
-          { label: "Be found", value: "Search, AI answers and maps" },
+          { label: "Be Found", value: "Search, AI answers and maps" },
           { label: "Build", value: "Websites, software, applications" },
           { label: "Automate", value: "Support, sales, back office" },
         ]}

@@ -12,7 +12,7 @@ interface ConversionBandProps {
 }
 
 const defaultCta: Cta = {
-  label: "Book a consultation",
+  label: "Book a Consultation",
   href: "/contact/",
   tier: "T4",
   note: "30 minutes. We will tell you where the gaps are.",

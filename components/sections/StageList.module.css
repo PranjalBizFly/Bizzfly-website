@@ -50,7 +50,6 @@
   /* Waits for the detail to clear before coming back. */
   --image-delay: var(--dur-fast);
   --image-visibility-delay: 0s;
-
   --content-opacity: 0;
   --content-shift: var(--space-4);
   --content-visibility: hidden;
@@ -75,7 +74,6 @@
     --image-visibility: hidden;
     --image-delay: 0s;
     --image-visibility-delay: var(--dur-slow);
-
     --content-opacity: 1;
     --content-shift: 0px;
     --content-visibility: visible;
@@ -98,7 +96,6 @@
     --image-visibility: hidden;
     --image-delay: 0s;
     --image-visibility-delay: var(--dur-slow);
-
     --content-opacity: 1;
     --content-shift: 0px;
     --content-visibility: visible;
@@ -294,6 +291,7 @@
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 4px;
+  text-transform: capitalize;
   transition:
     color var(--dur-fast) var(--ease-standard),
     text-decoration-color var(--dur-fast) var(--ease-standard);

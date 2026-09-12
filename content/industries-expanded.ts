@@ -18,7 +18,8 @@ export const expandedIndustries: Industry[] = [
     answer:
       "SaaS businesses compete in categories where buyers research heavily before contacting anyone. Most of the decision happens across search, comparison content and AI answers, before a demo is ever requested.",
     opportunity:
-      "Because the buying journey is almost entirely self-directed, the content that explains, compares and qualifies is doing the selling. That is work a SaaS company can control.",
+      "Because the buying journey is almost entirely self-directed, the content that explains, compares and qualifies is doing the selling. That is work a SaaS company can control.",
+    contextHeading: "Trials, activation and retention, not one-off sales",
     context:
       "Growth is measured in trials, activation and retention rather than one-off sales, which changes what marketing has to produce. Acquisition cost is judged against lifetime value, so a channel that compounds is worth more than one that converts faster. Product-led motions add a further constraint: the site has to qualify honestly, because a poorly qualified signup costs support time and churns.",
     problems: [
@@ -101,7 +102,8 @@ export const expandedIndustries: Industry[] = [
     title: "Healthcare",
     layout: "challenge-led",
     answer:
-      "Healthcare organisations are searched by people making consequential decisions, often urgently. Accuracy, clarity and accessibility matter more here than persuasion, and the regulatory constraints are real.",
+      "Healthcare organisations are searched by people making consequential decisions, often urgently. Accuracy, clarity and accessibility matter more here than persuasion, and the regulatory constraints are real.",
+    contextHeading: "Patients search under stress, usually on a phone",
     context:
       "Patients and carers search symptoms, conditions, procedures and providers, frequently under stress and often on a phone. The content that serves them well is specific, readable and honest about uncertainty. Because health information is held to a higher standard by both search engines and readers, thin or exaggerated content performs worse here than in almost any other sector.",
     problems: [
@@ -190,7 +192,8 @@ export const expandedIndustries: Industry[] = [
     title: "Financial Services",
     layout: "challenge-led",
     answer:
-      "Financial services buyers research extensively and trust cautiously. Credibility is established through clarity and specificity rather than claims, and much of what can be said is constrained by regulation.",
+      "Financial services buyers research extensively and trust cautiously. Credibility is established through clarity and specificity rather than claims, and much of what can be said is constrained by regulation.",
+    contextHeading: "Products are compared on terms that resist simple explanation",
     context:
       "Products are compared on terms that are hard to explain simply, and the gap between what a firm may say and what a customer wants to know is where most content fails. Trust signals matter disproportionately, and because financial content is held to a higher standard by search engines, vagueness is penalised more than in other sectors.",
     problems: [
@@ -279,7 +282,8 @@ export const expandedIndustries: Industry[] = [
     title: "E-commerce",
     layout: "journey-led",
     answer:
-      "E-commerce visibility is decided by product and category pages that most sites treat as templates. Where those pages are thin, duplicated or slow, the catalogue competes against itself and against marketplaces.",
+      "E-commerce visibility is decided by product and category pages that most sites treat as templates. Where those pages are thin, duplicated or slow, the catalogue competes against itself and against marketplaces.",
+    contextHeading: "Discovery, comparison and repeat purchase pull different ways",
     context:
       "Retail search spans discovery, comparison and repeat purchase, each with different requirements. Large catalogues generate technical problems that smaller sites never encounter: faceted navigation creating near-infinite URLs, out-of-stock handling, and variants that duplicate each other. Marketplaces compete for the same queries with far greater authority, so specificity is the available advantage.",
     problems: [
@@ -363,7 +367,8 @@ export const expandedIndustries: Industry[] = [
     layout: "challenge-led",
     diagram: "system-architecture",
     answer:
-      "Logistics operations run on coordination between systems that were rarely designed to work together. The cost of that gap appears as manual reconciliation, status queries and decisions made on stale data.",
+      "Logistics operations run on coordination between systems that were rarely designed to work together. The cost of that gap appears as manual reconciliation, status queries and decisions made on stale data.",
+    contextHeading: "Coordination spans systems you do not control",
     context:
       "Work spans transport management, warehousing, customer systems and partner platforms, frequently including partners whose systems you do not control. Margins are thin enough that administrative overhead matters directly, and customers increasingly expect the visibility they get from consumer parcel tracking.",
     problems: [
@@ -450,7 +455,8 @@ export const expandedIndustries: Industry[] = [
     title: "IT Services",
     layout: "opportunity-led",
     answer:
-      "IT services firms sell capability that is hard to differentiate on a website. Buyers compare providers who describe themselves in near-identical language, so specificity is the only real distinguishing signal.",
+      "IT services firms sell capability that is hard to differentiate on a website. Buyers compare providers who describe themselves in near-identical language, so specificity is the only real distinguishing signal.",
+    contextHeading: "The website qualifies and reassures rather than generates demand",
     context:
       "Buying is usually a considered, referral-influenced process where the website's job is to qualify and reassure rather than to generate demand alone. Because most competitors publish the same service lists in the same words, the firms that state how they work, what they refuse, and what a project actually involves stand out disproportionately.",
     problems: [
@@ -537,7 +543,8 @@ export const expandedIndustries: Industry[] = [
     title: "Hospitality",
     layout: "journey-led",
     answer:
-      "Hospitality is discovered locally and booked on mobile, often within minutes of the search. Visibility, speed and accurate information decide bookings more than any brand message on the site.",
+      "Hospitality is discovered locally and booked on mobile, often within minutes of the search. Visibility, speed and accurate information decide bookings more than any brand message on the site.",
+    contextHeading: "Much of the decision happens before your site is opened",
     context:
       "Guests search by location, occasion and availability, compare quickly across tabs, and abandon anything slow or unclear. A significant share of the decision happens on third-party platforms and map results before a website is opened at all, which makes profile accuracy and direct-booking friction the two highest-leverage areas.",
     problems: [
@@ -624,7 +631,8 @@ export const expandedIndustries: Industry[] = [
     title: "Startups",
     layout: "opportunity-led",
     answer:
-      "Startups have less time and less money than the playbooks assume. The useful question is not which channels exist but which single one can be made to work before the runway matters.",
+      "Startups have less time and less money than the playbooks assume. The useful question is not which channels exist but which single one can be made to work before the runway matters.",
+    contextHeading: "Concentration matters more than coverage",
     context:
       "Early-stage constraints are severe: no domain authority, no content history, a product still changing, and a team too small to run several channels properly. That argues for concentration rather than coverage, and for building only the infrastructure that a decision actually depends on.",
     problems: [

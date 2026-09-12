@@ -107,18 +107,18 @@ export default function BlogsPage() {
           <article className={styles.lead}>
             <p className={styles.leadMeta}>
               <span className={styles.format}>
-                {FORMAT_LABEL[lead.type] ?? lead.type}
+                {titleCase(FORMAT_LABEL[lead.type] ?? lead.type)}
               </span>
               <span className={styles.dot} aria-hidden="true">
                 &middot;
               </span>
-              {lead.topic}
+              {titleCase(lead.topic)}
               {lead.readingTime ? (
                 <>
                   <span className={styles.dot} aria-hidden="true">
                     &middot;
                   </span>
-                  {lead.readingTime}
+                  {titleCase(lead.readingTime)}
                 </>
               ) : null}
             </p>
@@ -147,12 +147,14 @@ export default function BlogsPage() {
             <StaggerItem as="li" key={article.slug} index={i} className={styles.row}>
               <Link href={`/resources/${article.slug}/`} className={styles.rowLink}>
                 <span className={styles.rowFormat}>
-                  {FORMAT_LABEL[article.type] ?? article.type}
+                  {titleCase(FORMAT_LABEL[article.type] ?? article.type)}
                 </span>
                 <span className={styles.rowTitle}>{article.title}</span>
                 <span className={styles.rowMeta}>
-                  {article.topic}
-                  {article.readingTime ? ` · ${article.readingTime}` : ""}
+                  {titleCase(
+                    article.topic +
+                      (article.readingTime ? ` · ${article.readingTime}` : ""),
+                  )}
                 </span>
                 <span className={styles.rowArrow} aria-hidden="true">
                   &rarr;

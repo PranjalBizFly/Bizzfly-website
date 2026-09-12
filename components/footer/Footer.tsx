@@ -10,6 +10,7 @@ import {
 } from "@/content/navigation";
 import { site } from "@/content/site";
 import styles from "./Footer.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 /*
  * Stroked marks, drawn to the same spec as the rest of the site's icons: a
@@ -166,7 +167,7 @@ export function Footer() {
                       className={styles.socialLink}
                       rel="noopener noreferrer"
                     >
-                      {profile.label}
+                      {titleCase(profile.label)}
                     </a>
                   </li>
                 ))}
@@ -183,14 +184,18 @@ export function Footer() {
                       className={styles.markSm}
                     />
                   </span>
-                  <span className={styles.valueText}>
-                    <span className={styles.valueTitle}>{value.title}</span>
-                    <span className={styles.valueNote}>
-                      {firstSentence(value.description)}
-                    </span>
-                  </span>
+                  {/*
+                    Four flat children, not a nested text wrapper: the card is
+                    a named-area grid, and the note has to be able to leave the
+                    middle column for a row of its own where the card is wide
+                    and short rather than narrow and tall. See the stylesheet.
+                  */}
+                  <span className={styles.valueTitle}>{value.title}</span>
                   <span className={styles.valueBadge}>
                     {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className={styles.valueNote}>
+                    {firstSentence(value.description)}
                   </span>
                 </li>
               ))}
@@ -235,13 +240,13 @@ export function Footer() {
                 */}
                 <details className={styles.group} open>
                   <summary className={styles.groupHeading}>
-                    {column.heading}
+                    {titleCase(column.heading)}
                   </summary>
                   <ul className={styles.list}>
                     {column.items.map((item) => (
                       <li key={item.href}>
                         <Link href={item.href} className={styles.link}>
-                          {item.label}
+                          {titleCase(item.label)}
                         </Link>
                       </li>
                     ))}
@@ -264,13 +269,13 @@ export function Footer() {
                 <nav aria-label={lastColumn.heading}>
                   <details className={styles.group} open>
                     <summary className={styles.groupHeading}>
-                      {lastColumn.heading}
+                      {titleCase(lastColumn.heading)}
                     </summary>
                     <ul className={styles.list}>
                       {lastColumn.items.map((item) => (
                         <li key={item.href}>
                           <Link href={item.href} className={styles.link}>
-                            {item.label}
+                            {titleCase(item.label)}
                           </Link>
                         </li>
                       ))}
@@ -280,7 +285,7 @@ export function Footer() {
               ) : null}
 
               <div className={styles.commitBlock}>
-                <p className={styles.commitHeading}>What we commit&nbsp;to</p>
+                <p className={styles.commitHeading}>What We Commit&nbsp;To</p>
                 <ul className={styles.commitList}>
                   {commitments.map((line) => (
                     <li key={line} className={styles.commitItem}>
@@ -296,7 +301,7 @@ export function Footer() {
                   href="/careers/"
                   className={`${styles.actionSecondary} rim-sweep`}
                 >
-                  We&#39;re hiring
+                  We&#39;re Hiring
                   <span aria-hidden="true">&rarr;</span>
                 </Link>
                 {/* rim-sweep: the travelling highlight. See styles/base.css. */}
@@ -304,7 +309,7 @@ export function Footer() {
                   href={primaryCta.href}
                   className={`${styles.actionPrimary} rim-sweep`}
                 >
-                  {primaryCta.label}
+                  {titleCase(primaryCta.label)}
                   <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
@@ -327,7 +332,7 @@ export function Footer() {
               {legalNav.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className={styles.baseLink}>
-                    {item.label}
+                    {titleCase(item.label)}
                   </Link>
                 </li>
               ))}

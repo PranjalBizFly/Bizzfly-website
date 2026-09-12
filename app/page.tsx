@@ -217,27 +217,26 @@ export default function HomePage() {
       eyebrow: "Advisory & Architecture",
       title: "Know which problem to fix first",
       lead: "Most engagements start by buying the wrong thing. The first two weeks establish where growth is actually constrained (visibility, the website, or the operations behind it) and you keep those findings whether or not you continue with us.",
-      tags: ["Digital strategy", "Architecture", "Measurement"],
+      tags: ["Digital Strategy", "Architecture", "Measurement"],
       href: "/services/digital-strategy/",
-      linkLabel: "Digital growth strategy",
     },
     {
       image: homeImages.visibility,
       eyebrow: "Search Intelligence",
       title: "Be found wherever buyers look",
       lead: "Ranked results, map packs and vertical directories are separate retrieval systems, and being strong in one tells you nothing about the others. We measure each surface and fix the ones that are failing.",
-      tags: ["SEO", "Technical SEO", "Local search"],
+      tags: ["SEO", "Technical SEO", "Local Search"],
       href: "/services/seo/",
-      linkLabel: "Search engine optimisation",
+      linkLabel: "Search Engine Optimisation",
     },
     {
       image: homeImages.aiSearch,
       eyebrow: "Generative AI & AEO",
       title: "Get your business cited by AI search",
       lead: "Assistants increasingly answer instead of linking, and they cite the sources they can parse. Structured data, a clear entity and machine-readable content are what put you among them.",
-      tags: ["GEO", "AEO", "Structured data"],
+      tags: ["GEO", "AEO", "Structured Data"],
       href: "/services/generative-engine-optimisation/",
-      linkLabel: "Generative engine optimisation",
+      linkLabel: "Generative Engine Optimisation",
     },
     {
       image: homeImages.automation,
@@ -253,18 +252,18 @@ export default function HomePage() {
         behind rather than filler written to occupy space.
       */
       lead: "Quoting, lead routing and support handoffs are the steps that break first when enquiries rise. Automating them is what stops growth turning into a backlog. We fix an undefined process before automating it.",
-      tags: ["Workflow automation", "AI agents", "Integration"],
+      tags: ["Workflow Automation", "AI Agents", "Integration"],
       href: "/services/workflow-automation/",
-      linkLabel: "Business automation",
+      linkLabel: "Business Automation",
     },
     {
       image: homeImages.technology,
       eyebrow: "Engineering Standards",
       title: "Fast enough to rank, clear to convert",
       lead: "Speed, accessibility and structure are the same engineering decisions that decide whether you rank at all. We build them in rather than optimising for them afterwards.",
-      tags: ["Web development", "Custom software", "Core Web Vitals"],
+      tags: ["Web Development", "Custom Software", "Core Web Vitals"],
       href: "/services/web-development/",
-      linkLabel: "Web & software development",
+      linkLabel: "Web & Software Development",
     },
   ];
 
@@ -523,7 +522,6 @@ export default function HomePage() {
       <Section background="inverse" spacing="lg" id="trust">
         <SectionHeader
           centred
-          eyebrow="Proof"
           title="What we will show you, and what we will not"
           lead="We have no client-approved case studies published yet. Rather than fill this space with logos and numbers we cannot evidence, here is the standard we hold ourselves to."
         />
@@ -604,7 +602,7 @@ export default function HomePage() {
         title="Ready to build what comes next?"
         lead="Tell us what you are trying to solve, in your own words. If we are not the right people for it, we will say so and point you somewhere better."
         cta={{
-          label: "Let's talk",
+          label: "Let's Talk",
           href: "/contact/",
           tier: "T4",
           note: "30 minutes. We reply within one business day.",
@@ -615,11 +613,11 @@ export default function HomePage() {
         <BodyText size="sm" muted className={styles.closingNote}>
           Prefer to look around first?{" "}
           <Link href="/services/" className={styles.inlineLink}>
-            Explore what we do
+            Explore What We Do
           </Link>{" "}
           or{" "}
           <Link href="/use-cases/" className={styles.inlineLink}>
-            start from the problem you have
+            Start From the Problem You Have
           </Link>
           .
         </BodyText>

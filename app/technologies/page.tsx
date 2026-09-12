@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { technologies, technologyGroups } from "@/content/technologies";
 import { services } from "@/content/services";
 import { primaryCta } from "@/content/navigation";
+import { titleCase } from "@/lib/titleCase";
 import { getTechnologiesHubImage } from "@/content/images/imageAssignments";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
@@ -46,7 +47,7 @@ export default function TechnologiesIndexPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Technologies" }]}
         actions={
           <Button href={primaryCta.href} withArrow>
-            {primaryCta.label}
+            {titleCase(primaryCta.label)}
           </Button>
         }
         factsHeading="Stack Governance"

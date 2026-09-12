@@ -250,11 +250,17 @@
   min-height: 1.5rem;
 }
 
-.required,
-.optional {
-  font-weight: var(--weight-regular);
-  color: var(--muted);
-  font-size: var(--text-caption);
+/*
+ * The two fields that carry a compound control run the full width.
+ *
+ * The mobile field is a country select plus a number, and splitting a
+ * half-width cell between them left roughly 110px for the number itself —
+ * enough to hold ten digits and not enough to read them. Website joins it so
+ * the last row is a pair of full-width fields rather than one field and a
+ * hole beside it; a URL is long enough to want the room anyway.
+ */
+.fieldWide {
+  grid-column: 1 / -1;
 }
 
 /* Matched to components/forms/Form.module.css — one input style on the site. */
@@ -297,6 +303,79 @@
   min-height: 4.5rem;
   resize: vertical;
   line-height: var(--leading-relaxed);
+}
+
+/* --- Mobile number, with its country code --------------------------------
+   Two controls, one field.
+   The fill, the border and the focus ring belong to the wrapper, and the
+   select and the input inside it give up their own chrome. Drawn the other
+   way round it reads as a dropdown that happens to sit next to a box, and
+   the two borders meeting in the middle make a seam the eye stops at.
+   `:has(:focus-visible)` rather than `:focus-within` so the ring appears on
+   keyboard focus only, which is what every other control in this form does.
+   -------------------------------------------------------------------------- */
+.phone {
+  display: flex;
+  align-items: stretch;
+  min-height: 2.5rem;
+  background: var(--surface-muted);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+}
+
+.phone:has(:focus-visible) {
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.phone[data-invalid="true"] {
+  border-color: var(--error);
+}
+
+.phoneCode,
+.phoneNumber {
+  padding: var(--space-2) var(--space-3);
+  background: transparent;
+  border: 0;
+  border-radius: inherit;
+  color: var(--foreground);
+  /* 16px minimum prevents zoom-on-focus on iOS — as .input, for the same reason. */
+  font-size: var(--text-body);
+  font-family: var(--font-body);
+}
+
+/* The ring is drawn once, by the wrapper, around the pair. */
+.phoneCode:focus-visible,
+.phoneNumber:focus-visible {
+  outline: none;
+}
+
+/*
+ * A set width rather than the content's. `width: auto` on a select takes the
+ * width of its widest option — here a four-digit code — and the number field
+ * beside it pays for that on every row. The option text is the dialling code
+ * then the ISO country, so the codes shared by two countries (+1 is the US
+ * and Canada) can still be told apart.
+ */
+.phoneCode {
+  flex: 0 0 auto;
+  width: 6rem;
+  padding-inline-end: var(--space-2);
+  border-inline-end: 1px solid var(--border-strong);
+  cursor: pointer;
+}
+
+.phoneNumber {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .phoneCode,
+  .phoneNumber {
+    font-size: var(--text-body-sm);
+  }
 }
 
 .error {
@@ -520,6 +599,8 @@
 }
 
 .slotLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -628,6 +709,8 @@
 }
 
 .resultKicker {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   font-family: var(--font-display);
   font-size: var(--text-h4);
   font-weight: var(--weight-semibold);

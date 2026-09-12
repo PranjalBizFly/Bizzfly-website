@@ -65,11 +65,11 @@
 }
 
 .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   margin: 0 0 var(--space-4);
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
   color: var(--accent-text);
 }
 

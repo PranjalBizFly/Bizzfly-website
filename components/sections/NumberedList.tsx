@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { StaggerGroup, StaggerItem } from "@/components/motion";
+import { titleCase } from "@/lib/titleCase";
 import styles from "./Sections.module.css";
 
 export interface NumberedEntry {
@@ -28,7 +29,7 @@ export function NumberedList({ items }: NumberedListProps) {
           <div className={styles.numberedLink}>
             <span className={styles.numberedIndex}>{item.index}</span>
             <Link href={item.href} className={styles.numberedTitle}>
-              {item.title}
+              {titleCase(item.title)}
             </Link>
             <span className={styles.numberedDescription}>{item.description}</span>
             <span className={styles.numberedArrow} aria-hidden="true">
@@ -38,7 +39,7 @@ export function NumberedList({ items }: NumberedListProps) {
               <span className={styles.rail}>
                 {item.rail.map((link) => (
                   <Link key={link.href} href={link.href} className={styles.railLink}>
-                    {link.label}
+                    {titleCase(link.label)}
                   </Link>
                 ))}
               </span>

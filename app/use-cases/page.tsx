@@ -120,7 +120,7 @@ export default function UseCasesIndexPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Use Cases" }]}
         actions={
           <Button href={primaryCta.href} withArrow>
-            {primaryCta.label}
+            {titleCase(primaryCta.label)}
           </Button>
         }
         factsHeading="Outcome Routing"
@@ -162,7 +162,7 @@ export default function UseCasesIndexPage() {
                 </span>
 
                 <div className={styles.routeBody}>
-                  <h2 className={styles.routeIntent}>{titleCase(route.intent)}</h2>
+                  <h2 className={styles.routeIntent}>{route.intent}</h2>
                   <p className={styles.routeDetail}>{route.detail}</p>
                 </div>
 
@@ -170,7 +170,7 @@ export default function UseCasesIndexPage() {
                   {links.map((link) => (
                     <li key={link.href}>
                       <Link href={link.href} className={styles.routeLink}>
-                        {link.label}
+                        {titleCase(link.label)}
                       </Link>
                     </li>
                   ))}

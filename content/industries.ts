@@ -14,7 +14,8 @@ const coreIndustries: Industry[] = [
     slug: "manufacturing",
     title: "Manufacturing",
     answer:
-      "Manufacturers usually have a distribution problem before they have a marketing problem: buyers searching for a product specification cannot find the firm that makes it, and enquiries that do arrive get lost between an inbox and a spreadsheet.",
+      "Manufacturers usually have a distribution problem before they have a marketing problem: buyers searching for a product specification cannot find the firm that makes it, and enquiries that do arrive get lost between an inbox and a spreadsheet.",
+    contextHeading: "Buyers shortlist before anyone picks up a phone",
     context:
       "Most mid-market manufacturers grew through dealer networks and trade relationships. That channel still works, but a growing share of buyers now start with a specification search, compare three suppliers online, and shortlist before anyone picks up a phone. A firm invisible at that stage never enters the RFQ.",
     problems: [
@@ -76,7 +77,8 @@ const coreIndustries: Industry[] = [
     slug: "real-estate",
     title: "Real Estate",
     answer:
-      "Real estate businesses are usually paying twice for the same buyer: once to a listing portal for a shared lead, and again in time spent chasing enquiries that went cold while someone was on a site visit.",
+      "Real estate businesses are usually paying twice for the same buyer: once to a listing portal for a shared lead, and again in time spent chasing enquiries that went cold while someone was on a site visit.",
+    contextHeading: "Portal dependency has become the largest fixed cost",
     context:
       "Portal dependency has quietly become the sector's largest fixed cost. Leads arrive shared with competitors, priced per enquiry, and with no relationship attached. The firms escaping it are the ones building direct visibility on project and locality searches, and responding fast enough to matter.",
     problems: [
@@ -131,7 +133,8 @@ const coreIndustries: Industry[] = [
     slug: "education",
     title: "Education",
     answer:
-      "Education institutions compete for attention in a narrow admissions window, against a search landscape dominated by aggregators and ranking sites, while their own admissions team drowns in repetitive enquiries.",
+      "Education institutions compete for attention in a narrow admissions window, against a search landscape dominated by aggregators and ranking sites, while their own admissions team drowns in repetitive enquiries.",
+    contextHeading: "Admissions is seasonal and unforgiving",
     context:
       "Admissions is seasonal and unforgiving: demand concentrates into a few weeks, and the enquiries that arrive are largely the same twenty questions. Institutions that win the window are the ones visible on course and eligibility searches, and able to answer instantly at volume.",
     problems: [
@@ -185,7 +188,8 @@ const coreIndustries: Industry[] = [
     slug: "professional-services",
     title: "Professional Services",
     answer:
-      "Consultancies and professional firms sell expertise that is hard to evaluate from outside, so buyers use proxies: who ranks, who is cited, who looks established. Most firms publish nothing that supports any of those.",
+      "Consultancies and professional firms sell expertise that is hard to evaluate from outside, so buyers use proxies: who ranks, who is cited, who looks established. Most firms publish nothing that supports any of those.",
+    contextHeading: "Referred buyers verify before they call",
     context:
       "Referral has always carried professional services, and it still does. But referred buyers now verify online before they call, and increasingly ask an AI assistant for a shortlist first. A firm with no published thinking loses at the verification step, however strong the referral.",
     problems: [

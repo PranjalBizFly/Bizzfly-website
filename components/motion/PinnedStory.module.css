@@ -229,26 +229,21 @@
 .chapterBody:last-child {
   margin-block-end: 0;
 }
-
 /*
  * The chapter's own destination.
  *
  * Underlined from rest rather than on hover: this is the one interactive
- * thing inside a passage of prose, and a link that only announces itself
+ * thing inside a passage of prose,
+and a link that only announces itself
  * under the pointer is invisible to everyone reading on a touch screen. The
  * arrow is decorative and marked so — the label already says where it goes.
  */
 /*
  * The chapter's continuation link.
  *
- * `min-height` and the centred cross-axis are the target size, not decoration:
- * as a baseline-aligned inline-flex at body-small this measured 24px tall,
- * which fails WCAG 2.2 SC 2.5.8 and was reported on every viewport of
- * /how-we-work/ by the responsive audit. The height is added below the text
- * rather than around it — `align-items: center` with a 44px box keeps the
- * underline where it was and simply makes the row a thumb can hit.
- */
-.chapterLink {
+ * `min-height` and the centred cross-axis are the target size,
+not decoration:
+ * as a baseline-aligned inline-flex at body-small this measured 24px tall {
   display: inline-flex;
   align-items: center;
   min-height: var(--touch-target-min);
@@ -263,25 +258,6 @@
   transition:
     text-decoration-color var(--dur-fast) var(--ease-standard),
     gap var(--dur-fast) var(--ease-standard);
-}
-
-.chapterLink:hover {
-  text-decoration-color: var(--accent-edge);
-  gap: var(--space-3);
-}
-
-.chapterLink:focus-visible {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: 3px;
-  border-radius: var(--radius-sm);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .chapterLink,
-  .chapterLink:hover {
-    transition: none;
-    gap: var(--space-2);
-  }
 }
 
 /* --------------------------------------------------------------------------

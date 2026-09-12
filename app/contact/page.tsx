@@ -11,6 +11,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/content/site";
 import { getContactImage } from "@/content/images";
 import { buildMetadata } from "@/lib/seo";
+import { titleCase } from "@/lib/titleCase";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = buildMetadata(
@@ -195,7 +196,7 @@ export default function ContactPage() {
           {paths.map((path) => (
             <li key={path.href} className={styles.path}>
               <Link href={path.href} className={styles.pathLink}>
-                <span className={styles.pathIntent}>{path.intent}</span>
+                <span className={styles.pathIntent}>{titleCase(path.intent)}</span>
                 <span className={styles.pathDetail}>{path.detail}</span>
                 <span className={styles.pathArrow} aria-hidden="true">
                   &rarr;

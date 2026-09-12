@@ -41,6 +41,8 @@
 }
 
 .railLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   display: none;
 }
 
@@ -134,7 +136,13 @@
     font-family: var(--font-label);
     font-size: var(--text-meta);
     font-weight: var(--weight-medium);
-    letter-spacing: var(--tracking-meta);
+    /*
+     * The caps tracking again, because this rule would otherwise override the
+     * one on the base .railLabel with --tracking-meta. The base rule is
+     * display:none — the rail label only exists from this breakpoint up — so
+     * the value that matters is the one declared here.
+     */
+    letter-spacing: var(--tracking-caps-label);
     color: var(--muted);
   }
 
@@ -333,9 +341,10 @@
 }
 
 .itemMetaLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   font-family: var(--font-label);
   font-size: var(--text-meta);
-  letter-spacing: var(--tracking-meta);
   color: var(--muted);
 }
 

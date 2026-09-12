@@ -11,6 +11,12 @@ import {
   type ConsultationState,
 } from "@/app/consultation/actions";
 import type { IsoDate, SlotTime } from "@/content/consultation";
+import {
+  defaultDiallingCode,
+  diallingCodes,
+  mobilePlaceholder,
+  validateMobile,
+} from "@/content/phone-codes";
 import { DateSelector } from "./DateSelector";
 import { TimeSlotSelector } from "./TimeSlotSelector";
 import styles from "./Consultation.module.css";
@@ -23,7 +29,6 @@ interface ConsultationFormProps {
 }
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MOBILE_PATTERN = /^(?:\+?91[\s-]?)?[6-9]\d{9}$/;
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -75,6 +80,14 @@ export function ConsultationForm({ source, onDone }: ConsultationFormProps) {
     requirement: "",
   });
   /*
+   * The dialling code is held apart from the text fields because it is not
+   * one: it is a choice with a default, it is never blank, and it changes
+   * what counts as a valid number in the field beside it. Keeping it out of
+   * `values` also keeps `fieldProps` honest — that helper is for controls
+   * whose value is whatever was typed into them.
+   */
+  const [countryCode, setCountryCode] = useState(defaultDiallingCode);
+  /*
    * Server errors survive until the next submission, so a field corrected
    * after a rejection would stay marked as invalid while the visitor looks
    * at a message that no longer applies. Editing a field retires its server
@@ -90,6 +103,7 @@ export function ConsultationForm({ source, onDone }: ConsultationFormProps) {
   const companyId = useId();
   const cityId = useId();
   const mobileId = useId();
+  const countryCodeId = useId();
   const websiteId = useId();
   const serviceId = useId();
   const requirementId = useId();
@@ -126,8 +140,8 @@ export function ConsultationForm({ source, onDone }: ConsultationFormProps) {
     if (field === "city" && value.trim().length < 2) {
       message = "Please enter your city.";
     }
-    if (field === "mobile" && !MOBILE_PATTERN.test(value.trim())) {
-      message = "Please enter a 10-digit Indian mobile number.";
+    if (field === "mobile") {
+      message = validateMobile(countryCode, value);
     }
     if (field === "service" && !value) {
       message = "Please choose what you would like to discuss.";
@@ -244,11 +258,12 @@ export function ConsultationForm({ source, onDone }: ConsultationFormProps) {
         <div className={styles.grid}>
           <div className={styles.field}>
             <label htmlFor={nameId} className={styles.label}>
-              Full name <span className={styles.required}>(required)</span>
+              Full name
             </label>
             <input
               type="text"
               autoComplete="name"
+              required
               {...fieldProps("name", nameId)}
             />
             {errors.name ? (
@@ -260,12 +275,13 @@ export function ConsultationForm({ source, onDone }: ConsultationFormProps) {
 
           <div className={styles.field}>
             <label htmlFor={emailId} className={styles.label}>
-              Work email <span className={styles.required}>(required)</span>
+              Work email
             </label>
             <input
               type="email"
               inputMode="email"
               autoComplete="email"
+              required
               {...fieldProps("email", emailId)}
             />
             {errors.email ? (
@@ -277,7 +293,7 @@ export function ConsultationForm({ source, onDone }: ConsultationFormProps) {
 
           <div className={styles.field}>
             <label htmlFor={companyId} className={styles.label}>
-              Company <span className={styles.optional}>(optional)</span>
+              Company
             </label>
             <input
               type="text"
@@ -288,11 +304,12 @@ export function ConsultationForm({ source, onDone }: ConsultationFormProps) {
 
           <div className={styles.field}>
             <label htmlFor={cityId} className={styles.label}>
-              City <span className={styles.required}>(required)</span>
+              City
             </label>
             <input
               type="text"
               autoComplete="address-level2"
+              required
               {...fieldProps("city", cityId)}
             />
             {errors.city ? (
@@ -302,17 +319,64 @@ export function ConsultationForm({ source, onDone }: ConsultationFormProps) {
             ) : null}
           </div>
 
-          <div className={styles.field}>
+          <div className={`${styles.field} ${styles.fieldWide}`}>
             <label htmlFor={mobileId} className={styles.label}>
-              Mobile number <span className={styles.required}>(required)</span>
+              Mobile number
             </label>
-            <input
-              type="tel"
-              inputMode="tel"
-              autoComplete="tel"
-              placeholder="10-digit mobile number"
-              {...fieldProps("mobile", mobileId)}
-            />
+            {/*
+              The country and the number are one control in two parts, so the
+              border is drawn around the pair rather than around each — see
+              .phone in the stylesheet. The select carries its own accessible
+              name because the visible label names the number, not the code.
+            */}
+            <div
+              className={styles.phone}
+              data-invalid={errors.mobile ? "true" : undefined}
+            >
+              <select
+                id={countryCodeId}
+                name="country_code"
+                className={styles.phoneCode}
+                aria-label="Country dialling code"
+                value={countryCode}
+                onChange={(event) => {
+                  setCountryCode(event.target.value);
+                  clearError("mobile");
+                  /*
+                    A number already typed was judged against the old country,
+                    so it is re-judged here rather than left showing a verdict
+                    that no longer applies to it.
+                  */
+                  if (values.mobile.trim()) {
+                    setClientErrors((previous) => {
+                      const message = validateMobile(
+                        event.target.value,
+                        values.mobile,
+                      );
+                      const next = { ...previous };
+                      if (message) next.mobile = message;
+                      else delete next.mobile;
+                      return next;
+                    });
+                  }
+                }}
+              >
+                {diallingCodes.map((code) => (
+                  <option key={code.iso} value={code.iso}>
+                    {code.dial} {code.iso}
+                  </option>
+                ))}
+              </select>
+              <input
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel-national"
+                required
+                placeholder={mobilePlaceholder(countryCode)}
+                {...fieldProps("mobile", mobileId)}
+                className={styles.phoneNumber}
+              />
+            </div>
             {errors.mobile ? (
               <p id={`${mobileId}-error`} className={styles.error}>
                 {errors.mobile}
@@ -320,9 +384,9 @@ export function ConsultationForm({ source, onDone }: ConsultationFormProps) {
             ) : null}
           </div>
 
-          <div className={styles.field}>
+          <div className={`${styles.field} ${styles.fieldWide}`}>
             <label htmlFor={websiteId} className={styles.label}>
-              Website <span className={styles.optional}>(optional)</span>
+              Website
             </label>
             <input
               type="url"
@@ -335,10 +399,10 @@ export function ConsultationForm({ source, onDone }: ConsultationFormProps) {
 
         <div className={styles.field}>
           <label htmlFor={serviceId} className={styles.label}>
-            What would you like to discuss?{" "}
-            <span className={styles.required}>(required)</span>
+            What would you like to discuss?
           </label>
           <select
+            required
             {...fieldProps("service", serviceId)}
             onChange={(event) => {
               setValue("service", event.target.value);
@@ -364,8 +428,7 @@ export function ConsultationForm({ source, onDone }: ConsultationFormProps) {
 
         <div className={styles.field}>
           <label htmlFor={requirementId} className={styles.label}>
-            Briefly, what are you trying to solve?{" "}
-            <span className={styles.optional}>(optional)</span>
+            Briefly, what are you trying to solve?
           </label>
           <textarea
             rows={3}
@@ -382,7 +445,7 @@ export function ConsultationForm({ source, onDone }: ConsultationFormProps) {
 
         <div className={styles.field}>
           <p className={styles.label} id={`${dateErrorId}-label`}>
-            Preferred date <span className={styles.required}>(required)</span>
+            Preferred date
           </p>
           <DateSelector
             value={date}
@@ -405,7 +468,7 @@ export function ConsultationForm({ source, onDone }: ConsultationFormProps) {
 
         <div className={styles.field}>
           <p className={styles.label}>
-            Preferred time <span className={styles.required}>(required)</span>
+            Preferred time
           </p>
           <TimeSlotSelector
             date={date}

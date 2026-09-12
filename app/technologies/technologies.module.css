@@ -91,8 +91,11 @@
 }
 
 .itemAppliedLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
+
   font-family: var(--font-label);
-  letter-spacing: var(--tracking-eyebrow);
+
 }
 
 .itemAppliedLink {
@@ -111,6 +114,8 @@
 }
 
 .marker {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   font-family: var(--font-label);
   font-size: var(--text-inline);
   color: var(--warning);

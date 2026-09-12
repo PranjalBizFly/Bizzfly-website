@@ -1,0 +1,69 @@
+/* ==========================================================================
+   INVISIBLE SEAMS
+   --------------------------------------------------------------------------
+   Every band owns a vertical inset on both edges, which is right: the inset
+   is the distance from the band's edge to its content, and a band that sets
+   its own ground needs one at the top and one at the bottom.
+
+   Where two bands meet, the visitor sees the sum of two insets. When the
+   ground changes across that meeting point the sum is justified — the colour
+   change is the boundary, and each band is holding its content off it. When
+   the ground does NOT change there is no boundary to hold anything off, the
+   two bands read as one, and the sum reads as a hole in the middle of it.
+
+   The homepage case that prompted this: the figures band (`inverse`, so 68px
+   + the 24px dark-band bump) followed by the discoverability band (`tint`,
+   96px). 188px of nothing between the last figure and the next eyebrow — and
+   in the dark theme those two grounds resolve to the SAME #1A2432, so there
+   was not even a colour change to explain it.
+
+   THE RULE. At a seam with no visible boundary, the band above drops its
+   trailing inset and the band below keeps its leading one. One inset, not
+   two. The incoming band therefore sets the distance before its own content,
+   which is what `spacing` on that band already implied.
+
+   WHY THE BAND ABOVE AND NOT THE ONE BELOW. Keeping the lower band's inset
+   preserves the larger value in almost every pair on the site — the bands
+   that open a new movement are the ones authored at `lg`, and the trailing
+   insets are frequently `sm`. Dropping the lower one instead would have left
+   52px between a hero and the first section.
+
+   WHAT COUNTS AS A VISIBLE BOUNDARY. A different ground, a photograph, or a
+   hairline. `.inverse` and `.inverseAlt` draw `border-block-start`, so a band
+   of either kind is never the LOWER half of a seam here: the rule it draws is
+   the boundary, and the two insets on either side of it are doing their job.
+   ========================================================================== */
+
+/*
+ * Marked with `data-ground`, not with the background classes, because the
+ * classes are CSS-module-scoped and the plain page ground has no class at
+ * all — it is the absence of one. See components/layout/Section.tsx.
+ *
+ * Specificity is (0,2,0): the attribute plus the `:has()` argument. That
+ * clears `.section` and `.hero` (0,1,0) without depending on the order the
+ * module stylesheets happen to load in.
+ */
+
+/* --- Same ground on both sides, in every theme --------------------------- */
+[data-ground="bg"]:has(+ [data-ground="bg"]),
+[data-ground="surface"]:has(+ [data-ground="surface"]),
+[data-ground="tint"]:has(+ [data-ground="tint"]) {
+  padding-block-end: 0;
+}
+
+/* --- The dark theme collapses three grounds into one --------------------- */
+/*
+ * `--surface`, `.is-tint` and `.is-inverse` all resolve to #1A2432 under
+ * data-theme="dark" — the single quiet lift off the page that the dark theme
+ * allows. Three background values, one painted colour, so every pairing
+ * between them is an invisible seam there and a real band change in light.
+ *
+ * `inverse` appears only as the upper half. As the lower half it draws the
+ * hairline that makes it a band, and that hairline is a boundary.
+ */
+:root[data-theme="dark"] [data-ground="inverse"]:has(+ [data-ground="surface"]),
+:root[data-theme="dark"] [data-ground="inverse"]:has(+ [data-ground="tint"]),
+:root[data-theme="dark"] [data-ground="surface"]:has(+ [data-ground="tint"]),
+:root[data-theme="dark"] [data-ground="tint"]:has(+ [data-ground="surface"]) {
+  padding-block-end: 0;
+}

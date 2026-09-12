@@ -17,11 +17,11 @@
 
 @media (hover: hover) and (pointer: fine) {
   .track {
-    cursor: grab;
-  }
-  .track:active {
-    cursor: grabbing;
-  }
+      cursor: grab;
+    }
+    .track:active {
+      cursor: grabbing;
+    }
 }
 
 /*
@@ -35,13 +35,13 @@
 
 @keyframes quoteIn {
   from {
-    opacity: 0;
-    transform: translate3d(var(--space-4), 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+      opacity: 0;
+      transform: translate3d(var(--space-4), 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
 }
 
 .text {
@@ -98,20 +98,6 @@
   color: var(--ink-400);
 }
 
-.caseLink {
-  margin-top: var(--space-3);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  min-height: var(--touch-target-min);
-  font-size: var(--text-body-sm);
-  font-weight: var(--weight-medium);
-  color: var(--foreground);
-  text-decoration: underline;
-  text-decoration-color: var(--link-underline);
-  text-underline-offset: 4px;
-}
-
 /* --- Controls ------------------------------------------------------------ */
 .controls {
   display: flex;
@@ -160,9 +146,17 @@
 
 @media (prefers-reduced-motion: reduce) {
   .quote {
-    animation: none;
-  }
-  .button {
-    transition: none;
-  }
+      animation: none;
+    }
+    .button {
+      transition: none;
+    }
+}
+
+/*
+ * Placement only. This renders as <Button variant="secondary"> now, so the
+ * box, colours, focus ring and arrow travel come from the button system.
+ */
+.caseLink {
+  margin-top: var(--space-3);
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Button } from "@/components/buttons";
 import { TextReveal } from "@/components/motion";
 import { useId, useState } from "react";
 import { whyPillars } from "@/content/homepage-narrative";
@@ -120,10 +120,15 @@ export function WhyBizzFly({ image }: WhyBizzFlyProps) {
                 <dd className={styles.mechanismValue}>{pillar.mechanism}</dd>
               </dl>
 
-              <Link href={pillar.href} className={styles.panelLink}>
+              <Button
+                href={pillar.href}
+                variant="secondary"
+                size="sm"
+                withArrow
+                className={styles.panelLink}
+              >
                 {pillar.linkLabel}
-                <span aria-hidden="true">&rarr;</span>
-              </Link>
+              </Button>
             </div>
           ))}
         </div>
@@ -135,10 +140,9 @@ export function WhyBizzFly({ image }: WhyBizzFlyProps) {
         quietly remove an internal link when the composition changed.
       */}
       <p className={styles.footer}>
-        <Link href="/company/" className={styles.footerLink}>
+        <Button href="/company/" variant="secondary" withArrow>
           How we operate
-          <span aria-hidden="true">&rarr;</span>
-        </Link>
+        </Button>
       </p>
     </MediaGround>
   );

@@ -246,6 +246,14 @@ export interface Industry extends BaseEntity {
   opportunity?: string;
   /** Sector context in the sector's own vocabulary — proves fluency. */
   context: string;
+  /**
+   * Names the context band.
+   *
+   * Compressed from that sector's own opening claim rather than written
+   * fresh, so it stays specific and asserts nothing the paragraph does not
+   * already say. Optional: a sector without one keeps the unlabelled band.
+   */
+  contextHeading?: string;
   problems: IndustryProblem[];
   useCases: string[];
   services: string[];

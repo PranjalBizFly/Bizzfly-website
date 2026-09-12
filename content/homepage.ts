@@ -19,7 +19,7 @@ export interface CapabilityGroup {
 export const capabilityGroups: CapabilityGroup[] = [
   {
     key: "be-found",
-    label: "Be found",
+    label: "Be Found",
     question: "Can your buyers actually find you?",
     summary:
       "Discovery now happens across search results, AI answers and maps. Being absent from any one of them is invisible demand you never see.",
@@ -41,9 +41,9 @@ export const capabilityGroups: CapabilityGroup[] = [
       "Visibility sends people to a website. If that website is slow, unclear or built for a different decade, the visibility was wasted.",
     href: "/services/web-development/",
     items: [
-      { label: "Website design & development", href: "/services/corporate-websites/" },
+      { label: "Website Design & Development", href: "/services/corporate-websites/" },
       { label: "Custom Software", href: "/services/custom-software/" },
-      { label: "Web applications", href: "/services/web-applications/" },
+      { label: "Web Applications", href: "/services/web-applications/" },
       { label: "UI/UX Design", href: "/services/ui-ux-design/" },
     ],
   },
@@ -55,7 +55,7 @@ export const capabilityGroups: CapabilityGroup[] = [
       "Growth that breaks your operations is not growth. The enquiry you answer in three days is the enquiry a competitor already won.",
     href: "/services/ai-automation/",
     items: [
-      { label: "Business automation", href: "/services/workflow-automation/" },
+      { label: "Business Automation", href: "/services/workflow-automation/" },
       { label: "AI Agents", href: "/services/ai-agents/" },
       { label: "AI Chatbots", href: "/services/ai-chatbots/" },
       { label: "Sales Automation", href: "/services/sales-automation/" },
@@ -69,7 +69,7 @@ export const capabilityGroups: CapabilityGroup[] = [
       "Most businesses cannot trace an enquiry back to the thing that produced it, which makes every budget decision a guess.",
     href: "/services/digital-marketing/",
     items: [
-      { label: "Digital growth strategy", href: "/services/digital-strategy/" },
+      { label: "Digital Growth Strategy", href: "/services/digital-strategy/" },
       { label: "Performance Marketing", href: "/services/performance-marketing/" },
       { label: "Conversion Rate Optimisation", href: "/services/conversion-rate-optimisation/" },
       { label: "Business Intelligence", href: "/services/business-intelligence/" },
@@ -164,42 +164,42 @@ export const visitorProblems: VisitorProblem[] = [
     detail:
       "An AI-generated summary is answering the query above your result. The traffic did not go to a competitor; it stopped existing.",
     href: "/use-cases/get-found-in-ai-search/",
-    linkLabel: "Get found in AI search",
+    linkLabel: "Get Found in AI Search",
   },
   {
     problem: "Nobody finds us unless they already know our name",
     detail:
       "You rank for your brand and almost nothing else, so the site only reaches people you already reached some other way.",
     href: "/use-cases/increase-organic-traffic/",
-    linkLabel: "Increase organic traffic",
+    linkLabel: "Increase Organic Traffic",
   },
   {
     problem: "Our website is smaller than our business",
     detail:
       "A capable company presented through eight thin pages reads as less established than it is, and loses to competitors who are worse but look better.",
     href: "/services/corporate-websites/",
-    linkLabel: "Website design & development",
+    linkLabel: "Website Design & Development",
   },
   {
     problem: "Enquiries arrive and then go cold",
     detail:
       "Leads sit in an inbox until someone notices. By the time a reply goes out, a faster competitor has already been shortlisted.",
     href: "/use-cases/automate-sales-follow-up/",
-    linkLabel: "Automate sales follow-up",
+    linkLabel: "Automate Sales Follow-Up",
   },
   {
     problem: "Our team spends the week rekeying data",
     detail:
       "Systems that were never integrated, bridged by people instead. It never appears as a line item, so it never gets fixed.",
     href: "/use-cases/reduce-manual-work/",
-    linkLabel: "Reduce manual work",
+    linkLabel: "Reduce Manual Work",
   },
   {
     problem: "We cannot grow without hiring",
     detail:
       "Every growth conversation ends at headcount, because the processes underneath do not scale without more people running them.",
     href: "/use-cases/improve-operational-efficiency/",
-    linkLabel: "Improve operational efficiency",
+    linkLabel: "Improve Operational Efficiency",
   },
 ];
 
@@ -220,8 +220,8 @@ export const businessStages: BusinessStage[] = [
     focus:
       "Getting the basics right once, so you are not rebuilding in eighteen months. A site that works, tracking that can be trusted, and visibility for the terms that matter most.",
     work: [
-      { label: "Website design & development", href: "/services/corporate-websites/" },
-      { label: "Local search visibility", href: "/services/google-business-profile/" },
+      { label: "Website Design & Development", href: "/services/corporate-websites/" },
+      { label: "Local Search Visibility", href: "/services/google-business-profile/" },
       { label: "Analytics Implementation", href: "/services/analytics-implementation/" },
     ],
   },
@@ -244,8 +244,8 @@ export const businessStages: BusinessStage[] = [
     focus:
       "Demand is arriving faster than operations can absorb it. The constraint moves from acquisition to throughput, so the work moves to automation and systems.",
     work: [
-      { label: "Business automation", href: "/services/workflow-automation/" },
-      { label: "Custom software", href: "/services/custom-software/" },
+      { label: "Business Automation", href: "/services/workflow-automation/" },
+      { label: "Custom Software", href: "/services/custom-software/" },
       { label: "Systems Integration", href: "/services/systems-integration/" },
     ],
   },
@@ -273,42 +273,42 @@ export interface VisitorJourney {
 export const visitorJourneys: VisitorJourney[] = [
   {
     intent: "I want more customers",
-    destination: "Generate more qualified leads",
+    destination: "Generate More Qualified Leads",
     href: "/use-cases/generate-more-leads/",
   },
   {
     intent: "I want my business visible in AI search",
-    destination: "AI search optimisation",
+    destination: "AI Search Optimisation",
     href: "/services/ai-search-optimisation/",
   },
   {
     intent: "I need a better website",
-    destination: "Website design & development",
+    destination: "Website Design & Development",
     href: "/services/corporate-websites/",
   },
   {
     intent: "I want to automate repetitive work",
-    destination: "Business automation",
+    destination: "Business Automation",
     href: "/services/workflow-automation/",
   },
   {
     intent: "I need custom software",
-    destination: "Custom software development",
+    destination: "Custom Software Development",
     href: "/services/custom-software/",
   },
   {
     intent: "I want to use AI in my business",
-    destination: "AI-powered solutions",
+    destination: "AI-Powered Solutions",
     href: "/services/ai-agents/",
   },
   {
     intent: "My traffic dropped and I do not know why",
-    destination: "Recover from a traffic drop",
+    destination: "Recover From a Traffic Drop",
     href: "/services/technical-seo/",
   },
   {
     intent: "I am not sure what I need",
-    destination: "Talk to us about it",
+    destination: "Talk to Us About It",
     href: "/contact/",
   },
 ];

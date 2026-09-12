@@ -10,6 +10,12 @@ import {
   isBookableDate,
   slotsForDate,
 } from "@/content/consultation";
+import {
+  defaultDiallingCode,
+  findDiallingCode,
+  toE164,
+  validateMobile,
+} from "@/content/phone-codes";
 
 /**
  * Consultation request submission.
@@ -36,12 +42,13 @@ export type ConsultationState =
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-/**
- * Indian mobile numbers: ten digits starting 6–9, optionally carrying the
- * country code and any of the separators people actually type. Anything else
- * is rejected here rather than at the point someone tries to ring it.
+/*
+ * The mobile rules live in content/phone-codes.ts, which the form imports
+ * too, so the check here and the message beside the field cannot drift apart.
+ * The country is validated as well as the number: a posted country code is
+ * just a string, and one the list does not contain would otherwise decide
+ * which length rule applied to the digits.
  */
-const MOBILE_PATTERN = /^(?:\+?91[\s-]?)?[6-9]\d{9}$/;
 
 const MAX_LENGTHS = {
   name: 120,
@@ -49,6 +56,7 @@ const MAX_LENGTHS = {
   company: 160,
   city: 120,
   mobile: 24,
+  countryCode: 2,
   website: 300,
   service: 80,
   requirement: 5000,
@@ -59,12 +67,6 @@ const MAX_LENGTHS = {
 function clean(value: FormDataEntryValue | null, max: number): string {
   if (typeof value !== "string") return "";
   return value.trim().slice(0, max);
-}
-
-/** Digits only, so "+91 98765 43210" and "9876543210" store identically. */
-function normaliseMobile(value: string): string {
-  const digits = value.replace(/\D/g, "");
-  return digits.length > 10 ? digits.slice(-10) : digits;
 }
 
 const SERVICE_IDS = new Set([...serviceGroups.map((group) => group.id), "other"]);
@@ -87,6 +89,9 @@ export async function submitConsultation(
   const company = clean(formData.get("company"), MAX_LENGTHS.company);
   const city = clean(formData.get("city"), MAX_LENGTHS.city);
   const mobile = clean(formData.get("mobile"), MAX_LENGTHS.mobile);
+  const countryCode =
+    clean(formData.get("country_code"), MAX_LENGTHS.countryCode) ||
+    defaultDiallingCode;
   const website = clean(formData.get("website"), MAX_LENGTHS.website);
   const service = clean(formData.get("service"), MAX_LENGTHS.service);
   const requirement = clean(formData.get("requirement"), MAX_LENGTHS.requirement);
@@ -101,9 +106,8 @@ export async function submitConsultation(
     errors.email = "Please enter a valid email address.";
   }
   if (city.length < 2) errors.city = "Please enter your city.";
-  if (!MOBILE_PATTERN.test(mobile)) {
-    errors.mobile = "Please enter a 10-digit Indian mobile number.";
-  }
+  const mobileError = validateMobile(countryCode, mobile);
+  if (mobileError) errors.mobile = mobileError;
   if (!service || !SERVICE_IDS.has(service)) {
     errors.service = "Please choose what you would like to discuss.";
   }
@@ -157,7 +161,13 @@ export async function submitConsultation(
         email,
         company,
         city,
-        mobile: normaliseMobile(mobile),
+        /*
+          E.164, so a number is dialable as posted and two records for the
+          same person cannot differ by their punctuation. The country is sent
+          alongside it because "+1" alone does not say which one it is.
+        */
+        mobile: toE164(countryCode, mobile),
+        mobileCountry: findDiallingCode(countryCode)?.iso ?? countryCode,
         website,
         service,
         requirement,

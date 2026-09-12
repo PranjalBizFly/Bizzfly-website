@@ -5,8 +5,8 @@ import { useId, useState } from "react";
 import type { CSSProperties } from "react";
 import { Typewriter } from "@/components/motion";
 import { Reveal } from "@/components/motion";
-import styles from "./LayerTabs.module.css";
 import { titleCase } from "@/lib/titleCase";
+import styles from "./LayerTabs.module.css";
 
 export interface LayerFact {
   label: string;
@@ -99,9 +99,9 @@ export function LayerTabs({ items, label }: LayerTabsProps) {
                 }
               }}
             >
-              <span className={styles.tabCode}>{item.code}</span>
+              <span className={styles.tabCode}>{titleCase(item.code)}</span>
               {item.surface ? (
-                <span className={styles.tabSurface}>{item.surface}</span>
+                <span className={styles.tabSurface}>{titleCase(item.surface)}</span>
               ) : null}
             </button>
           );
@@ -134,14 +134,14 @@ export function LayerTabs({ items, label }: LayerTabsProps) {
               <Typewriter key={item.question} text={item.question} />
             </p>
           ) : null}
-          <h3 className={styles.panelName}>{titleCase(item.name)}</h3>
+          <h3 className={styles.panelName}>{item.name}</h3>
           <p className={styles.panelDescription}>{item.description}</p>
 
           {item.facts?.length ? (
             <dl className={styles.fact}>
               {item.facts.map((fact) => (
                 <div key={fact.label}>
-                  <dt className={styles.factLabel}>{fact.label}</dt>
+                  <dt className={styles.factLabel}>{titleCase(fact.label)}</dt>
                   <dd className={styles.factValue}>{fact.value}</dd>
                 </div>
               ))}
@@ -150,7 +150,7 @@ export function LayerTabs({ items, label }: LayerTabsProps) {
 
           {item.href ? (
             <Link href={item.href} className={styles.panelLink}>
-              {item.linkLabel ?? item.name}
+              {titleCase(item.linkLabel ?? item.name)}
               <span aria-hidden="true">&rarr;</span>
             </Link>
           ) : null}

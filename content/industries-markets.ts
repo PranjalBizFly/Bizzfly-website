@@ -18,6 +18,7 @@ export const marketIndustries: Industry[] = [
       "Travel businesses compete for their own customers against intermediaries that outrank them, spend more, and take a margin on every booking that goes through them.",
     opportunity:
       "Direct bookings carry the commission back. Every percentage point moved from intermediary to direct is margin recovered on demand you already generated.",
+    contextHeading: "Aggregators dominate discovery",
     context:
       "Discovery is dominated by aggregators and marketplaces with large budgets and structural advantages in search. Buyers research across many sessions and devices before booking, and a large share of that research now happens in AI assistants that summarise options without sending a click. Meanwhile the operator's own site often loads slowly, presents availability poorly, and asks for more steps than the intermediary does, so even the customer who arrives directly frequently books elsewhere.",
     problems: [
@@ -78,6 +79,7 @@ export const marketIndustries: Industry[] = [
       "Non-profits serve two audiences whose needs conflict: funders and donors who need evidence of impact, and service users who need help without navigating a fundraising site to find it.",
     opportunity:
       "Constrained budgets make the disciplined choices unusually valuable here. A small number of well-built pages that serve both audiences properly outperforms a large site nobody maintains.",
+    contextHeading: "Digital spending competes directly with programme delivery",
     context:
       "Budgets are tight and scrutinised, and spending on digital competes directly with programme delivery. Volunteers and part-time staff often maintain the site, so anything requiring specialist upkeep degrades. Service users may arrive in difficulty, on older devices and limited connections, which makes performance and accessibility a service issue rather than a technical preference. Funders assess governance and evidence, and increasingly expect both to be visible before they engage.",
     problems: [
@@ -139,6 +141,7 @@ export const marketIndustries: Industry[] = [
       "Publishing economics assumed that answering a question earned a visit. AI answers have broken that assumption for a significant class of content, and the response has to be structural rather than tactical.",
     opportunity:
       "Content that cannot be summarised away (original reporting, proprietary data, distinctive voice, community) is where publishing value is concentrating. That is a commissioning decision as much as an SEO one.",
+    contextHeading: "The article still gets read; the session does not arrive",
     context:
       "Advertising revenue depends on sessions, and sessions depend on people clicking through to read. Where an assistant can answer the question from the article, a share of that traffic does not arrive. Definitional and explanatory content is affected first and hardest; investigative work, original data and distinctive analysis hold up better. At the same time, archives of thousands of articles carry technical debt (old templates, broken embeds, outdated markup) that suppresses the pages still capable of earning attention.",
     problems: [
@@ -200,6 +203,7 @@ export const marketIndustries: Industry[] = [
       "Two constraints shape digital work in agriculture: the season, which compresses activity into narrow windows, and the field, where connectivity is unreliable and data capture has to work offline.",
     opportunity:
       "Because seasonal peaks are predictable, the administrative load around them can be prepared for months in advance, which is rarer and more valuable than it sounds.",
+    contextHeading: "Seasonal windows decide the year",
     context:
       "Buying decisions cluster around seasonal windows, and a supplier who is invisible during the fortnight that matters has effectively missed the year. Record-keeping obligations (traceability, compliance, input records) generate substantial paperwork, often captured on paper in the field and typed up later. Connectivity at the point of work cannot be assumed, so anything requiring a live connection to record data will be worked around. Buyers are practical, evaluate on evidence, and have limited patience for marketing language.",
     problems: [
@@ -261,6 +265,7 @@ export const marketIndustries: Industry[] = [
       "Most B2B services firms grew on referral and have no second channel. Building inbound alongside it is not about replacing referral; it is about not being capacity-limited by who happens to be recommending you.",
     opportunity:
       "Referral-led firms usually have deep expertise and almost no published material. That gap is the cheapest inbound opportunity available to them, because the content already exists as knowledge.",
+    contextHeading: "Referral produces the best clients and arrives unpredictably",
     context:
       "Sales cycles are long and involve several people, each needing different reassurance. Buyers research before making contact and often arrive having already formed a shortlist. Referral produces the best-fit clients but arrives unpredictably, and when it slows there is nothing else running. The firm's expertise is real and almost entirely unpublished, so a buyer researching the problem finds competitors instead, frequently less capable ones who simply wrote it down.",
     problems: [
@@ -321,6 +326,7 @@ export const marketIndustries: Industry[] = [
       "The direct-to-consumer model was built on affordable paid acquisition. As that cost has risen, brands without owned demand find their unit economics no longer work at scale.",
     opportunity:
       "Owned channels (search visibility, email, returning customers) cost more to build and less to run. Every point of demand moved from paid to owned improves margin permanently rather than monthly.",
+    contextHeading: "Acquisition costs rise while attribution weakens",
     context:
       "Customer acquisition cost has risen while attribution has become less certain, so brands are spending more and seeing less of where it goes. Repeat purchase and lifetime value increasingly decide whether a brand is viable, which shifts attention from acquisition to retention. Product discovery is also fragmenting (marketplaces, social, and now AI assistants that recommend products directly), so a brand whose demand depends on one paid channel is exposed to that channel's pricing decisions.",
     problems: [
@@ -382,6 +388,7 @@ export const marketIndustries: Industry[] = [
       "The constraint in most SMEs is not budget but attention. Nobody owns digital, so work happens when someone finds time, which means it happens in bursts and then stops.",
     opportunity:
       "A small number of things done consistently beats a large plan done once. That is achievable without a dedicated team, and it is what most SME digital advice fails to account for.",
+    contextHeading: "There is usually no in-house digital specialist",
     context:
       "There is usually no in-house digital specialist. The site was built once and has not changed since, tools were adopted individually by whoever needed them, and the owner or a marketing generalist carries digital alongside another job. Suppliers pitch programmes designed for organisations with dedicated teams, which do not survive contact with an SME's capacity. The result is a series of started-and-abandoned initiatives and justified scepticism about the next proposal.",
     problems: [

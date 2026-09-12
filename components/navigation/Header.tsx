@@ -25,6 +25,7 @@ const SearchDialog = dynamic(
 );
 import { ConsultationCta } from "@/components/consultation";
 import styles from "./Header.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 const HOVER_INTENT_MS = 120;
 const HOVER_CLOSE_MS = 200;
@@ -292,7 +293,7 @@ export function Header({ nav, cta }: HeaderProps) {
                         data-active={isActive(item)}
                         onClick={() => handleTriggerClick(index)}
                       >
-                        {item.label}
+                        {titleCase(item.label)}
                         <Chevron open={isOpen} className={styles.chevron} />
                       </button>
                     ) : (
@@ -301,7 +302,7 @@ export function Header({ nav, cta }: HeaderProps) {
                         className={styles.navLink}
                         data-active={isActive(item)}
                       >
-                        {item.label}
+                        {titleCase(item.label)}
                       </Link>
                     )}
 
@@ -363,7 +364,7 @@ export function Header({ nav, cta }: HeaderProps) {
                 className={styles.headerCta}
                 source="Header"
               >
-                {cta.label}
+                {titleCase(cta.label)}
               </ConsultationCta>
 
               <button

@@ -159,6 +159,80 @@ table {
 }
 
 /* ==========================================================================
+   HEADING CASE — one uppercase treatment for the whole site
+   --------------------------------------------------------------------------
+   Every section heading and every heading-like label renders in capitals.
+   This is the single place that decision is made, so a page added next month
+   inherits it without anyone remembering to ask for it.
+
+   WHY text-transform AND NOT UPPERCASED SOURCE STRINGS.
+
+   The capitals are presentation only. The DOM keeps the authored sentence
+   case, so a screen reader still announces "What we do" rather than spelling
+   out W-H-A-T, the H1/H2/H3 hierarchy is untouched, and every heading that
+   feeds metadata, JSON-LD or the FAQ schema carries the same string it did
+   before. Uppercasing the 1,100+ authored strings instead would have put
+   shouting into the structured data and the page titles.
+
+   WHY THE TAGS AND NOT THE .t-* CLASSES.
+
+   Most headings come through the Heading component and carry .t-h2 or .t-h3,
+   but a good number of section components set their own display class —
+   BeforeAfter's .title, AnchoredStatement's .title, LayerTabs' .panelName.
+   Keying on the class would have uppercased some sections and left others in
+   sentence case, which is the exact inconsistency this is meant to remove.
+   The semantic tag is the thing every one of them has in common.
+
+   WHAT IS DELIBERATELY EXCLUDED.
+
+   - .prose h2/h3 — sub-headings INSIDE an article body. Those are waypoints
+     in a long read, not section labels, and capitals measurably slow reading.
+   - h4 — card and list-item titles. They are content, not section structure,
+     and a wall of capitalised card titles reads as a menu rather than a page.
+   - FAQ questions, which are <summary> elements rather than headings, so they
+     are already outside this rule. They are sentences ending in a question
+     mark and belong in sentence case.
+   ========================================================================== */
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+}
+
+/*
+ * Capitals need the tracking back.
+ *
+ * The display scale is set on NEGATIVE tracking — -0.025em at display size —
+ * because lowercase letterforms at 44-96px otherwise look loose. Capitals are
+ * wider and flat-sided, and at a negative value they touch: "WHAT WE DO" came
+ * out with the T and the W overlapping. These return each role to roughly
+ * neutral, which is the conventional correction for setting caps, and they are
+ * scoped to the tags so a .t-h2 used on a non-heading element is unaffected.
+ */
+h1 {
+  letter-spacing: var(--tracking-caps-display);
+}
+
+h2 {
+  letter-spacing: var(--tracking-caps-h2);
+}
+
+h3 {
+  letter-spacing: var(--tracking-caps-h3);
+}
+
+.prose h2,
+.prose h3 {
+  text-transform: none;
+  letter-spacing: var(--tracking-h2);
+}
+
+.prose h3 {
+  letter-spacing: var(--tracking-h3);
+}
+
+/* ==========================================================================
    TYPOGRAPHY CLASSES — the scale from docs/design-system/02-foundations.md
    Visual size is decoupled from semantic level.
    ========================================================================== */
@@ -249,31 +323,46 @@ table {
   line-height: 1.45;
 }
 
+/*
+ * The eyebrow is the label layer of the heading system, so it takes the same
+ * capitals the headings above it do. Tracking eases from 0.01em to 0.06em:
+ * these run 2-3 words at 18-20px, where capitals need noticeably more air
+ * than a 44px display line does to stop reading as a single block.
+ */
 .t-eyebrow {
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   font-weight: var(--weight-medium);
   line-height: var(--leading-snug);
-  letter-spacing: var(--tracking-eyebrow);
+  letter-spacing: var(--tracking-caps-label);
+  text-transform: uppercase;
   color: var(--accent-text);
 }
 
+/*
+ * Meta lines — "Article · AI Search · 5 min read" — are labels rather than
+ * sentences, so they join the capitals. They are already tracked at 0.02em
+ * and sit at 13px, where that is enough.
+ */
 .t-meta {
   font-family: var(--font-label);
   font-size: var(--text-meta);
   font-weight: var(--weight-regular);
   line-height: 1.4;
-  letter-spacing: var(--tracking-meta);
+  letter-spacing: var(--tracking-caps-label);
+  text-transform: uppercase;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
 
+/* Already tracked at 0.08em for the same reason; it only needed the case. */
 .t-metric-label {
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   font-weight: var(--weight-medium);
   line-height: 1.3;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--muted);
 }
 

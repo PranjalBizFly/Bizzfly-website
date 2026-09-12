@@ -2,7 +2,6 @@ import type { CSSProperties, ReactNode } from "react";
 import { Container } from "@/components/layout/Container";
 import { Heading, BodyText, Eyebrow } from "@/components/typography";
 import { SplitText } from "@/components/motion/SplitText";
-import { titleCase } from "@/lib/titleCase";
 import { Breadcrumbs, type Crumb } from "@/components/navigation/Breadcrumbs";
 import styles from "./Hero.module.css";
 
@@ -34,6 +33,8 @@ export function SplitHero({
 }: SplitHeroProps) {
   return (
     <section
+      /* See EditorialHero for why the inverse variant declares no ground. */
+      data-ground={inverse ? undefined : "bg"}
       className={`${styles.hero} ${inverse ? `${styles.heroInverse} is-inverse` : ""}`.trim()}
     >
       <Container>
@@ -47,7 +48,7 @@ export function SplitHero({
           <div>
             {eyebrow ? <Eyebrow className={styles.eyebrow}>{eyebrow}</Eyebrow> : null}
             <Heading level={1} size="h1" className={styles.splitTitle}>
-              <SplitText text={titleCase(title)} by="char" mode="load" offset={80} />
+              <SplitText text={title} by="char" mode="load" offset={80} />
             </Heading>
             {lead ? (
               <BodyText size="lg" className={styles.splitLead}>

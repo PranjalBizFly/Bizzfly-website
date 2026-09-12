@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 /**
  * Title case for headings.
  *
@@ -90,4 +92,29 @@ export function titleCase(input: string): string {
         .join("");
     })
     .join("");
+}
+
+/**
+ * The same rule, applied to whatever a control was given as its label.
+ *
+ * Button and TextLink take `children`, not a string, so they cannot call
+ * titleCase directly — but a control's label is a label whether it arrived as
+ * "All resources" or as {titleCase(cta.label)}, and every caller remembering
+ * to wrap it is the arrangement that produced the inconsistency in the first
+ * place. This walks one level: strings are cased, arrays are mapped (JSX
+ * splits "Read " + {n} + " more" into exactly that), and anything else — an
+ * element, a number, null — is returned untouched.
+ *
+ * Not recursive on purpose. An element child is somebody's deliberate markup,
+ * and rewriting text inside it would reach past the label into whatever that
+ * element was built to say.
+ */
+export function titleCaseLabel(children: ReactNode): ReactNode {
+  if (typeof children === "string") return titleCase(children);
+  if (Array.isArray(children)) {
+    return children.map((child) =>
+      typeof child === "string" ? titleCase(child) : child,
+    );
+  }
+  return children;
 }

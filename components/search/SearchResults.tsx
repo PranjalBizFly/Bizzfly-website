@@ -176,7 +176,7 @@ export function SearchResults() {
             {popularSearches.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className={styles.chip}>
-                  {item.label}
+                  {titleCase(item.label)}
                 </Link>
               </li>
             ))}
@@ -224,7 +224,7 @@ export function SearchResults() {
                 style={{ "--result-index": Math.min(index, 12) } as CSSProperties}
               >
                 <Link href={item.href} className={styles.link}>
-                  <span className={styles.title}>{item.title}</span>
+                  <span className={styles.title}>{titleCase(item.title)}</span>
                   <span className={styles.description}>{item.description}</span>
                   <span className={styles.url}>{item.href}</span>
                 </Link>
@@ -297,7 +297,7 @@ export function SearchResults() {
                 setCategory(category === section.category ? null : section.category)
               }
             >
-              {section.category}
+              {titleCase(section.category)}
               <span className={styles.pillCount}>{section.items.length}</span>
             </button>
           ))}
@@ -350,7 +350,7 @@ export function SearchResults() {
                   {section.items.map((item) => (
                     <li key={item.id}>
                       <Link href={item.href} className={styles.directoryLink}>
-                        {item.title}
+                        {titleCase(item.title)}
                       </Link>
                     </li>
                   ))}

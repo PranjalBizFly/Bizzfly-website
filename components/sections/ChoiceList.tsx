@@ -1,5 +1,6 @@
 import { Cascade } from "@/components/motion";
 import styles from "./ChoiceList.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 export interface Choice {
   name: string;
@@ -45,7 +46,7 @@ export function ChoiceList({ choices, label }: ChoiceListProps) {
           <dt className={styles.name}>
             {choice.href ? (
               <a className={styles.nameLink} href={choice.href}>
-                {choice.name}
+                {titleCase(choice.name)}
               </a>
             ) : (
               choice.name

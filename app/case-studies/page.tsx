@@ -96,7 +96,7 @@ export default function CaseStudiesPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Case Studies" }]}
         actions={
           <Button href={primaryCta.href} withArrow>
-            {primaryCta.label}
+            {titleCase(primaryCta.label)}
           </Button>
         }
         factsHeading="Publishing Standard"

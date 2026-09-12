@@ -3,6 +3,8 @@ import { Reveal } from "@/components/motion";
 import { publishedEntries } from "@/lib/registry";
 import { SECTION_HUB } from "@/lib/search";
 import styles from "./ExploreNext.module.css";
+import { titleCase } from "@/lib/titleCase";
+import { Button } from "@/components/buttons";
 
 interface ExploreNextProps {
   /** The page this is rendered on, so it can find its own neighbours. */
@@ -52,11 +54,10 @@ export function ExploreNext({ href, allLabel }: ExploreNextProps) {
   return (
     <Reveal as="nav" className={styles.wrap} aria-label={`More in ${section}`}>
       <div className={styles.head}>
-        <p className={styles.eyebrow}>Explore next</p>
-        <Link href={hub} className={styles.all}>
+        <p className={styles.eyebrow}>Explore Next</p>
+        <Button href={hub} variant="secondary" size="sm" withArrow>
           {allLabel ?? `All ${siblings.length} ${section.toLowerCase()}`}
-          <span aria-hidden="true">&rarr;</span>
-        </Link>
+        </Button>
       </div>
 
       <div className={styles.pair}>
@@ -64,7 +65,7 @@ export function ExploreNext({ href, allLabel }: ExploreNextProps) {
           <span className={styles.direction}>
             <span aria-hidden="true">&larr;</span> Previous
           </span>
-          <span className={styles.title}>{previous.title}</span>
+          <span className={styles.title}>{titleCase(previous.title)}</span>
           <span className={styles.description}>{previous.description}</span>
         </Link>
 
@@ -72,7 +73,7 @@ export function ExploreNext({ href, allLabel }: ExploreNextProps) {
           <span className={styles.direction}>
             Next <span aria-hidden="true">&rarr;</span>
           </span>
-          <span className={styles.title}>{next.title}</span>
+          <span className={styles.title}>{titleCase(next.title)}</span>
           <span className={styles.description}>{next.description}</span>
         </Link>
       </div>

@@ -17,11 +17,19 @@
   }
 }
 
+/*
+ * A container, so the heading below can be sized against the column it sits
+ * in rather than against the viewport. The two are not the same measurement:
+ * this grid is one column wide below 720px and two above it, so a viewport
+ * media query would have to encode the grid's own breakpoint to say anything
+ * useful about how much room a heading actually has.
+ */
 .card {
   position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
+  container-type: inline-size;
 }
 
 @media (min-width: 720px) {
@@ -56,6 +64,11 @@
   .cardFeature .tags,
   .cardFeature .action {
     justify-content: center;
+  }
+
+  .cardFeature .tags {
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
   }
 }
 
@@ -105,6 +118,11 @@
   .cardFeature .image {
     aspect-ratio: var(--ratio-banner);
   }
+
+  .cardFeature .tags {
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-6);
+  }
 }
 
 /*
@@ -123,9 +141,10 @@
 }
 
 .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
   color: var(--accent-text);
   margin: 0;
 }
@@ -140,10 +159,50 @@
   text-wrap: balance;
 }
 
+/* --------------------------------------------------------------------------
+   ONE LINE PER HEADING, ONCE THE COLUMN CAN HOLD ONE
+   --------------------------------------------------------------------------
+   Three of the four paired headings broke across two lines at desktop widths,
+   and because they broke at different words the row read as ragged rather
+   than as a set.
+
+   They cannot all fit at --text-h3. Measured at 30px in a 576px column, the
+   longest ("Handle the demand without hiring for it") wants 654px and the
+   next two want 620px and 577px. The size has to come down for the line to
+   come up, and 4.4cqi is where the longest one lands at 552px — about 96% of
+   the column, with the slack holding at every width because the text and the
+   column scale together.
+
+   Sizing every card to the LONGEST heading rather than to its own is the
+   point: four headings at four sizes would fix the ragged edge by
+   introducing a worse one.
+
+   NO `white-space: nowrap` HERE, DELIBERATELY. The fit is a size that happens
+   to leave the text on one line, not a rule forbidding a second one. Lengthen
+   one of these headings past the measurement above and it wraps — which is
+   ugly and visible — instead of running out of the card, which is broken and
+   often is not. Recut the coefficient if that happens.
+
+   The 28rem floor is where the fitted size bottoms out at about 20px, and it
+   is set there to take in 1024px viewports — cards of 456px, and a width too
+   much of the traffic arrives at to leave visibly unfixed. Below it the cards
+   are 336-448px and one line would mean a 15-19px heading, which is no longer
+   a heading, so the normal fluid size is left alone there and headings wrap.
+   -------------------------------------------------------------------------- */
+@container (min-width: 28rem) {
+  .card:not(.cardFeature) .title {
+    font-size: min(var(--text-h3), 4.4cqi);
+  }
+}
+
 /*
  * The feature card runs the full width of the grid, so its headline takes
  * the headline measure rather than the section-heading one. At 24ch this was
  * wrapping after two words with roughly half the card empty to the right.
+ *
+ * This is the only consumer of --measure-headline, so the token is where the
+ * width is stated; it was widened to 32ch to stop this headline wrapping on
+ * its last word, and the note beside it there records why.
  */
 @media (min-width: 1100px) {
   .cardFeature .title {
@@ -188,6 +247,8 @@
  * sits inside.
  */
 .tag {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   font-family: var(--font-label);
   font-size: var(--text-caption);
   color: var(--muted);

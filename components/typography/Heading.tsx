@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { titleCase } from "@/lib/titleCase";
 
 type Level = 1 | 2 | 3 | 4;
 type Size = "display-xl" | "display-lg" | "h1" | "h2" | "h3" | "h4";
@@ -18,19 +17,20 @@ export function Heading({ level, size, id, className = "", children }: HeadingPr
   const visual = size ?? (`h${level}` as Size);
 
   /*
-   * Headings are title-cased here rather than in the 1,100+ authored strings
-   * that feed them, so the rule lives in one place and new copy inherits it.
+   * The heading text is passed through exactly as it was authored.
    *
-   * Only a plain string is transformed. Where a caller passes an element —
-   * a TextReveal splitting the heading into letters, say — the string is
-   * inside that component and is cased there instead; reaching into a child's
-   * props from here would be guesswork about what the element is.
+   * This used to run every plain-string heading through titleCase(), so that
+   * "Four jobs, in the order they actually matter" reached the DOM as "Four
+   * Jobs, In The Order They Actually Matter". Since h1/h2/h3 now render in
+   * capitals from base.css, that transform changes nothing a reader sees — the
+   * two strings are pixel-identical under text-transform — while still being
+   * the version a screen reader announces and the version that feeds anything
+   * reading heading text off the page. Sentence case is what the copy was
+   * written in, so it is what ships.
    */
-  const content = typeof children === "string" ? titleCase(children) : children;
-
   return (
     <Tag id={id} className={`t-${visual} ${className}`.trim()}>
-      {content}
+      {children}
     </Tag>
   );
 }

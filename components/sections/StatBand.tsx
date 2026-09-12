@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { StaggerItem } from "@/components/motion";
 import styles from "./StatBand.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 export interface Stat {
   /** The figure itself, already formatted. */
@@ -73,7 +74,7 @@ export function StatBand({ stats }: StatBandProps) {
             */}
             <span className={styles.rule} aria-hidden="true" />
 
-            <span className={styles.label}>{stat.label}</span>
+            <span className={styles.label}>{titleCase(stat.label)}</span>
 
             {stat.note ? <span className={styles.note}>{stat.note}</span> : null}
 

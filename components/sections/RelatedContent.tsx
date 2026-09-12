@@ -4,6 +4,7 @@ import type { RelatedLink } from "@/types/content";
 import type { ResolvedRelationships } from "@/lib/relationships";
 import styles from "./Sections.module.css";
 import related from "./RelatedContent.module.css";
+import { Button } from "@/components/buttons";
 import { titleCase } from "@/lib/titleCase";
 
 /**
@@ -57,7 +58,7 @@ export function RelatedContent({
         {items.map((item, index) => (
           <span key={item.href}>
             <Link href={item.href} className={related.inlineLink}>
-              {item.label}
+              {titleCase(item.label)}
             </Link>
             {index < items.length - 1 ? <span aria-hidden="true">, </span> : null}
           </span>
@@ -74,7 +75,7 @@ export function RelatedContent({
           {items.map((item) => (
             <li key={item.href}>
               <Link href={item.href} className={related.chip}>
-                {item.label}
+                {titleCase(item.label)}
               </Link>
             </li>
           ))}
@@ -93,13 +94,13 @@ export function RelatedContent({
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span className={related.rowBody}>
-                <span className={related.rowTitle}>{item.label}</span>
+                <span className={related.rowTitle}>{titleCase(item.label)}</span>
                 {item.description ? (
                   <span className={related.rowDescription}>{item.description}</span>
                 ) : null}
               </span>
               {item.type ? (
-                <span className={related.rowType}>{item.type}</span>
+                <span className={related.rowType}>{titleCase(item.type)}</span>
               ) : null}
               <span className={related.rowArrow} aria-hidden="true">
                 &rarr;
@@ -115,15 +116,19 @@ export function RelatedContent({
     return (
       <div className={related.split}>
         {heading ? (
-          <h2 className={related.splitHeading}>{titleCase(heading)}</h2>
+          <h2 className={related.splitHeading}>{heading}</h2>
         ) : null}
         <Cascade as="ul" className={related.splitList}>
           {items.map((item) => (
             <li key={item.href}>
-              <Link href={item.href} className={related.splitLink}>
+              <Button
+                href={item.href}
+                variant="secondary"
+                size="sm"
+                withArrow
+              >
                 {item.label}
-                <span aria-hidden="true">&rarr;</span>
-              </Link>
+              </Button>
               {item.description ? (
                 <span className={related.splitDescription}>{item.description}</span>
               ) : null}
@@ -139,9 +144,11 @@ export function RelatedContent({
     <Cascade className={styles.related}>
       {items.map((item) => (
         <Link key={item.href} href={item.href} className={styles.relatedItem}>
-          {item.type ? <span className={styles.relatedType}>{item.type}</span> : null}
+          {item.type ? (
+            <span className={styles.relatedType}>{titleCase(item.type)}</span>
+          ) : null}
           <span className={styles.relatedTitle}>
-            {item.label}
+            {titleCase(item.label)}
             <span className={styles.relatedArrow} aria-hidden="true">
               &rarr;
             </span>
@@ -195,7 +202,7 @@ export function RelationshipMap({
             {group.items.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className={related.mapLink}>
-                  {item.label}
+                  {titleCase(item.label)}
                 </Link>
               </li>
             ))}

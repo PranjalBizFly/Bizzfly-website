@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { anchorId } from "@/lib/slug";
 import styles from "./SectionNav.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 export interface SectionNavItem {
   label: string;
@@ -35,7 +36,7 @@ export function SectionNav({ label, items, className = "" }: SectionNavProps) {
 
   return (
     <nav className={`${styles.wrap} ${className}`.trim()} aria-label={label}>
-      <p className={styles.label}>{label}</p>
+      <p className={styles.label}>{titleCase(label)}</p>
       <ul className={styles.list}>
         {items.map((item) => (
           <li key={item.label}>
@@ -43,7 +44,7 @@ export function SectionNav({ label, items, className = "" }: SectionNavProps) {
               href={item.href ?? `#${item.id ?? anchorId(item.label)}`}
               className={styles.link}
             >
-              {item.label}
+              {titleCase(item.label)}
               {typeof item.count === "number" ? (
                 <span className={styles.count}>{item.count}</span>
               ) : null}

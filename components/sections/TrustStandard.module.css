@@ -172,15 +172,33 @@
   line-height: var(--leading-relaxed);
   color: var(--muted);
   max-width: var(--measure-body);
+  /* Centred in the band, and the rule above centres with it. */
+  margin-inline: auto;
+  text-align: center;
   border-top: 1px solid var(--border);
   padding-top: var(--space-6);
   text-wrap: pretty;
 }
 
+/*
+ * The site's inline link, matching .textLink in Button.module.css rather
+ * than declaring a second look: the link colour carries the affordance and
+ * the underline thickens on hover, so it is recognisable as a link before
+ * anyone moves a pointer over it.
+ */
 .noteLink {
-  color: var(--foreground);
+  color: var(--text-link);
+  font-weight: var(--weight-medium);
   text-decoration: underline;
   text-decoration-color: var(--link-underline);
+  text-decoration-thickness: 1px;
   text-underline-offset: 4px;
-  white-space: nowrap;
+  transition:
+    text-decoration-thickness var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
+}
+
+.noteLink:hover {
+  color: var(--text-link-alt);
+  text-decoration-thickness: 2px;
 }

@@ -95,6 +95,8 @@
 }
 
 .ledgerLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   margin: 0;
   font-size: var(--text-body-sm);
   line-height: var(--leading-relaxed);
@@ -155,9 +157,12 @@
 }
 
 .asideHeading {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
+
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
+
   color: var(--muted);
   margin-bottom: var(--gap-eyebrow);
 }

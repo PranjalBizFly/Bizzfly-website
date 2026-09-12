@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { Faq } from "@/types/content";
 import { Cascade } from "@/components/motion";
 import styles from "./FAQBlock.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 interface FAQBlockProps {
   faqs: Faq[];
@@ -176,7 +177,7 @@ function FaqItem({
         aria-expanded={expanded}
         aria-controls={panelId}
       >
-        <span className={styles.questionText}>{faq.question}</span>
+        <span className={styles.questionText}>{titleCase(faq.question)}</span>
         <span className={styles.marker} aria-hidden="true">
           &#8250;
         </span>

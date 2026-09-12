@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { testimonials } from "@/content/testimonials";
 import styles from "./TestimonialCarousel.module.css";
+import { Button } from "@/components/buttons";
 
 /**
  * Client testimonials.
@@ -105,10 +105,15 @@ export function TestimonialCarousel() {
             </span>
             <span className={styles.context}>{current.context}</span>
             {current.href ? (
-              <Link href={current.href} className={styles.caseLink}>
+              <Button
+                href={current.href}
+                variant="secondary"
+                size="sm"
+                withArrow
+                className={styles.caseLink}
+              >
                 Read the case study
-                <span aria-hidden="true">&rarr;</span>
-              </Link>
+              </Button>
             ) : null}
           </figcaption>
         </figure>

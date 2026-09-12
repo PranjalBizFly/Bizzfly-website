@@ -10,17 +10,14 @@
 .button {
   position: fixed;
   z-index: var(--z-sticky);
-
   /* env() keeps it off the iOS home indicator and any rounded corner. */
   right: calc(var(--margin) + env(safe-area-inset-right, 0px));
   bottom: calc(var(--space-6) + env(safe-area-inset-bottom, 0px));
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: var(--touch-target-min);
   height: var(--touch-target-min);
-
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-full);
   background: var(--background);
@@ -28,7 +25,6 @@
   color: var(--foreground);
   box-shadow: var(--elev-2);
   cursor: pointer;
-
   /* Transform and opacity only — no layout property is animated. */
   opacity: 0;
   transform: translateY(8px) scale(0.94);

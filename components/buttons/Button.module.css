@@ -253,7 +253,6 @@
    * flat token, because they can carry it.
    */
   --streak: color-mix(in srgb, currentColor 45%, transparent);
-
   /* The containing block for the streaks, and the clip that keeps them in. */
   position: relative;
   /*

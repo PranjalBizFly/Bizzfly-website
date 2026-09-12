@@ -8,9 +8,12 @@
 }
 
 .label {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
+
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
+
   color: var(--muted);
   flex-shrink: 0;
 }

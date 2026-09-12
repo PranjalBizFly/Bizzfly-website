@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { Button } from "@/components/buttons";
 import { useState } from "react";
 import { growthStages } from "@/content/homepage-narrative";
 import { useReveal, TextReveal } from "@/components/motion";
 import type { ImageMetadata } from "@/content/images/types";
+import { titleCase } from "@/lib/titleCase";
 import { MediaGround } from "./MediaGround";
 import styles from "./GrowthEngine.module.css";
 
@@ -39,7 +41,7 @@ export function GrowthEngine({ image }: { image: ImageMetadata }) {
   return (
     <MediaGround image={image} id="growth-engine" weight="deep">
       <header className={styles.header}>
-        <p className={styles.eyebrow}>The BizzFly growth engine</p>
+        <p className={styles.eyebrow}>The BizzFly Growth Engine</p>
         <h2 className={styles.title}>
           <TextReveal text="Four stages, fixed in order" />
         </h2>
@@ -93,7 +95,7 @@ export function GrowthEngine({ image }: { image: ImageMetadata }) {
               {stage.items.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className={styles.itemLink}>
-                    {item.label}
+                    {titleCase(item.label)}
                   </Link>
                 </li>
               ))}
@@ -104,10 +106,9 @@ export function GrowthEngine({ image }: { image: ImageMetadata }) {
       </ol>
 
       <p className={styles.footer}>
-        <Link href="/use-cases/" className={styles.footerLink}>
+        <Button href="/use-cases/" variant="secondary" withArrow>
           Start from the problem you have
-          <span aria-hidden="true">&rarr;</span>
-        </Link>
+        </Button>
       </p>
     </MediaGround>
   );

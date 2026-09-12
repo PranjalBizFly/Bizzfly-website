@@ -6,9 +6,12 @@
 }
 
 .inlineLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
+
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
+
 }
 
 .inlineLink {
@@ -30,9 +33,12 @@
 }
 
 .compactLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
+
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
+
   color: var(--muted);
 }
 
@@ -89,9 +95,9 @@
 
 @media (min-width: 768px) {
   .rowLink {
-    grid-template-columns: auto 1fr auto auto;
-    gap: var(--space-6);
-  }
+      grid-template-columns: auto 1fr auto auto;
+      gap: var(--space-6);
+    }
 }
 
 .rowIndex {
@@ -127,13 +133,13 @@
 
 @media (min-width: 768px) {
   .rowType {
-    display: inline;
-    font-family: var(--font-label);
-    font-size: var(--text-eyebrow);
-    letter-spacing: var(--tracking-eyebrow);
-    color: var(--ink-400);
-    white-space: nowrap;
-  }
+      display: inline;
+      font-family: var(--font-label);
+      font-size: var(--text-eyebrow);
+      letter-spacing: var(--tracking-eyebrow);
+      color: var(--ink-400);
+      white-space: nowrap;
+    }
 }
 
 .rowArrow {
@@ -156,9 +162,9 @@
 
 @media (min-width: 1024px) {
   .split {
-    grid-template-columns: 4fr 8fr;
-    gap: var(--space-16);
-  }
+      grid-template-columns: 4fr 8fr;
+      gap: var(--space-16);
+    }
 }
 
 .splitHeading {
@@ -179,39 +185,18 @@
 
 @media (min-width: 768px) {
   /*
-   * Columns that fit the set, rather than a fixed two.
-   *
-   * These lists carry three, four or five links depending on the page, and a
-   * hard two-column grid put three of them on two rows with the second half
-   * empty — a band of mostly nothing under a heading that reads "Related".
-   * Auto-filling at a sensible minimum packs three or four onto one row
-   * where the track allows and still drops to two when it does not.
-   */
-  .splitList {
-    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
-    gap: var(--space-6) var(--space-10);
-  }
-}
-
-.splitLink {
-  display: inline-flex;
-  align-items: baseline;
-  gap: var(--space-2);
-  font-size: var(--text-body);
-  font-weight: var(--weight-medium);
-  color: var(--foreground);
-  text-decoration: underline;
-  text-decoration-color: var(--link-underline);
-  text-underline-offset: 4px;
-  min-height: var(--touch-target-min);
-}
-
-.splitLink span {
-  transition: transform var(--dur-fast) var(--ease-standard);
-}
-
-.splitLink:hover span {
-  transform: translateX(4px);
+     * Columns that fit the set, rather than a fixed two.
+     *
+     * These lists carry three, four or five links depending on the page, and a
+     * hard two-column grid put three of them on two rows with the second half
+     * empty — a band of mostly nothing under a heading that reads "Related".
+     * Auto-filling at a sensible minimum packs three or four onto one row
+     * where the track allows and still drops to two when it does not.
+     */
+    .splitList {
+      grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+      gap: var(--space-6) var(--space-10);
+    }
 }
 
 .splitDescription {
@@ -232,30 +217,30 @@
 
 @media (min-width: 768px) {
   .map {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-6) var(--space-8);
-  }
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-6) var(--space-8);
+    }
 }
 
 @media (min-width: 1024px) {
   .map {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--space-8);
-  }
-
-  .map[data-groups="1"] {
-    grid-template-columns: 1fr;
-  }
-
-  .map[data-groups="2"] {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-10);
-  }
-
-  .map[data-groups="3"] {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-8);
-  }
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-8);
+    }
+  
+    .map[data-groups="1"] {
+      grid-template-columns: 1fr;
+    }
+  
+    .map[data-groups="2"] {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-10);
+    }
+  
+    .map[data-groups="3"] {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-8);
+    }
 }
 
 .mapGroup {
@@ -290,20 +275,20 @@
 
 @media (min-width: 640px) {
   .map[data-groups="1"] .mapList {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (min-width: 1024px) {
   .map[data-groups="1"] .mapList {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .map[data-groups="2"] .mapList {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: var(--space-3) var(--space-6);
-  }
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  
+    .map[data-groups="2"] .mapList {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--space-3) var(--space-6);
+    }
 }
 
 .mapLink {
@@ -324,8 +309,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rowLink:hover .rowArrow,
-  .splitLink:hover span {
-    transform: none;
-  }
+  .rowLink:hover .rowArrow {
+      transform: none;
+    }
 }

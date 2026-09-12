@@ -4,7 +4,6 @@ import type { ImageMetadata } from "@/content/images/types";
 import { ImageReveal, Reveal, ScrollScale } from "@/components/motion";
 import type { ImageRevealVariant } from "@/components/motion";
 import styles from "./VisualStoryBlock.module.css";
-import { titleCase } from "@/lib/titleCase";
 
 /**
  * How each composition opens its frame.
@@ -147,7 +146,7 @@ export function VisualStoryBlock({
         <div className={styles.titleGroup}>
           {eyebrow ? <span className={styles.eyebrow}>{eyebrow}</span> : null}
           {title ? (
-            <HeadingTag className={styles.title}>{titleCase(title)}</HeadingTag>
+            <HeadingTag className={styles.title}>{title}</HeadingTag>
           ) : null}
         </div>
       ) : null}

@@ -35,11 +35,11 @@
 }
 
 .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
   color: var(--accent-text);
-  text-transform: uppercase;
 }
 
 .title {
@@ -210,6 +210,8 @@
 }
 
 .solutionLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   font-family: var(--font-display);
   font-size: var(--text-body-lg);
   font-weight: var(--weight-semibold);

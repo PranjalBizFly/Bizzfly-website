@@ -272,6 +272,14 @@ otherwise the section does not exist. No placeholder logos, ever.
 2. **Alternate alignment.** Consecutive sections must not share the same asymmetry.
 3. **Background rhythm** — no more than two consecutive sections on the same
    background. Sequence: `bg → surface → bg → inverse → bg`.
+   Where rule 3 *is* exercised and two bands do share a ground, the pair gets
+   **one** vertical inset between them rather than two: the band above drops its
+   trailing inset and the band below keeps its leading one. Two insets only read
+   as two insets when a boundary separates them — a ground change, a photograph
+   or a hairline — and with none of those they read as a hole. This is automatic;
+   see [`styles/seams.css`](../../styles/seams.css). Note that the dark theme
+   resolves `surface`, `tint` and `inverse` to the same lift, so pairings between
+   those three are same-ground there and distinct bands in light.
 4. **Maximum two card grids per page**, never consecutive (P4).
 5. **Maximum two full-bleed statement bands per page.**
 6. **Every page ends** with S-19 or S-18, then S-17.

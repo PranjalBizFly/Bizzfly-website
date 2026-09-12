@@ -2,7 +2,6 @@
 
 import type { CSSProperties, ElementType } from "react";
 import { SplitText } from "./SplitText";
-import { titleCase } from "@/lib/titleCase";
 import { useReveal } from "./useReveal";
 
 interface TextRevealProps {
@@ -44,9 +43,13 @@ export function TextReveal({
       className={className}
       style={offset ? ({ "--kinetic-offset": `${offset}ms` } as CSSProperties) : undefined}
     >
-      {/* Headings are title-cased at the point the string enters the
-          heading — see lib/titleCase. */}
-      <SplitText text={titleCase(text)} by={by} />
+      {/*
+        The authored string, untouched. Every call site of this component is
+        a section heading, and headings render in capitals from base.css — so
+        title-casing here changed nothing visible while replacing the copy a
+        screen reader reads with a re-cased version of it.
+      */}
+      <SplitText text={text} by={by} />
     </Tag>
   );
 }

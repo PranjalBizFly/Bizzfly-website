@@ -6,8 +6,8 @@ import { useState } from "react";
 import { businessStages } from "@/content/homepage";
 import type { ImageMetadata } from "@/content/images/types";
 import { StaggerItem } from "@/components/motion";
-import styles from "./StageList.module.css";
 import { titleCase } from "@/lib/titleCase";
+import styles from "./StageList.module.css";
 
 interface StageListProps {
   /** One frame per stage, keyed by BusinessStage.stage. */
@@ -109,8 +109,8 @@ export function StageList({ images }: StageListProps) {
               <div className={styles.contentFace}>
                 <div className={styles.head}>
                   <span className={styles.index}>{stage.index}</span>
-                  <h3 className={styles.stage}>{titleCase(stage.stage)}</h3>
-                  <p className={styles.situation}>{stage.situation}</p>
+                  <h3 className={styles.stage}>{stage.stage}</h3>
+                  <p className={styles.situation}>{titleCase(stage.situation)}</p>
                 </div>
 
                 <p className={styles.focus}>{stage.focus}</p>
@@ -119,7 +119,7 @@ export function StageList({ images }: StageListProps) {
                   {stage.work.map((item) => (
                     <li key={item.href}>
                       <Link href={item.href} className={styles.workLink}>
-                        {item.label}
+                        {titleCase(item.label)}
                       </Link>
                     </li>
                   ))}

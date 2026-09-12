@@ -40,6 +40,21 @@
 .inverse,
 .inverseAlt {
   --section-inset-bump: var(--space-6);
+  /*
+   * The edge that makes it a band. See the note above: in the dark theme
+   * .is-inverse paints #1A2432 and so does --surface, so an inverse band
+   * following a surface band has no visible boundary without this.
+   */
+  border-block-start: 1px solid var(--border);
+}
+
+/*
+ * Except where it opens the page. A rule directly under a hero would read as
+ * a seam in the photograph rather than as the start of a band.
+ */
+.inverse:first-child,
+.inverseAlt:first-child {
+  border-block-start: 0;
 }
 
 /*

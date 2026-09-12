@@ -3,9 +3,9 @@ import type { CSSProperties, ReactNode } from "react";
 import { Container } from "@/components/layout/Container";
 import { Heading, BodyText, Eyebrow } from "@/components/typography";
 import { SplitText } from "@/components/motion/SplitText";
-import { titleCase } from "@/lib/titleCase";
 import { Breadcrumbs, type Crumb } from "@/components/navigation/Breadcrumbs";
 import type { ImageMetadata } from "@/content/images/types";
+import { titleCase } from "@/lib/titleCase";
 import styles from "./CinematicHero.module.css";
 
 /**
@@ -146,7 +146,7 @@ export function CinematicHero({
             rise used to carry, so the order the hero arrives in is unchanged.
           */}
           <Heading level={1} size="h1" className={styles.title}>
-            <SplitText text={titleCase(title)} by="char" mode="load" offset={60} />
+            <SplitText text={title} by="char" mode="load" offset={60} />
           </Heading>
 
           {lead ? (
@@ -170,7 +170,7 @@ export function CinematicHero({
                 className={styles.fact}
                 style={{ "--fact-index": index } as CSSProperties}
               >
-                <dt className={styles.factLabel}>{fact.label}</dt>
+                <dt className={styles.factLabel}>{titleCase(fact.label)}</dt>
                 <dd className={styles.factValue}>{fact.value}</dd>
               </div>
             ))}

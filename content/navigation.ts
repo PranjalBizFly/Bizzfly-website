@@ -21,7 +21,7 @@ import { transparencyPages } from "./company-transparency";
 import { SECTOR_GROUPS, OUTCOME_GROUPS } from "./taxonomy";
 
 /** The one persistent conversion action on the site. */
-export const primaryCta = { label: "Let's talk", href: "/contact/" };
+export const primaryCta = { label: "Let's Talk", href: "/contact/" };
 
 /**
  * How many entries a category column shows before it defers to its own

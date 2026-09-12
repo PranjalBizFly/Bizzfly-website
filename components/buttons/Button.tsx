@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { titleCaseLabel } from "@/lib/titleCase";
 import styles from "./Button.module.css";
 
 type Variant = "primary" | "secondary" | "tertiary";
@@ -45,9 +46,17 @@ export function Button(props: ButtonProps) {
   const classes =
     `${styles.base} ${styles[variant]} ${styles[size]} ${className}`.trim();
 
+  /*
+   * The label is title-cased here rather than at each of the ~90 call sites.
+   * A control's label is a label however it was authored, and leaving it to
+   * the caller is what left "Explore services" sitting beside "Get Found In
+   * AI Search". titleCase() leaves any word that already carries a capital
+   * alone, so SEO, AI, BizzFly and E-commerce pass through untouched and
+   * calling it on an already-cased label is a no-op.
+   */
   const content = (
     <>
-      {children}
+      {titleCaseLabel(children)}
       {withArrow ? (
         <span className={styles.arrow} aria-hidden="true">
           &rarr;

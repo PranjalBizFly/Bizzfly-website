@@ -189,14 +189,19 @@ export default async function IndustryPage({ params }: PageProps) {
         remainder beside it as the detail; splitClaim rewrites nothing, so
         every word is the one that was authored, in the order it was authored.
 
-        No title is passed deliberately. The component's own note explains
-        why: with none, the opening claim takes the statement position, which
-        is the author's sentence rather than a heading invented for it. And
-        no image — each sector owns exactly one photograph and it is already
-        the hero, so this section carries the argument in type, as before.
+        The title is the sector's own `contextHeading` — its opening claim
+        compressed, not a heading written fresh for it. Passing one matters:
+        without a title the claim takes the statement position as a <p>, so
+        the band looked headed and was not, and 26 sector pages carried a
+        full-width band that nothing named in the document outline. With it,
+        AnchoredStatement sets a real h2 and keeps the author's sentence
+        intact as the emphasised opening of the lead. And no image — each
+        sector owns exactly one photograph and it is already the hero, so
+        this section carries the argument in type, as before.
       */}
       <AnchoredStatement
         eyebrow={"Context"}
+        title={industry.contextHeading}
         paragraphs={[industry.context]}
       />
     </Section>
@@ -284,6 +289,25 @@ export default async function IndustryPage({ params }: PageProps) {
     return section(ground);
   });
 
+  /*
+   * The ground for the nth band after the composed run.
+   *
+   * Each trailing band is optional, so the offset counts the ones actually
+   * rendered before it rather than its position in the source. `lightIndex`
+   * rather than `composed.length` is the base, because the pinned dark
+   * journey band deliberately does not advance the count.
+   */
+  const trailing = [
+    Boolean(industry.complianceNotes),
+    Boolean(faqs.length),
+    rel.all.length > 0,
+    otherSectors.length > 0,
+  ];
+  const groundAt = (slot: number): SectionGround => {
+    const shown = trailing.slice(0, slot).filter(Boolean).length;
+    return (lightIndex + shown) % 2 === 0 ? "bg" : "surface";
+  };
+
   const Hero = layout === "opportunity-led" ? EditorialHero : SplitHero;
 
   return (
@@ -319,7 +343,7 @@ export default async function IndustryPage({ params }: PageProps) {
       {composed}
 
       {industry.complianceNotes ? (
-        <Section spacing="md" width="content">
+        <Section background={groundAt(0)} spacing="md" width="content">
           <ContentBlock>
             <Heading level={2} size="h3">
               Sector considerations
@@ -330,7 +354,7 @@ export default async function IndustryPage({ params }: PageProps) {
       ) : null}
 
       {faqs.length ? (
-        <Section spacing="lg">
+        <Section background={groundAt(1)} spacing="lg">
           <SectionHeader
             split
             eyebrow="Frequently Asked Questions"
@@ -341,7 +365,7 @@ export default async function IndustryPage({ params }: PageProps) {
       ) : null}
 
       {rel.all.length > 0 ? (
-        <Section background="surface" spacing="md">
+        <Section background={groundAt(2)} spacing="md">
           <SectionHeader
             eyebrow="Connected"
             title="Everything relevant to this sector"
@@ -365,7 +389,7 @@ export default async function IndustryPage({ params }: PageProps) {
         by hand, and the drift is what makes the range visible at all.
       */}
       {otherSectors.length > 0 ? (
-        <Section spacing="lg">
+        <Section background={groundAt(3)} spacing="lg">
           <SectionHeader
             split
             eyebrow="Other sectors"

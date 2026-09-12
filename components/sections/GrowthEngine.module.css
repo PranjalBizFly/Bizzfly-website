@@ -35,10 +35,11 @@
  * providing, and was costing the section a false affordance.
  */
 .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
   font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-eyebrow);
   color: var(--text-inverse);
 }
 
@@ -403,31 +404,3 @@
   text-align: center;
 }
 
-.footerLink {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  min-height: var(--touch-target-min);
-  font-family: var(--font-label);
-  font-size: var(--text-button);
-  font-weight: var(--weight-medium);
-  color: var(--text-inverse);
-  text-decoration: underline;
-  text-decoration-color: var(--link-underline);
-  text-underline-offset: 4px;
-}
-
-.footerLink span {
-  color: var(--accent-edge);
-  transition: transform var(--dur-base) var(--ease-standard);
-}
-
-.footerLink:hover span {
-  transform: translate3d(var(--space-2), 0, 0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .footerLink:hover span {
-    transform: none;
-  }
-}

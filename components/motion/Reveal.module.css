@@ -107,13 +107,28 @@
   transition-delay: var(--cascade-delay);
 }
 
-/* Reduced motion: nothing moves, nothing waits. */
+/* Reduced motion: nothing moves, nothing waits.
+ *
+ * The :nth-child(n) is load-bearing, not decoration. The cascade delays above
+ * are :nth-child rules, so a plain `.cascade[data-reveal="visible"] > *` here
+ * is a class-plus-attribute selector losing to a class-plus-attribute-plus-
+ * pseudo-class one, and every child kept the delay this block exists to
+ * remove. Matching the shape of the rules being overridden makes the two
+ * equal and lets source order decide, which is what was intended.
+ *
+ * --cascade-delay is zeroed alongside transition-delay because children
+ * publish it for their own descendants to animate on — a connector drawing on
+ * its row beat. Zeroing only the transition would leave those inner elements
+ * still waiting on a delay nobody can see the reason for.
+ */
 @media (prefers-reduced-motion: reduce) {
   .cascade[data-reveal="pending"] > * {
     transform: none;
     opacity: 1;
   }
-  .cascade[data-reveal="visible"] > * {
+  .cascade[data-reveal="visible"] > *,
+  .cascade[data-reveal="visible"] > *:nth-child(n) {
+    --cascade-delay: 0ms;
     transition-delay: 0ms;
   }
 }

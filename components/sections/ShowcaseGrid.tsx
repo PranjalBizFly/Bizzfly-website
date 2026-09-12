@@ -14,7 +14,7 @@ export interface ShowcaseEntry {
   /** Services the card touches. Rendered as a slash-separated rail. */
   tags?: string[];
   href: string;
-  linkLabel: string;
+  linkLabel?: string;
 }
 
 interface ShowcaseGridProps {
@@ -82,18 +82,20 @@ export function ShowcaseGrid({ entries, feature = true }: ShowcaseGridProps) {
               <ul className={styles.tags}>
                 {entry.tags.map((tag) => (
                   <li key={tag} className={styles.tag}>
-                    {tag}
+                    {titleCase(tag)}
                   </li>
                 ))}
               </ul>
             ) : null}
 
-            <p className={styles.action}>
-              {entry.linkLabel}
-              <span className={styles.arrow} aria-hidden="true">
-                &rarr;
-              </span>
-            </p>
+            {entry.linkLabel ? (
+              <p className={styles.action}>
+                {titleCase(entry.linkLabel)}
+                <span className={styles.arrow} aria-hidden="true">
+                  &rarr;
+                </span>
+              </p>
+            ) : null}
           </div>
         </StaggerItem>
       ))}

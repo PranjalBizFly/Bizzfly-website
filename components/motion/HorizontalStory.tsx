@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import styles from "./HorizontalStory.module.css";
-import { titleCase } from "@/lib/titleCase";
 
 export interface StorySlide {
   id: string;
@@ -181,7 +180,7 @@ export function HorizontalStory({ label, slides, className = "" }: HorizontalSto
                 </div>
               ) : null}
               <span className={styles.marker}>{slide.marker}</span>
-              <h3 className={styles.title}>{titleCase(slide.title)}</h3>
+              <h3 className={styles.title}>{slide.title}</h3>
               <p className={styles.body}>{slide.body}</p>
             </li>
           ))}

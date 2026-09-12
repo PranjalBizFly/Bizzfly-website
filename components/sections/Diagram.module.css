@@ -60,16 +60,22 @@
 }
 
 .lineLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+
   font-family: var(--font-label);
   font-size: 10px;
-  letter-spacing: 0.06em;
+
   fill: var(--ink-400);
 }
 
 .groupLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+
   font-family: var(--font-label);
   font-size: 11px;
-  letter-spacing: 0.12em;
+
   fill: var(--muted);
 }
 

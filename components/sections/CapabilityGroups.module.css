@@ -62,11 +62,11 @@
 
 @media (min-width: 900px) {
   .trigger {
-    grid-template-columns: auto minmax(0, 16rem) minmax(0, 1fr) auto;
-    grid-template-areas: "index label question marker";
-    gap: var(--space-10);
-    align-items: center;
-  }
+      grid-template-columns: auto minmax(0, 16rem) minmax(0, 1fr) auto;
+      grid-template-areas: "index label question marker";
+      gap: var(--space-10);
+      align-items: center;
+    }
 }
 
 .index {
@@ -98,11 +98,12 @@
 }
 
 .label {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   grid-area: label;
   font-family: var(--font-display);
   font-size: var(--text-h3);
   font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-h3);
   line-height: var(--leading-snug);
 }
 
@@ -197,28 +198,28 @@
 
 @media (min-width: 768px) {
   .split {
-    padding: var(--space-8);
-  }
+      padding: var(--space-8);
+    }
 }
 
 @media (min-width: 900px) {
   .split {
-    /* Aligned under the question, not under the number. */
-    margin-inline-start: calc(2rem + var(--space-10));
-    grid-template-columns: 5fr 7fr;
-    gap: var(--space-10);
-    align-items: start;
-  }
-
-  /*
-   * A vertical rule between the frame and the copy. It only exists at the
-   * width where the two are actually side by side — stacked, a rule down the
-   * left of the text would be a quote mark.
-   */
-  .copy {
-    padding-inline-start: var(--space-10);
-    border-inline-start: 1px solid var(--border);
-  }
+      /* Aligned under the question, not under the number. */
+      margin-inline-start: calc(2rem + var(--space-10));
+      grid-template-columns: 5fr 7fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+  
+    /*
+     * A vertical rule between the frame and the copy. It only exists at the
+     * width where the two are actually side by side — stacked, a rule down the
+     * left of the text would be a quote mark.
+     */
+    .copy {
+      padding-inline-start: var(--space-10);
+      border-inline-start: 1px solid var(--border);
+    }
 }
 
 .frame {
@@ -267,16 +268,17 @@
 
 @media (min-width: 640px) {
   .services {
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: var(--space-6);
-    align-items: baseline;
-  }
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: var(--space-6);
+      align-items: baseline;
+    }
 }
 
 .servicesLabel {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps-label);
   font-family: var(--font-label);
   font-size: var(--text-eyebrow);
-  letter-spacing: var(--tracking-eyebrow);
   color: var(--ink-400);
 }
 
@@ -316,52 +318,36 @@
   text-decoration-color: var(--link-underline);
 }
 
-.groupLink {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  margin-top: var(--space-6);
-  min-height: var(--touch-target-min);
-  font-family: var(--font-label);
-  font-size: var(--text-button);
-  font-weight: var(--weight-medium);
-  color: var(--foreground);
-  text-decoration: underline;
-  text-decoration-color: var(--link-underline);
-  text-underline-offset: 4px;
-}
-
-.groupLink span {
-  color: var(--accent-edge);
-  transition: transform var(--dur-base) var(--ease-standard);
-}
-
-.groupLink:hover span {
-  transform: translate3d(var(--space-2), 0, 0);
-}
-
 @media (prefers-reduced-motion: reduce) {
   .image,
-  .group:hover .image {
-    transform: none;
-    transition: none;
-  }
+    .group:hover .image {
+      transform: none;
+      transition: none;
+    }
   .panel,
   .panelInner,
   .index,
   .marker,
-  .group::after,
-  .groupLink span {
-    transition: none;
-  }
-  .group[data-expanded="true"] .index {
-    transform: none;
-  }
-  .group:hover .marker,
-  .groupLink:hover span {
-    transform: none;
-  }
-  .group[data-expanded="true"] .marker {
-    transform: rotate(90deg);
-  }
+  .group::after {
+      transition: none;
+    }
+  
+    .group[data-expanded="true"] .index {
+      transform: none;
+    }
+  .group:hover .marker {
+      transform: none;
+    }
+  
+    .group[data-expanded="true"] .marker {
+      transform: rotate(90deg);
+    }
+}
+
+/*
+ * Placement only. This renders as <Button variant="secondary"> now, so the
+ * box, colours, focus ring and arrow travel come from the button system.
+ */
+.groupLink {
+  margin-top: var(--space-6);
 }

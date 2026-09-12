@@ -107,7 +107,7 @@ export default function ServicesIndexPage() {
         actions={
           <ButtonGroup>
             <Button href={primaryCta.href} withArrow>
-              {primaryCta.label}
+              {titleCase(primaryCta.label)}
             </Button>
             <TextLink href="/use-cases/">Start from a problem instead</TextLink>
           </ButtonGroup>
@@ -144,7 +144,7 @@ export default function ServicesIndexPage() {
             <section key={group.id} className={styles.group} id={group.id}>
               <div className={styles.groupHead}>
                 <span className={styles.groupIndex}>{group.index}</span>
-                <h3 className={styles.groupLabel}>{titleCase(group.label)}</h3>
+                <h3 className={styles.groupLabel}>{group.label}</h3>
               </div>
 
               <div className={styles.groupBody}>
@@ -204,7 +204,7 @@ export default function ServicesIndexPage() {
               <span className={styles.chainIndex}>
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className={styles.chainStep}>{titleCase(item.step)}</h3>
+              <h3 className={styles.chainStep}>{item.step}</h3>
               <p className={styles.chainDetail}>{item.detail}</p>
             </li>
           ))}

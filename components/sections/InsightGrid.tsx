@@ -51,7 +51,13 @@ export function InsightGrid({ entries }: InsightGridProps) {
             />
           </div>
 
-          <p className={styles.kind}>{entry.kind}</p>
+          {/*
+            The kind arrives as authored data — "glossary", or a composed
+            "article · 5 min read" — so it is cased here rather than at each
+            page that builds one. The separator and the figure are untouched;
+            titleCase only ever changes a word's first letter.
+          */}
+          <p className={styles.kind}>{titleCase(entry.kind)}</p>
 
           <h3 className={styles.title}>
             {/* Stretched over the card, so the image is part of the target. */}
@@ -63,7 +69,7 @@ export function InsightGrid({ entries }: InsightGridProps) {
           <p className={styles.excerpt}>{entry.excerpt}</p>
 
           <p className={styles.action}>
-            Read more
+            Read More
             <span className={styles.arrow} aria-hidden="true">
               &rarr;
             </span>

@@ -56,19 +56,38 @@
 }
 
 /*
- * The brand column takes a side track only where there is width for both.
+ * The brand column takes a side track only where the directory can still run
+ * as one row beside it.
  *
- * At 1024 it did: 19rem out of a 944px content width left the four directory
- * tracks about 115px each, which is where "We're hiring" broke over two lines
- * and the commitment pills came out four words tall. Below 1280 the brand
- * block sits above the directory instead and the directory gets the full
- * width, which is what those tracks actually need.
+ * It used to move to the side at 1280, where the directory could only manage
+ * four tracks — so six columns wrapped, and the second row carried two of
+ * them against half a footer of empty ground. That orphan row was the mess:
+ * the footer stopped reading as a directory and started reading as a spill.
+ *
+ * 19rem of a 1600px content width leaves the six tracks about 175px each,
+ * which is the width the longer service and resource titles need to break at
+ * most once. Below that the brand block sits above the directory instead and
+ * the directory takes the full width, where the same six tracks come out
+ * wider than they would beside the brand — 193px at 1440, 168px at 1280.
  */
-@media (min-width: 1280px) {
+@media (min-width: 1600px) {
   .main {
     /* The brand column is fixed; the directory takes whatever is left. */
     grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
-    gap: var(--space-12);
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  /*
+   * A hairline between the brand and the directory, not a wider gap.
+   *
+   * The brand column is a different kind of content from the six lists next
+   * to it — a lockup, a paragraph, three cards and an address — and without
+   * a division the first directory track reads as a seventh element of it.
+   */
+  .main > .columns {
+    border-inline-start: 1px solid var(--border);
+    padding-inline-start: var(--space-8);
   }
 }
 
@@ -99,6 +118,40 @@
   color: var(--muted);
   max-width: var(--measure-card);
   text-wrap: pretty;
+}
+
+/*
+ * Where the brand block is a band rather than a column, its head is one line.
+ *
+ * Stacked, the lockup and the positioning line each took a row of a block
+ * that is 944px wide at 1024 and 1,344 at 1440 — so the top of the footer was
+ * two short blocks against most of a screen of empty ground before the cards
+ * even started. Side by side they read as a masthead, and the band opens at
+ * the width it actually occupies.
+ */
+@media (min-width: 900px) and (max-width: 1599px) {
+  .brand {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: var(--space-8);
+  }
+
+  /* The lockup keeps its own row; everything below spans the band. */
+  .brandLine {
+    /*
+     * A longer measure than the column gets, because the line now has the
+     * width of the band beside the lockup rather than a 19rem track. Still a
+     * measure — 75ch is where a 14px line stops being comfortable to read.
+     */
+    max-width: 75ch;
+  }
+
+  .social,
+  .valueCards,
+  .contact {
+    grid-column: 1 / -1;
+  }
 }
 
 /* --- Social row ---------------------------------------------------------- */
@@ -156,11 +209,24 @@
   gap: var(--space-3);
 }
 
+/*
+ * Named areas, because the note moves and the other three do not.
+ *
+ * Down the 19rem brand column the card is narrow and there is room to be
+ * tall: mark, then the title over its note, then the index, all on one line
+ * of the column. Where the brand block is a band the cards are three across
+ * and the middle column collapses — 132px of it at 1024 — so the note takes
+ * a row of its own underneath instead of setting five words deep.
+ */
 .valueCard {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "icon title badge"
+    "icon note  badge";
   align-items: center;
-  gap: var(--space-4);
+  column-gap: var(--space-4);
+  row-gap: 2px;
   padding: var(--space-4);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -169,6 +235,7 @@
 
 /* A tinted tile, so the mark reads as an icon rather than as stray line art. */
 .valueIcon {
+  grid-area: icon;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -184,13 +251,8 @@
   block-size: var(--text-icon);
 }
 
-.valueText {
-  display: grid;
-  gap: 2px;
-  min-width: 0;
-}
-
 .valueTitle {
+  grid-area: title;
   font-family: var(--font-label);
   font-size: var(--text-body-sm);
   font-weight: var(--weight-semibold);
@@ -199,6 +261,7 @@
 }
 
 .valueNote {
+  grid-area: note;
   font-size: var(--text-caption);
   line-height: var(--leading-snug);
   color: var(--muted);
@@ -212,6 +275,7 @@
  * carries that number rather than a category word invented for this slot.
  */
 .valueBadge {
+  grid-area: badge;
   font-family: var(--font-label);
   font-size: var(--text-caption);
   font-variant-numeric: tabular-nums;
@@ -223,13 +287,37 @@
 }
 
 /*
- * Where the brand block runs the full width — between the tablet breakpoint
- * and the 1280 split — the cards and the contact rows spread across it
- * instead of running as one long ribbon down the page.
+ * Where the brand block runs the full width — everywhere below the 1600
+ * split — the cards spread across it instead of running as one long ribbon
+ * down the page.
+ *
+ * From 900, not from 640. At 768 three tracks came out 213px each, which put
+ * "Be Discoverable" on two lines and its note on four, so the row of cards
+ * was taller than the stack it replaced and read as three cramped boxes. At
+ * 900 the tracks clear 270px, which is what the title needs on one line.
  */
-@media (min-width: 640px) and (max-width: 1279px) {
+@media (min-width: 900px) and (max-width: 1599px) {
   .valueCards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/*
+ * Three across, the card is between 262px and 370px wide, and the middle
+ * column of it is a third of that once the mark and the index have taken
+ * theirs. The note drops to the full width of the card instead, which is the
+ * difference between two lines and five.
+ *
+ * It stops at 1280: from there the cards clear 380px and the note sets on one
+ * or two lines in the middle column, where it belongs beside the title rather
+ * than below a row of its own.
+ */
+@media (min-width: 900px) and (max-width: 1279px) {
+  .valueCard {
+    grid-template-areas:
+      "icon title badge"
+      "note note  note";
+    row-gap: var(--space-2);
   }
 }
 
@@ -296,7 +384,7 @@
   text-underline-offset: 4px;
 }
 
-@media (min-width: 640px) and (max-width: 1279px) {
+@media (min-width: 900px) and (max-width: 1599px) {
   .contact {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: start;
@@ -348,31 +436,38 @@
   }
 }
 
+/*
+ * Every track count here divides six, and that is the whole rule.
+ *
+ * There are six columns. One, two, three and six all fill their last row
+ * exactly; four does not, and the four-track layout that used to run from
+ * 1024 to 1560 is what made the footer look like a spill — Technologies and
+ * Resources sat alone on a second row with two empty cells beside them and
+ * the brand column's void underneath. Three tracks over two rows carries the
+ * same six columns at the same widths with no cell left open.
+ */
 @media (min-width: 640px) {
   .columns {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-8);
-  }
-}
-
-@media (min-width: 1024px) {
-  .columns {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--space-10) var(--space-8);
   }
 }
 
 /*
- * Six across only at the width that can carry it.
+ * Six across from 1280, because from 1280 the brand block is above the
+ * directory and the directory has the whole content width to divide.
  *
- * At 1,560 the six tracks come out around 165px each, which is where the
- * longer service and resource titles wrap to two lines and still read. At
- * 1,440 the same six would be about 145px and every second link breaks, so
- * the directory holds at four until there is genuinely room.
+ * That is 168px a track at 1280 and 193px at 1440 — wider than the same six
+ * tracks managed beside the brand column, which is why the split moved up to
+ * 1600 rather than the directory waiting for it.
+ *
+ * The last track takes 1.35 of a share. It is not a list: it carries the
+ * Company links, the three commitments and both actions, and at an even
+ * sixth the pills came out five lines tall and "We're Hiring" broke in two.
  */
-@media (min-width: 1560px) {
+@media (min-width: 1280px) {
   .columns {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr)) minmax(0, 1.35fr);
     gap: var(--space-10) var(--space-6);
   }
 }
@@ -397,6 +492,35 @@
 
 .tail > * {
   min-width: 0;
+}
+
+/*
+ * On the two-up phone layout the tail comes apart.
+ *
+ * Half of a 360px viewport gives the commitment pills about 146px, which is
+ * four lines a pill and a pair of buttons narrower than their own labels.
+ * But spanning the whole tail would take the Company list with it and leave
+ * the cell beside Resources empty.
+ *
+ * `display: contents` drops the wrapper out of the layout and hands its three
+ * children straight to the directory grid, so Company pairs up with Resources
+ * as a seventh list, and only the two blocks that are not lists — the
+ * commitments and the actions — take the full width underneath.
+ */
+@media (max-width: 639px) {
+  .tail {
+    display: contents;
+  }
+
+  .commitBlock,
+  .actions {
+    grid-column: 1 / -1;
+  }
+
+  /* The wrapper's own gap goes with it; these two supply their own. */
+  .commitBlock {
+    margin-top: var(--space-2);
+  }
 }
 
 .group {
@@ -543,9 +667,21 @@
  */
 .commitHeading {
   font-family: var(--font-label);
-  font-size: var(--text-nav);
+  /* 14px, not 15px: the last few pixels needed to clear the six-track
+     footer at 1,560px, where the column is 165px. */
+  font-size: var(--text-body-sm);
   font-weight: var(--weight-semibold);
-  letter-spacing: 0.04em;
+  /*
+   * 0.015em, not the 0.04em this label used to carry.
+   *
+   * "WHAT WE COMMIT TO" needed 175px on one line, and from 1,560px the footer
+   * goes to six tracks of roughly 165–172px — so the heading wrapped at the
+   * widest viewports while fitting comfortably at 1,024 and 1,440. Tracking
+   * was the cheapest 10px available: an uppercase label still needs some to
+   * stay legible, but it does not need 0.04em, and reducing it is invisible
+   * next to a heading that breaks in the middle of a phrase.
+   */
+  letter-spacing: 0.015em;
   text-transform: uppercase;
   color: var(--accent-text);
   padding-bottom: var(--space-3);

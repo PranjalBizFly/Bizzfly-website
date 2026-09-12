@@ -8,6 +8,7 @@ import { capabilityGroups } from "@/content/homepage";
 import type { ImageMetadata } from "@/content/images/types";
 import styles from "./CapabilityGroups.module.css";
 import { titleCase } from "@/lib/titleCase";
+import { Button } from "@/components/buttons";
 
 interface CapabilityGroupsProps {
   /** One frame per group, keyed by CapabilityGroup.key. */
@@ -120,17 +121,22 @@ export function CapabilityGroups({ images }: CapabilityGroupsProps) {
                                 link keeps every item marked wherever it lands.
                               */}
                               <Glyph className={styles.railGlyph} size="0.6em" />
-                              {item.label}
+                              {titleCase(item.label)}
                             </Link>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <Link href={group.href} className={styles.groupLink}>
+                    <Button
+                      href={group.href}
+                      variant="secondary"
+                      size="sm"
+                      withArrow
+                      className={styles.groupLink}
+                    >
                       {group.label}
-                      <span aria-hidden="true">&rarr;</span>
-                    </Link>
+                    </Button>
                   </div>
                 </div>
               </div>

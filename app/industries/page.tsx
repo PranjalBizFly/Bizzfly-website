@@ -73,7 +73,7 @@ export default function IndustriesIndexPage() {
         ]}
         actions={
           <Button href={primaryCta.href} withArrow>
-            {primaryCta.label}
+            {titleCase(primaryCta.label)}
           </Button>
         }
       />

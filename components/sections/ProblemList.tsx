@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { visitorProblems } from "@/content/homepage";
 import { StaggerGroup, StaggerItem } from "@/components/motion";
 import styles from "./ProblemList.module.css";
+import { Button } from "@/components/buttons";
 
 /**
  * Section 04 — the visitor's problems, in their words.
@@ -15,10 +15,15 @@ export function ProblemList() {
         <StaggerItem as="li" key={problem.problem} index={index} className={styles.item}>
           <span className={styles.quote}>{problem.problem}</span>
           <p className={styles.detail}>{problem.detail}</p>
-          <Link href={problem.href} className={styles.link}>
+          <Button
+            href={problem.href}
+            variant="secondary"
+            size="sm"
+            withArrow
+            className={styles.link}
+          >
             {problem.linkLabel}
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
+          </Button>
         </StaggerItem>
       ))}
     </StaggerGroup>

@@ -417,6 +417,23 @@
   --tracking-h2:      -0.015em;
   --tracking-h3:      -0.01em;
   --tracking-normal:   0;
+
+  /* ---------------------------------------------------------------------
+     Tracking for text set in CAPITALS.
+
+     The display roles above run negative because lowercase at 44-96px needs
+     tightening. Capitals do not: they are wider, flat-sided and have no
+     ascenders or descenders to separate them, so the same negative value
+     makes adjacent letters touch. These are the corrected values for the
+     site-wide uppercase heading treatment in base.css — roughly neutral at
+     display size, easing positive as the size drops and the letter count
+     per line rises.
+     --------------------------------------------------------------------- */
+  --tracking-caps-display: 0;
+  --tracking-caps-h2:      0.005em;
+  --tracking-caps-h3:      0.01em;
+  /* Label-scale capitals: 2-3 words at 13-20px need the most air of all. */
+  --tracking-caps-label:   0.06em;
   /* Minimal, not tracked-out: the label is sentence case now, and wide
      letter-spacing on mixed case reads as a mistake rather than as a style. */
   --tracking-eyebrow:  0.01em;
@@ -545,11 +562,17 @@
    * --measure-heading is 24ch because a section heading sits in a reading
    * column and should not outrun it. A full-width headline has no column to
    * respect, and capping it at the column measure is what made a five-word
-   * headline break in half with half the block left empty beside it. 30ch is
-   * about 790px at h2 — enough for a short headline to run on one line, and
-   * still short of the 1,180px the block itself offers.
+   * headline break in half with half the block left empty beside it.
+   *
+   * 32ch, not the 30ch this was set to, and the note that went with it read
+   * "about 790px at h2". Measured, 30ch is 726px at h2 — ch is the width of
+   * the ZERO, and these headlines are set in uppercase, which is wider. The
+   * value was a little short of the thing it existed to allow: the showcase
+   * feature headline wants 752px and so it wrapped, one word onto a second
+   * line, with the right half of the block empty. 32ch is 774px, which clears
+   * it and is still well short of the 1,180px the block itself offers.
    */
-  --measure-headline: 30ch;
+  --measure-headline: 32ch;
 
   /* ---------------------------------------------------------------------
      SECTION RHYTHM, INTERNAL — the gaps inside a section.

@@ -11,6 +11,7 @@ import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Chevron } from "./Chevron";
 import { HomeIcon, SearchIcon } from "./NavIcons";
 import styles from "./MobileNav.module.css";
+import { titleCase } from "@/lib/titleCase";
 
 interface MobileNavProps {
   nav: PrimaryNavItem[];
@@ -195,7 +196,7 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
                       className={styles.rowLink}
                       onClick={onClose}
                     >
-                      {item.label}
+                      {titleCase(item.label)}
                     </Link>
                   </li>
                 );
@@ -210,7 +211,7 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
                     aria-controls={panelId}
                     onClick={() => setExpanded(isOpen ? null : index)}
                   >
-                    {item.label}
+                    {titleCase(item.label)}
                     {/*
                       The same down/up chevron the header bar uses, driven by
                       the same React state. It replaces a plus/minus drawn from
@@ -254,7 +255,7 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
                                 className={styles.subHeadingLink}
                                 onClick={onClose}
                               >
-                                {column.heading}
+                                {titleCase(column.heading)}
                               </Link>
                             ) : (
                               column.heading
@@ -269,7 +270,7 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
                                   className={styles.subLink}
                                   onClick={onClose}
                                 >
-                                  {entry.label}
+                                  {titleCase(entry.label)}
                                 </Link>
                               </li>
                             ))}
@@ -280,7 +281,7 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
                                   className={styles.subViewAll}
                                   onClick={onClose}
                                 >
-                                  {column.viewAll.label}
+                                  {titleCase(column.viewAll.label)}
                                   <span aria-hidden="true">&rarr;</span>
                                 </Link>
                               </li>
@@ -294,7 +295,7 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
                         className={styles.overviewLink}
                         onClick={onClose}
                       >
-                        {item.panel.footerLink.label}
+                        {titleCase(item.panel.footerLink.label)}
                         <span aria-hidden="true">&rarr;</span>
                       </Link>
                     </div>
@@ -328,7 +329,7 @@ export function MobileNav({ nav, cta, open, onClose, onOpenSearch }: MobileNavPr
             withArrow
             className={styles.footerCta}
           >
-            {cta.label}
+            {titleCase(cta.label)}
           </Button>
         </div>
       </div>
